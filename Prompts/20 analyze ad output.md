@@ -306,6 +306,39 @@ Structure your analysis as JSON:
 - **Professional restraint**: Barely noticeable motion is ideal
 - **Loopable seamlessly**: Motion should loop perfectly without visible seams
 
+### Creativity Audit Deep Checks
+
+When scoring **Originality** and **Non-Obvious**, use these tests:
+
+**Originality Assessment (1-5)**:
+- 5 = Cannot find similar visual approach in competitor set; truly novel
+- 4 = Rare approach; maybe 1-2 similar examples exist
+- 3 = Moderately fresh; small twist on common pattern
+- 2 = Derivative; clear template/trend-following
+- 1 = Generic; looks like 20+ other ads in category
+
+**Non-Obvious Assessment (1-5)**:
+- 5 = Subverts expectations; requires 2+ seconds to parse meaning
+- 4 = Clear surprise element; breaks predictable pattern
+- 3 = Competent execution but follows expected formula
+- 2 = Relies on clichés (handshakes, arrows up, light bulbs)
+- 1 = Painfully obvious; first-thought creative
+
+**Generic Pattern Detection**:
+Cross-reference against `generic-patterns-to-avoid.md`. Flag if ad uses ≥2 patterns from that list.
+
+**Creativity Failure Modes**:
+- Template-thinking: Looks like it came from a Canva search
+- Hype over substance: Relies on superlatives instead of visual idea
+- Stock photo syndrome: Could apply to any company in vertical
+- CTA-first design: Entire ad is just a CTA button dressed up
+- Color-only differentiation: Only unique thing is brand color swap
+
+**Scoring Guidance**:
+- An ad can score 5/5 on Originality but 2/5 on Non-Obvious (novel but still predictable)
+- An ad can score 3/5 on Originality but 5/5 on Non-Obvious (familiar execution, surprising angle)
+- Target: Every ad should score ≥4 on at least ONE of these metrics
+
 ## Important
 
 This analysis will be used to:

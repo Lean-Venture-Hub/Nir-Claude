@@ -20,6 +20,7 @@ Produce a single, high-fidelity ad image that:
 - On-brief messaging: copy accurately expresses the conversion goal.
 - Platform readiness: 60 px safe area from all sides.
 - No artifacts, distortion, or unauthorized logo edits.
+- Surprise element: At least ONE unexpected visual/compositional choice that breaks pattern
 - no grammer or spelling mistakes, all text is 
 
 ## Inputs
@@ -87,6 +88,7 @@ The global slider that controls creative deviation from the original template. I
 
 - All copy (headline, body, CTA) must derive from BriefJSON.
 - Rephrase for clarity only; never fabricate new claims.
+- try to avoid body text! use it only if it feels like the headline/hook needs more explaining to get the message across.
 
 ### Copy Quality
 
@@ -105,10 +107,41 @@ The global slider that controls creative deviation from the original template. I
 - **Depth**: Use subtle shadows, gradients, and lighting to direct attention without clutter.
 - **ScrollStopping**: Ad must have a scroll stopping effect, something that will attract attention in a feed.
 
+## Surprise Mandate
+
+Every ad MUST include at least ONE unexpected element that breaks predictable patterns:
+
+**Approved Surprise Techniques**:
+- **Scale Contrast**: Dramatically oversized or undersized element (e.g., giant emoji, tiny product)
+- **Color Inversion**: Use opposite of expected brand palette in one focal area
+- **Negative Space Message**: Key element communicated by what's NOT there
+- **Layering Paradox**: Impossible depth or perspective (Escher-like but subtle)
+- **Texture Clash**: Mix incompatible textures (organic + digital, rough + smooth)
+- **Cropping Boldness**: Unexpected crop that hides expected element
+- **Typography Break**: One word in radically different font/size/orientation
+- **Pattern Disruption**: Regular grid broken by single rogue element
+- **Movement Implication**: Static image clearly implies motion/direction
+- **Empty-Focus**: Most prominent space is empty; message at edges
+
+**Surprise Quality Gates**:
+- ✓ Makes viewer do a double-take (0.5 second pause)
+- ✓ Doesn't violate brand guidelines
+- ✓ Enhances message, doesn't distract
+- ✓ Can't be found in 80%+ of competitor ads
+- ✗ Avoids gimmicks (lens flare, excessive gradients, clichéd effects)
+- ✗ Maintains accessibility (contrast, legibility)
+
+**Implementation**:
+At temperature 0.0-0.4: Choose ONE subtle surprise (e.g., unexpected crop, scale contrast)
+At temperature 0.5-0.7: Choose TWO moderate surprises
+At temperature 0.8-1.0: Full creative reinterpretation with multiple surprise elements
+
+**Note**: Refer to `generic-patterns-to-avoid.md` to ensure surprise element isn't replacing one cliché with another.
+
 ## Copy Rules
 
 - **Headline** (max 8 words): Choose the hook in BriefJSON most aligned with the campaign KPI.
-- **Body** (max 12 words): Explain the main value proposition or proof element.
+- **Body** try to avoid! use only if it feels like the headline/hook needs more explaining to get the message across (max 12 words): Explain the main value proposition or proof element.
 - **CTA** (max 3 words): Use a strong action verb, focus on finding the best 2 words, use 3 if you must (e.g., "Get the guide", "Start trial").
 - **LegalOptional**: Include only if mandated by {brief_json}; ≥ 11 pt equivalent.
 - **Mandatory**: Spell-check all copy. Zero typos allowed.
@@ -140,6 +173,8 @@ The global slider that controls creative deviation from the original template. I
 When manifesting the image, make sure to follow this audit self check:
 
 - Does the Ad has a scroll stopping effect? YES/NO
+- Surprise element present (≥1 unexpected choice): YES/NO
+- Surprise enhances message (not gimmick): YES/NO
 - Template logos removed: YES/NO
 - Brand logo intact and clearspace maintained: YES/NO
 - Contrast ≥ 4.5 : 1: PASS/FAIL

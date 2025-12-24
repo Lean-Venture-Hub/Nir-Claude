@@ -130,6 +130,30 @@ Prefer these shapes (mix & match as needed):
 
 **Greenlit**: specific observations, economic realities, contrarian takes, pattern recognition, unspoken truths, second-order effects.
 
+### Hook Innovation Modes
+
+When crafting hooks for Rare Angles, combine toolkit shapes with contrarian techniques:
+
+**Contradiction + Enemy Creation**
+"Everyone's buying marketing automation. You're buying busywork."
+
+**Silence Breaking + Temporal Inversion**
+"You didn't lose the deal today. You lost it 3 weeks ago when..."
+
+**Pattern Break + Scale Manipulation**
+"You were told to scale headcount. The real limit is this 11-minute bottleneck."
+
+**Reframe + Invisible Made Visible**
+"ROI isn't about revenue. It's about recovered founder hours."
+
+**Personal Stake + Cost Reframe**
+"I wasted $40K before realizing it wasn't budget—it was 6 seconds of copy."
+
+**Hook Temperature Check**:
+- Cold (generic): "Transform your marketing workflow"
+- Warm (decent): "Marketing automation without the bloat"
+- Hot (rare angle): "Your marketing stack is managing you now"
+
 ## Process
 
 ### A) Strategic Analysis (all 6 concepts)
@@ -148,13 +172,66 @@ Prefer these shapes (mix & match as needed):
 
 #### B2. Rare Angles (3 concepts)
 
-Use this Tail-Sampling Routine:
+Use this Tail-Sampling Routine with 10 Contrarian Techniques:
 
-- **Mainstream Map**: one-liner summary of what everyone says.
-- **Inversion/Orthogonal**: flip, negate, or sidestep the premise.
-- **Unexpected Insight First**: lead with the sharpest delta.
-- **Tail Check**: does this feel p < 0.10 vs. feed norms? keep it if yes.
-- **PRISM**: make it read human, not optimized.
+**Step 1: Mainstream Map**
+One-liner: what 90% of competitors say about this problem/solution.
+
+**Step 2: Apply Contrarian Technique** (choose 1-2 per concept):
+
+1. **Analogical Transfer** - Map the problem to a completely different domain
+   - Example: B2B sales → Dating (rejection, timing, compatibility)
+   - Example: Cloud security → Medieval fortress defense
+
+2. **Temporal Inversion** - Flip the time frame
+   - Instead of "future-proof", talk about "past-debt" you're fixing
+   - Instead of "what you'll gain", show "what you've already lost"
+
+3. **Enemy Creation** - Define yourself by what you oppose
+   - "We're the anti-dashboard" / "For people who hate networking events"
+   - Creates tribal identity through shared rejection
+
+4. **Silence Breaking** - Say the thing everyone thinks but won't say
+   - "Your current tool is lying to you" / "Nobody reads your reports"
+   - Unspoken industry truth exposed
+
+5. **Scale Manipulation** - Zoom dramatically in or out
+   - Micro: "The 6-second moment that kills deals"
+   - Macro: "Every company will face this by 2027"
+
+6. **Role Reversal** - Swap who has the problem
+   - "Your customers are managing YOU" / "The intern sees what the CEO can't"
+
+7. **Benefit Negation** - Lead with what you DON'T do
+   - "No dashboards" / "Zero meetings required" / "We don't automate everything"
+
+8. **Cost Reframe** - Change the cost dimension
+   - Not money cost → time cost, dignity cost, opportunity cost
+   - "Costs you 3 hours/week" hits harder than "$X/month"
+
+9. **Invisible Made Visible** - Expose hidden mechanisms
+   - "Here's why your ads stop working after 14 days"
+   - Reveal the algorithm/system/pattern invisible to users
+
+10. **Contradiction Resolution** - Present paradox that resolves to insight
+    - "The best leaders are the worst managers"
+    - "Growing slower is how you scale faster"
+
+**Step 3: Unexpected Insight First**
+Lead with the sharpest delta from mainstream thinking.
+
+**Step 4: Tail Check**
+Does this feel p < 0.10 vs. LinkedIn feed norms? If yes, proceed. If no, try different technique.
+
+**Step 5: PRISM Application**
+Make it read human, not optimized. No hype language.
+
+**Rare Angle Quality Gates**:
+- ✓ Feels slightly uncomfortable (good sign)
+- ✓ Can't find 5 similar examples in competitor feed
+- ✓ Makes reader stop and reconsider premise
+- ✗ Avoids being contrarian just for shock value
+- ✗ Stays truthful and defensible
 
 ### C) Audience Precision
 
@@ -215,7 +292,9 @@ Return valid JSON exactly in this envelope:
         "Type of ad": "",
         "Compositional_elements": "",
         "Copywriting framework": "",
-        "Hook concept": ""
+        "Hook concept": "",
+        "Mainstream_one_liner": "",
+        "Contrarian_angles_chosen": ""
       }
     }
   ]
@@ -223,6 +302,10 @@ Return valid JSON exactly in this envelope:
 ```
 
 Produce exactly 6 concepts with unique concept_id 1–6.
+
+**Field Notes**:
+- **Mainstream_one_liner**: For "rare_angle" concepts only. One-line summary of what 90% of competitors say (from Step 1 of Rare Angles routine). Leave empty for "competitor_success" concepts.
+- **Contrarian_angles_chosen**: For "rare_angle" concepts only. List the contrarian technique(s) used (e.g., "Analogical Transfer", "Silence Breaking + Temporal Inversion"). Leave empty for "competitor_success" concepts.
 
 - Use straight quotes; no trailing commas.
 - If any input is missing, set its field to "UNKNOWN" and proceed.
@@ -239,7 +322,7 @@ Produce exactly 6 concepts with unique concept_id 1–6.
 - No Hype: cut "revolutionary/game-changing/etc."
 - Persona Match: ICP pains/goals explicitly referenced.
 - Clean Copy: All text free of spelling errors, grammar mistakes, and typos. Brand/product names properly capitalized.
-- Audit Trail: for Rare Angles, include a 1-line tail_note (outside the JSON) explaining the inversion used.
+- Audit Trail: for Rare Angles, include a 1-line tail_note (outside the JSON) explaining the inversion used. Also populate Mainstream_one_liner and Contrarian_angles_chosen fields in JSON.
 
 ## Nonfunctional Constraints
 
