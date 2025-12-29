@@ -20,6 +20,26 @@
 
 ## Recent Updates
 
+//Nir changes
+1. 4d analyze image ad.md - new prompt for image analysis - focusing on many tags for each ad for the new ad library.
+2. 13 remix ad prompt.md - changes - mainly to make sure grammer and spelling are o.k, and all images have changed (dont use the same images, create a varitaion of them)
+3. 14c brief creator v2.md - adding temperature 0 - 2, the new brief creator - big focus on creativity and being original.
+4. 17b template generation prompt.md - improved, mainly for spelling mistakes
+5. 18c Brief Creator without Insights.md - improved like 17
+6. 19 edit image.md - improving editing, mainly to prevent grammer errors, and to better understand the user.
+7. 20 analyze ad output.md - the one that runs after ad creation, improving it and adding a prompt to turn image into video 
+8. 17b abd 18c - are using 
+
+temperature behavior:
+brief - set by brief creator per brief.
+remix or variation - competitors - 0
+if it's second remix/variation - 2
+
+//end of nir changes
+
+
+
+
 [2025-12-23 10:00] orchestrator: Initiated Creative Quality Improvement Initiative
   - Analyzed current pipeline (Brief Creator #14 → Template Generation #17)
   - Diagnosed root causes: over-systematization, single-axis temperature, missing creative divergence

@@ -16,8 +16,9 @@ Produce a single, high-fidelity edited ad image that:
 
 ## Inputs
 
+all are optional
 - **OriginalImage**: FIRST_ATTACHED_IMAGE
-- **CompanyLogo**: SECOND_ATTACHED_IMAGE
+- **CompanyLogo**: LAST_ATTACHED_IMAGE
 - **UserRequest**: {user_edit_request}
 - **CompanyInfo**: {company_json}
 - **Brand**: {brand_json}

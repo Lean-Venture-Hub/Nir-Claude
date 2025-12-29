@@ -127,7 +127,7 @@ Create a concise, scroll-stopping hook that captures the competitor concept's st
 
 ### Body (max 12 words)
 
-Express a key benefit or proof derived from CompanyInfo.
+try not to use body text!! only if you must - Express a key benefit or proof derived from CompanyInfo.
 
 ### CTA (max 3 words)
 

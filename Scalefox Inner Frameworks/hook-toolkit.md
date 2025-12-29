@@ -6,7 +6,7 @@
 
 ---
 
-## The 8 Hook Shapes
+## The 9 Hook Shapes
 
 ### 1. Contradiction
 **Pattern:** "Everyone's doing X; Y is actually happening"
@@ -112,6 +112,21 @@
 
 ---
 
+### 9. Provocative Question
+**Pattern:** "Question that forces self-reflection or challenges assumptions"
+
+**When to use:** Engage audience by making them question their current approach
+
+**Examples:**
+- "what if your lowest CTR ad is actually your highest revenue driver?"
+- "how much pipeline are you losing to leads that never see a follow-up?"
+- "are you optimizing for clicks or closing deals? (hint: they're not the same)"
+- "what would happen if you killed your 'best performing' campaign tomorrow?"
+- "why are you targeting job titles when buying committees have 9 people?"
+- "how many meetings could you skip if your dashboard only showed 3 numbers?"
+
+---
+
 ## Language Rules
 
 ### ❌ Banned Phrases (Auto-Reject)
@@ -161,16 +176,18 @@ Before shipping a hook, verify:
 
 ## Mixing Hook Shapes
 
-**Don't:** Use same shape across all 6 concepts
+**Don't:** Use same shape across all concepts
 **Do:** Vary shapes to test different psychological triggers
 
-**Example distribution:**
+**Example distribution (for 6 concepts):**
 - Concept 1: Contradiction
 - Concept 2: Personal Stake
 - Concept 3: Odd Observation
 - Concept 4: Reframe
 - Concept 5: Economic Shift
-- Concept 6: False Consensus
+- Concept 6: Provocative Question
+
+**Available shapes:** Contradiction, Unspoken Truth, Pattern Break, Reframe, Personal Stake, Odd Observation, Economic Shift, False Consensus, Provocative Question
 
 ---
 
@@ -227,6 +244,7 @@ Combine 2 shapes for compound effect:
 | Odd Observation | Non-obvious patterns | Observation is actually obvious |
 | Economic Shift | Recent platform/market changes | Change isn't verified or significant |
 | False Consensus | Debunking widespread beliefs | Can't prove the consensus is wrong |
+| Provocative Question | Engaging critical thinking | Question is too obvious or rhetorical |
 
 ---
 
