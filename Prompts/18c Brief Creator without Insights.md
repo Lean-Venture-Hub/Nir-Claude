@@ -156,6 +156,23 @@ When building Brave Angles (4-6), combine techniques:
 
 ---
 
+## Compositional Elements
+
+The brief will have a section stating what is best for it, it will just write as tags the best templates for it (e.g "Compositional_elements":"General, product chips," ). Write all that make sense. It will be used to select templates that will fit it.
+
+- **General** - usually title, logo, CTA, image, or even more supporting text - an all purpose selection that can be used for basically anything.
+- **Textual only** - minimal textual, can have company / customers logos
+- **User focused** - testimonials, webinar invites, thought leadership, based around a person - usually include a persons image.
+- **VS** - split concept - VS ads, before / after,
+- **minimal** - ads with a minimal vibe - usually it's also elegant and classy
+- **Product chips or screens** - floating chips of product are included in the ad. or a product screen (digital products)
+- **Full image background**
+- **Illustration based**
+- **Big Number**
+- **Point out** - showing the product (digital or physical) with benefits, or elements, pointed out from the product.
+
+---
+
 ## Process (3 Phases)
 
 ### Phase 1: Strategic Foundation (For All 6 Concepts)
@@ -320,7 +337,8 @@ Auto-calibrate based on Campaign_Stage input:
           "style": "Style name + brief description",
           "ad_type": "",
           "framework": "",
-          "rhetorical_devices": ""
+          "rhetorical_devices": "",
+          "compositional_elements": "Comma-separated tags for template matching"
         },
 
         "rationale": "One-line: why this works for this audience",
@@ -339,15 +357,6 @@ Auto-calibrate based on Campaign_Stage input:
   ]
 }
 ```
-
-**Schema Notes**:
-- **temperature**: Number (0.0–2.0) controlling visual execution risk
-- **concept_basis**: ICP pain point or category pattern addressed (replaces insight_basis)
-- Reduced from 5 hooks to 3 (primary + 2 variants for A/B testing)
-- Merged overlapping fields: `core_insight`/`insight`/`human_truth` → `human_truth` + `concept_basis`
-- Merged `visual_direction`/`copy_direction`/`Style_of_ad` → `execution` object
-- Removed: `audience_snapshot` (folded into `audience`), `Compositional_elements` (in style), `tone` (in copy_tone)
-- `brave_context` contains brave-angle-only fields (empty for proven patterns)
 
 **Platform Copy**:
 - **Primary Text**: 1 short paragraph. Lead with hook or specific detail. Human tone.
@@ -389,7 +398,8 @@ Auto-calibrate based on Campaign_Stage input:
       "style": "Cinematic + Metaphorical | Dramatic lighting, contrast between shadow (thief) and focus (executive)",
       "ad_type": "Problem visualization",
       "framework": "PAS (Pain → Agitate → Solution)",
-      "rhetorical_devices": "Personification, Specific numbers (12hrs, 624hrs, 15 weeks), Rhetorical question"
+      "rhetorical_devices": "Personification, Specific numbers (12hrs, 624hrs, 15 weeks), Rhetorical question",
+      "compositional_elements": "General, Full image background"
     },
     "rationale": "Specific time loss math + pickpocket metaphor makes invisible cost visceral for busy executives",
     "brave_context": {
@@ -436,7 +446,8 @@ Auto-calibrate based on Campaign_Stage input:
       "style": "Minimalist + Bold Typography | Clean, negative space, bold sans-serif",
       "ad_type": "Philosophy statement",
       "framework": "Anti-pattern → Philosophy → Proof",
-      "rhetorical_devices": "Antithesis, Asyndeton, Understatement"
+      "rhetorical_devices": "Antithesis, Asyndeton, Understatement",
+      "compositional_elements": "minimal, VS, Product chips or screens"
     },
     "rationale": "Anti-dashboard stance creates tribe for founders exhausted by tool sprawl",
     "brave_context": {
