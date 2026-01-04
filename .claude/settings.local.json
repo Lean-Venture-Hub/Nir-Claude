@@ -34,7 +34,8 @@
       "Update(*)",
       "WebSearch",
       "Bash(\"/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Claude code/progress-log.md\")",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Skill(08-prompt-engineering-master)"
     ],
     "deny": []
   }
