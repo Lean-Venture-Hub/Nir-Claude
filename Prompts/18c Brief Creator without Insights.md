@@ -361,7 +361,7 @@ Auto-calibrate based on Campaign_Stage input:
 **Platform Copy**:
 - **Primary Text**: 1 short paragraph. Lead with hook or specific detail. Human tone.
 - **Headline**: 3–7 words; benefit-forward; no punctuation clutter
-- **CTA Options**: Learn More, Sign Up, Download, Register, Subscribe, Apply Now, Get Quote, Try Now, Contact Us, Request Demo, Start Free Trial
+- **CTA Button**: MUST select one from these options ONLY (do not create custom CTAs): Learn More, Sign Up, Download, Register, Subscribe, Apply Now, Get Quote, Try Now, Contact Us, Request Demo, Start Free Trial
 
 ---
 
