@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See a great ad? Remix it in seconds </title>
+    <style>
+        /* Define common styles for desktop and mobile compatibility */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #ffffff;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        /* Container for email content */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+           // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden; /* Ensures rounded corners are visible for the hero image */
+        }
+        /* Responsive two-column layout helpers */
+        .column {
+            width: 100%;
+            max-width: 300px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        /* Mobile responsive behavior */
+        @media screen and (max-width: 600px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            .hero-banner-image {
+                border-radius: 0 !important; /* Remove border-radius on mobile for full width */
+            }
+            .cta-button {
+                width: 80% !important;
+                max-width: 300px !important;
+		border-radius: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px;">
+
+        <!-- 1. BRANDING/LOGO SECTION -->
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="padding: 20px 30px 10px 30px;">
+            <tr>
+                <td align="left" style="vertical-align: middle; font-size: 0;">
+                    <!-- Scalefox Logo Image (54x54px) -->
+                    <img src="logo-p3.png" 
+                         alt="Scalefox Logo" 
+                         width="54" 
+                         height="54" 
+                         style="display: inline-block; vertical-align: middle; margin-right: 5px; max-width: 54px; height: auto;">
+                    <!-- Brand Name -->
+                    <strong style="color: #333333; font-size: 18px; vertical-align: middle;">Scalefox</strong>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- 2. NEW HERO BANNER IMAGE SECTION -->
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+                <td align="center">
+                    <img src="emailImage2.png" 
+                         alt="Scalefox: Scaling, redefined - a creative dreamscape" 
+                         width="600" 
+                         style="display: block; max-width: 100%; height: auto; border-radius: 8px;"
+                         class="hero-banner-image"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x180/6C47E5/ffffff?text=Scaling,+redefined';">
+                </td>
+            </tr>
+        </table>
+        
+        <!-- 3. MAIN HEADLINE & BODY CONTENT -->
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="padding: 30px 30px 20px 30px;">
+            <tr>
+                <td align="center">
+                    <h1 style="color: #333333; font-size: 24px; line-height: 1.3; margin: 0 0 40px 0;">
+                        <strong> Turn inspiration into an asset with a click 👉 </strong>
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="color: #555555; font-size: 16px;">
+                    <p>Hi {$USER_FIRST_NAME}!</p>
+                   
+<p>Ever see a LinkedIn ad and think, “Why didn’t we make that?”</p>
+<p>Now you can -  with Scalefox’s AI Ad Library.</p>
+
+<p>Browse top-performing ads from your competitors, click Remix, and instantly generate a brand-aligned version for your product.</p>
+<p>No blank screen. No creative bottlenecks. Just rapid inspiration → iteration → launch.</p>
+ 
+                </td>
+            </tr>
+            
+            <!-- CTA BUTTON -->
+            <tr>
+                <td align="center" style="padding: 40px 0;">
+                    <a href="{$LINK_CREATE_ADS}" class="cta-button" 
+                       style="background-color: #6C47E5; color: #ffffff; padding: 14px 30px; text-decoration: none;  border-radius: 999px; font-weight: bold; display: inline-block; font-size: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    Remix Competitor Ads
+                    </a>
+                </td>
+            </tr>
+
+            <!-- SLOGAN & CONTACT -->
+            <tr>
+                <td align="left" style="color: #666666; font-size: 15px;">
+                    <p>No guesswork. Just clarity.</p>
+                    <p>We'd love to hear your questions and thoughts</p>
+                    <p>
+                        <a href="mailto:contact@scalefox.ai" style="color: #6C47E5; text-decoration: underline;">
+                            Contact@scalefox.ai
+                        </a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- 4. FOOTER / UNSUBSCRIBE -->
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="padding: 20px 30px 40px 30px;">
+            <tr>
+                <td align="center" style="font-size: 12px; color: #aaaaaa; border-top: 1px solid #eeeeee;">
+                    <p style="margin-top: 20px;">
+                        To unsubscribe, visit: <a href="https://scalefox.ai/unsubscribe" style="color: #6C47E5; text-decoration: underline;">https://scalefox.ai/unsubscribe</a><br>
+                        or email: <a href="mailto:unsubscribe@scalefox.ai" style="color: #6C47E5; text-decoration: underline;">unsubscribe@scalefox.ai</a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

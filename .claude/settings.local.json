@@ -35,7 +35,9 @@
       "WebSearch",
       "Bash(\"/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Claude code/progress-log.md\")",
       "Bash(cat:*)",
-      "Skill(08-prompt-engineering-master)"
+      "Skill(08-prompt-engineering-master)",
+      "WebFetch(domain:taplio.com)",
+      "WebFetch(domain:authoredup.com)"
     ],
     "deny": []
   }
