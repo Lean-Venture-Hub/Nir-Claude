@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>מרפאת חיוך פלוס | ד״ר מיכל לוי | תל אביב</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --purple:#7C3AED;
+  --purple-light:#A78BFA;
+  --purple-glow:#B794F6;
+  --purple-dark:#5B21B6;
+  --purple-bg:rgba(124,58,237,0.08);
+  --purple-bg2:rgba(124,58,237,0.15);
+  --dark-1:#0B0B14;
+  --dark-2:#12121F;
+  --dark-3:#1A1A2E;
+  --dark-4:#24243A;
+  --dark-5:#2E2E48;
+  --ink:#E8E8F0;
+  --ink-soft:#B8B8CC;
+  --gray:#8888A0;
+  --gray-light:#6B6B88;
+  --white:#FFFFFF;
+  --font:'Heebo','Rubik',sans-serif;
+}
+
+body{
+  font-family:var(--font);
+  direction:rtl;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--dark-1);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── KEYFRAMES ─────────────────────────────── */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeInDown{
+  from{opacity:0;transform:translateY(-20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeInRight{
+  from{opacity:0;transform:translateX(40px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes fadeInLeft{
+  from{opacity:0;transform:translateX(-40px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes floatY{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+@keyframes floatYSlow{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+@keyframes pulseRing{
+  0%{transform:scale(1);opacity:1}
+  100%{transform:scale(1.6);opacity:0}
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,0.4)}
+  50%{box-shadow:0 0 0 14px rgba(124,58,237,0)}
+}
+@keyframes rotateSlowCW{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@keyframes rotateSlowCCW{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(-360deg)}
+}
+@keyframes shimmer{
+  0%{background-position:-200% center}
+  100%{background-position:200% center}
+}
+@keyframes gradientShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes glowPulse{
+  0%,100%{opacity:0.4}
+  50%{opacity:0.8}
+}
+@keyframes scaleIn{
+  from{opacity:0;transform:scale(0.85)}
+  to{opacity:1;transform:scale(1)}
+}
+@keyframes borderGlow{
+  0%,100%{border-color:rgba(124,58,237,0.2)}
+  50%{border-color:rgba(124,58,237,0.5)}
+}
+@keyframes slideInFromRight{
+  from{opacity:0;transform:translateX(60px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+.anim-in{
+  opacity:1;
+  animation:fadeInUp .7s ease forwards;
+}
+.anim-d1{animation-delay:.1s}
+.anim-d2{animation-delay:.2s}
+.anim-d3{animation-delay:.35s}
+.anim-d4{animation-delay:.5s}
+.anim-d5{animation-delay:.6s}
+.anim-d6{animation-delay:.75s}
+.anim-d7{animation-delay:.9s}
+
+/* ── NAVIGATION ────────────────────────────── */
+.topnav{
+  background:rgba(11,11,20,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(124,58,237,0.1);
+  width:100%;
+  position:sticky;
+  top:0;
+  z-index:100;
+  transition:background .3s;
+}
+.topnav-inner{
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 48px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--white);
+}
+.nav-logo-icon{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--purple),var(--purple-light));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.nav-logo-icon::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,0.15) 50%,transparent 60%);
+  animation:shimmer 3s ease-in-out infinite;
+  background-size:200% 100%;
+}
+.nav-logo-icon svg{width:20px;height:20px;fill:#fff;position:relative;z-index:1}
+.nav-logo-text{
+  font-size:18px;
+  font-weight:700;
+  color:var(--white);
+  letter-spacing:-0.02em;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:14px;
+  font-weight:500;
+  color:var(--gray);
+  text-decoration:none;
+  transition:color .3s;
+  padding:4px 0;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;right:0;
+  width:0;height:2px;
+  background:var(--purple-light);
+  border-radius:1px;
+  transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 24px;
+  background:var(--purple);
+  color:#fff;
+  font-size:14px;
+  font-weight:600;
+  border-radius:28px;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.25,.8,.25,1);
+  font-family:var(--font);
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(124,58,237,0.3);
+}
+.nav-cta::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);
+  transition:left .5s;
+}
+.nav-cta:hover{
+  background:var(--purple-dark);
+  transform:translateY(-1px);
+  box-shadow:0 6px 24px rgba(124,58,237,0.45);
+}
+.nav-cta:hover::before{left:100%}
+.nav-cta svg{width:15px;height:15px}
+
+
+/* Mobile menu button */
+.nav-mobile-btn{
+  display:none;
+  background:none;border:none;
+  cursor:pointer;padding:8px;
+  color:var(--gray);
+  transition:color .2s;
+}
+.nav-mobile-btn:hover{color:var(--white)}
+.nav-mobile-btn svg{width:24px;height:24px}
+
+/* ── HERO SECTION ──────────────────────────── */
+.hero{
+  max-width:1280px;
+  margin:0 auto;
+  padding:80px 48px 60px;
+  display:grid;
+  grid-template-columns:55% 45%;
+  gap:40px;
+  align-items:center;
+  min-height:calc(100vh - 72px);
+  position:relative;
+}
+
+/* Ambient background glow */
+.hero::before{
+  content:'';
+  position:absolute;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(124,58,237,0.08) 0%,transparent 70%);
+  top:-100px;right:-200px;
+  pointer-events:none;
+  animation:glowPulse 6s ease-in-out infinite;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(167,139,250,0.06) 0%,transparent 70%);
+  bottom:-100px;left:-100px;
+  pointer-events:none;
+  animation:glowPulse 8s ease-in-out infinite 2s;
+}
+
+/* Hero Visual Side */
+.hero-visual{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:520px;
+}
+
+/* Diagonal purple strips behind photo */
+.hero-visual::before{
+  content:'';
+  position:absolute;
+  width:320px;height:600px;
+  background:linear-gradient(135deg,var(--purple) 0%,var(--purple-light) 100%);
+  border-radius:24px;
+  transform:rotate(-12deg);
+  top:-20px;right:40px;
+  opacity:.6;
+  z-index:1;
+  filter:blur(1px);
+}
+.hero-visual::after{
+  content:'';
+  position:absolute;
+  width:140px;height:500px;
+  background:linear-gradient(135deg,var(--purple-light) 0%,rgba(124,58,237,0.2) 100%);
+  border-radius:18px;
+  transform:rotate(-12deg);
+  top:10px;right:-10px;
+  opacity:.3;
+  z-index:1;
+}
+
+.hero-photo{
+  position:relative;
+  z-index:2;
+  width:380px;height:480px;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 25px 60px rgba(0,0,0,0.4),0 0 40px rgba(124,58,237,0.15);
+  border:1px solid rgba(124,58,237,0.15);
+}
+.hero-photo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Play button */
+.play-btn{
+  position:absolute;
+  z-index:3;
+  width:56px;height:56px;
+  background:var(--purple);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  right:calc(50% + 160px);
+  top:50%;
+  transform:translateY(-50%);
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(124,58,237,0.5);
+  transition:transform .2s,box-shadow .2s;
+  border:none;
+  animation:pulseGlow 3s ease-in-out infinite;
+}
+.play-btn:hover{
+  transform:translateY(-50%) scale(1.08);
+  box-shadow:0 10px 30px rgba(124,58,237,0.6);
+}
+.play-btn svg{width:20px;height:20px;color:#fff;margin-right:-2px}
+.play-btn::before{
+  content:'';
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  border:2px solid rgba(124,58,237,0.3);
+  animation:pulseRing 2s ease-out infinite;
+}
+
+/* Floating glass card */
+.float-card{
+  position:absolute;
+  z-index:4;
+  bottom:60px;
+  right:calc(50% + 100px);
+  background:rgba(26,26,46,0.8);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(124,58,237,0.2);
+  border-radius:16px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  animation:floatY 4s ease-in-out infinite;
+}
+.float-card-avatar{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--purple-light));
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.float-card-avatar svg{width:20px;height:20px;color:#fff}
+.float-card-text{display:flex;flex-direction:column}
+.float-card-name{font-size:13px;font-weight:600;color:var(--white)}
+.float-card-role{font-size:11px;color:var(--gray);font-weight:400}
+
+/* Decorative dots */
+.hero-dot{
+  position:absolute;
+  z-index:3;
+  border-radius:50%;
+}
+.hero-dot-1{
+  width:44px;height:44px;
+  background:rgba(124,58,237,0.15);
+  top:30px;right:20px;
+  animation:floatY 5s ease-in-out infinite;
+}
+.hero-dot-2{
+  width:32px;height:32px;
+  background:rgba(124,58,237,0.1);
+  bottom:100px;right:10px;
+  animation:floatY 6s ease-in-out infinite 1s;
+}
+.hero-dot-3{
+  width:20px;height:20px;
+  background:var(--purple);
+  opacity:.15;
+  top:80px;left:40px;
+  animation:floatY 4.5s ease-in-out infinite .5s;
+}
+
+/* Floating avatars */
+.float-avatar{
+  position:absolute;
+  z-index:3;
+  width:36px;height:36px;
+  border-radius:50%;
+  border:2px solid rgba(124,58,237,0.3);
+  background:var(--dark-3);
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  overflow:hidden;
+}
+.float-avatar-1{top:60px;left:60px;animation:floatY 5s ease-in-out infinite .3s}
+.float-avatar-2{bottom:140px;left:20px;animation:floatY 4s ease-in-out infinite 1.2s}
+.float-avatar-icon{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--purple-light),var(--purple));
+}
+.float-avatar-icon svg{width:16px;height:16px;color:#fff}
+
+/* Orbit ring decoration */
+.hero-orbit{
+  position:absolute;
+  z-index:1;
+  width:500px;height:500px;
+  border:1px solid rgba(124,58,237,0.06);
+  border-radius:50%;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  animation:rotateSlowCW 40s linear infinite;
+  pointer-events:none;
+}
+.hero-orbit::after{
+  content:'';
+  position:absolute;
+  width:8px;height:8px;
+  background:var(--purple-light);
+  border-radius:50%;
+  top:0;left:50%;
+  transform:translateX(-50%);
+  opacity:0.4;
+}
+
+/* Hero Content Side */
+.hero-content{
+  padding-left:20px;
+  position:relative;
+  z-index:2;
+}
+.hero-headline{
+  font-size:48px;
+  font-weight:800;
+  line-height:1.15;
+  color:var(--white);
+  margin-bottom:20px;
+  letter-spacing:-.5px;
+}
+.hero-headline .gradient-text{
+  background:linear-gradient(135deg,var(--purple-light),var(--purple-glow),var(--purple));
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradientShift 4s ease infinite;
+}
+.hero-headline .underline-word{
+  position:relative;
+  display:inline-block;
+}
+.hero-headline .underline-word::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;right:-4px;
+  width:calc(100% + 8px);height:14px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14'%3E%3Cpath d='M2 10c20-8 50-6 80-3s60 5 70 1c10-4 30-6 46-2' stroke='%237C3AED' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8 12c25-5 55-3 85 0s55 2 75-1c8-1 18-3 28-2' stroke='%23A78BFA' stroke-width='2' fill='none' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E") no-repeat center;
+  background-size:100% 100%;
+  z-index:-1;
+}
+
+.hero-badges{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+.badge-verified{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(124,58,237,0.15);
+  border:1px solid rgba(124,58,237,0.2);
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:500;
+  color:var(--purple-light);
+}
+.badge-verified svg{width:14px;height:14px}
+.badge-google{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  color:var(--ink-soft);
+  font-weight:500;
+}
+.badge-google .stars{display:flex;gap:1px}
+.badge-google .stars svg{width:14px;height:14px;color:#FBBF24}
+.badge-google span{font-weight:600;color:var(--white)}
+
+.hero-text{
+  font-size:15px;
+  color:var(--gray);
+  line-height:1.7;
+  margin-bottom:28px;
+  max-width:420px;
+}
+
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:14px 36px;
+  background:var(--purple);
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  border-radius:30px;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.25,.8,.25,1);
+  font-family:var(--font);
+  box-shadow:0 4px 20px rgba(124,58,237,0.4);
+  position:relative;
+  overflow:hidden;
+}
+.btn-primary::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);
+  transition:left .5s;
+}
+.btn-primary:hover{
+  background:var(--purple-dark);
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(124,58,237,0.5);
+}
+.btn-primary:hover::before{left:100%}
+
+.link-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:15px;
+  font-weight:500;
+  color:var(--purple-light);
+  text-decoration:none;
+  transition:gap .2s;
+}
+.link-secondary:hover{gap:10px}
+.link-secondary svg{width:16px;height:16px;transition:transform .2s}
+.link-secondary:hover svg{transform:translateX(-3px)}
+
+/* ── ABOUT SECTION ─────────────────────────── */
+.about{
+  background:var(--dark-2);
+  padding:100px 48px;
+  position:relative;
+  overflow:hidden;
+}
+.about::before{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(124,58,237,0.05) 0%,transparent 70%);
+  top:-200px;left:-200px;
+  pointer-events:none;
+}
+.about-inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.about-content{position:relative;z-index:1}
+.about-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--purple-light);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  padding:6px 16px;
+  background:rgba(124,58,237,0.1);
+  border:1px solid rgba(124,58,237,0.15);
+  border-radius:20px;
+}
+.about-heading{
+  font-size:40px;
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:24px;
+  line-height:1.2;
+  letter-spacing:-0.02em;
+}
+.about-text{
+  font-size:16px;
+  color:var(--gray);
+  line-height:1.8;
+  margin-bottom:40px;
+  max-width:480px;
+}
+.about-stats{
+  display:flex;
+  gap:40px;
+}
+.about-stat{
+  text-align:center;
+  position:relative;
+}
+.about-stat::after{
+  content:'';
+  position:absolute;
+  left:-20px;top:50%;
+  transform:translateY(-50%);
+  width:1px;height:40px;
+  background:rgba(124,58,237,0.2);
+}
+.about-stat:first-child::after{display:none}
+.about-stat-number{
+  font-size:36px;
+  font-weight:800;
+  color:var(--purple-light);
+  line-height:1;
+  background:linear-gradient(135deg,var(--purple-light),var(--purple-glow));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.about-stat-label{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:6px;
+}
+
+/* About Visual — decorative animated element */
+.about-visual{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.about-deco-box{
+  width:100%;
+  max-width:420px;
+  height:360px;
+  background:linear-gradient(135deg,var(--dark-3),var(--dark-4));
+  border-radius:24px;
+  border:1px solid rgba(124,58,237,0.1);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.about-deco-box::before{
+  content:'';
+  position:absolute;
+  width:240px;height:240px;
+  border:1px solid rgba(124,58,237,0.08);
+  border-radius:50%;
+  animation:rotateSlowCW 30s linear infinite;
+}
+.about-deco-box::after{
+  content:'';
+  position:absolute;
+  width:340px;height:340px;
+  border:1px dashed rgba(124,58,237,0.05);
+  border-radius:50%;
+  animation:rotateSlowCCW 50s linear infinite;
+}
+.about-deco-icon{
+  width:80px;height:80px;
+  fill:var(--purple);
+  opacity:0.12;
+  position:relative;
+  z-index:1;
+}
+.about-deco-glow{
+  position:absolute;
+  width:120px;height:120px;
+  background:radial-gradient(circle,rgba(124,58,237,0.2) 0%,transparent 70%);
+  border-radius:50%;
+  animation:glowPulse 4s ease-in-out infinite;
+}
+.about-accent-dot{
+  position:absolute;
+  border-radius:50%;
+  background:var(--purple);
+  animation:floatYSlow 5s ease-in-out infinite;
+}
+.about-accent-dot:nth-child(1){width:10px;height:10px;top:30px;right:40px;opacity:0.25}
+.about-accent-dot:nth-child(2){width:6px;height:6px;bottom:50px;left:30px;opacity:0.15;animation-delay:1s}
+.about-accent-dot:nth-child(3){width:8px;height:8px;top:60%;right:20%;opacity:0.2;animation-delay:2s}
+
+/* ── SERVICES SECTION ──────────────────────── */
+.services-wrapper{
+  background:var(--dark-1);
+  position:relative;
+  overflow:hidden;
+}
+.services-wrapper::before{
+  content:'';
+  position:absolute;
+  width:100%;height:1px;
+  top:0;left:0;
+  background:linear-gradient(90deg,transparent,rgba(124,58,237,0.15),transparent);
+}
+
+.mid-section{
+  padding:80px 48px 40px;
+  text-align:center;
+}
+.mid-inner{
+  max-width:800px;
+  margin:0 auto;
+}
+.mid-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--purple-light);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:6px 16px;
+  background:rgba(124,58,237,0.1);
+  border:1px solid rgba(124,58,237,0.15);
+  border-radius:20px;
+  margin-bottom:20px;
+}
+.mid-headline{
+  font-size:36px;
+  font-weight:700;
+  line-height:1.5;
+  color:var(--white);
+  max-width:700px;
+  margin:0 auto;
+}
+
+.services{
+  padding:0 48px 80px;
+}
+.services-inner{
+  max-width:1280px;
+  margin:0 auto;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.service-card{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  height:340px;
+  cursor:pointer;
+  border:1px solid rgba(124,58,237,0.08);
+  transition:border-color .3s,transform .3s;
+}
+.service-card:hover{
+  border-color:rgba(124,58,237,0.3);
+  transform:translateY(-4px);
+}
+.service-card img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+.service-card:hover img{transform:scale(1.06)}
+.service-card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(11,11,20,0.9) 0%,rgba(11,11,20,0.3) 50%,transparent 100%);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:24px;
+  z-index:2;
+  transition:background .3s;
+}
+.service-card:hover .service-card-overlay{
+  background:linear-gradient(to top,rgba(11,11,20,0.95) 0%,rgba(11,11,20,0.4) 50%,transparent 100%);
+}
+.service-card-title{
+  font-size:20px;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:6px;
+  line-height:1.3;
+}
+.service-card-desc{
+  font-size:13px;
+  color:rgba(255,255,255,0.6);
+  line-height:1.5;
+  max-width:260px;
+}
+
+/* ── TESTIMONIALS SECTION ──────────────────── */
+
+.testimonials{
+  background:var(--dark-2);
+  padding:100px 48px;
+  position:relative;
+  overflow:hidden;
+}
+.testimonials::before{
+  content:'';
+  position:absolute;
+  width:100%;height:1px;
+  top:0;left:0;
+  background:linear-gradient(90deg,transparent,rgba(124,58,237,0.15),transparent);
+}
+.testimonials::after{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(124,58,237,0.04) 0%,transparent 70%);
+  bottom:-200px;right:-200px;
+  pointer-events:none;
+}
+.testimonials-inner{
+  max-width:1280px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.section-label{
+  display:block;
+  font-size:12px;
+  font-weight:600;
+  color:var(--purple-light);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  text-align:center;
+  margin-bottom:12px;
+}
+.section-heading{
+  font-size:40px;
+  font-weight:800;
+  color:var(--white);
+  text-align:center;
+  margin-bottom:16px;
+  line-height:1.2;
+  letter-spacing:-0.02em;
+}
+.section-subtitle{
+  font-size:16px;
+  color:var(--gray);
+  text-align:center;
+  margin-bottom:60px;
+  max-width:500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.testimonial-card{
+  background:var(--dark-3);
+  border:1px solid rgba(124,58,237,0.08);
+  border-radius:20px;
+  padding:36px 32px 32px;
+  position:relative;
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  overflow:hidden;
+}
+.testimonial-card::before{
+  content:'';
+  position:absolute;
+  top:0;right:0;left:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--purple),var(--purple-light));
+  opacity:0;
+  transition:opacity .3s;
+}
+.testimonial-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(124,58,237,0.2);
+  box-shadow:0 16px 48px rgba(0,0,0,0.3),0 0 30px rgba(124,58,237,0.05);
+}
+.testimonial-card:hover::before{opacity:1}
+.testimonial-quote-mark{
+  font-size:56px;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--purple),var(--purple-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1;
+  margin-bottom:-8px;
+  opacity:0.5;
+}
+.testimonial-text{
+  font-size:15px;
+  font-style:italic;
+  color:var(--ink-soft);
+  line-height:1.8;
+  margin-bottom:24px;
+  min-height:80px;
+}
+.testimonial-stars{
+  display:flex;
+  gap:3px;
+  margin-bottom:16px;
+}
+.testimonial-stars svg{
+  width:16px;height:16px;
+  color:#FBBF24;
+  fill:#FBBF24;
+}
+.testimonial-divider{
+  width:40px;height:2px;
+  background:linear-gradient(90deg,var(--purple),var(--purple-light));
+  opacity:0.4;
+  margin-bottom:16px;
+  border-radius:1px;
+}
+.testimonial-author{
+  font-size:15px;
+  font-weight:600;
+  color:var(--white);
+}
+.testimonial-role{
+  font-size:12px;
+  color:var(--gray-light);
+  margin-top:2px;
+}
+
+
+/* ── CTA / CONTACT SECTION ─────────────────── */
+.cta-section{
+  background:linear-gradient(135deg,var(--purple-dark),var(--purple),var(--purple-light));
+  background-size:200% 200%;
+  animation:gradientShift 8s ease infinite;
+  padding:100px 48px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-section::before{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:50%;
+  top:-250px;right:-150px;
+  animation:rotateSlowCW 60s linear infinite;
+}
+.cta-section::after{
+  content:'';
+  position:absolute;
+  width:350px;height:350px;
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:50%;
+  bottom:-175px;left:-80px;
+  animation:rotateSlowCCW 45s linear infinite;
+}
+/* Particle-like dots */
+.cta-particles span{
+  position:absolute;
+  width:4px;height:4px;
+  background:rgba(255,255,255,0.2);
+  border-radius:50%;
+}
+.cta-particles span:nth-child(1){top:20%;left:10%;animation:floatY 4s ease-in-out infinite}
+.cta-particles span:nth-child(2){top:60%;left:85%;animation:floatY 5s ease-in-out infinite .5s}
+.cta-particles span:nth-child(3){top:30%;left:75%;width:3px;height:3px;animation:floatY 6s ease-in-out infinite 1s}
+.cta-particles span:nth-child(4){top:70%;left:20%;width:5px;height:5px;animation:floatYSlow 4s ease-in-out infinite 1.5s}
+.cta-particles span:nth-child(5){top:15%;left:55%;width:3px;height:3px;animation:floatY 7s ease-in-out infinite 2s}
+
+.cta-inner{
+  max-width:640px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.cta-heading{
+  font-size:44px;
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:16px;
+  line-height:1.2;
+  letter-spacing:-0.02em;
+}
+.cta-subtitle{
+  font-size:17px;
+  color:rgba(255,255,255,0.8);
+  margin-bottom:36px;
+  line-height:1.7;
+}
+
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:var(--purple);
+  background:var(--white);
+  text-decoration:none;
+  padding:16px 48px;
+  border-radius:50px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0.02em;
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  box-shadow:0 8px 30px rgba(0,0,0,0.2);
+  position:relative;
+  overflow:hidden;
+}
+.cta-btn::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(124,58,237,0.08),transparent);
+  transition:left .5s;
+}
+.cta-btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 12px 40px rgba(0,0,0,0.25);
+}
+.cta-btn:hover::before{left:100%}
+.cta-btn svg{width:20px;height:20px;fill:var(--purple)}
+
+.cta-info{
+  margin-top:20px;
+  font-size:13px;
+  color:rgba(255,255,255,0.6);
+}
+
+/* ── FOOTER ────────────────────────────────── */
+.footer{
+  background:var(--dark-1);
+  border-top:1px solid rgba(124,58,237,0.08);
+  padding:60px 48px 32px;
+}
+.footer-inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:48px;
+}
+.footer-brand{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.footer-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+.footer-logo-icon{
+  width:32px;height:32px;
+  background:linear-gradient(135deg,var(--purple),var(--purple-light));
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+.footer-logo-icon svg{width:18px;height:18px;fill:#fff}
+.footer-logo-text{
+  font-size:18px;
+  font-weight:700;
+  color:var(--white);
+}
+.footer-desc{
+  font-size:14px;
+  color:var(--gray);
+  line-height:1.8;
+  max-width:280px;
+}
+.footer-heading{
+  font-size:15px;
+  font-weight:600;
+  color:var(--white);
+  margin-bottom:20px;
+}
+.footer-links{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.footer-links a{
+  color:var(--gray);
+  text-decoration:none;
+  font-size:14px;
+  transition:color .3s;
+}
+.footer-links a:hover{color:var(--purple-light)}
+
+.footer-bottom{
+  max-width:1280px;
+  margin:40px auto 0;
+  padding-top:24px;
+  border-top:1px solid rgba(124,58,237,0.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+  color:var(--gray-light);
+}
+.footer-bottom a{color:var(--purple-light);text-decoration:none}
+.footer-bottom a:hover{text-decoration:underline}
+
+/* ── RESPONSIVE ────────────────────────────── */
+@media(max-width:1024px){
+  .hero{
+    grid-template-columns:1fr;
+    gap:32px;
+    padding:40px 32px 40px;
+    min-height:auto;
+  }
+  .hero-visual{
+    order:-1;
+    min-height:420px;
+  }
+  .hero-content{padding-left:0;text-align:center}
+  .hero-headline{font-size:38px}
+  .hero-text{margin:0 auto 24px}
+  .hero-actions{justify-content:center}
+  .hero-badges{justify-content:center}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{grid-template-columns:1fr;gap:40px}
+  .about-visual{order:-1}
+  .about-text{max-width:100%}
+  .testimonials-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
+  .topnav-inner{padding:0 24px}
+  .nav-links{display:none}
+  .nav-mobile-btn{display:block}
+}
+
+@media(max-width:768px){
+  .hero{padding:30px 20px 30px}
+  .hero-headline{font-size:32px}
+  .hero-visual{min-height:360px}
+  .hero-photo{width:280px;height:380px}
+  .hero-visual::before{width:240px;height:460px;right:20px}
+  .hero-visual::after{width:100px;height:380px}
+  .float-card{right:auto;left:10px;bottom:40px}
+  .play-btn{right:auto;left:10px;top:40%;width:48px;height:48px}
+  .services-grid{grid-template-columns:1fr}
+  .service-card{height:260px}
+  .mid-headline{font-size:24px}
+  .mid-section{padding:50px 20px 30px}
+  .services{padding:0 20px 60px}
+  .about{padding:60px 20px}
+  .about-heading{font-size:30px}
+  .about-stats{gap:24px}
+  .testimonials{padding:60px 20px}
+  .section-heading{font-size:30px}
+  .cta-section{padding:60px 20px}
+  .cta-heading{font-size:32px}
+  .footer{padding:40px 20px 24px}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+  .nav-left .nav-contact-text{display:none}
+}
+
+@media(max-width:480px){
+  .hero-headline{font-size:28px}
+  .hero-photo{width:260px;height:340px}
+  .about-stats{flex-direction:column;gap:20px;align-items:center}
+  .about-stat::after{display:none}
+  .cta-heading{font-size:28px}
+  .cta-btn{padding:14px 36px;font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<header class="topnav">
+  <div class="topnav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2C12.5 2 10 3.5 8.5 5.5C7 7.5 6.5 10 7 12.5C7.5 15 8 17 8.5 19C9 21 9.5 23 10 25C10.5 27 11 29 12 30C12.5 30.5 13 30 13.5 29C14 28 14.5 26 15 24C15.3 22.5 15.7 22.5 16 22.5C16.3 22.5 16.7 22.5 17 24C17.5 26 18 28 18.5 29C19 30 19.5 30.5 20 30C21 29 21.5 27 22 25C22.5 23 23 21 23.5 19C24 17 24.5 15 25 12.5C25.5 10 25 7.5 23.5 5.5C22 3.5 19.5 2 16 2Z"/>
+        </svg>
+      </div>
+      <span class="nav-logo-text">מרפאת חיוך פלוס</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#">עמוד הבית</a></li>
+      <li><a href="#about">אודות</a></li>
+      <li><a href="#services">שירותים</a></li>
+      <li><a href="#contact">צור קשר</a></li>
+    </ul>
+
+    <div class="nav-left">
+      
+      <a href="tel:03-555-1234" class="nav-cta">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <span class="nav-contact-text">03-555-1234</span>
+      </a>
+      
+      <button class="nav-mobile-btn" aria-label="תפריט">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <!-- Visual / Image Side -->
+  <div class="hero-visual anim-in anim-d1">
+    <div class="hero-photo">
+      <img src="images/image7.png" alt="מרפאת חיוך פלוס — ד״ר מיכל לוי">
+    </div>
+
+    <!-- Play button -->
+    <button class="play-btn" aria-label="צפה בסרטון">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+
+    <!-- Floating glass card -->
+    <div class="float-card">
+      <div class="float-card-avatar">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+      </div>
+      <div class="float-card-text">
+        <span class="float-card-name">ד״ר מיכל לוי</span>
+        <span class="float-card-role">מומחה בשיקום הפה</span>
+      </div>
+    </div>
+
+    <!-- Decorative dots -->
+    <div class="hero-dot hero-dot-1"></div>
+    <div class="hero-dot hero-dot-2"></div>
+    <div class="hero-dot hero-dot-3"></div>
+
+    <!-- Orbit ring -->
+    <div class="hero-orbit"></div>
+
+    <!-- Floating avatars -->
+    <div class="float-avatar float-avatar-1">
+      <div class="float-avatar-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+      </div>
+    </div>
+    <div class="float-avatar float-avatar-2">
+      <div class="float-avatar-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Side -->
+  <div class="hero-content">
+    <h1 class="hero-headline anim-in anim-d2">
+      מומחים מובילים לכל<br>
+      צורך <span class="gradient-text"><span class="underline-word">רפואי</span></span><br>
+      שלך
+    </h1>
+
+    <div class="hero-badges anim-in anim-d3">
+      <span class="badge-verified">
+        <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75zm-2.546-4.46a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+        מומחים מוסמכים
+      </span>
+      <span class="badge-google">
+        <div class="stars">
+          <svg fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <span>4.9</span> · 187 ביקורות
+      </span>
+    </div>
+
+    <p class="hero-text anim-in anim-d4">
+      הצוות שלנו במרפאת חיוך פלוס בתל אביב מעניק טיפולי שיניים מתקדמים
+      בגישה אישית ומקצועית. אנו מחויבים למצוינות ולחוויית טיפול נעימה
+      עבור כל מטופל.
+    </p>
+
+    <div class="hero-actions anim-in anim-d5">
+      
+      <a href="tel:03-555-1234" class="btn-primary">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        קבעו תור
+      </a>
+      
+      <a href="#services" class="link-secondary">
+        השירותים שלנו
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT SECTION ═══ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-content anim-in anim-d2">
+      <span class="about-label">אודות המרפאה</span>
+      <h2 class="about-heading">מרפאת חיוך פלוס<br>ד״ר מיכל לוי</h2>
+      <p class="about-text">מרפאת חיוך פלוס הוקמה ב-2012 מתוך חזון ליצור חוויית טיפול שיניים שונה לחלוטין. אנחנו מאמינים שכל מטופל ראוי לטיפול ברמה הגבוהה ביותר, בסביבה נעימה ומרגיעה. הצוות שלנו משלב מומחיות רפואית עם טכנולוגיה מתקדמת כדי להעניק לכם את החיוך שתמיד חלמתם עליו.</p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-number">4.9</div>
+          <div class="about-stat-label">דירוג Google</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">187</div>
+          <div class="about-stat-label">ביקורות</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">5,000+</div>
+          <div class="about-stat-label">מטופלים מרוצים</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual anim-in anim-d4">
+      <div class="about-deco-box">
+        <span class="about-accent-dot"></span>
+        <span class="about-accent-dot"></span>
+        <span class="about-accent-dot"></span>
+        <div class="about-deco-glow"></div>
+        <svg class="about-deco-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2C12.5 2 10 3.5 8.5 5.5C7 7.5 6.5 10 7 12.5C7.5 15 8 17 8.5 19C9 21 9.5 23 10 25C10.5 27 11 29 12 30C12.5 30.5 13 30 13.5 29C14 28 14.5 26 15 24C15.3 22.5 15.7 22.5 16 22.5C16.3 22.5 16.7 22.5 17 24C17.5 26 18 28 18.5 29C19 30 19.5 30.5 20 30C21 29 21.5 27 22 25C22.5 23 23 21 23.5 19C24 17 24.5 15 25 12.5C25.5 10 25 7.5 23.5 5.5C22 3.5 19.5 2 16 2Z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES SECTION ═══ -->
+<div class="services-wrapper" id="services">
+  <section class="mid-section">
+    <div class="mid-inner anim-in anim-d3">
+      <span class="mid-label">השירותים שלנו</span>
+      <h2 class="mid-headline">
+        הצוות שלנו מחויב להעניק את הטיפול הטוב ביותר המותאם לצרכים הייחודיים שלך
+      </h2>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="services-inner">
+      <div class="services-grid">
+        <div class="service-card anim-in anim-d3">
+          <img src="images/image1.png" alt="הלבנת שיניים" loading="lazy">
+          <div class="service-card-overlay">
+            <h3 class="service-card-title">הלבנת שיניים</h3>
+            <p class="service-card-desc">טיפולי הלבנה מתקדמים להשגת חיוך לבן וזוהר תוך שמירה על בריאות השן.</p>
+          </div>
+        </div>
+        <div class="service-card anim-in anim-d4">
+          <img src="images/image2.png" alt="ציפויי חרסינה" loading="lazy">
+          <div class="service-card-overlay">
+            <h3 class="service-card-title">ציפויי חרסינה</h3>
+            <p class="service-card-desc">ציפויים אסתטיים המותאמים אישית לעיצוב חיוך מושלם ותוצאה טבעית.</p>
+          </div>
+        </div>
+        <div class="service-card anim-in anim-d5">
+          <img src="images/image9.png" alt="השתלות שיניים" loading="lazy">
+          <div class="service-card-overlay">
+            <h3 class="service-card-title">השתלות שיניים</h3>
+            <p class="service-card-desc">פתרון קבוע ואיכותי לשיניים חסרות, בטכנולוגיה מתקדמת ודיוק מרבי.</p>
+          </div>
+        </div>
+        <div class="service-card anim-in anim-d6">
+          <img src="images/image10.png" alt="יישור שיניים שקוף" loading="lazy">
+          <div class="service-card-overlay">
+            <h3 class="service-card-title">יישור שיניים שקוף</h3>
+            <p class="service-card-desc">טיפולי יישור בשיטת אינויזליין לתוצאות מצוינות ללא גשר מתכתי.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <span class="section-label anim-in anim-d1">חוות דעת</span>
+    <h2 class="section-heading anim-in anim-d2">מה אומרים עלינו</h2>
+    <p class="section-subtitle anim-in anim-d3">מטופלים שסומכים על מרפאת חיוך פלוס ומשתפים את החוויה שלהם</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card anim-in anim-d3">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">ד״ר לוי שינתה לי את החיים. אחרי שנים שנמנעתי מלחייך, עברתי טיפול הלבנה וציפויים — התוצאה מדהימה. הצוות מקצועי, חם ומפנק. ממליצה בחום!</p>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">נועה כהן</div>
+        <div class="testimonial-role">ביקורת Google</div>
+      </div>
+
+      <div class="testimonial-card anim-in anim-d4">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">עברתי השתלת שיניים במרפאה — מהייעוץ הראשוני ועד לתוצאה הסופית, הכל היה ברמה הגבוהה ביותר. ד״ר לוי מסבירה כל שלב ועושה הכל בסבלנות.</p>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">יוסי אברהם</div>
+        <div class="testimonial-role">ביקורת Google</div>
+      </div>
+
+      <div class="testimonial-card anim-in anim-d5">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text">מקום מדהים! הגעתי בפעם הראשונה לטיפול שורש ומאז אני מטופלת קבועה. האווירה נעימה, הצוות מדהים, והטיפול ברמה אחרת לגמרי. תודה רבה!</p>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">שירה דויד</div>
+        <div class="testimonial-role">ביקורת Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CTA / CONTACT ═══ -->
+<section class="cta-section" id="contact">
+  <div class="cta-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="cta-inner anim-in anim-d2">
+    <h2 class="cta-heading">מוכנים לחיוך המושלם?</h2>
+    <p class="cta-subtitle">צרו קשר עם מרפאת חיוך פלוס בתל אביב עוד היום ותנו לנו ללוות אתכם לחיוך הבריא והיפה שמגיע לכם</p>
+    
+    <a href="tel:03-555-1234" class="cta-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      03-555-1234 — קבעו תור עכשיו
+    </a>
+    
+    <p class="cta-info">רוטשילד 45 · תל אביב</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">
+        <div class="footer-logo-icon">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2C12.5 2 10 3.5 8.5 5.5C7 7.5 6.5 10 7 12.5C7.5 15 8 17 8.5 19C9 21 9.5 23 10 25C10.5 27 11 29 12 30C12.5 30.5 13 30 13.5 29C14 28 14.5 26 15 24C15.3 22.5 15.7 22.5 16 22.5C16.3 22.5 16.7 22.5 17 24C17.5 26 18 28 18.5 29C19 30 19.5 30.5 20 30C21 29 21.5 27 22 25C22.5 23 23 21 23.5 19C24 17 24.5 15 25 12.5C25.5 10 25 7.5 23.5 5.5C22 3.5 19.5 2 16 2Z"/>
+          </svg>
+        </div>
+        <span class="footer-logo-text">מרפאת חיוך פלוס</span>
+      </a>
+      <p class="footer-desc">מרפאת חיוך פלוס בתל אביב — טיפולי שיניים מקצועיים ברמה הגבוהה ביותר עם גישה אישית וטכנולוגיה מתקדמת.</p>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">שירותים</h4>
+      <ul class="footer-links">
+        <li><a href="#services">הלבנת שיניים</a></li>
+        <li><a href="#services">ציפויי חרסינה</a></li>
+        <li><a href="#services">השתלות שיניים</a></li>
+        <li><a href="#services">יישור שיניים שקוף</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">ניווט</h4>
+      <ul class="footer-links">
+        <li><a href="#">עמוד הבית</a></li>
+        <li><a href="#about">אודות</a></li>
+        <li><a href="#services">שירותים</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">צור קשר</h4>
+      <ul class="footer-links">
+        
+        <li><a href="tel:03-555-1234">03-555-1234</a></li>
+        
+        <li><a href="#">רוטשילד 45, תל אביב</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; 2026 מרפאת חיוך פלוס | תל אביב | ד״ר מיכל לוי</span>
+    
+    <a href="tel:03-555-1234">03-555-1234</a>
+    
+  </div>
+</footer>
+
+<!-- ═══ SCROLL ANIMATIONS ═══ -->
+<script>
+(function(){
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.style.animationPlayState='running';
+        observer.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.anim-in').forEach(el=>{
+    el.style.animationPlayState='paused';
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>

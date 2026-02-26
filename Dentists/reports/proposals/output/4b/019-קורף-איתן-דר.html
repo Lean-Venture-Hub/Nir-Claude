@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הצעה למרפאת שיניים — קורף איתן, ד"ר</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & BASE ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f4f0ea;
+  --white: #ffffff;
+  --dark: #1a1a1a;
+  --gold: #c9a96e;
+  --gold-dim: rgba(201,169,110,0.3);
+  --sage: #2d5a4e;
+  --rose: #a0616a;
+  --text: #1a1a1a;
+  --subtle: #8a8278;
+  --shadow: 0 8px 40px rgba(26,26,26,0.06);
+  --shadow-hover: 0 14px 50px rgba(26,26,26,0.12);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Heebo', -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  font-family: var(--sans);
+  color: var(--text);
+  direction: rtl;
+  line-height: 1.6;
+  padding: 40px 16px 60px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* ============ TYPOGRAPHY ============ */
+.serif { font-family: var(--serif); }
+.sans { font-family: var(--sans); }
+
+.section-label {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin: 12px 0;
+  letter-spacing: 0.02em;
+}
+
+.small-caps {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes strokeDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,169,110,0); }
+  50%      { box-shadow: 0 0 30px 4px rgba(201,169,110,0.15); }
+}
+
+.anim {
+  opacity: 0;
+  animation: fadeSlideUp 0.7s var(--ease) forwards;
+}
+
+.d1  { animation-delay: 0.05s; }
+.d2  { animation-delay: 0.15s; }
+.d3  { animation-delay: 0.25s; }
+.d4  { animation-delay: 0.35s; }
+.d5  { animation-delay: 0.45s; }
+.d6  { animation-delay: 0.55s; }
+.d7  { animation-delay: 0.65s; }
+.d8  { animation-delay: 0.75s; }
+.d9  { animation-delay: 0.85s; }
+.d10 { animation-delay: 0.95s; }
+.d11 { animation-delay: 1.05s; }
+.d12 { animation-delay: 1.15s; }
+.d13 { animation-delay: 1.25s; }
+.d14 { animation-delay: 1.35s; }
+
+/* ============ GOLD LINE DIVIDER ============ */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 44px auto;
+  max-width: 200px;
+  transform: scaleX(0);
+  animation: drawLine 1.2s var(--ease) forwards;
+  animation-delay: 0.4s;
+}
+
+.gold-line.delay-2 { animation-delay: 1.2s; }
+.gold-line.delay-3 { animation-delay: 1.8s; }
+
+/* ============ CARD BASE ============ */
+.card {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ============ BENTO GRID — TOP ============ */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+/* --- Card 1: Hero --- */
+.hero-card {
+  grid-column: span 7;
+  grid-row: span 2;
+  background: var(--dark);
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 36px 32px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../image to be used/image1.png') center/cover no-repeat;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.hero-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,26,26,0.3) 0%, rgba(26,26,26,0.85) 100%);
+  z-index: 1;
+}
+
+.hero-card > * { position: relative; z-index: 2; }
+
+.hero-card .corner-ornament {
+  position: absolute;
+  z-index: 3;
+}
+
+.corner-ornament.top-right { top: 16px; right: 16px; }
+.corner-ornament.top-left  { top: 16px; left: 16px; transform: scaleX(-1); }
+.corner-ornament.bottom-right { bottom: 16px; right: 16px; transform: scaleY(-1); }
+.corner-ornament.bottom-left  { bottom: 16px; left: 16px; transform: scale(-1, -1); }
+
+.hero-card h1 {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.hero-card .subtitle {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 16px;
+}
+
+.location-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--gold-dim);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.04em;
+}
+
+.location-pill svg { flex-shrink: 0; }
+
+/* --- Card 2: Google Rating --- */
+.rating-card {
+  grid-column: span 5;
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.dot-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.07;
+  border-radius: 14px;
+}
+
+.rating-card .big-number {
+  font-family: var(--serif);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.stars svg { width: 22px; height: 22px; }
+
+.google-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--subtle);
+  font-weight: 400;
+}
+
+.google-label svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* --- Card 3: Reviews --- */
+.reviews-card {
+  grid-column: span 5;
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviews-card .big-number {
+  font-family: var(--serif);
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.reviews-card .big-number::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 10px auto 0;
+}
+
+.reviews-card .label {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-top: 10px;
+}
+
+/* --- Card 4: Clinic Photo --- */
+.clinic-photo-card {
+  grid-column: span 5;
+  grid-row: span 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.arch-frame-wrapper {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 3 / 4;
+  border-radius: 130px 130px 12px 12px;
+  overflow: hidden;
+  border: 3px solid var(--bg);
+  box-shadow: 0 4px 20px rgba(26,26,26,0.08);
+}
+
+.arch-frame-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.clinic-photo-card .photo-label {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--subtle);
+  letter-spacing: 0.05em;
+}
+
+/* --- Card 5: Website Score --- */
+.score-card {
+  grid-column: span 3;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.progress-ring-container {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+.progress-ring-container svg {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  fill: none;
+  stroke: #e8e3da;
+  stroke-width: 5;
+}
+
+.progress-ring-fill {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 251;
+  stroke-dashoffset: 251;
+  animation: strokeDraw 1.5s var(--ease) forwards;
+  animation-delay: 0.8s;
+}
+
+.progress-ring-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.score-card .label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+/* --- Card 6: Online Presence --- */
+.presence-card {
+  grid-column: span 4;
+  padding: 24px 20px;
+}
+
+.presence-card .card-title {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 16px;
+}
+
+.presence-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.presence-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.presence-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.presence-check svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* --- Card 7: Testimonial --- */
+.testimonial-card {
+  grid-column: span 7;
+  background: #faf8f4;
+  padding: 32px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.testimonial-content {
+  flex: 1;
+}
+
+.quote-mark {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.testimonial-text {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ============ COMPARISON SECTION ============ */
+.comparison-section {
+  margin-top: 10px;
+}
+
+/* Comparison unified table */
+.comp-table {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(26,26,26,0.06);
+  overflow: hidden;
+  margin-top: 24px;
+  border: 1px solid rgba(201,169,110,0.15);
+}
+.comp-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+  border-bottom: 1px solid rgba(201,169,110,0.12);
+}
+.comp-row:last-child { border-bottom: none; }
+.comp-header-row { background: #1a1a1a; }
+.comp-cell {
+  padding: 14px 14px;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cell-label { text-align: right; justify-content: flex-start; font-family: 'Heebo', sans-serif; font-size: 0.82rem; color: #8a8278; }
+.cell-you { background: rgba(201,169,110,0.08); font-weight: 700; }
+.comp-header-row .cell-you {
+  background: #c9a96e; color: #1a1a1a; font-size: 1.05rem; font-weight: 700;
+}
+.comp-header-row .cell-comp { color: rgba(255,255,255,0.7); font-size: 0.8rem; font-family: 'Heebo', sans-serif; }
+.comp-header-row .cell-label { visibility: hidden; }
+.reviews-row { background: rgba(201,169,110,0.05); }
+.reviews-row .cell-you { background: rgba(201,169,110,0.15); }
+.win { color: #2d5a4e !important; }
+.lose { color: #a0616a !important; }
+
+/* ============ WARNING BOX ============ */
+.warning-box {
+  background: #fdf8ee;
+  border-radius: 12px;
+  border-right: 3px solid var(--gold);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+
+.warning-box .warning-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 8px;
+}
+
+.warning-box p {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.warning-box strong {
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* ============ CTA ============ */
+.cta-card {
+  background: var(--dark);
+  border-radius: 14px;
+  padding: 40px 36px;
+  text-align: center;
+  margin: 32px 0;
+}
+
+.cta-card p {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.cta-btn {
+  display: inline-block;
+  border: 1.5px solid var(--gold);
+  border-radius: 6px;
+  padding: 14px 36px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gold);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+.cta-btn:hover {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  text-align: center;
+  padding: 36px 16px 0;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--subtle);
+  letter-spacing: 0.02em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-card {
+    grid-column: span 2;
+    grid-row: span 1;
+    min-height: 220px;
+  }
+
+  .rating-card,
+  .reviews-card {
+    grid-column: span 1;
+  }
+
+  .clinic-photo-card {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .score-card {
+    grid-column: span 1;
+  }
+
+  .presence-card {
+    grid-column: span 1;
+  }
+
+  .testimonial-card {
+    grid-column: span 2;
+  }
+
+  .gbp-photo-card {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .comp-row {
+    grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+  }
+
+  .comp-cell {
+    padding: 10px 8px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 520px) {
+  body { padding: 20px 10px 40px; }
+
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card,
+  .rating-card,
+  .reviews-card,
+  .clinic-photo-card,
+  .score-card,
+  .presence-card,
+  .testimonial-card,
+  .gbp-photo-card {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .hero-card { min-height: 200px; }
+
+  .comp-cell {
+    padding: 8px 6px;
+    font-size: 0.75rem;
+  }
+
+  .cell-label {
+    font-size: 0.7rem;
+  }
+
+  .comp-header-row .cell-you { font-size: 0.82rem; }
+  .comp-header-row .cell-comp { font-size: 0.7rem; }
+
+  .cta-card p { font-size: 18px; }
+  .testimonial-text { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ==================== BENTO GRID ==================== -->
+  <div class="bento">
+
+    <!-- Card 1: Hero -->
+    <div class="hero-card card anim d1">
+      <svg class="corner-ornament top-right" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M0 0 L40 0 L40 8 L8 8 L8 40 L0 40 Z" fill="#c9a96e" opacity="0.6"/>
+      </svg>
+      <svg class="corner-ornament top-left" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M0 0 L40 0 L40 8 L8 8 L8 40 L0 40 Z" fill="#c9a96e" opacity="0.6"/>
+      </svg>
+      <svg class="corner-ornament bottom-right" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M0 0 L40 0 L40 8 L8 8 L8 40 L0 40 Z" fill="#c9a96e" opacity="0.6"/>
+      </svg>
+      <svg class="corner-ornament bottom-left" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M0 0 L40 0 L40 8 L8 8 L8 40 L0 40 Z" fill="#c9a96e" opacity="0.6"/>
+      </svg>
+
+      <h1>קורף איתן, ד"ר</h1>
+      <p class="subtitle">מרפאת שיניים מתקדמת — סקירה דיגיטלית</p>
+      <span class="location-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        קרית אונו, ישראל
+      </span>
+    </div>
+
+    <!-- Card 2: Google Rating -->
+    <div class="rating-card card dot-pattern anim d2">
+      <div class="big-number">4.7</div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#c9a96e" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#c9a96e" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#c9a96e" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#c9a96e" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#c9a96e" stroke="none"/></svg>
+      </div>
+      <span class="google-label">
+        <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        ציון Google
+      </span>
+    </div>
+
+    <!-- Card 3: Reviews -->
+    <div class="reviews-card card anim d3">
+      <div class="big-number">18</div>
+      <div class="label">ביקורות Google</div>
+    </div>
+
+    <!-- Card 4: Clinic Photo -->
+    <div class="clinic-photo-card card anim d4">
+      <div class="arch-frame-wrapper">
+        <img src="../../image to be used/image9.png" alt="פנים המרפאה" loading="lazy">
+      </div>
+      <span class="photo-label">המרפאה</span>
+    </div>
+
+    <!-- Card 5: Website Score -->
+    <div class="score-card card anim d5">
+      <div class="progress-ring-container">
+        <svg width="90" height="90" viewBox="0 0 90 90">
+          <circle class="progress-ring-bg" cx="45" cy="45" r="40"/>
+          <!-- 80% fill: 251 * 0.2 = 50.2 offset remaining -->
+          <circle class="progress-ring-fill" cx="45" cy="45" r="40" style="stroke-dashoffset: 251.0"/>
+        </svg>
+        <span class="progress-ring-text">0/10</span>
+      </div>
+      <span class="label">ציון אתר</span>
+    </div>
+
+    <!-- Card 6: Online Presence -->
+    <div class="presence-card card anim d6">
+      <div class="card-title">נוכחות דיגיטלית</div>
+      <ul class="presence-list">
+        <li>
+          <span class="presence-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          הזמנה אונליין
+        </li>
+        <li>
+          <span class="presence-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          פייסבוק
+        </li>
+        <li>
+          <span class="presence-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          אינסטגרם
+        </li>
+      </ul>
+    </div>
+
+    <!-- Card 7: Testimonial -->
+    <div class="testimonial-card card anim d7">
+      <img class="testimonial-avatar" src="../../image to be used/image5.png" alt="מטופלת" loading="lazy">
+      <div class="testimonial-content">
+        <svg class="quote-mark" width="32" height="24" viewBox="0 0 32 24">
+          <path d="M0 24V13.71C0 4.53 5.6.57 14 0l1.09 3.43C9.6 4.8 7.2 8 7.2 12h5.6V24H0zm18.4 0V13.71C18.4 4.53 24 .57 32.4 0l1.09 3.43C28 4.8 25.6 8 25.6 12h5.6V24H18.4z" fill="#c9a96e" opacity="0.35"/>
+        </svg>
+        <p class="testimonial-text">חוויה מדהימה — שירות ברמה הגבוהה ביותר</p>
+      </div>
+    </div>
+
+    <!-- Card 8: GBP Photos -->
+    <div class="gbp-photo-card card anim d8">
+      <div class="arch-frame-wrapper">
+        <img src="../../image to be used/image7.png" alt="תמונות מגוגל" loading="lazy">
+      </div>
+      <span class="photo-label">תמונות מגוגל</span>
+    </div>
+
+  </div><!-- /bento -->
+
+  <!-- ==================== COMPARISON SECTION ==================== -->
+  <div class="gold-line anim d8"></div>
+
+  <div class="comparison-section anim d9">
+    <div class="section-label">השוואה מול המתחרים</div>
+  </div>
+
+  <div class="gold-line delay-2"></div>
+
+  <div class="comp-table anim d10">
+    <div class="comp-row comp-header-row">
+      <div class="comp-cell cell-label"></div>
+      <div class="comp-cell cell-you">אתם</div>
+      <div class="comp-cell cell-comp">ד"ר אמיל ליטבק - רפואת שי</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">ציון Google</div>
+      <div class="comp-cell cell-you">4.7</div>
+      <div class="comp-cell cell-comp lose">4.2</div>
+      <div class="comp-cell cell-comp lose">0.0</div>
+      <div class="comp-cell cell-comp lose">0.0</div>
+    </div>
+    <div class="comp-row reviews-row">
+      <div class="comp-cell cell-label">ביקורות</div>
+      <div class="comp-cell cell-you">18</div>
+      <div class="comp-cell cell-comp win">21</div>
+      <div class="comp-cell cell-comp lose">0</div>
+      <div class="comp-cell cell-comp lose">0</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">ציון אתר</div>
+      <div class="comp-cell cell-you">0</div>
+      <div class="comp-cell cell-comp win">7</div>
+      <div class="comp-cell cell-comp">0</div>
+      <div class="comp-cell cell-comp">0</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">הזמנה אונליין</div>
+      <div class="comp-cell cell-you">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">פייסבוק</div>
+      <div class="comp-cell cell-you">&#10007;</div>
+      <div class="comp-cell cell-comp win">&#10003;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">אינסטגרם</div>
+      <div class="comp-cell cell-you">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">תמונות GBP</div>
+      <div class="comp-cell cell-you">—</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+    </div>
+  </div><!-- /comp-table -->
+
+  <!-- ==================== WARNING BOX ==================== -->
+  <div class="warning-box anim d11">
+    <div class="warning-label">שים לב</div>
+    <p><strong>מיקום שלך: מקום 2 מתוך 2</strong> לפי ביקורות. המתחרה המוביל מחזיק <strong>21 ביקורות</strong> — פי 1.2 ממך.</p>
+  </div>
+
+  <!-- ==================== CTA ==================== -->
+  <div class="cta-card anim d12">
+    <p>אני יכול לשלוח לך את כל הנתונים על המתחרים שלך</p>
+    <a href="#" class="cta-btn">בוא נדבר</a>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <div class="gold-line delay-3"></div>
+  <div class="footer anim d14">
+    מבוסס על נתונים ציבוריים מ-Google, easy.co.il ואתרי המרפאות | פברואר 2026
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

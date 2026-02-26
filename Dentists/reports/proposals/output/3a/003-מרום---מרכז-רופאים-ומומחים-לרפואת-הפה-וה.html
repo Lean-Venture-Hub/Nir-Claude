@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הצעה למרפאת שיניים — מרום - מרכז רופאים ומומחים לרפואת הפה והשיניים - ד"ר הכט גדעון</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0f0f1a;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    direction: rtl;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  /* ── Ambient glow background ── */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Glass card base ── */
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(167,139,250,0.15);
+    border-color: rgba(167,139,250,0.25);
+  }
+
+  /* ── Shimmer on hover ── */
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .card:hover::after { left: 150%; }
+
+  /* ── Fade-in animation ── */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate {
+    opacity: 0;
+    animation: fadeSlideUp 0.7s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
+  .delay-6 { animation-delay: 0.6s; }
+  .delay-7 { animation-delay: 0.7s; }
+  .delay-8 { animation-delay: 0.8s; }
+  .delay-9 { animation-delay: 0.9s; }
+  .delay-10 { animation-delay: 1.0s; }
+  .delay-11 { animation-delay: 1.1s; }
+  .delay-12 { animation-delay: 1.2s; }
+
+  /* ══════════════════════════════════
+     SECTION 1: BENTO GRID — CLINIC
+  ══════════════════════════════════ */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  /* ── Hero card ── */
+  .card-hero {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    min-height: 380px;
+    position: relative;
+  }
+
+  .card-hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,15,26,0.3) 0%, rgba(15,15,26,0.85) 70%, rgba(15,15,26,0.95) 100%);
+    z-index: 1;
+  }
+
+  .card-hero .hero-content {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 32px;
+    z-index: 2;
+  }
+
+  .card-hero .hero-content h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .card-hero .hero-content .subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+  }
+
+  .location-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(167,139,250,0.2);
+    border: 1px solid rgba(167,139,250,0.3);
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: #c084fc;
+    font-weight: 600;
+  }
+
+  .location-tag svg { width: 14px; height: 14px; }
+
+  /* ── Google Rating ── */
+  .card-rating {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-rating .big-number {
+    font-size: 52px;
+    font-weight: 900;
+    color: #a78bfa;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 8px;
+  }
+
+  .stars svg { width: 20px; height: 20px; }
+
+  .card-rating .label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+
+  /* ── Reviews ── */
+  .card-reviews {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-reviews .big-number {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .card-reviews .label {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 8px;
+  }
+
+  .card-reviews .label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 40px;
+    height: 3px;
+    background: #a78bfa;
+    border-radius: 2px;
+  }
+
+  /* ── Website Score ── */
+  .card-score {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .progress-ring-container {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 10px;
+  }
+
+  .progress-ring-container svg {
+    transform: rotate(-90deg);
+  }
+
+  .progress-ring-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.08);
+    stroke-width: 6;
+  }
+
+  .progress-ring-fill {
+    fill: none;
+    stroke: #a78bfa;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: 251.2;
+    animation: ringFill 1.5s ease 0.8s forwards;
+  }
+
+  @keyframes ringFill {
+    to { stroke-dashoffset: 50.24; }
+  }
+
+  .progress-ring-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .card-score .label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+
+  /* ── Clinic Photo ── */
+  .card-clinic {
+    position: relative;
+    min-height: 180px;
+    grid-column: 3 / 5;
+  }
+
+  .card-clinic img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-clinic .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,15,26,0.2) 0%, rgba(15,15,26,0.75) 100%);
+    z-index: 1;
+  }
+
+  .card-clinic .text {
+    position: absolute;
+    bottom: 20px;
+    right: 24px;
+    z-index: 2;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  /* ── Digital Presence ── */
+  .card-digital {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    grid-column: span 2;
+  }
+
+  .card-digital h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2px;
+  }
+
+  .presence-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .presence-check {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: rgba(167,139,250,0.15);
+    border: 1px solid rgba(167,139,250,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .presence-check svg { width: 14px; height: 14px; }
+
+  /* ── Patient Quote ── */
+  .card-patient {
+    position: relative;
+    min-height: 180px;
+    grid-column: span 2;
+  }
+
+  .card-patient img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-patient .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,15,26,0.3) 0%, rgba(15,15,26,0.8) 100%);
+    z-index: 1;
+  }
+
+  .card-patient .quote {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    left: 24px;
+    z-index: 2;
+  }
+
+  .card-patient .quote p {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    font-style: italic;
+  }
+
+  .card-patient .quote span {
+    display: block;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+    font-style: normal;
+  }
+
+  /* ══════════════════════════════════
+     SECTION 2: COMPARISON BENTO
+  ══════════════════════════════════ */
+  .section-title {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .section-title h2 {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 36px;
+  }
+
+  .comp-table {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    margin-top: 28px;
+  }
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-header-row {
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .comp-cell {
+    padding: 16px 14px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cell-label {
+    text-align: right;
+    justify-content: flex-start;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.82rem;
+  }
+  .cell-you {
+    background: rgba(167,139,250,0.1);
+    color: #fff;
+    font-weight: 700;
+  }
+  .comp-header-row .cell-you {
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+  .comp-header-row .cell-comp {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+  }
+  .comp-header-row .cell-label { visibility: hidden; }
+  .reviews-row { background: rgba(167,139,250,0.04); }
+  .reviews-row .cell-you { background: rgba(167,139,250,0.18); }
+  .win { color: #34d399 !important; }
+  .lose { color: #f87171 !important; }
+
+  /* ── Warning Card ── */
+  .card-warning {
+    background: rgba(248,113,113,0.08);
+    border: 1px solid rgba(248,113,113,0.2);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .card-warning .warning-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #f87171;
+    margin-bottom: 8px;
+  }
+
+  .card-warning p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  .card-warning strong { color: #f87171; font-weight: 700; }
+
+  /* ── CTA Card ── */
+  .card-cta {
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+    border-radius: 20px;
+    padding: 36px 32px;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .card-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .card-cta h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-cta p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-cta .cta-highlight {
+    display: inline-block;
+    margin-top: 16px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+    padding: 10px 28px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* ══════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════ */
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .card-hero {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      min-height: 300px;
+    }
+
+    .card-clinic {
+      grid-column: 1 / -1;
+    }
+
+    .card-digital {
+      grid-column: 1 / -1;
+    }
+
+    .card-patient {
+      grid-column: 1 / -1;
+    }
+
+    .card-hero .hero-content h1 {
+      font-size: 22px;
+    }
+
+    .section-title h2 {
+      font-size: 24px;
+    }
+
+    .container {
+      padding: 24px 14px 40px;
+    }
+
+    .comp-row { grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr; font-size: 0.75rem; }
+    .comp-cell { padding: 10px 8px; font-size: 0.75rem; }
+  }
+
+  @media (max-width: 480px) {
+    .card-hero {
+      min-height: 260px;
+    }
+
+    .card-hero .hero-content h1 {
+      font-size: 20px;
+    }
+
+    .card-rating .big-number {
+      font-size: 40px;
+    }
+
+    .card-reviews .big-number {
+      font-size: 56px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════
+       SECTION 1: BENTO GRID — CLINIC INFO
+  ══════════════════════════════════ -->
+  <div class="bento-grid">
+
+    <!-- Hero Card -->
+    <div class="card card-hero animate delay-1">
+      <img src="../../image to be used/image2.png" alt="מרום - מרכז רופאים ומומחים לרפואת הפה והשיניים - ד"ר הכט גדעון">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>מרום - מרכז רופאים ומומחים לרפואת הפה והשיניים - ד"ר הכט גדעון</h1>
+        <p class="subtitle">רופאת שיניים מומחית לילדים ונוער</p>
+        <div class="location-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          רמת גן
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Rating -->
+    <div class="card card-rating animate delay-2">
+      <div class="big-number">3.3</div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24" fill="#facc15"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#facc15"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#facc15"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#facc15"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#facc15"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="label">ציון Google</div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="card card-reviews animate delay-3">
+      <div class="big-number">10</div>
+      <div class="label">ביקורות</div>
+    </div>
+
+    <!-- Website Score -->
+    <div class="card card-score animate delay-4">
+      <div class="progress-ring-container">
+        <svg width="90" height="90" viewBox="0 0 90 90">
+          <circle class="progress-ring-bg" cx="45" cy="45" r="40"/>
+          <circle class="progress-ring-fill" cx="45" cy="45" r="40"/>
+        </svg>
+        <div class="progress-ring-text">8/10</div>
+      </div>
+      <div class="label">ציון אתר</div>
+    </div>
+
+    <!-- Clinic Photo -->
+    <div class="card card-clinic animate delay-5">
+      <img src="../../image to be used/image9.png" alt="המרפאה">
+      <div class="overlay"></div>
+      <div class="text">המרפאה שלנו</div>
+    </div>
+
+    <!-- Digital Presence -->
+    <div class="card card-digital animate delay-6">
+      <h3>נוכחות דיגיטלית</h3>
+      <div class="presence-item">
+        <div class="presence-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        הזמנה אונליין
+      </div>
+      <div class="presence-item">
+        <div class="presence-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        פייסבוק
+      </div>
+      <div class="presence-item">
+        <div class="presence-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        אינסטגרם
+      </div>
+    </div>
+
+    <!-- Patient Quote -->
+    <div class="card card-patient animate delay-7">
+      <img src="../../image to be used/image10.png" alt="מטופלת">
+      <div class="overlay"></div>
+      <div class="quote">
+        <p>״שירות יוצא מן הכלל״</p>
+        <span>— מתוך ביקורות Google</span>
+      </div>
+    </div>
+
+    <!-- GBP Photo Card -->
+    <div class="card card-clinic animate delay-5" style="grid-column: span 2; min-height:160px;">
+      <img src="../../image to be used/image7.png" alt="תמונת GBP">
+      <div class="overlay"></div>
+      <div class="text">תמונות מגוגל</div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       SECTION 2: COMPARISON
+  ══════════════════════════════════ -->
+  <div class="section-title animate delay-8">
+    <h2>איך אתם נראים מול המתחרים?</h2>
+  </div>
+  <div class="section-subtitle animate delay-8">
+    השוואה מול 3 מרפאות מובילות ברמת גן
+  </div>
+
+  <div class="comp-table animate delay-9">
+    <div class="comp-row comp-header-row">
+      <div class="comp-cell cell-label"></div>
+      <div class="comp-cell cell-you">אתם</div>
+      <div class="comp-cell cell-comp">מרפאת שיניים ברמת גן - ד'</div>
+      <div class="comp-cell cell-comp">ד"ר גלית מטצקי</div>
+      <div class="comp-cell cell-comp">מרפאת שיניים רמת גן - סיו</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">ציון Google</div>
+      <div class="comp-cell cell-you">3.3</div>
+      <div class="comp-cell cell-comp win">4.9</div>
+      <div class="comp-cell cell-comp win">4.8</div>
+      <div class="comp-cell cell-comp win">4.0</div>
+    </div>
+    <div class="comp-row reviews-row">
+      <div class="comp-cell cell-label">ביקורות</div>
+      <div class="comp-cell cell-you">10</div>
+      <div class="comp-cell cell-comp win">83</div>
+      <div class="comp-cell cell-comp win">42</div>
+      <div class="comp-cell cell-comp win">40</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">ציון אתר</div>
+      <div class="comp-cell cell-you">8</div>
+      <div class="comp-cell cell-comp lose">5</div>
+      <div class="comp-cell cell-comp lose">6</div>
+      <div class="comp-cell cell-comp lose">0</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">הזמנה אונליין</div>
+      <div class="comp-cell cell-you">&#10003;</div>
+      <div class="comp-cell cell-comp">&#10003;</div>
+      <div class="comp-cell cell-comp lose">&#10007;</div>
+      <div class="comp-cell cell-comp lose">&#10007;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">פייסבוק</div>
+      <div class="comp-cell cell-you">&#10003;</div>
+      <div class="comp-cell cell-comp lose">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10003;</div>
+      <div class="comp-cell cell-comp lose">&#10007;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">אינסטגרם</div>
+      <div class="comp-cell cell-you">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">תמונות GBP</div>
+      <div class="comp-cell cell-you">—</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+    </div>
+  </div>
+
+  <!-- Warning Card -->
+  <div class="card-warning animate delay-10">
+    <div class="warning-title">&#9888;&#65039; נקודת תשומת לב</div>
+    <p>מיקום שלך: <strong>מקום 4 מתוך 4</strong> לפי ביקורות. המתחרה המוביל מחזיק <strong>83 ביקורות — פי 8.3 ממך.</strong></p>
+  </div>
+
+  <!-- CTA Card -->
+  <div class="card-cta animate delay-11">
+    <h3>אני יכול לשלוח לך את כל הנתונים על המתחרים שלך</h3>
+    <p>כולל ניתוח ביקורות, מילות חיפוש, ונוכחות דיגיטלית מלאה.</p>
+    <div class="cta-highlight">10 דקות בזום — רלוונטי?</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer animate delay-12">
+    מבוסס על נתונים ציבוריים מ-Google, easy.co.il ואתרי המרפאות | פברואר 2026
+  </div>
+
+</div>
+
+</body>
+</html>

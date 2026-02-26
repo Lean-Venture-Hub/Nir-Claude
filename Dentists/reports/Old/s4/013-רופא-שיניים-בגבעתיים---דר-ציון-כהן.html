@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>גבעתיים - ד"ר ציון כהן | גבעתיים</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,'Helvetica Neue',sans-serif;direction:rtl;
+  color:#1a1a1a;line-height:1.6;background:#f8f9fb}
+
+/* NAV */
+nav{background:#2c3e6b;padding:0 40px;height:64px;display:flex;align-items:center;
+  justify-content:space-between;position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.nav-logo{color:#fff;font-size:18px;font-weight:700;letter-spacing:-.3px;
+  display:flex;align-items:center;gap:10px}
+.nav-logo svg{opacity:.85}
+.nav-cta{background:#5b8def;color:#fff;border:none;padding:10px 22px;
+  border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;
+  text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{background:linear-gradient(135deg, #2c3e6b 0%, #3d5a9e 60%, #2c3e6b 100%);min-height:520px;display:flex;align-items:center;
+  padding:60px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;left:-120px;top:-80px;width:500px;height:500px;
+  border-radius:50%;background:rgba(255,255,255,.04)}
+.hero::after{content:'';position:absolute;right:-60px;bottom:-100px;width:350px;height:350px;
+  border-radius:50%;background:rgba(255,255,255,.03)}
+.hero-content{position:relative;max-width:600px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;
+  padding:6px 16px;border-radius:100px;font-size:13px;margin-bottom:24px;
+  backdrop-filter:blur(4px)}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:#4ade80}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;color:#fff;line-height:1.15;
+  margin-bottom:16px;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:#5b8def}
+.hero .sub{font-size:17px;color:rgba(255,255,255,.8);margin-bottom:32px;max-width:460px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;
+  color:#2c3e6b;padding:14px 28px;border-radius:100px;font-size:16px;
+  font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.2);
+  transition:transform .2s,box-shadow .2s}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.25)}
+
+/* HERO RATING */
+.hero-rating{display:inline-flex;align-items:center;gap:14px;
+  background:rgba(255,255,255,.1);border:1.5px solid #5b8def;
+  border-radius:16px;padding:14px 22px;margin-top:28px}
+.hero-rating .score{font-size:38px;font-weight:800;color:#fff;line-height:1}
+.stars{color:#fbbf24;font-size:18px;letter-spacing:2px}
+.hero-rating .rev-label{color:rgba(255,255,255,.7);font-size:13px}
+
+/* SECTIONS */
+.section{padding:64px 40px;max-width:1100px;margin:0 auto}
+.section-white{background:#fff}.section-gray{background:#f4f6f8}
+.stw{text-align:center;margin-bottom:40px}
+.tag{display:inline-block;background:rgba(91,141,239,0.12);color:#2c3e6b;
+  padding:4px 14px;border-radius:100px;font-size:12px;font-weight:600;
+  letter-spacing:1px;margin-bottom:12px}
+.section h2{font-size:clamp(22px,4vw,32px);font-weight:800;color:#1a1a2e;line-height:1.3}
+.section h2 em{font-style:normal;color:#2c3e6b}
+
+/* SERVICES GRID */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto}
+.sc{background:#fff;border:1px solid #e8eaed;border-radius:16px;padding:28px 22px;
+  text-align:center;transition:transform .2s,box-shadow .2s,border-color .2s}
+.sc:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08);
+  border-color:#5b8def}
+.sc h3{font-size:15px;font-weight:700;color:#1a1a2e;margin:14px 0 6px}
+.sc p{font-size:13px;color:#666;line-height:1.5}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  max-width:900px;margin:0 auto}
+.doc-card{background:rgba(91,141,239,0.12);border:1px solid #2c3e6b20;border-radius:20px;
+  padding:36px;text-align:center}
+.doc-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg, #2c3e6b 0%, #3d5a9e 60%, #2c3e6b 100%);
+  display:flex;align-items:center;justify-content:center;font-size:42px;color:#fff;
+  font-weight:800;margin:0 auto 16px;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.doc-card .name{font-size:22px;font-weight:800;color:#1a1a2e}
+.doc-card .title{font-size:14px;color:#666;margin-top:4px}
+.trust-list{list-style:none;display:flex;flex-direction:column;gap:18px}
+.trust-item{display:flex;align-items:flex-start;gap:14px}
+.trust-check{flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:#2c3e6b;color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:13px;font-weight:700}
+.trust-text h4{font-size:15px;font-weight:700;color:#1a1a2e}
+.trust-text p{font-size:13px;color:#666;margin-top:2px}
+
+/* RATING SECTION */
+.rating-sec{background:linear-gradient(135deg, #2c3e6b 0%, #3d5a9e 60%, #2c3e6b 100%);padding:64px 40px;text-align:center;color:#fff}
+.big-score{font-size:80px;font-weight:900;line-height:1;color:#fff}
+.rating-src{font-size:14px;opacity:.7;margin-top:8px}
+.rating-cta{display:inline-block;margin-top:28px;background:#fff;color:#2c3e6b;
+  padding:14px 32px;border-radius:100px;font-size:16px;font-weight:700;
+  text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.2);
+  transition:transform .2s}
+.rating-cta:hover{transform:translateY(-2px)}
+
+/* CONTACT */
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;margin-top:32px;max-width:900px;margin-left:auto;margin-right:auto}
+.cc{background:#fff;border:1px solid #e8eaed;border-radius:16px;padding:24px;
+  display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;
+  transition:box-shadow .2s,border-color .2s}
+.cc:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:#5b8def}
+.ci{width:48px;height:48px;border-radius:12px;background:rgba(91,141,239,0.12);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cc .label{font-size:12px;color:#999;font-weight:500}
+.cc .value{font-size:16px;font-weight:700;color:#1a1a2e}
+
+/* FOOTER */
+footer{background:#1a2547;color:rgba(255,255,255,.6);text-align:center;
+  padding:24px 40px;font-size:13px}
+footer strong{color:rgba(255,255,255,.9)}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .hero{padding:40px 20px;min-height:auto}
+  .section{padding:48px 20px}
+  .sg{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .big-score{font-size:64px}
+}
+@media(max-width:420px){
+  .sg{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+}
+@media print{
+  nav{position:static;box-shadow:none}
+  .hero{min-height:auto;padding:40px 32px}
+  .sc:hover{transform:none;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <span class="nav-logo"><svg width="24" height="24" viewBox="0 0 64 64" fill="none"><path d="M32 6C22 6 14 13 14 22c0 8 2 14 6 22 2 6 6 14 10 14 1.5 0 2.5-3 3.5-7 .5 2 1.5 4 2.5 7 4 0 8-6 10-14 4-8 6-14 6-22C52 13 44 6 32 6Z" fill="rgba(255,255,255,.9)" stroke="rgba(255,255,255,.5)" stroke-width="2"/></svg> גבעתיים - ד"ר ציון כהן</span>
+  <a class="nav-cta" href="tel:054-992-0220"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> 054-992-0220</a>
+</nav>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> מרפאה פעילה | גבעתיים</div>
+    <h1>ד"ר ציון כהן<br><em>חיוך שמתחיל בידיים טובות</em></h1>
+    <p class="sub">מרפאת שיניים בגבעתיים — טיפול מקצועי, אישי ועדין לכל המשפחה.</p>
+    <a class="hero-cta" href="tel:054-992-0220">קבעו תור עכשיו &#8592;</a>
+    <div class="hero-rating">
+      <div>
+        <div class="score">5.0</div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:15px">Google דירוג</div>
+        <div class="rev-label">2 ביקורות מטופלים</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-white">
+  <div class="section" style="padding-top:64px;padding-bottom:64px">
+    <div class="stw">
+      <div class="tag">השירותים שלנו</div>
+      <h2>טיפולים <em>מקצועיים</em><br>לכל הצרכים שלך</h2>
+    </div>
+    <div class="sg"><div class="sc">
+      <div class="si"><svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M32 6C22 6 14 13 14 22c0 8 2 14 6 22 2 6 6 14 10 14 1.5 0 2.5-3 3.5-7
+  .5 2 1.5 4 2.5 7 4 0 8-6 10-14 4-8 6-14 6-22C52 13 44 6 32 6Z"
+  fill="#5b8def" opacity=".15" stroke="#5b8def" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+      <h3>טיפולי שיניים כלליים</h3>
+      <p>בדיקות תקופתיות, סתימות וטיפולים מונעים</p>
+    </div><div class="sc">
+      <div class="si"><svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="24" y="6" width="16" height="14" rx="4" fill="#5b8def" opacity=".15" stroke="#5b8def" stroke-width="2.5"/>
+<path d="M26 24h12l-1 10h-10l-1-10Zm1 14h10l-1 10h-8l-1-10Zm1 14h8l-1 6h-6l-1-6Z"
+  stroke="#5b8def" stroke-width="2.5" stroke-linejoin="round" fill="#5b8def" opacity=".1"/></svg></div>
+      <h3>השתלות שיניים</h3>
+      <p>פתרון קבע לשיניים חסרות בטכנולוגיה מתקדמת</p>
+    </div><div class="sc">
+      <div class="si"><svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="26" fill="#5b8def" opacity=".12" stroke="#5b8def" stroke-width="2.5"/>
+<circle cx="23" cy="27" r="3" fill="#5b8def"/><circle cx="41" cy="27" r="3" fill="#5b8def"/>
+<path d="M22 38c3 6 8 9 10 9s7-3 10-9" stroke="#5b8def" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <h3>הלבנת שיניים</h3>
+      <p>חיוך בהיר ולבן בטיפול מהיר ובטוח</p>
+    </div><div class="sc">
+      <div class="si"><svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M32 4L10 16v16c0 14 10 24 22 28 12-4 22-14 22-28V16L32 4Z"
+  fill="#5b8def" opacity=".12" stroke="#5b8def" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M24 32l6 6 12-14" stroke="#5b8def" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>שיקום הפה</h3>
+      <p>כתרים, גשרים ותותבות לשיקום מלא</p>
+    </div><div class="sc">
+      <div class="si"><svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="22" r="14" fill="#5b8def" opacity=".12" stroke="#5b8def" stroke-width="2.5"/>
+<circle cx="27" cy="20" r="2" fill="#5b8def"/><circle cx="37" cy="20" r="2" fill="#5b8def"/>
+<path d="M28 27c1.5 2 3 3 4 3s2.5-1 4-3" stroke="#5b8def" stroke-width="2" stroke-linecap="round"/>
+<path d="M22 38v10a6 6 0 006 6h8a6 6 0 006-6V38" stroke="#5b8def" stroke-width="2.5"/></svg></div>
+      <h3>רפואת שיניים לילדים</h3>
+      <p>סביבה נעימה וטיפול עדין לכל הגילאים</p>
+    </div><div class="sc">
+      <div class="si"><svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="22" width="48" height="20" rx="10" fill="#5b8def" opacity=".12" stroke="#5b8def" stroke-width="2.5"/>
+<line x1="20" y1="26" x2="20" y2="38" stroke="#5b8def" stroke-width="2"/>
+<line x1="32" y1="26" x2="32" y2="38" stroke="#5b8def" stroke-width="2"/>
+<line x1="44" y1="26" x2="44" y2="38" stroke="#5b8def" stroke-width="2"/>
+<line x1="14" y1="32" x2="50" y2="32" stroke="#5b8def" stroke-width="2.5"/></svg></div>
+      <h3>אורתודונטיה</h3>
+      <p>יישור שיניים, ברייסס ואינויזליין</p>
+    </div></div>
+  </div>
+</div>
+<div class="section-gray">
+  <div class="section" style="padding-top:64px;padding-bottom:64px">
+    <div class="stw">
+      <div class="tag">אודות</div>
+      <h2>למה <em>לבחור</em> בנו</h2>
+    </div>
+    <div class="about-grid">
+      <div class="doc-card">
+      <div class="doc-avatar">צ</div>
+      <div class="name">ד"ר ציון כהן</div>
+      <div class="title">רופא/ת שיניים | גבעתיים</div>
+    </div>
+      <ul class="trust-list"><li class="trust-item">
+        <div class="trust-check">✓</div>
+        <div class="trust-text"><h4>טיפול אישי ומותאם</h4><p>כל מטופל מקבל תשומת לב מלאה ותוכנית טיפול ייחודית</p></div>
+      </li><li class="trust-item">
+        <div class="trust-check">✓</div>
+        <div class="trust-text"><h4>ציוד וטכנולוגיה מתקדמים</h4><p>המרפאה מצוידת בטכנולוגיה חדישה לטיפול מדויק ונוח</p></div>
+      </li><li class="trust-item">
+        <div class="trust-check">✓</div>
+        <div class="trust-text"><h4>ניסיון מקצועי</h4><p>רופאים מומחים עם שנות ניסיון בטיפולי שיניים מגוונים</p></div>
+      </li><li class="trust-item">
+        <div class="trust-check">✓</div>
+        <div class="trust-text"><h4>אווירה מרגיעה</h4><p>סביבה נעימה שנועדה להפוך את חוויית הטיפול לנוחה ורגועה</p></div>
+      </li></ul>
+    </div>
+  </div>
+</div>
+<section class="rating-sec">
+  <div class="big-score">5.0</div>
+  <div class="stars" style="font-size:28px">★★★★★</div>
+  <div style="font-size:18px;color:rgba(255,255,255,.9);margin-top:12px">2 ביקורות מטופלים ב-Google</div>
+  <div class="rating-src">דירוג Google Maps</div>
+  <a class="rating-cta" href="https://www.google.com/maps/place/%D7%A8%D7%95%D7%A4%D7%90+%D7%A9%D7%99%D7%A0%D7%99%D7%99%D7%9D+%D7%91%D7%92%D7%91%D7%A2%D7%AA%D7%99%D7%99%D7%9D+-+%D7%93%22%D7%A8+%D7%A6%D7%99%D7%95%D7%9F+%D7%9B%D7%94%D7%9F%E2%80%AD/data=!4m7!3m6!1s0x151d4bb44d1148c3:0x327ccaef707b6039!8m2!3d32.0780044!4d34.8146964!16s%2Fg%2F11hb5zrkgy!19sChIJw0gRTbRLHRUROWB7cO_KfDI?authuser=0&hl=iw&rclk=1" target="_blank">ראו אותנו בגוגל</a>
+</section>
+<div class="section-white">
+  <div class="section" id="contact" style="padding-top:64px;padding-bottom:64px">
+    <div class="stw">
+      <div class="tag">צרו קשר</div>
+      <h2>קבעו <em>תור</em> עוד היום</h2>
+    </div>
+    <div class="cg"><a class="cc" href="tel:054-992-0220">
+      <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5b8def" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div><div class="label">טלפון</div><div class="value" style="direction:ltr">054-992-0220</div></div>
+    </a><a class="cc" href="https://www.google.com/maps/place/%D7%A8%D7%95%D7%A4%D7%90+%D7%A9%D7%99%D7%A0%D7%99%D7%99%D7%9D+%D7%91%D7%92%D7%91%D7%A2%D7%AA%D7%99%D7%99%D7%9D+-+%D7%93%22%D7%A8+%D7%A6%D7%99%D7%95%D7%9F+%D7%9B%D7%94%D7%9F%E2%80%AD/data=!4m7!3m6!1s0x151d4bb44d1148c3:0x327ccaef707b6039!8m2!3d32.0780044!4d34.8146964!16s%2Fg%2F11hb5zrkgy!19sChIJw0gRTbRLHRUROWB7cO_KfDI?authuser=0&hl=iw&rclk=1" target="_blank">
+      <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5b8def" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div><div class="label">מיקום</div><div class="value">גבעתיים</div></div>
+    </a><a class="cc" href="https://www.google.com/maps/place/%D7%A8%D7%95%D7%A4%D7%90+%D7%A9%D7%99%D7%A0%D7%99%D7%99%D7%9D+%D7%91%D7%92%D7%91%D7%A2%D7%AA%D7%99%D7%99%D7%9D+-+%D7%93%22%D7%A8+%D7%A6%D7%99%D7%95%D7%9F+%D7%9B%D7%94%D7%9F%E2%80%AD/data=!4m7!3m6!1s0x151d4bb44d1148c3:0x327ccaef707b6039!8m2!3d32.0780044!4d34.8146964!16s%2Fg%2F11hb5zrkgy!19sChIJw0gRTbRLHRUROWB7cO_KfDI?authuser=0&hl=iw&rclk=1" target="_blank">
+      <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="#5b8def"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" opacity=".7"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" opacity=".5"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" opacity=".6"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" opacity=".8"/></svg></div>
+      <div><div class="label">Google Maps</div><div class="value">צפו בפרופיל שלנו</div></div>
+    </a></div>
+  </div>
+</div>
+<footer>
+  <strong>גבעתיים - ד"ר ציון כהן</strong> | גבעתיים | כל הזכויות שמורות © 2026
+</footer>
+</body>
+</html>

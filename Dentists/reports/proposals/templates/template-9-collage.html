@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הצעה למרפאת שיניים — ד״ר מיטל שגב נויהוף</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ============ RESET & BASE ============ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #f5f0e8;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    font-family: 'Heebo', sans-serif;
+    color: #1a1a1a;
+    direction: rtl;
+    line-height: 1.6;
+    padding: 32px 16px 60px;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  .display-font { font-family: 'Bebas Neue', sans-serif; }
+  .body-font { font-family: 'Heebo', sans-serif; }
+
+  /* ============ DECORATIVE — TAPE ============ */
+  .tape {
+    position: absolute;
+    width: 80px;
+    height: 28px;
+    background: rgba(255,204,0,0.6);
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    pointer-events: none;
+  }
+  .tape.red { background: rgba(255,68,68,0.5); }
+  .tape.blue { background: rgba(37,99,235,0.4); }
+  .tape.t1 { transform: rotate(-5deg); top: -10px; left: -8px; }
+  .tape.t2 { transform: rotate(4deg); top: -8px; right: -10px; }
+  .tape.t3 { transform: rotate(-7deg); bottom: -10px; left: 20px; }
+  .tape.t4 { transform: rotate(3deg); top: -6px; left: 30px; }
+  .tape.t5 { transform: rotate(-3deg); top: -10px; right: 15px; }
+  .tape.t6 { transform: rotate(6deg); bottom: -8px; right: -5px; }
+
+  /* ============ DECORATIVE — STICKER ============ */
+  .sticker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    background: #ff4444;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    border-radius: 50%;
+    transform: rotate(-8deg);
+    box-shadow: 2px 3px 0 rgba(0,0,0,0.15);
+    border: 3px solid white;
+    z-index: 15;
+    line-height: 1;
+  }
+  .sticker.yellow { background: #ffcc00; color: #1a1a1a; }
+  .sticker.blue-s { background: #2563eb; }
+  .sticker.small {
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 42px;
+    height: 42px;
+  }
+
+  /* ============ DECORATIVE — TILTS ============ */
+  .tilt-1 { transform: rotate(-1.5deg); }
+  .tilt-2 { transform: rotate(2deg); }
+  .tilt-3 { transform: rotate(-0.8deg); }
+  .tilt-4 { transform: rotate(1.2deg); }
+  .tilt-5 { transform: rotate(-2deg); }
+
+  /* ============ DECORATIVE — SKETCH BORDER ============ */
+  .sketch-border {
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+  }
+
+  /* ============ DECORATIVE — HIGHLIGHT MARKER ============ */
+  .highlight {
+    background: linear-gradient(to top, rgba(255,204,0,0.4) 40%, transparent 40%);
+    padding: 0 4px;
+  }
+  .highlight-red {
+    background: linear-gradient(to top, rgba(255,68,68,0.3) 40%, transparent 40%);
+    padding: 0 4px;
+  }
+
+  /* ============ DECORATIVE — STAMP ============ */
+  .stamp-circle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+  }
+  .stamp-circle svg {
+    position: absolute;
+    inset: 0;
+  }
+  .stamp-value {
+    position: relative;
+    z-index: 2;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #ff4444;
+    letter-spacing: 1px;
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes dropIn {
+    from { opacity: 0; transform: translateY(40px) rotate(0deg); }
+    to   { opacity: 1; transform: translateY(0) rotate(0deg); }
+  }
+  @keyframes dropInTilt1 {
+    from { opacity: 0; transform: translateY(40px) rotate(-1.5deg); }
+    to   { opacity: 1; transform: rotate(-1.5deg); }
+  }
+  @keyframes dropInTilt2 {
+    from { opacity: 0; transform: translateY(40px) rotate(2deg); }
+    to   { opacity: 1; transform: rotate(2deg); }
+  }
+  @keyframes dropInTilt3 {
+    from { opacity: 0; transform: translateY(40px) rotate(-0.8deg); }
+    to   { opacity: 1; transform: rotate(-0.8deg); }
+  }
+  @keyframes dropInTilt4 {
+    from { opacity: 0; transform: translateY(40px) rotate(1.2deg); }
+    to   { opacity: 1; transform: rotate(1.2deg); }
+  }
+  @keyframes peelOn {
+    from { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+    to   { opacity: 1; transform: scale(1) rotate(-8deg); }
+  }
+  @keyframes fadeInTape {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes drawArrow {
+    from { stroke-dashoffset: 80; }
+    to   { stroke-dashoffset: 0; }
+  }
+  @keyframes scalePulse {
+    0%, 100% { transform: rotate(1.5deg) scale(1); }
+    50%      { transform: rotate(1.5deg) scale(1.015); }
+  }
+
+  .anim {
+    opacity: 0;
+    animation: dropIn 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  .anim.tilt-1 { animation-name: dropInTilt1; }
+  .anim.tilt-2 { animation-name: dropInTilt2; }
+  .anim.tilt-3 { animation-name: dropInTilt3; }
+  .anim.tilt-4 { animation-name: dropInTilt4; }
+
+  .d1  { animation-delay: 0.05s; }
+  .d2  { animation-delay: 0.12s; }
+  .d3  { animation-delay: 0.20s; }
+  .d4  { animation-delay: 0.28s; }
+  .d5  { animation-delay: 0.36s; }
+  .d6  { animation-delay: 0.44s; }
+  .d7  { animation-delay: 0.52s; }
+  .d8  { animation-delay: 0.60s; }
+  .d9  { animation-delay: 0.68s; }
+  .d10 { animation-delay: 0.76s; }
+  .d11 { animation-delay: 0.84s; }
+  .d12 { animation-delay: 0.92s; }
+  .d13 { animation-delay: 1.00s; }
+  .d14 { animation-delay: 1.08s; }
+
+  .anim-sticker {
+    opacity: 0;
+    animation: peelOn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .anim-tape {
+    opacity: 0;
+    animation: fadeInTape 0.4s ease forwards;
+  }
+
+  .doodle-arrow path {
+    stroke-dasharray: 80;
+    stroke-dashoffset: 80;
+    animation: drawArrow 0.8s ease forwards;
+  }
+
+  /* ============ BENTO GRID ============ */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+
+  /* ============ CARD BASE ============ */
+  .card {
+    position: relative;
+    overflow: visible;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  }
+  .card:hover {
+    box-shadow: 6px 8px 24px rgba(0,0,0,0.12);
+  }
+
+  /* ============ 1. MASTHEAD ============ */
+  .card-masthead {
+    grid-column: span 12;
+    background: #ffffff;
+    padding: 36px 40px 32px;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+  }
+  .card-masthead:hover { transform: rotate(0.3deg); }
+  .card-masthead h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: #1a1a1a;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .card-masthead p {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px;
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+  .masthead-sticker {
+    position: absolute;
+    top: -16px;
+    left: 24px;
+  }
+  .masthead-tape-r {
+    position: absolute;
+    top: -12px;
+    right: 40px;
+  }
+  .masthead-tape-l {
+    position: absolute;
+    bottom: -10px;
+    left: 60px;
+  }
+
+  /* ============ 2. HERO PHOTO ============ */
+  .card-hero {
+    grid-column: span 7;
+    min-height: 280px;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-hero:hover { transform: rotate(-0.5deg) scale(1.01); }
+  .card-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 280px;
+  }
+  .hero-star {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+  }
+  .hero-tape {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+  }
+
+  /* ============ 3. RATING STAMP ============ */
+  .card-rating {
+    grid-column: span 5;
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .card-rating:hover { transform: rotate(1deg) scale(1.01); }
+  .stars-arc {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .stars-arc span {
+    font-size: 26px;
+    color: #ffcc00;
+    display: inline-block;
+  }
+  .stars-arc span:nth-child(1) { transform: rotate(-10deg) translateY(4px); }
+  .stars-arc span:nth-child(2) { transform: rotate(-5deg) translateY(1px); }
+  .stars-arc span:nth-child(3) { transform: rotate(0deg) translateY(0); }
+  .stars-arc span:nth-child(4) { transform: rotate(5deg) translateY(1px); }
+  .stars-arc span:nth-child(5) { transform: rotate(10deg) translateY(4px); }
+  .rating-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    margin-top: 8px;
+  }
+  .rating-tape {
+    position: absolute;
+    top: -10px;
+    left: -5px;
+  }
+
+  /* ============ 4. REVIEWS ============ */
+  .card-reviews {
+    grid-column: span 5;
+    background: #ffcc00;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .card-reviews:hover { transform: rotate(0deg) scale(1.02); }
+  .reviews-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px;
+    color: #1a1a1a;
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+  .reviews-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: #1a1a1a;
+  }
+  .reviews-arrow {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+  }
+
+  /* ============ 5. SCORE ============ */
+  .card-score {
+    grid-column: span 3;
+    background: #ffffff;
+    border: 3px solid #ff4444;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    text-align: center;
+    position: relative;
+  }
+  .card-score:hover { transform: rotate(-1deg) scale(1.02); }
+  .score-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    color: #1a1a1a;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .score-bar-wrap {
+    width: 100%;
+    height: 12px;
+    background: #e5e5e5;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .score-bar-fill {
+    height: 100%;
+    width: 80%;
+    background: #ff4444;
+    border-radius: 6px;
+    transition: width 1s ease;
+  }
+  .score-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 8px;
+  }
+
+  /* ============ 6. CLINIC PHOTO ============ */
+  .card-clinic {
+    grid-column: span 4;
+    min-height: 200px;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-clinic:hover { transform: rotate(0.5deg) scale(1.01); }
+  .card-clinic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 200px;
+  }
+  .clinic-tape-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-3deg);
+    background: rgba(255,204,0,0.85);
+    padding: 6px 20px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    color: #1a1a1a;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 5;
+    white-space: nowrap;
+  }
+
+  /* ============ 7. ONLINE PRESENCE ============ */
+  .card-presence {
+    grid-column: span 5;
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    padding: 24px 22px;
+    position: relative;
+  }
+  .card-presence:hover { transform: rotate(-0.3deg) scale(1.01); }
+  .presence-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .presence-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    background: #f5f0e8;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease;
+  }
+  .presence-item:hover { transform: translateX(-4px); }
+  .presence-item:nth-child(2) { transform: translateX(3px); }
+  .presence-item:nth-child(3) { transform: translateX(-2px); }
+  .presence-item:nth-child(4) { transform: translateX(5px); }
+  .check-box {
+    width: 22px;
+    height: 22px;
+    background: #ff4444;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  /* ============ 8. QUOTE ============ */
+  .card-quote {
+    grid-column: span 7;
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    padding: 28px 28px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    min-height: 160px;
+  }
+  .card-quote:hover { transform: rotate(0.5deg) scale(1.01); }
+  .quote-marks {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: #ff4444;
+    line-height: 0.8;
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    opacity: 0.6;
+  }
+  .quote-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    flex: 1;
+    padding-top: 16px;
+  }
+  .quote-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 3px 4px 10px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+  /* Pin dot */
+  .card-quote::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: #ff4444;
+    border-radius: 50%;
+    border: 2px solid #cc0000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 20;
+  }
+
+  /* ============ COMPARISON SECTION ============ */
+  .comparison-section {
+    margin-top: 12px;
+    margin-bottom: 48px;
+  }
+  .comp-title-wrap {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .comp-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    color: #1a1a1a;
+    letter-spacing: 2px;
+    display: inline-block;
+  }
+  .comp-arrow {
+    display: block;
+    margin: 8px auto 0;
+  }
+
+  /* --- COMPARISON TABLE --- */
+  .comp-table {
+    background: #fff;
+    border: 3px solid #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 24px;
+    box-shadow: 6px 6px 0 rgba(26,26,26,0.1);
+    transform: rotate(-0.3deg);
+  }
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+    border-bottom: 2px solid #1a1a1a;
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-header-row { background: #1a1a1a; }
+  .comp-cell {
+    padding: 12px 10px;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    display: flex; align-items: center; justify-content: center;
+    letter-spacing: 0.5px;
+  }
+  .cell-label {
+    text-align: right; justify-content: flex-start;
+    font-family: 'Heebo', sans-serif; font-size: 0.82rem; font-weight: 700; color: #555;
+  }
+  .cell-you {
+    background: rgba(255,68,68,0.08);
+    color: #ff4444;
+    font-weight: 400;
+  }
+  .comp-header-row .cell-you {
+    background: #ff4444;
+    color: #fff;
+    font-size: 1.3rem;
+  }
+  .comp-header-row .cell-comp {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    font-family: 'Heebo', sans-serif;
+  }
+  .comp-header-row .cell-label { visibility: hidden; }
+  .reviews-row { background: rgba(255,204,0,0.12); }
+  .reviews-row .cell-you { background: rgba(255,204,0,0.2); }
+  .win { color: #2d8a4e !important; }
+  .lose { color: #ff4444 !important; }
+
+  /* ============ WARNING BOX ============ */
+  .warning-box {
+    background: #ffcc00;
+    border: 3px solid #1a1a1a;
+    border-right: 8px solid #ff4444;
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .warning-box:hover { transform: rotate(-0.3deg); }
+  .warn-sticker {
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    font-size: 28px;
+    transform: rotate(8deg);
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.15));
+  }
+  .warn-tape {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+  }
+  .warn-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .warn-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    color: #1a1a1a;
+    font-weight: 700;
+    line-height: 1.8;
+  }
+
+  /* ============ CTA ============ */
+  .cta-card {
+    background: #1a1a1a;
+    border: 3px solid #ffcc00;
+    border-radius: 4px;
+    padding: 36px 28px;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-card:hover { transform: rotate(0.3deg); }
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,204,0,0.03) 20px,
+      rgba(255,204,0,0.03) 40px
+    );
+    pointer-events: none;
+  }
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #ffcc00;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cta-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: #ff4444;
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    padding: 14px 40px;
+    border: 3px solid #ffcc00;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  }
+  .cta-btn:hover {
+    transform: rotate(-2deg) scale(1.05);
+    box-shadow: 4px 5px 0 #ffcc00;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 20px;
+    font-size: 12px;
+    color: #b8a99a;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .bento {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .card-masthead { grid-column: span 2; }
+    .card-hero { grid-column: span 2; min-height: 220px; }
+    .card-hero img { min-height: 220px; }
+    .card-rating { grid-column: span 1; }
+    .card-reviews { grid-column: span 1; }
+    .card-score { grid-column: span 1; }
+    .card-clinic { grid-column: span 1; min-height: 160px; }
+    .card-clinic img { min-height: 160px; }
+    .card-presence { grid-column: span 2; }
+    .card-quote { grid-column: span 2; flex-direction: column-reverse; text-align: center; }
+    .card-gbp-photo { grid-column: span 1; min-height: 160px; }
+    .card-gbp-photo img { min-height: 160px; }
+
+    .comp-table { transform: none; }
+    .comp-row { grid-template-columns: 0.8fr 1.2fr 1fr 1fr 1fr; }
+    .comp-cell { font-size: 0.9rem; padding: 10px 6px; }
+    .comp-header-row .cell-you { font-size: 1rem; }
+    .comp-header-row .cell-comp { font-size: 0.75rem; }
+    .cell-label { font-size: 0.72rem; }
+
+    .tilt-1, .tilt-2, .tilt-3, .tilt-4, .tilt-5 { transform: none; }
+    .anim.tilt-1, .anim.tilt-2, .anim.tilt-3, .anim.tilt-4 { animation-name: dropIn; }
+
+    .card-masthead h1 { font-size: 36px; }
+    .reviews-num { font-size: 72px; }
+    .score-num { font-size: 42px; }
+    .quote-text { font-size: 28px; }
+    .comp-title { font-size: 30px; }
+  }
+
+  @media (max-width: 480px) {
+    .bento {
+      grid-template-columns: 1fr;
+    }
+    .card-masthead,
+    .card-hero,
+    .card-rating,
+    .card-reviews,
+    .card-score,
+    .card-clinic,
+    .card-presence,
+    .card-quote { grid-column: span 1; }
+
+    .card-masthead h1 { font-size: 30px; }
+    .quote-marks { font-size: 50px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ========== BENTO GRID — CLINIC INFO ========== -->
+  <div class="bento">
+
+    <!-- 1. MASTHEAD -->
+    <div class="card card-masthead anim d1" style="overflow:visible">
+      <!-- Tape top-right -->
+      <div class="tape red t2 anim-tape" style="animation-delay:0.4s"></div>
+      <!-- Tape bottom-left -->
+      <div class="tape t3 anim-tape" style="animation-delay:0.5s"></div>
+      <!-- Sticker -->
+      <div class="masthead-sticker anim-sticker" style="animation-delay:0.6s">
+        <div class="sticker" style="transform:rotate(-12deg); padding:14px 16px;">תל אביב</div>
+      </div>
+
+      <h1>ד״ר מיטל שגב נויהוף</h1>
+      <p>רופאת שיניים <span class="highlight">מומחית לילדים</span> ונוער</p>
+    </div>
+
+    <!-- 2. HERO PHOTO -->
+    <div class="card card-hero sketch-border tilt-1 anim d2" style="overflow:visible">
+      <img src="../../image to be used/image1.png" alt="ד״ר מיטל שגב נויהוף" loading="lazy">
+      <!-- Yellow tape top-left -->
+      <div class="tape t1 anim-tape" style="animation-delay:0.5s"></div>
+      <!-- Red star sticker -->
+      <div class="hero-star anim-sticker" style="animation-delay:0.7s">
+        <div class="sticker small" style="transform:rotate(5deg);">&#9733;</div>
+      </div>
+    </div>
+
+    <!-- 3. RATING STAMP -->
+    <div class="card card-rating anim d3" style="overflow:visible">
+      <!-- Blue tape -->
+      <div class="tape blue t5 anim-tape" style="animation-delay:0.55s"></div>
+
+      <div class="stars-arc">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      </div>
+      <div class="stamp-circle">
+        <svg viewBox="0 0 120 120" width="100" height="100">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#ff4444" stroke-width="3" stroke-dasharray="4,3"/>
+          <circle cx="60" cy="60" r="40" fill="none" stroke="#ff4444" stroke-width="1"/>
+        </svg>
+        <span class="stamp-value">5.0</span>
+      </div>
+      <div class="rating-label">ציון GOOGLE</div>
+    </div>
+
+    <!-- 4. REVIEWS -->
+    <div class="card card-reviews tilt-4 anim d4" style="overflow:visible">
+      <!-- Doodle arrow -->
+      <div class="reviews-arrow" style="animation-delay:0.8s">
+        <svg class="doodle-arrow" viewBox="0 0 60 40" width="50" style="transform:scaleX(-1)">
+          <path d="M5 20 L45 20 M35 10 L45 20 L35 30" fill="none" stroke="#ff4444" stroke-width="2.5" stroke-linecap="round" style="animation-delay:0.9s"/>
+        </svg>
+      </div>
+
+      <div class="reviews-num">24</div>
+      <div class="reviews-label">ביקורות</div>
+    </div>
+
+    <!-- 5. SCORE -->
+    <div class="card card-score tilt-3 anim d5" style="overflow:visible">
+      <div class="score-num">8/10</div>
+      <div class="score-bar-wrap">
+        <div class="score-bar-fill"></div>
+      </div>
+      <div class="score-label">ציון אתר</div>
+    </div>
+
+    <!-- 6. CLINIC PHOTO -->
+    <div class="card card-clinic sketch-border tilt-2 anim d6" style="overflow:visible">
+      <img src="../../image to be used/image9.png" alt="פנים המרפאה" loading="lazy">
+      <div class="clinic-tape-label">המרפאה</div>
+    </div>
+
+    <!-- 7. ONLINE PRESENCE -->
+    <div class="card card-presence tilt-3 anim d7" style="overflow:visible">
+      <!-- Tape -->
+      <div class="tape red t4 anim-tape" style="animation-delay:0.7s"></div>
+
+      <div class="presence-title">נוכחות אונליין</div>
+      <div class="presence-item">
+        <span class="check-box">&#10003;</span>
+        הזמנה אונליין
+      </div>
+      <div class="presence-item">
+        <span class="check-box">&#10003;</span>
+        פייסבוק
+      </div>
+      <div class="presence-item">
+        <span class="check-box">&#10003;</span>
+        אינסטגרם
+      </div>
+    </div>
+
+    <!-- 8. QUOTE -->
+    <div class="card card-quote tilt-5 anim d8" style="overflow:visible">
+      <div class="quote-marks">״</div>
+      <div class="quote-text">חוויה מדהימה!</div>
+      <img class="quote-avatar" src="../../image to be used/image5.png" alt="מטופלת מרוצה" loading="lazy">
+    </div>
+
+    <!-- 9. GBP PHOTO -->
+    <div class="card card-gbp-photo tilt-2 anim d9" style="overflow:visible">
+      <div class="tape t2 anim-tape" style="animation-delay:0.85s"></div>
+      <img src="../../image to be used/image3.png" alt="תמונות GBP" loading="lazy">
+      <div class="gbp-tape-strip">תמונות GBP</div>
+    </div>
+
+  </div>
+
+  <!-- ========== COMPARISON SECTION ========== -->
+  <div class="comparison-section">
+
+    <div class="comp-title-wrap anim d9">
+      <span class="comp-title"><span class="highlight">השוואה מול מתחרים</span></span>
+      <svg class="comp-arrow doodle-arrow" viewBox="0 0 40 60" width="30" style="display:block; margin:8px auto 0;">
+        <path d="M20 5 L20 45 M10 35 L20 45 L30 35" fill="none" stroke="#ff4444" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="comp-table anim d10">
+      <!-- Header -->
+      <div class="comp-row comp-header-row">
+        <div class="comp-cell cell-label"></div>
+        <div class="comp-cell cell-you">אתם</div>
+        <div class="comp-cell cell-comp">Care Laser</div>
+        <div class="comp-cell cell-comp">מיודנט — ד״ר מקס</div>
+        <div class="comp-cell cell-comp">ד״ר שירה חזק</div>
+      </div>
+      <!-- ציון Google -->
+      <div class="comp-row">
+        <div class="comp-cell cell-label">ציון Google</div>
+        <div class="comp-cell cell-you">5.0</div>
+        <div class="comp-cell lose">4.0</div>
+        <div class="comp-cell">5.0</div>
+        <div class="comp-cell">5.0</div>
+      </div>
+      <!-- ביקורות (highlighted) -->
+      <div class="comp-row reviews-row">
+        <div class="comp-cell cell-label">ביקורות</div>
+        <div class="comp-cell cell-you">24</div>
+        <div class="comp-cell win">756</div>
+        <div class="comp-cell win">485</div>
+        <div class="comp-cell win">354</div>
+      </div>
+      <!-- ציון אתר -->
+      <div class="comp-row">
+        <div class="comp-cell cell-label">ציון אתר</div>
+        <div class="comp-cell cell-you">8</div>
+        <div class="comp-cell lose">0</div>
+        <div class="comp-cell">8</div>
+        <div class="comp-cell win">9</div>
+      </div>
+      <!-- הזמנה אונליין -->
+      <div class="comp-row">
+        <div class="comp-cell cell-label">הזמנה אונליין</div>
+        <div class="comp-cell cell-you">&#10003;</div>
+        <div class="comp-cell lose">&#10007;</div>
+        <div class="comp-cell">&#10003;</div>
+        <div class="comp-cell">&#10003;</div>
+      </div>
+      <!-- פייסבוק -->
+      <div class="comp-row">
+        <div class="comp-cell cell-label">פייסבוק</div>
+        <div class="comp-cell cell-you">&#10003;</div>
+        <div class="comp-cell lose">&#10007;</div>
+        <div class="comp-cell lose">&#10007;</div>
+        <div class="comp-cell">&#10003;</div>
+      </div>
+      <!-- אינסטגרם -->
+      <div class="comp-row">
+        <div class="comp-cell cell-label">אינסטגרם</div>
+        <div class="comp-cell cell-you">&#10003;</div>
+        <div class="comp-cell lose">&#10007;</div>
+        <div class="comp-cell lose">&#10007;</div>
+        <div class="comp-cell lose">&#10007;</div>
+      </div>
+      <!-- תמונות GBP -->
+      <div class="comp-row">
+        <div class="comp-cell cell-label">תמונות GBP</div>
+        <div class="comp-cell cell-you">15</div>
+        <div class="comp-cell win">85</div>
+        <div class="comp-cell win">120</div>
+        <div class="comp-cell win">65</div>
+      </div>
+    </div>
+
+    <!-- WARNING -->
+    <div class="warning-box anim d13 tilt-3" style="overflow:visible">
+      <div class="warn-sticker anim-sticker" style="animation-delay:1.2s">&#9888;&#65039;</div>
+      <div class="tape red anim-tape" style="width:60px; transform:rotate(5deg); position:absolute; top:-10px; right:30px; animation-delay:1.15s"></div>
+      <div class="warn-title">מיקום שלך: מקום 4 מתוך 4 לפי ביקורות</div>
+      <div class="warn-text">
+        המתחרה המוביל מחזיק <span class="highlight-red">756 ביקורות</span> — פי <span class="highlight-red">31.5</span> ממך.
+        ביקורות הן הגורם <span class="highlight">המרכזי</span> לדירוג בגוגל.
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card anim d14">
+      <div class="cta-title">אני יכול לשלוח לך את כל הנתונים על המתחרים שלך</div>
+      <div class="cta-text">כולל ניתוח ביקורות, מילות חיפוש, ונוכחות דיגיטלית מלאה.<br>10 דקות בזום — רלוונטי?</div>
+      <button class="cta-btn">בואו נדבר</button>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      מבוסס על נתונים ציבוריים מ-Google, easy.co.il ואתרי המרפאות | פברואר 2026
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

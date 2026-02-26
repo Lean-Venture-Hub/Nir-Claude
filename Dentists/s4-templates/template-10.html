@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{CLINIC_NAME}} | {{DOCTOR_PREFIX}} {{DOCTOR_NAME}} | {{CITY}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1D4ED8;
+  --blue-deeper:#1E3A8A;
+  --blue-bg:#EFF6FF;
+  --blue-light:#DBEAFE;
+  --blue-soft:#BFDBFE;
+  --ink:#111827;
+  --ink-soft:#374151;
+  --gray:#6B7280;
+  --gray-light:#D1D5DB;
+  --gray-bg:#F9FAFB;
+  --red:#DC2626;
+  --red-dark:#B91C1C;
+  --dark:#1E293B;
+  --dark-deeper:#0F172A;
+  --white:#FFFFFF;
+  --gold:#F59E0B;
+  --font:'Heebo','Rubik',sans-serif;
+}
+
+body{
+  font-family:var(--font);
+  direction:rtl;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--blue-bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* ── Keyframes ────────────────────────────── */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeInDown{
+  from{opacity:0;transform:translateY(-20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes floatBob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+@keyframes floatBobSlow{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.3)}
+  50%{box-shadow:0 0 0 12px rgba(37,99,235,0)}
+}
+@keyframes shimmer{
+  0%{background-position:-200% center}
+  100%{background-position:200% center}
+}
+@keyframes scaleIn{
+  from{opacity:0;transform:scale(0.85)}
+  to{opacity:1;transform:scale(1)}
+}
+
+/* ── Sticky Navigation ───────────────────── */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(37,99,235,0.08);
+  transition:box-shadow 0.3s;
+}
+.nav.scrolled{
+  box-shadow:0 4px 24px rgba(0,0,0,0.06);
+}
+.nav-inner{
+  padding:0 56px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1360px;
+  margin:0 auto;
+}
+
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:18px;
+  font-weight:700;
+  color:var(--ink);
+  text-decoration:none;
+  transition:opacity 0.3s;
+}
+.nav-logo:hover{opacity:0.8}
+.nav-logo-icon{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(37,99,235,0.25);
+}
+.nav-logo-icon svg{width:18px;height:18px}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:15px;
+  font-weight:500;
+  color:var(--gray);
+  text-decoration:none;
+  transition:color 0.3s;
+  position:relative;
+  padding-bottom:4px;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:0;right:0;
+  width:0;height:2px;
+  background:var(--blue);
+  border-radius:1px;
+  transition:width 0.3s ease;
+}
+.nav-links a:hover{color:var(--blue)}
+.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--ink);font-weight:600}
+.nav-links a.active::after{width:100%;background:var(--ink)}
+
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--red);
+  color:var(--white);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  padding:10px 24px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  box-shadow:0 2px 8px rgba(220,38,38,0.25);
+}
+.nav-cta:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(220,38,38,0.3)}
+.nav-cta svg{width:16px;height:16px}
+
+/* Mobile menu button */
+.nav-mobile-btn{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  width:40px;height:40px;
+  align-items:center;justify-content:center;
+  border-radius:8px;
+  transition:background 0.2s;
+}
+.nav-mobile-btn:hover{background:var(--blue-bg)}
+.nav-mobile-btn svg{width:24px;height:24px;stroke:var(--ink)}
+
+/* ── Page Wrapper ────────────────────────── */
+.page-wrapper{
+  max-width:1360px;
+  margin:0 auto;
+  padding:0 56px;
+}
+
+/* ── Hero Section ────────────────────────── */
+.hero{
+  display:grid;
+  grid-template-columns:46fr 54fr;
+  gap:48px;
+  align-items:center;
+  position:relative;
+  padding:48px 0 40px;
+  min-height:calc(100vh - 72px);
+  animation:fadeInUp 0.7s ease both;
+}
+
+.hero-text{
+  padding:0;
+  max-width:520px;
+}
+
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--blue-light);
+  border:1px solid rgba(37,99,235,0.15);
+  border-radius:24px;
+  padding:6px 18px;
+  margin-bottom:24px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--blue-dark);
+}
+.hero-tag-dot{
+  width:7px;height:7px;
+  background:var(--blue);
+  border-radius:50%;
+  animation:pulseGlow 2s ease-in-out infinite;
+}
+
+.hero-text h1{
+  font-size:clamp(32px,3.6vw,48px);
+  font-weight:800;
+  color:var(--ink);
+  line-height:1.15;
+  letter-spacing:-0.5px;
+  margin-bottom:8px;
+}
+.hero-text h1 .accent{
+  color:var(--blue);
+}
+
+.hero-subtitle{
+  font-size:17px;
+  color:var(--blue);
+  font-weight:500;
+  margin-bottom:20px;
+  font-style:italic;
+}
+
+.hero-body{
+  font-size:15px;
+  color:var(--gray);
+  line-height:1.75;
+  margin-bottom:32px;
+  max-width:440px;
+}
+
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+/* Primary CTA — solid blue */
+.hero-cta-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:var(--white);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+  padding:14px 32px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  box-shadow:0 4px 16px rgba(37,99,235,0.3);
+  position:relative;
+  overflow:hidden;
+}
+.hero-cta-primary::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);
+  transition:left 0.5s;
+}
+.hero-cta-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(37,99,235,0.4);
+}
+.hero-cta-primary:hover::before{left:100%}
+.hero-cta-primary svg{width:16px;height:16px;transition:transform 0.2s}
+.hero-cta-primary:hover svg{transform:translateX(-3px)}
+
+/* Secondary CTA — outlined red */
+.hero-cta-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:transparent;
+  color:var(--red);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+  padding:13px 28px;
+  border-radius:10px;
+  border:2px solid var(--red);
+  cursor:pointer;
+  transition:all 0.25s ease;
+}
+.hero-cta-secondary:hover{
+  background:var(--red);
+  color:var(--white);
+  transform:translateY(-1px);
+}
+.hero-cta-secondary svg{width:16px;height:16px;transition:transform 0.2s}
+.hero-cta-secondary:hover svg{transform:translateX(-3px)}
+
+/* Trust row under hero CTA */
+.hero-trust{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  margin-top:24px;
+}
+.hero-trust-item{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  color:var(--gray);
+  font-weight:400;
+}
+.hero-trust-item .check{
+  color:var(--blue);
+  font-weight:700;
+  font-size:15px;
+}
+
+/* ── Hero Visual ─────────────────────────── */
+.hero-visual{
+  position:relative;
+  display:flex;
+  justify-content:flex-start;
+  animation:fadeInUp 0.7s ease 0.15s both;
+}
+
+.hero-img-wrapper{
+  position:relative;
+  width:100%;
+  max-width:520px;
+}
+
+.hero-img{
+  width:100%;
+  aspect-ratio:6/5;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 20px 60px rgba(37,99,235,0.12);
+}
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* ── Floating Stat Badges ────────────────── */
+.badge-rating{
+  position:absolute;
+  top:16px;
+  left:-28px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.5);
+  border-radius:16px;
+  padding:14px 18px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.1);
+  z-index:4;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  animation:floatBob 4s ease-in-out infinite;
+}
+.badge-rating-icon{
+  width:36px;height:36px;
+}
+.badge-rating-content{
+  display:flex;
+  flex-direction:column;
+}
+.badge-rating-number{
+  font-size:20px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1;
+}
+.badge-rating-stars{
+  display:flex;
+  gap:2px;
+  margin-top:3px;
+}
+.badge-rating-stars .star{
+  color:var(--gold);
+  font-size:12px;
+}
+.badge-rating-label{
+  font-size:10px;
+  color:var(--gray);
+  font-weight:500;
+  margin-top:2px;
+}
+
+/* Experience circle badge */
+.badge-exp{
+  position:absolute;
+  top:42%;
+  right:-48px;
+  transform:translateY(-50%);
+  background:var(--dark);
+  border-radius:50%;
+  width:100px;height:100px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.18);
+  z-index:4;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  animation:floatBobSlow 5s ease-in-out infinite;
+}
+.badge-exp .badge-num{
+  font-size:24px;
+  font-weight:800;
+  color:var(--white);
+  line-height:1;
+}
+.badge-exp .badge-label{
+  font-size:9px;
+  color:#94A3B8;
+  font-weight:500;
+  text-align:center;
+  line-height:1.2;
+  margin-top:3px;
+}
+.badge-exp-accent{
+  width:10px;height:10px;
+  background:var(--blue);
+  border-radius:50%;
+  position:absolute;
+  top:8px;
+  left:8px;
+}
+
+/* Calls badge */
+.badge-calls{
+  position:absolute;
+  bottom:24px;
+  left:-20px;
+  background:var(--dark);
+  border-radius:14px;
+  padding:12px 18px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.15);
+  z-index:4;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  animation:floatBob 5s ease-in-out 0.5s infinite;
+}
+.badge-calls-icon{
+  width:32px;height:32px;
+  background:var(--blue);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.badge-calls-icon svg{width:16px;height:16px}
+.badge-calls .badge-num{
+  font-size:20px;
+  font-weight:700;
+  color:var(--white);
+  line-height:1;
+  margin-bottom:2px;
+}
+.badge-calls .badge-label{
+  font-size:11px;
+  color:#94A3B8;
+  font-weight:500;
+}
+
+/* ── Section Shared Styles ───────────────── */
+.section-label{
+  font-size:12px;
+  font-weight:700;
+  color:var(--blue);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  text-align:center;
+  margin-bottom:10px;
+  display:block;
+}
+.section-heading{
+  font-size:clamp(28px,3vw,42px);
+  font-weight:800;
+  color:var(--ink);
+  text-align:center;
+  margin-bottom:14px;
+  line-height:1.2;
+  letter-spacing:-0.3px;
+}
+.section-subtitle{
+  font-size:16px;
+  color:var(--gray);
+  text-align:center;
+  margin-bottom:56px;
+  max-width:520px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.7;
+}
+
+/* ── About Section ───────────────────────── */
+.about{
+  background:var(--white);
+  padding:100px 56px;
+}
+.about-inner{
+  max-width:1360px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:72px;
+  align-items:center;
+}
+.about-label{
+  font-size:12px;
+  font-weight:700;
+  color:var(--blue);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+  display:block;
+}
+.about-heading{
+  font-size:clamp(28px,3vw,42px);
+  font-weight:800;
+  color:var(--ink);
+  margin-bottom:20px;
+  line-height:1.2;
+  letter-spacing:-0.3px;
+}
+.about-text{
+  font-size:16px;
+  color:var(--gray);
+  line-height:1.8;
+  margin-bottom:36px;
+  max-width:480px;
+}
+.about-stats{
+  display:flex;
+  gap:36px;
+}
+.about-stat{
+  text-align:center;
+}
+.about-stat-number{
+  font-size:36px;
+  font-weight:800;
+  color:var(--blue);
+  line-height:1;
+}
+.about-stat-label{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:6px;
+  font-weight:500;
+}
+.about-visual{
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+.about-decorative{
+  width:100%;
+  max-width:440px;
+  height:360px;
+  background:linear-gradient(135deg,var(--blue-bg),rgba(37,99,235,0.06));
+  border-radius:24px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.about-decorative::before{
+  content:'';
+  position:absolute;
+  width:200px;height:200px;
+  border:2px solid rgba(37,99,235,0.1);
+  border-radius:50%;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+}
+.about-decorative::after{
+  content:'';
+  position:absolute;
+  width:300px;height:300px;
+  border:1px solid rgba(37,99,235,0.06);
+  border-radius:50%;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+}
+.about-deco-icon{
+  width:100px;height:100px;
+  fill:var(--blue);
+  opacity:0.12;
+}
+.about-accent-dot{
+  position:absolute;
+  width:12px;height:12px;
+  background:var(--blue);
+  border-radius:50%;
+  opacity:0.25;
+}
+.about-accent-dot:nth-child(1){top:30px;right:40px}
+.about-accent-dot:nth-child(2){bottom:50px;left:30px;width:8px;height:8px;opacity:0.15}
+.about-accent-dot:nth-child(3){top:60%;right:20%;width:6px;height:6px;opacity:0.1}
+
+/* ── Services Section ────────────────────── */
+.services{
+  background:var(--blue-bg);
+  padding:100px 56px;
+}
+.services-inner{
+  max-width:1360px;
+  margin:0 auto;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.service-card{
+  background:var(--white);
+  border:1px solid rgba(37,99,235,0.08);
+  border-radius:16px;
+  padding:36px 28px 32px;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.4s cubic-bezier(0.25,0.8,0.25,1);
+  cursor:pointer;
+}
+.service-card::before{
+  content:'';
+  position:absolute;
+  top:0;right:0;left:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--blue-dark));
+  transition:height 0.3s ease;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 48px rgba(37,99,235,0.1);
+  border-color:transparent;
+}
+.service-card:hover::before{height:5px}
+.service-icon{
+  width:52px;height:52px;
+  background:var(--blue-light);
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+  transition:all 0.3s;
+}
+.service-card:hover .service-icon{
+  background:var(--blue);
+  box-shadow:0 4px 16px rgba(37,99,235,0.3);
+}
+.service-icon svg{
+  width:26px;height:26px;
+  fill:var(--blue);
+  transition:fill 0.3s;
+}
+.service-card:hover .service-icon svg{fill:var(--white)}
+.service-title{
+  font-size:19px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.service-desc{
+  font-size:14px;
+  color:var(--gray);
+  line-height:1.7;
+}
+
+/* ── Testimonials Section ────────────────── */
+/* IF:REVIEWS */
+.testimonials{
+  background:var(--white);
+  padding:100px 56px;
+}
+.testimonials-inner{
+  max-width:1360px;
+  margin:0 auto;
+}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.testimonial-card{
+  background:var(--white);
+  border:1px solid rgba(37,99,235,0.08);
+  border-radius:16px;
+  padding:36px 32px 32px;
+  position:relative;
+  transition:all 0.4s ease;
+  box-shadow:0 2px 12px rgba(0,0,0,0.03);
+}
+.testimonial-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(37,99,235,0.08);
+  border-color:rgba(37,99,235,0.15);
+}
+.testimonial-quote{
+  font-size:56px;
+  color:var(--blue);
+  opacity:0.2;
+  line-height:1;
+  margin-bottom:-10px;
+  font-family:Georgia,serif;
+}
+.testimonial-text{
+  font-size:15px;
+  color:var(--ink-soft);
+  line-height:1.8;
+  margin-bottom:24px;
+  min-height:85px;
+  font-style:italic;
+}
+.testimonial-stars{
+  display:flex;
+  gap:3px;
+  margin-bottom:16px;
+}
+.testimonial-stars .star{
+  color:var(--gold);
+  font-size:15px;
+}
+.testimonial-divider{
+  width:40px;
+  height:2px;
+  background:var(--blue);
+  opacity:0.25;
+  margin-bottom:14px;
+}
+.testimonial-author{
+  font-size:15px;
+  font-weight:600;
+  color:var(--ink);
+}
+.testimonial-role{
+  font-size:12px;
+  color:var(--gray);
+  margin-top:2px;
+}
+/* ENDIF:REVIEWS */
+
+/* ── CTA / Contact Section ───────────────── */
+.cta-section{
+  background:linear-gradient(135deg,var(--blue-dark),var(--blue-deeper));
+  padding:80px 56px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-section::before{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:50%;
+  top:-250px;right:-150px;
+}
+.cta-section::after{
+  content:'';
+  position:absolute;
+  width:350px;height:350px;
+  border:1px solid rgba(255,255,255,0.04);
+  border-radius:50%;
+  bottom:-180px;left:-80px;
+}
+.cta-inner{
+  max-width:640px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.cta-heading{
+  font-size:clamp(28px,3vw,42px);
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:16px;
+  line-height:1.25;
+}
+.cta-subtitle{
+  font-size:17px;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:36px;
+  line-height:1.7;
+}
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:var(--white);
+  border:2px solid var(--white);
+  text-decoration:none;
+  padding:16px 48px;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:0.03em;
+  transition:all 0.4s ease;
+  background:transparent;
+  font-family:var(--font);
+}
+.cta-btn:hover{
+  background:var(--white);
+  color:var(--blue-dark);
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(0,0,0,0.15);
+}
+.cta-btn svg{width:18px;height:18px;transition:transform 0.2s}
+.cta-btn:hover svg{transform:translateX(-3px)}
+
+/* Phone number in CTA */
+.cta-phone{
+  display:block;
+  margin-top:20px;
+  font-size:28px;
+  font-weight:800;
+  color:var(--white);
+  text-decoration:none;
+  direction:ltr;
+  unicode-bidi:bidi-override;
+  transition:opacity 0.3s;
+}
+.cta-phone:hover{opacity:0.85}
+
+/* ── Footer ──────────────────────────────── */
+.footer{
+  background:var(--dark-deeper);
+  padding:48px 56px 32px;
+  color:rgba(255,255,255,0.6);
+}
+.footer-inner{
+  max-width:1360px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.footer-brand-icon{
+  width:32px;height:32px;
+  background:var(--blue);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+.footer-brand-icon svg{width:16px;height:16px}
+.footer-brand-name{
+  font-size:16px;
+  font-weight:700;
+  color:var(--white);
+}
+.footer-info{
+  font-size:13px;
+  color:rgba(255,255,255,0.5);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.footer-dot{
+  width:3px;height:3px;
+  background:rgba(255,255,255,0.3);
+  border-radius:50%;
+}
+.footer-copy{
+  font-size:13px;
+  color:rgba(255,255,255,0.4);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media(max-width:1024px){
+  .page-wrapper{padding:0 36px}
+  .nav-inner{padding:0 36px}
+  .hero{gap:32px}
+  .about,.services,.testimonials{padding:80px 36px}
+  .cta-section{padding:70px 36px}
+  .footer{padding:40px 36px 28px}
+  .badge-rating{left:-14px}
+  .badge-exp{right:-28px;width:86px;height:86px}
+  .badge-exp .badge-num{font-size:20px}
+  .badge-calls{left:-8px}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{gap:48px}
+}
+
+@media(max-width:768px){
+  .nav-inner{padding:0 20px;height:64px}
+  .nav-links{display:none}
+  .nav-mobile-btn{display:flex}
+  .page-wrapper{padding:0 20px}
+  .hero{
+    grid-template-columns:1fr;
+    gap:32px;
+    padding:24px 0 32px;
+    min-height:auto;
+  }
+  .hero-text{text-align:center;max-width:100%;order:1}
+  .hero-text h1{margin-left:auto;margin-right:auto}
+  .hero-subtitle{margin-left:auto;margin-right:auto}
+  .hero-body{max-width:100%;margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-trust{justify-content:center;flex-wrap:wrap}
+  .hero-visual{order:2;justify-content:center}
+  .hero-img-wrapper{max-width:420px;margin:0 auto}
+  .badge-exp{right:-16px;width:76px;height:76px}
+  .badge-exp .badge-num{font-size:18px}
+  .badge-exp .badge-label{font-size:8px}
+  .badge-rating{left:-8px;bottom:auto;top:10px}
+  .badge-calls{left:-4px}
+  .about,.services,.testimonials{padding:60px 20px}
+  .cta-section{padding:60px 20px}
+  .footer{padding:32px 20px 24px}
+  .about-inner{grid-template-columns:1fr;gap:36px}
+  .about-visual{order:-1}
+  .section-heading,.about-heading{font-size:30px}
+  .services-grid{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .about-stats{gap:20px}
+  .footer-inner{flex-direction:column;text-align:center;gap:12px}
+  .cta-phone{font-size:24px}
+}
+
+@media(max-width:480px){
+  .hero-text h1{font-size:28px}
+  .hero-subtitle{font-size:15px}
+  .hero-tag{font-size:12px;padding:5px 14px}
+  .badge-rating{padding:10px 14px}
+  .badge-rating-number{font-size:17px}
+  .badge-exp{width:64px;height:64px;right:-10px}
+  .badge-exp .badge-num{font-size:16px}
+  .badge-calls{padding:10px 14px}
+  .badge-calls .badge-num{font-size:17px}
+  .badge-calls-icon{width:26px;height:26px}
+  .nav-cta{padding:8px 16px;font-size:13px}
+  .about-stats{flex-direction:column;gap:16px;align-items:center}
+  .hero-actions{flex-direction:column;align-items:center}
+  .cta-phone{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ────────────────────────── -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </div>
+      {{CLINIC_NAME}}
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#" class="active">עמוד הבית</a></li>
+      <li><a href="#about">אודות</a></li>
+      <li><a href="#services">שירותים</a></li>
+      <li><a href="#contact">צור קשר</a></li>
+    </ul>
+
+    <!-- IF:PHONE -->
+    <a href="tel:{{PHONE}}" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      קבעו תור עכשיו
+    </a>
+    <!-- ENDIF:PHONE -->
+
+    <button class="nav-mobile-btn" aria-label="תפריט">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────── -->
+<div class="page-wrapper">
+  <section class="hero">
+
+    <!-- Text side -->
+    <div class="hero-text">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        מרפאת שיניים מתקדמת
+      </div>
+
+      <h1>מרפאת שיניים<br><span class="accent">מובילה ב{{CITY}}</span></h1>
+      <p class="hero-subtitle">{{DOCTOR_PREFIX}} {{DOCTOR_NAME}} — מומחיות רפואית שמובילה לחיוך מושלם</p>
+      <p class="hero-body">
+        {{ABOUT_TEXT}}
+      </p>
+
+      <div class="hero-actions">
+        <!-- IF:PHONE -->
+        <a href="tel:{{PHONE}}" class="hero-cta-primary">
+          קבעו תור עכשיו
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 5l-7 7 7 7"/>
+          </svg>
+        </a>
+        <!-- ENDIF:PHONE -->
+        <a href="#services" class="hero-cta-secondary">
+          השירותים שלנו
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 5l-7 7 7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <span class="hero-trust-item"><span class="check">&#10003;</span> ללא כאב</span>
+        <span class="hero-trust-item"><span class="check">&#10003;</span> טכנולוגיה מתקדמת</span>
+        <span class="hero-trust-item"><span class="check">&#10003;</span> אחריות מלאה</span>
+      </div>
+    </div>
+
+    <!-- Visual side -->
+    <div class="hero-visual">
+      <div class="hero-img-wrapper">
+
+        <div class="hero-img">
+          <img src="images/image8.png" alt="{{CLINIC_NAME}} — {{DOCTOR_PREFIX}} {{DOCTOR_NAME}}">
+        </div>
+
+        <!-- Badge: Google Rating -->
+        <div class="badge-rating">
+          <svg class="badge-rating-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+            <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+            <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+            <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+          </svg>
+          <div class="badge-rating-content">
+            <span class="badge-rating-number">{{RATING}}</span>
+            <div class="badge-rating-stars">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+            <span class="badge-rating-label">{{REVIEW_COUNT}} ביקורות</span>
+          </div>
+        </div>
+
+        <!-- Badge: Experience circle -->
+        <div class="badge-exp">
+          <span class="badge-exp-accent"></span>
+          <div class="badge-num">15+</div>
+          <div class="badge-label">שנות<br>ניסיון</div>
+        </div>
+
+        <!-- Badge: Phone calls -->
+        <div class="badge-calls">
+          <div class="badge-calls-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="badge-num">+947</div>
+            <div class="badge-label">שיחות מטופלים חדשים</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<!-- ── ABOUT ──────────────────────────────── -->
+<section class="about" id="about">
+  <div class="about-inner">
+
+    <div class="about-content">
+      <span class="about-label">אודות המרפאה</span>
+      <h2 class="about-heading">{{DOCTOR_PREFIX}} {{DOCTOR_NAME}}<br>{{CLINIC_NAME}}</h2>
+      <p class="about-text">
+        {{ABOUT_TEXT}}
+      </p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-number">{{RATING}}</div>
+          <div class="about-stat-label">דירוג גוגל</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">{{REVIEW_COUNT}}</div>
+          <div class="about-stat-label">ביקורות</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">5,000+</div>
+          <div class="about-stat-label">מטופלים מרוצים</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <div class="about-decorative">
+        <span class="about-accent-dot"></span>
+        <span class="about-accent-dot"></span>
+        <span class="about-accent-dot"></span>
+        <svg class="about-deco-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2C12.5 2 10 3.5 8.5 5.5C7 7.5 6.5 10 7 12.5C7.5 15 8 17 8.5 19C9 21 9.5 23 10 25C10.5 27 11 29 12 30C12.5 30.5 13 30 13.5 29C14 28 14.5 26 15 24C15.3 22.5 15.7 22.5 16 22.5C16.3 22.5 16.7 22.5 17 24C17.5 26 18 28 18.5 29C19 30 19.5 30.5 20 30C21 29 21.5 27 22 25C22.5 23 23 21 23.5 19C24 17 24.5 15 25 12.5C25.5 10 25 7.5 23.5 5.5C22 3.5 19.5 2 16 2Z"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SERVICES ───────────────────────────── -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <span class="section-label">מה אנחנו מציעים</span>
+    <h2 class="section-heading">השירותים שלנו</h2>
+    <p class="section-subtitle">מגוון טיפולים מתקדמים לשמירה על בריאות ואסתטיקה של החיוך שלכם</p>
+
+    <div class="services-grid">
+
+      <!-- Service 1 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C9.5 2 8 3 7 4.5C6 6 5.5 8 6 10c.5 2.5 1 4.5 1.5 6.5s1 4 1.5 6c.3 1 .7 1.5 1 1.5s.5-.3.8-1.2c.5-1.5 1-3.5 1.2-4.3.2-.8.5-1 1-1s.8.2 1 1c.2.8.7 2.8 1.2 4.3.3.9.5 1.2.8 1.2s.7-.5 1-1.5c.5-2 1-4 1.5-6S19.5 12.5 20 10c.5-2 0-4-1-5.5C18 3 16.5 2 14 2h-2z"/>
+          </svg>
+        </div>
+        <h3 class="service-title">{{SERVICE_1_NAME}}</h3>
+        <p class="service-desc">{{SERVICE_1_DESC}}</p>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h3 class="service-title">{{SERVICE_2_NAME}}</h3>
+        <p class="service-desc">{{SERVICE_2_DESC}}</p>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="service-title">{{SERVICE_3_NAME}}</h3>
+        <p class="service-desc">{{SERVICE_3_DESC}}</p>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="service-title">{{SERVICE_4_NAME}}</h3>
+        <p class="service-desc">{{SERVICE_4_DESC}}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────── -->
+<!-- IF:REVIEWS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <span class="section-label">חוות דעת</span>
+    <h2 class="section-heading">מה אומרים עלינו</h2>
+    <p class="section-subtitle">מטופלים שסומכים עלינו ומשתפים את החוויה שלהם</p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">{{REVIEW_1_TEXT}}</p>
+        <div class="testimonial-stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">{{REVIEW_1_AUTHOR}}</div>
+        <div class="testimonial-role">מטופל/ת</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">{{REVIEW_2_TEXT}}</p>
+        <div class="testimonial-stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">{{REVIEW_2_AUTHOR}}</div>
+        <div class="testimonial-role">מטופל/ת</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">{{REVIEW_3_TEXT}}</p>
+        <div class="testimonial-stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">{{REVIEW_3_AUTHOR}}</div>
+        <div class="testimonial-role">מטופל/ת</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ENDIF:REVIEWS -->
+
+<!-- ── CONTACT / CTA ─────────────────────── -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <h2 class="cta-heading">מוכנים לחיוך המושלם?</h2>
+    <p class="cta-subtitle">צרו קשר עוד היום ותנו ל{{DOCTOR_PREFIX}} {{DOCTOR_NAME}} ללוות אתכם לחיוך הבריא והיפה שמגיע לכם</p>
+    <!-- IF:PHONE -->
+    <a href="tel:{{PHONE}}" class="cta-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      קבעו תור עכשיו
+    </a>
+    <a href="tel:{{PHONE}}" class="cta-phone">{{PHONE}}</a>
+    <!-- ENDIF:PHONE -->
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </div>
+      <span class="footer-brand-name">{{CLINIC_NAME}}</span>
+    </div>
+    <div class="footer-info">
+      <span>{{CITY}}</span>
+      <span class="footer-dot"></span>
+      <span>{{DOCTOR_PREFIX}} {{DOCTOR_NAME}}</span>
+    </div>
+    <div class="footer-copy">&copy; 2026 {{CLINIC_NAME}}. כל הזכויות שמורות.</div>
+  </div>
+</footer>
+
+<!-- ── Sticky nav scroll effect ──────────── -->
+<script>
+(function(){
+  var nav=document.getElementById('navbar');
+  if(!nav)return;
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>10);
+  },{passive:true});
+})();
+</script>
+
+</body>
+</html>

@@ -78,7 +78,7 @@ Regardless of creative approach:
 ### Logo Integrity
 
 - Remove all existing logos in the template.
-- Insert the provided BrandLogo as-is (no recolor, warp, or crop).
+- Insert the provided BrandLogo as-is (no recolor, warp, or crop). make sure to insert the icon and logo text if both exists.
 - Maintain proportional scale and clear-space equal to its X-height around all sides.
 
 ### Font Fidelity

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הצעה למרפאת שיניים — מרפאת שיניים</title>
+<style>
+  /* ============ RESET & BASE ============ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f5f6fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #1e293b;
+    direction: rtl;
+    line-height: 1.6;
+    padding: 24px 16px 60px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .anim {
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease-out forwards;
+  }
+
+  /* Stagger delays */
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.12s; }
+  .d3 { animation-delay: 0.19s; }
+  .d4 { animation-delay: 0.26s; }
+  .d5 { animation-delay: 0.33s; }
+  .d6 { animation-delay: 0.40s; }
+  .d7 { animation-delay: 0.47s; }
+  .d8 { animation-delay: 0.55s; }
+  .d9 { animation-delay: 0.62s; }
+  .d10 { animation-delay: 0.70s; }
+  .d11 { animation-delay: 0.78s; }
+  .d12 { animation-delay: 0.86s; }
+
+  /* ============ CARD BASE ============ */
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  }
+
+  /* ============ SECTION 1 — BENTO GRID ============ */
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .bento-top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(140px, auto);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  /* --- Hero Card --- */
+  .card-hero {
+    grid-column: span 2;
+    grid-row: span 2;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    color: #fff;
+  }
+
+  .card-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('../../image to be used/image1.png') center/cover no-repeat;
+  }
+
+  .card-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 100%);
+  }
+
+  .card-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-hero h1 {
+    font-size: 1.55rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .card-hero p {
+    font-size: 0.9rem;
+    opacity: 0.92;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+
+  .card-hero .location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+
+  /* --- Google Rating Card --- */
+  .card-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .card-rating .google-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+  }
+
+  .card-rating .score {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1;
+  }
+
+  .card-rating .stars {
+    color: #facc15;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin: 6px 0 4px;
+  }
+
+  .card-rating .label {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    font-weight: 600;
+  }
+
+  /* --- Reviews Count Card --- */
+  .card-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .card-reviews .big-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #0EA5E9;
+    line-height: 1;
+  }
+
+  .card-reviews .label {
+    font-size: 0.82rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  /* --- Website Score Card --- */
+  .card-website {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .circle-progress {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+  }
+
+  .circle-progress svg {
+    transform: rotate(-90deg);
+    width: 80px;
+    height: 80px;
+  }
+
+  .circle-progress .bg {
+    fill: none;
+    stroke: #e2e8f0;
+    stroke-width: 6;
+  }
+
+  .circle-progress .fg {
+    fill: none;
+    stroke: #0EA5E9;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 226;
+    stroke-dashoffset: 45.2; /* 226 * (1 - 0.8) */
+    transition: stroke-dashoffset 1s ease;
+  }
+
+  .circle-progress .score-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .card-website .label {
+    font-size: 0.82rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  /* --- Clinic Photo Card --- */
+  .card-photo {
+    grid-column: span 2;
+    position: relative;
+    min-height: 160px;
+  }
+
+  .card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-photo .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(14,165,233,0.15) 0%, transparent 50%);
+  }
+
+  .card-photo .photo-label {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #334155;
+  }
+
+  /* --- Online Presence Card --- */
+  .card-presence {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .card-presence .pres-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 12px;
+  }
+
+  .card-presence .pres-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #334155;
+  }
+
+  .check-green {
+    color: #10B981;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  /* --- Happy Patient Card --- */
+  .card-patient {
+    position: relative;
+    min-height: 180px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .card-patient img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-patient .quote-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+  }
+
+  .card-patient .quote-text {
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+
+  .card-patient .quote-text::before {
+    content: '"';
+    font-size: 1.4rem;
+    opacity: 0.7;
+    margin-left: 2px;
+  }
+
+  .card-patient .quote-text::after {
+    content: '"';
+    font-size: 1.4rem;
+    opacity: 0.7;
+    margin-right: 2px;
+  }
+
+  /* ============ SECTION 2 — COMPARISON TABLE ============ */
+  .comparison-section {
+    margin-top: 16px;
+  }
+
+  .comp-table {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    margin-top: 28px;
+  }
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-header-row {
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .comp-cell {
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cell-label {
+    text-align: right;
+    justify-content: flex-start;
+    font-weight: 700;
+    color: #475569;
+    font-size: 0.85rem;
+  }
+  .cell-you {
+    background: rgba(14,165,233,0.08);
+    font-weight: 700;
+    color: #0c4a6e;
+  }
+  .comp-header-row .cell-you {
+    background: #0EA5E9;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+  .comp-header-row .cell-comp {
+    color: #475569;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .comp-header-row .cell-label { visibility: hidden; }
+  .reviews-row {
+    background: rgba(14,165,233,0.04);
+  }
+  .reviews-row .cell-you {
+    background: rgba(14,165,233,0.15);
+  }
+  .win { color: #10B981 !important; }
+  .lose { color: #ef4444 !important; }
+
+  /* ============ WARNING BOX ============ */
+  .warning-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-top: 24px;
+    border-right: 5px solid #f59e0b;
+    box-shadow: 0 4px 20px rgba(245,158,11,0.12);
+  }
+
+  .warning-box .warn-icon {
+    font-size: 1.3rem;
+    margin-left: 8px;
+  }
+
+  .warning-box .warn-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 6px;
+  }
+
+  .warning-box .warn-text {
+    font-size: 0.9rem;
+    color: #78350f;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+
+  .warn-highlight {
+    background: rgba(245,158,11,0.25);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 800;
+  }
+
+  /* ============ CTA CARD ============ */
+  .cta-card {
+    background: linear-gradient(135deg, #0EA5E9 0%, #0369a1 100%);
+    border-radius: 16px;
+    padding: 32px 28px;
+    margin-top: 20px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(14,165,233,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .cta-card .cta-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .cta-card .cta-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: #fff;
+    color: #0EA5E9;
+    font-size: 0.95rem;
+    font-weight: 800;
+    padding: 12px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.72rem;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 700px) {
+    .bento-top {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(120px, auto);
+    }
+
+    .card-hero {
+      grid-column: span 2;
+      grid-row: span 1;
+      min-height: 220px;
+    }
+
+    .card-photo {
+      grid-column: span 2;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .comp-row { grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr; font-size: 0.75rem; }
+    .comp-cell { padding: 10px 8px; font-size: 0.75rem; }
+  }
+
+  @media (max-width: 420px) {
+    .bento-top {
+      grid-template-columns: 1fr;
+    }
+
+    .card-hero {
+      grid-column: span 1;
+    }
+
+    .card-photo {
+      grid-column: span 1;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ========== SECTION 1: BENTO GRID — CLINIC INFO ========== -->
+  <div class="bento-top">
+
+    <!-- 1. Hero Card -->
+    <div class="card card-hero anim d1">
+      <div class="card-hero-bg"></div>
+      <div class="card-hero-overlay"></div>
+      <div class="card-hero-content">
+        <h1>מרפאת שיניים</h1>
+        <p>רופאת שיניים מומחית לילדים ונוער</p>
+        <span class="location-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          פתח תקווה
+        </span>
+      </div>
+    </div>
+
+    <!-- 2. Google Rating Card -->
+    <div class="card card-rating anim d2">
+      <svg class="google-icon" viewBox="0 0 24 24">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+      <div class="score">1.5</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="label">ציון Google</div>
+    </div>
+
+    <!-- 3. Reviews Count Card -->
+    <div class="card card-reviews anim d3">
+      <div class="big-num">0</div>
+      <div class="label">ביקורות Google</div>
+    </div>
+
+    <!-- 4. Website Score Card -->
+    <div class="card card-website anim d4">
+      <div class="circle-progress">
+        <svg viewBox="0 0 80 80">
+          <circle class="bg" cx="40" cy="40" r="36"/>
+          <circle class="fg" cx="40" cy="40" r="36"/>
+        </svg>
+        <div class="score-text">8/10</div>
+      </div>
+      <div class="label">ציון אתר</div>
+    </div>
+
+    <!-- 5. Clinic Photo Card -->
+    <div class="card card-photo anim d5">
+      <img src="../../image to be used/image9.png" alt="פנים המרפאה" loading="lazy">
+      <div class="photo-overlay"></div>
+      <div class="photo-label">פנים המרפאה</div>
+    </div>
+
+    <!-- 6. Online Presence Card -->
+    <div class="card card-presence anim d6">
+      <div class="pres-title">נוכחות אונליין</div>
+      <div class="pres-item"><span class="check-green">&#10007;</span> הזמנה אונליין</div>
+      <div class="pres-item"><span class="check-green">&#10003;</span> פייסבוק</div>
+      <div class="pres-item"><span class="check-green">&#10003;</span> אינסטגרם</div>
+    </div>
+
+    <!-- 7. Happy Patient Card -->
+    <div class="card card-patient anim d7">
+      <img src="../../image to be used/image5.png" alt="מטופלת מרוצה" loading="lazy">
+      <div class="quote-overlay">
+        <div class="quote-text">חוויה מדהימה!</div>
+      </div>
+    </div>
+
+    <!-- 8. GBP Photo Card -->
+    <div class="card card-patient anim d7" style="grid-column: span 1;">
+      <img src="../../image to be used/image3.png" alt="תמונת GBP" loading="lazy">
+      <div class="quote-overlay">
+        <div class="quote-text" style="font-size:0.82rem">תמונות מגוגל</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ========== SECTION 2: COMPARISON BENTO ========== -->
+  <div class="comparison-section">
+
+    <h2 class="section-title anim d8">כרטיס השוואה מול מתחרים</h2>
+    <p class="section-subtitle anim d8">השווינו את המרפאה שלך מול 3 מרפאות מובילות בפתח תקווה</p>
+
+    <div class="comp-table anim d9">
+    <div class="comp-row comp-header-row">
+      <div class="comp-cell cell-label"></div>
+      <div class="comp-cell cell-you">אתם</div>
+      <div class="comp-cell cell-comp">ד"ר מאור ניב - רפואת שיני</div>
+      <div class="comp-cell cell-comp">רופא שיניים פתח תקווה נטו</div>
+      <div class="comp-cell cell-comp">ד"ר שי מרגלית - רופא שיני</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">ציון Google</div>
+      <div class="comp-cell cell-you">1.5</div>
+      <div class="comp-cell cell-comp win">5.0</div>
+      <div class="comp-cell cell-comp win">4.9</div>
+      <div class="comp-cell cell-comp win">4.9</div>
+    </div>
+    <div class="comp-row reviews-row">
+      <div class="comp-cell cell-label">ביקורות</div>
+      <div class="comp-cell cell-you">0</div>
+      <div class="comp-cell cell-comp win">1025</div>
+      <div class="comp-cell cell-comp win">163</div>
+      <div class="comp-cell cell-comp win">155</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">ציון אתר</div>
+      <div class="comp-cell cell-you">8</div>
+      <div class="comp-cell cell-comp">8</div>
+      <div class="comp-cell cell-comp win">9</div>
+      <div class="comp-cell cell-comp win">10</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">הזמנה אונליין</div>
+      <div class="comp-cell cell-you">&#10003;</div>
+      <div class="comp-cell cell-comp">&#10003;</div>
+      <div class="comp-cell cell-comp">&#10003;</div>
+      <div class="comp-cell cell-comp">&#10003;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">פייסבוק</div>
+      <div class="comp-cell cell-you">&#10003;</div>
+      <div class="comp-cell cell-comp">&#10003;</div>
+      <div class="comp-cell cell-comp lose">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10003;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">אינסטגרם</div>
+      <div class="comp-cell cell-you">&#10007;</div>
+      <div class="comp-cell cell-comp win">&#10003;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp win">&#10003;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">תמונות GBP</div>
+      <div class="comp-cell cell-you">—</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+    </div>
+  </div>
+
+    <!-- Warning Box -->
+    <div class="warning-box anim d12">
+      <div class="warn-title"><span class="warn-icon">&#9888;&#65039;</span> מיקום שלך: מקום 4 מתוך 4 לפי ביקורות</div>
+      <div class="warn-text">המתחרה המוביל מחזיק <span class="warn-highlight">1025 ביקורות</span> — פי <span class="warn-highlight">31.5</span> ממך. ביקורות הן הגורם המרכזי לדירוג בגוגל.</div>
+    </div>
+
+    <!-- CTA Card -->
+    <div class="cta-card anim d12">
+      <div class="cta-title">אני יכול לשלוח לך את כל הנתונים על המתחרים שלך</div>
+      <div class="cta-text">כולל ניתוח ביקורות, מילות חיפוש, ונוכחות דיגיטלית מלאה.<br>10 דקות בזום — רלוונטי?</div>
+      <button class="cta-btn">בואו נדבר</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer anim d12">
+      מבוסס על נתונים ציבוריים מ-Google, easy.co.il ואתרי המרפאות | פברואר 2026
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

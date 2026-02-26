@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{CLINIC_NAME}} | {{DOCTOR_PREFIX}} {{DOCTOR_NAME}} | {{CITY}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --ink:#111827;
+  --ink-soft:#374151;
+  --gray:#6B7280;
+  --gray-light:#D1D5DB;
+  --gray-bg:#F3F4F6;
+  --blue:#2563EB;
+  --blue-dark:#1D4ED8;
+  --blue-light:#DBEAFE;
+  --blue-bg:#EFF6FF;
+  --teal:#10B981;
+  --teal-light:#D1FAE5;
+  --dark:#1E293B;
+  --dark-deep:#0F172A;
+  --white:#FFFFFF;
+  --gold:#FACC15;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.08);
+  --shadow-md:0 4px 16px rgba(0,0,0,.1);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+  --shadow-xl:0 12px 48px rgba(0,0,0,.14);
+  --font:'Heebo',sans-serif;
+  --max-w:1280px;
+}
+
+body{
+  font-family:var(--font);
+  direction:rtl;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── KEYFRAMES ───────────────────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes slideRight{
+  from{opacity:0;transform:translateX(-28px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes slideLeft{
+  from{opacity:0;transform:translateX(28px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes scaleIn{
+  from{opacity:0;transform:scale(.9)}
+  to{opacity:1;transform:scale(1)}
+}
+@keyframes floatBob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+@keyframes shimmer{
+  0%{background-position:-200% center}
+  100%{background-position:200% center}
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.25)}
+  50%{box-shadow:0 0 0 14px rgba(37,99,235,0)}
+}
+
+/* ── NAVIGATION ──────────────────────────── */
+.nav-wrap{
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  position:sticky;top:0;z-index:100;
+}
+nav{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:0 48px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;color:var(--ink);
+  font-size:19px;font-weight:700;
+}
+.nav-logo-icon{
+  width:38px;height:38px;
+  background:var(--dark);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-logo-icon svg{width:20px;height:20px;fill:var(--white)}
+.nav-links{
+  display:flex;align-items:center;gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:14px;font-weight:500;
+  color:var(--gray);text-decoration:none;
+  position:relative;
+  transition:color .25s;
+  padding-bottom:4px;
+}
+.nav-links a::after{
+  content:'';position:absolute;
+  bottom:0;right:0;width:0;height:2px;
+  background:var(--blue);
+  transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  display:flex;align-items:center;gap:8px;
+  background:var(--blue);color:var(--white);
+  padding:10px 24px;border-radius:50px;
+  font-size:14px;font-weight:600;
+  text-decoration:none;
+  transition:all .3s cubic-bezier(.25,.8,.25,1);
+  direction:ltr;
+  box-shadow:0 2px 12px rgba(37,99,235,0.25);
+}
+.nav-cta:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,0.35)}
+.nav-cta svg{width:16px;height:16px;fill:var(--white)}
+
+/* Mobile menu button */
+.nav-mobile-btn{
+  display:none;
+  background:none;border:none;
+  cursor:pointer;padding:8px;
+}
+.nav-mobile-btn svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+
+/* ── HERO ────────────────────────────────── */
+.hero{
+  background:var(--gray-bg);
+  position:relative;
+  overflow:visible;
+  z-index:2;
+}
+.hero-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:36px 48px 0;
+  position:relative;
+  min-height:580px;
+}
+
+/* ── HERO FLOATING ELEMENTS (overlay card collage) ── */
+
+/* Services card — top right (RTL) */
+.hero-card-services{
+  position:absolute;
+  top:36px;right:48px;
+  width:270px;
+  background:var(--white);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:var(--shadow-md);
+  z-index:5;
+  animation:fadeUp .6s ease both .1s;
+}
+.hero-card-services .plus-btn{
+  position:absolute;
+  top:14px;left:14px;
+  width:28px;height:28px;
+  background:var(--blue);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--white);font-size:18px;font-weight:300;
+  cursor:pointer;transition:transform .2s;
+  border:none;line-height:1;
+}
+.hero-card-services .plus-btn:hover{transform:rotate(90deg)}
+.hero-card-services p{
+  font-size:12px;line-height:1.65;
+  color:var(--gray);margin-bottom:12px;
+  padding-left:32px;
+}
+.svc-icons{display:flex;gap:8px}
+.svc-icon{
+  width:36px;height:36px;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.svc-icon.blue{background:var(--blue-light)}
+.svc-icon.teal{background:var(--teal-light)}
+.svc-icon.gray{background:#E5E7EB}
+.svc-icon svg{width:17px;height:17px}
+
+/* Trusted badge — top center area */
+.trusted-badge{
+  position:absolute;
+  top:42px;right:350px;
+  background:var(--white);
+  border-radius:50px;
+  padding:8px 18px;
+  display:inline-flex;align-items:center;gap:8px;
+  box-shadow:var(--shadow-sm);
+  font-size:13px;font-weight:600;color:var(--ink);
+  z-index:5;
+  animation:fadeUp .5s ease both .2s;
+}
+.trusted-badge .check{
+  width:22px;height:22px;
+  background:var(--teal);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.trusted-badge .check svg{width:12px;height:12px;fill:var(--white)}
+
+/* Overlay portrait cards — top left (RTL) */
+.portrait-cards{
+  position:absolute;
+  top:36px;left:48px;
+  display:flex;
+  z-index:5;
+  animation:slideLeft .6s ease both .15s;
+}
+.portrait-card{
+  width:115px;height:150px;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+  position:relative;
+  flex-shrink:0;
+  background:linear-gradient(135deg,var(--blue-light),var(--gray-bg));
+}
+.portrait-card:nth-child(2){
+  margin-right:-28px;
+  margin-top:22px;
+}
+.portrait-card-overlay{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:10px 12px;
+  background:linear-gradient(transparent,rgba(0,0,0,.6));
+}
+.portrait-card-overlay span{font-size:11px;color:var(--white);font-weight:600}
+
+/* Hero headline — center-right area */
+.hero-headline{
+  position:absolute;
+  top:170px;right:48px;
+  width:580px;
+  z-index:4;
+  animation:fadeUp .6s ease both .3s;
+}
+.hero-headline h1{
+  font-size:clamp(32px,3.8vw,50px);
+  font-weight:800;
+  line-height:1.2;
+  color:var(--ink);
+  letter-spacing:-0.5px;
+}
+.hero-headline h1 .accent{
+  color:var(--blue);
+  position:relative;
+  display:inline-block;
+}
+.hero-headline h1 .accent::after{
+  content:'';
+  position:absolute;
+  bottom:-6px;left:0;right:0;
+  height:10px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10'%3E%3Cpath d='M0 5 Q10 0 20 5 T40 5 T60 5 T80 5 T100 5 T120 5' fill='none' stroke='%232563EB' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+  background-size:120px 10px;
+}
+.hero-subtitle{
+  font-size:15px;
+  color:var(--gray);
+  line-height:1.7;
+  margin-top:18px;
+  max-width:420px;
+}
+
+/* Main photo placeholder — center */
+.hero-main-photo{
+  position:absolute;
+  top:140px;
+  left:calc(50% - 280px);
+  width:320px;height:390px;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow-xl);
+  z-index:3;
+  background:linear-gradient(135deg,var(--blue-bg),var(--gray-bg));
+  display:flex;align-items:center;justify-content:center;
+  animation:scaleIn .7s ease both .4s;
+}
+.hero-main-photo .photo-placeholder{
+  text-align:center;color:var(--gray);
+}
+.hero-main-photo .photo-placeholder svg{width:64px;height:64px;fill:var(--gray-light);margin-bottom:8px}
+.hero-main-photo .photo-placeholder span{font-size:12px;display:block}
+
+/* Dark overlay card — overlapping the photo */
+.hero-overlay-card{
+  position:absolute;
+  top:370px;
+  left:calc(50% - 340px);
+  width:210px;
+  background:var(--dark);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  z-index:6;
+  animation:fadeUp .5s ease both .6s;
+}
+.hero-overlay-card-top{
+  width:100%;height:90px;
+  background:linear-gradient(135deg,#334155,#1E293B);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-overlay-card-top svg{width:32px;height:32px;fill:rgba(255,255,255,.3)}
+.hero-overlay-card-body{padding:12px 14px}
+.hero-overlay-card-body p{
+  font-size:11.5px;color:rgba(255,255,255,.75);
+  margin-bottom:5px;line-height:1.4;
+}
+.hero-overlay-card-body a{
+  font-size:12px;color:#60A5FA;
+  font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:4px;
+  transition:color .2s;
+}
+.hero-overlay-card-body a:hover{color:var(--white)}
+
+/* Floating rating card — next to photo */
+.hero-rating-card{
+  position:absolute;
+  top:260px;
+  left:calc(50% + 60px);
+  background:var(--white);
+  border-radius:16px;
+  padding:16px 20px;
+  box-shadow:0 6px 24px rgba(0,0,0,.12);
+  z-index:10;
+  min-width:150px;
+  animation:fadeUp .5s ease both .5s;
+}
+.hero-rating-card .rating-stars{display:flex;gap:2px;margin-bottom:4px}
+.hero-rating-card .rating-stars .star{color:var(--gold);font-size:14px}
+.hero-rating-card .rating-val{
+  font-size:22px;font-weight:800;color:var(--ink);line-height:1;
+  direction:ltr;text-align:right;
+}
+.hero-rating-card .rating-count{
+  font-size:11px;color:var(--gray);
+  margin-top:3px;
+}
+.hero-rating-card .google-badge{
+  display:flex;align-items:center;gap:4px;
+  margin-top:6px;font-size:10px;color:var(--gray);font-weight:500;
+}
+.hero-rating-card .google-badge svg{width:14px;height:14px}
+
+/* ── STATS BAR ───────────────────────────── */
+.stats-bar{
+  background:var(--white);
+  border-top:1px solid #E5E7EB;
+  border-bottom:1px solid #E5E7EB;
+}
+.stats-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:40px 48px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.stat-item{
+  text-align:center;
+  position:relative;
+  animation:fadeUp .5s ease both;
+}
+.stat-item:nth-child(1){animation-delay:.1s}
+.stat-item:nth-child(2){animation-delay:.2s}
+.stat-item:nth-child(3){animation-delay:.3s}
+.stat-item:nth-child(4){animation-delay:.4s}
+.stat-item:not(:last-child)::before{
+  content:'';
+  position:absolute;
+  left:0;top:10%;
+  height:80%;width:1px;
+  background:#E5E7EB;
+}
+.stat-num{
+  font-size:clamp(32px,3.5vw,44px);
+  font-weight:800;
+  color:var(--ink);
+  line-height:1;
+  letter-spacing:-1px;
+  direction:ltr;
+}
+.stat-label{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:8px;
+  font-weight:400;
+}
+
+/* ── ABOUT SECTION ───────────────────────── */
+.about{
+  background:var(--white);
+  padding:80px 48px 88px;
+}
+.about-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+}
+.about-content{animation:slideRight .6s ease both .15s}
+
+.about-label{
+  display:inline-block;
+  font-size:12px;font-weight:700;
+  color:var(--blue);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:var(--blue-bg);
+  padding:6px 16px;
+  border-radius:50px;
+  margin-bottom:20px;
+}
+.about-heading{
+  font-size:clamp(26px,2.8vw,38px);
+  font-weight:800;
+  line-height:1.3;
+  color:var(--ink);
+  margin-bottom:20px;
+}
+.about-heading .highlight{color:var(--blue)}
+.about-text{
+  font-size:15px;
+  color:var(--gray);
+  line-height:1.8;
+  margin-bottom:32px;
+  max-width:480px;
+}
+.about-stats{
+  display:flex;gap:32px;
+}
+.about-stat{
+  text-align:center;
+  padding:20px 24px;
+  background:var(--gray-bg);
+  border-radius:16px;
+  transition:all .3s ease;
+}
+.about-stat:hover{
+  background:var(--blue-bg);
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-md);
+}
+.about-stat-number{
+  font-size:32px;
+  font-weight:800;
+  color:var(--blue);
+  line-height:1;
+}
+.about-stat-label{
+  font-size:12px;
+  color:var(--gray);
+  margin-top:6px;
+  font-weight:500;
+}
+
+/* About visual — overlay card stack */
+.about-visual{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:380px;
+  animation:slideLeft .6s ease both .3s;
+}
+.about-card-main{
+  width:300px;height:360px;
+  background:linear-gradient(135deg,var(--dark),var(--dark-deep));
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow-xl);
+  position:relative;
+  z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:40px 28px;
+  color:var(--white);
+}
+.about-card-main .doctor-icon{
+  width:80px;height:80px;
+  background:rgba(255,255,255,.1);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+  border:2px solid rgba(255,255,255,.15);
+}
+.about-card-main .doctor-icon svg{width:36px;height:36px;fill:rgba(255,255,255,.7)}
+.about-card-main h3{font-size:22px;font-weight:700;margin-bottom:4px}
+.about-card-main .subtitle{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px}
+.about-card-main .divider{width:40px;height:2px;background:var(--blue);margin:0 auto 16px;border-radius:2px}
+.about-card-main p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.7}
+
+/* Floating accent cards behind main */
+.about-card-accent{
+  position:absolute;
+  width:260px;height:300px;
+  background:var(--blue);
+  border-radius:24px;
+  top:20px;right:-20px;
+  z-index:1;
+  opacity:.12;
+}
+.about-card-accent-2{
+  position:absolute;
+  width:220px;height:260px;
+  background:var(--blue-light);
+  border-radius:20px;
+  bottom:0;left:-10px;
+  z-index:0;
+}
+
+/* Floating badge on about section */
+.about-badge{
+  position:absolute;
+  bottom:20px;right:20px;
+  background:var(--white);
+  border-radius:14px;
+  padding:12px 18px;
+  box-shadow:var(--shadow-md);
+  z-index:5;
+  display:flex;align-items:center;gap:10px;
+  animation:floatBob 4s ease-in-out infinite;
+}
+.about-badge .badge-icon{
+  width:36px;height:36px;
+  background:var(--teal-light);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-badge .badge-icon svg{width:18px;height:18px;fill:var(--teal)}
+.about-badge .badge-text{font-size:12px;font-weight:600;color:var(--ink)}
+.about-badge .badge-sub{font-size:10px;color:var(--gray)}
+
+/* ── SERVICES SECTION ────────────────────── */
+.services{
+  background:var(--gray-bg);
+  padding:80px 48px 88px;
+}
+.services-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+}
+.section-label{
+  font-size:12px;font-weight:700;
+  color:var(--blue);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-align:center;
+  display:block;
+  margin-bottom:10px;
+}
+.section-heading{
+  font-size:clamp(26px,2.8vw,38px);
+  font-weight:800;
+  color:var(--ink);
+  text-align:center;
+  margin-bottom:12px;
+  line-height:1.3;
+}
+.section-subtitle{
+  font-size:15px;
+  color:var(--gray);
+  text-align:center;
+  margin-bottom:56px;
+  max-width:480px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Overlay-style service cards */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.service-card{
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--dark);
+  min-height:280px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px 24px;
+  cursor:pointer;
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+}
+/* Gradient overlay on each card */
+.service-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(30,41,59,0) 30%,rgba(30,41,59,.92) 100%);
+  z-index:1;
+  transition:all .4s ease;
+}
+.service-card::after{
+  content:'';
+  position:absolute;
+  top:0;right:0;
+  width:60px;height:60px;
+  background:var(--blue);
+  opacity:0;
+  border-radius:0 20px 0 20px;
+  z-index:2;
+  transition:opacity .3s ease;
+  display:flex;align-items:center;justify-content:center;
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 48px rgba(0,0,0,.2);
+}
+.service-card:hover::before{
+  background:linear-gradient(180deg,rgba(37,99,235,0.1) 0%,rgba(30,41,59,.95) 100%);
+}
+.service-card:hover::after{opacity:1}
+
+.service-card-bg{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,var(--dark),var(--dark-deep));
+  z-index:0;
+}
+.service-card-icon{
+  position:absolute;
+  top:20px;right:20px;
+  width:48px;height:48px;
+  background:rgba(255,255,255,.1);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  z-index:3;
+  transition:all .3s ease;
+  backdrop-filter:blur(8px);
+}
+.service-card:hover .service-card-icon{
+  background:var(--blue);
+  transform:scale(1.08);
+}
+.service-card-icon svg{width:22px;height:22px;fill:var(--white)}
+
+.service-card-content{
+  position:relative;z-index:3;
+}
+.service-card-content h3{
+  font-size:18px;font-weight:700;
+  color:var(--white);
+  margin-bottom:6px;
+}
+.service-card-content p{
+  font-size:13px;
+  color:rgba(255,255,255,.65);
+  line-height:1.6;
+}
+.service-card-content .svc-arrow{
+  display:inline-flex;align-items:center;gap:4px;
+  margin-top:12px;
+  font-size:12px;font-weight:600;
+  color:#60A5FA;
+  text-decoration:none;
+  opacity:0;transform:translateY(8px);
+  transition:all .3s ease;
+}
+.service-card:hover .svc-arrow{opacity:1;transform:translateY(0)}
+
+/* ── TESTIMONIALS SECTION ────────────────── */
+.testimonials{
+  background:var(--white);
+  padding:80px 48px 88px;
+}
+.testimonials-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+/* Overlay-style testimonial cards */
+.testimonial-card{
+  position:relative;
+  background:var(--white);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:20px;
+  padding:32px 28px 28px;
+  overflow:hidden;
+  transition:all .4s ease;
+}
+/* Top gradient accent overlay */
+.testimonial-card::before{
+  content:'';
+  position:absolute;
+  top:0;right:0;left:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--blue),var(--teal));
+  transition:height .3s ease;
+}
+.testimonial-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 48px rgba(0,0,0,.08);
+  border-color:transparent;
+}
+.testimonial-card:hover::before{height:6px}
+
+.testimonial-quote{
+  font-size:48px;
+  color:var(--blue);
+  opacity:.2;
+  line-height:1;
+  margin-bottom:-6px;
+  font-weight:800;
+}
+.testimonial-text{
+  font-size:15px;
+  color:var(--ink-soft);
+  line-height:1.8;
+  margin-bottom:20px;
+  font-style:italic;
+  min-height:85px;
+}
+.testimonial-stars{
+  display:flex;gap:3px;
+  margin-bottom:14px;
+}
+.testimonial-stars .star{color:var(--gold);font-size:15px}
+.testimonial-divider{
+  width:40px;height:2px;
+  background:var(--blue);
+  opacity:.3;
+  margin-bottom:14px;
+  border-radius:2px;
+}
+.testimonial-author{
+  font-size:15px;font-weight:700;color:var(--ink);
+}
+.testimonial-role{
+  font-size:12px;color:var(--gray);margin-top:2px;
+}
+
+/* ── CONTACT / CTA SECTION ───────────────── */
+.cta-section{
+  background:var(--dark);
+  padding:80px 48px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+/* Decorative overlay circles */
+.cta-section::before{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  border:1px solid rgba(255,255,255,.04);
+  border-radius:50%;
+  top:-250px;right:-100px;
+}
+.cta-section::after{
+  content:'';
+  position:absolute;
+  width:350px;height:350px;
+  border:1px solid rgba(255,255,255,.03);
+  border-radius:50%;
+  bottom:-175px;left:-50px;
+}
+/* Blue glow accent */
+.cta-glow{
+  position:absolute;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(37,99,235,.15),transparent 70%);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:0;
+}
+.cta-inner{
+  max-width:620px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.cta-heading{
+  font-size:clamp(28px,3vw,42px);
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:14px;
+  line-height:1.3;
+}
+.cta-subtitle{
+  font-size:16px;
+  color:rgba(255,255,255,.6);
+  margin-bottom:36px;
+  line-height:1.7;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--blue);
+  color:var(--white);
+  border:none;
+  text-decoration:none;
+  padding:18px 48px;
+  border-radius:50px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.04em;
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  box-shadow:0 4px 24px rgba(37,99,235,0.35);
+  position:relative;
+  overflow:hidden;
+  animation:pulseGlow 2.5s ease-in-out infinite;
+}
+.cta-btn::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  transition:left .6s;
+}
+.cta-btn:hover{
+  background:var(--blue-dark);
+  transform:translateY(-3px);
+  box-shadow:0 8px 36px rgba(37,99,235,0.5);
+}
+.cta-btn:hover::before{left:100%}
+.cta-btn svg{width:20px;height:20px;fill:var(--white)}
+
+.cta-trust{
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  margin-top:28px;
+}
+.cta-trust-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:13px;
+  color:rgba(255,255,255,.5);
+}
+.cta-trust-item svg{width:16px;height:16px;fill:var(--teal)}
+
+/* ── FOOTER ──────────────────────────────── */
+.footer{
+  background:var(--dark-deep);
+  padding:48px 48px 28px;
+  color:rgba(255,255,255,.5);
+}
+.footer-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+.footer-brand{
+  display:flex;align-items:center;gap:10px;
+}
+.footer-brand .logo-icon{
+  width:32px;height:32px;
+  background:rgba(255,255,255,.08);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.footer-brand .logo-icon svg{width:16px;height:16px;fill:rgba(255,255,255,.5)}
+.footer-brand span{
+  font-size:16px;font-weight:600;
+  color:rgba(255,255,255,.7);
+}
+.footer-info{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  font-size:13px;
+}
+.footer-info a{
+  color:rgba(255,255,255,.5);
+  text-decoration:none;
+  transition:color .3s;
+}
+.footer-info a:hover{color:var(--white)}
+.footer-copy{
+  font-size:12px;
+  color:rgba(255,255,255,.3);
+}
+.footer-bottom{
+  max-width:var(--max-w);
+  margin:24px auto 0;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.06);
+  text-align:center;
+  font-size:12px;
+  color:rgba(255,255,255,.3);
+}
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media(max-width:1100px){
+  .hero-inner{min-height:auto;padding:24px 24px 0}
+  .hero-card-services,
+  .trusted-badge,
+  .portrait-cards,
+  .hero-headline,
+  .hero-main-photo,
+  .hero-overlay-card,
+  .hero-rating-card{position:relative;top:auto;right:auto;left:auto;bottom:auto;transform:none}
+
+  .hero-inner{
+    display:flex;flex-direction:column;align-items:center;gap:16px;
+    padding-bottom:40px;
+  }
+  .hero-card-services{width:100%;max-width:340px}
+  .hero-headline{width:100%;text-align:center}
+  .hero-headline h1{text-align:center}
+  .hero-subtitle{text-align:center;margin:18px auto 0}
+  .hero-main-photo{width:280px;height:340px}
+  .hero-overlay-card{align-self:center;margin-top:-60px}
+  .hero-rating-card{align-self:center}
+  .portrait-cards{justify-content:center}
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .nav-mobile-btn{display:block}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .stats-inner{grid-template-columns:repeat(2,1fr);row-gap:24px;padding:32px 24px}
+  .stat-item:nth-child(2)::before{display:none}
+  .about-inner{grid-template-columns:1fr;gap:40px}
+  .about-visual{order:-1}
+  .about{padding:60px 24px}
+  .services{padding:60px 24px}
+  .testimonials{padding:60px 24px}
+  .testimonials-grid{grid-template-columns:1fr}
+  .cta-section{padding:60px 24px}
+}
+@media(max-width:640px){
+  .hero-inner{padding:16px 16px 0}
+  nav{padding:0 16px}
+  .hero-main-photo{width:240px;height:300px}
+  .hero-overlay-card{width:180px}
+  .hero-rating-card{display:none}
+  .stats-inner{padding:24px 16px}
+  .stat-item::before{display:none !important}
+  .hero-headline h1{font-size:28px}
+  .about{padding:40px 16px}
+  .about-stats{flex-wrap:wrap;gap:16px}
+  .about-stat{flex:1;min-width:100px}
+  .about-card-main{width:260px;height:320px;padding:32px 20px}
+  .services{padding:40px 16px}
+  .services-grid{grid-template-columns:1fr}
+  .service-card{min-height:220px}
+  .testimonials{padding:40px 16px}
+  .cta-section{padding:48px 16px}
+  .cta-trust{flex-direction:column;align-items:center;gap:12px}
+  .footer{padding:32px 16px 20px}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-info{flex-direction:column;gap:12px}
+}
+@media(max-width:480px){
+  .hero-headline h1{font-size:24px}
+  .about-heading{font-size:24px}
+  .section-heading{font-size:24px}
+  .cta-heading{font-size:24px}
+  .portrait-cards{display:none}
+  .trusted-badge{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─────────────────────────── -->
+<div class="nav-wrap">
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 3.5 4.8 5.5 3.5 7.5 3 10 3.5 12.5 4 15 4.5 17 5 19c.5 2 1 4 1.5 6 .5 2 1 3 2 4 .5.5 1 0 1.5-1s1-3 1.5-5c.3-1.5.7-1.5 1-1.5s.7 0 1 1.5c.5 2 1 4 1.5 5s1 1.5 1.5 1c1-1 1.5-2 2-4s1-4 1.5-6 1-4 1.5-6.5c.5-2.5 0-5-1.5-7C20 3.5 17.5 2 14 2h-2z"/></svg>
+    </span>
+    {{CLINIC_NAME}}
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">עמוד הבית</a></li>
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+  </ul>
+  <button class="nav-mobile-btn" aria-label="תפריט">
+    <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <!-- IF:PHONE -->
+  <a class="nav-cta" href="tel:{{PHONE}}">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+    {{PHONE}}
+  </a>
+  <!-- ENDIF:PHONE -->
+</nav>
+</div>
+
+<!-- ─── HERO ──────────────────────────────── -->
+<section class="hero">
+<div class="hero-inner">
+
+  <!-- Overlay card: services — top right -->
+  <div class="hero-card-services">
+    <button class="plus-btn" aria-label="עוד">+</button>
+    <p>מגוון רחב של שירותי שיניים מקיפים לכל צורכי הבריאות שלכם</p>
+    <div class="svc-icons">
+      <span class="svc-icon blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"><path d="M8 12h8M12 8v8"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg>
+      </span>
+      <span class="svc-icon teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="3"/><path d="M12 11v6M9 14h6"/></svg>
+      </span>
+      <span class="svc-icon gray">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round"><path d="M4.5 12.5l3 3 7-7"/><circle cx="12" cy="12" r="9"/></svg>
+      </span>
+      <span class="svc-icon blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </span>
+    </div>
+  </div>
+
+  <!-- Overlay badge: trusted -->
+  <div class="trusted-badge">
+    <span class="check">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+    </span>
+    מרפאה מאושרת משרד הבריאות
+  </div>
+
+  <!-- Overlay portrait cards — top left -->
+  <div class="portrait-cards">
+    <div class="portrait-card">
+      <div class="portrait-card-overlay"><span>{{DOCTOR_PREFIX}} {{DOCTOR_NAME}}</span></div>
+    </div>
+    <div class="portrait-card">
+      <div class="portrait-card-overlay"><span>צוות מקצועי</span></div>
+    </div>
+  </div>
+
+  <!-- Headline -->
+  <div class="hero-headline">
+    <h1>מומחים מובילים לכל<br>צורך <span class="accent">רפואי שיניים</span></h1>
+    <p class="hero-subtitle">{{CLINIC_NAME}} ב{{CITY}} — טיפולי שיניים מתקדמים, ממוקדים בנוחות שלכם ובתוצאות מושלמות.</p>
+  </div>
+
+  <!-- Main photo placeholder -->
+  <div class="hero-main-photo">
+    <img src="images/image5b.png" alt="{{CLINIC_NAME}} — {{DOCTOR_PREFIX}} {{DOCTOR_NAME}}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+  </div>
+
+  <!-- Dark overlay card -->
+  <div class="hero-overlay-card">
+    <div class="hero-overlay-card-top">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 3.5 4.8 5.5 3.5 7.5 3 10 3.5 12.5 4 15 4.5 17 5 19c.5 2 1 4 1.5 6 .5 2 1 3 2 4 .5.5 1 0 1.5-1s1-3 1.5-5c.3-1.5.7-1.5 1-1.5s.7 0 1 1.5c.5 2 1 4 1.5 5s1 1.5 1.5 1c1-1 1.5-2 2-4s1-4 1.5-6 1-4 1.5-6.5c.5-2.5 0-5-1.5-7C20 3.5 17.5 2 14 2h-2z"/></svg>
+    </div>
+    <div class="hero-overlay-card-body">
+      <p>טיפול מקצועי ואישי ב{{CITY}}</p>
+      <a href="#services">השירותים שלנו &#8592;</a>
+    </div>
+  </div>
+
+  <!-- Floating overlay: Google rating card -->
+  <div class="hero-rating-card">
+    <div class="rating-stars">
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+    </div>
+    <div class="rating-val">{{RATING}}</div>
+    <div class="rating-count">{{REVIEW_COUNT}} ביקורות</div>
+    <div class="google-badge">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+        <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+        <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+        <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+      </svg>
+      Google
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ─── STATS BAR ─────────────────────────── -->
+<section class="stats-bar">
+<div class="stats-inner">
+  <div class="stat-item">
+    <div class="stat-num">{{RATING}}</div>
+    <div class="stat-label">דירוג גוגל</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">{{REVIEW_COUNT}}</div>
+    <div class="stat-label">ביקורות</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">15+</div>
+    <div class="stat-label">שנות ניסיון</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">5,000+</div>
+    <div class="stat-label">מטופלים מרוצים</div>
+  </div>
+</div>
+</section>
+
+<!-- ─── ABOUT SECTION ─────────────────────── -->
+<section class="about" id="about">
+<div class="about-inner">
+
+  <!-- Text column -->
+  <div class="about-content">
+    <span class="about-label">אודות המרפאה</span>
+    <h2 class="about-heading">{{CLINIC_NAME}} —<br>מרפאה שמשלבת <span class="highlight">מקצועיות</span> עם חמימות</h2>
+    <p class="about-text">{{ABOUT_TEXT}}</p>
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-number">{{RATING}}</div>
+        <div class="about-stat-label">דירוג גוגל</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-number">{{REVIEW_COUNT}}</div>
+        <div class="about-stat-label">ביקורות</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-number">15+</div>
+        <div class="about-stat-label">שנות ניסיון</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visual column — overlay card stack -->
+  <div class="about-visual">
+    <div class="about-card-accent"></div>
+    <div class="about-card-accent-2"></div>
+    <div class="about-card-main">
+      <div class="doctor-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      </div>
+      <h3>{{DOCTOR_PREFIX}} {{DOCTOR_NAME}}</h3>
+      <div class="subtitle">{{CLINIC_NAME}} | {{CITY}}</div>
+      <div class="divider"></div>
+      <p>מומחה ברפואת שיניים מתקדמת, עם ניסיון של למעלה מ-15 שנה בטיפולים אסתטיים ושיקומיים.</p>
+    </div>
+    <div class="about-badge">
+      <div class="badge-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+      </div>
+      <div>
+        <div class="badge-text">מאושר משרד הבריאות</div>
+        <div class="badge-sub">רישיון תקף</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ─── SERVICES SECTION ──────────────────── -->
+<section class="services" id="services">
+<div class="services-inner">
+  <span class="section-label">השירותים שלנו</span>
+  <h2 class="section-heading">טיפולים מתקדמים לחיוך מושלם</h2>
+  <p class="section-subtitle">מגוון טיפולים מקצועיים לבריאות ואסתטיקה של החיוך שלכם</p>
+
+  <div class="services-grid">
+
+    <!-- Service 1 -->
+    <div class="service-card">
+      <div class="service-card-bg"></div>
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L9.5 4.5C8 6 7 8 7 10c0 2.8 2.2 5 5 5s5-2.2 5-5c0-2-1-4-2.5-5.5L12 2zm0 20c-1 0-2-.5-2.5-1.5L8 17h8l-1.5 3.5C14 21.5 13 22 12 22z"/></svg>
+      </div>
+      <div class="service-card-content">
+        <h3>{{SERVICE_1_NAME}}</h3>
+        <p>{{SERVICE_1_DESC}}</p>
+        <span class="svc-arrow">למידע נוסף &#8592;</span>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-card">
+      <div class="service-card-bg"></div>
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      </div>
+      <div class="service-card-content">
+        <h3>{{SERVICE_2_NAME}}</h3>
+        <p>{{SERVICE_2_DESC}}</p>
+        <span class="svc-arrow">למידע נוסף &#8592;</span>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-card">
+      <div class="service-card-bg"></div>
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      </div>
+      <div class="service-card-content">
+        <h3>{{SERVICE_3_NAME}}</h3>
+        <p>{{SERVICE_3_DESC}}</p>
+        <span class="svc-arrow">למידע נוסף &#8592;</span>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-card">
+      <div class="service-card-bg"></div>
+      <div class="service-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="service-card-content">
+        <h3>{{SERVICE_4_NAME}}</h3>
+        <p>{{SERVICE_4_DESC}}</p>
+        <span class="svc-arrow">למידע נוסף &#8592;</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ─── TESTIMONIALS SECTION ──────────────── -->
+<!-- IF:REVIEWS -->
+<section class="testimonials" id="testimonials">
+<div class="testimonials-inner">
+  <span class="section-label">חוות דעת</span>
+  <h2 class="section-heading">מה אומרים עלינו</h2>
+  <p class="section-subtitle">מטופלים שסומכים עלינו ומשתפים את החוויה שלהם</p>
+
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">{{REVIEW_1_TEXT}}</p>
+      <div class="testimonial-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <div class="testimonial-divider"></div>
+      <div class="testimonial-author">{{REVIEW_1_AUTHOR}}</div>
+      <div class="testimonial-role">ביקורת Google</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">{{REVIEW_2_TEXT}}</p>
+      <div class="testimonial-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <div class="testimonial-divider"></div>
+      <div class="testimonial-author">{{REVIEW_2_AUTHOR}}</div>
+      <div class="testimonial-role">ביקורת Google</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">{{REVIEW_3_TEXT}}</p>
+      <div class="testimonial-stars">
+        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      </div>
+      <div class="testimonial-divider"></div>
+      <div class="testimonial-author">{{REVIEW_3_AUTHOR}}</div>
+      <div class="testimonial-role">ביקורת Google</div>
+    </div>
+
+  </div>
+</div>
+</section>
+<!-- ENDIF:REVIEWS -->
+
+<!-- ─── CONTACT / CTA SECTION ─────────────── -->
+<section class="cta-section" id="contact">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <h2 class="cta-heading">מוכנים לחיוך המושלם?</h2>
+    <p class="cta-subtitle">צרו קשר עם {{CLINIC_NAME}} ב{{CITY}} ותנו לנו ללוות אתכם לחיוך הבריא והיפה שמגיע לכם</p>
+    <!-- IF:PHONE -->
+    <a href="tel:{{PHONE}}" class="cta-btn">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+      התקשרו עכשיו — {{PHONE}}
+    </a>
+    <!-- ENDIF:PHONE -->
+    <div class="cta-trust">
+      <span class="cta-trust-item">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        ייעוץ ראשוני חינם
+      </span>
+      <span class="cta-trust-item">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        ללא התחייבות
+      </span>
+      <span class="cta-trust-item">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        {{RATING}} דירוג גוגל
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 3.5 4.8 5.5 3.5 7.5 3 10 3.5 12.5 4 15 4.5 17 5 19c.5 2 1 4 1.5 6 .5 2 1 3 2 4 .5.5 1 0 1.5-1s1-3 1.5-5c.3-1.5.7-1.5 1-1.5s.7 0 1 1.5c.5 2 1 4 1.5 5s1 1.5 1.5 1c1-1 1.5-2 2-4s1-4 1.5-6 1-4 1.5-6.5c.5-2.5 0-5-1.5-7C20 3.5 17.5 2 14 2h-2z"/></svg>
+      </span>
+      <span>{{CLINIC_NAME}} | {{CITY}}</span>
+    </div>
+    <div class="footer-info">
+      <!-- IF:PHONE -->
+      <a href="tel:{{PHONE}}">{{PHONE}}</a>
+      <!-- ENDIF:PHONE -->
+      <a href="{{GOOGLE_MAPS_URL}}">{{ADDRESS}}</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 {{CLINIC_NAME}} — {{DOCTOR_PREFIX}} {{DOCTOR_NAME}}. כל הזכויות שמורות.
+  </div>
+</footer>
+
+</body>
+</html>

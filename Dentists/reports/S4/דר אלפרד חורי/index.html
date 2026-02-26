@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ד"ר אלפרד חורי | בת ים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── Reset ─────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --ink:#111827;
+  --ink-soft:#374151;
+  --gray:#6B7280;
+  --gray-light:#D1D5DB;
+  --gray-bg:#F9FAFB;
+  --purple:#8B5CF6;
+  --purple-dark:#7C3AED;
+  --purple-light:#EDE9FE;
+  --purple-soft:#C4B5FD;
+  --amber:#F59E0B;
+  --white:#FFFFFF;
+  --font:'Rubik',sans-serif;
+}
+
+body{
+  font-family:var(--font);
+  direction:rtl;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── Nav ───────────────────────────────────── */
+nav{
+  padding:0 56px;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  z-index:10;
+  background:var(--white);
+  border-bottom:1px solid #F3F4F6;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:18px;
+  font-weight:700;
+  color:var(--ink);
+  text-decoration:none;
+}
+.nav-logo-icon{
+  width:34px;height:34px;
+  background:var(--purple);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  color:var(--gray);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--purple);
+  color:var(--white);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  padding:10px 24px;
+  border-radius:100px;
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:var(--purple-dark);transform:translateY(-1px)}
+
+/* ── Hero ──────────────────────────────────── */
+.hero{
+  display:grid;
+  grid-template-columns:55fr 45fr;
+  gap:48px;
+  padding:40px 56px 64px;
+  max-width:1360px;
+  margin:0 auto;
+  align-items:center;
+  min-height:calc(100vh - 76px);
+}
+
+/* Text side */
+.hero-text{order:1}
+.hero-visual{order:2;position:relative}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--purple-light);
+  color:var(--purple-dark);
+  font-size:13px;
+  font-weight:600;
+  padding:7px 18px;
+  border-radius:100px;
+  margin-bottom:24px;
+}
+.hero-badge svg{width:14px;height:14px;flex-shrink:0}
+
+.hero-text h1{
+  font-size:clamp(34px,4.5vw,52px);
+  font-weight:800;
+  color:var(--ink);
+  line-height:1.15;
+  letter-spacing:-0.5px;
+  margin-bottom:20px;
+  max-width:500px;
+}
+
+.hero-text .body-text{
+  font-size:16px;
+  color:var(--gray);
+  line-height:1.8;
+  max-width:420px;
+  margin-bottom:32px;
+}
+
+.hero-buttons{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--purple);
+  color:var(--white);
+  text-decoration:none;
+  font-family:var(--font);
+  font-size:15px;
+  font-weight:600;
+  padding:14px 32px;
+  border-radius:12px;
+  border:none;
+  cursor:pointer;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 4px 16px rgba(139,92,246,.25);
+}
+.btn-primary:hover{
+  background:var(--purple-dark);
+  transform:translateY(-2px);
+  box-shadow:0 6px 24px rgba(139,92,246,.35);
+}
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--white);
+  color:var(--ink);
+  text-decoration:none;
+  font-family:var(--font);
+  font-size:15px;
+  font-weight:500;
+  padding:14px 28px;
+  border-radius:12px;
+  border:1.5px solid var(--gray-light);
+  cursor:pointer;
+  transition:border-color .2s,background .2s,transform .15s;
+}
+.btn-secondary:hover{
+  border-color:var(--purple);
+  background:#FAFAFE;
+  transform:translateY(-1px);
+}
+.btn-secondary svg{width:16px;height:16px;flex-shrink:0}
+
+/* ── Visual side ──────────────────────────── */
+.hero-visual-wrap{
+  position:relative;
+  max-width:480px;
+  margin:0 auto;
+}
+
+/* Purple decorative blob behind image */
+.blob{
+  position:absolute;
+  top:-30px;
+  right:-40px;
+  width:110%;
+  height:110%;
+  z-index:0;
+  opacity:.18;
+}
+
+.hero-img{
+  position:relative;
+  z-index:1;
+  width:100%;
+  aspect-ratio:4/5;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 8px 40px rgba(139,92,246,.12);
+}
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* ── Floating Happy Customer badge ────────── */
+.happy-badge{
+  position:absolute;
+  bottom:32px;
+  left:24px;
+  z-index:3;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:16px;
+  padding:14px 20px;
+  box-shadow:0 4px 24px rgba(0,0,0,.08);
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.avatar-stack{
+  display:flex;
+  flex-direction:row-reverse;
+}
+.avatar-stack span{
+  width:32px;height:32px;
+  border-radius:50%;
+  border:2px solid var(--white);
+  display:block;
+  margin-right:-10px;
+}
+.avatar-stack span:first-child{margin-right:0}
+.happy-badge-text{font-size:13px;font-weight:600;color:var(--ink);line-height:1.3}
+.happy-badge-stars{color:var(--amber);font-size:11px;letter-spacing:1px;margin-top:2px}
+.happy-badge-stars span{color:var(--gray);font-size:12px;font-weight:700;letter-spacing:0;margin-right:4px}
+
+/* ── Floating Google Rating badge ─────────── */
+.rating-badge{
+  position:absolute;
+  top:24px;
+  left:20px;
+  z-index:3;
+  background:rgba(255,255,255,.90);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:14px;
+  padding:12px 18px;
+  box-shadow:0 4px 20px rgba(0,0,0,.07);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.rating-badge .big-num{
+  font-size:28px;
+  font-weight:800;
+  color:var(--ink);
+  line-height:1;
+  letter-spacing:-0.5px;
+}
+.rating-badge .meta-wrap{display:flex;flex-direction:column;gap:1px}
+.rating-badge .meta{font-size:11px;color:var(--gray);font-weight:500}
+.rating-badge .meta-label{font-size:12px;color:var(--ink-soft);font-weight:600}
+.rating-badge .stars{color:var(--amber);font-size:10px;letter-spacing:1px;margin-top:1px}
+
+/* ── Benefits Section ─────────────────────── */
+.benefits{
+  background:var(--gray-bg);
+  padding:80px 56px;
+}
+.benefits-inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+.benefits-header{
+  text-align:center;
+  margin-bottom:56px;
+}
+.benefits-label{
+  display:inline-block;
+  color:var(--purple);
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:14px;
+  letter-spacing:0.5px;
+}
+.benefits-header h2{
+  font-size:clamp(28px,3.5vw,40px);
+  font-weight:800;
+  color:var(--ink);
+  line-height:1.2;
+  letter-spacing:-0.3px;
+}
+
+.features-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+
+.feature-card{
+  background:var(--white);
+  border-radius:20px;
+  padding:36px;
+  border:1px solid #E5E7EB;
+  transition:box-shadow .3s,transform .2s;
+}
+.feature-card:hover{
+  box-shadow:0 8px 32px rgba(0,0,0,.06);
+  transform:translateY(-2px);
+}
+.feature-card h3{
+  font-size:20px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:12px;
+}
+.feature-card p{
+  font-size:15px;
+  color:var(--gray);
+  line-height:1.75;
+  margin-bottom:28px;
+}
+
+/* Feature card mockup illustrations */
+.feature-mockup{
+  width:100%;
+  height:220px;
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;
+}
+.mockup-app{
+  background:linear-gradient(145deg,#F0ECFF 0%,#E8E0FF 100%);
+}
+.mockup-chat{
+  background:linear-gradient(145deg,#EDE9FE 0%,#DDD6FE 100%);
+}
+
+/* App mockup illustration */
+.mockup-phone{
+  position:absolute;
+  width:160px;
+  height:200px;
+  border-radius:20px;
+  background:var(--white);
+  box-shadow:0 8px 30px rgba(139,92,246,.12);
+  overflow:hidden;
+}
+.mockup-phone-1{
+  bottom:-10px;
+  right:20%;
+  transform:rotate(-3deg);
+}
+.mockup-phone-2{
+  bottom:-20px;
+  right:45%;
+  transform:rotate(4deg);
+}
+.mockup-phone .phone-header{
+  height:36px;
+  background:var(--purple);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+}
+.mockup-phone .phone-header span{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:rgba(255,255,255,.5);
+}
+.mockup-phone .phone-body{padding:10px}
+.mockup-phone .phone-line{
+  height:8px;
+  border-radius:4px;
+  background:#E5E7EB;
+  margin-bottom:8px;
+}
+.mockup-phone .phone-line.short{width:60%}
+.mockup-phone .phone-line.medium{width:80%}
+.mockup-phone .phone-line.purple{background:var(--purple-light);height:24px;border-radius:8px;margin-top:12px}
+
+/* Chat mockup */
+.chat-mockup{
+  position:absolute;
+  width:200px;
+  border-radius:16px;
+  background:var(--white);
+  box-shadow:0 6px 24px rgba(139,92,246,.1);
+  padding:14px;
+}
+.chat-mockup-1{
+  top:16px;
+  right:12%;
+}
+.chat-mockup-2{
+  bottom:10px;
+  left:8%;
+}
+.chat-bubble{
+  padding:8px 14px;
+  border-radius:12px;
+  font-size:11px;
+  margin-bottom:8px;
+  max-width:85%;
+  line-height:1.4;
+}
+.chat-bubble.received{
+  background:#F3F4F6;
+  color:var(--ink-soft);
+  border-bottom-right-radius:4px;
+}
+.chat-bubble.sent{
+  background:var(--purple);
+  color:var(--white);
+  margin-right:auto;
+  margin-left:0;
+  border-bottom-left-radius:4px;
+  direction:rtl;
+}
+.chat-avatar{
+  width:24px;height:24px;
+  border-radius:50%;
+  background:var(--purple-soft);
+  display:inline-block;
+  margin-bottom:8px;
+}
+
+/* ── Footer ───────────────────────────────── */
+footer{
+  padding:40px 56px;
+  text-align:center;
+  background:var(--white);
+  border-top:1px solid #F3F4F6;
+}
+.footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:16px;
+  font-weight:700;
+  color:var(--ink);
+}
+.footer-brand-icon{
+  width:30px;height:30px;
+  background:var(--purple);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+.footer-info{
+  font-size:14px;
+  color:var(--gray);
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.footer-info a{
+  color:var(--gray);
+  text-decoration:none;
+  transition:color .2s;
+}
+.footer-info a:hover{color:var(--purple)}
+.footer-info .sep{
+  width:4px;height:4px;
+  border-radius:50%;
+  background:var(--gray-light);
+}
+
+/* ── Responsive ────────────────────────────── */
+@media(max-width:960px){
+  nav{padding:0 28px}
+  .nav-links{display:none}
+  .hero{
+    grid-template-columns:1fr;
+    padding:24px 28px 48px;
+    gap:40px;
+    min-height:auto;
+  }
+  .hero-visual{order:1}
+  .hero-text{order:2}
+  .hero-visual-wrap{max-width:420px}
+  .benefits{padding:56px 28px}
+  .features-grid{grid-template-columns:1fr}
+  footer{padding:32px 28px}
+  .footer-inner{flex-direction:column;gap:16px}
+}
+@media(max-width:480px){
+  nav{padding:0 20px;height:64px}
+  .hero{padding:16px 20px 36px;gap:28px}
+  .hero-text h1{font-size:30px}
+  .hero-buttons{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-secondary{justify-content:center;width:100%}
+  .hero-visual-wrap{max-width:100%}
+  .happy-badge{left:12px;bottom:16px;padding:10px 14px}
+  .rating-badge{left:12px;top:16px;padding:10px 14px}
+  .rating-badge .big-num{font-size:22px}
+  .benefits{padding:40px 20px}
+  .feature-card{padding:24px}
+  .feature-mockup{height:180px}
+  footer{padding:24px 20px}
+  .footer-info{flex-direction:column;gap:8px}
+}
+
+/* ── Subtle entrance animations ────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+.hero-badge{animation:fadeUp .6s ease both}
+.hero-text h1{animation:fadeUp .6s ease .1s both}
+.hero-text .body-text{animation:fadeUp .6s ease .2s both}
+.hero-buttons{animation:fadeUp .6s ease .3s both}
+.hero-img{animation:fadeUp .7s ease .15s both}
+.happy-badge{animation:fadeUp .5s ease .5s both;animation:float 4s ease-in-out infinite .8s}
+.rating-badge{animation:fadeUp .5s ease .6s both;animation:float 4s ease-in-out infinite 1.2s}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+        <path d="M12 2C9.5 2 7.5 4 7.5 6.5c0 1.5.7 2.8 1.7 3.7L12 22l2.8-11.8c1-0.9 1.7-2.2 1.7-3.7C16.5 4 14.5 2 12 2z"/>
+      </svg>
+    </div>
+    ד"ר אלפרד חורי
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#">שירותים</a></li>
+    <li><a href="#">אודות</a></li>
+    <li><a href="#">צור קשר</a></li>
+    <li><a href="#">מיקום</a></li>
+  </ul>
+
+  <a href="tel:03-507-2705" class="nav-cta">קביעת תור</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section class="hero">
+
+  <!-- Text side -->
+  <div class="hero-text">
+
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      מרפאת שיניים מתקדמת
+    </div>
+
+    <h1>קבלו טיפול שיניים פרימיום לבריאות מיטבית</h1>
+
+    <p class="body-text">
+      אנו מאמינים שכל מטופל ראוי לקבל את הטיפול הטוב ביותר. בשילוב מומחיות רפואית, טכנולוגיה חדשנית וגישה אישית, אנחנו כאן בשבילכם.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="tel:03-507-2705" class="btn-primary">קביעת תור</a>
+      <a href="tel:03-507-2705" class="btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        03-507-2705
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Visual side -->
+  <div class="hero-visual">
+    <div class="hero-visual-wrap">
+
+      <!-- Purple decorative blob behind image -->
+      <svg class="blob" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M420 80c60 40 90 120 75 200s-80 160-155 210-170 60-240 20S10 390 5 300s30-170 90-230S140 10 220 5s140 35 200 75z" fill="#8B5CF6"/>
+      </svg>
+
+      <!-- Doctor image -->
+      <div class="hero-img">
+        <img src="images/image2.png" alt="ד״ר חורי - מרפאת שיניים תל חוריב">
+      </div>
+
+      <!-- Happy Customer floating badge -->
+      <div class="happy-badge">
+        <div class="avatar-stack">
+          <span style="background:#A78BFA"></span>
+          <span style="background:#60A5FA"></span>
+          <span style="background:#F472B6"></span>
+          <span style="background:#34D399"></span>
+        </div>
+        <div>
+          <div class="happy-badge-text">לקוחות מרוצים</div>
+          <div class="happy-badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.8</span></div>
+        </div>
+      </div>
+
+      <!-- Google Rating floating badge -->
+      <div class="rating-badge">
+        <div class="big-num">4.8</div>
+        <div class="meta-wrap">
+          <div class="meta-label">דירוג Google</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="meta">16 ביקורות</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ── BENEFITS & FEATURES ─────────────────── -->
+<section class="benefits">
+  <div class="benefits-inner">
+
+    <div class="benefits-header">
+      <div class="benefits-label">השירותים שלנו</div>
+      <h2>גלו את היתרונות<br>והשירותים שלנו</h2>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- Feature Card 1 -->
+      <div class="feature-card">
+        <h3>טכנולוגיה דיגיטלית מתקדמת</h3>
+        <p>כלים מתקדמים לאבחון וטיפול שיניים: מעקב אחר מצב השיניים, תזכורות לביקורים ותקשורת ישירה עם הרופא.</p>
+        <div class="feature-mockup mockup-app">
+          <!-- Phone mockup 1 -->
+          <div class="mockup-phone mockup-phone-1">
+            <div class="phone-header">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="phone-body">
+              <div class="phone-line"></div>
+              <div class="phone-line short"></div>
+              <div class="phone-line medium"></div>
+              <div class="phone-line short"></div>
+              <div class="phone-line purple"></div>
+              <div class="phone-line"></div>
+              <div class="phone-line medium"></div>
+            </div>
+          </div>
+          <!-- Phone mockup 2 -->
+          <div class="mockup-phone mockup-phone-2">
+            <div class="phone-header">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="phone-body">
+              <div class="phone-line medium"></div>
+              <div class="phone-line"></div>
+              <div class="phone-line short"></div>
+              <div class="phone-line purple"></div>
+              <div class="phone-line"></div>
+              <div class="phone-line short"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Card 2 -->
+      <div class="feature-card">
+        <h3>תקשורת מאובטחת ונוחה</h3>
+        <p>פלטפורמה מאובטחת לתקשורת עם צוות המרפאה. שלחו הודעות, שתפו צילומי רנטגן וקבלו מענה מהיר — הכל במקום אחד.</p>
+        <div class="feature-mockup mockup-chat">
+          <!-- Chat mockup 1 -->
+          <div class="chat-mockup chat-mockup-1">
+            <div class="chat-avatar"></div>
+            <div class="chat-bubble received">שלום, מתי התור הבא שלי?</div>
+            <div class="chat-bubble sent">התור שלך ביום שלישי ב-10:00</div>
+            <div class="chat-bubble received">תודה רבה! 🙏</div>
+          </div>
+          <!-- Chat mockup 2 -->
+          <div class="chat-mockup chat-mockup-2">
+            <div class="chat-bubble sent" style="margin-bottom:6px">הצילום מוכן לצפייה</div>
+            <div style="height:40px;border-radius:8px;background:var(--purple-light);margin-bottom:6px"></div>
+            <div class="chat-bubble received">קיבלתי, תודה!</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+          <path d="M12 2C9.5 2 7.5 4 7.5 6.5c0 1.5.7 2.8 1.7 3.7L12 22l2.8-11.8c1-0.9 1.7-2.2 1.7-3.7C16.5 4 14.5 2 12 2z"/>
+        </svg>
+      </div>
+      ד"ר אלפרד חורי
+    </div>
+    <div class="footer-info">
+      <span>תל חוריב</span>
+      <span class="sep"></span>
+      <a href="tel:03-507-2705">03-507-2705</a>
+      <span class="sep"></span>
+      <span>© 2026 כל הזכויות שמורות</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

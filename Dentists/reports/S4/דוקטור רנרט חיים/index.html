@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>דוקטור רנרט חיים | בת ים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── Reset ─────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --teal:#4D8B84;
+  --teal-dark:#3A6E68;
+  --teal-deep:#2C5854;
+  --ink:#1A1A1A;
+  --gray:#6B7280;
+  --gray-light:#9CA3AF;
+  --white:#FFFFFF;
+  --off-white:#FAFBFC;
+  --serif:'Frank Ruhl Libre',Georgia,'Times New Roman',serif;
+  --sans:'Heebo',Arial,sans-serif;
+}
+
+body{
+  font-family:var(--sans);
+  direction:rtl;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--teal);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+
+/* ── Page frame — teal bg shows through as L-shaped border ── */
+.page-frame{
+  background:var(--white);
+  min-height:100vh;
+  margin:12px 0 0 12px;
+  border-radius:0;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ── Nav ───────────────────────────────────── */
+nav{
+  padding:0 48px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  z-index:10;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--sans);
+  font-size:19px;
+  font-weight:700;
+  color:var(--ink);
+  text-decoration:none;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:36px;
+  list-style:none;
+}
+.nav-links a{
+  color:var(--gray);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-contact{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.nav-phone{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:var(--ink);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  direction:ltr;
+}
+.nav-phone svg{width:16px;height:16px;color:var(--teal)}
+.nav-contact-link{
+  color:var(--ink);
+  text-decoration:underline;
+  text-underline-offset:3px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+}
+.nav-contact-link:hover{color:var(--teal)}
+
+/* ── Hero ──────────────────────────────────── */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:32px;
+  padding:32px 48px 0;
+  min-height:calc(100vh - 84px);
+  max-width:1360px;
+  margin:0 auto;
+}
+
+/* Text side */
+.hero-text{
+  padding:20px 0 48px;
+}
+
+/* Small dental care tag */
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:28px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:2px;
+  color:var(--gray);
+  text-transform:uppercase;
+}
+.hero-tag .diamond{
+  width:8px;height:8px;
+  background:var(--teal);
+  border-radius:2px;
+  transform:rotate(45deg);
+}
+
+/* Headline — mixed serif italic + sans regular */
+.hero-text h1{
+  font-size:clamp(38px, 5vw, 58px);
+  line-height:1.08;
+  letter-spacing:-0.5px;
+  margin-bottom:24px;
+  color:var(--ink);
+}
+.hero-text h1 .regular{
+  font-family:var(--sans);
+  font-weight:700;
+  display:block;
+}
+.hero-text h1 .accent{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  color:var(--teal-dark);
+  display:block;
+}
+
+/* Subtitle */
+.hero-text .subtitle{
+  font-size:15px;
+  color:var(--gray);
+  line-height:1.75;
+  max-width:380px;
+  margin-bottom:36px;
+  font-weight:400;
+}
+
+/* CTA — dark teal pill */
+.hero-cta{
+  display:inline-block;
+  background:var(--teal-deep);
+  color:var(--white);
+  padding:16px 36px;
+  border-radius:100px;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:1.5px;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:background .25s,transform .2s;
+  cursor:pointer;
+}
+.hero-cta:hover{
+  background:var(--teal-dark);
+  transform:translateY(-1px);
+}
+
+/* ── Visual side — photo frame effect ─────── */
+.hero-visual{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  height:100%;
+  padding-top:40px;
+}
+
+/* The teal "frame" — sits behind the image, offset */
+.frame-border{
+  position:absolute;
+  top:0;
+  right:0;
+  width:calc(100% - 40px);
+  height:calc(100% - 60px);
+  border:0;
+  border-right:10px solid var(--teal);
+  border-top:10px solid var(--teal);
+  border-radius:0 16px 0 0;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Image container — offset from frame */
+.hero-img-wrap{
+  position:relative;
+  width:100%;
+  max-width:480px;
+  aspect-ratio:4/5;
+  margin-top:0;
+  margin-right:24px;
+  z-index:1;
+}
+
+.hero-img{
+  width:100%;
+  height:100%;
+  border-radius:16px 0 0 0;
+  overflow:hidden;
+  position:relative;
+}
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+  display:block;
+}
+
+/* ── Responsive ────────────────────────────── */
+@media(max-width:960px){
+  .page-frame{margin:8px 0 0 8px}
+  .hero{
+    grid-template-columns:1fr;
+    padding:24px 28px;
+    min-height:auto;
+  }
+  .hero-visual{
+    max-width:400px;
+    margin:0 auto;
+    height:auto;
+    min-height:380px;
+  }
+  nav{padding:0 28px}
+  .nav-links{display:none}
+  .frame-border{border-width:8px}
+}
+@media(max-width:480px){
+  .page-frame{margin:6px 0 0 6px}
+  .hero-text h1{font-size:34px}
+  .hero-img-wrap{margin-right:16px;margin-top:16px}
+  .frame-border{border-width:6px}
+  nav{height:60px}
+}
+</style>
+</head>
+<body>
+
+<div class="page-frame">
+
+<!-- ── NAV ──────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 64 64" fill="none">
+      <path d="M32 6C22 6 14 13 14 22c0 8 2 14 6 22 2 6 6 14 10 14 1.5 0 2.5-3 3.5-7 .5 2 1.5 4 2.5 7 4 0 8-6 10-14 4-8 6-14 6-22C52 13 44 6 32 6Z"
+        fill="#4D8B84" stroke="#4D8B84" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
+    דוקטור רנרט חיים
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#appointment">קביעת תור</a></li>
+    <li><a href="#about">הרופא שלנו</a></li>
+  </ul>
+
+  <div class="nav-contact">
+    <a href="tel:03-507-4122" class="nav-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      03-507-4122
+    </a>
+    <a href="#contact" class="nav-contact-link">צרו קשר</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section class="hero">
+
+  <!-- Text side -->
+  <div class="hero-text">
+
+    <div class="hero-tag">
+      <span class="diamond"></span>
+      טיפולי שיניים
+    </div>
+
+    <h1>
+      <span class="regular">מצוינות בכל</span>
+      <span class="accent">חיוך שאנחנו</span>
+      <span class="accent">יוצרים</span>
+    </h1>
+
+    <p class="subtitle">
+      טיפולי שיניים מותאמים אישית, המתמקדים בנוחות שלך,
+      בביטחון ובבריאות הפה לטווח הארוך — עם טכנולוגיה
+      מתקדמת ונגיעה עדינה.
+    </p>
+
+    <a href="tel:03-507-4122" class="hero-cta">
+      קבעו תור
+    </a>
+
+  </div>
+
+  <!-- Visual side -->
+  <div class="hero-visual">
+
+    <!-- The offset teal frame -->
+    <div class="frame-border"></div>
+
+    <div class="hero-img-wrap">
+      <div class="hero-img">
+        <img src="images/image2.png" alt="מטופלת עם יישור שיניים שקוף">
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+</div><!-- .page-frame -->
+
+</body>
+</html>

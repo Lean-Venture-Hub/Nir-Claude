@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>הוריקו | בת ים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── Reset ─────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --purple:#7C3AED;
+  --purple-light:#EDE9FE;
+  --purple-lighter:#F5F3FF;
+  --purple-dark:#6D28D9;
+  --purple-deep:#5B21B6;
+  --ink:#111827;
+  --ink-soft:#374151;
+  --gray:#6B7280;
+  --gray-light:#D1D5DB;
+  --amber:#F59E0B;
+  --white:#FFFFFF;
+  --bg:#F9FAFB;
+  --font:'Rubik',sans-serif;
+  --radius-sm:12px;
+  --radius-md:20px;
+  --radius-lg:28px;
+}
+
+body{
+  font-family:var(--font);
+  direction:rtl;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+/* ── NAV ───────────────────────────────────── */
+nav{
+  background:var(--white);
+  padding:0 64px;
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #F3F4F6;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:48px;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:20px;
+  font-weight:700;
+  color:var(--ink);
+  text-decoration:none;
+}
+.nav-logo-icon{
+  width:36px;height:36px;
+  background:var(--purple);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:36px;
+  list-style:none;
+}
+.nav-links a{
+  color:var(--gray);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  transition:color .25s;
+  position:relative;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.active{color:var(--ink);font-weight:600}
+.nav-links a.active::after{
+  content:'';
+  position:absolute;
+  bottom:-4px;
+  right:0;left:0;
+  height:2px;
+  background:var(--purple);
+  border-radius:2px;
+}
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.nav-phone{
+  color:var(--gray);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:color .25s;
+  direction:ltr;
+}
+.nav-phone:hover{color:var(--ink)}
+.nav-phone svg{width:16px;height:16px}
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--purple);
+  color:var(--white);
+  border:none;
+  padding:11px 28px;
+  border-radius:100px;
+  font-size:14px;
+  font-weight:600;
+  font-family:var(--font);
+  cursor:pointer;
+  text-decoration:none;
+  transition:all .3s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 2px 8px rgba(124,58,237,.2);
+}
+.nav-cta:hover{
+  background:var(--purple-dark);
+  transform:translateY(-1px);
+  box-shadow:0 4px 16px rgba(124,58,237,.3);
+}
+
+/* ── HERO ──────────────────────────────────── */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:40px;
+  padding:48px 64px 64px;
+  max-width:1400px;
+  margin:0 auto;
+  align-items:center;
+  min-height:min(calc(100vh - 80px), 760px);
+}
+
+/* Text side (right in RTL) */
+.hero-text{
+  padding:24px 0;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--purple-lighter);
+  color:var(--purple);
+  padding:8px 18px;
+  border-radius:100px;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:28px;
+  letter-spacing:0.2px;
+}
+.hero-badge svg{width:14px;height:14px}
+
+.hero-text h1{
+  font-size:clamp(38px, 4.5vw, 56px);
+  font-weight:800;
+  color:var(--ink);
+  line-height:1.1;
+  letter-spacing:-0.8px;
+  margin-bottom:24px;
+  max-width:480px;
+}
+.hero-text h1 span{
+  color:var(--purple);
+}
+
+.hero-subtitle{
+  font-size:17px;
+  color:var(--ink-soft);
+  line-height:1.8;
+  max-width:440px;
+  margin-bottom:36px;
+  font-weight:400;
+}
+
+/* Trust row */
+.trust-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:32px;
+}
+.trust-avatar{
+  width:38px;height:38px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--purple-light),#DDD6FE);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  flex-shrink:0;
+}
+.trust-avatar span{
+  font-size:14px;font-weight:700;color:var(--purple);
+}
+.trust-check{
+  position:absolute;
+  bottom:-2px;right:-2px;
+  width:16px;height:16px;
+  background:#10B981;
+  border-radius:50%;
+  border:2px solid var(--white);
+  display:flex;align-items:center;justify-content:center;
+}
+.trust-check svg{width:8px;height:8px}
+.trust-text{
+  font-size:14px;
+  color:var(--gray);
+  font-weight:500;
+}
+.trust-text strong{color:var(--ink);font-weight:600}
+
+/* CTA buttons row */
+.hero-cta-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--purple);
+  color:var(--white);
+  border:none;
+  padding:15px 36px;
+  border-radius:100px;
+  font-size:16px;
+  font-weight:600;
+  font-family:var(--font);
+  cursor:pointer;
+  text-decoration:none;
+  transition:all .3s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 4px 20px rgba(124,58,237,.25);
+}
+.hero-cta:hover{
+  background:var(--purple-dark);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(124,58,237,.35);
+}
+.hero-cta svg{width:18px;height:18px;transition:transform .25s}
+.hero-cta:hover svg{transform:translateX(-4px)}
+
+.hero-cta-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--ink-soft);
+  font-size:15px;
+  font-weight:500;
+  text-decoration:none;
+  font-family:var(--font);
+  cursor:pointer;
+  transition:color .25s;
+}
+.hero-cta-secondary:hover{color:var(--purple)}
+
+/* ── Visual side ────────────────────────────── */
+.hero-visual{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:560px;
+}
+
+/* Diagonal purple gradient strips behind photo */
+.hero-visual::before{
+  content:'';
+  position:absolute;
+  width:340px;
+  height:650px;
+  background:linear-gradient(160deg, rgba(124,58,237,0.08) 0%, rgba(124,58,237,0.04) 100%);
+  border-radius:32px;
+  transform:rotate(-8deg) translateX(40px);
+  top:-20px;
+  left:40px;
+  z-index:0;
+}
+.hero-visual::after{
+  content:'';
+  position:absolute;
+  width:220px;
+  height:500px;
+  background:linear-gradient(160deg, rgba(124,58,237,0.05) 0%, rgba(124,58,237,0.02) 100%);
+  border-radius:28px;
+  transform:rotate(-12deg) translateX(-60px);
+  top:40px;
+  left:-10px;
+  z-index:0;
+}
+
+/* Accent diagonal strip - thin */
+.diagonal-strip{
+  position:absolute;
+  z-index:0;
+}
+.diagonal-strip-1{
+  width:80px;
+  height:320px;
+  background:linear-gradient(180deg, rgba(124,58,237,0.06) 0%, rgba(124,58,237,0.02) 100%);
+  border-radius:40px;
+  transform:rotate(-15deg);
+  top:20px;
+  right:10px;
+}
+.diagonal-strip-2{
+  width:48px;
+  height:200px;
+  background:linear-gradient(180deg, rgba(124,58,237,0.04) 0%, transparent 100%);
+  border-radius:24px;
+  transform:rotate(-20deg);
+  bottom:60px;
+  right:-20px;
+}
+
+/* Main hero image */
+.hero-img-wrap{
+  width:100%;
+  max-width:540px;
+  aspect-ratio:3.2/4;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  position:relative;
+  z-index:1;
+  box-shadow:0 20px 60px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.04);
+}
+.hero-img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* ── Floating elements ─────────────────────── */
+
+/* Play button */
+.float-play{
+  position:absolute;
+  top:50%;
+  left:-28px;
+  transform:translateY(-50%);
+  width:56px;height:56px;
+  background:var(--purple);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 24px rgba(124,58,237,.35);
+  z-index:4;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.4,0,.2,1);
+  animation:floatIn .7s ease-out both;
+  animation-delay:.5s;
+}
+.float-play:hover{
+  transform:translateY(-50%) scale(1.08);
+  box-shadow:0 6px 32px rgba(124,58,237,.45);
+}
+.float-play svg{
+  width:20px;height:20px;
+  margin-right:-2px;
+}
+
+/* Doctor info card */
+.float-doctor{
+  position:absolute;
+  top:48px;
+  left:-32px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:16px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 4px 32px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.03);
+  z-index:4;
+  animation:floatIn .7s ease-out both;
+  animation-delay:.2s;
+}
+.float-doctor-avatar{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#DDD6FE,#C4B5FD);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.float-doctor-avatar span{
+  font-size:15px;font-weight:700;color:var(--purple);
+}
+.float-doctor .fd-name{
+  font-size:14px;font-weight:700;color:var(--ink);
+}
+.float-doctor .fd-role{
+  font-size:12px;color:var(--gray);margin-top:2px;
+}
+.float-doctor .fd-online{
+  display:flex;align-items:center;gap:4px;
+  font-size:11px;color:#10B981;font-weight:600;margin-top:3px;
+}
+.float-doctor .fd-online-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#10B981;
+}
+
+/* Google rating badge */
+.rating-float{
+  position:absolute;
+  bottom:40px;
+  right:-24px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:18px;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  box-shadow:0 4px 32px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.03);
+  z-index:4;
+  animation:floatIn .7s ease-out both;
+  animation-delay:.4s;
+}
+.rating-float .g-icon{
+  width:28px;height:28px;flex-shrink:0;
+}
+.rating-info .big-num{
+  font-size:36px;
+  font-weight:900;
+  color:var(--ink);
+  line-height:1;
+  letter-spacing:-1px;
+}
+.rating-info .stars{
+  color:var(--amber);
+  font-size:13px;
+  letter-spacing:1px;
+  margin-top:3px;
+}
+.rating-meta .meta-label{
+  font-size:12px;
+  color:var(--ink-soft);
+  font-weight:600;
+}
+.rating-meta .meta-count{
+  font-size:12px;
+  color:var(--gray);
+  font-weight:500;
+  margin-top:1px;
+}
+
+/* Purple pill badge */
+.float-pill{
+  position:absolute;
+  bottom:160px;
+  left:-20px;
+  background:var(--purple);
+  color:var(--white);
+  padding:9px 20px;
+  border-radius:100px;
+  font-size:13px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  box-shadow:0 4px 20px rgba(124,58,237,.3);
+  z-index:4;
+  animation:floatIn .7s ease-out both;
+  animation-delay:.6s;
+}
+.float-pill svg{width:14px;height:14px}
+
+/* Small decorative purple dot */
+.float-dot{
+  position:absolute;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--purple);
+  opacity:0.2;
+  z-index:0;
+}
+.float-dot-1{top:30px;right:40px;}
+.float-dot-2{bottom:100px;right:20px;width:8px;height:8px;opacity:0.15}
+.float-dot-3{top:140px;left:20px;width:10px;height:10px;opacity:0.12}
+
+/* ── SERVICES SECTION ──────────────────────── */
+.services{
+  background:var(--bg);
+  padding:80px 64px 96px;
+}
+.services-inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+.services-intro{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 60px;
+  font-size:19px;
+  color:var(--ink-soft);
+  line-height:1.9;
+  font-weight:400;
+}
+.services-intro .highlight{
+  color:var(--purple);
+  font-weight:700;
+}
+.services-intro .underline{
+  text-decoration:underline;
+  text-decoration-color:var(--purple);
+  text-underline-offset:4px;
+  text-decoration-thickness:2.5px;
+  font-weight:600;
+  color:var(--ink);
+}
+
+/* Cards grid */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+/* Service card with photo background */
+.service-card{
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  position:relative;
+  height:340px;
+  cursor:pointer;
+  transition:transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 16px 48px rgba(0,0,0,.12);
+}
+
+.service-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .6s cubic-bezier(.4,0,.2,1);
+}
+.service-card:hover img{
+  transform:scale(1.05);
+}
+
+.card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.15) 50%, rgba(0,0,0,.05) 100%);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px 24px;
+  transition:background .4s;
+  z-index:1;
+}
+.service-card:hover .card-overlay{
+  background:linear-gradient(0deg, rgba(88,28,185,.82) 0%, rgba(124,58,237,.2) 50%, rgba(124,58,237,.05) 100%);
+}
+
+.card-overlay h3{
+  font-size:18px;
+  font-weight:700;
+  color:var(--white);
+  margin-bottom:8px;
+  letter-spacing:-0.2px;
+}
+.card-overlay p{
+  font-size:13px;
+  color:rgba(255,255,255,.85);
+  line-height:1.65;
+  font-weight:400;
+  max-width:240px;
+}
+
+.card-icon-badge{
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:44px;height:44px;
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2;
+  transition:background .3s;
+}
+.service-card:hover .card-icon-badge{
+  background:rgba(124,58,237,.5);
+}
+.card-icon-badge svg{
+  width:22px;height:22px;
+}
+
+/* ── Animations ───────────────────────────── */
+@keyframes floatIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+/* Override for play button which has a translateY(-50%) */
+@keyframes floatInPlay{
+  from{opacity:0;transform:translateY(calc(-50% + 20px))}
+  to{opacity:1;transform:translateY(-50%)}
+}
+.float-play{
+  animation-name:floatInPlay;
+}
+
+/* Subtle floating animation for decorative elements */
+@keyframes gentleFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+.float-pill{
+  animation:floatIn .7s ease-out both, gentleFloat 4s ease-in-out 1.3s infinite;
+}
+
+/* ── RESPONSIVE ────────────────────────────── */
+@media(max-width:1200px){
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .service-card{height:300px}
+}
+@media(max-width:960px){
+  nav{padding:0 28px}
+  .nav-links{display:none}
+  .hero{
+    grid-template-columns:1fr;
+    padding:24px 28px 48px;
+    gap:40px;
+    min-height:auto;
+  }
+  .hero-visual{
+    order:-1;
+    max-width:500px;
+    margin:0 auto;
+    width:100%;
+    min-height:480px;
+  }
+  .hero-text{
+    text-align:center;
+  }
+  .hero-text h1{margin:0 auto 24px;max-width:none}
+  .hero-subtitle{margin:0 auto 36px;max-width:none}
+  .trust-row{justify-content:center}
+  .hero-cta-row{justify-content:center}
+  .services{padding:56px 28px 64px}
+  .float-doctor{left:8px;top:24px}
+  .float-play{left:8px}
+  .float-pill{left:8px}
+  .hero-badge{margin:0 auto 28px}
+}
+@media(max-width:600px){
+  .cards-grid{grid-template-columns:1fr}
+  .service-card{height:280px}
+  nav{padding:0 20px;height:64px}
+  .hero{padding:16px 20px 36px}
+  .hero-text h1{font-size:34px}
+  .hero-img-wrap{max-width:100%;aspect-ratio:3/4}
+  .hero-visual{min-height:400px}
+  .rating-float{
+    right:8px;bottom:20px;padding:14px 18px;
+    border-radius:14px;
+  }
+  .rating-info .big-num{font-size:30px}
+  .float-doctor{left:8px;top:16px;padding:10px 14px}
+  .float-pill{display:none}
+  .float-play{display:none}
+  .services{padding:44px 20px 52px}
+  .services-intro{font-size:16px}
+  .nav-phone{display:none}
+  .hero-cta{padding:14px 28px;font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────── -->
+<nav>
+  <div class="nav-right">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="18" height="18" viewBox="0 0 64 64" fill="none">
+          <path d="M32 6C22 6 14 13 14 22c0 8 2 14 6 22 2 6 6 14 10 14 1.5 0 2.5-3 3.5-7 .5 2 1.5 4 2.5 7 4 0 8-6 10-14 4-8 6-14 6-22C52 13 44 6 32 6Z"
+            fill="white" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      הוריקו
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">ראשי</a></li>
+      <li><a href="#team">הצוות שלנו</a></li>
+      <li><a href="#services">השירותים שלנו</a></li>
+    </ul>
+  </div>
+  <div class="nav-left">
+    <a href="tel:03-506-3949" class="nav-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      03-506-3949
+    </a>
+    <a href="tel:03-506-3949" class="nav-cta">קביעת תור</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section class="hero">
+
+  <!-- Text side (right in RTL) -->
+  <div class="hero-text">
+
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+        <path d="M22 4L12 14.01l-3-3"/>
+      </svg>
+      מרפאת שיניים מובילה בתל הוריקוב
+    </div>
+
+    <h1>מומחים מובילים<br>לכל <span>טיפול</span><br>שיניים</h1>
+
+    <div class="trust-row">
+      <div class="trust-avatar">
+        <span>פ</span>
+        <div class="trust-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+      </div>
+      <span class="trust-text"><strong>מומחיות מוכחת</strong> · 15+ שנות ניסיון</span>
+    </div>
+
+    <p class="hero-subtitle">
+      הצוות שלנו של רופאי שיניים מומחים מחויב להעניק את הטיפול הטוב ביותר, עם גישה מקצועית ואישית לכל מטופל.
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="tel:03-506-3949" class="hero-cta">
+        קביעת תור
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </a>
+      <a href="#services" class="hero-cta-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+        השירותים שלנו
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Visual side (left in RTL) -->
+  <div class="hero-visual">
+
+    <!-- Diagonal accent strips -->
+    <div class="diagonal-strip diagonal-strip-1"></div>
+    <div class="diagonal-strip diagonal-strip-2"></div>
+
+    <!-- Decorative dots -->
+    <div class="float-dot float-dot-1"></div>
+    <div class="float-dot float-dot-2"></div>
+    <div class="float-dot float-dot-3"></div>
+
+    <!-- Main hero photo -->
+    <div class="hero-img-wrap">
+      <img src="images/image4.png" alt="ד״ר הוריקו - רופא שיניים מומחה">
+    </div>
+
+    <!-- Play button -->
+    <div class="float-play">
+      <svg viewBox="0 0 24 24" fill="white">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </div>
+
+    <!-- Doctor info card -->
+    <div class="float-doctor">
+      <div class="float-doctor-avatar">
+        <span>פ</span>
+      </div>
+      <div>
+        <div class="fd-name">הוריקו</div>
+        <div class="fd-role">מומחה בהשתלות שיניים</div>
+        <div class="fd-online">
+          <div class="fd-online-dot"></div>
+          זמין לתורים
+        </div>
+      </div>
+    </div>
+
+    <!-- Purple pill badge -->
+    <div class="float-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+      תל הוריקוב
+    </div>
+
+    <!-- Google rating badge -->
+    <div class="rating-float">
+      <div>
+        <svg class="g-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+      </div>
+      <div class="rating-info">
+        <div class="big-num">4.0</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <div class="rating-meta">
+        <div class="meta-label">דירוג Google</div>
+        <div class="meta-count">4 ביקורות</div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ── SERVICES ─────────────────────────────── -->
+<section class="services" id="services">
+  <div class="services-inner">
+
+    <p class="services-intro">
+      הצוות שלנו של רופאי שיניים
+      <span class="highlight">מנוסים ומומחים</span>
+      מחויב להעניק את
+      <span class="underline">הטיפול הטוב ביותר</span>
+      המותאם ל<span class="highlight">צרכים הייחודיים שלכם</span>.
+    </p>
+
+    <div class="cards-grid">
+
+      <!-- Card 1: Implants -->
+      <div class="service-card">
+        <img src="images/image4.png" alt="השתלות שיניים">
+        <div class="card-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8 2 5 5 5 9c0 3 1 6 3 10 1 2 2 5 4 5s3-3 4-5c2-4 3-7 3-10 0-4-3-7-7-7Z"/>
+            <line x1="12" y1="14" x2="12" y2="20"/>
+          </svg>
+        </div>
+        <div class="card-overlay">
+          <h3>השתלות שיניים</h3>
+          <p>פתרונות השתלה מתקדמים להחזרת החיוך המושלם, עם אחוזי הצלחה גבוהים.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Orthodontics -->
+      <div class="service-card">
+        <img src="images/image4.png" alt="יישור שיניים">
+        <div class="card-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="10" width="18" height="4" rx="2"/>
+            <rect x="6" y="11" width="3" height="2" rx=".5"/>
+            <rect x="10.5" y="11" width="3" height="2" rx=".5"/>
+            <rect x="15" y="11" width="3" height="2" rx=".5"/>
+          </svg>
+        </div>
+        <div class="card-overlay">
+          <h3>יישור שיניים</h3>
+          <p>טיפולי יישור מגוונים כולל פלטות שקופות וגשרים לחיוך ישר ויפה.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Whitening -->
+      <div class="service-card">
+        <img src="images/image4.png" alt="הלבנת שיניים">
+        <div class="card-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3C8 3 5 6 5 10c0 3 1 6 3 10 1 2 2 4 4 4s3-2 4-4c2-4 3-7 3-10 0-4-3-7-7-7Z"/>
+            <path d="M9 9l2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="card-overlay">
+          <h3>הלבנת שיניים</h3>
+          <p>הלבנה מקצועית בשיטות מתקדמות לחיוך בהיר וזוהר מהטיפול הראשון.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Preventive -->
+      <div class="service-card">
+        <img src="images/image4.png" alt="טיפולי מניעה">
+        <div class="card-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3 3"/>
+          </svg>
+        </div>
+        <div class="card-overlay">
+          <h3>טיפולי מניעה</h3>
+          <p>בדיקות תקופתיות וטיפולים מונעים להוריקוה על בריאות הפה לאורך שנים.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

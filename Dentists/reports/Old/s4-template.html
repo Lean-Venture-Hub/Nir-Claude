@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>מרפאת שיניים ד"ר פוקס | תל אביב</title>
+<style>
+/* ── Reset ─────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+/* ── Typography ────────────────────────────── */
+body{
+  font-family:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  direction:rtl;
+  color:#111827;
+  line-height:1.6;
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── Nav ───────────────────────────────────── */
+nav{
+  background:#fff;
+  padding:0 48px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #f0f0f0;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:20px;
+  font-weight:700;
+  color:#111827;
+  text-decoration:none;
+}
+.nav-logo svg{color:#2563EB}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  color:#6B7280;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  transition:color .2s;
+}
+.nav-links a:hover{color:#111827}
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#2563EB;
+  color:#fff;
+  border:none;
+  padding:10px 22px;
+  border-radius:100px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  text-decoration:none;
+  transition:background .2s;
+}
+.nav-cta:hover{background:#1d4ed8}
+.nav-cta svg{width:16px;height:16px}
+
+/* ── Hero ──────────────────────────────────── */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:40px;
+  padding:40px 48px 48px;
+  max-width:1280px;
+  margin:0 auto;
+  min-height:min(calc(100vh - 72px), 640px);
+}
+
+/* Text side (right in RTL) */
+.hero-text{
+  padding:16px 0;
+}
+
+/* Pill badges */
+.hero-pills{
+  display:flex;
+  gap:12px;
+  margin-bottom:24px;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  border-radius:100px;
+  font-size:13px;
+  font-weight:600;
+}
+.pill-blue{
+  background:#EFF6FF;
+  color:#2563EB;
+}
+.pill-gray{
+  background:#F3F4F6;
+  color:#6B7280;
+}
+.pill svg{width:14px;height:14px}
+.pill .dot{
+  width:6px;height:6px;border-radius:50%;
+  background:currentColor;
+}
+
+/* Headline */
+.hero-text h1{
+  font-size:clamp(36px, 4.5vw, 52px);
+  font-weight:800;
+  color:#111827;
+  line-height:1.12;
+  letter-spacing:-0.5px;
+  margin-bottom:18px;
+}
+.hero-text h1 span{
+  color:#2563EB;
+}
+
+/* Subtitle */
+.hero-text .subtitle{
+  font-size:16px;
+  color:#6B7280;
+  line-height:1.7;
+  max-width:420px;
+  margin-bottom:28px;
+}
+
+/* CTA button — outlined style like the design */
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 26px;
+  border:2px solid #2563EB;
+  border-radius:100px;
+  color:#2563EB;
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+  background:transparent;
+  transition:all .2s;
+  cursor:pointer;
+}
+.hero-cta:hover{
+  background:#2563EB;
+  color:#fff;
+}
+.hero-cta svg{
+  width:18px;height:18px;
+  transition:transform .2s;
+}
+.hero-cta:hover svg{transform:translateX(-4px)}
+
+/* Doctor avatars row */
+.doctors-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:32px;
+}
+.avatar-stack{
+  display:flex;
+}
+.avatar{
+  width:38px;height:38px;
+  border-radius:50%;
+  border:2.5px solid #fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;
+  margin-left:-10px;
+}
+.avatar:first-child{margin-left:0}
+.avatar-1{background:#2563EB}
+.avatar-2{background:#7C3AED}
+.avatar-3{background:#0891B2}
+.doctors-label{
+  font-size:13px;
+  color:#6B7280;
+  font-weight:500;
+}
+.doctors-label strong{color:#111827;font-weight:700}
+
+/* ── Image/Visual side (left in RTL) ─────── */
+.hero-visual{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Main image container — tighter aspect ratio like real photo */
+.hero-img{
+  width:100%;
+  max-width:480px;
+  aspect-ratio:3/4;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  /* Rich gradient that simulates a warm photo tone */
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(37,99,235,.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(37,99,235,.08) 0%, transparent 50%),
+    linear-gradient(170deg, #E0ECFF 0%, #DBEAFE 25%, #EFF6FF 50%, #F0F9FF 75%, #F8FAFF 100%);
+  box-shadow:0 8px 40px rgba(37,99,235,.08);
+}
+
+/* Multi-layer illustration to fill the image area */
+.hero-img .illustration{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Large center tooth */
+.hero-img .tooth-main{
+  opacity:.18;
+}
+
+/* Decorative small elements scattered around */
+.deco{
+  position:absolute;
+  border-radius:50%;
+  opacity:.08;
+  background:#2563EB;
+}
+.deco-1{width:120px;height:120px;top:8%;right:10%}
+.deco-2{width:80px;height:80px;bottom:15%;left:8%}
+.deco-3{width:50px;height:50px;top:55%;right:65%;opacity:.05}
+.deco-4{width:180px;height:180px;bottom:-40px;right:-30px;opacity:.04}
+
+/* Cross/plus accent marks */
+.cross{
+  position:absolute;
+  width:16px;height:16px;
+  opacity:.15;
+}
+.cross::before,.cross::after{
+  content:'';position:absolute;background:#2563EB;border-radius:2px;
+}
+.cross::before{width:16px;height:3px;top:6.5px;left:0}
+.cross::after{width:3px;height:16px;top:0;left:6.5px}
+.cross-1{top:15%;left:20%}
+.cross-2{top:70%;right:15%}
+.cross-3{bottom:25%;left:45%}
+
+/* Subtle smile curve */
+.smile-arc{
+  position:absolute;
+  bottom:38%;
+  left:50%;
+  transform:translateX(-50%);
+  width:100px;
+  height:50px;
+  border-bottom:3px solid rgba(37,99,235,.1);
+  border-radius:0 0 60px 60px;
+}
+
+/* Google rating badge — bottom right, overlapping out */
+.rating-badge{
+  position:absolute;
+  bottom:32px;
+  right:-28px;
+  background:#fff;
+  border-radius:14px;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 4px 28px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.06);
+  z-index:2;
+}
+.rating-badge .score{
+  font-size:30px;
+  font-weight:800;
+  color:#111827;
+  line-height:1;
+}
+.rating-badge .stars{
+  color:#F59E0B;
+  font-size:13px;
+  letter-spacing:1px;
+  margin-top:2px;
+}
+.rating-badge .rating-meta{
+  font-size:11px;
+  color:#6B7280;
+  margin-top:2px;
+}
+.rating-badge .g-icon{
+  width:26px;height:26px;
+}
+
+/* Floating service cards — tighter to image edge */
+.float-card{
+  position:absolute;
+  background:#fff;
+  border-radius:12px;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:0 4px 20px rgba(0,0,0,.07), 0 1px 3px rgba(0,0,0,.04);
+  z-index:2;
+}
+.float-card-1{
+  top:48px;
+  left:-16px;
+}
+.float-card-2{
+  top:152px;
+  left:-28px;
+}
+.float-icon{
+  width:36px;height:36px;
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.float-icon-blue{background:#EFF6FF}
+.float-icon-cyan{background:#ECFEFF}
+.float-card .fc-title{font-size:13px;font-weight:700;color:#111827}
+.float-card .fc-sub{font-size:11px;color:#9CA3AF;margin-top:1px}
+
+/* ── Responsive ────────────────────────────── */
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    gap:32px;
+    padding:32px 24px;
+    min-height:auto;
+  }
+  .hero-visual{margin:0 auto;max-width:400px;width:100%}
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .float-card-2{display:none}
+}
+@media(max-width:480px){
+  .hero-text h1{font-size:32px}
+  .hero-img{max-width:100%;aspect-ratio:1/1}
+  .rating-badge{right:8px;bottom:20px;padding:10px 14px}
+  .rating-badge .score{font-size:24px}
+  .float-card-1{left:8px;top:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+      <path d="M32 6C22 6 14 13 14 22c0 8 2 14 6 22 2 6 6 14 10 14 1.5 0 2.5-3 3.5-7 .5 2 1.5 4 2.5 7 4 0 8-6 10-14 4-8 6-14 6-22C52 13 44 6 32 6Z"
+        fill="#2563EB" stroke="#2563EB" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
+    ד"ר פוקס
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#reviews">ביקורות</a></li>
+    <li><a href="#contact">צרו קשר</a></li>
+  </ul>
+
+  <a href="tel:03-523-2414" class="nav-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+    קבעו תור
+  </a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section class="hero">
+
+  <!-- Text side (right in RTL) -->
+  <div class="hero-text">
+
+    <div class="hero-pills">
+      <span class="pill pill-blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+        5.0 ב-Google
+      </span>
+      <span class="pill pill-gray">
+        <span class="dot"></span>
+        127 ביקורות מטופלים
+      </span>
+    </div>
+
+    <h1>
+      ביקור שיניים<br>
+      <span>רגוע יותר</span><br>
+      מתחיל כאן.
+    </h1>
+
+    <p class="subtitle">
+      רפואת שיניים מודרנית שמעמידה את הנוחות שלך במרכז.
+      מבדיקות שגרתיות ועד טיפולים מתקדמים — אנחנו הופכים את
+      הביקור לפשוט, נקי וללא מתח.
+    </p>
+
+    <a href="tel:03-523-2414" class="hero-cta">
+      צרו קשר
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </a>
+
+    <div class="doctors-row">
+      <div class="avatar-stack">
+        <div class="avatar avatar-1">פ</div>
+        <div class="avatar avatar-2">ר</div>
+        <div class="avatar avatar-3">ש</div>
+      </div>
+      <div class="doctors-label">
+        <strong>רופאים מומחים</strong><br>
+        לשירותך
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Visual side (left in RTL) -->
+  <div class="hero-visual">
+    <div class="hero-img">
+
+      <!-- Decorative shapes to fill the "photo" area -->
+      <div class="deco deco-1"></div>
+      <div class="deco deco-2"></div>
+      <div class="deco deco-3"></div>
+      <div class="deco deco-4"></div>
+
+      <div class="cross cross-1"></div>
+      <div class="cross cross-2"></div>
+      <div class="cross cross-3"></div>
+
+      <div class="smile-arc"></div>
+
+      <div class="illustration">
+        <svg class="tooth-main" width="220" height="220" viewBox="0 0 64 64" fill="none">
+          <path d="M32 4C20 4 12 12 12 22c0 8 2 14 6 22 2 6 6 16 10 16 2 0 3-4 4-8 1 4 2 8 4 8 4 0 8-10 10-16 4-8 6-14 6-22C52 12 44 4 32 4Z"
+            fill="#2563EB" stroke="#2563EB" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Floating service card 1 -->
+    <div class="float-card float-card-1">
+      <div class="float-icon float-icon-blue">
+        <svg width="20" height="20" viewBox="0 0 64 64" fill="none">
+          <path d="M32 6C22 6 14 13 14 22c0 8 2 14 6 22 2 6 6 14 10 14 1.5 0 2.5-3 3.5-7 .5 2 1.5 4 2.5 7 4 0 8-6 10-14 4-8 6-14 6-22C52 13 44 6 32 6Z"
+            fill="#2563EB" stroke="#2563EB" stroke-width="2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="fc-title">ניקוי שיניים</div>
+        <div class="fc-sub">טיפול מונע מקצועי</div>
+      </div>
+    </div>
+
+    <!-- Floating service card 2 -->
+    <div class="float-card float-card-2">
+      <div class="float-icon float-icon-cyan">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.36-7.36l-1.41 1.41M7.05 16.95l-1.41 1.41m12.72 0l-1.41-1.41M7.05 7.05L5.64 5.64"/>
+        </svg>
+      </div>
+      <div>
+        <div class="fc-title">הלבנת שיניים</div>
+        <div class="fc-sub">חיוך בהיר בביקור אחד</div>
+      </div>
+    </div>
+
+    <!-- Google Rating badge -->
+    <div class="rating-badge">
+      <div>
+        <svg class="g-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+      </div>
+      <div>
+        <div class="score">5.0</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="rating-meta">127 ביקורות</div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ניתוח דיגיטלי — ד״ר מיטל שגב נויהוף</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+
+body {
+  font-family: 'Instrument Sans', 'Heebo', sans-serif;
+  background: #fafbfd; color: #1a1e2e; line-height: 1.6; direction: rtl;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+/* HERO */
+.hero-line { height: 2px; background: #7b8cc4; }
+.hero { padding: 48px 0 0; }
+.hero-meta {
+  font-family: 'Instrument Sans', sans-serif; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.3em; color: #999;
+  margin-bottom: 20px;
+}
+.hero-name {
+  font-family: 'Heebo', sans-serif; font-size: 64px; font-weight: 700;
+  line-height: 1.05; color: #1a1e2e; margin-bottom: 8px;
+}
+@media (max-width: 600px) { .hero-name { font-size: 42px; } }
+.hero-city {
+  font-family: 'Heebo', sans-serif; font-size: 18px; font-weight: 400;
+  color: #7b8cc4; margin-bottom: 32px;
+}
+.hr { height: 1px; background: #eee; border: none; }
+.stats-strip {
+  display: flex; align-items: center; padding: 28px 0;
+}
+.stat-item { flex: 1; text-align: center; }
+.stat-divider { width: 1px; height: 48px; background: #ddd; flex-shrink: 0; }
+.stat-number {
+  font-family: 'Instrument Sans', sans-serif; font-size: 44px; font-weight: 700;
+  color: #1a1e2e; line-height: 1;
+}
+.stat-label {
+  font-family: 'Heebo', sans-serif; font-size: 11px; color: #999;
+  text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px;
+}
+
+/* SECTIONS */
+.section { padding: 80px 0 0; }
+.section-label {
+  font-family: 'Instrument Sans', sans-serif; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 0.2em; color: #999;
+  margin-bottom: 32px;
+}
+
+/* COMP TABLE */
+.comp-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.comp-header-row {}
+.comp-header-row .comp-cell {
+  font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em; color: #999;
+  padding: 0 12px 12px; text-align: center; border-bottom: 1px solid #ddd;
+}
+.comp-row { border-bottom: 1px solid #eee; }
+.comp-cell {
+  padding: 14px 12px; text-align: center; font-family: 'Heebo', sans-serif;
+  font-size: 14px; font-weight: 400; vertical-align: middle; color: #1a1e2e;
+  border-radius: 0;
+}
+.cell-label { text-align: right; font-weight: 700; font-size: 13px; color: #666; }
+.cell-you { background: rgba(123,140,196,0.04); font-weight: 700; }
+.cell-comp { color: #666; }
+.reviews-row { background: rgba(123,140,196,0.03); }
+.win { color: #7badc4; font-weight: 700; }
+.lose { color: #c7a0b8; font-weight: 700; }
+
+/* CALLOUT */
+.callout {
+  border-right: 2px solid #7b8cc4; padding: 0 20px;
+  font-family: 'Heebo', sans-serif; font-size: 14px; line-height: 1.7;
+  color: #666; margin-top: 28px;
+}
+
+/* RATING */
+.rating-block { text-align: center; margin-bottom: 12px; }
+.rating-number {
+  font-family: 'Instrument Sans', sans-serif; font-size: 72px; font-weight: 700;
+  color: #1a1e2e; line-height: 1;
+}
+.rating-label { font-family: 'Heebo', sans-serif; font-size: 14px; color: #999; margin-top: 4px; }
+.insight-text {
+  font-family: 'Heebo', sans-serif; font-size: 14px; color: #666;
+  text-align: center; margin: 20px 0 40px; line-height: 1.7;
+}
+
+/* CALC TABLE */
+.calc-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+.calc-table th {
+  font-family: 'Heebo', sans-serif; font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em; color: #999;
+  padding: 0 16px 12px; text-align: center; border-bottom: 1px solid #ddd;
+}
+.calc-table td {
+  padding: 12px 16px; text-align: center; font-family: 'Heebo', sans-serif;
+  font-size: 14px; border-bottom: 1px solid #eee; color: #1a1e2e;
+}
+.calc-table tbody tr:first-of-type td { font-weight: 700; }
+
+/* COMP REFS */
+.comp-refs {
+  font-family: 'Heebo', sans-serif; font-size: 13px; color: #999;
+  text-align: center; padding: 20px 0; border-top: 1px solid #eee;
+  margin-bottom: 20px;
+}
+.comp-refs span { margin: 0 12px; }
+
+/* URGENCY */
+.urgency-text {
+  font-family: 'Heebo', sans-serif; font-size: 14px; color: #7b8cc4;
+  text-align: center; margin-top: 8px; line-height: 1.7;
+}
+
+/* CTA */
+.cta-section { padding: 80px 0 0; }
+.cta-line { height: 2px; background: #7b8cc4; margin-bottom: 40px; }
+.cta-headline {
+  font-family: 'Heebo', sans-serif; font-size: 24px; font-weight: 700;
+  color: #1a1e2e; margin-bottom: 6px;
+}
+.cta-sub {
+  font-family: 'Heebo', sans-serif; font-size: 14px; color: #999; font-weight: 400;
+}
+
+/* FOOTER */
+.footer {
+  padding: 80px 0 32px; text-align: center;
+  font-family: 'Instrument Sans', sans-serif; font-size: 11px; color: #ccc;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero-line"></div>
+<section class="hero">
+  <div class="container">
+    <p class="hero-meta">ניתוח דיגיטלי — פברואר 2026</p>
+    <h1 class="hero-name">ד״ר מיטל שגב נויהוף</h1>
+    <p class="hero-city">תל אביב</p>
+    <hr class="hr">
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-number">5.0</div>
+        <div class="stat-label">ציון Google</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">24</div>
+        <div class="stat-label">ביקורות</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number">8</div>
+        <div class="stat-label">ציון אתר</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S1 — COMPETITOR COMPARISON -->
+<section class="section">
+  <div class="container">
+    <hr class="hr">
+    <div style="height:80px"></div>
+    <p class="section-label">השוואה מול מתחרים</p>
+    <table class="comp-table">
+      <tr class="comp-header-row">
+        <td class="comp-cell"></td>
+        <td class="comp-cell cell-you">אתם</td>
+        <td class="comp-cell">Care Laser</td>
+        <td class="comp-cell">מיודנט — ד״ר מקס</td>
+        <td class="comp-cell">ד״ר שירה חזק</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">ציון Google</td>
+        <td class="comp-cell cell-you">5.0</td>
+        <td class="comp-cell cell-comp win">4.0</td>
+        <td class="comp-cell cell-comp">5.0</td>
+        <td class="comp-cell cell-comp">5.0</td>
+      </tr>
+      <tr class="comp-row reviews-row">
+        <td class="comp-cell cell-label">ביקורות</td>
+        <td class="comp-cell cell-you">24</td>
+        <td class="comp-cell cell-comp lose">756</td>
+        <td class="comp-cell cell-comp lose">485</td>
+        <td class="comp-cell cell-comp lose">354</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">ציון אתר</td>
+        <td class="comp-cell cell-you">8</td>
+        <td class="comp-cell cell-comp win">0</td>
+        <td class="comp-cell cell-comp">8</td>
+        <td class="comp-cell cell-comp lose">9</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">הזמנה אונליין</td>
+        <td class="comp-cell cell-you">&#10003;</td>
+        <td class="comp-cell cell-comp win">&#10005;</td>
+        <td class="comp-cell cell-comp">&#10003;</td>
+        <td class="comp-cell cell-comp">&#10003;</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">פייסבוק</td>
+        <td class="comp-cell cell-you">&#10003;</td>
+        <td class="comp-cell cell-comp win">&#10005;</td>
+        <td class="comp-cell cell-comp win">&#10005;</td>
+        <td class="comp-cell cell-comp">&#10003;</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">אינסטגרם</td>
+        <td class="comp-cell cell-you">&#10003;</td>
+        <td class="comp-cell cell-comp win">&#10005;</td>
+        <td class="comp-cell cell-comp win">&#10005;</td>
+        <td class="comp-cell cell-comp win">&#10005;</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">תמונות GBP</td>
+        <td class="comp-cell cell-you">15</td>
+        <td class="comp-cell cell-comp lose">85</td>
+        <td class="comp-cell cell-comp lose">120</td>
+        <td class="comp-cell cell-comp lose">65</td>
+      </tr>
+    </table>
+    <div class="callout">
+      מיקום שלך: מקום 4 מתוך 4. המתחרה המוביל — 756 ביקורות.
+    </div>
+  </div>
+</section>
+
+<!-- S3 — REPUTATION -->
+<section class="section">
+  <div class="container">
+    <hr class="hr">
+    <div style="height:80px"></div>
+    <p class="section-label">ניתוח מוניטין</p>
+    <div class="rating-block">
+      <div class="rating-number">5.0</div>
+      <div class="rating-label">24 ביקורות</div>
+    </div>
+    <p class="insight-text">ציון מצוין — 24 ביקורות בלבד. כמות נמוכה פוגעת באמינות ובדירוג.</p>
+    <table class="calc-table">
+      <thead>
+        <tr><th>ביקורות חדשות</th><th>הציון החדש</th><th>שיפור</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>היום</td><td>5.0</td><td>—</td></tr>
+        <tr><td>+5</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+10</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+15</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+20</td><td>5.0</td><td>+0.0</td></tr>
+      </tbody>
+    </table>
+    <div class="comp-refs">
+      <span>מיודנט — 5.0 (485 ביקורות)</span> |
+      <span>ד״ר שירה חזק — 5.0 (354 ביקורות)</span> |
+      <span>רופא שיניים בתל אביב — 5.0 (303 ביקורות)</span>
+    </div>
+    <p class="urgency-text">הציון שלך מעולה, אבל הכמות הנמוכה שמה אותך במקום אחרון. עכשיו זה הזמן להגדיל כמות.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-line"></div>
+    <h2 class="cta-headline">רוצה לראות את הניתוח המלא?</h2>
+    <p class="cta-sub">10 דקות בזום — רלוונטי?</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>מבוסס על נתונים ציבוריים | פברואר 2026</p>
+</footer>
+
+</body>
+</html>

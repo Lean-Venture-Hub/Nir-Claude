@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proposal Template Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#08080a;
+  --bg-card:#111114;
+  --bg-hover:#18181c;
+  --border:rgba(255,255,255,.06);
+  --border-hover:rgba(255,255,255,.12);
+  --text:#e8e8ec;
+  --text-dim:rgba(255,255,255,.4);
+  --text-muted:rgba(255,255,255,.22);
+  --accent:#b08ad4;
+  --accent-glow:rgba(176,138,212,.15);
+  --accent-secondary:#7badc4;
+  --syne:'Syne',sans-serif;
+  --dm:'DM Sans',sans-serif;
+  --radius:16px;
+  --cols:3;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--dm);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── Noise overlay ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+  background-size:200px;
+}
+
+/* ── Top ambient glow ── */
+body::after{
+  content:'';
+  position:fixed;
+  top:-40%;
+  left:50%;
+  transform:translateX(-50%);
+  width:120vw;
+  height:70vh;
+  background:radial-gradient(ellipse at center, rgba(176,138,212,.05) 0%, transparent 65%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── Top Navigation ── */
+.top-nav{
+  position:sticky;
+  top:0;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  padding:12px 48px;
+  background:rgba(8,8,10,.92);
+  backdrop-filter:blur(32px) saturate(1.4);
+  -webkit-backdrop-filter:blur(32px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+}
+.nav-link{
+  font-family:var(--syne);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.3px;
+  padding:8px 22px;
+  border-radius:100px;
+  text-decoration:none;
+  transition:all .25s ease;
+}
+.nav-link--inactive{
+  color:var(--text-dim);
+  border:1px solid transparent;
+}
+.nav-link--inactive:hover{
+  color:var(--text);
+  border-color:var(--border-hover);
+  background:rgba(255,255,255,.03);
+}
+.nav-link--active{
+  color:var(--accent);
+  border:1px solid rgba(176,138,212,.3);
+  background:var(--accent-glow);
+}
+.nav-divider{
+  width:1px;
+  height:20px;
+  background:var(--border);
+  margin:0 8px;
+}
+
+/* ── Header ── */
+.header{
+  padding:0 48px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+}
+.header-brand{
+  font-family:var(--syne);
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:-.5px;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.header-brand .dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 12px var(--accent-glow);
+}
+.header-meta{
+  font-size:13px;
+  color:var(--text-dim);
+  font-weight:400;
+  letter-spacing:.3px;
+}
+.header-count{
+  font-family:var(--syne);
+  font-weight:700;
+  color:var(--accent);
+}
+
+/* ── Hero strip ── */
+.hero{
+  padding:56px 48px 40px;
+  position:relative;
+  z-index:1;
+}
+.hero-eyebrow{
+  font-family:var(--syne);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:16px;
+  opacity:0;
+  animation:fadeUp .6s ease forwards;
+}
+.hero h1{
+  font-family:var(--syne);
+  font-size:clamp(36px, 5vw, 64px);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-2px;
+  color:var(--text);
+  max-width:700px;
+  opacity:0;
+  animation:fadeUp .6s ease .1s forwards;
+}
+.hero h1 span{
+  background:linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:16px;
+  color:var(--text-dim);
+  margin-top:16px;
+  max-width:480px;
+  line-height:1.65;
+  font-weight:300;
+  opacity:0;
+  animation:fadeUp .6s ease .2s forwards;
+}
+
+/* ── Filter bar ── */
+.filter-bar{
+  padding:0 48px 32px;
+  display:flex;
+  gap:8px;
+  position:relative;
+  z-index:1;
+  opacity:0;
+  animation:fadeUp .6s ease .3s forwards;
+}
+.filter-btn{
+  font-family:var(--dm);
+  font-size:13px;
+  font-weight:500;
+  padding:8px 18px;
+  border-radius:100px;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text-dim);
+  cursor:pointer;
+  transition:all .25s ease;
+}
+.filter-btn:hover,.filter-btn.active{
+  border-color:var(--accent);
+  color:var(--accent);
+  background:var(--accent-glow);
+}
+
+/* ── Grid ── */
+.grid-wrap{
+  padding:0 48px 96px;
+  position:relative;
+  z-index:1;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(var(--cols),1fr);
+  gap:24px;
+}
+
+/* ── Card ── */
+.card{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:transform .4s cubic-bezier(.2,.9,.3,1), border-color .3s, box-shadow .4s;
+  opacity:0;
+  transform:translateY(30px);
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+.card.visible{
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity .5s ease, transform .5s ease, border-color .3s, box-shadow .4s;
+}
+.card:hover{
+  transform:translateY(-6px) scale(1.008);
+  border-color:var(--border-hover);
+  box-shadow:0 24px 80px -12px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* ── iframe preview ── */
+.card-preview{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/11;
+  overflow:hidden;
+  background:#0c0c0e;
+}
+.card-preview iframe{
+  width:1440px;
+  height:1100px;
+  border:none;
+  transform-origin:top left;
+  pointer-events:none;
+  display:block;
+}
+.card-preview::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(8,8,10,.7) 100%);
+  opacity:0;
+  transition:opacity .35s ease;
+  pointer-events:none;
+}
+.card:hover .card-preview::after{
+  opacity:1;
+}
+
+/* ── Open indicator ── */
+.card-open{
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:36px;height:36px;
+  border-radius:10px;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transform:translateY(-6px);
+  transition:all .3s ease;
+  z-index:5;
+}
+.card:hover .card-open{
+  opacity:1;
+  transform:translateY(0);
+}
+.card-open svg{
+  width:16px;height:16px;
+  stroke:#fff;
+  stroke-width:2;
+  fill:none;
+}
+
+/* ── Card info ── */
+.card-info{
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-top:1px solid var(--border);
+}
+.card-num{
+  font-family:var(--syne);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+}
+.card-name{
+  font-family:var(--syne);
+  font-size:14px;
+  font-weight:600;
+  color:var(--text);
+  letter-spacing:-.2px;
+}
+.card-tag{
+  font-size:11px;
+  font-weight:500;
+  padding:4px 10px;
+  border-radius:6px;
+  background:rgba(255,255,255,.04);
+  color:var(--text-dim);
+  border:1px solid var(--border);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── Responsive ── */
+@media(max-width:1200px){
+  :root{--cols:2}
+  .top-nav,.header,.hero,.filter-bar,.grid-wrap{padding-left:32px;padding-right:32px}
+}
+@media(max-width:768px){
+  :root{--cols:1}
+  .top-nav,.header,.hero,.filter-bar,.grid-wrap{padding-left:20px;padding-right:20px}
+  .top-nav{gap:2px;padding:10px 16px}
+  .nav-link{font-size:12px;padding:7px 14px}
+  .nav-divider{margin:0 4px}
+  .header{height:60px}
+  .hero{padding-top:40px;padding-bottom:32px}
+  .hero h1{letter-spacing:-1px}
+  .card-preview iframe{width:1200px;height:920px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Top Navigation ── -->
+<nav class="top-nav">
+  <a href="/s4-templates/gallery.html" class="nav-link nav-link--inactive">
+    <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+    Website Templates
+  </a>
+  <span class="nav-divider"></span>
+  <a href="#" class="nav-link nav-link--active">
+    <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    Proposal Templates
+  </a>
+</nav>
+
+<header class="header">
+  <div class="header-brand">
+    <span class="dot"></span>
+    Proposal Templates
+  </div>
+  <div class="header-meta">
+    <span class="header-count">10</span> templates
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">Proposal Gallery</div>
+  <h1>Clinic Proposals<br>for <span>Dental Outreach</span></h1>
+  <p class="hero-sub">Browse all 10 proposal templates. Each combines Hero + Competitor Comparison + Reputation Analysis. Click any card to preview.</p>
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="light">Light</button>
+  <button class="filter-btn" data-filter="dark">Dark</button>
+  <button class="filter-btn" data-filter="minimal">Minimal</button>
+  <button class="filter-btn" data-filter="ornate">Ornate</button>
+</div>
+
+<div class="grid-wrap">
+  <div class="grid" id="gallery"></div>
+</div>
+
+<script>
+const templates = [
+  { id:1,  file:'template-1-gazette',    name:'Gazette',     tags:['dark'] },
+  { id:2,  file:'template-2-bloom',      name:'Bloom',       tags:['light','ornate'] },
+  { id:3,  file:'template-3-swiss',      name:'Swiss',       tags:['light','minimal'] },
+  { id:4,  file:'template-4-dusk',       name:'Dusk',        tags:['dark'] },
+  { id:5,  file:'template-5-citrus',     name:'Citrus',      tags:['light','ornate'] },
+  { id:6,  file:'template-6-frost',      name:'Frost',       tags:['light','minimal'] },
+  { id:7,  file:'template-7-sakura',     name:'Sakura',      tags:['light','ornate'] },
+  { id:8,  file:'template-8-twilight',   name:'Twilight',    tags:['dark','ornate'] },
+  { id:9,  file:'template-9-porcelain',  name:'Porcelain',   tags:['light'] },
+  { id:10, file:'template-10-amethyst',  name:'Amethyst',    tags:['dark','ornate'] },
+];
+
+const grid = document.getElementById('gallery');
+
+function renderCards(filter) {
+  grid.innerHTML = '';
+  const filtered = filter === 'all' ? templates : templates.filter(t => t.tags.includes(filter));
+
+  filtered.forEach((t, i) => {
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.href = `${t.file}.html`;
+    card.target = '_blank';
+    card.rel = 'noopener';
+    card.innerHTML = `
+      <div class="card-preview">
+        <iframe src="${t.file}.html" loading="lazy" tabindex="-1" sandbox="allow-same-origin"></iframe>
+        <div class="card-open">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-info">
+        <div>
+          <div class="card-num">No. ${String(t.id).padStart(2,'0')}</div>
+          <div class="card-name">${t.name}</div>
+        </div>
+        <span class="card-tag">${t.tags[0]}</span>
+      </div>
+    `;
+    grid.appendChild(card);
+
+    requestAnimationFrame(() => {
+      const preview = card.querySelector('.card-preview');
+      const iframe = card.querySelector('iframe');
+      if (preview && iframe) {
+        const scale = preview.offsetWidth / 1440;
+        iframe.style.transform = `scale(${scale})`;
+        preview.style.height = (1100 * scale) + 'px';
+      }
+    });
+
+    setTimeout(() => card.classList.add('visible'), 60 * i);
+  });
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCards(btn.dataset.filter);
+  });
+});
+
+// Handle resize for iframe scaling
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.querySelectorAll('.card').forEach(card => {
+      const preview = card.querySelector('.card-preview');
+      const iframe = card.querySelector('iframe');
+      if (preview && iframe) {
+        const scale = preview.offsetWidth / 1440;
+        iframe.style.transform = `scale(${scale})`;
+        preview.style.height = (1100 * scale) + 'px';
+      }
+    });
+  }, 100);
+});
+
+// Init
+renderCards('all');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ניתוח דיגיטלי — ד״ר מיטל שגב נויהוף</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* === RESET & BASE === */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Heebo', 'IBM Plex Sans', sans-serif;
+  background: #fafafa; color: #111111; line-height: 1.6; direction: rtl;
+  background-image:
+    linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+    linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
+  background-size: 80px 80px; background-position: center center;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 0 32px; position: relative; }
+.section-divider { width: 100%; height: 4px; background: #8b6baf; border: none; margin: 0; }
+
+
+/* Decorative numbers */
+.deco-number {
+  position: absolute; top: 20px; left: 0;
+  font-family: 'Instrument Sans', sans-serif; font-size: 200px; font-weight: 700;
+  color: #111; opacity: 0.03; line-height: 1; pointer-events: none;
+  user-select: none; z-index: 0; letter-spacing: -0.05em;
+}
+
+
+/* Geometric decorations */
+.geo-circle { width: 24px; height: 24px; border: 3px solid #8b6baf; border-radius: 0; display: inline-block; }
+.geo-circle.is-circle { border-radius: 50%; }
+.geo-triangle {
+  width: 0; height: 0; display: inline-block;
+  border-left: 12px solid transparent; border-right: 12px solid transparent;
+  border-bottom: 20px solid #6b9bd2;
+}
+.geo-strip { display: flex; gap: 16px; align-items: center; justify-content: center; padding: 16px 0; }
+
+
+/* Animations */
+@keyframes slideInRight { from { transform: translateX(60px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lineGrow { from { width: 0; } to { width: 100%; } }
+.anim-slide-right { animation: slideInRight 0.5s cubic-bezier(0.25,0,0.25,1) both; }
+.anim-slide-up { animation: slideInUp 0.5s cubic-bezier(0.25,0,0.25,1) both; }
+.anim-fade { animation: fadeIn 0.6s ease both; }
+.delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; } .delay-6 { animation-delay: 0.6s; }
+
+/* SECTION 1 — HERO */
+.hero { background: #fafafa; padding-bottom: 48px; position: relative; overflow: hidden; }
+.hero-top-line { height: 4px; background: #8b6baf; width: 100%; animation: lineGrow 0.8s cubic-bezier(0.25,0,0.25,1) both; }
+.hero-meta {
+  font-family: 'Instrument Sans', sans-serif; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.3em; color: #666;
+  margin-top: 40px; margin-bottom: 16px;
+}
+.hero-name {
+  font-family: 'Heebo', sans-serif; font-size: 64px; font-weight: 900;
+  line-height: 1.05; letter-spacing: -0.02em; color: #111; margin-bottom: 8px;
+}
+@media (max-width: 600px) { .hero-name { font-size: 42px; } }
+.hero-location {
+  font-family: 'Heebo', sans-serif; font-size: 22px; font-weight: 700;
+  color: #8b6baf; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 40px;
+}
+.stats-strip { display: flex; gap: 0; margin-bottom: 40px; }
+.stat-item { border-right: 4px solid #8b6baf; padding: 12px 28px 12px 40px; flex: 1; }
+.stat-number {
+  font-family: 'Instrument Sans', sans-serif; font-size: 48px; font-weight: 700;
+  color: #111; line-height: 1; letter-spacing: -0.03em;
+}
+.stat-label {
+  font-family: 'Heebo', sans-serif; font-size: 11px; color: #888;
+  text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px;
+}
+.hero-image-wrap { width: 100%; border: 2px solid #111; overflow: hidden; line-height: 0; }
+.hero-image-wrap img { width: 100%; height: 340px; object-fit: cover; display: block; }
+
+/* SECTION 2 — COMPETITOR COMPARISON */
+.section { position: relative; padding: 64px 0 56px; overflow: hidden; }
+.section-title {
+  font-family: 'Heebo', sans-serif; font-size: 36px; font-weight: 900;
+  color: #111; text-transform: uppercase; letter-spacing: -0.01em;
+  margin-bottom: 8px; position: relative; z-index: 1;
+}
+.section-title-underline { width: 80px; height: 4px; background: #8b6baf; margin-bottom: 40px; }
+
+/* Comp Table */
+.comp-table { width: 100%; border-collapse: collapse; position: relative; z-index: 1; }
+.comp-header-row { background: #111; }
+.comp-header-row .comp-cell {
+  color: #fff; font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em; padding: 14px 12px;
+  text-align: center; border: 1px solid #333;
+}
+.comp-row { border-bottom: 1px solid #e0e0e0; }
+.comp-row:nth-child(even) { background: #f7f7f7; }
+.comp-cell {
+  padding: 12px; text-align: center; font-family: 'Heebo', sans-serif;
+  font-size: 14px; font-weight: 400; border: 1px solid #e0e0e0;
+  vertical-align: middle; color: #111;
+}
+.cell-label { text-align: right; font-weight: 700; background: #fafafa; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; }
+.cell-you { background: rgba(107,155,210,0.08); font-weight: 600; }
+.cell-comp { font-weight: 400; }
+.reviews-row { background: #f5f0f8 !important; }
+.win { color: #4a7db3; font-weight: 700; }
+.lose { color: #b07080; font-weight: 700; }
+.win::after { content: ' \25BC'; font-size: 9px; }
+.lose::after { content: ' \25B2'; font-size: 9px; }
+
+/* Callout */
+.callout {
+  border-left: 6px solid #111; background: #fff; padding: 20px 24px; margin-top: 32px;
+  font-family: 'Heebo', sans-serif; font-size: 15px; line-height: 1.7; color: #111;
+  position: relative; z-index: 1; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.callout strong { color: #8b6baf; }
+
+/* SECTION 3 — REPUTATION */
+.rating-block { text-align: center; margin-bottom: 40px; position: relative; z-index: 1; }
+.rating-circle {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 180px; height: 180px; border: 4px solid #8b6baf; border-radius: 50%; margin-bottom: 8px;
+}
+.rating-number {
+  font-family: 'Instrument Sans', sans-serif; font-size: 72px; font-weight: 700;
+  color: #111; line-height: 1; letter-spacing: -0.04em;
+}
+.rating-label { font-family: 'Heebo', sans-serif; font-size: 16px; color: #555; margin-top: 4px; }
+.insight-box {
+  border: 2px solid #6b9bd2; border-right: 6px solid #6b9bd2; padding: 18px 24px;
+  margin-bottom: 40px; font-family: 'Heebo', sans-serif; font-size: 16px;
+  color: #111; background: #fff; position: relative; z-index: 1;
+}
+.calc-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; position: relative; z-index: 1; }
+.calc-table th {
+  background: #111; color: #fff; font-family: 'Heebo', sans-serif; font-size: 13px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 14px 16px; text-align: center; border: 1px solid #333;
+}
+.calc-table td {
+  padding: 12px 16px; text-align: center; font-family: 'Heebo', sans-serif;
+  font-size: 14px; border: 1px solid #e0e0e0; color: #111;
+}
+.calc-table tr:nth-child(even) { background: #f7f7f7; }
+.calc-table tbody tr:first-of-type td { font-weight: 700; background: rgba(107,155,210,0.06); }
+
+/* Competitor stats grid */
+.comp-stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; position: relative; z-index: 1; }
+.comp-stat-card {
+  background: #fff; border: 1px solid #e0e0e0; border-top: 4px solid #111;
+  padding: 24px 16px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.comp-stat-name { font-family: 'Heebo', sans-serif; font-size: 13px; font-weight: 700; color: #111; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.03em; }
+.comp-stat-score { font-family: 'Instrument Sans', sans-serif; font-size: 36px; font-weight: 700; color: #111; line-height: 1; }
+.comp-stat-reviews { font-family: 'Heebo', sans-serif; font-size: 12px; color: #888; margin-top: 4px; }
+
+/* Urgency callout */
+.urgency-callout {
+  border: 3px solid #8b6baf; border-right: 8px solid #8b6baf; background: #fff;
+  padding: 24px 28px; font-family: 'Heebo', sans-serif; font-size: 15px;
+  line-height: 1.7; color: #111; position: relative; z-index: 1;
+  box-shadow: 0 2px 8px rgba(139,107,175,0.08);
+}
+.urgency-callout strong { color: #8b6baf; }
+
+/* CTA */
+.cta-section { background: #111; position: relative; margin-top: 0; }
+.cta-top-line { height: 4px; background: #8b6baf; width: 100%; }
+.cta-inner { max-width: 900px; margin: 0 auto; padding: 56px 32px; text-align: center; }
+.cta-headline { font-family: 'Heebo', sans-serif; font-size: 32px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+.cta-sub { font-family: 'Heebo', sans-serif; font-size: 18px; color: #aaa; font-weight: 300; }
+
+/* Footer */
+.footer { background: #fafafa; border-top: 1px solid #e0e0e0; padding: 24px 0; text-align: center; }
+.footer-text { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: #aaa; letter-spacing: 0.05em; }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0; transform: translateX(40px);
+  transition: opacity 0.5s cubic-bezier(0.25,0,0.25,1), transform 0.5s cubic-bezier(0.25,0,0.25,1);
+}
+.reveal.visible { opacity: 1; transform: translateX(0); }
+.reveal-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.5s cubic-bezier(0.25,0,0.25,1), transform 0.5s cubic-bezier(0.25,0,0.25,1);
+}
+.reveal-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- SECTION 1 — HERO HEADER -->
+<section class="hero">
+  <div class="hero-top-line"></div>
+  <div class="container">
+    <p class="hero-meta anim-slide-right delay-1">ניתוח דיגיטלי 001 / פברואר 2026</p>
+    <h1 class="hero-name anim-slide-right delay-2">ד״ר מיטל שגב נויהוף</h1>
+    <p class="hero-location anim-slide-right delay-3">תל אביב</p>
+    <div class="stats-strip anim-slide-right delay-4">
+      <div class="stat-item">
+        <div class="stat-number">5.0</div>
+        <div class="stat-label">ציון Google</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24</div>
+        <div class="stat-label">ביקורות</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">8/10</div>
+        <div class="stat-label">ציון אתר</div>
+      </div>
+    </div>
+    <div class="hero-image-wrap anim-fade delay-5">
+      <img src="../../image to be used/image9.png" alt="מרפאת שיניים מודרנית"
+           onerror="this.parentElement.style.background='#e0e0e0';this.parentElement.style.height='340px';this.style.display='none';">
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+<div class="geo-strip">
+  <span class="geo-circle"></span>
+  <span class="geo-circle is-circle"></span>
+  <span class="geo-triangle"></span>
+  <span class="geo-circle"></span>
+  <span class="geo-circle is-circle"></span>
+</div>
+<div class="section-divider"></div>
+
+<!-- SECTION 2 — COMPETITOR COMPARISON -->
+<section class="section">
+  <div class="container">
+    <div class="deco-number">02</div>
+    <div class="reveal">
+      <h2 class="section-title">השוואה מול מתחרים</h2>
+      <div class="section-title-underline"></div>
+    </div>
+    <table class="comp-table reveal-up" style="transition-delay:0.15s">
+      <tr class="comp-header-row">
+        <td class="comp-cell"></td>
+        <td class="comp-cell cell-you">אתם</td>
+        <td class="comp-cell">Care Laser</td>
+        <td class="comp-cell">מיודנט — ד״ר מקס</td>
+        <td class="comp-cell">ד״ר שירה חזק</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">ציון Google</td>
+        <td class="comp-cell cell-you">5.0</td>
+        <td class="comp-cell cell-comp win">4.0</td>
+        <td class="comp-cell cell-comp">5.0</td>
+        <td class="comp-cell cell-comp">5.0</td>
+      </tr>
+      <tr class="comp-row reviews-row">
+        <td class="comp-cell cell-label">ביקורות</td>
+        <td class="comp-cell cell-you">24</td>
+        <td class="comp-cell cell-comp lose">756</td>
+        <td class="comp-cell cell-comp lose">485</td>
+        <td class="comp-cell cell-comp lose">354</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">ציון אתר</td>
+        <td class="comp-cell cell-you">8</td>
+        <td class="comp-cell cell-comp win">0</td>
+        <td class="comp-cell cell-comp">8</td>
+        <td class="comp-cell cell-comp lose">9</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">הזמנה אונליין</td>
+        <td class="comp-cell cell-you">&check;</td>
+        <td class="comp-cell cell-comp win">&cross;</td>
+        <td class="comp-cell cell-comp">&check;</td>
+        <td class="comp-cell cell-comp">&check;</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">פייסבוק</td>
+        <td class="comp-cell cell-you">&check;</td>
+        <td class="comp-cell cell-comp win">&cross;</td>
+        <td class="comp-cell cell-comp win">&cross;</td>
+        <td class="comp-cell cell-comp">&check;</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">אינסטגרם</td>
+        <td class="comp-cell cell-you">&check;</td>
+        <td class="comp-cell cell-comp win">&cross;</td>
+        <td class="comp-cell cell-comp win">&cross;</td>
+        <td class="comp-cell cell-comp win">&cross;</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">תמונות GBP</td>
+        <td class="comp-cell cell-you">15</td>
+        <td class="comp-cell cell-comp lose">85</td>
+        <td class="comp-cell cell-comp lose">120</td>
+        <td class="comp-cell cell-comp lose">65</td>
+      </tr>
+    </table>
+    <div class="callout reveal-up" style="transition-delay:0.3s">
+      <strong>מיקום שלך: מקום 4 מתוך 4</strong> לפי ביקורות. המתחרה המוביל מחזיק <strong>756 ביקורות</strong> — פי 31.5 ממך.
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+<div class="geo-strip">
+  <span class="geo-triangle"></span>
+  <span class="geo-circle"></span>
+  <span class="geo-circle is-circle"></span>
+  <span class="geo-triangle"></span>
+</div>
+<div class="section-divider"></div>
+
+<!-- SECTION 3 — REPUTATION ANALYSIS -->
+<section class="section">
+  <div class="container">
+    <div class="deco-number">03</div>
+    <div class="reveal">
+      <h2 class="section-title">ניתוח מוניטין ותחזית שיפור</h2>
+      <div class="section-title-underline"></div>
+    </div>
+    <div class="rating-block reveal-up" style="transition-delay:0.1s">
+      <div class="rating-circle">
+        <span class="rating-number">5.0</span>
+      </div>
+      <div class="rating-label">24 ביקורות</div>
+    </div>
+    <div class="insight-box reveal-up" style="transition-delay:0.2s">
+      ציון מצוין — אבל <strong>24 ביקורות בלבד</strong>. כמות נמוכה פוגעת באמינות ובדירוג.
+    </div>
+    <table class="calc-table reveal-up" style="transition-delay:0.3s">
+      <thead>
+        <tr><th>ביקורות חדשות</th><th>הציון החדש</th><th>שיפור</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>היום</td><td>5.0</td><td>—</td></tr>
+        <tr><td>+5</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+10</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+15</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+20</td><td>5.0</td><td>+0.0</td></tr>
+      </tbody>
+    </table>
+    <div class="comp-stats-grid reveal-up" style="transition-delay:0.4s">
+      <div class="comp-stat-card">
+        <div class="comp-stat-name">מיודנט</div>
+        <div class="comp-stat-score">5.0</div>
+        <div class="comp-stat-reviews">485 ביקורות</div>
+      </div>
+      <div class="comp-stat-card">
+        <div class="comp-stat-name">ד״ר שירה חזק</div>
+        <div class="comp-stat-score">5.0</div>
+        <div class="comp-stat-reviews">354 ביקורות</div>
+      </div>
+      <div class="comp-stat-card">
+        <div class="comp-stat-name">רופא שיניים בתל אביב</div>
+        <div class="comp-stat-score">5.0</div>
+        <div class="comp-stat-reviews">303 ביקורות</div>
+      </div>
+    </div>
+    <div class="urgency-callout reveal-up" style="transition-delay:0.5s">
+      <strong>דחיפות גבוהה:</strong> הציון שלך מעולה, אבל הכמות הנמוכה שמה אותך במקום אחרון. כל חודש בלי תוכנית איסוף ביקורות — המתחרים מתרחקים. <strong>עכשיו זה הזמן להגדיל כמות.</strong>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-top-line"></div>
+  <div class="cta-inner reveal-up">
+    <h2 class="cta-headline">רוצה לראות את הניתוח המלא?</h2>
+    <p class="cta-sub">10 דקות בזום — רלוונטי?</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-text">מבוסס על נתונים ציבוריים | פברואר 2026</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var els = document.querySelectorAll('.reveal, .reveal-up');
+  function check() {
+    var h = window.innerHeight;
+    els.forEach(function (el) { if (el.getBoundingClientRect().top < h - 60) el.classList.add('visible'); });
+  }
+  window.addEventListener('scroll', check);
+  check();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הצעה למרפאת שיניים — ד"ר מיכאל ואריאל דינבר</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ============ RESET & BASE ============ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0a0a;
+    font-family: 'Heebo', sans-serif;
+    color: #e0e0e0;
+    direction: rtl;
+    line-height: 1.6;
+    padding: 24px 16px 60px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Scanline overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,255,135,0.015) 2px,
+      rgba(0,255,135,0.015) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .mono { font-family: 'Space Mono', monospace; }
+
+  /* ============ GRID BACKGROUND ============ */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0,255,135,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,135,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ============ NEON GLOW TEXT ============ */
+  .neon-green {
+    color: #00ff87;
+    text-shadow: 0 0 10px rgba(0,255,135,0.5), 0 0 40px rgba(0,255,135,0.2);
+  }
+  .neon-pink {
+    color: #ff3366;
+    text-shadow: 0 0 10px rgba(255,51,102,0.5), 0 0 40px rgba(255,51,102,0.2);
+  }
+  .neon-yellow {
+    color: #ffdd00;
+    text-shadow: 0 0 10px rgba(255,221,0,0.5), 0 0 40px rgba(255,221,0,0.2);
+  }
+  .neon-blue {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0,212,255,0.5), 0 0 40px rgba(0,212,255,0.2);
+  }
+
+  /* ============ BRACKET CARD ============ */
+  .bracket-card {
+    position: relative;
+    background: #111111;
+    border-radius: 0;
+    padding: 24px;
+    overflow: visible;
+  }
+  .bracket-card::before,
+  .bracket-card::after,
+  .bracket-card .corner-bl,
+  .bracket-card .corner-br {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  .bracket-card::before {
+    top: -2px; right: -2px;
+    border-top: 2px solid #00ff87;
+    border-right: 2px solid #00ff87;
+  }
+  .bracket-card::after {
+    top: -2px; left: -2px;
+    border-top: 2px solid #00ff87;
+    border-left: 2px solid #00ff87;
+  }
+  .bracket-card .corner-bl {
+    bottom: -2px; right: -2px;
+    border-bottom: 2px solid #00ff87;
+    border-right: 2px solid #00ff87;
+  }
+  .bracket-card .corner-br {
+    bottom: -2px; left: -2px;
+    border-bottom: 2px solid #00ff87;
+    border-left: 2px solid #00ff87;
+  }
+
+  /* Pink bracket variant */
+  .bracket-pink::before { border-color: #ff3366; }
+  .bracket-pink::after { border-color: #ff3366; }
+  .bracket-pink .corner-bl { border-color: #ff3366; }
+  .bracket-pink .corner-br { border-color: #ff3366; }
+
+  /* Blue bracket variant */
+  .bracket-blue::before { border-color: #00d4ff; }
+  .bracket-blue::after { border-color: #00d4ff; }
+  .bracket-blue .corner-bl { border-color: #00d4ff; }
+  .bracket-blue .corner-br { border-color: #00d4ff; }
+
+  /* Cyan bracket variant */
+  .bracket-cyan::before { border-color: #00d4ff; }
+  .bracket-cyan::after { border-color: #00d4ff; }
+  .bracket-cyan .corner-bl { border-color: #00d4ff; }
+  .bracket-cyan .corner-br { border-color: #00d4ff; }
+
+  /* ============ GLOW BORDER ============ */
+  .glow-border {
+    border: 1px solid #00ff87;
+    box-shadow: inset 0 0 20px rgba(0,255,135,0.05), 0 0 20px rgba(0,255,135,0.1);
+  }
+  .glow-border-pink {
+    border: 1px solid #ff3366;
+    box-shadow: inset 0 0 20px rgba(255,51,102,0.05), 0 0 20px rgba(255,51,102,0.1);
+  }
+  .glow-border-blue {
+    border: 1px solid #00d4ff;
+    box-shadow: inset 0 0 20px rgba(0,212,255,0.05), 0 0 20px rgba(0,212,255,0.1);
+  }
+
+  /* ============ BLINKING CURSOR ============ */
+  .cursor::after {
+    content: '\2588';
+    animation: blink 1s step-end infinite;
+    color: #00ff87;
+    margin-right: 4px;
+    font-family: 'Space Mono', monospace;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ============ ASCII DIVIDER ============ */
+  .ascii-divider {
+    font-family: 'Space Mono', monospace;
+    color: #333;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin: 32px 0;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  /* ============ DUOTONE IMAGE ============ */
+  .duotone-container {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #00ff87, #00d4ff);
+  }
+  .duotone-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) contrast(1.2);
+    mix-blend-mode: luminosity;
+    animation: hueShift 8s ease-in-out infinite alternate;
+  }
+  .duotone-container-pink {
+    background: linear-gradient(135deg, #ff3366, #00d4ff);
+  }
+
+  @keyframes hueShift {
+    0%   { filter: grayscale(100%) contrast(1.2) brightness(1); }
+    50%  { filter: grayscale(100%) contrast(1.3) brightness(1.05); }
+    100% { filter: grayscale(100%) contrast(1.2) brightness(1); }
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes neonPulse {
+    0%, 100% { box-shadow: inset 0 0 20px rgba(0,255,135,0.05), 0 0 20px rgba(0,255,135,0.1); }
+    50%      { box-shadow: inset 0 0 30px rgba(0,255,135,0.08), 0 0 35px rgba(0,255,135,0.18); }
+  }
+  @keyframes neonPulseStrong {
+    0%, 100% { box-shadow: 0 0 20px rgba(0,255,135,0.2), 0 0 40px rgba(0,255,135,0.1); }
+    50%      { box-shadow: 0 0 35px rgba(0,255,135,0.35), 0 0 60px rgba(0,255,135,0.2); }
+  }
+  @keyframes textFlicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.33; }
+  }
+  @keyframes typeIn {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+  @keyframes borderGlow {
+    0%, 100% { border-color: #00ff87; }
+    50% { border-color: #00d4ff; }
+  }
+
+  .anim {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.15s; }
+  .d3 { animation-delay: 0.25s; }
+  .d4 { animation-delay: 0.35s; }
+  .d5 { animation-delay: 0.45s; }
+  .d6 { animation-delay: 0.55s; }
+  .d7 { animation-delay: 0.65s; }
+  .d8 { animation-delay: 0.75s; }
+  .d9 { animation-delay: 0.85s; }
+  .d10 { animation-delay: 0.95s; }
+  .d11 { animation-delay: 1.05s; }
+  .d12 { animation-delay: 1.15s; }
+  .d13 { animation-delay: 1.25s; }
+  .d14 { animation-delay: 1.35s; }
+
+  .pulse-green {
+    animation: neonPulse 3s ease-in-out infinite;
+  }
+
+  /* ============ BENTO GRID ============ */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  /* ============ TERMINAL HEADER ============ */
+  .terminal-header {
+    grid-column: span 12;
+    background: #0d0d0d;
+    border: 2px solid #00ff87;
+    padding: 28px 32px;
+    position: relative;
+    box-shadow: inset 0 0 30px rgba(0,255,135,0.03), 0 0 30px rgba(0,255,135,0.08);
+    animation: neonPulse 4s ease-in-out infinite;
+  }
+  .terminal-header .term-line {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #00ff87;
+    opacity: 0.6;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+  .terminal-header .term-line .val {
+    color: #00d4ff;
+    opacity: 1;
+  }
+  .terminal-header .term-line .status {
+    color: #ffdd00;
+    opacity: 1;
+    font-weight: 700;
+  }
+  .terminal-header .clinic-name {
+    font-family: 'Heebo', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-top: 16px;
+    line-height: 1.2;
+    text-shadow: 0 0 20px rgba(0,255,135,0.15), 0 0 60px rgba(0,255,135,0.05);
+  }
+  .terminal-header .clinic-sub {
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #555;
+    margin-top: 4px;
+  }
+  /* Terminal dots */
+  .term-dots {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    display: flex;
+    gap: 6px;
+  }
+  .term-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+  }
+  .term-dots .dot-r { background: #ff3366; }
+  .term-dots .dot-y { background: #ffdd00; }
+  .term-dots .dot-g { background: #00ff87; }
+
+  /* ============ HERO IMAGE CARD ============ */
+  .card-hero-img {
+    grid-column: span 6;
+    grid-row: span 2;
+    min-height: 300px;
+    border: 2px solid #00ff87;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 300px;
+  }
+
+  /* ============ GOOGLE RATING CARD ============ */
+  .card-rating {
+    grid-column: span 6;
+    background: #0d0d0d;
+    border: 1px solid #00ff87;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .card-rating .rating-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: #00ff87;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.7;
+  }
+  .card-rating .rating-score {
+    font-family: 'Space Mono', monospace;
+    font-size: 5rem;
+    font-weight: 700;
+    color: #00ff87;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(0,255,135,0.5), 0 0 60px rgba(0,255,135,0.2), 0 0 100px rgba(0,255,135,0.1);
+  }
+  .card-rating .stars {
+    color: #ffdd00;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    margin-top: 8px;
+    text-shadow: 0 0 10px rgba(255,221,0,0.5), 0 0 30px rgba(255,221,0,0.2);
+  }
+
+  /* ============ REVIEWS CARD ============ */
+  .card-reviews {
+    grid-column: span 3;
+    background: #0d0d0d;
+    border: 1px solid #ff3366;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(255,51,102,0.03), 0 0 15px rgba(255,51,102,0.08);
+  }
+  .card-reviews .rev-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: #ff3366;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+  .card-reviews .rev-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ff3366;
+    line-height: 1;
+    text-shadow: 0 0 15px rgba(255,51,102,0.5), 0 0 50px rgba(255,51,102,0.2);
+  }
+
+  /* ============ WEBSITE SCORE CARD ============ */
+  .card-website {
+    grid-column: span 3;
+    background: #0d0d0d;
+    border: 1px solid #00d4ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,212,255,0.03), 0 0 15px rgba(0,212,255,0.08);
+  }
+  .card-website .web-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: #00d4ff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+  .card-website .web-score {
+    font-family: 'Space Mono', monospace;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #00d4ff;
+    line-height: 1;
+    text-shadow: 0 0 15px rgba(0,212,255,0.5), 0 0 50px rgba(0,212,255,0.2);
+  }
+  .progress-bar {
+    width: 100%;
+    max-width: 120px;
+    height: 6px;
+    background: #1a1a1a;
+    margin-top: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-bar .fill {
+    height: 100%;
+    width: 80%;
+    background: #00d4ff;
+    box-shadow: 0 0 10px rgba(0,212,255,0.5), 0 0 20px rgba(0,212,255,0.3);
+    transition: width 1.5s ease;
+  }
+
+  /* ============ CLINIC PHOTO CARD ============ */
+  .card-clinic-photo {
+    grid-column: span 6;
+    min-height: 180px;
+    border: 2px solid #00d4ff;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-clinic-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 180px;
+  }
+  .photo-tag {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: #00d4ff;
+    background: rgba(0,0,0,0.8);
+    padding: 4px 10px;
+    border: 1px solid #00d4ff;
+    letter-spacing: 1px;
+  }
+
+  /* ============ ONLINE PRESENCE CARD ============ */
+  .card-presence {
+    grid-column: span 6;
+    background: #0d0d0d;
+    border: 1px solid #333;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .card-presence .pres-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: #555;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .pres-line {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    direction: ltr;
+    text-align: left;
+  }
+  .pres-line .check {
+    color: #00ff87;
+    margin-left: 0;
+  }
+  .pres-line .pname {
+    color: #888;
+    flex-shrink: 0;
+  }
+  .pres-line .dots {
+    color: #333;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 4px;
+  }
+  .pres-line .pstatus {
+    color: #00ff87;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ============ COMPARISON SECTION ============ */
+  .comp-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .comp-title-row h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    color: #00ff87;
+    text-shadow: 0 0 10px rgba(0,255,135,0.3);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .comp-table {
+    background: #111;
+    border: 2px solid #00ff87;
+    border-radius: 0;
+    overflow: hidden;
+    margin-top: 24px;
+    box-shadow: 0 0 20px rgba(0,255,135,0.1);
+  }
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(0,255,135,0.15);
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-header-row { background: rgba(0,255,135,0.05); border-bottom: 2px solid rgba(0,255,135,0.3); }
+  .comp-cell {
+    padding: 12px 10px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cell-label {
+    text-align: right; justify-content: flex-start;
+    font-size: 0.7rem; color: #555; text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .cell-you {
+    background: rgba(0,255,135,0.06);
+    color: #00ff87;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0,255,135,0.3);
+  }
+  .comp-header-row .cell-you {
+    background: rgba(0,255,135,0.15);
+    color: #00ff87;
+    font-size: 0.9rem;
+    text-shadow: 0 0 12px rgba(0,255,135,0.5);
+  }
+  .comp-header-row .cell-comp { color: #555; font-size: 0.7rem; }
+  .comp-header-row .cell-label { visibility: hidden; }
+  .reviews-row { background: rgba(255,51,102,0.05); }
+  .reviews-row .cell-you { background: rgba(255,51,102,0.1); color: #ff3366; text-shadow: 0 0 8px rgba(255,51,102,0.4); }
+  .win { color: #00ff87 !important; }
+  .lose { color: #ff3366 !important; }
+
+  /* ============ WARNING BOX ============ */
+  .warning-box {
+    background: #0d0d0d;
+    border: 2px solid #ff3366;
+    padding: 24px 28px;
+    margin-top: 20px;
+    position: relative;
+    box-shadow: inset 0 0 30px rgba(255,51,102,0.03), 0 0 25px rgba(255,51,102,0.1);
+  }
+  .warning-box .warn-header {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ff3366;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255,51,102,0.4);
+  }
+  .warning-box .warn-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ccc;
+    line-height: 1.8;
+  }
+  .warn-hl {
+    color: #ff3366;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    text-shadow: 0 0 6px rgba(255,51,102,0.3);
+  }
+
+  /* ============ CTA SECTION ============ */
+  .cta-card {
+    background: #0d0d0d;
+    border: 2px solid transparent;
+    background-image: linear-gradient(#0d0d0d, #0d0d0d), linear-gradient(135deg, #00ff87, #00d4ff, #00ff87);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    padding: 36px 28px;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+  }
+  .cta-card .cta-title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 12px;
+    text-shadow: 0 0 20px rgba(0,255,135,0.1);
+  }
+  .cta-card .cta-text {
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 700;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: #00ff87;
+    color: #0a0a0a;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 14px 44px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 20px rgba(0,255,135,0.3), 0 0 40px rgba(0,255,135,0.1);
+  }
+  .cta-btn:hover {
+    box-shadow: 0 0 30px rgba(0,255,135,0.5), 0 0 60px rgba(0,255,135,0.25);
+    transform: translateY(-2px);
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: #333;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .bento {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+    .terminal-header {
+      grid-column: span 6;
+    }
+    .card-hero-img {
+      grid-column: span 6;
+      grid-row: span 1;
+      min-height: 220px;
+    }
+    .card-hero-img img { min-height: 220px; }
+    .card-rating {
+      grid-column: span 6;
+    }
+    .card-reviews {
+      grid-column: span 3;
+    }
+    .card-website {
+      grid-column: span 3;
+    }
+    .card-clinic-photo {
+      grid-column: span 6;
+    }
+    .card-presence {
+      grid-column: span 6;
+    }
+    .comp-table { border-width: 1px; }
+    .comp-row { grid-template-columns: 1fr 1.2fr 0.8fr 0.8fr 0.8fr; }
+    .comp-cell { padding: 10px 6px; font-size: 0.75rem; }
+    .cell-label { font-size: 0.6rem; }
+    .terminal-header .clinic-name {
+      font-size: 1.6rem;
+    }
+    .card-rating .rating-score {
+      font-size: 3.5rem;
+    }
+    .card-reviews .rev-num {
+      font-size: 3rem;
+    }
+    .card-website .web-score {
+      font-size: 2.2rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .bento {
+      grid-template-columns: 1fr;
+    }
+    .terminal-header,
+    .card-hero-img,
+    .card-rating,
+    .card-reviews,
+    .card-website,
+    .card-clinic-photo,
+    .card-presence {
+      grid-column: span 1;
+    }
+    .card-hero-img {
+      grid-row: span 1;
+    }
+  }
+
+  /* ============ SPECIAL EFFECTS ============ */
+  /* Flicker animation for terminal header */
+  .flicker {
+    animation: textFlicker 6s linear infinite;
+  }
+
+  /* Typing effect for terminal lines */
+  .type-line {
+    overflow: hidden;
+    white-space: nowrap;
+    border-left: 0;
+    animation: typeIn 0.6s steps(40, end) forwards;
+    width: 0;
+    display: inline-block;
+  }
+  .type-d1 { animation-delay: 0.3s; }
+  .type-d2 { animation-delay: 0.7s; }
+  .type-d3 { animation-delay: 1.1s; }
+
+
+
+  /* ============ GBP IMAGE CARD ============ */
+  .card-gbp-photo {
+    grid-column: span 6;
+    min-height: 200px;
+    border: 2px solid #00ff87;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-gbp-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 200px;
+    filter: grayscale(100%) contrast(1.2);
+    mix-blend-mode: luminosity;
+    display: block;
+  }
+  .card-gbp-photo .gbp-tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,255,135,0.3), rgba(0,212,255,0.2));
+    mix-blend-mode: color;
+    pointer-events: none;
+  }
+  .card-gbp-photo .gbp-tag {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: #00ff87;
+    background: rgba(0,0,0,0.85);
+    padding: 4px 10px;
+    border: 1px solid #00ff87;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body class="grid-bg">
+
+<div class="container">
+
+  <!-- ========== BENTO GRID — CLINIC INFO ========== -->
+  <div class="bento">
+
+    <!-- 1. TERMINAL HEADER — span 12 -->
+    <div class="terminal-header anim d1">
+      <div class="term-dots">
+        <span class="dot-r"></span>
+        <span class="dot-y"></span>
+        <span class="dot-g"></span>
+      </div>
+      <div class="term-line"><span class="type-line type-d1">&gt; analyzing: <span class="val">dr_meital_segev_clinic</span></span></div>
+      <div class="term-line"><span class="type-line type-d2">&gt; location: <span class="val">tel_aviv</span></span></div>
+      <div class="term-line"><span class="type-line type-d3">&gt; status: <span class="status">ACTIVE</span></span></div>
+      <div class="clinic-name">ד"ר מיכאל ואריאל דינבר</div>
+      <div class="clinic-sub cursor">רופאת שיניים מומחית לילדים ונוער</div>
+    </div>
+
+    <!-- 2. HERO IMAGE — span 6, 2 rows -->
+    <div class="card-hero-img duotone-container anim d2">
+      <img src="../../image to be used/image2.png" alt="ד"ר מיכאל ואריאל דינבר" loading="lazy">
+    </div>
+
+    <!-- 3. GOOGLE RATING — span 6 -->
+    <div class="card-rating glow-border anim d3">
+      <div class="bracket-card" style="background:transparent;border:none;padding:0;width:100;display:flex;flex-direction:column;align-items:center;">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+      </div>
+      <div class="rating-label">GOOGLE_RATING</div>
+      <div class="rating-score neon-green">3.6</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    </div>
+
+    <!-- 4. REVIEWS — span 3 -->
+    <div class="card-reviews anim d4">
+      <div class="rev-label">REVIEWS</div>
+      <div class="rev-num neon-pink">14</div>
+    </div>
+
+    <!-- 5. WEBSITE SCORE — span 3 -->
+    <div class="card-website anim d5">
+      <div class="web-label">SITE_SCORE</div>
+      <div class="web-score neon-blue">1/10</div>
+      <div class="progress-bar">
+        <div class="fill"></div>
+      </div>
+    </div>
+
+    <!-- 6. CLINIC PHOTO — span 6 -->
+    <div class="card-clinic-photo duotone-container duotone-container-pink anim d6">
+      <img src="../../image to be used/image9.png" alt="פנים המרפאה" loading="lazy">
+      <div class="photo-tag">CLINIC_INTERIOR</div>
+    </div>
+
+    <!-- 7. ONLINE PRESENCE — span 6 -->
+    <div class="card-presence anim d7">
+      <div class="pres-title">// ONLINE_PRESENCE</div>
+      <div class="pres-line">
+        <span class="check">[&#10007;]</span>
+        <span class="pname">&nbsp;ONLINE_BOOKING</span>
+        <span class="dots">.................</span>
+        <span class="pstatus">ACTIVE</span>
+      </div>
+      <div class="pres-line">
+        <span class="check">[&#10007;]</span>
+        <span class="pname">&nbsp;FACEBOOK</span>
+        <span class="dots">.....................</span>
+        <span class="pstatus">ACTIVE</span>
+      </div>
+      <div class="pres-line">
+        <span class="check">[&#10003;]</span>
+        <span class="pname">&nbsp;INSTAGRAM</span>
+        <span class="dots">....................</span>
+        <span class="pstatus">INACTIVE</span>
+      </div>
+      <span class="corner-bl"></span><span class="corner-br"></span>
+    </div>
+
+    <!-- 8. GBP PHOTO — span 6 -->
+    <div class="card-gbp-photo duotone-container anim d8">
+      <img src="../../image to be used/image3.png" alt="תמונות GBP" loading="lazy">
+      <div class="gbp-tint"></div>
+      <div class="gbp-tag">GBP_PHOTOS</div>
+    </div>
+
+  </div>
+
+  <!-- ========== ASCII DIVIDER ========== -->
+  <pre class="ascii-divider anim d8">
+&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;
+  </pre>
+
+  <!-- ========== COMPARISON SECTION ========== -->
+  <div class="comp-title-row anim d9">
+    <h2 class="cursor">&gt; COMPETITOR_ANALYSIS</h2>
+  </div>
+
+  <div class="comp-table anim d10">
+    <div class="comp-row comp-header-row">
+      <div class="comp-cell cell-label"></div>
+      <div class="comp-cell cell-you">אתם</div>
+      <div class="comp-cell cell-comp">Care Laser</div>
+      <div class="comp-cell cell-comp">מיודנט - ד"ר מקס רפאילוב </div>
+      <div class="comp-cell cell-comp">Dr Hazak | ד"ר שירה חזק |</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">ציון Google</div>
+      <div class="comp-cell cell-you">3.6</div>
+      <div class="comp-cell cell-comp win">4.0</div>
+      <div class="comp-cell cell-comp win">5.0</div>
+      <div class="comp-cell cell-comp win">5.0</div>
+    </div>
+    <div class="comp-row reviews-row">
+      <div class="comp-cell cell-label">ביקורות</div>
+      <div class="comp-cell cell-you">14</div>
+      <div class="comp-cell cell-comp win">756</div>
+      <div class="comp-cell cell-comp win">485</div>
+      <div class="comp-cell cell-comp win">354</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">ציון אתר</div>
+      <div class="comp-cell cell-you">1</div>
+      <div class="comp-cell cell-comp lose">0</div>
+      <div class="comp-cell cell-comp win">8</div>
+      <div class="comp-cell cell-comp win">9</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">הזמנה אונליין</div>
+      <div class="comp-cell cell-you">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp win">&#10003;</div>
+      <div class="comp-cell cell-comp win">&#10003;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">פייסבוק</div>
+      <div class="comp-cell cell-you">&#10003;</div>
+      <div class="comp-cell cell-comp lose">&#10007;</div>
+      <div class="comp-cell cell-comp lose">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10003;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">אינסטגרם</div>
+      <div class="comp-cell cell-you">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+      <div class="comp-cell cell-comp">&#10007;</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell cell-label">תמונות GBP</div>
+      <div class="comp-cell cell-you">—</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+      <div class="comp-cell cell-comp">—</div>
+    </div>
+  </div>
+
+  <!-- ========== WARNING ========== -->
+  <div class="warning-box anim d13">
+    <div class="warn-header">&#9888; WARNING: RANKING_POSITION = 4/4</div>
+    <div class="warn-text">
+      מיקום שלך: <span class="warn-hl">מקום 4 מתוך 4</span> לפי ביקורות.
+      <br>
+      המתחרה המוביל מחזיק <span class="warn-hl">756 ביקורות</span> — פי <span class="warn-hl">31.5</span> ממך.
+      <br>
+      ביקורות הן הגורם המרכזי לדירוג בגוגל.
+    </div>
+  </div>
+
+  <!-- ========== CTA ========== -->
+  <div class="cta-card anim d14">
+    <div class="cta-title">אני יכול לשלוח לך את כל הנתונים על המתחרים שלך</div>
+    <div class="cta-text">כולל ניתוח ביקורות, מילות חיפוש, ונוכחות דיגיטלית מלאה.<br>10 דקות בזום — רלוונטי?</div>
+    <button class="cta-btn">בואו נדבר</button>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <div class="footer anim d14">
+    // data_source: google, easy.co.il, clinic_websites | generated: feb_2026 | scalefox.io
+  </div>
+
+</div>
+
+</body>
+</html>

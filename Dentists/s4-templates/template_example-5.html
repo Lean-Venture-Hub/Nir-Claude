@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>מרפאת חיוך פלוס | ד״ר מיכל לוי | תל אביב</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --bg-deep:#0B0F1A;
+  --bg-card:#141929;
+  --bg-card-hover:#1A2038;
+  --bg-elevated:#1E2542;
+  --accent:#6C63FF;
+  --accent-soft:rgba(108,99,255,.12);
+  --accent-glow:rgba(108,99,255,.25);
+  --cyan:#22D3EE;
+  --cyan-soft:rgba(34,211,238,.1);
+  --white:#FFFFFF;
+  --white-90:rgba(255,255,255,.9);
+  --white-70:rgba(255,255,255,.7);
+  --white-50:rgba(255,255,255,.5);
+  --white-30:rgba(255,255,255,.3);
+  --white-12:rgba(255,255,255,.12);
+  --white-06:rgba(255,255,255,.06);
+  --gold:#FACC15;
+  --font:'Heebo',sans-serif;
+  --radius:20px;
+  --radius-sm:14px;
+  --radius-xs:10px;
+  --max-w:1200px;
+  --shadow-card:0 8px 32px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.2);
+  --shadow-card-hover:0 16px 48px rgba(0,0,0,.45), 0 4px 12px rgba(0,0,0,.25);
+  --shadow-float:0 12px 40px rgba(0,0,0,.5);
+}
+
+body{
+  font-family:var(--font);
+  direction:rtl;
+  color:var(--white-90);
+  line-height:1.6;
+  background:var(--bg-deep);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── Keyframes ────────────────────────────── */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes floatBob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+@keyframes floatBobSlow{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 0 var(--accent-glow)}
+  50%{box-shadow:0 0 0 14px rgba(108,99,255,0)}
+}
+@keyframes shimmer{
+  0%{background-position:-200% center}
+  100%{background-position:200% center}
+}
+@keyframes orbFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(15px,-20px) scale(1.05)}
+  66%{transform:translate(-10px,10px) scale(.97)}
+}
+
+/* ── Background Orbs ─────────────────────── */
+.bg-orb{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(100px);
+  pointer-events:none;
+  z-index:0;
+  animation:orbFloat 20s ease-in-out infinite;
+}
+.bg-orb-1{
+  width:500px;height:500px;
+  background:rgba(108,99,255,.08);
+  top:-10%;right:-5%;
+}
+.bg-orb-2{
+  width:400px;height:400px;
+  background:rgba(34,211,238,.06);
+  bottom:20%;left:-8%;
+  animation-delay:-7s;
+}
+.bg-orb-3{
+  width:350px;height:350px;
+  background:rgba(108,99,255,.05);
+  bottom:-5%;right:30%;
+  animation-delay:-14s;
+}
+
+/* ── NAV ─────────────────────────────────── */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(11,15,26,.82);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--white-06);
+}
+.nav-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:0 48px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--white);
+}
+.nav-logo-icon{
+  width:36px;height:36px;
+  background:var(--accent);
+  border-radius:var(--radius-xs);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 20px var(--accent-glow);
+}
+.nav-logo-text{
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:-.02em;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  text-decoration:none;
+  color:var(--white-50);
+  font-size:14px;
+  font-weight:500;
+  position:relative;
+  padding-bottom:4px;
+  transition:color .3s;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:0;right:0;
+  width:0;height:2px;
+  background:var(--accent);
+  border-radius:2px;
+  transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--accent);
+  color:var(--white);
+  text-decoration:none;
+  padding:10px 24px;
+  border-radius:100px;
+  font-size:14px;
+  font-weight:600;
+  transition:all .3s ease;
+  box-shadow:0 4px 20px var(--accent-glow);
+}
+.nav-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 30px var(--accent-glow);
+  background:#7C74FF;
+}
+.nav-cta svg{width:16px;height:16px;flex-shrink:0}
+
+/* ── HERO ────────────────────────────────── */
+.hero{
+  position:relative;
+  padding:80px 48px 100px;
+  max-width:var(--max-w);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  min-height:calc(100vh - 72px);
+}
+.hero-content{
+  animation:fadeInUp .8s ease both;
+  position:relative;
+  z-index:2;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--accent-soft);
+  border:1px solid rgba(108,99,255,.2);
+  border-radius:100px;
+  padding:8px 20px;
+  margin-bottom:28px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--accent);
+}
+.hero-badge .dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--accent);
+  animation:pulseGlow 2s ease-in-out infinite;
+}
+.hero-headline{
+  font-size:clamp(38px,5vw,58px);
+  font-weight:800;
+  color:var(--white);
+  line-height:1.1;
+  letter-spacing:-.03em;
+  margin-bottom:24px;
+}
+.hero-headline .accent{
+  background:linear-gradient(135deg,var(--accent),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:17px;
+  color:var(--white-50);
+  line-height:1.8;
+  max-width:440px;
+  margin-bottom:36px;
+  font-weight:300;
+}
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--accent);
+  color:var(--white);
+  text-decoration:none;
+  padding:16px 40px;
+  border-radius:100px;
+  font-size:16px;
+  font-weight:600;
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  box-shadow:0 4px 24px var(--accent-glow);
+  position:relative;
+  overflow:hidden;
+}
+.btn-primary::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);
+  transition:left .6s;
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 36px var(--accent-glow);
+  background:#7C74FF;
+}
+.btn-primary:hover::before{left:100%}
+
+.btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--white-70);
+  text-decoration:none;
+  padding:16px 28px;
+  border-radius:100px;
+  font-size:15px;
+  font-weight:500;
+  border:1px solid var(--white-12);
+  transition:all .3s ease;
+}
+.btn-ghost:hover{
+  border-color:var(--white-30);
+  color:var(--white);
+  background:var(--white-06);
+}
+.btn-ghost svg{width:18px;height:18px}
+
+.hero-trust{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  margin-top:32px;
+}
+.hero-trust-item{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  color:var(--white-50);
+}
+.hero-trust-item .check{
+  color:var(--cyan);
+  font-weight:700;
+  font-size:14px;
+}
+
+/* Hero Visual */
+.hero-visual{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  animation:fadeInUp .8s ease .2s both;
+}
+.hero-visual-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  width:100%;
+  max-width:500px;
+}
+
+/* Float Cards in Hero */
+.float-card{
+  background:var(--bg-card);
+  border:1px solid var(--white-06);
+  border-radius:var(--radius);
+  padding:24px 20px;
+  box-shadow:var(--shadow-card);
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  position:relative;
+  overflow:hidden;
+}
+.float-card::before{
+  content:'';
+  position:absolute;
+  top:0;right:0;left:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--cyan));
+  opacity:0;
+  transition:opacity .3s;
+}
+.float-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-card-hover);
+  border-color:rgba(108,99,255,.15);
+}
+.float-card:hover::before{opacity:1}
+
+.float-card-icon{
+  width:44px;height:44px;
+  border-radius:12px;
+  background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+}
+.float-card-icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.float-card-title{
+  font-size:14px;
+  font-weight:600;
+  color:var(--white-90);
+  margin-bottom:4px;
+}
+.float-card-desc{
+  font-size:12px;
+  color:var(--white-30);
+  line-height:1.5;
+}
+
+/* Google Badge Float */
+.hero-google-badge{
+  position:absolute;
+  bottom:-20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--bg-card);
+  border:1px solid var(--white-06);
+  border-radius:100px;
+  padding:10px 22px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:var(--shadow-float);
+  z-index:10;
+  animation:floatBob 4s ease-in-out infinite;
+  white-space:nowrap;
+}
+.hero-google-badge .g-icon{
+  width:24px;height:24px;flex-shrink:0;
+}
+.hero-google-badge .g-rating{
+  font-size:16px;
+  font-weight:700;
+  color:var(--white);
+}
+.hero-google-badge .g-stars{
+  display:flex;gap:2px;
+}
+.hero-google-badge .g-stars .star{
+  color:var(--gold);
+  font-size:12px;
+}
+.hero-google-badge .g-count{
+  font-size:11px;
+  color:var(--white-30);
+}
+
+/* Spanning card */
+.float-card-span{grid-column:1/-1}
+.float-card-stat{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.float-card-stat-num{
+  font-size:36px;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1;
+}
+.float-card-stat-label{
+  font-size:13px;
+  color:var(--white-50);
+  line-height:1.5;
+}
+
+/* ── ABOUT ───────────────────────────────── */
+.about{
+  position:relative;
+  z-index:1;
+  padding:120px 48px;
+}
+.about-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.about-label{
+  font-size:12px;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.about-heading{
+  font-size:clamp(28px,3.5vw,42px);
+  font-weight:700;
+  color:var(--white);
+  line-height:1.2;
+  margin-bottom:24px;
+  letter-spacing:-.02em;
+}
+.about-text{
+  font-size:16px;
+  color:var(--white-50);
+  line-height:1.8;
+  margin-bottom:40px;
+  font-weight:300;
+}
+.about-stats{
+  display:flex;
+  gap:36px;
+}
+.about-stat{
+  text-align:center;
+}
+.about-stat-num{
+  font-size:34px;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1;
+}
+.about-stat-label{
+  font-size:13px;
+  color:var(--white-30);
+  margin-top:6px;
+}
+
+/* About Visual — decorative card stack */
+.about-visual{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.about-deco-box{
+  width:100%;
+  max-width:420px;
+  height:340px;
+  position:relative;
+}
+.about-deco-card{
+  position:absolute;
+  background:var(--bg-card);
+  border:1px solid var(--white-06);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-card);
+}
+.about-deco-card-1{
+  width:260px;height:180px;
+  top:0;right:0;
+  animation:floatBobSlow 5s ease-in-out infinite;
+}
+.about-deco-card-2{
+  width:220px;height:160px;
+  bottom:0;left:0;
+  animation:floatBob 6s ease-in-out infinite;
+  animation-delay:-2s;
+}
+.about-deco-card-3{
+  width:180px;height:120px;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:var(--bg-elevated);
+  border-color:rgba(108,99,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:floatBobSlow 4s ease-in-out infinite;
+  animation-delay:-1s;
+}
+.about-deco-card-3 svg{
+  width:48px;height:48px;
+  stroke:var(--accent);
+  fill:none;
+  stroke-width:1.5;
+  opacity:.4;
+}
+.about-deco-dot{
+  position:absolute;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--accent);
+  opacity:.2;
+}
+.about-deco-dot-1{top:20px;left:40px}
+.about-deco-dot-2{bottom:30px;right:60px;width:7px;height:7px;background:var(--cyan);opacity:.15}
+.about-deco-dot-3{top:55%;left:15%;width:5px;height:5px;opacity:.1}
+
+/* ── SERVICES ────────────────────────────── */
+.services{
+  position:relative;
+  z-index:1;
+  padding:120px 48px;
+}
+.services-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+}
+.section-label{
+  font-size:12px;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-align:center;
+  margin-bottom:12px;
+}
+.section-heading{
+  font-size:clamp(28px,3.5vw,42px);
+  font-weight:700;
+  color:var(--white);
+  text-align:center;
+  margin-bottom:16px;
+  letter-spacing:-.02em;
+}
+.section-subtitle{
+  font-size:16px;
+  color:var(--white-50);
+  text-align:center;
+  margin-bottom:64px;
+  max-width:480px;
+  margin-left:auto;
+  margin-right:auto;
+  font-weight:300;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.service-card{
+  background:var(--bg-card);
+  border:1px solid var(--white-06);
+  border-radius:var(--radius);
+  padding:32px 24px 28px;
+  position:relative;
+  overflow:hidden;
+  transition:all .4s cubic-bezier(.25,.8,.25,1);
+  cursor:default;
+}
+.service-card::before{
+  content:'';
+  position:absolute;
+  top:0;right:0;left:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--cyan));
+  transition:height .3s ease;
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-card-hover);
+  border-color:rgba(108,99,255,.15);
+  background:var(--bg-card-hover);
+}
+.service-card:hover::before{height:4px}
+.service-icon{
+  width:52px;height:52px;
+  border-radius:var(--radius-sm);
+  background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+  transition:all .3s;
+}
+.service-card:hover .service-icon{
+  background:var(--accent);
+  box-shadow:0 0 20px var(--accent-glow);
+}
+.service-icon svg{
+  width:26px;height:26px;
+  stroke:var(--accent);
+  fill:none;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:stroke .3s;
+}
+.service-card:hover .service-icon svg{stroke:var(--white)}
+.service-title{
+  font-size:18px;
+  font-weight:700;
+  color:var(--white);
+  margin-bottom:10px;
+}
+.service-desc{
+  font-size:14px;
+  color:var(--white-30);
+  line-height:1.7;
+}
+
+/* ── TESTIMONIALS ────────────────────────── */
+.testimonials{
+  position:relative;
+  z-index:1;
+  padding:120px 48px;
+  background:linear-gradient(180deg,transparent 0%,rgba(108,99,255,.03) 50%,transparent 100%);
+}
+.testimonials-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.testimonial-card{
+  background:var(--bg-card);
+  border:1px solid var(--white-06);
+  border-radius:var(--radius);
+  padding:32px 28px 28px;
+  position:relative;
+  transition:all .4s ease;
+}
+.testimonial-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-card-hover);
+  border-color:rgba(108,99,255,.12);
+}
+.testimonial-quote{
+  font-size:48px;
+  line-height:1;
+  background:linear-gradient(135deg,var(--accent),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  opacity:.3;
+  margin-bottom:-4px;
+  font-weight:700;
+  user-select:none;
+}
+.testimonial-text{
+  font-size:15px;
+  color:var(--white-70);
+  line-height:1.8;
+  margin-bottom:24px;
+  min-height:80px;
+  font-weight:300;
+  font-style:italic;
+}
+.testimonial-stars{
+  display:flex;
+  gap:3px;
+  margin-bottom:16px;
+}
+.testimonial-stars .star{
+  color:var(--gold);
+  font-size:14px;
+}
+.testimonial-divider{
+  width:40px;
+  height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--cyan));
+  opacity:.3;
+  border-radius:2px;
+  margin-bottom:16px;
+}
+.testimonial-author{
+  font-size:15px;
+  font-weight:600;
+  color:var(--white);
+}
+.testimonial-role{
+  font-size:12px;
+  color:var(--white-30);
+  margin-top:2px;
+}
+
+/* ── CTA / CONTACT ───────────────────────── */
+.cta{
+  position:relative;
+  z-index:1;
+  padding:120px 48px;
+}
+.cta-card{
+  max-width:var(--max-w);
+  margin:0 auto;
+  background:var(--bg-card);
+  border:1px solid var(--white-06);
+  border-radius:28px;
+  padding:80px 60px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow-card);
+}
+.cta-card::before{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(108,99,255,.08),transparent 70%);
+  top:-250px;left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.cta-card::after{
+  content:'';
+  position:absolute;
+  width:300px;height:300px;
+  border-radius:50%;
+  border:1px solid var(--white-06);
+  bottom:-150px;right:-50px;
+  pointer-events:none;
+}
+.cta-inner{
+  position:relative;
+  z-index:1;
+}
+.cta-heading{
+  font-size:clamp(28px,3.5vw,44px);
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:16px;
+  letter-spacing:-.02em;
+}
+.cta-subtitle{
+  font-size:17px;
+  color:var(--white-50);
+  margin-bottom:40px;
+  line-height:1.7;
+  max-width:500px;
+  margin-left:auto;
+  margin-right:auto;
+  font-weight:300;
+}
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--accent);
+  color:var(--white);
+  text-decoration:none;
+  padding:18px 48px;
+  border-radius:100px;
+  font-size:18px;
+  font-weight:700;
+  transition:all .4s ease;
+  box-shadow:0 4px 30px var(--accent-glow);
+  position:relative;
+  overflow:hidden;
+}
+.cta-btn::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  transition:left .6s;
+}
+.cta-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px var(--accent-glow);
+  background:#7C74FF;
+}
+.cta-btn:hover::before{left:100%}
+.cta-btn svg{width:20px;height:20px;flex-shrink:0}
+.cta-phone-text{
+  display:block;
+  margin-top:16px;
+  font-size:14px;
+  color:var(--white-30);
+}
+.cta-phone-text a{
+  color:var(--white-50);
+  text-decoration:none;
+  direction:ltr;
+  display:inline-block;
+  transition:color .3s;
+}
+.cta-phone-text a:hover{color:var(--accent)}
+
+/* ── FOOTER ──────────────────────────────── */
+.footer{
+  position:relative;
+  z-index:1;
+  border-top:1px solid var(--white-06);
+  padding:48px 48px 32px;
+}
+.footer-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.footer-brand-icon{
+  width:32px;height:32px;
+  background:var(--accent);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+.footer-brand-name{
+  font-size:16px;
+  font-weight:700;
+  color:var(--white-70);
+}
+.footer-center{
+  font-size:13px;
+  color:var(--white-30);
+  text-align:center;
+}
+.footer-links{
+  display:flex;
+  gap:24px;
+}
+.footer-links a{
+  font-size:13px;
+  color:var(--white-30);
+  text-decoration:none;
+  transition:color .3s;
+}
+.footer-links a:hover{color:var(--white-70)}
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media(max-width:1024px){
+  .nav-inner{padding:0 32px}
+  .hero{
+    grid-template-columns:1fr;
+    gap:48px;
+    padding:48px 32px 80px;
+    min-height:auto;
+  }
+  .hero-visual{order:-1}
+  .hero-visual-grid{max-width:100%}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{grid-template-columns:1fr;gap:48px}
+  .about-visual{order:-1}
+  .testimonials-grid{grid-template-columns:1fr}
+  .about,.services,.testimonials,.cta{padding:80px 32px}
+  .cta-card{padding:60px 40px}
+  .footer-inner{flex-direction:column;gap:20px;text-align:center}
+  .footer-links{justify-content:center}
+}
+
+@media(max-width:768px){
+  .nav-inner{padding:0 20px;height:64px}
+  .nav-links{display:none}
+  .hero{padding:36px 20px 60px}
+  .hero-headline{font-size:34px}
+  .hero-visual-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .hero-google-badge{bottom:-16px;padding:8px 16px}
+  .hero-trust{flex-wrap:wrap;gap:12px}
+  .services-grid{grid-template-columns:1fr}
+  .about,.services,.testimonials,.cta{padding:60px 20px}
+  .about-stats{gap:20px}
+  .section-heading,.about-heading{font-size:28px}
+  .cta-card{padding:48px 24px;border-radius:20px}
+  .cta-heading{font-size:26px}
+  .footer{padding:36px 20px 24px}
+}
+
+@media(max-width:480px){
+  .hero-headline{font-size:28px}
+  .hero-visual-grid{grid-template-columns:1fr}
+  .float-card-span{grid-column:auto}
+  .hero-google-badge{position:relative;bottom:auto;left:auto;transform:none;margin-top:12px;justify-content:center}
+  .hero-sub{font-size:15px}
+  .hero-actions{flex-direction:column;width:100%}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+  .about-stats{flex-direction:column;gap:16px;align-items:flex-start}
+  .about-deco-box{height:260px}
+  .about-deco-card-1{width:200px;height:140px}
+  .about-deco-card-2{width:170px;height:120px}
+  .about-deco-card-3{width:140px;height:100px}
+  .nav-cta span{display:none}
+  .cta-btn{font-size:16px;padding:16px 36px}
+}
+</style>
+</head>
+<body>
+
+<!-- Background Orbs -->
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
+
+<!-- ── Navigation ───────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C9.5 2 8 3.5 8 5.5c0 1.3.7 2.5 1.5 3.5C8.5 10 7 12 7 14c0 3.5 2.5 8 5 8s5-4.5 5-8c0-2-1.5-4-2.5-5 .8-1 1.5-2.2 1.5-3.5C16 3.5 14.5 2 12 2z" fill="white"/>
+        </svg>
+      </div>
+      <span class="nav-logo-text">מרפאת חיוך פלוס</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#">עמוד הבית</a></li>
+      <li><a href="#about">אודות</a></li>
+      <li><a href="#services">שירותים</a></li>
+      <li><a href="#contact">צור קשר</a></li>
+    </ul>
+
+    
+    <a href="tel:03-555-1234" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      <span>03-555-1234</span>
+    </a>
+    
+  </div>
+</nav>
+
+<!-- ── Hero Section ─────────────────────── -->
+<section class="hero">
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      מרפאת שיניים מתקדמת בתל אביב
+    </div>
+
+    <h1 class="hero-headline">
+      ד״ר מיכל לוי<br>
+      מומחים ל<span class="accent">חיוך<br>מושלם</span>
+    </h1>
+
+    <p class="hero-sub">
+      טיפולי שיניים מותאמים אישית עם טכנולוגיה מתקדמת, בסביבה נעימה ומרגיעה. אנחנו כאן כדי לדאוג לבריאות החיוך שלכם.
+    </p>
+
+    <div class="hero-actions">
+      
+      <a href="tel:03-555-1234" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        קבעו תור עכשיו
+      </a>
+      
+      <a href="#services" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 8v8M8 12h8"/>
+        </svg>
+        השירותים שלנו
+      </a>
+    </div>
+
+    <div class="hero-trust">
+      <span class="hero-trust-item"><span class="check">&#10003;</span> ללא כאב</span>
+      <span class="hero-trust-item"><span class="check">&#10003;</span> ציוד מתקדם</span>
+      <span class="hero-trust-item"><span class="check">&#10003;</span> אחריות מלאה</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div style="position:relative;width:100%;max-width:500px">
+      <div class="hero-visual-grid">
+
+        <!-- Float Card 1: Rating -->
+        <div class="float-card" style="animation:floatBobSlow 5s ease-in-out infinite">
+          <div class="float-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="float-card-title">4.9 &#9733; בגוגל</div>
+          <div class="float-card-desc">187 ביקורות מאומתות</div>
+        </div>
+
+        <!-- Float Card 2: Trust -->
+        <div class="float-card" style="animation:floatBob 6s ease-in-out infinite;animation-delay:-1.5s">
+          <div class="float-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <div class="float-card-title">מאושר משרד הבריאות</div>
+          <div class="float-card-desc">רישיון מקצועי מאומת</div>
+        </div>
+
+        <!-- Float Card 3: Experience -->
+        <div class="float-card" style="animation:floatBobSlow 7s ease-in-out infinite;animation-delay:-3s">
+          <div class="float-card-icon" style="background:var(--cyan-soft)">
+            <svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="float-card-title">ניסיון מוכח</div>
+          <div class="float-card-desc">שנים של מקצועיות</div>
+        </div>
+
+        <!-- Float Card 4: Patients -->
+        <div class="float-card" style="animation:floatBob 5.5s ease-in-out infinite;animation-delay:-2s">
+          <div class="float-card-icon" style="background:var(--cyan-soft)">
+            <svg viewBox="0 0 24 24" style="stroke:var(--cyan)"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="float-card-title">מטופלים מרוצים</div>
+          <div class="float-card-desc">אלפי חיוכים חדשים</div>
+        </div>
+
+      </div>
+
+      <!-- Google Badge -->
+      <div class="hero-google-badge">
+        <svg class="g-icon" viewBox="0 0 24 24">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <span class="g-rating">4.9</span>
+        <div class="g-stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <span class="g-count">187 ביקורות</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── About Section ────────────────────── -->
+<section class="about" id="about">
+  <div class="about-inner">
+
+    <div class="about-content">
+      <span class="about-label">אודות המרפאה</span>
+      <h2 class="about-heading">ד״ר מיכל לוי<br>מרפאת חיוך פלוס</h2>
+      <p class="about-text">מרפאת חיוך פלוס הוקמה ב-2012 מתוך חזון ליצור חוויית טיפול שיניים שונה לחלוטין. אנחנו מאמינים שכל מטופל ראוי לטיפול ברמה הגבוהה ביותר, בסביבה נעימה ומרגיעה. הצוות שלנו משלב מומחיות רפואית עם טכנולוגיה מתקדמת כדי להעניק לכם את החיוך שתמיד חלמתם עליו.</p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-num">4.9</div>
+          <div class="about-stat-label">דירוג גוגל</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">187</div>
+          <div class="about-stat-label">ביקורות</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <div class="about-deco-box">
+        <div class="about-deco-dot about-deco-dot-1"></div>
+        <div class="about-deco-dot about-deco-dot-2"></div>
+        <div class="about-deco-dot about-deco-dot-3"></div>
+        <div class="about-deco-card about-deco-card-1"></div>
+        <div class="about-deco-card about-deco-card-2"></div>
+        <div class="about-deco-card about-deco-card-3">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C9.5 2 8 3.5 8 5.5c0 1.3.7 2.5 1.5 3.5C8.5 10 7 12 7 14c0 3.5 2.5 8 5 8s5-4.5 5-8c0-2-1.5-4-2.5-5 .8-1 1.5-2.2 1.5-3.5C16 3.5 14.5 2 12 2z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Services Section ─────────────────── -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <span class="section-label">מה אנחנו מציעים</span>
+    <h2 class="section-heading">השירותים שלנו</h2>
+    <p class="section-subtitle">מגוון טיפולים מתקדמים לשמירה על בריאות ואסתטיקה של החיוך שלכם</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L9.5 4.5C8 6 7 8 7 10c0 2.8 2.2 5 5 5s5-2.2 5-5c0-2-1-4-2.5-5.5L12 2zm0 20c-1 0-2-.5-2.5-1.5L8 17h8l-1.5 3.5C14 21.5 13 22 12 22z"/></svg>
+        </div>
+        <h3 class="service-title">הלבנת שיניים</h3>
+        <p class="service-desc">טיפולי הלבנה מתקדמים להשגת חיוך לבן וזוהר תוך שמירה על בריאות השן.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+        </div>
+        <h3 class="service-title">ציפויי חרסינה</h3>
+        <p class="service-desc">ציפויים אסתטיים המותאמים אישית לעיצוב חיוך מושלם ותוצאה טבעית.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3 class="service-title">השתלות שיניים</h3>
+        <p class="service-desc">פתרון קבוע ואיכותי לשיניים חסרות, בטכנולוגיה מתקדמת ודיוק מרבי.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="service-title">יישור שיניים שקוף</h3>
+        <p class="service-desc">טיפולי יישור בשיטת אינויזליין לתוצאות מצוינות ללא גשר מתכתי.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Testimonials Section ─────────────── -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <span class="section-label">חוות דעת</span>
+    <h2 class="section-heading">מה אומרים עלינו</h2>
+    <p class="section-subtitle">מטופלים שסומכים עלינו ומשתפים את החוויה שלהם</p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">ד״ר לוי שינתה לי את החיים. אחרי שנים שנמנעתי מלחייך, עברתי טיפול הלבנה וציפויים — התוצאה מדהימה. הצוות מקצועי, חם ומפנק. ממליצה בחום!</p>
+        <div class="testimonial-stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">נועה כהן</div>
+        <div class="testimonial-role">ביקורת Google</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">עברתי השתלת שיניים במרפאה — מהייעוץ הראשוני ועד לתוצאה הסופית, הכל היה ברמה הגבוהה ביותר. ד״ר לוי מסבירה כל שלב ועושה הכל בסבלנות.</p>
+        <div class="testimonial-stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">יוסי אברהם</div>
+        <div class="testimonial-role">ביקורת Google</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">מקום מדהים! הגעתי בפעם הראשונה לטיפול שורש ומאז אני מטופלת קבועה. האווירה נעימה, הצוות מדהים, והטיפול ברמה אחרת לגמרי. תודה רבה!</p>
+        <div class="testimonial-stars">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-author">שירה דויד</div>
+        <div class="testimonial-role">ביקורת Google</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CTA / Contact Section ────────────── -->
+<section class="cta" id="contact">
+  <div class="cta-card">
+    <div class="cta-inner">
+      <h2 class="cta-heading">מוכנים לחיוך המושלם?</h2>
+      <p class="cta-subtitle">צרו קשר עוד היום ותנו לד״ר מיכל לוי ולצוות מרפאת חיוך פלוס ללוות אתכם לחיוך הבריא והיפה שמגיע לכם</p>
+      
+      <a href="tel:03-555-1234" class="cta-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        קבעו תור עכשיו
+      </a>
+      <span class="cta-phone-text">או חייגו ישירות: <a href="tel:03-555-1234" dir="ltr">03-555-1234</a></span>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C9.5 2 8 3.5 8 5.5c0 1.3.7 2.5 1.5 3.5C8.5 10 7 12 7 14c0 3.5 2.5 8 5 8s5-4.5 5-8c0-2-1.5-4-2.5-5 .8-1 1.5-2.2 1.5-3.5C16 3.5 14.5 2 12 2z" fill="white"/>
+        </svg>
+      </div>
+      <span class="footer-brand-name">מרפאת חיוך פלוס | תל אביב</span>
+    </div>
+    <div class="footer-center">&copy; 2026 מרפאת חיוך פלוס. כל הזכויות שמורות.</div>
+    <div class="footer-links">
+      <a href="#about">אודות</a>
+      <a href="#services">שירותים</a>
+      <a href="#contact">צור קשר</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

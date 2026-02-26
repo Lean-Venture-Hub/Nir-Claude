@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>דוח ניתוח דיגיטלי — ד״ר מיטל שגב נויהוף</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* === RESET & VARIABLES === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0d0d0d; --paper: #1a1917; --text: #e8e4dc;
+  --text-dim: rgba(232,228,220,0.55); --accent: #9b8ec2;
+  --accent-dim: rgba(155,142,194,0.2); --accent-glow: rgba(155,142,194,0.35);
+  --danger: #c47b8e; --success: #5b9abd; --divider: rgba(155,142,194,0.2);
+  --playfair: 'Playfair Display', Georgia, serif;
+  --source: 'Source Serif 4', Georgia, serif;
+  --heebo: 'Heebo', -apple-system, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); font-family: var(--heebo); color: var(--text);
+  direction: rtl; line-height: 1.7; padding: 0;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+/* Dot-grid background texture */
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: radial-gradient(circle, rgba(155,142,194,0.04) 1px, transparent 1px);
+  background-size: 24px 24px; pointer-events: none; z-index: 0;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+/* === ANIMATIONS === */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-in { opacity: 0; animation: fadeSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+.delay-4 { animation-delay: 0.5s; }
+.delay-5 { animation-delay: 0.65s; }
+.delay-6 { animation-delay: 0.8s; }
+.delay-7 { animation-delay: 0.95s; }
+
+/* === DECORATIVE === */
+.ornament {
+  text-align: center; color: var(--accent); font-size: 18px;
+  letter-spacing: 12px; padding: 32px 0; opacity: 0.5; user-select: none;
+}
+.accent-rule { border: none; height: 1px; background: var(--divider); margin: 0; }
+.double-rule {
+  border: none; height: 0; border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider); padding-top: 3px; margin: 0;
+}
+
+/* === SECTION 1: MASTHEAD === */
+.masthead { padding: 56px 0 0; text-align: center; }
+.masthead-meta {
+  font-family: var(--heebo); font-size: 11px; font-weight: 400;
+  letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 28px;
+}
+.masthead-meta span { margin: 0 8px; opacity: 0.6; }
+.masthead-name {
+  font-family: var(--playfair); font-size: clamp(42px, 8vw, 72px); font-weight: 900;
+  line-height: 1.1; color: var(--text); margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.masthead-city {
+  font-family: var(--source); font-size: 18px; font-weight: 300;
+  color: var(--text-dim); letter-spacing: 0.15em; margin-bottom: 8px;
+}
+.masthead-accent-line { width: 60px; height: 2px; background: var(--accent); margin: 16px auto 0; }
+
+/* Hero image */
+.hero-image-wrap {
+  margin-top: 40px; position: relative; overflow: hidden; max-height: 280px;
+  border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider);
+}
+.hero-image-wrap img {
+  width: 100%; height: 280px; object-fit: cover; display: block;
+  filter: grayscale(30%) contrast(1.05);
+}
+.hero-image-wrap::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(13,13,13,0.35) 0%, rgba(13,13,13,0.1) 40%,
+    rgba(13,13,13,0.1) 60%, rgba(13,13,13,0.5) 100%);
+}
+
+/* Stat boxes */
+.stat-strip {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--divider); margin-top: 0; border-bottom: 1px solid var(--divider);
+}
+.stat-box { background: var(--paper); padding: 28px 16px 24px; text-align: center; }
+.stat-number {
+  font-family: var(--playfair); font-size: 38px; font-weight: 700;
+  color: var(--accent); line-height: 1; margin-bottom: 4px;
+}
+.stat-stars { color: #c77b9e; font-size: 14px; letter-spacing: 3px; margin-bottom: 6px; }
+.stat-label {
+  font-family: var(--heebo); font-size: 12px; font-weight: 400;
+  color: var(--text-dim); letter-spacing: 0.08em;
+}
+
+/* === SECTION TITLES === */
+.section-wrapper { padding: 0 0 56px; }
+.section-title {
+  font-family: var(--playfair); font-size: 30px; font-weight: 700;
+  color: var(--text); text-align: center; margin-bottom: 6px; letter-spacing: 0.01em;
+}
+.section-title-line {
+  width: 100%; max-width: 200px; height: 1px;
+  background: var(--accent); margin: 10px auto 36px;
+}
+
+/* === SECTION 2: COMPETITOR TABLE === */
+.comp-table {
+  width: 100%; border: 1px solid var(--divider); border-collapse: separate;
+  border-spacing: 0; outline: 1px solid var(--divider); outline-offset: 3px;
+  margin-bottom: 32px; font-size: 14px;
+}
+.comp-table th, .comp-table td {
+  padding: 12px 10px; text-align: center;
+  border-bottom: 1px solid var(--divider); vertical-align: middle;
+}
+.comp-table th {
+  font-family: var(--heebo); font-weight: 500; font-size: 12px;
+  letter-spacing: 0.04em; color: var(--text-dim); background: var(--paper);
+  border-bottom: 2px solid var(--divider);
+}
+.comp-header-row th { padding: 14px 10px; }
+.comp-header-row .cell-you { color: var(--accent); font-weight: 700; font-size: 13px; }
+.comp-row td { font-family: var(--heebo); font-weight: 400; color: var(--text); }
+.comp-row:last-child td { border-bottom: none; }
+.comp-row:hover td { background: rgba(155,142,194,0.04); }
+.cell-label {
+  text-align: right !important; font-weight: 500; color: var(--text-dim);
+  font-size: 13px; padding-right: 16px !important; white-space: nowrap;
+}
+.cell-you { background: rgba(155,142,194,0.07); font-weight: 600; position: relative; }
+.comp-header-row .cell-you::before {
+  content: ''; position: absolute; top: 0; right: 0; left: 0;
+  height: 3px; background: var(--accent);
+}
+.cell-comp { color: var(--text-dim); }
+.win { color: var(--success) !important; font-weight: 600 !important; }
+.lose { color: var(--danger) !important; font-weight: 600 !important; }
+
+/* === CALLOUT BOXES === */
+.callout-alert {
+  background: var(--paper); border: 1px solid var(--danger); border-right: 4px solid var(--danger);
+  padding: 20px 24px; font-family: var(--heebo); font-size: 15px;
+  line-height: 1.7; color: var(--text); margin-bottom: 16px;
+}
+.callout-alert strong { color: var(--danger); }
+.callout-insight {
+  background: var(--paper); border: 1px solid var(--divider); border-right: 4px solid var(--accent);
+  padding: 20px 24px; font-family: var(--heebo); font-size: 15px;
+  line-height: 1.8; color: var(--text);
+}
+.callout-urgency {
+  background: rgba(196,123,142,0.06); border: 1px solid rgba(196,123,142,0.25);
+  border-right: 4px solid var(--danger); padding: 20px 24px;
+  font-family: var(--heebo); font-size: 15px; line-height: 1.8; color: var(--text);
+}
+
+/* === SECTION 3: REPUTATION === */
+.rating-hero { text-align: center; padding: 40px 0 12px; }
+.rating-huge {
+  font-family: var(--playfair); font-size: 96px; font-weight: 900; line-height: 1;
+  color: var(--accent); text-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(155,142,194,0.15);
+}
+.rating-sub {
+  font-family: var(--heebo); font-size: 16px; color: var(--text-dim);
+  margin-top: 8px; letter-spacing: 0.05em;
+}
+.rating-stars-big { color: #c77b9e; font-size: 22px; letter-spacing: 6px; margin-top: 4px; }
+
+/* Calculator table */
+.calc-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 14px; }
+.calc-table th {
+  font-family: var(--heebo); font-weight: 500; font-size: 12px; color: var(--text-dim);
+  padding: 10px 14px; border-bottom: 2px solid var(--divider);
+  text-align: center; letter-spacing: 0.04em;
+}
+.calc-table td {
+  padding: 11px 14px; text-align: center; border-bottom: 1px solid var(--divider);
+  font-family: var(--heebo); color: var(--text);
+}
+.calc-table tbody tr:first-child td { font-weight: 600; color: var(--accent); }
+.calc-table tbody tr:last-child td { border-bottom: none; }
+
+/* Competitor reference cards */
+.comp-ref-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0 32px; }
+.comp-ref-card { background: var(--paper); border: 1px solid var(--divider); padding: 20px 14px; text-align: center; }
+.comp-ref-name { font-family: var(--heebo); font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+.comp-ref-rating { font-family: var(--playfair); font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
+.comp-ref-count { font-family: var(--heebo); font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+.comp-ref-stars { color: #c77b9e; font-size: 11px; letter-spacing: 2px; }
+
+/* === CTA === */
+.cta-box {
+  background: var(--bg); border: 2px solid var(--accent); outline: 1px solid var(--accent-dim);
+  outline-offset: 4px; padding: 44px 32px; text-align: center; margin: 12px 0 48px;
+}
+.cta-title { font-family: var(--playfair); font-size: 28px; font-weight: 700; color: var(--accent); margin-bottom: 14px; }
+.cta-body {
+  font-family: var(--heebo); font-size: 15px; color: var(--text-dim);
+  line-height: 1.8; max-width: 520px; margin: 0 auto;
+}
+
+/* === FOOTER === */
+.footer {
+  text-align: center; padding: 24px 0 48px; font-family: var(--heebo);
+  font-size: 11px; color: var(--text-dim); opacity: 0.5;
+  letter-spacing: 0.02em; line-height: 1.6;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .masthead-name { font-size: 36px; }
+  .stat-strip { grid-template-columns: 1fr; }
+  .stat-box { padding: 18px 16px; }
+  .stat-number { font-size: 30px; }
+  .comp-table { font-size: 12px; }
+  .comp-table th, .comp-table td { padding: 9px 6px; }
+  .cell-label { padding-right: 8px !important; font-size: 11px; }
+  .rating-huge { font-size: 64px; }
+  .comp-ref-grid { grid-template-columns: 1fr; gap: 10px; }
+  .cta-box { padding: 32px 20px; }
+  .cta-title { font-size: 22px; }
+  .section-title { font-size: 24px; }
+  .hero-image-wrap, .hero-image-wrap img { max-height: 180px; height: 180px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- =================== SECTION 1: HERO MASTHEAD =================== -->
+  <header class="masthead animate-in delay-1">
+    <div class="masthead-meta">
+      דוח ניתוח דיגיטלי <span>|</span> פברואר 2026 <span>|</span> גיליון מס׳ 1
+    </div>
+    <h1 class="masthead-name">ד״ר מיטל שגב נויהוף</h1>
+    <div class="masthead-city">תל אביב</div>
+    <div class="masthead-accent-line"></div>
+  </header>
+
+  <div class="hero-image-wrap animate-in delay-2">
+    <img src="../../image to be used/image1.png" alt="מרפאת שיניים — ד״ר מיטל שגב נויהוף" onerror="this.style.display='none'">
+  </div>
+
+  <div class="stat-strip animate-in delay-3">
+    <div class="stat-box">
+      <div class="stat-number">5.0</div>
+      <div class="stat-stars">★★★★★</div>
+      <div class="stat-label">ציון Google</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">24</div>
+      <div class="stat-label">ביקורות</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">8/10</div>
+      <div class="stat-label">ציון אתר</div>
+    </div>
+  </div>
+
+  <div class="ornament animate-in delay-3">◆ ◆ ◆</div>
+
+  <!-- =================== SECTION 2: COMPETITOR COMPARISON =================== -->
+  <section class="section-wrapper animate-in delay-4">
+    <h2 class="section-title">השוואה מול מתחרים</h2>
+    <div class="section-title-line"></div>
+
+    <table class="comp-table">
+      <thead>
+        <tr class="comp-header-row comp-row">
+          <th class="cell-label"></th>
+          <th class="cell-you">אתם</th>
+          <th class="cell-comp">Care Laser</th>
+          <th class="cell-comp">מיודנט — ד״ר מקס</th>
+          <th class="cell-comp">ד״ר שירה חזק</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="comp-row">
+          <td class="cell-label comp-cell">ציון Google</td>
+          <td class="cell-you comp-cell">5.0</td>
+          <td class="cell-comp comp-cell win">4.0</td>
+          <td class="cell-comp comp-cell">5.0</td>
+          <td class="cell-comp comp-cell">5.0</td>
+        </tr>
+        <tr class="comp-row reviews-row">
+          <td class="cell-label comp-cell">ביקורות</td>
+          <td class="cell-you comp-cell">24</td>
+          <td class="cell-comp comp-cell lose">756</td>
+          <td class="cell-comp comp-cell lose">485</td>
+          <td class="cell-comp comp-cell lose">354</td>
+        </tr>
+        <tr class="comp-row">
+          <td class="cell-label comp-cell">ציון אתר</td>
+          <td class="cell-you comp-cell">8</td>
+          <td class="cell-comp comp-cell win">0</td>
+          <td class="cell-comp comp-cell">8</td>
+          <td class="cell-comp comp-cell lose">9</td>
+        </tr>
+        <tr class="comp-row">
+          <td class="cell-label comp-cell">הזמנה אונליין</td>
+          <td class="cell-you comp-cell">✓</td>
+          <td class="cell-comp comp-cell win">✗</td>
+          <td class="cell-comp comp-cell">✓</td>
+          <td class="cell-comp comp-cell">✓</td>
+        </tr>
+        <tr class="comp-row">
+          <td class="cell-label comp-cell">פייסבוק</td>
+          <td class="cell-you comp-cell">✓</td>
+          <td class="cell-comp comp-cell win">✗</td>
+          <td class="cell-comp comp-cell win">✗</td>
+          <td class="cell-comp comp-cell">✓</td>
+        </tr>
+        <tr class="comp-row">
+          <td class="cell-label comp-cell">אינסטגרם</td>
+          <td class="cell-you comp-cell">✓</td>
+          <td class="cell-comp comp-cell win">✗</td>
+          <td class="cell-comp comp-cell win">✗</td>
+          <td class="cell-comp comp-cell win">✗</td>
+        </tr>
+        <tr class="comp-row">
+          <td class="cell-label comp-cell">תמונות GBP</td>
+          <td class="cell-you comp-cell">15</td>
+          <td class="cell-comp comp-cell lose">85</td>
+          <td class="cell-comp comp-cell lose">120</td>
+          <td class="cell-comp comp-cell lose">65</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout-alert">
+      <strong>מיקום שלך: מקום 4 מתוך 4</strong> לפי ביקורות. המתחרה המוביל מחזיק 756 ביקורות — פי 31.5 ממך.
+    </div>
+  </section>
+
+  <hr class="double-rule">
+  <div class="ornament">❧</div>
+
+  <!-- =================== SECTION 3: REPUTATION ANALYSIS =================== -->
+  <section class="section-wrapper animate-in delay-5">
+    <h2 class="section-title">ניתוח מוניטין ותחזית שיפור</h2>
+    <div class="section-title-line"></div>
+
+    <div class="rating-hero">
+      <div class="rating-huge">5.0</div>
+      <div class="rating-stars-big">★★★★★</div>
+      <div class="rating-sub">24 ביקורות ב-Google</div>
+    </div>
+
+    <div class="callout-insight" style="margin:28px 0 36px;">
+      ציון מצוין — אבל 24 ביקורות בלבד. מטופלים חדשים מחפשים <strong style="color:var(--accent)">כמות הוכחות</strong>, לא רק ציון. מרפאה עם 400+ ביקורות ו-5.0 נתפסת כאמינה בהרבה ממרפאה עם 24 ו-5.0.
+    </div>
+
+    <h3 style="font-family:var(--playfair);font-size:20px;font-weight:700;text-align:center;color:var(--text);margin-bottom:4px;">מחשבון שיפור ציון</h3>
+    <p style="font-family:var(--heebo);font-size:13px;color:var(--text-dim);text-align:center;margin-bottom:8px;">הדמיה — תוספת ביקורות חדשות בציון 5 כוכבים</p>
+
+    <table class="calc-table">
+      <thead>
+        <tr>
+          <th>ביקורות חדשות (5★)</th>
+          <th>הציון החדש</th>
+          <th>שיפור</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>היום</td><td>5.0</td><td>—</td></tr>
+        <tr><td>+5</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+10</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+15</td><td>5.0</td><td>+0.0</td></tr>
+        <tr><td>+20</td><td>5.0</td><td>+0.0</td></tr>
+      </tbody>
+    </table>
+
+    <hr class="accent-rule" style="margin:36px 0 28px;">
+
+    <h3 style="font-family:var(--playfair);font-size:20px;font-weight:700;text-align:center;color:var(--text);margin-bottom:20px;">איך נראה מוניטין חזק?</h3>
+
+    <div class="comp-ref-grid">
+      <div class="comp-ref-card">
+        <div class="comp-ref-name">מיודנט — ד״ר מקס</div>
+        <div class="comp-ref-rating">5.0</div>
+        <div class="comp-ref-stars">★★★★★</div>
+        <div class="comp-ref-count">485 ביקורות</div>
+      </div>
+      <div class="comp-ref-card">
+        <div class="comp-ref-name">ד״ר שירה חזק</div>
+        <div class="comp-ref-rating">5.0</div>
+        <div class="comp-ref-stars">★★★★★</div>
+        <div class="comp-ref-count">354 ביקורות</div>
+      </div>
+      <div class="comp-ref-card">
+        <div class="comp-ref-name">רופא שיניים בתל אביב</div>
+        <div class="comp-ref-rating">5.0</div>
+        <div class="comp-ref-stars">★★★★★</div>
+        <div class="comp-ref-count">303 ביקורות</div>
+      </div>
+    </div>
+
+    <div class="callout-urgency">
+      כל יום שעובר, מטופלים חדשים מחפשים רופא שיניים, רואים את מספר הביקורות, ובוחרים במתחרה. <strong style="color:var(--accent)">10 ביקורות חדשות</strong> יכולות לשנות את התמונה.
+    </div>
+  </section>
+
+  <hr class="double-rule">
+  <div class="ornament">◆</div>
+
+  <!-- =================== CTA =================== -->
+  <section class="section-wrapper animate-in delay-6">
+    <div class="cta-box">
+      <div class="cta-title">רוצה לראות את הניתוח המלא?</div>
+      <div class="cta-body">
+        כולל ניתוח ביקורות, מילות חיפוש, ונוכחות דיגיטלית מלאה.<br>
+        10 דקות בזום — רלוונטי?
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="footer animate-in delay-7">
+    מבוסס על נתונים ציבוריים מ-Google, easy.co.il ואתרי המרפאות | פברואר 2026
+  </footer>
+
+</div>
+
+</body>
+</html>

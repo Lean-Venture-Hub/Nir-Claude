@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ד״ר מיטל שגב נויהוף — ניתוח נוכחות דיגיטלית</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Karla:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: linear-gradient(180deg, #1e1a2e 0%, #231e38 25%, #2a2040 50%, #2d2244 70%, #2e2345 85%, #322348 95%, #35264a 100%);
+    color: #e8e0f0; font-family: 'Karla', 'Heebo', sans-serif;
+    direction: rtl; min-height: 100vh; overflow-x: hidden; line-height: 1.65; font-weight: 400;
+  }
+
+  /* Twilight sky — pink horizon glow at bottom */
+  body::before {
+    content: ''; position: fixed; bottom: 0; left: 0; right: 0; height: 40vh;
+    background: linear-gradient(to top, rgba(212,160,184,0.08) 0%, rgba(184,148,212,0.04) 40%, transparent 100%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* Aurora arc at top */
+  .aurora {
+    position: fixed; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 1200px; height: 500px; pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse 70% 45% at 50% 60%,
+      rgba(184,148,212,0.12) 0%,
+      rgba(123,180,217,0.08) 30%,
+      rgba(212,160,184,0.06) 60%,
+      transparent 100%);
+    filter: blur(30px);
+  }
+
+  /* CSS Stars */
+  .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .star {
+    position: absolute; border-radius: 50%; background: #fff;
+    animation: twinkle var(--dur, 4s) ease-in-out infinite var(--delay, 0s);
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.6; }
+  }
+
+  .container { max-width: 840px; margin: 0 auto; padding: 0 20px 60px; position: relative; z-index: 1; }
+  h1, h2, h3 { font-family: 'Libre Baskerville', 'Heebo', serif; font-weight: 400; }
+
+  /* Animations */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(184,148,212,0.12); }
+    50% { box-shadow: 0 0 40px rgba(184,148,212,0.22); }
+  }
+  .animate { opacity: 0; animation: fadeSlideUp 0.7s ease-out forwards; }
+  .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; } .delay-6 { animation-delay: 0.6s; }
+  .delay-7 { animation-delay: 0.7s; } .delay-8 { animation-delay: 0.8s; }
+  .delay-9 { animation-delay: 0.9s; } .delay-10 { animation-delay: 1.0s; }
+  .delay-11 { animation-delay: 1.1s; } .delay-12 { animation-delay: 1.2s; }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    position: relative; text-align: center; padding: 80px 24px 50px;
+    margin-bottom: 20px; overflow: hidden;
+  }
+  /* Aurora arc decoration at top of hero */
+  .hero::before {
+    content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 300px;
+    background: radial-gradient(ellipse 60% 50% at 50% 70%,
+      rgba(184,148,212,0.18) 0%,
+      rgba(123,180,217,0.12) 35%,
+      rgba(212,160,184,0.08) 65%,
+      transparent 100%);
+    filter: blur(20px); pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block; position: relative;
+    background: rgba(184,148,212,0.12); border: 1px solid rgba(184,148,212,0.25);
+    border-radius: 30px; padding: 8px 24px; font-size: 13px; color: #b894d4;
+    font-weight: 500; letter-spacing: 0.5px; margin-bottom: 24px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(184,148,212,0.1);
+  }
+
+  .hero-title {
+    font-size: 48px; color: #fff; line-height: 1.2; margin-bottom: 10px;
+    text-shadow: 0 2px 30px rgba(184,148,212,0.3);
+  }
+
+  .hero-location {
+    font-family: 'Karla', 'Heebo', sans-serif; font-size: 18px;
+    color: #d4a0b8; font-weight: 400; letter-spacing: 3px; display: block; margin-bottom: 36px;
+  }
+
+  /* Hero image */
+  .hero-image-frame {
+    width: 200px; height: 200px; border-radius: 24px; margin: 0 auto 40px;
+    position: relative; overflow: hidden;
+    border: 2px solid rgba(184,148,212,0.3);
+    box-shadow: 0 0 40px rgba(184,148,212,0.15), 0 0 80px rgba(184,148,212,0.08);
+  }
+  .hero-image-frame img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+
+  /* Stat cards */
+  .stat-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 70px; }
+  .stat-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 28px 20px; text-align: center; position: relative; overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(184,148,212,0.12);
+  }
+  .stat-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, #b894d4, transparent); opacity: 0.5;
+  }
+  .stat-card:nth-child(1) { box-shadow: 0 0 25px rgba(184,148,212,0.08); }
+  .stat-card:nth-child(2) { box-shadow: 0 0 25px rgba(123,180,217,0.08); }
+  .stat-card:nth-child(2)::before { background: linear-gradient(90deg, transparent, #7bb4d9, transparent); }
+  .stat-card:nth-child(3) { box-shadow: 0 0 25px rgba(212,160,184,0.08); }
+  .stat-card:nth-child(3)::before { background: linear-gradient(90deg, transparent, #d4a0b8, transparent); }
+
+  .stat-value { font-family: 'Libre Baskerville', serif; font-size: 36px; color: #fff; margin-bottom: 2px; }
+  .stat-stars { color: #d4a0b8; font-size: 16px; letter-spacing: 3px; margin-bottom: 6px; }
+  .stat-label { font-size: 13px; color: rgba(232,224,240,0.45); font-weight: 400; letter-spacing: 1px; }
+
+  /* Gradient dividers */
+  .gradient-divider {
+    height: 1px; margin: 0 auto 16px; max-width: 400px;
+    background: linear-gradient(90deg, transparent, rgba(184,148,212,0.3), rgba(123,180,217,0.2), rgba(212,160,184,0.3), transparent);
+  }
+
+  /* Section titles */
+  .section-title {
+    text-align: center; font-size: 26px; color: #b894d4;
+    letter-spacing: 2px; margin-bottom: 12px;
+  }
+  .section-subtitle {
+    text-align: center; font-size: 14px; color: rgba(232,224,240,0.4);
+    margin-bottom: 36px; letter-spacing: 0.5px;
+  }
+
+  /* ═══ COMPETITOR COMPARISON ═══ */
+  .comp-section { margin-bottom: 70px; }
+  .comp-card {
+    background: rgba(255,255,255,0.04); border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+  .comp-table { width: 100%; display: flex; flex-direction: column; }
+  .comp-header-row {
+    display: grid; grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+    background: rgba(30,26,46,0.8);
+  }
+  .comp-header-row .comp-cell {
+    padding: 16px 14px; font-size: 13px; font-weight: 600;
+    color: #b894d4; letter-spacing: 0.5px; text-align: center;
+  }
+  .comp-header-row .comp-cell:first-child { text-align: right; }
+  .comp-row {
+    display: grid; grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.2s ease;
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-row:hover { background: rgba(184,148,212,0.03); }
+  .comp-cell {
+    padding: 14px 14px; font-size: 14px; display: flex; align-items: center;
+    justify-content: center; color: rgba(232,224,240,0.75);
+  }
+  .cell-label {
+    justify-content: flex-start; font-weight: 500;
+    color: rgba(232,224,240,0.55); font-size: 13px; letter-spacing: 0.3px;
+  }
+  .cell-you {
+    border-right: 3px solid rgba(184,148,212,0.5);
+    background: rgba(184,148,212,0.06); color: #e8e0f0; font-weight: 600;
+  }
+  .cell-comp { color: rgba(232,224,240,0.65); }
+  .reviews-row { background: rgba(212,132,154,0.04); }
+
+  .win { color: #7bb4d9; position: relative; }
+  .win::after {
+    content: ''; position: absolute; inset: 4px; border-radius: 8px;
+    background: rgba(123,180,217,0.07); pointer-events: none;
+  }
+  .lose { color: #d4849a; position: relative; }
+  .lose::after {
+    content: ''; position: absolute; inset: 4px; border-radius: 8px;
+    background: rgba(212,132,154,0.07); pointer-events: none;
+  }
+
+  /* Warning card */
+  .warning-card {
+    margin: 28px 20px 20px; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,160,184,0.25); border-radius: 14px;
+    padding: 22px 26px; text-align: center; position: relative;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(212,160,184,0.08); animation: glowPulse 4s ease-in-out infinite;
+  }
+  .warning-card .warning-icon { font-size: 20px; margin-bottom: 8px; display: block; }
+  .warning-card p { font-size: 15px; line-height: 1.7; color: rgba(232,224,240,0.85); }
+  .warning-card strong { color: #d4a0b8; font-weight: 600; }
+  .warning-card .stat-highlight { color: #d4849a; font-weight: 700; }
+
+  /* ═══ REPUTATION ANALYSIS ═══ */
+  .reputation-section { margin-bottom: 70px; }
+  .rating-hero { text-align: center; padding: 48px 20px 24px; }
+  .rating-big {
+    font-family: 'Libre Baskerville', serif; font-size: 96px; color: #b894d4;
+    line-height: 1; text-shadow: 0 0 60px rgba(184,148,212,0.3), 0 0 120px rgba(184,148,212,0.1);
+    margin-bottom: 8px;
+  }
+  .rating-stars-big { font-size: 22px; color: #d4a0b8; letter-spacing: 5px; margin-bottom: 10px; }
+  .rating-subtitle { font-size: 15px; color: rgba(232,224,240,0.4); font-weight: 300; }
+
+  .insight-card {
+    max-width: 540px; margin: 24px auto 44px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(123,180,217,0.25);
+    border-radius: 14px; padding: 22px 28px; text-align: center;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    font-size: 16px; color: rgba(232,224,240,0.8);
+    box-shadow: 0 0 25px rgba(123,180,217,0.06);
+  }
+  .insight-card strong { color: #7bb4d9; }
+
+  /* Calculator table */
+  .calc-card {
+    background: rgba(255,255,255,0.04); border-radius: 16px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06); margin-bottom: 36px;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+  .calc-card .calc-title {
+    padding: 18px 24px; font-size: 15px; font-weight: 500; color: #b894d4;
+    background: rgba(30,26,46,0.7); letter-spacing: 1px; text-align: center;
+    font-family: 'Libre Baskerville', 'Heebo', serif;
+  }
+  .calc-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .calc-row:last-child { border-bottom: none; }
+  .calc-row.calc-header { background: rgba(30,26,46,0.4); }
+  .calc-cell { padding: 13px 18px; font-size: 14px; text-align: center; color: rgba(232,224,240,0.7); }
+  .calc-header .calc-cell { font-weight: 600; color: #b894d4; font-size: 12px; letter-spacing: 0.5px; }
+  .calc-row-highlight { background: rgba(184,148,212,0.05); }
+  .calc-row-highlight .calc-cell { color: #e8e0f0; font-weight: 500; }
+
+  /* Competitor cards */
+  .competitor-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 36px; }
+  .competitor-card {
+    background: rgba(255,255,255,0.05); border-radius: 14px; padding: 24px 18px;
+    text-align: center; transition: transform 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .competitor-card:nth-child(1) {
+    border: 1px solid rgba(184,148,212,0.25);
+    box-shadow: 0 0 20px rgba(184,148,212,0.06);
+  }
+  .competitor-card:nth-child(2) {
+    border: 1px solid rgba(123,180,217,0.25);
+    box-shadow: 0 0 20px rgba(123,180,217,0.06);
+  }
+  .competitor-card:nth-child(3) {
+    border: 1px solid rgba(212,160,184,0.25);
+    box-shadow: 0 0 20px rgba(212,160,184,0.06);
+  }
+  .competitor-card:hover { transform: translateY(-3px); }
+  .competitor-card:nth-child(1):hover { border-color: rgba(184,148,212,0.45); }
+  .competitor-card:nth-child(2):hover { border-color: rgba(123,180,217,0.45); }
+  .competitor-card:nth-child(3):hover { border-color: rgba(212,160,184,0.45); }
+
+  .competitor-name { font-size: 14px; font-weight: 600; color: rgba(232,224,240,0.9); margin-bottom: 12px; line-height: 1.4; }
+  .competitor-rating { font-family: 'Libre Baskerville', serif; font-size: 28px; color: #fff; margin-bottom: 2px; }
+  .competitor-stars { color: #d4a0b8; font-size: 12px; letter-spacing: 2px; margin-bottom: 6px; }
+  .competitor-reviews { font-size: 12px; color: rgba(232,224,240,0.4); }
+
+  /* Urgency card */
+  .urgency-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(212,132,154,0.25);
+    border-radius: 14px; padding: 24px 28px; text-align: center; margin-bottom: 70px;
+    position: relative; overflow: hidden;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .urgency-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, #d4a0b8, transparent);
+  }
+  .urgency-card p { font-size: 15px; color: rgba(232,224,240,0.8); line-height: 1.7; }
+  .urgency-card strong { color: #d4a0b8; }
+
+  /* ═══ CTA ═══ */
+  .cta-card {
+    position: relative; border-radius: 18px; padding: 48px 36px; text-align: center;
+    margin-bottom: 48px; overflow: hidden;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  }
+  .cta-card::before {
+    content: ''; position: absolute; inset: 0; border-radius: 18px; padding: 2px;
+    background: linear-gradient(135deg, #b894d4, #7bb4d9, #d4a0b8);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    pointer-events: none;
+  }
+  .cta-title {
+    font-size: 28px; color: #fff; letter-spacing: 1px; margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(184,148,212,0.2);
+  }
+  .cta-subtitle { font-size: 16px; color: rgba(232,224,240,0.55); margin-bottom: 28px; }
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #b894d4, #7bb4d9);
+    color: #1e1a2e; font-family: 'Karla', 'Heebo', sans-serif;
+    font-weight: 700; font-size: 15px; padding: 14px 40px;
+    border-radius: 50px; text-decoration: none; letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(184,148,212,0.25);
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 35px rgba(184,148,212,0.35);
+  }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: rgba(232,224,240,0.2); letter-spacing: 1px; }
+  .footer-stars { margin-bottom: 10px; letter-spacing: 8px; font-size: 8px; color: rgba(232,224,240,0.15); }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .hero-title { font-size: 34px; }
+    .hero { padding: 60px 20px 40px; }
+    .stat-cards { grid-template-columns: 1fr; gap: 12px; }
+    .comp-header-row, .comp-row { grid-template-columns: 1.4fr 1.2fr 1fr 1fr 1fr; font-size: 11px; }
+    .comp-cell { padding: 10px 6px; font-size: 11px; }
+    .competitor-cards { grid-template-columns: 1fr; }
+    .rating-big { font-size: 72px; }
+    .section-title { font-size: 20px; letter-spacing: 1px; }
+    .cta-card { padding: 32px 20px; }
+    .cta-title { font-size: 22px; }
+    .hero-image-frame { width: 160px; height: 160px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Aurora glow -->
+<div class="aurora"></div>
+
+<!-- CSS Stars scattered across background -->
+<div class="stars">
+  <div class="star" style="width:2px;height:2px;top:5%;left:12%;--dur:3.5s;--delay:0s"></div>
+  <div class="star" style="width:3px;height:3px;top:8%;left:45%;--dur:5s;--delay:1.2s"></div>
+  <div class="star" style="width:2px;height:2px;top:3%;left:72%;--dur:4s;--delay:0.5s"></div>
+  <div class="star" style="width:2px;height:2px;top:12%;left:88%;--dur:3s;--delay:2s"></div>
+  <div class="star" style="width:3px;height:3px;top:18%;left:25%;--dur:4.5s;--delay:0.8s"></div>
+  <div class="star" style="width:2px;height:2px;top:15%;left:60%;--dur:5.5s;--delay:1.5s"></div>
+  <div class="star" style="width:2px;height:2px;top:22%;left:8%;--dur:3.8s;--delay:0.3s"></div>
+  <div class="star" style="width:3px;height:3px;top:28%;left:92%;--dur:4.2s;--delay:2.5s"></div>
+  <div class="star" style="width:2px;height:2px;top:35%;left:38%;--dur:6s;--delay:1s"></div>
+  <div class="star" style="width:2px;height:2px;top:42%;left:78%;--dur:3.2s;--delay:0.7s"></div>
+  <div class="star" style="width:3px;height:3px;top:48%;left:15%;--dur:4.8s;--delay:1.8s"></div>
+  <div class="star" style="width:2px;height:2px;top:55%;left:55%;--dur:5.2s;--delay:0.2s"></div>
+  <div class="star" style="width:2px;height:2px;top:60%;left:85%;--dur:3.6s;--delay:2.2s"></div>
+  <div class="star" style="width:3px;height:3px;top:68%;left:30%;--dur:4.4s;--delay:1.3s"></div>
+  <div class="star" style="width:2px;height:2px;top:72%;left:65%;--dur:5.8s;--delay:0.9s"></div>
+  <div class="star" style="width:2px;height:2px;top:78%;left:5%;--dur:3.4s;--delay:2.8s"></div>
+  <div class="star" style="width:3px;height:3px;top:82%;left:50%;--dur:4.6s;--delay:0.4s"></div>
+  <div class="star" style="width:2px;height:2px;top:88%;left:20%;--dur:5.4s;--delay:1.6s"></div>
+  <div class="star" style="width:2px;height:2px;top:92%;left:75%;--dur:3.9s;--delay:2.1s"></div>
+  <div class="star" style="width:2px;height:2px;top:25%;left:50%;--dur:6.2s;--delay:0.6s"></div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero animate">
+  <div class="hero-badge animate delay-2">ניתוח דיגיטלי — פברואר 2026</div>
+  <h1 class="hero-title animate delay-3">ד״ר מיטל שגב נויהוף</h1>
+  <span class="hero-location animate delay-4">תל אביב</span>
+  <div class="hero-image-frame animate delay-4">
+    <img src="../../image to be used/image8.png" alt="ד״ר מיטל שגב נויהוף">
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Stat cards -->
+  <div class="stat-cards">
+    <div class="stat-card animate delay-5">
+      <div class="stat-value">5.0</div>
+      <div class="stat-stars">★★★★★</div>
+      <div class="stat-label">ציון Google</div>
+    </div>
+    <div class="stat-card animate delay-6">
+      <div class="stat-value">24</div>
+      <div class="stat-stars">◆</div>
+      <div class="stat-label">ביקורות</div>
+    </div>
+    <div class="stat-card animate delay-7">
+      <div class="stat-value">8<span style="font-size:20px; opacity:0.4">/10</span></div>
+      <div class="stat-stars">◆</div>
+      <div class="stat-label">ציון אתר</div>
+    </div>
+  </div>
+
+  <!-- ═══ S1 — COMPETITOR COMPARISON ═══ -->
+  <section class="comp-section animate delay-6">
+    <div class="gradient-divider"></div>
+    <h2 class="section-title">השוואה מול מתחרים</h2>
+    <p class="section-subtitle">נתונים ציבוריים — פברואר 2026</p>
+
+    <div class="comp-card">
+      <div class="comp-table">
+        <div class="comp-header-row">
+          <div class="comp-cell"></div>
+          <div class="comp-cell">אתם</div>
+          <div class="comp-cell">Care Laser</div>
+          <div class="comp-cell">מיודנט — ד״ר מקס</div>
+          <div class="comp-cell">ד״ר שירה חזק</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">ציון Google</div>
+          <div class="comp-cell cell-you">5.0</div>
+          <div class="comp-cell cell-comp win">4.0</div>
+          <div class="comp-cell cell-comp">5.0</div>
+          <div class="comp-cell cell-comp">5.0</div>
+        </div>
+        <div class="comp-row reviews-row">
+          <div class="comp-cell cell-label">ביקורות</div>
+          <div class="comp-cell cell-you">24</div>
+          <div class="comp-cell cell-comp lose">756</div>
+          <div class="comp-cell cell-comp lose">485</div>
+          <div class="comp-cell cell-comp lose">354</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">ציון אתר</div>
+          <div class="comp-cell cell-you">8</div>
+          <div class="comp-cell cell-comp win">0</div>
+          <div class="comp-cell cell-comp">8</div>
+          <div class="comp-cell cell-comp lose">9</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">הזמנה אונליין</div>
+          <div class="comp-cell cell-you">✓</div>
+          <div class="comp-cell cell-comp win">✗</div>
+          <div class="comp-cell cell-comp">✓</div>
+          <div class="comp-cell cell-comp">✓</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">פייסבוק</div>
+          <div class="comp-cell cell-you">✓</div>
+          <div class="comp-cell cell-comp win">✗</div>
+          <div class="comp-cell cell-comp win">✗</div>
+          <div class="comp-cell cell-comp">✓</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">אינסטגרם</div>
+          <div class="comp-cell cell-you">✓</div>
+          <div class="comp-cell cell-comp win">✗</div>
+          <div class="comp-cell cell-comp win">✗</div>
+          <div class="comp-cell cell-comp win">✗</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">תמונות GBP</div>
+          <div class="comp-cell cell-you">15</div>
+          <div class="comp-cell cell-comp lose">85</div>
+          <div class="comp-cell cell-comp lose">120</div>
+          <div class="comp-cell cell-comp lose">65</div>
+        </div>
+      </div>
+
+      <div class="warning-card animate delay-8">
+        <span class="warning-icon">⚠</span>
+        <p>
+          <strong>מיקום שלך: מקום 4 מתוך 4</strong> לפי ביקורות.<br>
+          המתחרה המוביל מחזיק <span class="stat-highlight">756 ביקורות</span> — פי 31.5 ממך.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ S3 — REPUTATION ANALYSIS ═══ -->
+  <section class="reputation-section animate delay-7">
+    <div class="gradient-divider"></div>
+    <h2 class="section-title">ניתוח מוניטין ותחזית שיפור</h2>
+    <p class="section-subtitle">מבוסס על נתוני Google Maps</p>
+
+    <div class="rating-hero">
+      <div class="rating-big">5.0</div>
+      <div class="rating-stars-big">★★★★★</div>
+      <div class="rating-subtitle">24 ביקורות ב-Google</div>
+    </div>
+
+    <div class="insight-card animate delay-8">
+      <strong>ציון מצוין</strong> — אבל 24 ביקורות בלבד. הנוכחות הדיגיטלית עדיין דקה מדי.
+    </div>
+
+    <div class="calc-card animate delay-9">
+      <div class="calc-title">מחשבון תחזית ציון</div>
+      <div class="comp-table">
+        <div class="calc-row calc-header">
+          <div class="calc-cell">ביקורות חדשות</div>
+          <div class="calc-cell">הציון החדש</div>
+          <div class="calc-cell">שיפור</div>
+        </div>
+        <div class="calc-row calc-row-highlight">
+          <div class="calc-cell">היום</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">—</div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-cell">+5</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">+0.0</div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-cell">+10</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">+0.0</div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-cell">+15</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">+0.0</div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-cell">+20</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">+0.0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="competitor-cards">
+      <div class="competitor-card animate delay-9">
+        <div class="competitor-name">מיודנט — ד״ר מקס</div>
+        <div class="competitor-rating">5.0</div>
+        <div class="competitor-stars">★★★★★</div>
+        <div class="competitor-reviews">485 ביקורות</div>
+      </div>
+      <div class="competitor-card animate delay-10">
+        <div class="competitor-name">ד״ר שירה חזק</div>
+        <div class="competitor-rating">5.0</div>
+        <div class="competitor-stars">★★★★★</div>
+        <div class="competitor-reviews">354 ביקורות</div>
+      </div>
+      <div class="competitor-card animate delay-11">
+        <div class="competitor-name">רופא שיניים בתל אביב</div>
+        <div class="competitor-rating">5.0</div>
+        <div class="competitor-stars">★★★★★</div>
+        <div class="competitor-reviews">303 ביקורות</div>
+      </div>
+    </div>
+
+    <div class="urgency-card animate delay-10">
+      <p>
+        <strong>כל יום שעובר בלי ביקורות חדשות</strong> — המתחרים שלך צוברים עוד ועוד.<br>
+        עם 24 ביקורות בלבד, אתה נמצא הרחק מאחור. הזמן לפעול הוא עכשיו.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="animate delay-11">
+    <div class="cta-card">
+      <h2 class="cta-title">רוצה לראות את הניתוח המלא?</h2>
+      <p class="cta-subtitle">10 דקות בזום — רלוונטי?</p>
+      <a href="#" class="cta-button">לתיאום שיחה קצרה</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer animate delay-12">
+    <div class="footer-stars">✦ ✦ ✦</div>
+    <p>מבוסס על נתונים ציבוריים | פברואר 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>

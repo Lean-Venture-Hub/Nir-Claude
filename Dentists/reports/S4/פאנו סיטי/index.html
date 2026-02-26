@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>פאנו סיטי | בת ים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── Reset ─────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --ink:#111827;
+  --ink-soft:#374151;
+  --gray:#6B7280;
+  --gray-light:#D1D5DB;
+  --blue:#2563EB;
+  --blue-soft:#EFF6FF;
+  --amber:#D97706;
+  --white:#FFFFFF;
+  --bg:#FAFAFA;
+  --font:'Rubik',sans-serif;
+}
+
+body{
+  font-family:var(--font);
+  direction:rtl;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── Nav ───────────────────────────────────── */
+nav{
+  padding:0 56px;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  z-index:10;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:18px;
+  font-weight:700;
+  color:var(--ink);
+  text-decoration:none;
+}
+.nav-logo-icon{
+  width:32px;height:32px;
+  background:var(--ink);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-assist{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--ink);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  padding:8px 18px;
+  border:1.5px solid var(--gray-light);
+  border-radius:100px;
+  transition:border-color .2s,background .2s;
+}
+.nav-assist:hover{
+  border-color:var(--blue);
+  background:var(--blue-soft);
+}
+.nav-assist svg{width:14px;height:14px}
+
+/* ── Hero ──────────────────────────────────── */
+.hero{
+  display:grid;
+  grid-template-columns:55fr 45fr;
+  gap:48px;
+  padding:20px 56px 56px;
+  max-width:1360px;
+  margin:0 auto;
+  align-items:center;
+  min-height:calc(100vh - 76px);
+}
+
+/* ── Visual side (RIGHT in grid = LEFT visually in RTL) ── */
+.hero-visual{
+  position:relative;
+  order:1;
+}
+.hero-text{
+  order:2;
+}
+
+/* Image container */
+.hero-img{
+  width:100%;
+  aspect-ratio:4/5;
+  border-radius:24px;
+  overflow:hidden;
+  position:relative;
+}
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Decorative amber bars on top-right of image */
+.hero-img::before{
+  content:'';
+  position:absolute;
+  top:16px;
+  left:20px;
+  width:4px;
+  height:56px;
+  background:var(--amber);
+  border-radius:4px;
+  opacity:.7;
+  z-index:2;
+}
+.hero-img::after{
+  content:'';
+  position:absolute;
+  top:16px;
+  left:32px;
+  width:4px;
+  height:36px;
+  background:var(--amber);
+  border-radius:4px;
+  opacity:.4;
+  z-index:2;
+}
+
+/* ── Floating rating badge ─────────────────── */
+.rating-float{
+  position:absolute;
+  bottom:28px;
+  right:28px;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:16px;
+  padding:16px 20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 4px 24px rgba(0,0,0,.08);
+  z-index:3;
+}
+.rating-float .big-num{
+  font-size:36px;
+  font-weight:900;
+  color:var(--ink);
+  line-height:1;
+  letter-spacing:-1px;
+}
+.rating-float .meta{font-size:12px;color:var(--gray);font-weight:500}
+.rating-float .stars{color:#F59E0B;font-size:12px;letter-spacing:1px;margin-top:1px}
+
+/* ── Text side ─────────────────────────────── */
+.hero-text{
+  padding:16px 0;
+}
+
+.hero-text h1{
+  font-size:clamp(34px, 4.5vw, 52px);
+  font-weight:800;
+  color:var(--ink);
+  line-height:1.12;
+  letter-spacing:-0.5px;
+  margin-bottom:24px;
+  max-width:420px;
+}
+
+.hero-text .body-text{
+  font-size:16px;
+  color:var(--ink-soft);
+  line-height:1.8;
+  max-width:400px;
+  margin-bottom:12px;
+}
+.hero-text .body-text strong{
+  color:var(--ink);
+  font-weight:700;
+  text-decoration:underline;
+  text-decoration-color:var(--blue);
+  text-underline-offset:3px;
+  text-decoration-thickness:2px;
+}
+
+/* Stats bar below text */
+.hero-stats{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  margin-top:32px;
+  padding-top:24px;
+  border-top:1px solid #E5E7EB;
+}
+.stat{text-align:center}
+.stat .num{
+  font-size:24px;
+  font-weight:800;
+  color:var(--ink);
+  line-height:1;
+}
+.stat .label{
+  font-size:11px;
+  color:var(--gray);
+  margin-top:4px;
+  font-weight:500;
+}
+.stat-divider{
+  width:1px;
+  height:36px;
+  background:#E5E7EB;
+}
+
+/* ── Responsive ────────────────────────────── */
+@media(max-width:960px){
+  .hero{
+    grid-template-columns:1fr;
+    padding:20px 28px 40px;
+    gap:32px;
+    min-height:auto;
+  }
+  .hero-visual{order:1}
+  .hero-text{order:2}
+  nav{padding:0 28px}
+  .hero-img{aspect-ratio:3/4;max-width:480px;margin:0 auto}
+}
+@media(max-width:480px){
+  .hero-text h1{font-size:30px}
+  .hero-stats{gap:20px}
+  .stat .num{font-size:20px}
+  nav{padding:0 20px;height:64px}
+  .hero{padding:16px 20px 32px}
+  .rating-float{bottom:16px;right:16px;padding:12px 16px}
+  .rating-float .big-num{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+        <path d="M9 11l3 3L22 4"/>
+        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+      </svg>
+    </div>
+    פאנו סיטי
+  </a>
+
+  <a href="tel:03-659-8868" class="nav-assist">
+    שיחה חיה
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l-7 7 7 7"/>
+    </svg>
+  </a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section class="hero">
+
+  <!-- Visual side (appears on LEFT in RTL) -->
+  <div class="hero-visual">
+    <div class="hero-img">
+      <img src="images/image3.png" alt="מטופלת במרפאת שיניים מודרנית">
+
+      <!-- Floating rating badge -->
+      <div class="rating-float">
+        <div>
+          <div class="big-num">4.9</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+        <div>
+          <div class="meta" style="font-weight:600;color:#374151">דירוג Google</div>
+          <div class="meta">11 ביקורות</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Text side (appears on RIGHT in RTL) -->
+  <div class="hero-text">
+
+    <h1>מביאים<br>מומחיות<br>רפואית<br>עד אליך</h1>
+
+    <p class="body-text">
+      בשילוב אבחון מתקדם, מומחים מנוסים
+      ו<strong>גישה שמעמידה את המטופל במרכז</strong>,
+      אנחנו מבטיחים שתקבלו את הטיפול
+      האיכותי ביותר — בכל ביקור.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="num">11</div>
+        <div class="label">ביקורות מטופלים</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">4.9</div>
+        <div class="label">דירוג Google</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">תל סיטיב</div>
+        <div class="label">מיקום המרפאה</div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
