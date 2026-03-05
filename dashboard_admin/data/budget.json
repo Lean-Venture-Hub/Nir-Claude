@@ -1,0 +1,37 @@
+{
+  "lastUpdated": "2026-03-02T14:30:00Z",
+  "currency": "USD",
+  "monthlyBudget": 4060,
+  "currentMonth": {
+    "month": "March 2026",
+    "stories": 965,
+    "reels": 1975,
+    "seo": 1597,
+    "total": 4537,
+    "budget": 4060
+  },
+  "history": [
+    {
+      "month": "Jan 2026",
+      "stories": 920,
+      "reels": 1850,
+      "seo": 1500,
+      "total": 4270,
+      "budget": 4060
+    },
+    {
+      "month": "Feb 2026",
+      "stories": 950,
+      "reels": 1920,
+      "seo": 1550,
+      "total": 4420,
+      "budget": 4060
+    }
+  ],
+  "perClinicAvg": {
+    "stories": 2.2,
+    "reels": 4.5,
+    "seo": 3.64,
+    "total": 10.34
+  }
+}

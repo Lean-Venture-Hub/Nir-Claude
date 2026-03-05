@@ -1,0 +1,2888 @@
+{
+  "lastUpdated": "2026-03-02T14:30:00Z",
+  "startDate": "2026-01-05",
+  "totalDays": 90,
+  "totalWeeks": 13,
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-01-05",
+      "weekNumber": 1,
+      "theme": "Foundation",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 420,
+          "published": 361,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 427,
+          "published": 374,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 394,
+          "published": 340,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-01-06",
+      "weekNumber": 1,
+      "theme": "Foundation",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 386,
+          "published": 354,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 437,
+          "published": 395,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 417,
+          "published": 372,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-01-07",
+      "weekNumber": 1,
+      "theme": "Foundation",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 381,
+          "published": 327,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 394,
+          "published": 354,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 381,
+          "published": 345,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-01-08",
+      "weekNumber": 1,
+      "theme": "Foundation",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 425,
+          "published": 388,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 414,
+          "published": 369,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 408,
+          "published": 370,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-01-09",
+      "weekNumber": 1,
+      "theme": "Foundation",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 431,
+          "published": 403,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 428,
+          "published": 398,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 424,
+          "published": 378,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "date": "2026-01-10",
+      "weekNumber": 1,
+      "theme": "Foundation",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 397,
+          "published": 343,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 428,
+          "published": 378,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 385,
+          "published": 341,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "date": "2026-01-11",
+      "weekNumber": 1,
+      "theme": "Foundation",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 402,
+          "published": 375,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 418,
+          "published": 366,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 382,
+          "published": 352,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "date": "2026-01-12",
+      "weekNumber": 2,
+      "theme": "Oral Hygiene",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 414,
+          "published": 357,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 439,
+          "published": 389,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 415,
+          "published": 364,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 9,
+      "date": "2026-01-13",
+      "weekNumber": 2,
+      "theme": "Oral Hygiene",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 420,
+          "published": 382,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 435,
+          "published": 385,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 392,
+          "published": 360,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 10,
+      "date": "2026-01-14",
+      "weekNumber": 2,
+      "theme": "Oral Hygiene",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 382,
+          "published": 349,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 429,
+          "published": 377,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 385,
+          "published": 360,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 11,
+      "date": "2026-01-15",
+      "weekNumber": 2,
+      "theme": "Oral Hygiene",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 435,
+          "published": 374,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 397,
+          "published": 355,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 433,
+          "published": 383,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 12,
+      "date": "2026-01-16",
+      "weekNumber": 2,
+      "theme": "Oral Hygiene",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 403,
+          "published": 356,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 422,
+          "published": 369,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 439,
+          "published": 403,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 13,
+      "date": "2026-01-17",
+      "weekNumber": 2,
+      "theme": "Oral Hygiene",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 384,
+          "published": 349,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 390,
+          "published": 352,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 395,
+          "published": 342,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 14,
+      "date": "2026-01-18",
+      "weekNumber": 2,
+      "theme": "Oral Hygiene",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 404,
+          "published": 354,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 439,
+          "published": 401,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 415,
+          "published": 361,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 15,
+      "date": "2026-01-19",
+      "weekNumber": 3,
+      "theme": "Meet the Team",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 400,
+          "published": 373,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 429,
+          "published": 367,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 432,
+          "published": 368,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 16,
+      "date": "2026-01-20",
+      "weekNumber": 3,
+      "theme": "Meet the Team",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 400,
+          "published": 356,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 384,
+          "published": 334,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 416,
+          "published": 390,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 17,
+      "date": "2026-01-21",
+      "weekNumber": 3,
+      "theme": "Meet the Team",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 400,
+          "published": 348,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 411,
+          "published": 365,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 438,
+          "published": 400,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 18,
+      "date": "2026-01-22",
+      "weekNumber": 3,
+      "theme": "Meet the Team",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 389,
+          "published": 340,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 395,
+          "published": 365,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 414,
+          "published": 362,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 19,
+      "date": "2026-01-23",
+      "weekNumber": 3,
+      "theme": "Meet the Team",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 417,
+          "published": 372,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 417,
+          "published": 371,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 394,
+          "published": 374,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 20,
+      "date": "2026-01-24",
+      "weekNumber": 3,
+      "theme": "Meet the Team",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 388,
+          "published": 349,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 385,
+          "published": 356,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 435,
+          "published": 374,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 21,
+      "date": "2026-01-25",
+      "weekNumber": 3,
+      "theme": "Meet the Team",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 420,
+          "published": 363,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 423,
+          "published": 377,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 384,
+          "published": 341,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 22,
+      "date": "2026-01-26",
+      "weekNumber": 4,
+      "theme": "Smile Goals",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 418,
+          "published": 396,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 413,
+          "published": 361,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 415,
+          "published": 388,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 23,
+      "date": "2026-01-27",
+      "weekNumber": 4,
+      "theme": "Smile Goals",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 380,
+          "published": 348,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 387,
+          "published": 355,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 414,
+          "published": 382,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 24,
+      "date": "2026-01-28",
+      "weekNumber": 4,
+      "theme": "Smile Goals",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 429,
+          "published": 392,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 387,
+          "published": 340,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 390,
+          "published": 349,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 25,
+      "date": "2026-01-29",
+      "weekNumber": 4,
+      "theme": "Smile Goals",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 426,
+          "published": 399,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 396,
+          "published": 375,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 428,
+          "published": 371,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 26,
+      "date": "2026-01-30",
+      "weekNumber": 4,
+      "theme": "Smile Goals",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 438,
+          "published": 376,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 420,
+          "published": 369,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 420,
+          "published": 378,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 27,
+      "date": "2026-01-31",
+      "weekNumber": 4,
+      "theme": "Smile Goals",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 392,
+          "published": 339,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 428,
+          "published": 370,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 429,
+          "published": 404,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 28,
+      "date": "2026-02-01",
+      "weekNumber": 4,
+      "theme": "Smile Goals",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 438,
+          "published": 372,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 400,
+          "published": 359,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 387,
+          "published": 364,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 29,
+      "date": "2026-02-02",
+      "weekNumber": 5,
+      "theme": "Kids Dentistry",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 436,
+          "published": 413,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 431,
+          "published": 379,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 383,
+          "published": 334,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 30,
+      "date": "2026-02-03",
+      "weekNumber": 5,
+      "theme": "Kids Dentistry",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 416,
+          "published": 392,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 385,
+          "published": 355,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 432,
+          "published": 370,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 31,
+      "date": "2026-02-04",
+      "weekNumber": 5,
+      "theme": "Kids Dentistry",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 428,
+          "published": 386,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 388,
+          "published": 334,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 410,
+          "published": 387,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 32,
+      "date": "2026-02-05",
+      "weekNumber": 5,
+      "theme": "Kids Dentistry",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 390,
+          "published": 341,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 435,
+          "published": 396,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 393,
+          "published": 370,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 33,
+      "date": "2026-02-06",
+      "weekNumber": 5,
+      "theme": "Kids Dentistry",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 428,
+          "published": 395,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 392,
+          "published": 361,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 405,
+          "published": 384,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 34,
+      "date": "2026-02-07",
+      "weekNumber": 5,
+      "theme": "Kids Dentistry",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 421,
+          "published": 373,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 437,
+          "published": 394,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 387,
+          "published": 338,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 35,
+      "date": "2026-02-08",
+      "weekNumber": 5,
+      "theme": "Kids Dentistry",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 384,
+          "published": 339,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 417,
+          "published": 377,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 417,
+          "published": 363,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 36,
+      "date": "2026-02-09",
+      "weekNumber": 6,
+      "theme": "Promos & Offers",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 384,
+          "published": 353,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 383,
+          "published": 334,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 437,
+          "published": 372,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 37,
+      "date": "2026-02-10",
+      "weekNumber": 6,
+      "theme": "Promos & Offers",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 401,
+          "published": 343,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 395,
+          "published": 346,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 411,
+          "published": 358,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 38,
+      "date": "2026-02-11",
+      "weekNumber": 6,
+      "theme": "Promos & Offers",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 388,
+          "published": 357,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 436,
+          "published": 395,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 410,
+          "published": 358,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 39,
+      "date": "2026-02-12",
+      "weekNumber": 6,
+      "theme": "Promos & Offers",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 410,
+          "published": 381,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 392,
+          "published": 336,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 422,
+          "published": 376,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 40,
+      "date": "2026-02-13",
+      "weekNumber": 6,
+      "theme": "Promos & Offers",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 407,
+          "published": 362,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 435,
+          "published": 401,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 423,
+          "published": 387,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 41,
+      "date": "2026-02-14",
+      "weekNumber": 6,
+      "theme": "Promos & Offers",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 421,
+          "published": 361,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 405,
+          "published": 373,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 431,
+          "published": 403,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 42,
+      "date": "2026-02-15",
+      "weekNumber": 6,
+      "theme": "Promos & Offers",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 395,
+          "published": 343,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 414,
+          "published": 370,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 407,
+          "published": 353,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 43,
+      "date": "2026-02-16",
+      "weekNumber": 7,
+      "theme": "Fun Facts",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 409,
+          "published": 357,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 439,
+          "published": 376,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 431,
+          "published": 403,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 44,
+      "date": "2026-02-17",
+      "weekNumber": 7,
+      "theme": "Fun Facts",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 415,
+          "published": 356,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 421,
+          "published": 399,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 433,
+          "published": 368,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 45,
+      "date": "2026-02-18",
+      "weekNumber": 7,
+      "theme": "Fun Facts",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 385,
+          "published": 362,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 434,
+          "published": 379,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 406,
+          "published": 364,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 46,
+      "date": "2026-02-19",
+      "weekNumber": 7,
+      "theme": "Fun Facts",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 393,
+          "published": 368,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 437,
+          "published": 374,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 404,
+          "published": 343,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 47,
+      "date": "2026-02-20",
+      "weekNumber": 7,
+      "theme": "Fun Facts",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 404,
+          "published": 354,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 430,
+          "published": 399,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 398,
+          "published": 355,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 48,
+      "date": "2026-02-21",
+      "weekNumber": 7,
+      "theme": "Fun Facts",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 426,
+          "published": 404,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 415,
+          "published": 380,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 411,
+          "published": 355,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 49,
+      "date": "2026-02-22",
+      "weekNumber": 7,
+      "theme": "Fun Facts",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 398,
+          "published": 346,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 383,
+          "published": 347,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 414,
+          "published": 354,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 50,
+      "date": "2026-02-23",
+      "weekNumber": 8,
+      "theme": "Reviews Showcase",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 400,
+          "published": 342,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 417,
+          "published": 374,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 438,
+          "published": 409,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 51,
+      "date": "2026-02-24",
+      "weekNumber": 8,
+      "theme": "Reviews Showcase",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 390,
+          "published": 333,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 412,
+          "published": 353,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 391,
+          "published": 335,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 52,
+      "date": "2026-02-25",
+      "weekNumber": 8,
+      "theme": "Reviews Showcase",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 384,
+          "published": 352,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 395,
+          "published": 351,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 436,
+          "published": 395,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 53,
+      "date": "2026-02-26",
+      "weekNumber": 8,
+      "theme": "Reviews Showcase",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 417,
+          "published": 379,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 419,
+          "published": 359,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 422,
+          "published": 383,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 54,
+      "date": "2026-02-27",
+      "weekNumber": 8,
+      "theme": "Reviews Showcase",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 413,
+          "published": 364,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 396,
+          "published": 344,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 425,
+          "published": 374,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 55,
+      "date": "2026-02-28",
+      "weekNumber": 8,
+      "theme": "Reviews Showcase",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 396,
+          "published": 352,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 422,
+          "published": 385,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 409,
+          "published": 360,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 56,
+      "date": "2026-03-01",
+      "weekNumber": 8,
+      "theme": "Reviews Showcase",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 428,
+          "published": 403,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 380,
+          "published": 340,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 416,
+          "published": 395,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 57,
+      "date": "2026-03-02",
+      "weekNumber": 9,
+      "theme": "Seasonal Care",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 384,
+          "published": 347,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 412,
+          "published": 361,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 439,
+          "published": 388,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 58,
+      "date": "2026-03-03",
+      "weekNumber": 9,
+      "theme": "Seasonal Care",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 384,
+          "published": 360,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 403,
+          "published": 354,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 408,
+          "published": 380,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 59,
+      "date": "2026-03-04",
+      "weekNumber": 9,
+      "theme": "Seasonal Care",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 425,
+          "published": 374,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 431,
+          "published": 394,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 380,
+          "published": 348,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 60,
+      "date": "2026-03-05",
+      "weekNumber": 9,
+      "theme": "Seasonal Care",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 415,
+          "published": 365,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 422,
+          "published": 363,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 436,
+          "published": 376,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 61,
+      "date": "2026-03-06",
+      "weekNumber": 9,
+      "theme": "Seasonal Care",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 387,
+          "published": 363,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 427,
+          "published": 386,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 397,
+          "published": 348,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 62,
+      "date": "2026-03-07",
+      "weekNumber": 9,
+      "theme": "Seasonal Care",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 393,
+          "published": 362,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 393,
+          "published": 361,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 434,
+          "published": 380,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 63,
+      "date": "2026-03-08",
+      "weekNumber": 9,
+      "theme": "Seasonal Care",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 411,
+          "published": 359,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 438,
+          "published": 409,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 385,
+          "published": 351,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 64,
+      "date": "2026-03-09",
+      "weekNumber": 10,
+      "theme": "Culture & Community",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 406,
+          "published": 225,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 300,
+          "published": 170,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 316,
+          "published": 198,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 65,
+      "date": "2026-03-10",
+      "weekNumber": 10,
+      "theme": "Culture & Community",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 333,
+          "published": 177,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 356,
+          "published": 217,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 354,
+          "published": 216,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 66,
+      "date": "2026-03-11",
+      "weekNumber": 10,
+      "theme": "Culture & Community",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 314,
+          "published": 161,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 413,
+          "published": 263,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 319,
+          "published": 194,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 67,
+      "date": "2026-03-12",
+      "weekNumber": 10,
+      "theme": "Culture & Community",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 406,
+          "published": 232,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 370,
+          "published": 195,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 316,
+          "published": 160,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 68,
+      "date": "2026-03-13",
+      "weekNumber": 10,
+      "theme": "Culture & Community",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 346,
+          "published": 235,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 401,
+          "published": 278,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 305,
+          "published": 207,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 69,
+      "date": "2026-03-14",
+      "weekNumber": 10,
+      "theme": "Culture & Community",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 326,
+          "published": 207,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 385,
+          "published": 200,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 399,
+          "published": 244,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 70,
+      "date": "2026-03-15",
+      "weekNumber": 10,
+      "theme": "Culture & Community",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 411,
+          "published": 238,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 379,
+          "published": 246,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 418,
+          "published": 286,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 71,
+      "date": "2026-03-16",
+      "weekNumber": 11,
+      "theme": "Education",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 72,
+      "date": "2026-03-17",
+      "weekNumber": 11,
+      "theme": "Education",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 73,
+      "date": "2026-03-18",
+      "weekNumber": 11,
+      "theme": "Education",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 74,
+      "date": "2026-03-19",
+      "weekNumber": 11,
+      "theme": "Education",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 75,
+      "date": "2026-03-20",
+      "weekNumber": 11,
+      "theme": "Education",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 76,
+      "date": "2026-03-21",
+      "weekNumber": 11,
+      "theme": "Education",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 77,
+      "date": "2026-03-22",
+      "weekNumber": 11,
+      "theme": "Education",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 78,
+      "date": "2026-03-23",
+      "weekNumber": 12,
+      "theme": "Summer Smiles",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 79,
+      "date": "2026-03-24",
+      "weekNumber": 12,
+      "theme": "Summer Smiles",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 80,
+      "date": "2026-03-25",
+      "weekNumber": 12,
+      "theme": "Summer Smiles",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 81,
+      "date": "2026-03-26",
+      "weekNumber": 12,
+      "theme": "Summer Smiles",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 82,
+      "date": "2026-03-27",
+      "weekNumber": 12,
+      "theme": "Summer Smiles",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 83,
+      "date": "2026-03-28",
+      "weekNumber": 12,
+      "theme": "Summer Smiles",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 84,
+      "date": "2026-03-29",
+      "weekNumber": 12,
+      "theme": "Summer Smiles",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 85,
+      "date": "2026-03-30",
+      "weekNumber": 13,
+      "theme": "Grand Recap",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 86,
+      "date": "2026-03-31",
+      "weekNumber": 13,
+      "theme": "Grand Recap",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 87,
+      "date": "2026-04-01",
+      "weekNumber": 13,
+      "theme": "Grand Recap",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 88,
+      "date": "2026-04-02",
+      "weekNumber": 13,
+      "theme": "Grand Recap",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 89,
+      "date": "2026-04-03",
+      "weekNumber": 13,
+      "theme": "Grand Recap",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "P",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    },
+    {
+      "day": 90,
+      "date": "2026-04-04",
+      "weekNumber": 13,
+      "theme": "Grand Recap",
+      "slots": [
+        {
+          "slot": 1,
+          "time": "08:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 2,
+          "time": "13:00",
+          "contentType": "R",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        },
+        {
+          "slot": 3,
+          "time": "19:00",
+          "contentType": "A",
+          "generated": 0,
+          "published": 0,
+          "total": 439
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3389 @@
+{
+  "id": 417,
+  "name": "הדסה דנט-על",
+  "city": "תל אביב",
+  "address": "דובנוב 10, תל אביב-יפו",
+  "phone": "03-607-7223",
+  "website": "",
+  "segment": "4a",
+  "segmentName": "Invisible Good - Some Reviews",
+  "rating": 4.2,
+  "reviewCount": 9,
+  "siteScore": 0.0,
+  "colors": {
+    "primary": "#b45309",
+    "accent": "#e8a849"
+  },
+  "onboarding": [
+    {
+      "key": "logo",
+      "label": "Logo uploaded",
+      "completed": true
+    },
+    {
+      "key": "colors",
+      "label": "Brand colors set",
+      "completed": true
+    },
+    {
+      "key": "photos",
+      "label": "Photo vault (15+ photos)",
+      "completed": false
+    },
+    {
+      "key": "tone",
+      "label": "Tone of voice defined",
+      "completed": false
+    },
+    {
+      "key": "gbp",
+      "label": "Google Business connected",
+      "completed": true
+    },
+    {
+      "key": "instagram",
+      "label": "Instagram connected",
+      "completed": true
+    },
+    {
+      "key": "approval",
+      "label": "Content approval flow set",
+      "completed": false
+    }
+  ],
+  "stories": [
+    {
+      "id": "s417-0-0",
+      "day": 1,
+      "slot": 1,
+      "date": "2025-12-02",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 1 slot 1"
+    },
+    {
+      "id": "s417-0-1",
+      "day": 1,
+      "slot": 2,
+      "date": "2025-12-02",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 1 slot 2"
+    },
+    {
+      "id": "s417-0-2",
+      "day": 1,
+      "slot": 3,
+      "date": "2025-12-02",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 1 slot 3"
+    },
+    {
+      "id": "s417-1-0",
+      "day": 2,
+      "slot": 1,
+      "date": "2025-12-03",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 2 slot 1"
+    },
+    {
+      "id": "s417-1-1",
+      "day": 2,
+      "slot": 2,
+      "date": "2025-12-03",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 2 slot 2"
+    },
+    {
+      "id": "s417-1-2",
+      "day": 2,
+      "slot": 3,
+      "date": "2025-12-03",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 2 slot 3"
+    },
+    {
+      "id": "s417-2-0",
+      "day": 3,
+      "slot": 1,
+      "date": "2025-12-04",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Foundation – Day 3 slot 1"
+    },
+    {
+      "id": "s417-2-1",
+      "day": 3,
+      "slot": 2,
+      "date": "2025-12-04",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "R",
+      "status": "generated",
+      "caption": "Foundation – Day 3 slot 2"
+    },
+    {
+      "id": "s417-2-2",
+      "day": 3,
+      "slot": 3,
+      "date": "2025-12-04",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Foundation – Day 3 slot 3"
+    },
+    {
+      "id": "s417-3-0",
+      "day": 4,
+      "slot": 1,
+      "date": "2025-12-05",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 4 slot 1"
+    },
+    {
+      "id": "s417-3-1",
+      "day": 4,
+      "slot": 2,
+      "date": "2025-12-05",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 4 slot 2"
+    },
+    {
+      "id": "s417-3-2",
+      "day": 4,
+      "slot": 3,
+      "date": "2025-12-05",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 4 slot 3"
+    },
+    {
+      "id": "s417-4-0",
+      "day": 5,
+      "slot": 1,
+      "date": "2025-12-06",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 5 slot 1"
+    },
+    {
+      "id": "s417-4-1",
+      "day": 5,
+      "slot": 2,
+      "date": "2025-12-06",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Foundation – Day 5 slot 2"
+    },
+    {
+      "id": "s417-4-2",
+      "day": 5,
+      "slot": 3,
+      "date": "2025-12-06",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Foundation – Day 5 slot 3"
+    },
+    {
+      "id": "s417-5-0",
+      "day": 6,
+      "slot": 1,
+      "date": "2025-12-07",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 6 slot 1"
+    },
+    {
+      "id": "s417-5-1",
+      "day": 6,
+      "slot": 2,
+      "date": "2025-12-07",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 6 slot 2"
+    },
+    {
+      "id": "s417-5-2",
+      "day": 6,
+      "slot": 3,
+      "date": "2025-12-07",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 6 slot 3"
+    },
+    {
+      "id": "s417-6-0",
+      "day": 7,
+      "slot": 1,
+      "date": "2025-12-08",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Foundation – Day 7 slot 1"
+    },
+    {
+      "id": "s417-6-1",
+      "day": 7,
+      "slot": 2,
+      "date": "2025-12-08",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Foundation – Day 7 slot 2"
+    },
+    {
+      "id": "s417-6-2",
+      "day": 7,
+      "slot": 3,
+      "date": "2025-12-08",
+      "week": 1,
+      "theme": "Foundation",
+      "contentType": "P",
+      "status": "pending",
+      "caption": "Foundation – Day 7 slot 3"
+    },
+    {
+      "id": "s417-7-0",
+      "day": 8,
+      "slot": 1,
+      "date": "2025-12-09",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 8 slot 1"
+    },
+    {
+      "id": "s417-7-1",
+      "day": 8,
+      "slot": 2,
+      "date": "2025-12-09",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 8 slot 2"
+    },
+    {
+      "id": "s417-7-2",
+      "day": 8,
+      "slot": 3,
+      "date": "2025-12-09",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 8 slot 3"
+    },
+    {
+      "id": "s417-8-0",
+      "day": 9,
+      "slot": 1,
+      "date": "2025-12-10",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 9 slot 1"
+    },
+    {
+      "id": "s417-8-1",
+      "day": 9,
+      "slot": 2,
+      "date": "2025-12-10",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Oral Hygiene – Day 9 slot 2"
+    },
+    {
+      "id": "s417-8-2",
+      "day": 9,
+      "slot": 3,
+      "date": "2025-12-10",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 9 slot 3"
+    },
+    {
+      "id": "s417-9-0",
+      "day": 10,
+      "slot": 1,
+      "date": "2025-12-11",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 10 slot 1"
+    },
+    {
+      "id": "s417-9-1",
+      "day": 10,
+      "slot": 2,
+      "date": "2025-12-11",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 10 slot 2"
+    },
+    {
+      "id": "s417-9-2",
+      "day": 10,
+      "slot": 3,
+      "date": "2025-12-11",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Oral Hygiene – Day 10 slot 3"
+    },
+    {
+      "id": "s417-10-0",
+      "day": 11,
+      "slot": 1,
+      "date": "2025-12-12",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 11 slot 1"
+    },
+    {
+      "id": "s417-10-1",
+      "day": 11,
+      "slot": 2,
+      "date": "2025-12-12",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 11 slot 2"
+    },
+    {
+      "id": "s417-10-2",
+      "day": 11,
+      "slot": 3,
+      "date": "2025-12-12",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 11 slot 3"
+    },
+    {
+      "id": "s417-11-0",
+      "day": 12,
+      "slot": 1,
+      "date": "2025-12-13",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 12 slot 1"
+    },
+    {
+      "id": "s417-11-1",
+      "day": 12,
+      "slot": 2,
+      "date": "2025-12-13",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 12 slot 2"
+    },
+    {
+      "id": "s417-11-2",
+      "day": 12,
+      "slot": 3,
+      "date": "2025-12-13",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 12 slot 3"
+    },
+    {
+      "id": "s417-12-0",
+      "day": 13,
+      "slot": 1,
+      "date": "2025-12-14",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 13 slot 1"
+    },
+    {
+      "id": "s417-12-1",
+      "day": 13,
+      "slot": 2,
+      "date": "2025-12-14",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 13 slot 2"
+    },
+    {
+      "id": "s417-12-2",
+      "day": 13,
+      "slot": 3,
+      "date": "2025-12-14",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Oral Hygiene – Day 13 slot 3"
+    },
+    {
+      "id": "s417-13-0",
+      "day": 14,
+      "slot": 1,
+      "date": "2025-12-15",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Oral Hygiene – Day 14 slot 1"
+    },
+    {
+      "id": "s417-13-1",
+      "day": 14,
+      "slot": 2,
+      "date": "2025-12-15",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Oral Hygiene – Day 14 slot 2"
+    },
+    {
+      "id": "s417-13-2",
+      "day": 14,
+      "slot": 3,
+      "date": "2025-12-15",
+      "week": 2,
+      "theme": "Oral Hygiene",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Oral Hygiene – Day 14 slot 3"
+    },
+    {
+      "id": "s417-14-0",
+      "day": 15,
+      "slot": 1,
+      "date": "2025-12-16",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 15 slot 1"
+    },
+    {
+      "id": "s417-14-1",
+      "day": 15,
+      "slot": 2,
+      "date": "2025-12-16",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 15 slot 2"
+    },
+    {
+      "id": "s417-14-2",
+      "day": 15,
+      "slot": 3,
+      "date": "2025-12-16",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Meet the Team – Day 15 slot 3"
+    },
+    {
+      "id": "s417-15-0",
+      "day": 16,
+      "slot": 1,
+      "date": "2025-12-17",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 16 slot 1"
+    },
+    {
+      "id": "s417-15-1",
+      "day": 16,
+      "slot": 2,
+      "date": "2025-12-17",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "P",
+      "status": "pending",
+      "caption": "Meet the Team – Day 16 slot 2"
+    },
+    {
+      "id": "s417-15-2",
+      "day": 16,
+      "slot": 3,
+      "date": "2025-12-17",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 16 slot 3"
+    },
+    {
+      "id": "s417-16-0",
+      "day": 17,
+      "slot": 1,
+      "date": "2025-12-18",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 17 slot 1"
+    },
+    {
+      "id": "s417-16-1",
+      "day": 17,
+      "slot": 2,
+      "date": "2025-12-18",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Meet the Team – Day 17 slot 2"
+    },
+    {
+      "id": "s417-16-2",
+      "day": 17,
+      "slot": 3,
+      "date": "2025-12-18",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "failed",
+      "caption": "Meet the Team – Day 17 slot 3"
+    },
+    {
+      "id": "s417-17-0",
+      "day": 18,
+      "slot": 1,
+      "date": "2025-12-19",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Meet the Team – Day 18 slot 1"
+    },
+    {
+      "id": "s417-17-1",
+      "day": 18,
+      "slot": 2,
+      "date": "2025-12-19",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Meet the Team – Day 18 slot 2"
+    },
+    {
+      "id": "s417-17-2",
+      "day": 18,
+      "slot": 3,
+      "date": "2025-12-19",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Meet the Team – Day 18 slot 3"
+    },
+    {
+      "id": "s417-18-0",
+      "day": 19,
+      "slot": 1,
+      "date": "2025-12-20",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Meet the Team – Day 19 slot 1"
+    },
+    {
+      "id": "s417-18-1",
+      "day": 19,
+      "slot": 2,
+      "date": "2025-12-20",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Meet the Team – Day 19 slot 2"
+    },
+    {
+      "id": "s417-18-2",
+      "day": 19,
+      "slot": 3,
+      "date": "2025-12-20",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 19 slot 3"
+    },
+    {
+      "id": "s417-19-0",
+      "day": 20,
+      "slot": 1,
+      "date": "2025-12-21",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 20 slot 1"
+    },
+    {
+      "id": "s417-19-1",
+      "day": 20,
+      "slot": 2,
+      "date": "2025-12-21",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Meet the Team – Day 20 slot 2"
+    },
+    {
+      "id": "s417-19-2",
+      "day": 20,
+      "slot": 3,
+      "date": "2025-12-21",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 20 slot 3"
+    },
+    {
+      "id": "s417-20-0",
+      "day": 21,
+      "slot": 1,
+      "date": "2025-12-22",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 21 slot 1"
+    },
+    {
+      "id": "s417-20-1",
+      "day": 21,
+      "slot": 2,
+      "date": "2025-12-22",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 21 slot 2"
+    },
+    {
+      "id": "s417-20-2",
+      "day": 21,
+      "slot": 3,
+      "date": "2025-12-22",
+      "week": 3,
+      "theme": "Meet the Team",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Meet the Team – Day 21 slot 3"
+    },
+    {
+      "id": "s417-21-0",
+      "day": 22,
+      "slot": 1,
+      "date": "2025-12-23",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "P",
+      "status": "pending",
+      "caption": "Smile Goals – Day 22 slot 1"
+    },
+    {
+      "id": "s417-21-1",
+      "day": 22,
+      "slot": 2,
+      "date": "2025-12-23",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "failed",
+      "caption": "Smile Goals – Day 22 slot 2"
+    },
+    {
+      "id": "s417-21-2",
+      "day": 22,
+      "slot": 3,
+      "date": "2025-12-23",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 22 slot 3"
+    },
+    {
+      "id": "s417-22-0",
+      "day": 23,
+      "slot": 1,
+      "date": "2025-12-24",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 23 slot 1"
+    },
+    {
+      "id": "s417-22-1",
+      "day": 23,
+      "slot": 2,
+      "date": "2025-12-24",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 23 slot 2"
+    },
+    {
+      "id": "s417-22-2",
+      "day": 23,
+      "slot": 3,
+      "date": "2025-12-24",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 23 slot 3"
+    },
+    {
+      "id": "s417-23-0",
+      "day": 24,
+      "slot": 1,
+      "date": "2025-12-25",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 24 slot 1"
+    },
+    {
+      "id": "s417-23-1",
+      "day": 24,
+      "slot": 2,
+      "date": "2025-12-25",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 24 slot 2"
+    },
+    {
+      "id": "s417-23-2",
+      "day": 24,
+      "slot": 3,
+      "date": "2025-12-25",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 24 slot 3"
+    },
+    {
+      "id": "s417-24-0",
+      "day": 25,
+      "slot": 1,
+      "date": "2025-12-26",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "failed",
+      "caption": "Smile Goals – Day 25 slot 1"
+    },
+    {
+      "id": "s417-24-1",
+      "day": 25,
+      "slot": 2,
+      "date": "2025-12-26",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 25 slot 2"
+    },
+    {
+      "id": "s417-24-2",
+      "day": 25,
+      "slot": 3,
+      "date": "2025-12-26",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Smile Goals – Day 25 slot 3"
+    },
+    {
+      "id": "s417-25-0",
+      "day": 26,
+      "slot": 1,
+      "date": "2025-12-27",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 26 slot 1"
+    },
+    {
+      "id": "s417-25-1",
+      "day": 26,
+      "slot": 2,
+      "date": "2025-12-27",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 26 slot 2"
+    },
+    {
+      "id": "s417-25-2",
+      "day": 26,
+      "slot": 3,
+      "date": "2025-12-27",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Smile Goals – Day 26 slot 3"
+    },
+    {
+      "id": "s417-26-0",
+      "day": 27,
+      "slot": 1,
+      "date": "2025-12-28",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 27 slot 1"
+    },
+    {
+      "id": "s417-26-1",
+      "day": 27,
+      "slot": 2,
+      "date": "2025-12-28",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 27 slot 2"
+    },
+    {
+      "id": "s417-26-2",
+      "day": 27,
+      "slot": 3,
+      "date": "2025-12-28",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "R",
+      "status": "failed",
+      "caption": "Smile Goals – Day 27 slot 3"
+    },
+    {
+      "id": "s417-27-0",
+      "day": 28,
+      "slot": 1,
+      "date": "2025-12-29",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 28 slot 1"
+    },
+    {
+      "id": "s417-27-1",
+      "day": 28,
+      "slot": 2,
+      "date": "2025-12-29",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Smile Goals – Day 28 slot 2"
+    },
+    {
+      "id": "s417-27-2",
+      "day": 28,
+      "slot": 3,
+      "date": "2025-12-29",
+      "week": 4,
+      "theme": "Smile Goals",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Smile Goals – Day 28 slot 3"
+    },
+    {
+      "id": "s417-28-0",
+      "day": 29,
+      "slot": 1,
+      "date": "2025-12-30",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 29 slot 1"
+    },
+    {
+      "id": "s417-28-1",
+      "day": 29,
+      "slot": 2,
+      "date": "2025-12-30",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 29 slot 2"
+    },
+    {
+      "id": "s417-28-2",
+      "day": 29,
+      "slot": 3,
+      "date": "2025-12-30",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 29 slot 3"
+    },
+    {
+      "id": "s417-29-0",
+      "day": 30,
+      "slot": 1,
+      "date": "2025-12-31",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Kids Dentistry – Day 30 slot 1"
+    },
+    {
+      "id": "s417-29-1",
+      "day": 30,
+      "slot": 2,
+      "date": "2025-12-31",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Kids Dentistry – Day 30 slot 2"
+    },
+    {
+      "id": "s417-29-2",
+      "day": 30,
+      "slot": 3,
+      "date": "2025-12-31",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 30 slot 3"
+    },
+    {
+      "id": "s417-30-0",
+      "day": 31,
+      "slot": 1,
+      "date": "2026-01-01",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Kids Dentistry – Day 31 slot 1"
+    },
+    {
+      "id": "s417-30-1",
+      "day": 31,
+      "slot": 2,
+      "date": "2026-01-01",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Kids Dentistry – Day 31 slot 2"
+    },
+    {
+      "id": "s417-30-2",
+      "day": 31,
+      "slot": 3,
+      "date": "2026-01-01",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Kids Dentistry – Day 31 slot 3"
+    },
+    {
+      "id": "s417-31-0",
+      "day": 32,
+      "slot": 1,
+      "date": "2026-01-02",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 32 slot 1"
+    },
+    {
+      "id": "s417-31-1",
+      "day": 32,
+      "slot": 2,
+      "date": "2026-01-02",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "failed",
+      "caption": "Kids Dentistry – Day 32 slot 2"
+    },
+    {
+      "id": "s417-31-2",
+      "day": 32,
+      "slot": 3,
+      "date": "2026-01-02",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "P",
+      "status": "pending",
+      "caption": "Kids Dentistry – Day 32 slot 3"
+    },
+    {
+      "id": "s417-32-0",
+      "day": 33,
+      "slot": 1,
+      "date": "2026-01-03",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 33 slot 1"
+    },
+    {
+      "id": "s417-32-1",
+      "day": 33,
+      "slot": 2,
+      "date": "2026-01-03",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 33 slot 2"
+    },
+    {
+      "id": "s417-32-2",
+      "day": 33,
+      "slot": 3,
+      "date": "2026-01-03",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 33 slot 3"
+    },
+    {
+      "id": "s417-33-0",
+      "day": 34,
+      "slot": 1,
+      "date": "2026-01-04",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 34 slot 1"
+    },
+    {
+      "id": "s417-33-1",
+      "day": 34,
+      "slot": 2,
+      "date": "2026-01-04",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 34 slot 2"
+    },
+    {
+      "id": "s417-33-2",
+      "day": 34,
+      "slot": 3,
+      "date": "2026-01-04",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 34 slot 3"
+    },
+    {
+      "id": "s417-34-0",
+      "day": 35,
+      "slot": 1,
+      "date": "2026-01-05",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 35 slot 1"
+    },
+    {
+      "id": "s417-34-1",
+      "day": 35,
+      "slot": 2,
+      "date": "2026-01-05",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 35 slot 2"
+    },
+    {
+      "id": "s417-34-2",
+      "day": 35,
+      "slot": 3,
+      "date": "2026-01-05",
+      "week": 5,
+      "theme": "Kids Dentistry",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Kids Dentistry – Day 35 slot 3"
+    },
+    {
+      "id": "s417-35-0",
+      "day": 36,
+      "slot": 1,
+      "date": "2026-01-06",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Promos & Offers – Day 36 slot 1"
+    },
+    {
+      "id": "s417-35-1",
+      "day": 36,
+      "slot": 2,
+      "date": "2026-01-06",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Promos & Offers – Day 36 slot 2"
+    },
+    {
+      "id": "s417-35-2",
+      "day": 36,
+      "slot": 3,
+      "date": "2026-01-06",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Promos & Offers – Day 36 slot 3"
+    },
+    {
+      "id": "s417-36-0",
+      "day": 37,
+      "slot": 1,
+      "date": "2026-01-07",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 37 slot 1"
+    },
+    {
+      "id": "s417-36-1",
+      "day": 37,
+      "slot": 2,
+      "date": "2026-01-07",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Promos & Offers – Day 37 slot 2"
+    },
+    {
+      "id": "s417-36-2",
+      "day": 37,
+      "slot": 3,
+      "date": "2026-01-07",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 37 slot 3"
+    },
+    {
+      "id": "s417-37-0",
+      "day": 38,
+      "slot": 1,
+      "date": "2026-01-08",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Promos & Offers – Day 38 slot 1"
+    },
+    {
+      "id": "s417-37-1",
+      "day": 38,
+      "slot": 2,
+      "date": "2026-01-08",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 38 slot 2"
+    },
+    {
+      "id": "s417-37-2",
+      "day": 38,
+      "slot": 3,
+      "date": "2026-01-08",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "P",
+      "status": "failed",
+      "caption": "Promos & Offers – Day 38 slot 3"
+    },
+    {
+      "id": "s417-38-0",
+      "day": 39,
+      "slot": 1,
+      "date": "2026-01-09",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Promos & Offers – Day 39 slot 1"
+    },
+    {
+      "id": "s417-38-1",
+      "day": 39,
+      "slot": 2,
+      "date": "2026-01-09",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Promos & Offers – Day 39 slot 2"
+    },
+    {
+      "id": "s417-38-2",
+      "day": 39,
+      "slot": 3,
+      "date": "2026-01-09",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Promos & Offers – Day 39 slot 3"
+    },
+    {
+      "id": "s417-39-0",
+      "day": 40,
+      "slot": 1,
+      "date": "2026-01-10",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 40 slot 1"
+    },
+    {
+      "id": "s417-39-1",
+      "day": 40,
+      "slot": 2,
+      "date": "2026-01-10",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Promos & Offers – Day 40 slot 2"
+    },
+    {
+      "id": "s417-39-2",
+      "day": 40,
+      "slot": 3,
+      "date": "2026-01-10",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 40 slot 3"
+    },
+    {
+      "id": "s417-40-0",
+      "day": 41,
+      "slot": 1,
+      "date": "2026-01-11",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "P",
+      "status": "pending",
+      "caption": "Promos & Offers – Day 41 slot 1"
+    },
+    {
+      "id": "s417-40-1",
+      "day": 41,
+      "slot": 2,
+      "date": "2026-01-11",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 41 slot 2"
+    },
+    {
+      "id": "s417-40-2",
+      "day": 41,
+      "slot": 3,
+      "date": "2026-01-11",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 41 slot 3"
+    },
+    {
+      "id": "s417-41-0",
+      "day": 42,
+      "slot": 1,
+      "date": "2026-01-12",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 42 slot 1"
+    },
+    {
+      "id": "s417-41-1",
+      "day": 42,
+      "slot": 2,
+      "date": "2026-01-12",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Promos & Offers – Day 42 slot 2"
+    },
+    {
+      "id": "s417-41-2",
+      "day": 42,
+      "slot": 3,
+      "date": "2026-01-12",
+      "week": 6,
+      "theme": "Promos & Offers",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Promos & Offers – Day 42 slot 3"
+    },
+    {
+      "id": "s417-42-0",
+      "day": 43,
+      "slot": 1,
+      "date": "2026-01-13",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 43 slot 1"
+    },
+    {
+      "id": "s417-42-1",
+      "day": 43,
+      "slot": 2,
+      "date": "2026-01-13",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 43 slot 2"
+    },
+    {
+      "id": "s417-42-2",
+      "day": 43,
+      "slot": 3,
+      "date": "2026-01-13",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 43 slot 3"
+    },
+    {
+      "id": "s417-43-0",
+      "day": 44,
+      "slot": 1,
+      "date": "2026-01-14",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Fun Facts – Day 44 slot 1"
+    },
+    {
+      "id": "s417-43-1",
+      "day": 44,
+      "slot": 2,
+      "date": "2026-01-14",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 44 slot 2"
+    },
+    {
+      "id": "s417-43-2",
+      "day": 44,
+      "slot": 3,
+      "date": "2026-01-14",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 44 slot 3"
+    },
+    {
+      "id": "s417-44-0",
+      "day": 45,
+      "slot": 1,
+      "date": "2026-01-15",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 45 slot 1"
+    },
+    {
+      "id": "s417-44-1",
+      "day": 45,
+      "slot": 2,
+      "date": "2026-01-15",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Fun Facts – Day 45 slot 2"
+    },
+    {
+      "id": "s417-44-2",
+      "day": 45,
+      "slot": 3,
+      "date": "2026-01-15",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 45 slot 3"
+    },
+    {
+      "id": "s417-45-0",
+      "day": 46,
+      "slot": 1,
+      "date": "2026-01-16",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Fun Facts – Day 46 slot 1"
+    },
+    {
+      "id": "s417-45-1",
+      "day": 46,
+      "slot": 2,
+      "date": "2026-01-16",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 46 slot 2"
+    },
+    {
+      "id": "s417-45-2",
+      "day": 46,
+      "slot": 3,
+      "date": "2026-01-16",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 46 slot 3"
+    },
+    {
+      "id": "s417-46-0",
+      "day": 47,
+      "slot": 1,
+      "date": "2026-01-17",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Fun Facts – Day 47 slot 1"
+    },
+    {
+      "id": "s417-46-1",
+      "day": 47,
+      "slot": 2,
+      "date": "2026-01-17",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 47 slot 2"
+    },
+    {
+      "id": "s417-46-2",
+      "day": 47,
+      "slot": 3,
+      "date": "2026-01-17",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Fun Facts – Day 47 slot 3"
+    },
+    {
+      "id": "s417-47-0",
+      "day": 48,
+      "slot": 1,
+      "date": "2026-01-18",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Fun Facts – Day 48 slot 1"
+    },
+    {
+      "id": "s417-47-1",
+      "day": 48,
+      "slot": 2,
+      "date": "2026-01-18",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Fun Facts – Day 48 slot 2"
+    },
+    {
+      "id": "s417-47-2",
+      "day": 48,
+      "slot": 3,
+      "date": "2026-01-18",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Fun Facts – Day 48 slot 3"
+    },
+    {
+      "id": "s417-48-0",
+      "day": 49,
+      "slot": 1,
+      "date": "2026-01-19",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 49 slot 1"
+    },
+    {
+      "id": "s417-48-1",
+      "day": 49,
+      "slot": 2,
+      "date": "2026-01-19",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Fun Facts – Day 49 slot 2"
+    },
+    {
+      "id": "s417-48-2",
+      "day": 49,
+      "slot": 3,
+      "date": "2026-01-19",
+      "week": 7,
+      "theme": "Fun Facts",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Fun Facts – Day 49 slot 3"
+    },
+    {
+      "id": "s417-49-0",
+      "day": 50,
+      "slot": 1,
+      "date": "2026-01-20",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 50 slot 1"
+    },
+    {
+      "id": "s417-49-1",
+      "day": 50,
+      "slot": 2,
+      "date": "2026-01-20",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "failed",
+      "caption": "Reviews Showcase – Day 50 slot 2"
+    },
+    {
+      "id": "s417-49-2",
+      "day": 50,
+      "slot": 3,
+      "date": "2026-01-20",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 50 slot 3"
+    },
+    {
+      "id": "s417-50-0",
+      "day": 51,
+      "slot": 1,
+      "date": "2026-01-21",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Reviews Showcase – Day 51 slot 1"
+    },
+    {
+      "id": "s417-50-1",
+      "day": 51,
+      "slot": 2,
+      "date": "2026-01-21",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 51 slot 2"
+    },
+    {
+      "id": "s417-50-2",
+      "day": 51,
+      "slot": 3,
+      "date": "2026-01-21",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 51 slot 3"
+    },
+    {
+      "id": "s417-51-0",
+      "day": 52,
+      "slot": 1,
+      "date": "2026-01-22",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 52 slot 1"
+    },
+    {
+      "id": "s417-51-1",
+      "day": 52,
+      "slot": 2,
+      "date": "2026-01-22",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 52 slot 2"
+    },
+    {
+      "id": "s417-51-2",
+      "day": 52,
+      "slot": 3,
+      "date": "2026-01-22",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 52 slot 3"
+    },
+    {
+      "id": "s417-52-0",
+      "day": 53,
+      "slot": 1,
+      "date": "2026-01-23",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 53 slot 1"
+    },
+    {
+      "id": "s417-52-1",
+      "day": 53,
+      "slot": 2,
+      "date": "2026-01-23",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 53 slot 2"
+    },
+    {
+      "id": "s417-52-2",
+      "day": 53,
+      "slot": 3,
+      "date": "2026-01-23",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 53 slot 3"
+    },
+    {
+      "id": "s417-53-0",
+      "day": 54,
+      "slot": 1,
+      "date": "2026-01-24",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 54 slot 1"
+    },
+    {
+      "id": "s417-53-1",
+      "day": 54,
+      "slot": 2,
+      "date": "2026-01-24",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 54 slot 2"
+    },
+    {
+      "id": "s417-53-2",
+      "day": 54,
+      "slot": 3,
+      "date": "2026-01-24",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 54 slot 3"
+    },
+    {
+      "id": "s417-54-0",
+      "day": 55,
+      "slot": 1,
+      "date": "2026-01-25",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Reviews Showcase – Day 55 slot 1"
+    },
+    {
+      "id": "s417-54-1",
+      "day": 55,
+      "slot": 2,
+      "date": "2026-01-25",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 55 slot 2"
+    },
+    {
+      "id": "s417-54-2",
+      "day": 55,
+      "slot": 3,
+      "date": "2026-01-25",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Reviews Showcase – Day 55 slot 3"
+    },
+    {
+      "id": "s417-55-0",
+      "day": 56,
+      "slot": 1,
+      "date": "2026-01-26",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 56 slot 1"
+    },
+    {
+      "id": "s417-55-1",
+      "day": 56,
+      "slot": 2,
+      "date": "2026-01-26",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "R",
+      "status": "generated",
+      "caption": "Reviews Showcase – Day 56 slot 2"
+    },
+    {
+      "id": "s417-55-2",
+      "day": 56,
+      "slot": 3,
+      "date": "2026-01-26",
+      "week": 8,
+      "theme": "Reviews Showcase",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Reviews Showcase – Day 56 slot 3"
+    },
+    {
+      "id": "s417-56-0",
+      "day": 57,
+      "slot": 1,
+      "date": "2026-01-27",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 57 slot 1"
+    },
+    {
+      "id": "s417-56-1",
+      "day": 57,
+      "slot": 2,
+      "date": "2026-01-27",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Seasonal Care – Day 57 slot 2"
+    },
+    {
+      "id": "s417-56-2",
+      "day": 57,
+      "slot": 3,
+      "date": "2026-01-27",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Seasonal Care – Day 57 slot 3"
+    },
+    {
+      "id": "s417-57-0",
+      "day": 58,
+      "slot": 1,
+      "date": "2026-01-28",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 58 slot 1"
+    },
+    {
+      "id": "s417-57-1",
+      "day": 58,
+      "slot": 2,
+      "date": "2026-01-28",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 58 slot 2"
+    },
+    {
+      "id": "s417-57-2",
+      "day": 58,
+      "slot": 3,
+      "date": "2026-01-28",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Seasonal Care – Day 58 slot 3"
+    },
+    {
+      "id": "s417-58-0",
+      "day": 59,
+      "slot": 1,
+      "date": "2026-01-29",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 59 slot 1"
+    },
+    {
+      "id": "s417-58-1",
+      "day": 59,
+      "slot": 2,
+      "date": "2026-01-29",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Seasonal Care – Day 59 slot 2"
+    },
+    {
+      "id": "s417-58-2",
+      "day": 59,
+      "slot": 3,
+      "date": "2026-01-29",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Seasonal Care – Day 59 slot 3"
+    },
+    {
+      "id": "s417-59-0",
+      "day": 60,
+      "slot": 1,
+      "date": "2026-01-30",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 60 slot 1"
+    },
+    {
+      "id": "s417-59-1",
+      "day": 60,
+      "slot": 2,
+      "date": "2026-01-30",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Seasonal Care – Day 60 slot 2"
+    },
+    {
+      "id": "s417-59-2",
+      "day": 60,
+      "slot": 3,
+      "date": "2026-01-30",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Seasonal Care – Day 60 slot 3"
+    },
+    {
+      "id": "s417-60-0",
+      "day": 61,
+      "slot": 1,
+      "date": "2026-01-31",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 61 slot 1"
+    },
+    {
+      "id": "s417-60-1",
+      "day": 61,
+      "slot": 2,
+      "date": "2026-01-31",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 61 slot 2"
+    },
+    {
+      "id": "s417-60-2",
+      "day": 61,
+      "slot": 3,
+      "date": "2026-01-31",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Seasonal Care – Day 61 slot 3"
+    },
+    {
+      "id": "s417-61-0",
+      "day": 62,
+      "slot": 1,
+      "date": "2026-02-01",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "P",
+      "status": "pending",
+      "caption": "Seasonal Care – Day 62 slot 1"
+    },
+    {
+      "id": "s417-61-1",
+      "day": 62,
+      "slot": 2,
+      "date": "2026-02-01",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Seasonal Care – Day 62 slot 2"
+    },
+    {
+      "id": "s417-61-2",
+      "day": 62,
+      "slot": 3,
+      "date": "2026-02-01",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Seasonal Care – Day 62 slot 3"
+    },
+    {
+      "id": "s417-62-0",
+      "day": 63,
+      "slot": 1,
+      "date": "2026-02-02",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 63 slot 1"
+    },
+    {
+      "id": "s417-62-1",
+      "day": 63,
+      "slot": 2,
+      "date": "2026-02-02",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Seasonal Care – Day 63 slot 2"
+    },
+    {
+      "id": "s417-62-2",
+      "day": 63,
+      "slot": 3,
+      "date": "2026-02-02",
+      "week": 9,
+      "theme": "Seasonal Care",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Seasonal Care – Day 63 slot 3"
+    },
+    {
+      "id": "s417-63-0",
+      "day": 64,
+      "slot": 1,
+      "date": "2026-02-03",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Culture & Community – Day 64 slot 1"
+    },
+    {
+      "id": "s417-63-1",
+      "day": 64,
+      "slot": 2,
+      "date": "2026-02-03",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Culture & Community – Day 64 slot 2"
+    },
+    {
+      "id": "s417-63-2",
+      "day": 64,
+      "slot": 3,
+      "date": "2026-02-03",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Culture & Community – Day 64 slot 3"
+    },
+    {
+      "id": "s417-64-0",
+      "day": 65,
+      "slot": 1,
+      "date": "2026-02-04",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Culture & Community – Day 65 slot 1"
+    },
+    {
+      "id": "s417-64-1",
+      "day": 65,
+      "slot": 2,
+      "date": "2026-02-04",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Culture & Community – Day 65 slot 2"
+    },
+    {
+      "id": "s417-64-2",
+      "day": 65,
+      "slot": 3,
+      "date": "2026-02-04",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Culture & Community – Day 65 slot 3"
+    },
+    {
+      "id": "s417-65-0",
+      "day": 66,
+      "slot": 1,
+      "date": "2026-02-05",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Culture & Community – Day 66 slot 1"
+    },
+    {
+      "id": "s417-65-1",
+      "day": 66,
+      "slot": 2,
+      "date": "2026-02-05",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Culture & Community – Day 66 slot 2"
+    },
+    {
+      "id": "s417-65-2",
+      "day": 66,
+      "slot": 3,
+      "date": "2026-02-05",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Culture & Community – Day 66 slot 3"
+    },
+    {
+      "id": "s417-66-0",
+      "day": 67,
+      "slot": 1,
+      "date": "2026-02-06",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "R",
+      "status": "published",
+      "caption": "Culture & Community – Day 67 slot 1"
+    },
+    {
+      "id": "s417-66-1",
+      "day": 67,
+      "slot": 2,
+      "date": "2026-02-06",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Culture & Community – Day 67 slot 2"
+    },
+    {
+      "id": "s417-66-2",
+      "day": 67,
+      "slot": 3,
+      "date": "2026-02-06",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Culture & Community – Day 67 slot 3"
+    },
+    {
+      "id": "s417-67-0",
+      "day": 68,
+      "slot": 1,
+      "date": "2026-02-07",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Culture & Community – Day 68 slot 1"
+    },
+    {
+      "id": "s417-67-1",
+      "day": 68,
+      "slot": 2,
+      "date": "2026-02-07",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Culture & Community – Day 68 slot 2"
+    },
+    {
+      "id": "s417-67-2",
+      "day": 68,
+      "slot": 3,
+      "date": "2026-02-07",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Culture & Community – Day 68 slot 3"
+    },
+    {
+      "id": "s417-68-0",
+      "day": 69,
+      "slot": 1,
+      "date": "2026-02-08",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "P",
+      "status": "published",
+      "caption": "Culture & Community – Day 69 slot 1"
+    },
+    {
+      "id": "s417-68-1",
+      "day": 69,
+      "slot": 2,
+      "date": "2026-02-08",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Culture & Community – Day 69 slot 2"
+    },
+    {
+      "id": "s417-68-2",
+      "day": 69,
+      "slot": 3,
+      "date": "2026-02-08",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "published",
+      "caption": "Culture & Community – Day 69 slot 3"
+    },
+    {
+      "id": "s417-69-0",
+      "day": 70,
+      "slot": 1,
+      "date": "2026-02-09",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "P",
+      "status": "pending",
+      "caption": "Culture & Community – Day 70 slot 1"
+    },
+    {
+      "id": "s417-69-1",
+      "day": 70,
+      "slot": 2,
+      "date": "2026-02-09",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "failed",
+      "caption": "Culture & Community – Day 70 slot 2"
+    },
+    {
+      "id": "s417-69-2",
+      "day": 70,
+      "slot": 3,
+      "date": "2026-02-09",
+      "week": 10,
+      "theme": "Culture & Community",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Culture & Community – Day 70 slot 3"
+    },
+    {
+      "id": "s417-70-0",
+      "day": 71,
+      "slot": 1,
+      "date": "2026-02-10",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Education – Day 71 slot 1"
+    },
+    {
+      "id": "s417-70-1",
+      "day": 71,
+      "slot": 2,
+      "date": "2026-02-10",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Education – Day 71 slot 2"
+    },
+    {
+      "id": "s417-70-2",
+      "day": 71,
+      "slot": 3,
+      "date": "2026-02-10",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Education – Day 71 slot 3"
+    },
+    {
+      "id": "s417-71-0",
+      "day": 72,
+      "slot": 1,
+      "date": "2026-02-11",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 72 slot 1"
+    },
+    {
+      "id": "s417-71-1",
+      "day": 72,
+      "slot": 2,
+      "date": "2026-02-11",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Education – Day 72 slot 2"
+    },
+    {
+      "id": "s417-71-2",
+      "day": 72,
+      "slot": 3,
+      "date": "2026-02-11",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 72 slot 3"
+    },
+    {
+      "id": "s417-72-0",
+      "day": 73,
+      "slot": 1,
+      "date": "2026-02-12",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Education – Day 73 slot 1"
+    },
+    {
+      "id": "s417-72-1",
+      "day": 73,
+      "slot": 2,
+      "date": "2026-02-12",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Education – Day 73 slot 2"
+    },
+    {
+      "id": "s417-72-2",
+      "day": 73,
+      "slot": 3,
+      "date": "2026-02-12",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 73 slot 3"
+    },
+    {
+      "id": "s417-73-0",
+      "day": 74,
+      "slot": 1,
+      "date": "2026-02-13",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 74 slot 1"
+    },
+    {
+      "id": "s417-73-1",
+      "day": 74,
+      "slot": 2,
+      "date": "2026-02-13",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 74 slot 2"
+    },
+    {
+      "id": "s417-73-2",
+      "day": 74,
+      "slot": 3,
+      "date": "2026-02-13",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Education – Day 74 slot 3"
+    },
+    {
+      "id": "s417-74-0",
+      "day": 75,
+      "slot": 1,
+      "date": "2026-02-14",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Education – Day 75 slot 1"
+    },
+    {
+      "id": "s417-74-1",
+      "day": 75,
+      "slot": 2,
+      "date": "2026-02-14",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 75 slot 2"
+    },
+    {
+      "id": "s417-74-2",
+      "day": 75,
+      "slot": 3,
+      "date": "2026-02-14",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 75 slot 3"
+    },
+    {
+      "id": "s417-75-0",
+      "day": 76,
+      "slot": 1,
+      "date": "2026-02-15",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 76 slot 1"
+    },
+    {
+      "id": "s417-75-1",
+      "day": 76,
+      "slot": 2,
+      "date": "2026-02-15",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Education – Day 76 slot 2"
+    },
+    {
+      "id": "s417-75-2",
+      "day": 76,
+      "slot": 3,
+      "date": "2026-02-15",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 76 slot 3"
+    },
+    {
+      "id": "s417-76-0",
+      "day": 77,
+      "slot": 1,
+      "date": "2026-02-16",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Education – Day 77 slot 1"
+    },
+    {
+      "id": "s417-76-1",
+      "day": 77,
+      "slot": 2,
+      "date": "2026-02-16",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 77 slot 2"
+    },
+    {
+      "id": "s417-76-2",
+      "day": 77,
+      "slot": 3,
+      "date": "2026-02-16",
+      "week": 11,
+      "theme": "Education",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Education – Day 77 slot 3"
+    },
+    {
+      "id": "s417-77-0",
+      "day": 78,
+      "slot": 1,
+      "date": "2026-02-17",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 78 slot 1"
+    },
+    {
+      "id": "s417-77-1",
+      "day": 78,
+      "slot": 2,
+      "date": "2026-02-17",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 78 slot 2"
+    },
+    {
+      "id": "s417-77-2",
+      "day": 78,
+      "slot": 3,
+      "date": "2026-02-17",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 78 slot 3"
+    },
+    {
+      "id": "s417-78-0",
+      "day": 79,
+      "slot": 1,
+      "date": "2026-02-18",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 79 slot 1"
+    },
+    {
+      "id": "s417-78-1",
+      "day": 79,
+      "slot": 2,
+      "date": "2026-02-18",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 79 slot 2"
+    },
+    {
+      "id": "s417-78-2",
+      "day": 79,
+      "slot": 3,
+      "date": "2026-02-18",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 79 slot 3"
+    },
+    {
+      "id": "s417-79-0",
+      "day": 80,
+      "slot": 1,
+      "date": "2026-02-19",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 80 slot 1"
+    },
+    {
+      "id": "s417-79-1",
+      "day": 80,
+      "slot": 2,
+      "date": "2026-02-19",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 80 slot 2"
+    },
+    {
+      "id": "s417-79-2",
+      "day": 80,
+      "slot": 3,
+      "date": "2026-02-19",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 80 slot 3"
+    },
+    {
+      "id": "s417-80-0",
+      "day": 81,
+      "slot": 1,
+      "date": "2026-02-20",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "P",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 81 slot 1"
+    },
+    {
+      "id": "s417-80-1",
+      "day": 81,
+      "slot": 2,
+      "date": "2026-02-20",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 81 slot 2"
+    },
+    {
+      "id": "s417-80-2",
+      "day": 81,
+      "slot": 3,
+      "date": "2026-02-20",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 81 slot 3"
+    },
+    {
+      "id": "s417-81-0",
+      "day": 82,
+      "slot": 1,
+      "date": "2026-02-21",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 82 slot 1"
+    },
+    {
+      "id": "s417-81-1",
+      "day": 82,
+      "slot": 2,
+      "date": "2026-02-21",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 82 slot 2"
+    },
+    {
+      "id": "s417-81-2",
+      "day": 82,
+      "slot": 3,
+      "date": "2026-02-21",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 82 slot 3"
+    },
+    {
+      "id": "s417-82-0",
+      "day": 83,
+      "slot": 1,
+      "date": "2026-02-22",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 83 slot 1"
+    },
+    {
+      "id": "s417-82-1",
+      "day": 83,
+      "slot": 2,
+      "date": "2026-02-22",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 83 slot 2"
+    },
+    {
+      "id": "s417-82-2",
+      "day": 83,
+      "slot": 3,
+      "date": "2026-02-22",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 83 slot 3"
+    },
+    {
+      "id": "s417-83-0",
+      "day": 84,
+      "slot": 1,
+      "date": "2026-02-23",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Summer Smiles – Day 84 slot 1"
+    },
+    {
+      "id": "s417-83-1",
+      "day": 84,
+      "slot": 2,
+      "date": "2026-02-23",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 84 slot 2"
+    },
+    {
+      "id": "s417-83-2",
+      "day": 84,
+      "slot": 3,
+      "date": "2026-02-23",
+      "week": 12,
+      "theme": "Summer Smiles",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Summer Smiles – Day 84 slot 3"
+    },
+    {
+      "id": "s417-84-0",
+      "day": 85,
+      "slot": 1,
+      "date": "2026-02-24",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Grand Recap – Day 85 slot 1"
+    },
+    {
+      "id": "s417-84-1",
+      "day": 85,
+      "slot": 2,
+      "date": "2026-02-24",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "generated",
+      "caption": "Grand Recap – Day 85 slot 2"
+    },
+    {
+      "id": "s417-84-2",
+      "day": 85,
+      "slot": 3,
+      "date": "2026-02-24",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "R",
+      "status": "generated",
+      "caption": "Grand Recap – Day 85 slot 3"
+    },
+    {
+      "id": "s417-85-0",
+      "day": 86,
+      "slot": 1,
+      "date": "2026-02-25",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 86 slot 1"
+    },
+    {
+      "id": "s417-85-1",
+      "day": 86,
+      "slot": 2,
+      "date": "2026-02-25",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 86 slot 2"
+    },
+    {
+      "id": "s417-85-2",
+      "day": 86,
+      "slot": 3,
+      "date": "2026-02-25",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 86 slot 3"
+    },
+    {
+      "id": "s417-86-0",
+      "day": 87,
+      "slot": 1,
+      "date": "2026-02-26",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 87 slot 1"
+    },
+    {
+      "id": "s417-86-1",
+      "day": 87,
+      "slot": 2,
+      "date": "2026-02-26",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 87 slot 2"
+    },
+    {
+      "id": "s417-86-2",
+      "day": 87,
+      "slot": 3,
+      "date": "2026-02-26",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 87 slot 3"
+    },
+    {
+      "id": "s417-87-0",
+      "day": 88,
+      "slot": 1,
+      "date": "2026-02-27",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 88 slot 1"
+    },
+    {
+      "id": "s417-87-1",
+      "day": 88,
+      "slot": 2,
+      "date": "2026-02-27",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 88 slot 2"
+    },
+    {
+      "id": "s417-87-2",
+      "day": 88,
+      "slot": 3,
+      "date": "2026-02-27",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 88 slot 3"
+    },
+    {
+      "id": "s417-88-0",
+      "day": 89,
+      "slot": 1,
+      "date": "2026-02-28",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 89 slot 1"
+    },
+    {
+      "id": "s417-88-1",
+      "day": 89,
+      "slot": 2,
+      "date": "2026-02-28",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 89 slot 2"
+    },
+    {
+      "id": "s417-88-2",
+      "day": 89,
+      "slot": 3,
+      "date": "2026-02-28",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 89 slot 3"
+    },
+    {
+      "id": "s417-89-0",
+      "day": 90,
+      "slot": 1,
+      "date": "2026-03-01",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 90 slot 1"
+    },
+    {
+      "id": "s417-89-1",
+      "day": 90,
+      "slot": 2,
+      "date": "2026-03-01",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "R",
+      "status": "pending",
+      "caption": "Grand Recap – Day 90 slot 2"
+    },
+    {
+      "id": "s417-89-2",
+      "day": 90,
+      "slot": 3,
+      "date": "2026-03-01",
+      "week": 13,
+      "theme": "Grand Recap",
+      "contentType": "A",
+      "status": "pending",
+      "caption": "Grand Recap – Day 90 slot 3"
+    }
+  ],
+  "reels": [
+    {
+      "id": "r417-1",
+      "week": 1,
+      "date": "2025-12-08",
+      "topic": "Before & After Transformation",
+      "status": "published",
+      "views": 6027,
+      "durationSec": 15
+    },
+    {
+      "id": "r417-2",
+      "week": 2,
+      "date": "2025-12-15",
+      "topic": "Meet Dr. הדסה",
+      "status": "published",
+      "views": 16239,
+      "durationSec": 30
+    },
+    {
+      "id": "r417-3",
+      "week": 3,
+      "date": "2025-12-22",
+      "topic": "3 Signs You Need a Check-up",
+      "status": "published",
+      "views": 12209,
+      "durationSec": 60
+    },
+    {
+      "id": "r417-4",
+      "week": 4,
+      "date": "2025-12-29",
+      "topic": "Behind the Scenes at Our Clinic",
+      "status": "published",
+      "views": 9217,
+      "durationSec": 45
+    },
+    {
+      "id": "r417-5",
+      "week": 5,
+      "date": "2026-01-05",
+      "topic": "Patient Smile Story",
+      "status": "published",
+      "views": 9905,
+      "durationSec": 15
+    },
+    {
+      "id": "r417-6",
+      "week": 6,
+      "date": "2026-01-12",
+      "topic": "Top 5 Teeth-Whitening Tips",
+      "status": "published",
+      "views": 1743,
+      "durationSec": 60
+    },
+    {
+      "id": "r417-7",
+      "week": 7,
+      "date": "2026-01-19",
+      "topic": "Kids First Dentist Visit",
+      "status": "published",
+      "views": 6195,
+      "durationSec": 30
+    },
+    {
+      "id": "r417-8",
+      "week": 8,
+      "date": "2026-01-26",
+      "topic": "Emergency Dental FAQ",
+      "status": "published",
+      "views": 14744,
+      "durationSec": 60
+    },
+    {
+      "id": "r417-9",
+      "week": 9,
+      "date": "2026-02-02",
+      "topic": "How We Clean Your Teeth",
+      "status": "pending",
+      "views": 0,
+      "durationSec": 30
+    },
+    {
+      "id": "r417-10",
+      "week": 10,
+      "date": "2026-02-09",
+      "topic": "Why Flossing Actually Matters",
+      "status": "pending",
+      "views": 0,
+      "durationSec": 45
+    },
+    {
+      "id": "r417-11",
+      "week": 11,
+      "date": "2026-02-16",
+      "topic": "Invisalign vs. Braces",
+      "status": "pending",
+      "views": 0,
+      "durationSec": 30
+    },
+    {
+      "id": "r417-12",
+      "week": 12,
+      "date": "2026-02-23",
+      "topic": "Our Team in Action",
+      "status": "pending",
+      "views": 0,
+      "durationSec": 30
+    }
+  ],
+  "seoChannels": [
+    {
+      "channel": "blog",
+      "label": "Blog Posts",
+      "postsPlanned": 8,
+      "postsPublished": 4,
+      "status": "active"
+    },
+    {
+      "channel": "twitter",
+      "label": "Twitter/X",
+      "postsPlanned": 15,
+      "postsPublished": 14,
+      "status": "active"
+    },
+    {
+      "channel": "reddit",
+      "label": "Reddit",
+      "postsPlanned": 4,
+      "postsPublished": 4,
+      "status": "paused"
+    },
+    {
+      "channel": "quora",
+      "label": "Quora",
+      "postsPlanned": 4,
+      "postsPublished": 2,
+      "status": "active"
+    },
+    {
+      "channel": "gbp",
+      "label": "Google Business",
+      "postsPlanned": 8,
+      "postsPublished": 5,
+      "status": "active"
+    }
+  ],
+  "costs": [
+    {
+      "month": "2025-12",
+      "stories": 135.21,
+      "reels": 59.63,
+      "seo": 68.02,
+      "total": 262.86
+    },
+    {
+      "month": "2026-01",
+      "stories": 149.82,
+      "reels": 71.23,
+      "seo": 68.72,
+      "total": 289.77
+    },
+    {
+      "month": "2026-03",
+      "stories": 103.77,
+      "reels": 59.36,
+      "seo": 55.22,
+      "total": 218.35
+    }
+  ],
+  "aiVisibility": {
+    "overallScore": 41,
+    "scoreTrend": "down",
+    "scoreLastWeek": 46,
+    "platforms": [
+      {
+        "platform": "google_aio",
+        "mentioned": "partial",
+        "sentiment": "neutral",
+        "sampleQueries": [
+          "כתרים וגשרים תל אביב",
+          "יישור שיניים תל אביב"
+        ]
+      },
+      {
+        "platform": "chatgpt",
+        "mentioned": "partial",
+        "sentiment": "neutral",
+        "sampleQueries": [
+          "ציפוי חרסינה תל אביב",
+          "רופא שיניים תל אביב",
+          "יישור שיניים תל אביב"
+        ]
+      },
+      {
+        "platform": "perplexity",
+        "mentioned": "partial",
+        "sentiment": "neutral",
+        "sampleQueries": [
+          "הלבנת שיניים תל אביב",
+          "רופא שיניים תל אביב"
+        ]
+      },
+      {
+        "platform": "gemini",
+        "mentioned": "yes",
+        "sentiment": "negative",
+        "sampleQueries": [
+          "טיפול שורש תל אביב"
+        ]
+      }
+    ],
+    "queries": [
+      {
+        "query": "השתלת שיניים תל אביב",
+        "platforms": {
+          "google_aio": false,
+          "chatgpt": false,
+          "perplexity": true,
+          "gemini": true
+        },
+        "competitorsMentioned": [],
+        "trend": "up"
+      },
+      {
+        "query": "רופא שיניים תל אביב",
+        "platforms": {
+          "google_aio": false,
+          "chatgpt": false,
+          "perplexity": true,
+          "gemini": true
+        },
+        "competitorsMentioned": [
+          "מרפאת שיניים ד\"ר רובין רוסלן"
+        ],
+        "trend": "up"
+      },
+      {
+        "query": "הלבנת שיניים תל אביב",
+        "platforms": {
+          "google_aio": true,
+          "chatgpt": true,
+          "perplexity": false,
+          "gemini": true
+        },
+        "competitorsMentioned": [],
+        "trend": "up"
+      },
+      {
+        "query": "שיניים תותבות תל אביב",
+        "platforms": {
+          "google_aio": false,
+          "chatgpt": false,
+          "perplexity": false,
+          "gemini": true
+        },
+        "competitorsMentioned": [
+          "רופא שיניים בתל אביב מרפאת שיניים שביט - דוקטור הילה צפורן"
+        ],
+        "trend": "new"
+      },
+      {
+        "query": "רופא שיניים ילדים תל אביב",
+        "platforms": {
+          "google_aio": false,
+          "chatgpt": true,
+          "perplexity": true,
+          "gemini": true
+        },
+        "competitorsMentioned": [
+          "מרפאת השיניים והאסטתיקה של ד\"ר צבי אבירם",
+          "רופא שיניים בתל אביב מרפאת שיניים שביט - דוקטור הילה צפורן"
+        ],
+        "trend": "down"
+      }
+    ],
+    "optimizationChecklist": [
+      {
+        "key": "structured_data",
+        "label": "סכמת נתונים מובנים (Schema.org)",
+        "completed": false,
+        "priority": "high",
+        "impact": "מגדיל סיכוי להופעה ב-AI ב-40%"
+      },
+      {
+        "key": "nap_consistency",
+        "label": "עקביות שם-כתובת-טלפון",
+        "completed": false,
+        "priority": "high",
+        "impact": "בסיס לזיהוי עסק ע\"י AI"
+      },
+      {
+        "key": "review_volume",
+        "label": "נפח ביקורות (50+)",
+        "completed": false,
+        "priority": "high",
+        "impact": "AI מעדיף עסקים עם ביקורות רבות"
+      },
+      {
+        "key": "review_recency",
+        "label": "ביקורות עדכניות (30 יום)",
+        "completed": false,
+        "priority": "medium",
+        "impact": "סיגנל עדכניות למנועי AI"
+      },
+      {
+        "key": "faq_content",
+        "label": "תוכן שאלות נפוצות באתר",
+        "completed": false,
+        "priority": "medium",
+        "impact": "תואם פורמט שאילתות AI"
+      },
+      {
+        "key": "local_citations",
+        "label": "נוכחות במדריכים מקומיים",
+        "completed": false,
+        "priority": "medium",
+        "impact": "מחזק אמינות מקור"
+      },
+      {
+        "key": "https_mobile",
+        "label": "HTTPS + מותאם למובייל",
+        "completed": false,
+        "priority": "low",
+        "impact": "דרישת בסיס לכל מנועי AI"
+      },
+      {
+        "key": "gbp_complete",
+        "label": "פרופיל Google Business מלא",
+        "completed": true,
+        "priority": "high",
+        "impact": "מקור ראשי ל-Google AIO"
+      },
+      {
+        "key": "topic_authority",
+        "label": "סמכות תוכנית (3+ מאמרים)",
+        "completed": false,
+        "priority": "medium",
+        "impact": "מחזק מומחיות בנושא"
+      }
+    ],
+    "competitors": [
+      {
+        "name": "מרפאת השיניים והאסטתיקה של ד\"ר צבי אבירם",
+        "aiScore": 56,
+        "platformsCovered": 1,
+        "shareOfVoice": 32.5
+      },
+      {
+        "name": "רופא שיניים בתל אביב מרפאת שיניים שביט - דוקטור הילה צפורן",
+        "aiScore": 57,
+        "platformsCovered": 1,
+        "shareOfVoice": 35.0
+      },
+      {
+        "name": "מרפאת שיניים ד\"ר רובין רוסלן",
+        "aiScore": 49,
+        "platformsCovered": 2,
+        "shareOfVoice": 29.3
+      }
+    ],
+    "lastUpdated": "2026-03-03T08:00:00Z"
+  }
+}

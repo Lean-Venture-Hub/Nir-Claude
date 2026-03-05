@@ -1,0 +1,205 @@
+{
+  "lastUpdated": "2026-03-02T14:30:00Z",
+  "templates": [
+    {
+      "id": 1,
+      "name": "Template 1 \u2014 Hero Spotlight",
+      "category": "showcase",
+      "usageCount": 1465,
+      "assignedClinics": 240,
+      "renderSuccessRate": 99.3,
+      "lastUsed": "2026-03-02T11:22:00Z",
+      "previewPath": "/templates/template-1/index.html"
+    },
+    {
+      "id": 2,
+      "name": "Template 2 \u2014 Split Layout",
+      "category": "showcase",
+      "usageCount": 901,
+      "assignedClinics": 241,
+      "renderSuccessRate": 98.4,
+      "lastUsed": "2026-03-02T09:45:00Z",
+      "previewPath": "/templates/template-2/index.html"
+    },
+    {
+      "id": 3,
+      "name": "Template 3 \u2014 Gradient Wave",
+      "category": "promo",
+      "usageCount": 2160,
+      "assignedClinics": 360,
+      "renderSuccessRate": 98.8,
+      "lastUsed": "2026-03-01T18:30:00Z",
+      "previewPath": "/templates/template-3/index.html"
+    },
+    {
+      "id": 4,
+      "name": "Template 4 \u2014 Minimal Quote",
+      "category": "review",
+      "usageCount": 1816,
+      "assignedClinics": 286,
+      "renderSuccessRate": 95.0,
+      "lastUsed": "2026-03-01T14:10:00Z",
+      "previewPath": "/templates/template-4/index.html"
+    },
+    {
+      "id": 5,
+      "name": "Template 5 \u2014 Before/After",
+      "category": "showcase",
+      "usageCount": 1242,
+      "assignedClinics": 345,
+      "renderSuccessRate": 99.2,
+      "lastUsed": "2026-03-02T08:05:00Z",
+      "previewPath": "/templates/template-5/index.html"
+    },
+    {
+      "id": 6,
+      "name": "Template 6 \u2014 Team Grid",
+      "category": "team",
+      "usageCount": 2727,
+      "assignedClinics": 263,
+      "renderSuccessRate": 95.2,
+      "lastUsed": "2026-02-28T17:00:00Z",
+      "previewPath": "/templates/template-6/index.html"
+    },
+    {
+      "id": 7,
+      "name": "Template 7 \u2014 Stat Counter",
+      "category": "data",
+      "usageCount": 2685,
+      "assignedClinics": 329,
+      "renderSuccessRate": 95.8,
+      "lastUsed": "2026-03-02T13:00:00Z",
+      "previewPath": "/templates/template-7/index.html"
+    },
+    {
+      "id": 8,
+      "name": "Template 8 \u2014 Service Cards",
+      "category": "service",
+      "usageCount": 1732,
+      "assignedClinics": 264,
+      "renderSuccessRate": 94.1,
+      "lastUsed": "2026-03-01T10:30:00Z",
+      "previewPath": "/templates/template-8/index.html"
+    },
+    {
+      "id": 9,
+      "name": "Template 9 \u2014 Map Local",
+      "category": "geo",
+      "usageCount": 1591,
+      "assignedClinics": 354,
+      "renderSuccessRate": 96.0,
+      "lastUsed": "2026-02-27T09:15:00Z",
+      "previewPath": "/templates/template-9/index.html"
+    },
+    {
+      "id": 10,
+      "name": "Template 10 \u2014 Kids Friendly",
+      "category": "kids",
+      "usageCount": 1084,
+      "assignedClinics": 292,
+      "renderSuccessRate": 96.1,
+      "lastUsed": "2026-03-02T07:50:00Z",
+      "previewPath": "/templates/template-10/index.html"
+    },
+    {
+      "id": 11,
+      "name": "Template 11 \u2014 Testimonial Carousel",
+      "category": "review",
+      "usageCount": 2886,
+      "assignedClinics": 354,
+      "renderSuccessRate": 98.1,
+      "lastUsed": "2026-03-01T16:45:00Z",
+      "previewPath": "/templates/template-11/index.html"
+    },
+    {
+      "id": 12,
+      "name": "Template 12 \u2014 Price List",
+      "category": "promo",
+      "usageCount": 2996,
+      "assignedClinics": 319,
+      "renderSuccessRate": 99.6,
+      "lastUsed": "2026-02-26T11:00:00Z",
+      "previewPath": "/templates/template-12/index.html"
+    },
+    {
+      "id": 13,
+      "name": "Template 13 \u2014 FAQ Accordion",
+      "category": "education",
+      "usageCount": 1272,
+      "assignedClinics": 283,
+      "renderSuccessRate": 95.1,
+      "lastUsed": "2026-03-02T12:20:00Z",
+      "previewPath": "/templates/template-13/index.html"
+    },
+    {
+      "id": 14,
+      "name": "Template 14 \u2014 Blog Preview",
+      "category": "content",
+      "usageCount": 1887,
+      "assignedClinics": 169,
+      "renderSuccessRate": 94.7,
+      "lastUsed": "2026-02-28T08:30:00Z",
+      "previewPath": "/templates/template-14/index.html"
+    },
+    {
+      "id": 15,
+      "name": "Template 15 \u2014 Social Proof",
+      "category": "review",
+      "usageCount": 2579,
+      "assignedClinics": 326,
+      "renderSuccessRate": 98.4,
+      "lastUsed": "2026-03-01T15:00:00Z",
+      "previewPath": "/templates/template-15/index.html"
+    },
+    {
+      "id": 16,
+      "name": "Template 16 \u2014 Emergency CTA",
+      "category": "cta",
+      "usageCount": 2084,
+      "assignedClinics": 373,
+      "renderSuccessRate": 97.6,
+      "lastUsed": "2026-03-02T10:10:00Z",
+      "previewPath": "/templates/template-16/index.html"
+    },
+    {
+      "id": 17,
+      "name": "Template 17 \u2014 Smile Gallery",
+      "category": "showcase",
+      "usageCount": 2894,
+      "assignedClinics": 209,
+      "renderSuccessRate": 96.3,
+      "lastUsed": "2026-02-25T14:00:00Z",
+      "previewPath": "/templates/template-17/index.html"
+    },
+    {
+      "id": 18,
+      "name": "Template 18 \u2014 Doctor Profile",
+      "category": "team",
+      "usageCount": 3161,
+      "assignedClinics": 247,
+      "renderSuccessRate": 95.5,
+      "lastUsed": "2026-03-02T06:30:00Z",
+      "previewPath": "/templates/template-18/index.html"
+    },
+    {
+      "id": 19,
+      "name": "Template 19 \u2014 Appointment Form",
+      "category": "cta",
+      "usageCount": 2586,
+      "assignedClinics": 150,
+      "renderSuccessRate": 97.1,
+      "lastUsed": "2026-03-01T12:00:00Z",
+      "previewPath": "/templates/template-19/index.html"
+    },
+    {
+      "id": 20,
+      "name": "Template 20 \u2014 Community Event",
+      "category": "social",
+      "usageCount": 3005,
+      "assignedClinics": 250,
+      "renderSuccessRate": 96.2,
+      "lastUsed": "2026-02-24T09:00:00Z",
+      "previewPath": "/templates/template-20/index.html"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "lastUpdated": "2026-03-02T20:08:57.194274+00:00",
+  "pipelines": [
+    {
+      "name": "stories",
+      "label": "Instagram Stories",
+      "total": 39510,
+      "completed": 28247,
+      "inProgress": 4390,
+      "failed": 127,
+      "status": "healthy"
+    },
+    {
+      "name": "reels",
+      "label": "Instagram Reels",
+      "total": 2634,
+      "completed": 1412,
+      "inProgress": 439,
+      "failed": 23,
+      "status": "healthy"
+    },
+    {
+      "name": "seo",
+      "label": "Local SEO",
+      "total": 8780,
+      "completed": 3951,
+      "inProgress": 878,
+      "failed": 45,
+      "status": "warning"
+    }
+  ],
+  "budget": {
+    "totalBudget": 4060,
+    "spent": 2847,
+    "projected": 3890,
+    "currency": "USD"
+  },
+  "alerts": [
+    {
+      "id": "a1",
+      "level": "warning",
+      "message": "SEO pipeline: 45 posts failed Google Business verification",
+      "timestamp": "2026-03-02T14:15:00Z",
+      "pipeline": "seo"
+    },
+    {
+      "id": "a2",
+      "level": "info",
+      "message": "Stories batch 47 completed: 439 clinics × 3 stories = 1,317 generated",
+      "timestamp": "2026-03-02T13:45:00Z",
+      "pipeline": "stories"
+    },
+    {
+      "id": "a3",
+      "level": "error",
+      "message": "Imagen API rate limit hit — Reels generation paused for 15 min",
+      "timestamp": "2026-03-02T12:30:00Z",
+      "pipeline": "reels"
+    },
+    {
+      "id": "a4",
+      "level": "info",
+      "message": "Budget utilization at 70% — on track for month-end",
+      "timestamp": "2026-03-02T10:00:00Z"
+    }
+  ],
+  "activity": [
+    {
+      "id": "act7",
+      "action": "test",
+      "detail": "Dashboard writer test — connection verified",
+      "timestamp": "2026-03-02T20:08:57.193959+00:00",
+      "pipeline": "system"
+    },
+    {
+      "id": "act1",
+      "action": "batch_complete",
+      "detail": "Stories Day 64 — 1,317 images rendered across 20 templates",
+      "timestamp": "2026-03-02T14:25:00Z",
+      "pipeline": "stories"
+    },
+    {
+      "id": "act2",
+      "action": "generation_start",
+      "detail": "Reels Week 10 — 439 scripts generated, rendering started",
+      "timestamp": "2026-03-02T14:00:00Z",
+      "pipeline": "reels"
+    },
+    {
+      "id": "act3",
+      "action": "publish",
+      "detail": "SEO Blog posts batch 12 — 876 posts published to clinic blogs",
+      "timestamp": "2026-03-02T13:30:00Z",
+      "pipeline": "seo"
+    },
+    {
+      "id": "act4",
+      "action": "onboarding",
+      "detail": "12 new clinics completed onboarding — colors + logos uploaded",
+      "timestamp": "2026-03-02T12:00:00Z",
+      "pipeline": "system"
+    },
+    {
+      "id": "act5",
+      "action": "cost_update",
+      "detail": "Daily spend: $94.50 (Stories $22, Reels $65, SEO $7.50)",
+      "timestamp": "2026-03-02T11:00:00Z",
+      "pipeline": "system"
+    },
+    {
+      "id": "act6",
+      "action": "quality_check",
+      "detail": "Template 7 render success rate dropped to 94% — investigating",
+      "timestamp": "2026-03-02T10:30:00Z",
+      "pipeline": "stories"
+    }
+  ],
+  "kpis": {
+    "totalClinics": 439,
+    "storiesGenerated": 28247,
+    "reelsGenerated": 1412,
+    "seoPostsPublished": 3951
+  }
+}
