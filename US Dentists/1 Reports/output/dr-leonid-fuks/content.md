@@ -37,6 +37,19 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Veronika Kerdok** ★★★★★
+  > Grateful to Dr. Fuks not only for his professionalism, but also for being a person who has a long-term vision about the work he performs.
+
+- **Aleksandr Rafalovich** ★★★★★
+  > Based on my experience, Dr. Fuks is a highly skillful dentist who performs dental work of virtually any complexity highly efficiently and for whom the health of a patient always has the ultimate priority.
+
+- **Vladimir Ouvarov** ★★★★★
+  > Without absolute dopt, dr. Leonid Fuks is the best doctor in my life. I was honored to be his patient for many, many years. My family wishes you doc to stay healthy and happy! Also I think, you should teach as many novices as possible to your skills.
+
+---
+
 ## Proposal Data
 
 ### Competitors

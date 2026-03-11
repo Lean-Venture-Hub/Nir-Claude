@@ -37,6 +37,21 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **F. R.** ★★★★★
+  > Today was my very first appointment with Dr. Gothelf.  It was the best dental experience I've ever had. My appointment was for 3pm. I got called in to be seen at 3pm and was out by 3:15. I didn't anticipate such a prompt start time.
+
+I have excellent teeth and gums due to meticulous oral hygiene, so
+
+- **20 24** ★★☆☆☆
+  > A doctor with a good heart is the one who will make no difference whether a patient has private or public medical insurance. Will notify the patient when cavities are in the early stages and then proceed to work on them. That's a true professional.
+
+- **Marcela Rodriguez** ★★★★★
+  > My uncle highly recommended Dr. Craig Gothelf and I have gone twice already. Once for a general check-up that included an extensive cleaning and X-rays. The second time was to fix a filling that had fallen off. Dr. Gothelf is the most patient, caring dentist I have ever been to! He takes his time an
+
+---
+
 ## Proposal Data
 
 ### Competitors

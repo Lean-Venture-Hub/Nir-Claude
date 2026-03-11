@@ -37,6 +37,19 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Urban Heat** ★☆☆☆☆
+  > The older lady who answered the phone was extremely rude told me they’re leaving to call back on Monday and just abruptly hung up in my ear. Horrible customer service which is ironic for a medical practice .
+
+- **Daniel Case** ★☆☆☆☆
+  > Dr. Bruck is arrogant and doesn't care about his patients. He's all about getting as many appointments out of you as possible and then overcharging the insurance carriers.
+
+- **Nate Neustein** ★★★★★
+  > One of the best dentists he is very helpful and makes you feel comfortable with the process I've used him for a year and a half now nothing but great work I even had done a root canal by him he made it feel not painful and the tooth has been great since then and the price for Root canal was very rea
+
+---
+
 ## Proposal Data
 
 ### Competitors

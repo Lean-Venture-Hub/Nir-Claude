@@ -37,12 +37,27 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Tom Snyder** ★★★★★
+  > I have been a patient for at least 17 years. These ladies have always treated me with the utmost courtesy and professionalism. I have ALWAYS been more than satisified with my dentistry care.
+
+- **Bradley Shprintz** ★★★★★
+  > Everyone was extremely nice to me. I am 66 years old and have had many different dentists in my time. Tiffany D. Boyd, D.M.D was incredible. She has the most gentle fingers, truly cares about her patients without being judgmental, something that is hard to do. She extracted not sure how you describe
+
+- **Michael Baran** ★★★★★
+  > The staff Christen and Anna are very courteous professional, go above and beyond to meet your needs.  Monica the hygienist is very skilled  thorough a true pro.
+Dentist Boyd excellent skillet knowledge . Highly recommended
+I've been a patient for 8 years  from cleaning to bridge work. Very pleased w
+
+---
+
 ## Proposal Data
 
 ### Competitors
-- **NYC Dental Group:** 4.6 rating, 567 reviews
-- **Upper East Dental:** 4.8 rating, 301 reviews
-- **Bright Dental NYC:** 4.9 rating, 189 reviews
+- **Sunshine Dental Care:** 4.6 rating, 345 reviews
+- **Clearwater Smiles:** 4.7 rating, 234 reviews
+- **Bay Area Dental Group:** 4.9 rating, 156 reviews
 
 ### Key Insight
 - 4.1 rating is good, but only 24 reviews

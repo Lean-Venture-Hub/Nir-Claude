@@ -37,6 +37,19 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Enio E Gutierrez Martinez** ★★★★★
+  > I am so happy with today’s dental visit. Dr. Laura completed the deep cleaning very well to the point that I did not bleed and no pain at all. She is very professional and people person. Ms. Jaqueline called me twice to friendly reminder today’s appointment. I highly recommend this dental office.
+
+- **Alex Truica** ★☆☆☆☆
+  > So let me get this straight: Wife goes here for a checkup because of tooth pain. They do an X-ray, find the cavity causing pain, and then proceed to do ... a cleaning. Why? If the patient requests a cavity fix, why not just fix the cavity and be done with it? So silly. And even the cleaning felt rus
+
+- **First Name Last Name** ★★★★★
+  > Made an appointment due to tooth pain. Went to three dentist before him they all gave me the runaround went to him. He assessed the situation, made a recommendation and remove the tooth all in the same day.. I was under the impression I was going to have to go back to remove the tooth when he inform
+
+---
+
 ## Proposal Data
 
 ### Competitors

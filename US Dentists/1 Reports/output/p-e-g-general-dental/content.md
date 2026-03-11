@@ -37,6 +37,19 @@ Navigating PPOs, HMOs, discount plans, and financing options for dental care.
 
 ---
 
+## Real Google Reviews
+
+- **Crooked Flower** ★★★★★
+  > Dr. Garcia has been the best dentist by far that I have ever dealt with; I can't believe everything went well with my major phobia of dentists! She is professional, great bedside manner and on top of her league; she kept me feeling safe from my high anxiety jitters of sitting on her dental chair; Th
+
+- **Jasmine Jasmine** ★☆☆☆☆
+  > Dentist F. Garcia is the W O R S T dentist I've ever came across in my life! She has horrible chair side manner. An attitude from H E L L. Don't waste your time coming here . I didn't hear her say her name and I asked her like three times she sat at the computer with her back turned and ignored my q
+
+- **Ashley Ortega Rivera** ★★★★★
+  > When I went for a check up for a broken tooth, the staff was very helpful and quick in the process. They performed new x-rays and examined the area, detailing me what was happening and why I was in pain. There was one woman who was very empathic about the situation and I was prescribed antibiotics f
+
+---
+
 ## Proposal Data
 
 ### Competitors

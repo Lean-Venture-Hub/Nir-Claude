@@ -37,12 +37,25 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **shanay wise** ★★★★★
+  > My family have been patients of Dr. Rivas for over 20 years. He is a great dentist and his staff are truly professional and very helpful! I recommend any one that is looking for a family dentist to make Dr. Rivas your choice!
+
+- **Carla Alvarez** ★★★★★
+  > The receptionist is very kind and welcoming. Dr. Rivas explains everything clearly and the stuff makes sure I am comfortable every visit.
+
+- **Cinthia Ortiz** ★★★★★
+  > Dr. Rivas is amazing. His staff is awesome. I recommend him to everyone I know. He takes well care of me and my family and is honest about and upfront about all the work to be done. We don't see him as often as we should, but he and his staff always recognize us. It's a great personal touch that mak
+
+---
+
 ## Proposal Data
 
 ### Competitors
-- **Metro Dental Care:** 4.5 rating, 423 reviews
-- **Upper East Dental:** 4.8 rating, 301 reviews
-- **NYC Dental Group:** 4.6 rating, 567 reviews
+- **Lone Star Family Dental:** 4.5 rating, 534 reviews
+- **Fort Worth Dental:** 4.7 rating, 312 reviews
+- **Metroplex Dental Care:** 4.6 rating, 478 reviews
 
 ### Key Insight
 - 4.2 rating is good, but only 13 reviews

@@ -1,21 +1,461 @@
 {
-  "Sarak Vezire DDS": [],
-  "Mednick Saul DDS": [],
-  "Scott Howell": [],
-  "Quisqueya Dental: Hernandez Miladys DDS": [],
-  "Dr. Kamal Brar, DDS": [],
-  "Southeast Dental": [],
-  "Dr. Irving Bruck, DDS": [],
-  "West 94th Street Dental Associates": [],
-  "Dr. Kyle D. Eberlein, DDS": [],
-  "Dr. Dario Y. Yapor, DDS": [],
-  "Richard P Medina DDS LLC": [],
-  "Dr. Jesse Rivas, DDS": [],
-  "Westridge Dental Group: Kasper Robert DDS": [],
-  "Mendoza David R DDS": [],
-  "Dr. Divyang B. Patel, DDS": [],
-  "Dental Innovations PC": [],
-  "Rosenberg Phillip DDS": [],
-  "P.E.G. General Dental": [],
-  "Reunited Medical And Dental": []
+  "Sarak Vezire DDS": [
+    {
+      "name": "Stephanie Baez",
+      "rating": 5,
+      "text": "I had a hard time finding a dentist that would take my insurance in the heights and to give me a last min appointment. I must’ve called like 20 places. I didn’t want to go to the dentist I was assigned to, it had terrible reviews and super long wait times. I found this office and they not only took "
+    },
+    {
+      "name": "Herculano Federici",
+      "rating": 5,
+      "text": ""
+    },
+    {
+      "name": "Sashey Carl",
+      "rating": 5,
+      "text": ""
+    }
+  ],
+  "Mednick Saul DDS": [
+    {
+      "name": "Shernel Phillips",
+      "rating": 2,
+      "text": "Tried calling  the number for three days. It just rings then cuts off."
+    },
+    {
+      "name": "Nery Tavarez",
+      "rating": 5,
+      "text": "Nice dentist"
+    },
+    {
+      "name": "Gabriela Rivera",
+      "rating": 5,
+      "text": ""
+    }
+  ],
+  "Scott Howell": [
+    {
+      "name": "Katelyn Fernandez",
+      "rating": 5,
+      "text": "Dr. Howell was absolutely amazing. He explained everything in detail before my procedure, constantly checked to make sure I was okay during my procedure, and kept me updated with how things were going. He is the kindest gentlemen and I would HIGHLY recommend to him to anyone that needs specialty den"
+    },
+    {
+      "name": "Michelle Parker",
+      "rating": 5,
+      "text": "My husband, son and I have visited Dr. Howell several times for various issues. We’ve always had great experiences, as far as dental work can be great. The staff is friendly, helpful and knowledgeable. Dr. Howell listens to our questions with patience and understanding. We don’t use anyone else."
+    },
+    {
+      "name": "Devin Stone",
+      "rating": 5,
+      "text": "Super awesome guy. Easy to talk to and makes his explanations easy to understand and trust. Appreciate that in a Dentist."
+    }
+  ],
+  "Quisqueya Dental: Hernandez Miladys DDS": [
+    {
+      "name": "Jenn's Rich",
+      "rating": 1,
+      "text": "I was traumatized by this dentist, she is so rough and her office is not sanitary. My mouth ended up in pain over 6 months after being serviced for a cavity by her, I never went back!"
+    },
+    {
+      "name": "Rosalba E Rivera",
+      "rating": 5,
+      "text": "Dr. Hernandez is an Amazing Dentist. I Recommend her. She is Very skilled and knowledgeable in the Dentistry Business."
+    },
+    {
+      "name": "george falero sr",
+      "rating": 5,
+      "text": "Pleasant and painless"
+    }
+  ],
+  "Dr. Kamal Brar, DDS": [
+    {
+      "name": "Ajab Boparai",
+      "rating": 5,
+      "text": "Dr. Kamal Brar is hands down one of the best dentists I’ve ever visited. Her professionalism, gentle approach, and attention to detail made my entire experience comfortable and stress-free. The clinic is modern and spotless, and Dr. Brar takes the time to explain everything clearly. You can tell she"
+    },
+    {
+      "name": "emily",
+      "rating": 5,
+      "text": "Highly recommend Dr Brar to all my friends and family. She is very attentive to my concerns and deeply cares about each patient. I will continue seeing her for all my dental services. Look no further if you are considering going to this provider!"
+    },
+    {
+      "name": "Daniela Spancec",
+      "rating": 5,
+      "text": "I've been visiting this clinic for years, and Dr. Kamala is an exceptionally professional dentist. I'm always very satisfied with the care I receive, excellent  service and outstanding customer care. I would highly recommend this clinic."
+    }
+  ],
+  "Southeast Dental": [
+    {
+      "name": "Duy Do (DDO90)",
+      "rating": 5,
+      "text": "Great place for dental. You will not have to wait long for appointments. The dentist is really kind and down to earth. She is working by herself. She was very careful while working on my cracked teeth. One of my big fears is going to the dentist, but she made sure with me it would not hurt, and it d"
+    },
+    {
+      "name": "BridgewaterHOA Board",
+      "rating": 5,
+      "text": "Outstanding, really cares. Continually checks on me to ensure I am OK and in no pain. Glad I found her and I drive 25 miles to keep her."
+    },
+    {
+      "name": "Việt Nam quê tôi",
+      "rating": 1,
+      "text": "I don’t recommend anyone come to this place , this dentist run office by herself no one helps.  The dentist done my fill-Ins  and crown . It’s hurt , keeps came back  to fix it ."
+    }
+  ],
+  "Dr. Irving Bruck, DDS": [
+    {
+      "name": "Urban Heat",
+      "rating": 1,
+      "text": "The older lady who answered the phone was extremely rude told me they’re leaving to call back on Monday and just abruptly hung up in my ear. Horrible customer service which is ironic for a medical practice ."
+    },
+    {
+      "name": "Daniel Case",
+      "rating": 1,
+      "text": "Dr. Bruck is arrogant and doesn't care about his patients. He's all about getting as many appointments out of you as possible and then overcharging the insurance carriers."
+    },
+    {
+      "name": "Nate Neustein",
+      "rating": 5,
+      "text": "One of the best dentists he is very helpful and makes you feel comfortable with the process I've used him for a year and a half now nothing but great work I even had done a root canal by him he made it feel not painful and the tooth has been great since then and the price for Root canal was very rea"
+    }
+  ],
+  "West 94th Street Dental Associates": [
+    {
+      "name": "Jessica Danton",
+      "rating": 5,
+      "text": "I had a fear of visiting the dentist for as long as I could remember and used to avoid it as much as possible. However, when I had a few cavities a few years ago I went to Dr. Dayani and he has been my go-to dentist since. He always made me feel comfortable and safe. He did a great job with my filli"
+    },
+    {
+      "name": "Isabella D",
+      "rating": 5,
+      "text": "I have been seeing Dr. Dayani for 20 years and have always been highly satisfied with my experience.  He is clearly very knowledgeable, the wait time is always reasonable, and the office is clean. This past February, I went in for a cleaning and Dr Dayani was very thorough. He showed me how I can im"
+    },
+    {
+      "name": "Sybil Thompkins",
+      "rating": 4,
+      "text": "I needed a root canal asap! Dr. Dayani found a way to fit me into his already busy schedule. He took well care of me and explained every step of the process."
+    }
+  ],
+  "Dr. Kyle D. Eberlein, DDS": [
+    {
+      "name": "Patricia Medrano",
+      "rating": 5,
+      "text": "Excellent service! Staff is so friendly and service is honest and they are affordable. They are really in the business of giving you the best dental health."
+    },
+    {
+      "name": "Jared Maale",
+      "rating": 5,
+      "text": "Great 1st visit with reason attending seeking a second opinion due prior dentist creating new work with an estimate of $5000.... Checked out and cleaned by their team with everything OK except for two minor sealants costing $100 total.  $100 < $5000 🤑  Dr. Mulachy did a great job and fixed the issue"
+    },
+    {
+      "name": "Emily Chavarriaga",
+      "rating": 1,
+      "text": "I’ve been coming here for 10 years and always had a wonderful experience. Sadly for the first time in almost a decade I had to do a same day reschedule because my son is home sick and I was told that there is a $50 cancellation fee for a variety of business reasons. I’ll be looking for another denti"
+    }
+  ],
+  "Dr. Dario Y. Yapor, DDS": [
+    {
+      "name": "Abigail Denecke",
+      "rating": 5,
+      "text": "Dario Yapor is an incredible dentist! His work on my mouth was painless and he made my teeth look so beautiful! 🤩 Thank you so much! His office in Mount Kisco was perfect and meant I could stay close to home. …"
+    },
+    {
+      "name": "Luis Arquimedes",
+      "rating": 5,
+      "text": "Friendly staff, the front desk receptionist was very welcoming and kind.\nDr. Yapor has the best hands I did not feel any pain especially when he gave me a shot. I will go back to see him again. The best part is that they have great general dentistry.\nthere no need to go somewhere else. Friendly and "
+    },
+    {
+      "name": "Ayten Farrell",
+      "rating": 5,
+      "text": "He took my dentist phobia away.\nHe is a very professional wonderful caring dentist\nGreat friendly staff  !\nHappy to have found my family dentist"
+    }
+  ],
+  "Richard P Medina DDS LLC": [
+    {
+      "name": "Enio E Gutierrez Martinez",
+      "rating": 5,
+      "text": "I am so happy with today’s dental visit. Dr. Laura completed the deep cleaning very well to the point that I did not bleed and no pain at all. She is very professional and people person. Ms. Jaqueline called me twice to friendly reminder today’s appointment. I highly recommend this dental office."
+    },
+    {
+      "name": "Alex Truica",
+      "rating": 1,
+      "text": "So let me get this straight: Wife goes here for a checkup because of tooth pain. They do an X-ray, find the cavity causing pain, and then proceed to do ... a cleaning. Why? If the patient requests a cavity fix, why not just fix the cavity and be done with it? So silly. And even the cleaning felt rus"
+    },
+    {
+      "name": "First Name Last Name",
+      "rating": 5,
+      "text": "Made an appointment due to tooth pain. Went to three dentist before him they all gave me the runaround went to him. He assessed the situation, made a recommendation and remove the tooth all in the same day.. I was under the impression I was going to have to go back to remove the tooth when he inform"
+    }
+  ],
+  "Dr. Jesse Rivas, DDS": [
+    {
+      "name": "shanay wise",
+      "rating": 5,
+      "text": "My family have been patients of Dr. Rivas for over 20 years. He is a great dentist and his staff are truly professional and very helpful! I recommend any one that is looking for a family dentist to make Dr. Rivas your choice!"
+    },
+    {
+      "name": "Carla Alvarez",
+      "rating": 5,
+      "text": "The receptionist is very kind and welcoming. Dr. Rivas explains everything clearly and the stuff makes sure I am comfortable every visit."
+    },
+    {
+      "name": "Cinthia Ortiz",
+      "rating": 5,
+      "text": "Dr. Rivas is amazing. His staff is awesome. I recommend him to everyone I know. He takes well care of me and my family and is honest about and upfront about all the work to be done. We don't see him as often as we should, but he and his staff always recognize us. It's a great personal touch that mak"
+    }
+  ],
+  "Westridge Dental Group: Kasper Robert DDS": [
+    {
+      "name": "Dee Astell",
+      "rating": 5,
+      "text": "Dr. Strankman kept me comfortable and amused while doing my ex-rays. He was easy to talk to and set me up a referral to an oral surgeon to take care of my issue.\nUp to date equipment and nicely decorated lobby and exam rooms.\nEfficient and polite office staff."
+    },
+    {
+      "name": "Stephanie Heisler",
+      "rating": 5,
+      "text": "I just had my dentist appointment today at 2:00 and I have to say he was very pleasant. He didn't try to have me do things I didn't need done. I was impressed with his staff as well."
+    },
+    {
+      "name": "cassie c",
+      "rating": 5,
+      "text": "Love this place, been going for years and everyone is so amazing!"
+    }
+  ],
+  "Mendoza David R DDS": [
+    {
+      "name": "Susan Davis",
+      "rating": 5,
+      "text": "This is a review that is 21 years overdue! In 2005 my veneers popped off tooth number 8 and 9. Dr. Mendoza recommended empress crowns and he did a top-notch job. Whenever I tell people that my crowns lasted 21 years, they are in shock, especially considering they are in the front so it also looked n"
+    },
+    {
+      "name": "Warren Thayer",
+      "rating": 5,
+      "text": "Dr. Mendoza is absolutely terrific. He's done fine work for me with almost no pain whatever. Easy-going, conscientious, happy to explain things and highly competent. His fees are also reasonable. Kendra, the receptionist, is friendly and helpful. I highly recommend this practice."
+    },
+    {
+      "name": "MARK THE SHARK",
+      "rating": 5,
+      "text": "Dr. Mendoza was excellent, just got new insurance thru work and had an old filling fall out so I needed to find a good dentist near-by quick. Found Dr. Mendoza thru my insurance website and called. They got me in right away even tho I was a new patient. Dr. Mendoza and  his assistant (forgot to catc"
+    }
+  ],
+  "Dr. Divyang B. Patel, DDS": [
+    {
+      "name": "Dora Balla",
+      "rating": 5,
+      "text": "Our family and friends use Dr Patel service for years.\nHis office always clean, organized, quiet and calming.\nThe consultation with him  is helpful, thorough.\nThe procedure fast and effective.\nTherefore he is highly recommended."
+    },
+    {
+      "name": "Nora Kosumi",
+      "rating": 5,
+      "text": "Dr. Patel is the last standing honest dentist out there. Not only is he excellent at what he does, but he’s not out to get you, something I feel must dentist are nowadays. He’s extremely polite, professional, kind, knowledgeable, and provides out of the box solutions and home remedies that don’t bre"
+    },
+    {
+      "name": "Vic Portervint",
+      "rating": 5,
+      "text": "Doctor Patel,\nHas been so professional and courteous, with each visit.\nGreat sense of humor,that cushions an otherwise tense visit,that we all make,\nnot often enough.\nIt's always a pleasure to visit and share stories about our families.\nThere is a Pharmacy 3 doors away,that's most accommodating to V"
+    }
+  ],
+  "Dental Innovations PC": [
+    {
+      "name": "KK MA",
+      "rating": 2,
+      "text": "The receptionists had such an arrogant attitude. She said they don’t accept new patients, so is the phone number only for existing ones?"
+    },
+    {
+      "name": "Elizabeth &",
+      "rating": 1,
+      "text": "I usually don’t like to give a review, especially a bad review. The front desk said her name is Annie, her attitude is very terrible and impatient, hang up my phone 3 times for no reason.and It’s very interesting that the girl said she can speak Mandarin but not understand what i said to her. Never "
+    },
+    {
+      "name": "Yeung Lo",
+      "rating": 5,
+      "text": "Adrian did a great job on my 2 cavities and cleaning. I have a few more issues and will be coming back to him."
+    }
+  ],
+  "Rosenberg Phillip DDS": [
+    {
+      "name": "G W",
+      "rating": 2,
+      "text": "The dentist there is not nice only dr Rosenberg is good and doesn't see most patiences. After paying lots of money for braces my teeth were still not perfect. Also, he didn't advise me to pull my wisdom teeth so when they grew out everything shifted. He blamed me for not wearing my retainers but how"
+    },
+    {
+      "name": "TheBenbenjr",
+      "rating": 1,
+      "text": "BAD PEOPLE!!!! THEY WILL DOUBLE AND TRIPLE BILL YOU"
+    },
+    {
+      "name": "Herman Kestenbaum",
+      "rating": 1,
+      "text": "Worst orthodontist in the world. Horrible personality,and horrible work."
+    }
+  ],
+  "P.E.G. General Dental": [
+    {
+      "name": "Crooked Flower",
+      "rating": 5,
+      "text": "Dr. Garcia has been the best dentist by far that I have ever dealt with; I can't believe everything went well with my major phobia of dentists! She is professional, great bedside manner and on top of her league; she kept me feeling safe from my high anxiety jitters of sitting on her dental chair; Th"
+    },
+    {
+      "name": "Jasmine Jasmine",
+      "rating": 1,
+      "text": "Dentist F. Garcia is the W O R S T dentist I've ever came across in my life! She has horrible chair side manner. An attitude from H E L L. Don't waste your time coming here . I didn't hear her say her name and I asked her like three times she sat at the computer with her back turned and ignored my q"
+    },
+    {
+      "name": "Ashley Ortega Rivera",
+      "rating": 5,
+      "text": "When I went for a check up for a broken tooth, the staff was very helpful and quick in the process. They performed new x-rays and examined the area, detailing me what was happening and why I was in pain. There was one woman who was very empathic about the situation and I was prescribed antibiotics f"
+    }
+  ],
+  "Reunited Medical And Dental": [
+    {
+      "name": "Melissa McMath",
+      "rating": 1,
+      "text": "So this office would get 0 stars if it allowed me to review it with 0 stars.  My daughter went there recently for a regular cleaning and waited for like 4 hours for this doctor.  They don’t make appts so they’re walk in only and walk in means, come in as early as possible and wait for the doctor to "
+    },
+    {
+      "name": "Rasheed Rodriguez",
+      "rating": 1,
+      "text": "I went there at 9:24 am Saturday the lady told me they don't take fidelis on Saturday and that I couldn't get seen don't make sense"
+    },
+    {
+      "name": "Michelle J",
+      "rating": 5,
+      "text": "I went yesterday as a walk-in and in pain, ended up getting an extraction Everyone is really  nice and caring. The doctor is EXCELLENT I felt absolutely zero pain during or after. I will definitely go back here. They make it easier if you’re scared. Nice and clean too.\nC.Jackson"
+    }
+  ],
+  "Dr. Magdy Elsharouny, DDS": [
+    {
+      "name": "nicole zu",
+      "rating": 5,
+      "text": "best dentist i’ve been to in all my 20 years. Made me feel super comfortable throughout my appointment and is very intelligent in his work. highly recommend !"
+    },
+    {
+      "name": "Lung Chang",
+      "rating": 5,
+      "text": "I had a very quick session with the Dentist. Dr. Elsharouny had a very friendly demeanor. He explained my situation thoughtfully. I had expected a cavity but I only had a cleaning done. He was very careful to prevent any pain during the cleaning. I'm thankful for that."
+    },
+    {
+      "name": "Raymond Torres",
+      "rating": 5,
+      "text": "I really appreciated the service I received from Dr. Elsharouny. He's was patient, wise, transparent, and showed a genuine concern for my oral health. He's definitely a treasure in the field. Not like anyone I been used to. I was fortunate to have visited him. If you're searching for a dentist, I wh"
+    }
+  ],
+  "East Pioneer Dental": [
+    {
+      "name": "claudia harumi Shirk",
+      "rating": 5,
+      "text": "My whole family goes here and have for years. Staff super friendly and helpful. They clean very carefully my teeth and for my two daughters make orthodontist for a good price. Definitely recommend.\""
+    },
+    {
+      "name": "Savyna Viraphonh",
+      "rating": 5,
+      "text": "Everything was quick and painless! The Dentist I had effectively informed me on everything I would feel before I felt it and was so reassuring and caring!!"
+    },
+    {
+      "name": "Laura Ordonez",
+      "rating": 5,
+      "text": "By far one of the most humble and great dentist have been going to him for the past 15 years happy 20 year Anniversary."
+    }
+  ],
+  "Shen Dental": [
+    {
+      "name": "C R",
+      "rating": 5,
+      "text": "Dr. Fuzailov and his amazing staff were so compassionate and professional. Long after office hours he accommodated and accomplished. I entered with a cracked tooth and left his office with a crown in place. I would highly recommend his practice."
+    },
+    {
+      "name": "Chavy Simonovitz",
+      "rating": 5,
+      "text": "The guy knows his field. Plus he’s a real “mentch”"
+    },
+    {
+      "name": "Etty Goldstein",
+      "rating": 5,
+      "text": "Went to pull 2 wisdom tooth. Got a convenient appointment time, Waiting time was less than half hour, dentist and staff were super nice and the whole thing took less than 10 minutes with minimal pain. Price was super affordable too! Had a great experience. Would highly recommend."
+    }
+  ],
+  "Alma Dental: Kanevsky Alexander DDS": [
+    {
+      "name": "K T",
+      "rating": 5,
+      "text": "The dentist Kanevsky himself is EXCEPTIONAL, a ROCKSTAR! Very attentive, kind, and understanding! Came with a root canal done, he put the crown on - great, quality, top notch work!"
+    },
+    {
+      "name": "Inna Dekhtyareva",
+      "rating": 5,
+      "text": "As a doctor,  he is very professional and honest…!  I’m very satisfied!\nAnd he’s amazing as  individual"
+    },
+    {
+      "name": "Gregory B",
+      "rating": 5,
+      "text": "I have been going to Dr Alex for a very long time - about 20 years. He is my dentist and he takes care of all my teeth. He is a wonderful doctor! He always done an exceptional job - from fillings to crowns to root canals. When I had a very difficult and crooked root canal, he sent me to Endontrist t"
+    }
+  ],
+  "Dr. Leonid Fuks": [
+    {
+      "name": "Veronika Kerdok",
+      "rating": 5,
+      "text": "Grateful to Dr. Fuks not only for his professionalism, but also for being a person who has a long-term vision about the work he performs."
+    },
+    {
+      "name": "Aleksandr Rafalovich",
+      "rating": 5,
+      "text": "Based on my experience, Dr. Fuks is a highly skillful dentist who performs dental work of virtually any complexity highly efficiently and for whom the health of a patient always has the ultimate priority."
+    },
+    {
+      "name": "Vladimir Ouvarov",
+      "rating": 5,
+      "text": "Without absolute dopt, dr. Leonid Fuks is the best doctor in my life. I was honored to be his patient for many, many years. My family wishes you doc to stay healthy and happy! Also I think, you should teach as many novices as possible to your skills."
+    }
+  ],
+  "Abraham Esses, DDS": [
+    {
+      "name": "lamiaa Tahiri",
+      "rating": 5,
+      "text": "What can I say about Dr. Abraham and Dr. Michael? They embody kindness, professionalism, expertise, and strong values in the way they care for their patients. When it comes to ethics, honesty, fair pricing, and true mastery, you're talking about the Esses doctors.\nJust close your eyes and go you are"
+    },
+    {
+      "name": "Aigul Seilova",
+      "rating": 5,
+      "text": "My experience with Abraham Esses was amazing. He is very professional and experienced dentist. I would recommend him for those with dental phobia, such as myself, because procedures are painless and he makes sure to make you feel comfortable. Also my wait time never exceeded 5 minutes. Thanks"
+    },
+    {
+      "name": "Akiva",
+      "rating": 4,
+      "text": "Well experienced and recommended dentist"
+    }
+  ],
+  "Gothelf & Levine: Gothelf Craig G DDS": [
+    {
+      "name": "F. R.",
+      "rating": 5,
+      "text": "Today was my very first appointment with Dr. Gothelf.  It was the best dental experience I've ever had. My appointment was for 3pm. I got called in to be seen at 3pm and was out by 3:15. I didn't anticipate such a prompt start time.\n\nI have excellent teeth and gums due to meticulous oral hygiene, so"
+    },
+    {
+      "name": "20 24",
+      "rating": 2,
+      "text": "A doctor with a good heart is the one who will make no difference whether a patient has private or public medical insurance. Will notify the patient when cavities are in the early stages and then proceed to work on them. That's a true professional."
+    },
+    {
+      "name": "Marcela Rodriguez",
+      "rating": 5,
+      "text": "My uncle highly recommended Dr. Craig Gothelf and I have gone twice already. Once for a general check-up that included an extensive cleaning and X-rays. The second time was to fix a filling that had fallen off. Dr. Gothelf is the most patient, caring dentist I have ever been to! He takes his time an"
+    }
+  ],
+  "Boyd Tiffany D DDS": [
+    {
+      "name": "Tom Snyder",
+      "rating": 5,
+      "text": "I have been a patient for at least 17 years. These ladies have always treated me with the utmost courtesy and professionalism. I have ALWAYS been more than satisified with my dentistry care."
+    },
+    {
+      "name": "Bradley Shprintz",
+      "rating": 5,
+      "text": "Everyone was extremely nice to me. I am 66 years old and have had many different dentists in my time. Tiffany D. Boyd, D.M.D was incredible. She has the most gentle fingers, truly cares about her patients without being judgmental, something that is hard to do. She extracted not sure how you describe"
+    },
+    {
+      "name": "Michael Baran",
+      "rating": 5,
+      "text": "The staff Christen and Anna are very courteous professional, go above and beyond to meet your needs.  Monica the hygienist is very skilled  thorough a true pro.\nDentist Boyd excellent skillet knowledge . Highly recommended\nI've been a patient for 8 years  from cleaning to bridge work. Very pleased w"
+    }
+  ]
 }

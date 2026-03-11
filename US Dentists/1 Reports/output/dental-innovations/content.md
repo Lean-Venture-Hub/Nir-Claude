@@ -37,6 +37,19 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **KK MA** ★★☆☆☆
+  > The receptionists had such an arrogant attitude. She said they don’t accept new patients, so is the phone number only for existing ones?
+
+- **Elizabeth &** ★☆☆☆☆
+  > I usually don’t like to give a review, especially a bad review. The front desk said her name is Annie, her attitude is very terrible and impatient, hang up my phone 3 times for no reason.and It’s very interesting that the girl said she can speak Mandarin but not understand what i said to her. Never 
+
+- **Yeung Lo** ★★★★★
+  > Adrian did a great job on my 2 cavities and cleaning. I have a few more issues and will be coming back to him.
+
+---
+
 ## Proposal Data
 
 ### Competitors

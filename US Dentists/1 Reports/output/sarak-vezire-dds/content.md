@@ -37,6 +37,17 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Stephanie Baez** ★★★★★
+  > I had a hard time finding a dentist that would take my insurance in the heights and to give me a last min appointment. I must’ve called like 20 places. I didn’t want to go to the dentist I was assigned to, it had terrible reviews and super long wait times. I found this office and they not only took 
+
+- **Herculano Federici** ★★★★★
+
+- **Sashey Carl** ★★★★★
+
+---
+
 ## Proposal Data
 
 ### Competitors

@@ -37,6 +37,18 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Shernel Phillips** ★★☆☆☆
+  > Tried calling  the number for three days. It just rings then cuts off.
+
+- **Nery Tavarez** ★★★★★
+  > Nice dentist
+
+- **Gabriela Rivera** ★★★★★
+
+---
+
 ## Proposal Data
 
 ### Competitors

@@ -37,12 +37,25 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Patricia Medrano** ★★★★★
+  > Excellent service! Staff is so friendly and service is honest and they are affordable. They are really in the business of giving you the best dental health.
+
+- **Jared Maale** ★★★★★
+  > Great 1st visit with reason attending seeking a second opinion due prior dentist creating new work with an estimate of $5000.... Checked out and cleaned by their team with everything OK except for two minor sealants costing $100 total.  $100 < $5000 🤑  Dr. Mulachy did a great job and fixed the issue
+
+- **Emily Chavarriaga** ★☆☆☆☆
+  > I’ve been coming here for 10 years and always had a wonderful experience. Sadly for the first time in almost a decade I had to do a same day reschedule because my son is home sick and I was told that there is a $50 cancellation fee for a variety of business reasons. I’ll be looking for another denti
+
+---
+
 ## Proposal Data
 
 ### Competitors
-- **Park Avenue Dental:** 4.8 rating, 342 reviews
-- **Metro Dental Care:** 4.5 rating, 423 reviews
-- **Bright Dental NYC:** 4.9 rating, 189 reviews
+- **DFW Dental Excellence:** 4.8 rating, 367 reviews
+- **Lone Star Family Dental:** 4.5 rating, 534 reviews
+- **Prairie Dental Group:** 4.9 rating, 156 reviews
 
 ### Key Insight
 - 4.1 rating is good, but only 9 reviews

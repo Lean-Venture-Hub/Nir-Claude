@@ -37,6 +37,19 @@ Navigating PPOs, HMOs, discount plans, and financing options for dental care.
 
 ---
 
+## Real Google Reviews
+
+- **C R** ★★★★★
+  > Dr. Fuzailov and his amazing staff were so compassionate and professional. Long after office hours he accommodated and accomplished. I entered with a cracked tooth and left his office with a crown in place. I would highly recommend his practice.
+
+- **Chavy Simonovitz** ★★★★★
+  > The guy knows his field. Plus he’s a real “mentch”
+
+- **Etty Goldstein** ★★★★★
+  > Went to pull 2 wisdom tooth. Got a convenient appointment time, Waiting time was less than half hour, dentist and staff were super nice and the whole thing took less than 10 minutes with minimal pain. Price was super affordable too! Had a great experience. Would highly recommend.
+
+---
+
 ## Proposal Data
 
 ### Competitors

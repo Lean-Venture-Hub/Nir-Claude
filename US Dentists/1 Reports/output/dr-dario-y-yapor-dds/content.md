@@ -37,6 +37,24 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Abigail Denecke** ★★★★★
+  > Dario Yapor is an incredible dentist! His work on my mouth was painless and he made my teeth look so beautiful! 🤩 Thank you so much! His office in Mount Kisco was perfect and meant I could stay close to home. …
+
+- **Luis Arquimedes** ★★★★★
+  > Friendly staff, the front desk receptionist was very welcoming and kind.
+Dr. Yapor has the best hands I did not feel any pain especially when he gave me a shot. I will go back to see him again. The best part is that they have great general dentistry.
+there no need to go somewhere else. Friendly and 
+
+- **Ayten Farrell** ★★★★★
+  > He took my dentist phobia away.
+He is a very professional wonderful caring dentist
+Great friendly staff  !
+Happy to have found my family dentist
+
+---
+
 ## Proposal Data
 
 ### Competitors

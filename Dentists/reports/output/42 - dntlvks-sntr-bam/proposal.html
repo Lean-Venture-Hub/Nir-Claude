@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ניתוח דיגיטלי — דנטלוקס סנטר בע"מ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px}
+body{font-family:'Heebo','Instrument Sans',sans-serif;background:#fafbfd;color:#1a1e2e;line-height:1.6;direction:rtl}
+.container{max-width:720px;margin:0 auto;padding:0 32px}
+.hero-line{height:2px;background:#7b8cc4}
+.hero{padding:48px 0 0}
+.hero-meta{font-family:'Instrument Sans',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:0.3em;color:#999;margin-bottom:20px}
+.hero-name{font-family:'Heebo',sans-serif;font-size:48px;font-weight:700;line-height:1.15;color:#1a1e2e;margin-bottom:8px}
+@media(max-width:600px){.hero-name{font-size:32px}}
+.hero-city{font-family:'Heebo',sans-serif;font-size:18px;color:#7b8cc4;margin-bottom:32px}
+.hr{height:1px;background:#eee;border:none}
+.stats-strip{display:flex;align-items:center;padding:28px 0}
+.stat-item{flex:1;text-align:center}
+.stat-divider{width:1px;height:48px;background:#ddd;flex-shrink:0}
+.stat-number{font-family:'Instrument Sans',sans-serif;font-size:44px;font-weight:700;color:#1a1e2e;line-height:1}
+.stat-label{font-family:'Heebo',sans-serif;font-size:11px;color:#999;text-transform:uppercase;letter-spacing:0.08em;margin-top:6px}
+.section{padding:80px 0 0}
+.section-label{font-family:'Instrument Sans',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:0.2em;color:#999;margin-bottom:32px}
+.comp-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+.comp-header-row .comp-cell{font-family:'Heebo',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#999;padding:0 12px 12px;text-align:center;border-bottom:1px solid #ddd}
+.comp-row{border-bottom:1px solid #eee}
+.comp-cell{padding:14px 12px;text-align:center;font-family:'Heebo',sans-serif;font-size:14px;vertical-align:middle;color:#1a1e2e}
+.cell-label{text-align:right;font-weight:700;font-size:13px;color:#666}
+.cell-you{background:rgba(123,140,196,0.04);font-weight:700}
+.cell-comp{color:#666}
+.reviews-row{background:rgba(123,140,196,0.03)}
+.win{color:#4ade80;font-weight:700}
+.lose{color:#c7a0b8;font-weight:700}
+.callout{border-right:2px solid #7b8cc4;padding:0 20px;font-family:'Heebo',sans-serif;font-size:14px;line-height:1.7;color:#666;margin-top:28px}
+.rating-block{text-align:center;margin-bottom:12px}
+.rating-number{font-family:'Instrument Sans',sans-serif;font-size:72px;font-weight:700;color:#1a1e2e;line-height:1}
+.rating-label{font-family:'Heebo',sans-serif;font-size:14px;color:#999;margin-top:4px}
+.insight-text{font-family:'Heebo',sans-serif;font-size:14px;color:#666;text-align:center;margin:20px 0 40px;line-height:1.7}
+.calc-table{width:100%;border-collapse:collapse;margin-bottom:40px}
+.calc-table th{font-family:'Heebo',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#999;padding:0 16px 12px;text-align:center;border-bottom:1px solid #ddd}
+.calc-table td{padding:12px 16px;text-align:center;font-family:'Heebo',sans-serif;font-size:14px;border-bottom:1px solid #eee;color:#1a1e2e}
+.calc-table tbody tr:first-of-type td{font-weight:700}
+.comp-refs{font-family:'Heebo',sans-serif;font-size:13px;color:#999;text-align:center;padding:20px 0;border-top:1px solid #eee;margin-bottom:20px}
+.comp-refs span{margin:0 12px}
+.urgency-text{font-family:'Heebo',sans-serif;font-size:14px;color:#7b8cc4;text-align:center;margin-top:8px;line-height:1.7}
+.cta-section{padding:80px 0 0}
+.cta-line{height:2px;background:#7b8cc4;margin-bottom:40px}
+.cta-headline{font-family:'Heebo',sans-serif;font-size:24px;font-weight:700;color:#1a1e2e;margin-bottom:6px}
+.cta-sub{font-family:'Heebo',sans-serif;font-size:14px;color:#999}
+.footer{padding:80px 0 32px;text-align:center;font-family:'Instrument Sans',sans-serif;font-size:11px;color:#ccc}
+</style>
+</head>
+<body>
+<div class="hero-line"></div>
+<section class="hero"><div class="container">
+    <p class="hero-meta">ניתוח דיגיטלי — מרץ 2026</p>
+    <h1 class="hero-name">דנטלוקס סנטר בע"מ</h1>
+    <p class="hero-city">פתח תקווה</p>
+    <hr class="hr">
+    <div class="stats-strip">
+      <div class="stat-item"><div class="stat-number">4.6</div><div class="stat-label">דירוג גוגל</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">25</div><div class="stat-label">ביקורות</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">0</div><div class="stat-label">ציון אתר</div></div>
+    </div>
+</div></section>
+
+<section class="section"><div class="container">
+    <hr class="hr"><div style="height:80px"></div>
+    <p class="section-label">השוואת מתחרים</p>
+    <table class="comp-table">
+      <tr class="comp-header-row">
+        <td class="comp-cell"></td>
+        <td class="comp-cell cell-you">אתם</td>
+        <td class="comp-cell">ד"ר עדן זר</td>
+        <td class="comp-cell">ד"ר מסארוה רפואת שיניים</td>
+        <td class="comp-cell">ד"ר אידלמן יצחק - רופא שי</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">דירוג גוגל</td>
+        <td class="comp-cell cell-you">4.6</td>
+        <td class="comp-cell cell-comp lose">5.0</td>
+        <td class="comp-cell cell-comp lose">5.0</td>
+        <td class="comp-cell cell-comp lose">4.8</td>
+      </tr>
+      <tr class="comp-row reviews-row">
+        <td class="comp-cell cell-label">ביקורות</td>
+        <td class="comp-cell cell-you">25</td>
+        <td class="comp-cell cell-comp win">16</td>
+        <td class="comp-cell cell-comp lose">69</td>
+        <td class="comp-cell cell-comp lose">63</td>
+      </tr>
+      <tr class="comp-row">
+        <td class="comp-cell cell-label">אתר אינטרנט</td>
+        <td class="comp-cell cell-you">&#10005;</td>
+        <td class="comp-cell cell-comp">&#10003;</td>
+        <td class="comp-cell cell-comp">&#10003;</td>
+        <td class="comp-cell cell-comp">&#10003;</td>
+      </tr>
+    </table>
+    <div class="callout">המיקום שלכם: מקום 3 מתוך 4 לפי ביקורות. למתחרה המוביל 69 ביקורות — פי 2.8 יותר מכם.</div>
+</div></section>
+
+<section class="section"><div class="container">
+    <hr class="hr"><div style="height:80px"></div>
+    <p class="section-label">ניתוח מוניטין</p>
+    <div class="rating-block"><div class="rating-number">4.6</div><div class="rating-label">25 ביקורות</div></div>
+    <p class="insight-text">דירוג מצוין — אבל רק 25 ביקורות. נפח נמוך של ביקורות פוגע גם באמינות וגם בדירוגים. מטופלים חדשים מחפשים הוכחה כמותית, לא רק ציון.</p>
+    <table class="calc-table">
+      <thead><tr><th>ביקורות חדשות</th><th>דירוג חדש</th><th>שיפור</th></tr></thead>
+      <tbody>
+        <tr><td>היום</td><td>4.6</td><td>—</td></tr>
+        <tr><td>+5</td><td>4.7</td><td>+0.1</td></tr>
+        <tr><td>+10</td><td>4.7</td><td>+0.1</td></tr>
+        <tr><td>+15</td><td>4.8</td><td>+0.2</td></tr>
+        <tr><td>+20</td><td>4.8</td><td>+0.2</td></tr>
+      </tbody>
+    </table>
+    <div class="comp-refs"><span>ד"ר עדן זר — 5.0 (16 ביקורות)</span> | <span>ד"ר מסארוה רפואת שיניים — 5.0 (69 ביקורות)</span> | <span>ד"ר אידלמן יצחק - רופא שי — 4.8 (63 ביקורות)</span></div>
+    <p class="urgency-text">הדירוג שלכם מצוין, אבל עם רק 25 ביקורות אתם נראים "חדשים" בהשוואה למתחרים עם מאות ביקורות. כל חודש ללא תוכנית איסוף ביקורות מרחיב את הפער.</p>
+</div></section>
+
+<section class="cta-section"><div class="container">
+    <div class="cta-line"></div>
+    <h2 class="cta-headline">רוצים לראות את הניתוח המלא?</h2>
+    <p class="cta-sub">כולל ניתוח ביקורות, מחקר מילות מפתח ובדיקה מלאה של הנוכחות הדיגיטלית שלכם.<br>10 דקות בזום — מעוניינים?</p>
+</div></section>
+
+<footer class="footer"><p>מבוסס על מידע ציבורי מגוגל | מרץ 2026</p></footer>
+</body>
+</html>

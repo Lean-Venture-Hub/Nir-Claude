@@ -37,12 +37,27 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Dee Astell** ★★★★★
+  > Dr. Strankman kept me comfortable and amused while doing my ex-rays. He was easy to talk to and set me up a referral to an oral surgeon to take care of my issue.
+Up to date equipment and nicely decorated lobby and exam rooms.
+Efficient and polite office staff.
+
+- **Stephanie Heisler** ★★★★★
+  > I just had my dentist appointment today at 2:00 and I have to say he was very pleasant. He didn't try to have me do things I didn't need done. I was impressed with his staff as well.
+
+- **cassie c** ★★★★★
+  > Love this place, been going for years and everyone is so amazing!
+
+---
+
 ## Proposal Data
 
 ### Competitors
-- **Manhattan Smiles:** 4.7 rating, 218 reviews
-- **Upper East Dental:** 4.8 rating, 301 reviews
-- **Park Avenue Dental:** 4.8 rating, 342 reviews
+- **Phoenix Dental Excellence:** 4.7 rating, 245 reviews
+- **Scottsdale Smiles:** 4.7 rating, 278 reviews
+- **Desert Smiles Dental:** 4.8 rating, 312 reviews
 
 ### Key Insight
 - 4.4 rating is excellent, but only 13 reviews

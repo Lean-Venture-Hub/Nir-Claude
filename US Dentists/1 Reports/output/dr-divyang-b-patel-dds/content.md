@@ -37,12 +37,34 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Dora Balla** ★★★★★
+  > Our family and friends use Dr Patel service for years.
+His office always clean, organized, quiet and calming.
+The consultation with him  is helpful, thorough.
+The procedure fast and effective.
+Therefore he is highly recommended.
+
+- **Nora Kosumi** ★★★★★
+  > Dr. Patel is the last standing honest dentist out there. Not only is he excellent at what he does, but he’s not out to get you, something I feel must dentist are nowadays. He’s extremely polite, professional, kind, knowledgeable, and provides out of the box solutions and home remedies that don’t bre
+
+- **Vic Portervint** ★★★★★
+  > Doctor Patel,
+Has been so professional and courteous, with each visit.
+Great sense of humor,that cushions an otherwise tense visit,that we all make,
+not often enough.
+It's always a pleasure to visit and share stories about our families.
+There is a Pharmacy 3 doors away,that's most accommodating to V
+
+---
+
 ## Proposal Data
 
 ### Competitors
-- **Metro Dental Care:** 4.5 rating, 423 reviews
-- **Park Avenue Dental:** 4.8 rating, 342 reviews
-- **NYC Dental Group:** 4.6 rating, 567 reviews
+- **Florida Premier Dental:** 4.5 rating, 423 reviews
+- **Tampa Bay Dental:** 4.8 rating, 278 reviews
+- **Sunshine Dental Care:** 4.6 rating, 345 reviews
 
 ### Key Insight
 - 4.3 rating is excellent, but only 13 reviews

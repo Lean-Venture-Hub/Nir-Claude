@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>בלוג | חיוך פלוס — ד״ר מיכל לוי | תל אביב</title>
+<meta name="description" content="מאמרים, טיפים ומידע חשוב על טיפולי שיניים ובריאות הפה מהצוות המקצועי של מרפאת חיוך פלוס בתל אביב.">
+<meta property="og:title" content="בלוג | חיוך פלוס — תל אביב">
+<meta property="og:description" content="מאמרים, טיפים ומידע חשוב על טיפולי שיניים ובריאות הפה">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --white:#FFFFFF;
+  --off-white:#FAFAFA;
+  --gray-bg:#CFD3D6;
+  --dark:#3B4043;
+  --dark-deep:#2A2D30;
+  --charcoal:#1E2124;
+  --ink:#1A1D20;
+  --ink-soft:#4A4F54;
+  --gray:#6B7075;
+  --gray-light:#9A9FA4;
+  --sans:'Heebo',sans-serif;
+  --sans-en:'Inter',sans-serif;
+  --serif:'Playfair Display',serif;
+  --radius:24px;
+  --radius-sm:16px;
+  --radius-xs:12px;
+  --transition:0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+body{
+  font-family:var(--sans);
+  direction:rtl;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+/* ── ANIMATIONS ─────────────────────────── */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(32px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+
+/* ── NAVBAR ─────────────────────────────── */
+.navbar{
+  position:sticky;top:0;right:0;left:0;
+  z-index:1000;
+  padding:0 48px;
+  height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  transition:background 0.3s ease,box-shadow 0.3s ease;
+}
+.navbar.scrolled{
+  background:rgba(255,255,255,0.97);
+  box-shadow:0 1px 24px rgba(0,0,0,0.06);
+}
+.nav-logo{
+  font-family:var(--sans-en);
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:3.5px;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-decoration:none;
+  display:flex;align-items:center;gap:10px;
+}
+.nav-logo span{
+  width:6px;height:6px;
+  background:var(--ink);
+  border-radius:50%;
+  display:inline-block;
+}
+.nav-links{
+  display:flex;align-items:center;gap:36px;
+  list-style:none;
+}
+.nav-links a{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:400;
+  color:var(--gray);
+  text-decoration:none;
+  transition:color var(--transition);
+  position:relative;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;right:0;
+  width:0;height:1px;background:var(--ink);
+  transition:width var(--transition);
+}
+.nav-links a:hover::after{width:100%}
+.nav-links a.nav-active{color:var(--ink)}
+.nav-links a.nav-active::after{width:100%}
+
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink);margin:5px 0;transition:all 0.3s ease}
+
+/* ── BLOG HERO ─────────────────────────── */
+.blog-hero{
+  background:var(--off-white);
+  padding:100px 48px 72px;
+  text-align:center;
+}
+.blog-hero-inner{
+  max-width:1280px;
+  margin:0 auto;
+}
+.blog-hero-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;
+  font-weight:500;
+  color:var(--gray);
+  letter-spacing:0.5px;
+  margin-bottom:20px;
+}
+.blog-hero-label::before{
+  content:'';
+  width:6px;height:6px;
+  background:var(--ink);
+  border-radius:50%;
+}
+.blog-hero-heading{
+  font-family:var(--sans);
+  font-size:clamp(32px,4vw,48px);
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.25;
+  margin-bottom:16px;
+  letter-spacing:-0.5px;
+}
+.blog-hero-heading .serif{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+}
+.blog-hero-subtitle{
+  font-size:16px;
+  color:var(--gray);
+  line-height:1.7;
+  max-width:640px;
+  margin:0 auto;
+  font-weight:300;
+}
+
+/* ── CATEGORY FILTER BAR ─────────────────── */
+.category-bar{
+  background:var(--white);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  padding:16px 48px;
+  position:sticky;
+  top:72px;
+  z-index:90;
+}
+.category-bar-inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.category-bar-inner::-webkit-scrollbar{display:none}
+.cat-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:8px 20px;
+  border-radius:40px;
+  font-size:14px;
+  font-weight:400;
+  text-decoration:none;
+  white-space:nowrap;
+  border:1px solid rgba(0,0,0,0.1);
+  color:var(--gray);
+  background:var(--white);
+  transition:all var(--transition);
+  flex-shrink:0;
+}
+.cat-pill:hover{
+  border-color:var(--ink);
+  color:var(--ink);
+}
+.cat-pill.cat-active{
+  background:var(--ink);
+  color:var(--white);
+  border-color:var(--ink);
+}
+
+/* ── BLOG CARDS GRID ─────────────────────── */
+.blog-grid-section{
+  padding:60px 48px 80px;
+  background:var(--white);
+}
+.blog-grid-inner{
+  max-width:1280px;
+  margin:0 auto;
+}
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+/* ── BLOG CARD ─────────────────────────── */
+.blog-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  border:1px solid rgba(0,0,0,0.06);
+  overflow:hidden;
+  transition:transform var(--transition),box-shadow var(--transition);
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.blog-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 32px rgba(0,0,0,0.06);
+}
+
+.blog-card-image{
+  height:200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.blog-card-image.gradient-blue{
+  background:linear-gradient(135deg,var(--dark),var(--charcoal));
+}
+.blog-card-image.gradient-green{
+  background:linear-gradient(135deg,#4A4F54,#6B7075);
+}
+.blog-card-image.gradient-orange{
+  background:linear-gradient(135deg,var(--ink-soft),var(--dark));
+}
+
+.blog-card-badge{
+  position:absolute;
+  bottom:12px;
+  right:12px;
+  padding:5px 14px;
+  border-radius:40px;
+  font-size:12px;
+  font-weight:500;
+  color:var(--white);
+  background:rgba(0,0,0,.25);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.blog-card-body{
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.blog-card-meta{
+  font-size:13px;
+  color:var(--gray-light);
+  margin-bottom:10px;
+  font-weight:300;
+}
+.blog-card-title{
+  font-family:var(--sans);
+  font-size:18px;
+  font-weight:500;
+  color:var(--ink);
+  line-height:1.4;
+  margin-bottom:10px;
+}
+.blog-card-excerpt{
+  font-size:14px;
+  color:var(--gray);
+  line-height:1.7;
+  margin-bottom:16px;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  flex:1;
+  font-weight:300;
+}
+.blog-card-link{
+  font-size:14px;
+  font-weight:400;
+  color:var(--ink);
+  text-decoration:none;
+  transition:color var(--transition);
+}
+.blog-card-link:hover{
+  color:var(--gray);
+}
+.blog-card-link::after{content:'';position:absolute;inset:0;z-index:1}
+
+/* ── CTA CONTACT ────────────────────────── */
+.cta-contact{
+  position:relative;
+  padding:120px 48px;
+  text-align:center;
+  overflow:hidden;
+}
+.cta-bg{
+  position:absolute;inset:0;
+  background:url('../../images/template-images/image2.png') center/cover no-repeat;
+}
+.cta-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,
+    rgba(26,29,32,0.88) 0%,
+    rgba(59,64,67,0.82) 100%
+  );
+}
+.cta-content{
+  position:relative;z-index:2;
+  max-width:600px;
+  margin:0 auto;
+}
+.cta-headline{
+  font-size:clamp(32px,4vw,52px);
+  font-weight:600;
+  color:var(--white);
+  margin-bottom:24px;
+  line-height:1.25;
+}
+.cta-headline .serif{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+}
+.cta-info{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  margin-bottom:40px;
+}
+.cta-info a,.cta-info span{
+  font-size:16px;
+  font-weight:300;
+  color:rgba(255,255,255,0.75);
+  text-decoration:none;
+  transition:color var(--transition);
+}
+.cta-info a:hover{color:var(--white)}
+.btn-paren-dark{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink);
+  background:var(--white);
+  padding:16px 36px;
+  border-radius:40px;
+  border:none;
+  text-decoration:none;
+  cursor:pointer;
+  transition:all var(--transition);
+}
+.btn-paren-dark:hover{
+  background:var(--off-white);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+}
+.btn-paren-dark .paren{
+  font-weight:300;
+  opacity:0.4;
+  font-size:18px;
+}
+
+/* ── FOOTER ─────────────────────────────── */
+.footer{
+  background:var(--charcoal);
+  padding:48px;
+}
+.footer-inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.footer-logo{
+  font-family:var(--sans-en);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--white);
+  text-decoration:none;
+}
+.footer-links{
+  display:flex;gap:28px;
+  list-style:none;
+}
+.footer-links a{
+  font-size:13px;
+  font-weight:300;
+  color:rgba(255,255,255,0.5);
+  text-decoration:none;
+  transition:color var(--transition);
+}
+.footer-links a:hover{color:rgba(255,255,255,0.9)}
+.footer-copy{
+  font-size:12px;
+  color:rgba(255,255,255,0.3);
+  font-weight:300;
+}
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media(max-width:1024px){
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:768px){
+  .navbar{padding:0 24px;height:64px}
+  .nav-links{
+    display:none;
+    position:fixed;top:64px;right:0;left:0;bottom:0;
+    background:rgba(255,255,255,0.98);
+    backdrop-filter:blur(20px);
+    flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:32px;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:18px;color:var(--ink)}
+  .nav-toggle{display:block}
+
+  .blog-hero{padding:72px 24px 48px}
+  .blog-hero-heading{font-size:32px}
+  .category-bar{padding:12px 24px;top:64px}
+  .blog-grid-section{padding:40px 24px 60px}
+  .blog-grid{grid-template-columns:1fr}
+  .cta-contact{padding:80px 24px}
+
+  .footer{padding:32px 24px}
+  .footer-inner{flex-direction:column;gap:24px;text-align:center}
+  .footer-links{justify-content:center}
+}
+
+@media(max-width:480px){
+  .blog-hero-heading{font-size:28px}
+  .cta-headline{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<header class="navbar" id="navbar">
+  <a href="template_example-21.html" class="nav-logo">NOVA DENTAL <span></span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="template_example-21.html#services">שירותים</a></li>
+    <li><a href="template_example-21.html#about">הצוות</a></li>
+    <li><a href="template_example-21.html#testimonials">חוות דעת</a></li>
+    <li><a href="template_example-21.html#contact">צור קשר</a></li>
+    <li><a href="blog.html" class="nav-active">בלוג</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ═══════════════ BLOG HERO ═══════════════ -->
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <span class="blog-hero-label">הבלוג שלנו</span>
+    <h1 class="blog-hero-heading">מאמרים ומידע על <span class="serif">בריאות הפה</span></h1>
+    <p class="blog-hero-subtitle">מרפאת חיוך פלוס | תל אביב — מאמרים, טיפים ומידע חשוב על טיפולי שיניים ובריאות הפה</p>
+  </div>
+</section>
+
+<!-- ═══════════════ CATEGORY FILTER BAR ═══════════════ -->
+<div class="category-bar">
+  <div class="category-bar-inner">
+    <a href="#" class="cat-pill cat-active">הכל</a>
+    <a href="#briut-hapeh" class="cat-pill">בריאות הפה</a>
+    <a href="#tipulim" class="cat-pill">טיפולים</a>
+    <a href="#hatzevet-shelanu" class="cat-pill">הצוות שלנו</a>
+    <a href="#mitosim-veuvdot" class="cat-pill">מיתוסים ועובדות</a>
+    <a href="#onati" class="cat-pill">עונתי</a>
+    <a href="#mivtzaim" class="cat-pill">מבצעים</a>
+    <a href="#sipurei-metuplim" class="cat-pill">סיפורי מטופלים</a>
+  </div>
+</div>
+
+<!-- ═══════════════ BLOG CARDS GRID ═══════════════ -->
+<section class="blog-grid-section">
+  <div class="blog-grid-inner">
+    <div class="blog-grid">
+
+      <!-- Card 1: טיפולים -->
+      <article class="blog-card reveal">
+        <div class="blog-card-image gradient-blue">
+          <img src="../../images/blog-images/3-oral-hygiene.jpg" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">
+          <span class="blog-card-badge">טיפולים</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">2 במרץ 2026 · ד״ר מיכל לוי</div>
+          <h3 class="blog-card-title">השתלת שיניים בתל אביב — המדריך המלא לשנת 2026</h3>
+          <p class="blog-card-excerpt">כל מה שצריך לדעת על השתלת שיניים: שלבי הטיפול, זמן ההחלמה, ואיך לבחור את המרפאה המתאימה בתל אביב.</p>
+          <a href="blog/tipulim/hashtalat-shinayim-tel-aviv.html" class="blog-card-link">קראו עוד &larr;</a>
+        </div>
+      </article>
+
+      <!-- Card 2: בריאות הפה -->
+      <article class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-image gradient-green">
+          <img src="../../images/blog-images/5-dental-implant-diagram.jpg" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">
+          <span class="blog-card-badge">בריאות הפה</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">2 במרץ 2026 · ד״ר מיכל לוי</div>
+          <h3 class="blog-card-title">צחצוח שיניים נכון — 7 טעויות שרוב האנשים עושים</h3>
+          <p class="blog-card-excerpt">רוב האנשים חושבים שהם מצחצחים נכון, אבל טעויות נפוצות יכולות לגרום לנזק. גלו את 7 הטעויות הנפוצות ואיך לתקן אותן.</p>
+          <a href="blog/briut-hapeh/tzviat-shinayim-nechona.html" class="blog-card-link">קראו עוד &larr;</a>
+        </div>
+      </article>
+
+      <!-- Card 3: סיפורי מטופלים -->
+      <article class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-image gradient-orange">
+          <img src="../../images/blog-images/6-happy-patient-thumbsup.jpg" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">
+          <span class="blog-card-badge">סיפורי מטופלים</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">2 במרץ 2026 · ד״ר מיכל לוי</div>
+          <h3 class="blog-card-title">השתלת השיניים שינתה את חיי — הסיפור של נועה מתל אביב</h3>
+          <p class="blog-card-excerpt">נועה הגיעה למרפאה אחרי שנים של הימנעות מטיפולי שיניים. הסיפור שלה מוכיח שהשתלת שיניים יכולה לשנות חיים.</p>
+          <a href="blog/sipurei-metuplim/hashtalat-shinayim-shinu-et-hayim-sheli.html" class="blog-card-link">קראו עוד &larr;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA CONTACT ═══════════════ -->
+<section class="cta-contact" id="contact">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content reveal">
+    <h2 class="cta-headline">מוכנים לחיוך <span class="serif">מושלם?</span></h2>
+    <div class="cta-info">
+      <a href="tel:03-555-1234">03-555-1234</a>
+      <span>רוטשילד 45, תל אביב</span>
+    </div>
+    <a href="tel:03-555-1234" class="btn-paren-dark">
+      <span class="paren">(</span> קביעת תור <span class="paren">)</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="template_example-21.html" class="footer-logo">NOVA DENTAL</a>
+    <ul class="footer-links">
+      <li><a href="template_example-21.html#services">שירותים</a></li>
+      <li><a href="template_example-21.html#about">אודות</a></li>
+      <li><a href="template_example-21.html#testimonials">חוות דעת</a></li>
+      <li><a href="template_example-21.html#contact">צור קשר</a></li>
+      <li><a href="blog.html">בלוג</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 חיוך פלוס. כל הזכויות שמורות.</span>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled',window.scrollY>40);
+},{passive:true});
+
+// Mobile nav toggle
+const toggle=document.getElementById('navToggle');
+const links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>{
+  links.classList.toggle('open');
+  const spans=toggle.querySelectorAll('span');
+  const isOpen=links.classList.contains('open');
+  spans[0].style.transform=isOpen?'rotate(45deg) translate(4px,4px)':'';
+  spans[1].style.opacity=isOpen?'0':'1';
+  spans[2].style.transform=isOpen?'rotate(-45deg) translate(5px,-5px)':'';
+});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  links.classList.remove('open');
+  const spans=toggle.querySelectorAll('span');
+  spans[0].style.transform='';
+  spans[1].style.opacity='1';
+  spans[2].style.transform='';
+}));
+
+// Scroll reveal
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

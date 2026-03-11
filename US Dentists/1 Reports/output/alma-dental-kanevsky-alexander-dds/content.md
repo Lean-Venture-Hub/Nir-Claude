@@ -37,6 +37,20 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **K T** ★★★★★
+  > The dentist Kanevsky himself is EXCEPTIONAL, a ROCKSTAR! Very attentive, kind, and understanding! Came with a root canal done, he put the crown on - great, quality, top notch work!
+
+- **Inna Dekhtyareva** ★★★★★
+  > As a doctor,  he is very professional and honest…!  I’m very satisfied!
+And he’s amazing as  individual
+
+- **Gregory B** ★★★★★
+  > I have been going to Dr Alex for a very long time - about 20 years. He is my dentist and he takes care of all my teeth. He is a wonderful doctor! He always done an exceptional job - from fillings to crowns to root canals. When I had a very difficult and crooked root canal, he sent me to Endontrist t
+
+---
+
 ## Proposal Data
 
 ### Competitors

@@ -37,6 +37,20 @@ Navigating PPOs, HMOs, discount plans, and financing options for dental care.
 
 ---
 
+## Real Google Reviews
+
+- **Melissa McMath** ★☆☆☆☆
+  > So this office would get 0 stars if it allowed me to review it with 0 stars.  My daughter went there recently for a regular cleaning and waited for like 4 hours for this doctor.  They don’t make appts so they’re walk in only and walk in means, come in as early as possible and wait for the doctor to 
+
+- **Rasheed Rodriguez** ★☆☆☆☆
+  > I went there at 9:24 am Saturday the lady told me they don't take fidelis on Saturday and that I couldn't get seen don't make sense
+
+- **Michelle J** ★★★★★
+  > I went yesterday as a walk-in and in pain, ended up getting an extraction Everyone is really  nice and caring. The doctor is EXCELLENT I felt absolutely zero pain during or after. I will definitely go back here. They make it easier if you’re scared. Nice and clean too.
+C.Jackson
+
+---
+
 ## Proposal Data
 
 ### Competitors

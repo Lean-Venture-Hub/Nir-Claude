@@ -37,6 +37,19 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Jessica Danton** ★★★★★
+  > I had a fear of visiting the dentist for as long as I could remember and used to avoid it as much as possible. However, when I had a few cavities a few years ago I went to Dr. Dayani and he has been my go-to dentist since. He always made me feel comfortable and safe. He did a great job with my filli
+
+- **Isabella D** ★★★★★
+  > I have been seeing Dr. Dayani for 20 years and have always been highly satisfied with my experience.  He is clearly very knowledgeable, the wait time is always reasonable, and the office is clean. This past February, I went in for a cleaning and Dr Dayani was very thorough. He showed me how I can im
+
+- **Sybil Thompkins** ★★★★☆
+  > I needed a root canal asap! Dr. Dayani found a way to fit me into his already busy schedule. He took well care of me and explained every step of the process.
+
+---
+
 ## Proposal Data
 
 ### Competitors

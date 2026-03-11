@@ -37,6 +37,20 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **lamiaa Tahiri** ★★★★★
+  > What can I say about Dr. Abraham and Dr. Michael? They embody kindness, professionalism, expertise, and strong values in the way they care for their patients. When it comes to ethics, honesty, fair pricing, and true mastery, you're talking about the Esses doctors.
+Just close your eyes and go you are
+
+- **Aigul Seilova** ★★★★★
+  > My experience with Abraham Esses was amazing. He is very professional and experienced dentist. I would recommend him for those with dental phobia, such as myself, because procedures are painless and he makes sure to make you feel comfortable. Also my wait time never exceeded 5 minutes. Thanks
+
+- **Akiva** ★★★★☆
+  > Well experienced and recommended dentist
+
+---
+
 ## Proposal Data
 
 ### Competitors

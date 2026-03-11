@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smile Plus Dental | Dr. Michal Levy | Tel Aviv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --white:#FFFFFF;
+  --off-white:#FAFAFA;
+  --services-bg:#CFD3D6;
+  --dark-card:#3B4043;
+  --ink:#1A1A1A;
+  --ink-soft:#4A4A4A;
+  --gray:#6B7280;
+  --gray-light:#9CA3AF;
+  --border:#E5E7EB;
+  --sans:'Inter',sans-serif;
+  --serif:'Playfair Display',serif;
+  --radius:22px;
+  --radius-sm:14px;
+}
+
+body{
+  font-family:var(--sans);
+  direction:ltr;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── ANIMATIONS ─────────────────────────── */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeInLeft{
+  from{opacity:0;transform:translateX(-30px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes fadeInRight{
+  from{opacity:0;transform:translateX(30px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes scaleIn{
+  from{opacity:0;transform:scale(0.9)}
+  to{opacity:1;transform:scale(1)}
+}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(0.92);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+.stagger-1{transition-delay:0.05s}
+.stagger-2{transition-delay:0.12s}
+.stagger-3{transition-delay:0.2s}
+.stagger-4{transition-delay:0.28s}
+.stagger-5{transition-delay:0.36s}
+.stagger-6{transition-delay:0.44s}
+
+/* ── NAVBAR ─────────────────────────────── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  padding:0 56px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  transition:all 0.3s ease;
+}
+nav.scrolled{
+  box-shadow:0 1px 20px rgba(0,0,0,0.06);
+}
+.nav-logo{
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:1.15rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{
+  font-size:0.82rem;
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  text-decoration:none;
+  position:relative;
+  transition:color 0.3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;
+  background:var(--ink);transition:width 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.04em;
+  padding:10px 26px;
+  border:1.5px solid var(--ink);
+  border-radius:50px;
+  color:var(--ink);
+  text-decoration:none;
+  transition:all 0.3s;
+}
+.nav-cta:hover{background:var(--ink);color:var(--white)}
+
+/* Mobile menu */
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001}
+.menu-toggle span{width:22px;height:1.5px;background:var(--ink);transition:all 0.3s}
+
+@media(max-width:900px){
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:280px;height:100vh;
+    flex-direction:column;justify-content:center;gap:28px;
+    background:var(--white);box-shadow:-10px 0 40px rgba(0,0,0,0.08);
+    transition:right 0.4s cubic-bezier(0.16,1,0.3,1);padding:0;
+  }
+  .nav-links.open{right:0}
+  .menu-toggle{display:flex}
+  nav{padding:0 24px}
+}
+
+/* ── HERO ───────────────────────────────── */
+.hero{
+  position:relative;
+  width:100%;
+  height:100vh;
+  min-height:700px;
+  max-height:1000px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:url('../../images/template-images/image4.png') center/cover no-repeat;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(255,255,255,0.95) 0%,rgba(255,255,255,0.85) 35%,rgba(255,255,255,0.4) 60%,rgba(255,255,255,0.05) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 56px;
+  max-width:680px;
+}
+.hero-title{
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:clamp(3rem,5.5vw,4.8rem);
+  line-height:1.05;
+  letter-spacing:-0.03em;
+  color:var(--ink);
+  margin-bottom:28px;
+}
+.hero-title .serif-line{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:500;
+  letter-spacing:-0.01em;
+}
+.hero-subtitle{
+  font-size:1.05rem;
+  font-weight:400;
+  color:var(--ink-soft);
+  line-height:1.7;
+  max-width:440px;
+  margin-bottom:36px;
+}
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.88rem;
+  font-weight:600;
+  letter-spacing:0.04em;
+  color:var(--ink);
+  text-decoration:none;
+  padding:14px 36px;
+  border:2px solid var(--ink);
+  border-radius:50px;
+  transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+  position:relative;
+  overflow:hidden;
+}
+.hero-cta::before{
+  content:'';position:absolute;inset:0;
+  background:var(--ink);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  z-index:-1;
+}
+.hero-cta:hover{color:var(--white);border-color:var(--ink)}
+.hero-cta:hover::before{transform:scaleX(1)}
+
+/* Hero stagger animation */
+.hero-content .hero-title{opacity:0;animation:fadeInUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s forwards}
+.hero-content .hero-subtitle{opacity:0;animation:fadeInUp 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards}
+.hero-content .hero-cta{opacity:0;animation:fadeInUp 1s cubic-bezier(0.16,1,0.3,1) 0.7s forwards}
+
+/* ── SECTION COMMON ─────────────────────── */
+section{padding:120px 56px}
+.section-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.78rem;
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:20px;
+}
+.section-label::before{
+  content:'';
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--ink);
+}
+.section-heading{
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  letter-spacing:-0.03em;
+  line-height:1.1;
+  color:var(--ink);
+  margin-bottom:20px;
+}
+.section-heading .serif-accent{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:500;
+}
+
+/* ── ABOUT ──────────────────────────────── */
+.about{
+  background:var(--white);
+  overflow:hidden;
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  max-width:1240px;
+  margin:0 auto;
+}
+.about-image-wrap{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  aspect-ratio:4/5;
+}
+.about-image-wrap img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.about-image-wrap:hover img{transform:scale(1.03)}
+.about-image-wrap::after{
+  content:'';position:absolute;
+  bottom:20px;right:20px;
+  width:48px;height:48px;
+  border:2px solid rgba(255,255,255,0.5);
+  border-radius:50%;
+}
+.about-image-wrap .circle-dot{
+  position:absolute;
+  bottom:20px;right:20px;
+  width:48px;height:48px;
+  border:2px solid rgba(255,255,255,0.6);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-image-wrap .circle-dot::after{
+  content:'';
+  width:8px;height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.8);
+}
+.about-text{max-width:520px}
+.about-text p{
+  font-size:1.05rem;
+  line-height:1.85;
+  color:var(--ink-soft);
+  margin-bottom:20px;
+}
+.about-text p .mixed-serif{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:500;
+  color:var(--ink);
+}
+.about-detail{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:32px;
+}
+.about-detail .circle-dot-sm{
+  width:36px;height:36px;
+  border:1.5px solid var(--ink);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.about-detail .circle-dot-sm::after{
+  content:'';
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--ink);
+}
+.about-detail span{
+  font-size:0.88rem;
+  font-weight:500;
+  color:var(--ink);
+  letter-spacing:0.02em;
+}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-image-wrap{max-height:400px}
+}
+
+/* ── SERVICES ───────────────────────────── */
+.services{
+  background:var(--services-bg);
+  overflow:hidden;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  max-width:1240px;
+  margin:48px auto 0;
+}
+.service-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;
+  cursor:default;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+}
+/* Staggered masonry effect */
+.service-card:nth-child(2){margin-top:40px}
+.service-card:nth-child(5){margin-top:40px}
+.service-card.dark-card{
+  background:var(--dark-card);
+  color:var(--white);
+}
+.service-card-img{
+  width:100%;
+  height:200px;
+  overflow:hidden;
+}
+.service-card-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.service-card:hover .service-card-img img{transform:scale(1.06)}
+.service-card-body{padding:28px 24px}
+.service-card-title{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:1.1rem;
+  letter-spacing:-0.01em;
+  margin-bottom:10px;
+}
+.service-card-desc{
+  font-size:0.88rem;
+  line-height:1.7;
+  color:var(--gray);
+}
+.dark-card .service-card-desc{color:rgba(255,255,255,0.6)}
+.service-card-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:16px;
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-decoration:none;
+  transition:gap 0.3s;
+}
+.dark-card .service-card-link{color:var(--white)}
+.service-card-link:hover{gap:12px}
+
+@media(max-width:900px){
+  .services-grid{grid-template-columns:1fr}
+  .service-card:nth-child(2),.service-card:nth-child(5){margin-top:0}
+}
+
+/* ── TESTIMONIALS ───────────────────────── */
+.testimonials{
+  background:var(--white);
+}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  max-width:1240px;
+  margin:48px auto 0;
+}
+.testimonial-card{
+  background:var(--off-white);
+  border-radius:var(--radius);
+  padding:36px 28px;
+  border:1px solid var(--border);
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;
+}
+.testimonial-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(0,0,0,0.06);
+}
+.testimonial-stars{
+  display:flex;gap:3px;margin-bottom:18px;
+  color:#F59E0B;font-size:0.9rem;
+}
+.testimonial-text{
+  font-size:0.95rem;
+  line-height:1.8;
+  color:var(--ink-soft);
+  margin-bottom:24px;
+  font-style:italic;
+}
+.testimonial-author{
+  display:flex;align-items:center;gap:14px;
+}
+.testimonial-avatar{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--services-bg);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.9rem;
+  color:var(--ink);
+}
+.testimonial-name{font-weight:600;font-size:0.9rem;color:var(--ink)}
+.testimonial-role{font-size:0.78rem;color:var(--gray);margin-top:2px}
+
+@media(max-width:900px){
+  .testimonials-grid{grid-template-columns:1fr}
+}
+
+/* ── CTA / CONTACT ──────────────────────── */
+.cta-section{
+  background:var(--off-white);
+  text-align:center;
+}
+.cta-section .section-heading{
+  max-width:600px;
+  margin:0 auto 12px;
+}
+.cta-subtitle{
+  font-size:1.05rem;
+  color:var(--gray);
+  line-height:1.7;
+  max-width:480px;
+  margin:0 auto 40px;
+}
+.cta-actions{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:32px;
+}
+.cta-phone{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 36px;
+  background:var(--ink);
+  color:var(--white);
+  font-size:0.9rem;
+  font-weight:600;
+  letter-spacing:0.04em;
+  border-radius:50px;
+  text-decoration:none;
+  transition:all 0.3s;
+}
+.cta-phone:hover{background:var(--dark-card);transform:translateY(-2px)}
+.cta-address{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 36px;
+  background:transparent;
+  border:1.5px solid var(--border);
+  color:var(--ink);
+  font-size:0.9rem;
+  font-weight:500;
+  border-radius:50px;
+  text-decoration:none;
+  transition:all 0.3s;
+}
+.cta-address:hover{border-color:var(--ink);transform:translateY(-2px)}
+
+/* ── FOOTER ─────────────────────────────── */
+footer{
+  background:var(--ink);
+  color:rgba(255,255,255,0.5);
+  padding:48px 56px;
+}
+.footer-inner{
+  max-width:1240px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+.footer-logo{
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:1rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--white);
+}
+.footer-links{display:flex;gap:28px}
+.footer-links a{
+  font-size:0.8rem;
+  color:rgba(255,255,255,0.4);
+  text-decoration:none;
+  transition:color 0.3s;
+}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{
+  font-size:0.75rem;
+  color:rgba(255,255,255,0.3);
+}
+
+@media(max-width:900px){
+  section{padding:80px 24px}
+  footer{padding:36px 24px}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+
+/* ── SELECTION ──────────────────────────── */
+::selection{background:var(--dark-card);color:var(--white)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">NOVA DENTAL</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <a href="blog-en.html">Blog</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+  <div class="menu-toggle" id="menuToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      Your Smile,<br>
+      Our Commitment<br>
+      <span class="serif-line">to Excellence</span>
+    </h1>
+    <p class="hero-subtitle">Advanced dental care with a personal touch. Dr. Michal Levy and our team are dedicated to creating the smile you've always wanted.</p>
+    <a href="#contact" class="hero-cta">( Book an Appointment )</a>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="about" id="team">
+  <div class="about-grid">
+    <div class="about-image-wrap reveal-left">
+      <img src="../../images/template-images/image10.png" alt="Dr. Michal Levy at Smile Plus Dental" loading="lazy">
+      <div class="circle-dot"></div>
+    </div>
+    <div class="about-text reveal-right">
+      <div class="section-label">About</div>
+      <h2 class="section-heading">Personalized Care,<br><span class="serif-accent">Exceptional Results</span></h2>
+      <p>At <strong>Smile Plus</strong>, we believe that every patient deserves a treatment experience that combines <span class="mixed-serif">clinical excellence</span> with genuine warmth. Dr. Michal Levy brings over 15 years of experience in cosmetic and restorative dentistry.</p>
+      <p>Our clinic in the heart of Tel Aviv is equipped with <span class="mixed-serif">state-of-the-art technology</span>, ensuring precise diagnostics and comfortable treatments that deliver lasting results.</p>
+      <div class="about-detail">
+        <div class="circle-dot-sm"></div>
+        <span>15+ Years of Clinical Excellence in Tel Aviv</span>
+      </div>
+      <div class="about-detail" style="margin-top:14px">
+        <div class="circle-dot-sm"></div>
+        <span>Advanced Technology & Personalized Treatment Plans</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section class="services" id="services">
+  <div style="max-width:1240px;margin:0 auto">
+    <div class="section-label reveal">Services</div>
+    <h2 class="section-heading reveal stagger-1">Comprehensive Dental<br><span class="serif-accent">Solutions</span></h2>
+  </div>
+  <div class="services-grid">
+    <!-- Card 1 -->
+    <div class="service-card reveal stagger-1">
+      <div class="service-card-img">
+        <img src="../../images/template-images/service-aesthetic.jpg" alt="Aesthetic Dentistry" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Aesthetic Dentistry</h3>
+        <p class="service-card-desc">Transform your smile with advanced cosmetic procedures tailored to enhance your natural beauty and confidence.</p>
+        <a href="#" class="service-card-link">Learn More &rarr;</a>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="service-card reveal stagger-2">
+      <div class="service-card-img">
+        <img src="../../images/template-images/service-veneers.jpg" alt="Veneers" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Veneers</h3>
+        <p class="service-card-desc">Premium porcelain veneers crafted to perfection, delivering a flawless and natural-looking smile that lasts.</p>
+        <a href="#" class="service-card-link">Learn More &rarr;</a>
+      </div>
+    </div>
+    <!-- Card 3 — DARK -->
+    <div class="service-card dark-card reveal stagger-3">
+      <div class="service-card-img">
+        <img src="../../images/template-images/service-whitening.jpg" alt="Wisdom Tooth Extraction" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Wisdom Tooth Extraction</h3>
+        <p class="service-card-desc">Safe and gentle extraction procedures using minimally invasive techniques for a comfortable recovery.</p>
+        <a href="#" class="service-card-link">Learn More &rarr;</a>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="service-card reveal stagger-4">
+      <div class="service-card-img">
+        <img src="../../images/template-images/service-implant.jpg" alt="Implantation" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Implantation</h3>
+        <p class="service-card-desc">Permanent tooth replacement solutions using premium implant systems, restoring both function and aesthetics.</p>
+        <a href="#" class="service-card-link">Learn More &rarr;</a>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="service-card reveal stagger-5">
+      <div class="service-card-img">
+        <img src="../../images/template-images/service-aligners.jpg" alt="Orthodontic Treatment" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Orthodontic Treatment</h3>
+        <p class="service-card-desc">Modern orthodontic solutions including clear aligners and advanced bracket systems for all ages.</p>
+        <a href="#" class="service-card-link">Learn More &rarr;</a>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="service-card reveal stagger-6">
+      <div class="service-card-img">
+        <img src="../../images/template-images/service-hygiene.jpg" alt="Professional Hygiene" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Professional Hygiene</h3>
+        <p class="service-card-desc">Thorough cleaning and preventive care to maintain optimal oral health and a bright, healthy smile.</p>
+        <a href="#" class="service-card-link">Learn More &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<section class="testimonials" id="testimonials">
+  <div style="max-width:1240px;margin:0 auto">
+    <div class="section-label reveal">Testimonials</div>
+    <h2 class="section-heading reveal stagger-1">What Our Patients<br><span class="serif-accent">Are Saying</span></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal stagger-1">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"From the very first visit, I felt completely at ease. Dr. Levy explained every step of the veneer process and the results exceeded all my expectations."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">NC</div>
+        <div>
+          <div class="testimonial-name">Noa Cohen</div>
+          <div class="testimonial-role">Veneers Patient</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal stagger-2">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"I was terrified of dental implants, but the team at Smile Plus made the entire experience painless and stress-free. My new smile feels completely natural."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">YA</div>
+        <div>
+          <div class="testimonial-name">Yossi Abraham</div>
+          <div class="testimonial-role">Implant Patient</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal stagger-3">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"The attention to detail is remarkable. After my orthodontic treatment, I can't stop smiling. The clinic is beautifully designed and the staff is incredibly professional."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SD</div>
+        <div>
+          <div class="testimonial-name">Shira David</div>
+          <div class="testimonial-role">Orthodontic Patient</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA / CONTACT ═══════════════ -->
+<section class="cta-section" id="contact">
+  <div class="section-label reveal">Contact</div>
+  <h2 class="section-heading reveal stagger-1">Ready for a<br><span class="serif-accent">Perfect Smile?</span></h2>
+  <p class="cta-subtitle reveal stagger-2">Schedule your consultation today and discover how we can transform your dental health and confidence.</p>
+  <div class="cta-actions reveal stagger-3">
+    <a href="tel:03-555-1234" class="cta-phone">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      03-555-1234
+    </a>
+    <a href="https://maps.google.com" class="cta-address" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Rothschild 45, Tel Aviv
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">NOVA DENTAL</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#team">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Smile Plus Dental. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script>
+// Navbar scroll effect
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>40);
+});
+
+// IntersectionObserver reveal animations
+const observerOpts={threshold:0.15,rootMargin:'0px 0px -40px 0px'};
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+},observerOpts);
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>{
+  observer.observe(el);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id.length>1){
+      e.preventDefault();
+      document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+      document.getElementById('navLinks')?.classList.remove('open');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

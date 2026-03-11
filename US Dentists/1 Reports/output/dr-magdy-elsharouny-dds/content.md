@@ -37,6 +37,19 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **nicole zu** ★★★★★
+  > best dentist i’ve been to in all my 20 years. Made me feel super comfortable throughout my appointment and is very intelligent in his work. highly recommend !
+
+- **Lung Chang** ★★★★★
+  > I had a very quick session with the Dentist. Dr. Elsharouny had a very friendly demeanor. He explained my situation thoughtfully. I had expected a cavity but I only had a cleaning done. He was very careful to prevent any pain during the cleaning. I'm thankful for that.
+
+- **Raymond Torres** ★★★★★
+  > I really appreciated the service I received from Dr. Elsharouny. He's was patient, wise, transparent, and showed a genuine concern for my oral health. He's definitely a treasure in the field. Not like anyone I been used to. I was fortunate to have visited him. If you're searching for a dentist, I wh
+
+---
+
 ## Proposal Data
 
 ### Competitors

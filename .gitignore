@@ -1,4 +1,5 @@
 venv/
 .DS_Store
+.env
 .playwright-mcp/
 .browser-profile/

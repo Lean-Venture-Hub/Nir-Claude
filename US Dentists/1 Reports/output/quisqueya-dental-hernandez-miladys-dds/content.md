@@ -37,6 +37,19 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Jenn's Rich** ★☆☆☆☆
+  > I was traumatized by this dentist, she is so rough and her office is not sanitary. My mouth ended up in pain over 6 months after being serviced for a cavity by her, I never went back!
+
+- **Rosalba E Rivera** ★★★★★
+  > Dr. Hernandez is an Amazing Dentist. I Recommend her. She is Very skilled and knowledgeable in the Dentistry Business.
+
+- **george falero sr** ★★★★★
+  > Pleasant and painless
+
+---
+
 ## Proposal Data
 
 ### Competitors

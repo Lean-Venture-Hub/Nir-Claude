@@ -10,10 +10,11 @@ For each dentist creates:
   - images/       (all needed images copied locally)
 """
 
-import csv, os, re, math, random, hashlib, shutil, glob as globmod
+import csv, os, re, math, random, hashlib, shutil, json, glob as globmod
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(SCRIPT_DIR, "Inbox_list", "first_batch.csv")
+REVIEWS_PATH = os.path.join(SCRIPT_DIR, "Inbox_list", "reviews.json")
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "output")
 
 # Source template base
@@ -112,8 +113,18 @@ CITY_COMPETITORS = {
     ],
 }
 
+CITY_ALIASES = {
+    "NYC": "New York", "New York": "New York",
+    "Houston": "Houston",
+    "DFW": "DFW", "Dallas": "DFW",
+    "Atlanta": "Atlanta",
+    "Phoenix": "Phoenix",
+    "Tampa": "Tampa",
+}
+
 def get_competitors(city_name, dentist_name, n=3):
-    comps = CITY_COMPETITORS.get(city_name, CITY_COMPETITORS["New York"])
+    resolved = CITY_ALIASES.get(city_name, city_name)
+    comps = CITY_COMPETITORS.get(resolved, CITY_COMPETITORS["New York"])
     rng = random.Random(seed_from_name(dentist_name))
     return rng.sample(comps, min(n, len(comps)))
 
@@ -165,6 +176,7 @@ def personalize(html, d):
         ('Dr. Michelle Levy', name),
         ('Michelle Levy', name),
         ('Dr. Levy', f'Dr. {last_name}'),
+        ('Noa Cohen', 'Sarah Mitchell'),
         ('03-555-1234', phone),
         ('tel:03-555-1234', f'tel:{tel_href}'),
         ('45 Rothschild Blvd', address),
@@ -174,6 +186,9 @@ def personalize(html, d):
         ('>4.9<', f'>{rating}<'),
         ('>187 Reviews<', f'>{reviews} Reviews<'),
         ('>187<', f'>{reviews}<'),
+        # Catch remaining patterns: "· 187 Reviews", "187+ Reviews on Google", "(187 Reviews)"
+        ('187 Reviews', f'{reviews} Reviews'),
+        ('187+', f'{reviews}+'),
     ]
 
     for old, new in replacements:
@@ -205,8 +220,60 @@ def fix_blog_links_in_blog(html):
     """Fix links in blog listing page."""
     # blog-en/category/post.html → blog/category/post.html
     html = html.replace('blog-en/', 'blog/')
+    # template_example-N-en.html → index.html
+    html = re.sub(r'template_example-\d+-en\.html', 'index.html', html)
+    html = re.sub(r'template_example-\d+\.html', 'index.html', html)
     html = html.replace('blog-en.html', 'blog.html')
     return html
+
+def load_reviews():
+    """Load real Google reviews from reviews.json."""
+    if os.path.exists(REVIEWS_PATH):
+        with open(REVIEWS_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+# Fake reviewer names used in all templates
+FAKE_NAMES = ['Noa Cohen', 'Yossi Abraham', 'Shira David']
+FAKE_TEXTS = [
+    'Dr. Levy changed my life',
+    'I had dental implants at this clinic',
+    'Amazing place! I came for the first time',
+]
+
+def inject_real_reviews(html, reviews):
+    """Replace fake testimonial names/texts with real Google review data."""
+    if not reviews:
+        return html
+
+    for i, fake_name in enumerate(FAKE_NAMES):
+        if i < len(reviews):
+            rev = reviews[i]
+            real_name = rev['name']
+            real_text = rev.get('text', '') or 'Great experience at this dental office.'
+            real_initial = real_name[0].upper()
+            fake_initial = fake_name[0].upper()
+
+            # Replace reviewer name (appears in .name div and .testimonial-name div)
+            html = html.replace(f'>{fake_name}<', f'>{real_name}<')
+            # Replace avatar initial
+            html = html.replace(f'>{fake_initial}<', f'>{real_initial}<', 1)
+
+        # Replace review text (find the fake text snippet and replace the full text)
+        if i < len(reviews) and i < len(FAKE_TEXTS):
+            rev = reviews[i]
+            real_text = rev.get('text', '') or 'Great experience at this dental office.'
+            # Find the paragraph/blockquote containing the fake text and replace
+            fake_snippet = FAKE_TEXTS[i]
+            # Match the full text content in testimonial-text or blockquote
+            pattern = re.compile(
+                r'(class="testimonial-text">|<blockquote>)([^<]*' + re.escape(fake_snippet) + r'[^<]*)(</p>|</blockquote>)',
+                re.DOTALL
+            )
+            html = pattern.sub(lambda m: m.group(1) + real_text + m.group(3), html)
+
+    return html
+
 
 def fix_blog_post_links(html):
     """Fix navigation links in blog posts back to main pages."""
@@ -278,7 +345,7 @@ ARTICLE_TOPICS = {
     ],
 }
 
-def generate_content_md(d):
+def generate_content_md(d, real_reviews=None):
     name = extract_doctor_name(d['name'])
     short = extract_short_name(d['name'])
     city, state = extract_city_state(d['address'])
@@ -322,6 +389,18 @@ At {short}, we provide exceptional dental care in a comfortable, welcoming envir
 """
     for i, (title, desc) in enumerate(articles, 1):
         content += f"### Article {i}: {title}\n{desc}\n\n"
+
+    # Real Google Reviews section
+    content += "---\n\n## Real Google Reviews\n\n"
+    if real_reviews:
+        for rev in real_reviews:
+            stars = '★' * rev.get('rating', 5) + '☆' * (5 - rev.get('rating', 5))
+            content += f"- **{rev['name']}** {stars}\n"
+            if rev.get('text'):
+                content += f"  > {rev['text']}\n"
+            content += "\n"
+    else:
+        content += "_No reviews scraped yet._\n\n"
 
     content += f"""---
 
@@ -521,10 +600,13 @@ def main():
         shutil.rmtree(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR)
 
-    with open(CSV_PATH, 'r', encoding='utf-8') as f:
+    with open(CSV_PATH, 'r', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         rows = list(reader)
 
+    # Load real reviews
+    all_reviews = load_reviews()
+    print(f"Loaded reviews for {len(all_reviews)} dentists")
     print(f"Processing {len(rows)} dentists...\n")
 
     for i, d in enumerate(rows):
@@ -536,8 +618,12 @@ def main():
         # Assign template (rotate)
         tmpl_id = TEMPLATE_IDS[i % len(TEMPLATE_IDS)]
 
+        # Get real reviews for this dentist
+        dentist_reviews = all_reviews.get(d['name'].strip(), [])
+
         # 1. Read & personalize website template
         website_html = read_template_file(tmpl_id, f"template_example-{tmpl_id}-en.html")
+        website_html = inject_real_reviews(website_html, dentist_reviews)
         website_html = personalize(website_html, d)
         website_html = fix_image_paths_main(website_html)
         website_html = fix_blog_links_main(website_html)
@@ -571,7 +657,7 @@ def main():
         copy_images(tmpl_id, folder)
 
         # 5. content.md
-        content_md = generate_content_md(d)
+        content_md = generate_content_md(d, real_reviews=dentist_reviews)
         with open(os.path.join(folder, 'content.md'), 'w', encoding='utf-8') as f:
             f.write(content_md)
 
@@ -582,7 +668,8 @@ def main():
 
         img_count = sum(len(files) for _, _, files in os.walk(os.path.join(folder, "images")))
         blog_count = len(get_blog_posts(tmpl_id))
-        print(f"  [{i+1:2d}/{len(rows)}] {slug}/ (tmpl-{tmpl_id}, {img_count} images, {blog_count} blog posts)")
+        rev_count = len(dentist_reviews)
+        print(f"  [{i+1:2d}/{len(rows)}] {slug}/ (tmpl-{tmpl_id}, {img_count} imgs, {blog_count} posts, {rev_count} reviews)")
 
     print(f"\nDone! Created {len(rows)} folders in: {OUTPUT_DIR}")
 

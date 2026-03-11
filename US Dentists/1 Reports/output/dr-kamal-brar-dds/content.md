@@ -37,12 +37,25 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **Ajab Boparai** ★★★★★
+  > Dr. Kamal Brar is hands down one of the best dentists I’ve ever visited. Her professionalism, gentle approach, and attention to detail made my entire experience comfortable and stress-free. The clinic is modern and spotless, and Dr. Brar takes the time to explain everything clearly. You can tell she
+
+- **emily** ★★★★★
+  > Highly recommend Dr Brar to all my friends and family. She is very attentive to my concerns and deeply cares about each patient. I will continue seeing her for all my dental services. Look no further if you are considering going to this provider!
+
+- **Daniela Spancec** ★★★★★
+  > I've been visiting this clinic for years, and Dr. Kamala is an exceptionally professional dentist. I'm always very satisfied with the care I receive, excellent  service and outstanding customer care. I would highly recommend this clinic.
+
+---
+
 ## Proposal Data
 
 ### Competitors
-- **Manhattan Smiles:** 4.7 rating, 218 reviews
-- **Bright Dental NYC:** 4.9 rating, 189 reviews
-- **Park Avenue Dental:** 4.8 rating, 342 reviews
+- **North Texas Smiles:** 4.7 rating, 289 reviews
+- **Prairie Dental Group:** 4.9 rating, 156 reviews
+- **DFW Dental Excellence:** 4.8 rating, 367 reviews
 
 ### Key Insight
 - 4.3 rating is excellent, but only 6 reviews

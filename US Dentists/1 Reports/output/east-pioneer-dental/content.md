@@ -37,12 +37,25 @@ Key factors to consider including location, insurance, specialties, and patient 
 
 ---
 
+## Real Google Reviews
+
+- **claudia harumi Shirk** ★★★★★
+  > My whole family goes here and have for years. Staff super friendly and helpful. They clean very carefully my teeth and for my two daughters make orthodontist for a good price. Definitely recommend."
+
+- **Savyna Viraphonh** ★★★★★
+  > Everything was quick and painless! The Dentist I had effectively informed me on everything I would feel before I felt it and was so reassuring and caring!!
+
+- **Laura Ordonez** ★★★★★
+  > By far one of the most humble and great dentist have been going to him for the past 15 years happy 20 year Anniversary.
+
+---
+
 ## Proposal Data
 
 ### Competitors
-- **Manhattan Smiles:** 4.7 rating, 218 reviews
-- **Upper East Dental:** 4.8 rating, 301 reviews
-- **Park Avenue Dental:** 4.8 rating, 342 reviews
+- **North Texas Smiles:** 4.7 rating, 289 reviews
+- **Fort Worth Dental:** 4.7 rating, 312 reviews
+- **DFW Dental Excellence:** 4.8 rating, 367 reviews
 
 ### Key Insight
 - 4.2 rating is good, but only 19 reviews

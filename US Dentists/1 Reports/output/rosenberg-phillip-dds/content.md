@@ -37,6 +37,19 @@ Modern options like clear aligners and lingual braces make adult treatment discr
 
 ---
 
+## Real Google Reviews
+
+- **G W** ★★☆☆☆
+  > The dentist there is not nice only dr Rosenberg is good and doesn't see most patiences. After paying lots of money for braces my teeth were still not perfect. Also, he didn't advise me to pull my wisdom teeth so when they grew out everything shifted. He blamed me for not wearing my retainers but how
+
+- **TheBenbenjr** ★☆☆☆☆
+  > BAD PEOPLE!!!! THEY WILL DOUBLE AND TRIPLE BILL YOU
+
+- **Herman Kestenbaum** ★☆☆☆☆
+  > Worst orthodontist in the world. Horrible personality,and horrible work.
+
+---
+
 ## Proposal Data
 
 ### Competitors
