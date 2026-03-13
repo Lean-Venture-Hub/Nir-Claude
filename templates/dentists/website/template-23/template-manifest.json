@@ -1,0 +1,42 @@
+{
+  "id": 23,
+  "name": "Scroll Story",
+  "vertical": "dentists",
+  "variant": "scroll-story-immersive",
+  "language": "he",
+  "has_english": false,
+  "schema_type": "Dentist",
+  "sections": ["nav", "hero", "stats-why-different", "services-horizontal-scroll", "team-parallax", "reviews-reveal", "cta", "footer"],
+  "placeholders": [
+    "BUSINESS_NAME", "BUSINESS_NAME_SHORT", "OWNER_NAME",
+    "PHONE", "PHONE_TEL", "ADDRESS", "CITY",
+    "GOOGLE_MAPS_URL", "GOOGLE_RATING", "REVIEW_COUNT",
+    "HERO_HEADLINE", "HERO_SUBTITLE", "HERO_EYEBROW", "ABOUT_TEXT", "CTA_TEXT",
+    "SERVICE_1_TITLE", "SERVICE_1_DESC", "SERVICE_1_IMAGE",
+    "SERVICE_2_TITLE", "SERVICE_2_DESC", "SERVICE_2_IMAGE",
+    "SERVICE_3_TITLE", "SERVICE_3_DESC", "SERVICE_3_IMAGE",
+    "SERVICE_4_TITLE", "SERVICE_4_DESC", "SERVICE_4_IMAGE",
+    "SERVICE_5_TITLE", "SERVICE_5_DESC", "SERVICE_5_IMAGE",
+    "SERVICE_6_TITLE", "SERVICE_6_DESC", "SERVICE_6_IMAGE",
+    "REVIEW_1_NAME", "REVIEW_1_TEXT", "REVIEW_1_DATE",
+    "REVIEW_2_NAME", "REVIEW_2_TEXT", "REVIEW_2_DATE",
+    "REVIEW_3_NAME", "REVIEW_3_TEXT", "REVIEW_3_DATE",
+    "META_TITLE", "META_DESCRIPTION", "OG_IMAGE",
+    "HERO_IMAGE", "ABOUT_IMAGE"
+  ],
+  "images_required": ["hero.jpg", "about.jpg", "service-1.jpg", "service-2.jpg", "service-3.jpg", "service-4.jpg", "service-5.jpg", "service-6.jpg"],
+  "fonts": ["Heebo", "Playfair Display"],
+  "color_mode": "mixed",
+  "animations": ["GSAP", "ScrollTrigger", "SplitType", "Lenis"],
+  "features": [
+    "Full-screen chapter sections (100vh each)",
+    "SplitType word reveal on hero headline",
+    "Ken Burns hero background",
+    "Counter animation on stats",
+    "Horizontal scroll pinned services",
+    "Parallax team photo",
+    "Staggered review reveal",
+    "Mobile sticky CTA bar",
+    "prefers-reduced-motion support"
+  ]
+}

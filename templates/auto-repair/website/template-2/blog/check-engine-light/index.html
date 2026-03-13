@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Is My Check Engine Light On? 5 Common Causes | Precision Auto Care</title>
+  <meta name="description" content="Learn the 5 most common reasons your check engine light comes on and what to do about each one. Expert advice from Precision Auto Care in Austin, TX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #FAFAF5; --bg-warm: #F5F0E8; --navy: #1B3A5C; --navy-dark: #132A44;
+      --orange: #E87722; --orange-hover: #D06A1E; --text: #4A4A4A; --text-light: #6B6B6B;
+      --white: #FFFFFF; --border: #E8E4DC;
+      --shadow: 0 4px 24px rgba(27,58,92,0.08); --shadow-hover: 0 12px 40px rgba(27,58,92,0.16);
+      --radius: 12px;
+      --h1: clamp(28px, 4vw, 42px); --h2: clamp(22px, 3vw, 30px); --h3: clamp(18px, 2.5vw, 22px);
+      --body: clamp(15px, 1.1vw, 17px); --small: clamp(12px, 0.9vw, 14px);
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; font-size: var(--body); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-weight: 700; color: var(--navy); line-height: 1.3; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; border: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s ease; }
+    .btn-primary:hover { background: var(--orange-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,119,34,0.4); }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,250,245,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    .nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 14px 24px; }
+    .nav-logo { font-size: 22px; font-weight: 800; color: var(--navy); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-weight: 500; font-size: 15px; color: var(--navy); transition: color 0.2s; position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--orange); transition: all 0.3s ease; transform: translateX(-50%); }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-phone { display: flex; align-items: center; gap: 6px; font-weight: 700; color: var(--navy); font-size: 15px; }
+    .nav-phone svg { width: 18px; height: 18px; fill: var(--orange); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 6px 0; border-radius: 2px; }
+
+    /* Breadcrumb */
+    .breadcrumb { padding: 100px 0 0; background: var(--bg); }
+    .breadcrumb-inner { display: flex; align-items: center; gap: 8px; font-size: var(--small); color: var(--text-light); padding: 12px 0; }
+    .breadcrumb-inner a { color: var(--orange); font-weight: 500; }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+
+    /* Article Hero */
+    .article-hero { position: relative; margin-bottom: 48px; border-radius: var(--radius); overflow: hidden; max-height: 420px; }
+    .article-hero img { width: 100%; height: 420px; object-fit: cover; }
+    .article-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(19,42,68,0.7) 0%, transparent 60%);
+    }
+    .article-hero-text {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 40px;
+      color: var(--white);
+    }
+    .article-hero-text .category {
+      font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--orange); background: rgba(0,0,0,0.3); padding: 4px 12px; border-radius: 4px;
+      display: inline-block; margin-bottom: 12px;
+    }
+    .article-hero-text h1 { color: var(--white); margin-bottom: 12px; }
+    .article-meta { font-size: var(--small); color: rgba(255,255,255,0.8); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* Article Body */
+    .article-wrap { display: grid; grid-template-columns: 1fr 300px; gap: 48px; padding-bottom: 60px; }
+    .article-body { max-width: 100%; }
+    .article-body p { margin-bottom: 20px; line-height: 1.8; }
+    .article-body h2 { font-size: var(--h2); margin: 36px 0 16px; }
+    .article-body h3 { font-size: var(--h3); margin: 28px 0 12px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+    .article-body li { margin-bottom: 8px; line-height: 1.7; }
+
+    /* Tip Box */
+    .tip-box {
+      background: rgba(232,119,34,0.06); border-left: 4px solid var(--orange);
+      border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0;
+    }
+    .tip-box strong { color: var(--navy); display: block; margin-bottom: 4px; }
+    .tip-box p { margin-bottom: 0; color: var(--text); }
+
+    /* Sidebar */
+    .sidebar { position: sticky; top: 100px; }
+    .sidebar-box {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px; margin-bottom: 24px;
+    }
+    .sidebar-box h4 { font-size: 16px; margin-bottom: 16px; }
+    .sidebar-box p { font-size: var(--small); color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+
+    /* Related Articles */
+    .related { padding: 60px 0; background: var(--bg-warm); }
+    .related h2 { font-size: var(--h2); text-align: center; margin-bottom: 36px; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .related-card {
+      background: var(--white); border-radius: var(--radius); border: 1px solid var(--border);
+      overflow: hidden; transition: all 0.3s ease; display: flex;
+    }
+    .related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .related-card img { width: 200px; height: 160px; object-fit: cover; flex-shrink: 0; }
+    .related-card-body { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+    .related-card .category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 6px; display: block; }
+    .related-card h3 { font-size: 16px; line-height: 1.4; margin-bottom: 8px; }
+    .related-card .read-more { font-size: 13px; font-weight: 600; color: var(--orange); }
+
+    /* CTA Banner */
+    .cta-banner { padding: 60px 0; background: var(--bg); }
+    .cta-box {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      border-radius: var(--radius); padding: 48px; text-align: center; color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .cta-box::before { content: ''; position: absolute; top: -40%; left: -20%; width: 300px; height: 300px; background: rgba(232,119,34,0.15); border-radius: 50%; filter: blur(60px); }
+    .cta-box h2 { font-size: var(--h2); color: var(--white); margin-bottom: 12px; position: relative; }
+    .cta-box p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 28px; max-width: 500px; margin-inline: auto; position: relative; }
+
+    /* Footer */
+    .footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 48px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+    .footer-logo { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .footer-logo span { color: var(--orange); }
+    .footer-desc { font-size: 14px; line-height: 1.7; max-width: 300px; }
+    .footer h4 { color: var(--white); font-size: 16px; margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-hours li { font-size: 14px; margin-bottom: 6px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; }
+
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; right: 0; left: 0; background: var(--white); flex-direction: column; padding: 20px 24px; gap: 16px; border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .nav-phone { display: none; }
+      .article-wrap { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .related-card { flex-direction: column; }
+      .related-card img { width: 100%; height: 180px; }
+      .article-hero-text { padding: 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../../template_example-2.html" class="nav-logo">Precision<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../../template_example-2.html#services">Services</a></li>
+      <li><a href="../../template_example-2.html#about">About</a></li>
+      <li><a href="../../template_example-2.html#reviews">Reviews</a></li>
+      <li><a href="../../template_example-2.html#specials">Specials</a></li>
+      <li><a href="../../blog.html">Blog</a></li>
+      <li><a href="../../template_example-2.html#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+15558472390" class="nav-phone">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+      (555) 847-2390
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="../../template_example-2.html">Home</a> &rsaquo;
+      <a href="../../blog.html">Blog</a> &rsaquo;
+      <span>Check Engine Light</span>
+    </div>
+  </div>
+</div>
+
+<!-- Article Hero -->
+<div class="container" style="padding-top: 16px;">
+  <div class="article-hero">
+    <img src="../../../../images/template-images/service-diagnostics.jpg" alt="Check engine light diagnostics" width="1200" height="420">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-text">
+      <span class="category">Diagnostics</span>
+      <h1>Why Is My Check Engine Light On? 5 Common Causes</h1>
+      <div class="article-meta">
+        <span>March 10, 2026</span>
+        <span>By Mike Thompson</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Article Content -->
+<div class="container">
+  <div class="article-wrap">
+    <article class="article-body">
+      <p>Few things cause more anxiety for drivers than seeing that little orange check engine light suddenly illuminate on the dashboard. Your heart sinks, your mind races to the worst-case scenario, and you wonder if your car is about to break down in the middle of traffic. The good news? In many cases, the cause is far less serious than you might think.</p>
+
+      <p>At Precision Auto Care, we diagnose check engine lights every single day. After 17 years and thousands of diagnostics, we've found that the vast majority of cases come down to five common causes. Here's what they are, how serious each one is, and what you should do about it.</p>
+
+      <h2>1. Loose or Damaged Gas Cap</h2>
+
+      <p>Believe it or not, this is the single most common reason check engine lights come on — and it's the easiest to fix. Your vehicle's fuel system is sealed to prevent gasoline vapors from escaping into the atmosphere. When the gas cap is loose, cracked, or missing entirely, the system detects a vapor leak and triggers the warning light.</p>
+
+      <p><strong>What to do:</strong> Pull over when it's safe, remove your gas cap, check the rubber seal for cracks or damage, and screw it back on tightly until you hear it click. Drive for a day or two — the light should clear itself. If it doesn't, the cap may need replacing (about $15-$25 at any auto parts store).</p>
+
+      <div class="tip-box">
+        <strong>Pro Tip</strong>
+        <p>After filling up at the gas station, always tighten your gas cap until it clicks at least three times. About 15% of the check engine lights we see at Precision are simply from gas caps that weren't tightened after refueling.</p>
+      </div>
+
+      <h2>2. Failing Oxygen (O2) Sensor</h2>
+
+      <p>Your vehicle has between two and four oxygen sensors that measure how much unburned oxygen is in the exhaust. This data helps the engine control module adjust the fuel-to-air ratio for optimal performance and emissions. When an O2 sensor fails, it sends incorrect data, causing the engine to run either too rich (too much fuel) or too lean (too little fuel).</p>
+
+      <p><strong>Symptoms beyond the light:</strong> You may notice decreased fuel economy (sometimes losing 10-40% efficiency), a rough idle, or a slight sulfur ("rotten egg") smell from the exhaust.</p>
+
+      <p><strong>How serious is it?</strong> A failing O2 sensor won't leave you stranded, but ignoring it long-term can damage your catalytic converter — a repair that's 5-10 times more expensive. Most O2 sensor replacements run between $200-$400 including labor.</p>
+
+      <h2>3. Catalytic Converter Issues</h2>
+
+      <p>The catalytic converter is a critical emissions component that converts harmful carbon monoxide and hydrocarbons into less harmful carbon dioxide and water vapor. When it starts to fail, your check engine light will come on, often accompanied by a noticeable drop in performance and fuel economy.</p>
+
+      <p><strong>Warning signs:</strong> Sluggish acceleration, reduced fuel efficiency, a sulfur smell from the exhaust, or your engine running hotter than normal. In severe cases, you may hear a rattling sound from underneath the vehicle.</p>
+
+      <p><strong>Why it matters:</strong> Catalytic converter replacement is one of the more expensive repairs, typically ranging from $1,000-$2,500 depending on your vehicle. However, catalytic converters rarely fail on their own — they're usually damaged by other untreated problems like bad O2 sensors, misfiring spark plugs, or engine oil leaks. This is why addressing check engine lights early can save you thousands.</p>
+
+      <div class="tip-box">
+        <strong>Cost-Saving Tip</strong>
+        <p>A failing O2 sensor that goes unfixed for months can destroy a perfectly good catalytic converter. A $300 O2 sensor fix today can prevent a $2,000 catalytic converter replacement tomorrow. Early diagnosis always saves money.</p>
+      </div>
+
+      <h2>4. Mass Airflow (MAF) Sensor Failure</h2>
+
+      <p>The mass airflow sensor measures the amount of air entering the engine. This measurement is critical — it tells the engine's computer how much fuel to inject. When the MAF sensor fails or becomes contaminated with dirt and oil, the engine can't calculate the correct fuel mixture.</p>
+
+      <p><strong>Symptoms:</strong> Difficulty starting the engine, stalling shortly after starting, hesitation during acceleration, jerking or surging while driving at highway speeds, and noticeably worse fuel economy.</p>
+
+      <p><strong>The fix:</strong> Sometimes a thorough cleaning with specialized MAF sensor cleaner is all that's needed (a $10 can from the auto parts store). If the sensor is actually failing, replacement typically costs $200-$400. The key is proper diagnosis — you don't want to replace a sensor that just needed cleaning, and you don't want to keep cleaning one that's actually failed.</p>
+
+      <h2>5. Worn Spark Plugs or Ignition Coils</h2>
+
+      <p>Spark plugs create the electrical spark that ignites the fuel-air mixture in your engine's cylinders. Over time, they wear out and don't fire as efficiently, leading to misfires. Modern vehicles also use individual ignition coils for each cylinder, and these can fail too.</p>
+
+      <p><strong>Symptoms:</strong> Rough idle, engine misfires (a noticeable "stumble" or "miss"), reduced acceleration, poor fuel economy, and difficulty starting in cold weather. A blinking check engine light (as opposed to steady) often indicates active misfires and is more urgent.</p>
+
+      <p><strong>The bottom line:</strong> Spark plug replacement is routine maintenance that most manufacturers recommend every 30,000-100,000 miles depending on the type. Standard copper plugs need replacement more often; iridium and platinum plugs last much longer. A full set of spark plugs and labor typically runs $150-$350.</p>
+
+      <div class="tip-box">
+        <strong>Important Warning</strong>
+        <p>A blinking check engine light is more serious than a steady one. A blinking light usually means active engine misfires that can damage your catalytic converter. If your check engine light is flashing, reduce your speed, avoid heavy acceleration, and get to a shop as soon as possible.</p>
+      </div>
+
+      <h2>When to Act</h2>
+
+      <p>Here's a simple rule of thumb: if your check engine light comes on but your car seems to be running normally, you can safely drive it to a shop within a few days. Check your gas cap first. But if the light is blinking, if you notice strange sounds, smells, or a significant loss of power, pull over safely and call for service.</p>
+
+      <p>At Precision Auto Care, we offer fast, accurate diagnostics using the same dealer-level scan tools. We'll read the codes, explain what they mean in plain English, and give you an honest recommendation. No upselling, no scare tactics — just the facts so you can make an informed decision.</p>
+
+      <p><strong>Have a check engine light on right now?</strong> Give us a call at <a href="tel:+15558472390" style="color:var(--orange); font-weight:600;">(555) 847-2390</a> or stop by our shop at 1247 Industrial Blvd in Austin. We'll get to the bottom of it.</p>
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Need a Diagnostic?</h4>
+        <p>Our ASE-certified technicians use dealer-level scan tools to pinpoint your check engine light cause fast.</p>
+        <a href="tel:+15558472390" class="btn-primary" style="width:100%; justify-content:center;">Call (555) 847-2390</a>
+      </div>
+      <div class="sidebar-box">
+        <h4>New Customer Special</h4>
+        <p>First-time visitors get <strong style="color:var(--orange);">15% off</strong> any service. Mention this offer when you call.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Related Articles -->
+<section class="related">
+  <div class="container">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      <a href="../oil-change-guide/index.html" class="related-card" style="color:inherit;">
+        <img src="../../../../images/template-images/service-oil.jpg" alt="Oil change guide" loading="lazy">
+        <div class="related-card-body">
+          <span class="category">Maintenance</span>
+          <h3>How Often Should You Really Change Your Oil?</h3>
+          <span class="read-more">Read More &rarr;</span>
+        </div>
+      </a>
+      <a href="../brake-warning-signs/index.html" class="related-card" style="color:inherit;">
+        <img src="../../../../images/template-images/service-brakes.jpg" alt="Brake warning signs" loading="lazy">
+        <div class="related-card-body">
+          <span class="category">Safety</span>
+          <h3>5 Signs Your Brakes Need Replacing</h3>
+          <span class="read-more">Read More &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Check Engine Light On?</h2>
+      <p>Don't ignore it. Our fast, accurate diagnostics will pinpoint the problem — and we'll explain everything in plain English.</p>
+      <a href="tel:+15558472390" class="btn-primary" style="position:relative;">Schedule a Diagnostic</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">Precision<span>.</span></p>
+        <p class="footer-desc">Precision Auto Care — a family-owned shop with years of experience and a commitment to honest, professional service.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="../../template_example-2.html#services">Services</a></li>
+          <li><a href="../../template_example-2.html#about">About</a></li>
+          <li><a href="../../template_example-2.html#reviews">Reviews</a></li>
+          <li><a href="../../blog.html">Blog</a></li>
+          <li><a href="../../template_example-2.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Business Hours</h4>
+        <ul class="footer-hours footer-links">
+          <li>Mon &ndash; Fri: 7:30 AM &ndash; 6:00 PM</li>
+          <li>Saturday: 8:00 AM &ndash; 2:00 PM</li>
+          <li>Sunday: Closed</li>
+          <li style="margin-top:12px"><a href="tel:+15558472390">(555) 847-2390</a></li>
+          <li>1247 Industrial Blvd, Austin, TX 78745</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Precision Auto Care. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+  window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40));
+</script>
+</body>
+</html>

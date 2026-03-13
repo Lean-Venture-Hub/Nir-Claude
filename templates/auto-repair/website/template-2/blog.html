@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Precision Auto Care — Tips & Advice for Austin Drivers</title>
+  <meta name="description" content="Expert auto care tips, maintenance guides, and safety advice from the ASE-certified technicians at Precision Auto Care in Austin, TX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #FAFAF5; --bg-warm: #F5F0E8; --navy: #1B3A5C; --navy-dark: #132A44;
+      --orange: #E87722; --orange-hover: #D06A1E; --text: #4A4A4A; --text-light: #6B6B6B;
+      --white: #FFFFFF; --border: #E8E4DC;
+      --shadow: 0 4px 24px rgba(27,58,92,0.08); --shadow-hover: 0 12px 40px rgba(27,58,92,0.16);
+      --radius: 12px;
+      --h1: clamp(32px, 5vw, 48px); --h2: clamp(26px, 3.5vw, 38px); --h3: clamp(18px, 2.5vw, 22px);
+      --body: clamp(15px, 1.1vw, 17px); --small: clamp(12px, 0.9vw, 14px);
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; font-size: var(--body); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-weight: 700; color: var(--navy); line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: var(--white);
+      padding: 14px 32px; border-radius: 8px; border: none;
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-primary:hover { background: var(--orange-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,119,34,0.4); }
+
+    .section-label { font-size: var(--small); font-weight: 500; color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,250,245,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    .nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 14px 24px; }
+    .nav-logo { font-size: 22px; font-weight: 800; color: var(--navy); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-weight: 500; font-size: 15px; color: var(--navy); transition: color 0.2s; position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--orange); transition: all 0.3s ease; transform: translateX(-50%); }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-phone { display: flex; align-items: center; gap: 6px; font-weight: 700; color: var(--navy); font-size: 15px; }
+    .nav-phone svg { width: 18px; height: 18px; fill: var(--orange); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 6px 0; border-radius: 2px; transition: all 0.3s; }
+
+    /* Blog Hero */
+    .blog-hero {
+      padding: 140px 0 60px;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-warm) 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .blog-hero::before {
+      content: ''; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(232,119,34,0.06) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .blog-hero h1 { font-size: var(--h1); font-weight: 800; margin-bottom: 16px; }
+    .blog-hero p { font-size: clamp(16px,1.3vw,19px); color: var(--text-light); max-width: 560px; margin: 0 auto; }
+
+    /* Blog Grid */
+    .blog-section { padding: 60px 0 80px; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .blog-card {
+      background: var(--white); border-radius: var(--radius); border: 1px solid var(--border);
+      overflow: hidden; transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+      display: flex; flex-direction: column;
+    }
+    .blog-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: var(--shadow-hover); }
+    .blog-card-img-wrap { overflow: hidden; }
+    .blog-card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s ease; }
+    .blog-card:hover img { transform: scale(1.06); }
+    .blog-card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .blog-category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 10px; display: inline-block; }
+    .blog-card h3 { font-size: var(--h3); margin-bottom: 12px; line-height: 1.4; }
+    .blog-card p { font-size: var(--small); color: var(--text-light); line-height: 1.6; margin-bottom: 20px; flex: 1; }
+    .blog-card .read-more { font-size: 14px; font-weight: 600; color: var(--orange); display: inline-flex; align-items: center; gap: 4px; transition: all 0.3s; }
+    .blog-card .read-more::after { content: '\2192'; transition: transform 0.3s; }
+    .blog-card:hover .read-more::after { transform: translateX(4px); }
+    .blog-meta { font-size: 12px; color: var(--text-light); margin-bottom: 12px; }
+
+    /* CTA Banner */
+    .cta-banner {
+      padding: 60px 0; background: var(--bg);
+    }
+    .cta-box {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      border-radius: var(--radius); padding: 48px; text-align: center; color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .cta-box::before { content: ''; position: absolute; top: -40%; left: -20%; width: 300px; height: 300px; background: rgba(232,119,34,0.15); border-radius: 50%; filter: blur(60px); }
+    .cta-box h2 { font-size: var(--h2); color: var(--white); margin-bottom: 12px; position: relative; }
+    .cta-box p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 28px; max-width: 500px; margin-inline: auto; position: relative; }
+
+    /* Footer */
+    .footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 48px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+    .footer-logo { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .footer-logo span { color: var(--orange); }
+    .footer-desc { font-size: 14px; line-height: 1.7; max-width: 300px; }
+    .footer h4 { color: var(--white); font-size: 16px; margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-hours li { font-size: 14px; margin-bottom: 6px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; }
+
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; right: 0; left: 0; background: var(--white); flex-direction: column; padding: 20px 24px; gap: 16px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+      .nav-links.open { display: flex; }
+      .nav-phone { display: none; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="template_example-2.html" class="nav-logo">Precision<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="template_example-2.html#services">Services</a></li>
+      <li><a href="template_example-2.html#about">About</a></li>
+      <li><a href="template_example-2.html#reviews">Reviews</a></li>
+      <li><a href="template_example-2.html#specials">Specials</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="template_example-2.html#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+15558472390" class="nav-phone">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+      (555) 847-2390
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Blog Hero -->
+<section class="blog-hero">
+  <div class="container">
+    <p class="section-label">Our Blog</p>
+    <h1>Tips &amp; Advice for Austin Drivers</h1>
+    <p>Honest, expert guidance from the team at Precision Auto Care. We help you understand your vehicle so you can make informed decisions.</p>
+  </div>
+</section>
+
+<!-- Blog Grid -->
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-grid">
+      <a href="blog/check-engine-light/index.html" class="blog-card" style="color:inherit;">
+        <div class="blog-card-img-wrap">
+          <img src="../../images/template-images/service-diagnostics.jpg" alt="Check engine light on dashboard" loading="lazy" width="400" height="220">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-category">Diagnostics</span>
+          <p class="blog-meta">March 10, 2026 &middot; Mike Thompson</p>
+          <h3>Why Is My Check Engine Light On? 5 Common Causes</h3>
+          <p>That little orange light can mean anything from a loose gas cap to a failing catalytic converter. Here are the five most common triggers and what to do about each one.</p>
+          <span class="read-more">Read More</span>
+        </div>
+      </a>
+      <a href="blog/oil-change-guide/index.html" class="blog-card" style="color:inherit;">
+        <div class="blog-card-img-wrap">
+          <img src="../../images/template-images/service-oil.jpg" alt="Mechanic performing oil change" loading="lazy" width="400" height="220">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-category">Maintenance</span>
+          <p class="blog-meta">March 10, 2026 &middot; Mike Thompson</p>
+          <h3>How Often Should You Really Change Your Oil?</h3>
+          <p>The old 3,000-mile rule is outdated. We break down the real intervals for conventional, synthetic blend, and full-synthetic oils so you stop overpaying.</p>
+          <span class="read-more">Read More</span>
+        </div>
+      </a>
+      <a href="blog/brake-warning-signs/index.html" class="blog-card" style="color:inherit;">
+        <div class="blog-card-img-wrap">
+          <img src="../../images/template-images/service-brakes.jpg" alt="Brake pads and rotors close-up" loading="lazy" width="400" height="220">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-category">Safety</span>
+          <p class="blog-meta">March 10, 2026 &middot; Mike Thompson</p>
+          <h3>5 Signs Your Brakes Need Replacing</h3>
+          <p>Squealing, grinding, or a soft pedal? Don't ignore the warning signs. Learn the five red flags that mean it's time for new brakes before safety is compromised.</p>
+          <span class="read-more">Read More</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Need Expert Auto Care?</h2>
+      <p>Schedule your appointment today and experience the Precision difference — honest service, fair pricing, guaranteed.</p>
+      <a href="tel:+15558472390" class="btn-primary" style="position:relative;">Call (555) 847-2390</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">Precision<span>.</span></p>
+        <p class="footer-desc">Precision Auto Care — a family-owned shop with years of experience and a commitment to honest, professional service.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="template_example-2.html#services">Services</a></li>
+          <li><a href="template_example-2.html#about">About</a></li>
+          <li><a href="template_example-2.html#reviews">Reviews</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="template_example-2.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Business Hours</h4>
+        <ul class="footer-hours footer-links">
+          <li>Mon &ndash; Fri: 7:30 AM &ndash; 6:00 PM</li>
+          <li>Saturday: 8:00 AM &ndash; 2:00 PM</li>
+          <li>Sunday: Closed</li>
+          <li style="margin-top:12px"><a href="tel:+15558472390">(555) 847-2390</a></li>
+          <li>1247 Industrial Blvd, Austin, TX 78745</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Precision Auto Care. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+  window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40));
+</script>
+</body>
+</html>

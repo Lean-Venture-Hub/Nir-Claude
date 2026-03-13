@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Signs Your Brakes Need Replacing | Precision Auto Care</title>
+  <meta name="description" content="Learn the 5 warning signs that your brakes need replacing before safety is compromised. Expert advice from Precision Auto Care in Austin, TX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #FAFAF5; --bg-warm: #F5F0E8; --navy: #1B3A5C; --navy-dark: #132A44;
+      --orange: #E87722; --orange-hover: #D06A1E; --text: #4A4A4A; --text-light: #6B6B6B;
+      --white: #FFFFFF; --border: #E8E4DC;
+      --shadow: 0 4px 24px rgba(27,58,92,0.08); --shadow-hover: 0 12px 40px rgba(27,58,92,0.16);
+      --radius: 12px;
+      --h1: clamp(28px, 4vw, 42px); --h2: clamp(22px, 3vw, 30px); --h3: clamp(18px, 2.5vw, 22px);
+      --body: clamp(15px, 1.1vw, 17px); --small: clamp(12px, 0.9vw, 14px);
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; font-size: var(--body); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-weight: 700; color: var(--navy); line-height: 1.3; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; border: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s ease; }
+    .btn-primary:hover { background: var(--orange-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,119,34,0.4); }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,250,245,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    .nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 14px 24px; }
+    .nav-logo { font-size: 22px; font-weight: 800; color: var(--navy); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-weight: 500; font-size: 15px; color: var(--navy); transition: color 0.2s; position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--orange); transition: all 0.3s ease; transform: translateX(-50%); }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-phone { display: flex; align-items: center; gap: 6px; font-weight: 700; color: var(--navy); font-size: 15px; }
+    .nav-phone svg { width: 18px; height: 18px; fill: var(--orange); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 6px 0; border-radius: 2px; }
+
+    .breadcrumb { padding: 100px 0 0; background: var(--bg); }
+    .breadcrumb-inner { display: flex; align-items: center; gap: 8px; font-size: var(--small); color: var(--text-light); padding: 12px 0; }
+    .breadcrumb-inner a { color: var(--orange); font-weight: 500; }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+
+    .article-hero { position: relative; margin-bottom: 48px; border-radius: var(--radius); overflow: hidden; max-height: 420px; }
+    .article-hero img { width: 100%; height: 420px; object-fit: cover; }
+    .article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(19,42,68,0.7) 0%, transparent 60%); }
+    .article-hero-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 40px; color: var(--white); }
+    .article-hero-text .category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); background: rgba(0,0,0,0.3); padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 12px; }
+    .article-hero-text h1 { color: var(--white); margin-bottom: 12px; }
+    .article-meta { font-size: var(--small); color: rgba(255,255,255,0.8); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .article-wrap { display: grid; grid-template-columns: 1fr 300px; gap: 48px; padding-bottom: 60px; }
+    .article-body { max-width: 100%; }
+    .article-body p { margin-bottom: 20px; line-height: 1.8; }
+    .article-body h2 { font-size: var(--h2); margin: 36px 0 16px; }
+    .article-body h3 { font-size: var(--h3); margin: 28px 0 12px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+    .article-body li { margin-bottom: 8px; line-height: 1.7; }
+
+    .tip-box { background: rgba(232,119,34,0.06); border-left: 4px solid var(--orange); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .tip-box strong { color: var(--navy); display: block; margin-bottom: 4px; }
+    .tip-box p { margin-bottom: 0; color: var(--text); }
+
+    .warning-box { background: rgba(220,53,69,0.06); border-left: 4px solid #DC3545; border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .warning-box strong { color: #DC3545; display: block; margin-bottom: 4px; }
+    .warning-box p { margin-bottom: 0; color: var(--text); }
+
+    .sidebar { position: sticky; top: 100px; }
+    .sidebar-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; }
+    .sidebar-box h4 { font-size: 16px; margin-bottom: 16px; }
+    .sidebar-box p { font-size: var(--small); color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+
+    .related { padding: 60px 0; background: var(--bg-warm); }
+    .related h2 { font-size: var(--h2); text-align: center; margin-bottom: 36px; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .related-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease; display: flex; }
+    .related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .related-card img { width: 200px; height: 160px; object-fit: cover; flex-shrink: 0; }
+    .related-card-body { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+    .related-card .category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 6px; display: block; }
+    .related-card h3 { font-size: 16px; line-height: 1.4; margin-bottom: 8px; }
+    .related-card .read-more { font-size: 13px; font-weight: 600; color: var(--orange); }
+
+    .cta-banner { padding: 60px 0; background: var(--bg); }
+    .cta-box { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); border-radius: var(--radius); padding: 48px; text-align: center; color: var(--white); position: relative; overflow: hidden; }
+    .cta-box::before { content: ''; position: absolute; top: -40%; left: -20%; width: 300px; height: 300px; background: rgba(232,119,34,0.15); border-radius: 50%; filter: blur(60px); }
+    .cta-box h2 { font-size: var(--h2); color: var(--white); margin-bottom: 12px; position: relative; }
+    .cta-box p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 28px; max-width: 500px; margin-inline: auto; position: relative; }
+
+    .footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 48px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+    .footer-logo { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .footer-logo span { color: var(--orange); }
+    .footer-desc { font-size: 14px; line-height: 1.7; max-width: 300px; }
+    .footer h4 { color: var(--white); font-size: 16px; margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-hours li { font-size: 14px; margin-bottom: 6px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; }
+
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; right: 0; left: 0; background: var(--white); flex-direction: column; padding: 20px 24px; gap: 16px; border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .nav-phone { display: none; }
+      .article-wrap { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .related-card { flex-direction: column; }
+      .related-card img { width: 100%; height: 180px; }
+      .article-hero-text { padding: 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../../template_example-2.html" class="nav-logo">Precision<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../../template_example-2.html#services">Services</a></li>
+      <li><a href="../../template_example-2.html#about">About</a></li>
+      <li><a href="../../template_example-2.html#reviews">Reviews</a></li>
+      <li><a href="../../template_example-2.html#specials">Specials</a></li>
+      <li><a href="../../blog.html">Blog</a></li>
+      <li><a href="../../template_example-2.html#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+15558472390" class="nav-phone">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+      (555) 847-2390
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="../../template_example-2.html">Home</a> &rsaquo;
+      <a href="../../blog.html">Blog</a> &rsaquo;
+      <span>Brake Warning Signs</span>
+    </div>
+  </div>
+</div>
+
+<!-- Article Hero -->
+<div class="container" style="padding-top: 16px;">
+  <div class="article-hero">
+    <img src="../../../../images/template-images/service-brakes.jpg" alt="Brake pads and rotors close-up" width="1200" height="420">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-text">
+      <span class="category">Safety</span>
+      <h1>5 Signs Your Brakes Need Replacing</h1>
+      <div class="article-meta">
+        <span>March 10, 2026</span>
+        <span>By Mike Thompson</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Article Content -->
+<div class="container">
+  <div class="article-wrap">
+    <article class="article-body">
+      <p>Your brakes are arguably the single most important safety system on your vehicle. They're the one thing standing between you and the car in front of you at a red light, between a close call and a serious accident. Yet many drivers don't think about their brakes until something goes noticeably wrong — and by then, the repair is often more expensive and the safety risk has been very real.</p>
+
+      <p>At Precision Auto Care, we inspect brakes on every vehicle that comes through our shop, whether you're in for an oil change or a major repair. After 17 years of brake work, we've identified the five warning signs that virtually every driver will encounter at some point. Here's what to watch — and listen — for.</p>
+
+      <h2>1. High-Pitched Squealing or Squeaking</h2>
+
+      <p>This is usually the first sign, and it's there by design. Most brake pads have a small metal tab called a "wear indicator" built into them. When the pad wears down to a certain thickness (typically around 3mm), this metal tab makes contact with the rotor and creates that high-pitched squealing sound you hear when braking.</p>
+
+      <p><strong>What it sounds like:</strong> A high-pitched metallic screech or squeal that occurs when you press the brake pedal. It usually goes away when you release the brakes. It may be more noticeable at low speeds.</p>
+
+      <p><strong>How urgent is it?</strong> Moderately urgent. The wear indicator is telling you that your pads are getting low but haven't completely worn out yet. You typically have a few hundred to a few thousand miles of pad life remaining, but you should schedule brake service within the next week or two. Don't wait until the squeal turns into a grind.</p>
+
+      <div class="tip-box">
+        <strong>Not All Squealing Is Bad</strong>
+        <p>Light squealing when brakes are cold or wet (like first thing in the morning or after rain) is normal and usually goes away after a few brake applications. It's persistent squealing during normal driving that signals worn pads.</p>
+      </div>
+
+      <h2>2. Grinding or Metal-on-Metal Sound</h2>
+
+      <p>If you hear a deep, harsh grinding noise when you brake, you've gone past the warning stage. This sound means the brake pads have worn completely through and the metal backing plate is now grinding directly against the metal rotor. This is metal-on-metal contact, and it's damaging your rotors with every stop.</p>
+
+      <p><strong>What it sounds like:</strong> A low, grating, grinding noise — almost like dragging something heavy across concrete. It's distinctly different from a squeal and much more alarming.</p>
+
+      <p><strong>How urgent is it?</strong> Very urgent. Every mile you drive with grinding brakes is causing additional damage to your rotors (and potentially your calipers). What might have been a simple $200-$350 pad replacement can quickly become a $500-$800 pad-and-rotor job. In severe cases, damaged calipers can push the total above $1,000.</p>
+
+      <div class="warning-box">
+        <strong>Safety Warning</strong>
+        <p>Grinding brakes have significantly reduced stopping power. Your stopping distance can increase by 50% or more compared to brakes in good condition. If you hear grinding, avoid highway driving and get to a brake shop as soon as possible.</p>
+      </div>
+
+      <h2>3. Soft or Spongy Brake Pedal</h2>
+
+      <p>A healthy brake pedal should feel firm and responsive — you press it, and the car starts stopping almost immediately. If your brake pedal feels soft, spongy, or sinks further toward the floor than usual before the brakes engage, something is wrong with the hydraulic system.</p>
+
+      <p><strong>Common causes:</strong></p>
+      <ul>
+        <li><strong>Air in the brake lines</strong> — Air is compressible (fluid isn't), so air bubbles in the lines make the pedal feel spongy</li>
+        <li><strong>Brake fluid leak</strong> — A leak anywhere in the system (lines, calipers, master cylinder) reduces hydraulic pressure</li>
+        <li><strong>Worn master cylinder</strong> — The master cylinder creates the hydraulic pressure; when it fails, the pedal goes soft</li>
+        <li><strong>Moisture in brake fluid</strong> — Old brake fluid absorbs moisture over time, lowering its boiling point and reducing effectiveness</li>
+      </ul>
+
+      <p><strong>How urgent is it?</strong> Very urgent, especially if the pedal is sinking to the floor. A brake fluid leak can lead to complete brake failure. If you notice a suddenly soft pedal, check under your car for fluid puddles (brake fluid is clear to yellowish-brown). If the pedal goes to the floor, do not drive the vehicle — call for service.</p>
+
+      <h2>4. Vibration or Pulsating When Braking</h2>
+
+      <p>If you feel a vibration, pulsating, or shaking through the brake pedal or steering wheel when you brake, it almost always indicates warped brake rotors. Rotors are the large metal discs that the brake pads clamp onto to slow the car. Over time, extreme heat and wear can cause them to develop uneven surfaces — they're no longer perfectly flat.</p>
+
+      <p><strong>What it feels like:</strong> A rhythmic pulsation in the brake pedal, often accompanied by a vibration in the steering wheel. It's usually most noticeable when braking from higher speeds (like highway off-ramps) and may get worse over time.</p>
+
+      <p><strong>Common causes of warped rotors:</strong></p>
+      <ul>
+        <li><strong>Extreme heat buildup</strong> — Heavy braking (mountain driving, towing) can overheat rotors</li>
+        <li><strong>Rapid cooling</strong> — Driving through a puddle right after heavy braking can shock-cool the rotor</li>
+        <li><strong>Overtightened lug nuts</strong> — Uneven torque on wheel bolts can warp the rotor over time</li>
+        <li><strong>Normal wear</strong> — After 50,000-70,000 miles, rotors naturally develop some variation</li>
+      </ul>
+
+      <p><strong>The fix:</strong> Minor warping can sometimes be corrected by "turning" (resurfacing) the rotors on a lathe, which removes a thin layer to restore flatness. However, rotors have a minimum thickness specification — if they're too thin, they must be replaced. Rotor replacement along with new pads typically runs $350-$600 per axle.</p>
+
+      <div class="tip-box">
+        <strong>Prevention Tip</strong>
+        <p>Avoid "riding" your brakes on long downhill stretches. Instead, downshift to a lower gear to let engine braking help, and apply firm brake pressure intermittently rather than constant light pressure. This prevents excessive heat buildup that warps rotors.</p>
+      </div>
+
+      <h2>5. Vehicle Pulling to One Side When Braking</h2>
+
+      <p>If your car pulls noticeably to the left or right when you apply the brakes, it means the braking force is uneven between the two sides. One side is braking harder than the other, creating an imbalance that pulls the vehicle in that direction.</p>
+
+      <p><strong>Common causes:</strong></p>
+      <ul>
+        <li><strong>Stuck or seized caliper</strong> — One caliper isn't releasing properly, so it's either applying constant pressure (pulling toward that side) or not applying enough (pulling away from that side)</li>
+        <li><strong>Uneven pad wear</strong> — If pads on one side are significantly more worn than the other, braking force is uneven</li>
+        <li><strong>Collapsed brake hose</strong> — A deteriorated rubber brake hose can act as a one-way valve, trapping fluid and keeping one caliper partially engaged</li>
+        <li><strong>Contaminated brake pads</strong> — Oil, grease, or brake fluid on one set of pads reduces their friction</li>
+      </ul>
+
+      <p><strong>How urgent is it?</strong> Moderately to very urgent. Pulling makes the vehicle harder to control, especially in emergency braking situations. A seized caliper can also cause excessive heat, potentially leading to brake fade or even a fire in extreme cases. This one needs professional diagnosis soon.</p>
+
+      <h2>How Long Do Brakes Actually Last?</h2>
+
+      <p>Brake pad life varies enormously depending on driving conditions, driving style, and the type of pads installed:</p>
+
+      <ul>
+        <li><strong>City driving with frequent stops:</strong> 25,000-40,000 miles</li>
+        <li><strong>Mixed city/highway driving:</strong> 40,000-60,000 miles</li>
+        <li><strong>Mostly highway driving:</strong> 60,000-80,000 miles</li>
+        <li><strong>Aggressive driving or heavy vehicle:</strong> 20,000-35,000 miles</li>
+      </ul>
+
+      <p>Ceramic pads generally last longer than semi-metallic pads and produce less brake dust, though they cost a bit more upfront. Rotors typically last through two sets of pads before needing replacement.</p>
+
+      <h2>What to Expect at a Brake Inspection</h2>
+
+      <p>At Precision Auto Care, our brake inspections are thorough and transparent. We remove the wheels, measure pad thickness and rotor thickness with precision calipers, check rotor surfaces for scoring or warping, inspect calipers and brake lines for leaks, and test brake fluid condition. We then take photos of everything and show you exactly what we found before recommending any work.</p>
+
+      <p>We never recommend brake work that isn't needed. If your pads have 5mm of life left, we'll tell you they're fine and estimate when you'll need to come back. That's the Precision promise.</p>
+
+      <p><strong>Concerned about your brakes?</strong> Call us at <a href="tel:+15558472390" style="color:var(--orange); font-weight:600;">(555) 847-2390</a> or stop by 1247 Industrial Blvd in Austin for a free brake inspection. Your safety is worth a few minutes of your time.</p>
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Free Brake Inspection</h4>
+        <p>We'll measure your pads and rotors, check for leaks, and show you photos — all at no charge.</p>
+        <a href="tel:+15558472390" class="btn-primary" style="width:100%; justify-content:center;">Call (555) 847-2390</a>
+      </div>
+      <div class="sidebar-box">
+        <h4>Brake Service Includes</h4>
+        <p style="margin-bottom:8px;"><strong style="color:var(--navy);">Premium pads</strong> with 24-month warranty</p>
+        <p style="margin-bottom:8px;"><strong style="color:var(--navy);">Rotor inspection</strong> and resurfacing if needed</p>
+        <p style="margin-bottom:8px;"><strong style="color:var(--navy);">Hardware cleanup</strong> and lubrication</p>
+        <p style="margin-bottom:0;"><strong style="color:var(--navy);">Road test</strong> to verify performance</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Related Articles -->
+<section class="related">
+  <div class="container">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      <a href="../check-engine-light/index.html" class="related-card" style="color:inherit;">
+        <img src="../../../../images/template-images/service-diagnostics.jpg" alt="Check engine light" loading="lazy">
+        <div class="related-card-body">
+          <span class="category">Diagnostics</span>
+          <h3>Why Is My Check Engine Light On? 5 Common Causes</h3>
+          <span class="read-more">Read More &rarr;</span>
+        </div>
+      </a>
+      <a href="../oil-change-guide/index.html" class="related-card" style="color:inherit;">
+        <img src="../../../../images/template-images/service-oil.jpg" alt="Oil change guide" loading="lazy">
+        <div class="related-card-body">
+          <span class="category">Maintenance</span>
+          <h3>How Often Should You Really Change Your Oil?</h3>
+          <span class="read-more">Read More &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Worried About Your Brakes?</h2>
+      <p>Don't take chances with your safety. Our free brake inspection takes 15 minutes and could save your life.</p>
+      <a href="tel:+15558472390" class="btn-primary" style="position:relative;">Schedule Free Inspection</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">Precision<span>.</span></p>
+        <p class="footer-desc">Precision Auto Care — a family-owned shop with years of experience and a commitment to honest, professional service.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="../../template_example-2.html#services">Services</a></li>
+          <li><a href="../../template_example-2.html#about">About</a></li>
+          <li><a href="../../template_example-2.html#reviews">Reviews</a></li>
+          <li><a href="../../blog.html">Blog</a></li>
+          <li><a href="../../template_example-2.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Business Hours</h4>
+        <ul class="footer-hours footer-links">
+          <li>Mon &ndash; Fri: 7:30 AM &ndash; 6:00 PM</li>
+          <li>Saturday: 8:00 AM &ndash; 2:00 PM</li>
+          <li>Sunday: Closed</li>
+          <li style="margin-top:12px"><a href="tel:+15558472390">(555) 847-2390</a></li>
+          <li>1247 Industrial Blvd, Austin, TX 78745</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Precision Auto Care. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+  window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40));
+</script>
+</body>
+</html>

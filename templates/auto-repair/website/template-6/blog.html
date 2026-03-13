@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog — Precision Auto Care | Expert Auto Repair Insights</title>
+<meta name="description" content="Expert auto care tips, maintenance guides, and diagnostic insights from ASE-certified technicians at Precision Auto Care in Austin, TX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --white:#FFFFFF;--off-white:#F5F3F0;--services-bg:#D9DCDB;
+  --text-primary:#1A1A1A;--text-secondary:#4A4A4A;--text-muted:#8C8C8C;
+  --footer-bg:#2A2D30;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;
+  --max-w:1200px;--radius:22px;
+  --transition:0.45s cubic-bezier(.25,.46,.45,.94);
+}
+body{font-family:var(--sans);color:var(--text-primary);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 32px}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.nav .container{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--text-primary);letter-spacing:.3px}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:400;color:var(--text-secondary);transition:color var(--transition)}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-links a.active{color:var(--text-primary);font-weight:500}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-phone{font-size:.85rem;color:var(--text-secondary);font-weight:400;transition:color var(--transition)}
+.nav-phone:hover{color:var(--text-primary)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:110;min-width:48px;min-height:48px;justify-content:center;align-items:center}
+.hamburger span{width:22px;height:1.5px;background:var(--text-primary);transition:transform var(--transition),opacity var(--transition);transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,4px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-4px)}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;visibility:hidden;z-index:95;transition:opacity var(--transition),visibility var(--transition)}
+.nav-overlay.open{opacity:1;visibility:visible}
+
+/* Blog Hero */
+.blog-hero{padding:160px 0 80px;background:var(--off-white)}
+.blog-hero .section-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;display:block;font-weight:400}
+.blog-hero h1{font-family:var(--sans);font-size:clamp(36px,5vw,56px);font-weight:300;line-height:1.15;letter-spacing:-.01em}
+.blog-hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400}
+.blog-hero p{font-size:17px;color:var(--text-secondary);max-width:520px;margin-top:20px;font-weight:300;line-height:1.65}
+
+/* Blog Grid */
+.blog-section{padding:80px 0 120px;background:var(--white)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-card{background:var(--off-white);border-radius:var(--radius);overflow:hidden;transition:transform var(--transition);display:flex;flex-direction:column}
+.blog-card:hover{transform:translateY(-4px)}
+.blog-card-img{height:240px;overflow:hidden}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 4s ease}
+.blog-card:hover .blog-card-img img{transform:scale(1.04)}
+.blog-card-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.blog-card-tag{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;display:inline-block;font-weight:400}
+.blog-card-body h2{font-size:20px;font-weight:500;line-height:1.35;margin-bottom:12px;color:var(--text-primary)}
+.blog-card-meta{font-size:13px;color:var(--text-muted);margin-bottom:14px;font-weight:300}
+.blog-card-body p{font-size:14px;color:var(--text-secondary);line-height:1.65;font-weight:300;flex:1;margin-bottom:20px}
+.blog-card-link{font-size:14px;color:var(--text-muted);transition:color var(--transition);align-self:flex-start;font-weight:300}
+.blog-card:hover .blog-card-link{color:var(--text-primary)}
+
+/* CTA */
+.cta-section{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0;z-index:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover}
+.cta-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.cta-content{position:relative;z-index:2}
+.cta-content h2{font-family:var(--sans);font-size:clamp(28px,4vw,48px);font-weight:300;color:#fff;line-height:1.15;margin-bottom:24px;letter-spacing:-.01em}
+.cta-content h2 em{font-family:var(--serif);font-style:italic;font-weight:400}
+.cta-link{font-size:15px;color:#fff;font-weight:300;letter-spacing:.5px;display:inline-block;transition:opacity var(--transition)}
+.cta-link:hover{opacity:.7}
+.cta-phone{font-size:clamp(22px,3vw,32px);color:#fff;font-weight:300;display:block;margin-top:16px;transition:opacity var(--transition)}
+.cta-phone:hover{opacity:.7}
+
+/* Footer */
+.footer{background:var(--footer-bg);padding:60px 0 40px;color:rgba(255,255,255,.6)}
+.footer .container{display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--serif);font-size:1.2rem;color:#fff;letter-spacing:.3px}
+.footer-info{display:flex;gap:32px;font-size:14px}
+.footer-info a{color:rgba(255,255,255,.6);transition:color var(--transition);font-weight:300}
+.footer-info a:hover{color:#fff}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.35)}
+
+@media(max-width:768px){
+  .container{padding:0 20px}
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:80vw;height:100dvh;background:var(--white);flex-direction:column;justify-content:center;padding:48px 36px;gap:28px;transition:right var(--transition);z-index:105;box-shadow:-20px 0 60px rgba(0,0,0,.1)}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.2rem;color:var(--text-primary)!important}
+  .nav-right{display:none}
+  .blog-hero{padding:120px 0 60px}
+  .blog-grid{grid-template-columns:1fr}
+  .footer .container{flex-direction:column;gap:20px;text-align:center}
+  .footer-info{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container">
+    <a href="template_example-6.html" class="nav-logo">Precision Auto Care</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="template_example-6.html#services">Services</a></li>
+      <li><a href="template_example-6.html#about">About</a></li>
+      <li><a href="template_example-6.html#reviews">Reviews</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="template_example-6.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+15558472390" class="nav-phone">(555) 847-2390</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Blog Hero -->
+<section class="blog-hero">
+  <div class="container">
+    <span class="section-label">&bull; Blog</span>
+    <h1>Expert Auto Care <em>Insights</em></h1>
+    <p>Practical tips and honest knowledge from our ASE-certified technicians to help you keep your vehicle running at its best.</p>
+  </div>
+</section>
+
+<!-- Blog Grid -->
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-grid">
+      <a href="blog/check-engine-light/index.html" class="blog-card">
+        <div class="blog-card-img">
+          <img src="../../images/template-images/service-diagnostics.jpg" alt="Check engine light diagnostics" loading="lazy" width="800" height="500">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Diagnostics</span>
+          <h2>Why Is My Check Engine Light On? 5 Common Causes</h2>
+          <span class="blog-card-meta">March 10, 2026 &middot; Mike Thompson</span>
+          <p>That dashboard warning can mean anything from a loose gas cap to a serious engine issue. Here are the five most common triggers and what you should do about each one.</p>
+          <span class="blog-card-link">Read article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="blog/oil-change-guide/index.html" class="blog-card">
+        <div class="blog-card-img">
+          <img src="../../images/template-images/service-oil.jpg" alt="Oil change service" loading="lazy" width="800" height="500">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Maintenance</span>
+          <h2>How Often Should You Really Change Your Oil?</h2>
+          <span class="blog-card-meta">March 10, 2026 &middot; Mike Thompson</span>
+          <p>The old 3,000-mile rule is outdated. Modern engines have different needs. We break down the real intervals and what actually matters.</p>
+          <span class="blog-card-link">Read article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="blog/brake-warning-signs/index.html" class="blog-card">
+        <div class="blog-card-img">
+          <img src="../../images/template-images/service-brakes.jpg" alt="Brake inspection" loading="lazy" width="800" height="500">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Safety</span>
+          <h2>5 Signs Your Brakes Need Replacing</h2>
+          <span class="blog-card-meta">March 10, 2026 &middot; Mike Thompson</span>
+          <p>Squealing, vibration, or a soft pedal? Don't ignore these warning signs. Learn how to spot brake wear early and keep your family safe.</p>
+          <span class="blog-card-link">Read article &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img src="../../images/template-images/exterior.jpg" alt="Precision Auto Care exterior" width="1920" height="800" loading="lazy">
+  </div>
+  <div class="cta-content">
+    <h2>Your Vehicle Deserves <em>Expert</em> Care</h2>
+    <a href="tel:+15558472390" class="cta-link">( Call Now )</a>
+    <a href="tel:+15558472390" class="cta-phone">(555) 847-2390</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <span class="footer-logo">Precision Auto Care</span>
+    <div class="footer-info">
+      <a href="tel:+15558472390">(555) 847-2390</a>
+      <a href="#">1247 Industrial Blvd, Austin, TX 78745</a>
+      <a href="blog.html">Blog</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 Precision Auto Care. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks'),navOverlay=document.getElementById('navOverlay');
+  function toggleMenu(){var o=navLinks.classList.toggle('open');hamburger.classList.toggle('active',o);navOverlay.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''}
+  hamburger.addEventListener('click',toggleMenu);
+  navOverlay.addEventListener('click',toggleMenu);
+  navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(navLinks.classList.contains('open'))toggleMenu()})});
+})();
+</script>
+</body>
+</html>

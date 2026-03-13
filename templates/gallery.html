@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Template Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#08080a;
+  --bg-card:#111114;
+  --bg-hover:#18181c;
+  --border:rgba(255,255,255,.06);
+  --border-hover:rgba(255,255,255,.12);
+  --text:#e8e8ec;
+  --text-dim:rgba(255,255,255,.4);
+  --text-muted:rgba(255,255,255,.22);
+  --accent:#e8a849;
+  --accent-glow:rgba(232,168,73,.15);
+  --syne:'Syne',sans-serif;
+  --dm:'DM Sans',sans-serif;
+  --radius:16px;
+  --cols:3;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--dm);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── Noise overlay ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+  background-size:200px;
+}
+
+/* ── Top ambient glow ── */
+body::after{
+  content:'';
+  position:fixed;
+  top:-40%;
+  left:50%;
+  transform:translateX(-50%);
+  width:120vw;
+  height:70vh;
+  background:radial-gradient(ellipse at center, rgba(232,168,73,.04) 0%, transparent 65%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── Top Navigation — Vertical Tabs ── */
+.top-nav{
+  position:sticky;
+  top:0;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  padding:12px 48px;
+  background:rgba(8,8,10,.92);
+  backdrop-filter:blur(32px) saturate(1.4);
+  -webkit-backdrop-filter:blur(32px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+}
+.nav-section{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.nav-label{
+  font-family:var(--syne);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-right:8px;
+}
+.nav-link{
+  font-family:var(--syne);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.3px;
+  padding:8px 22px;
+  border-radius:100px;
+  text-decoration:none;
+  transition:all .25s ease;
+  cursor:pointer;
+  border:none;
+  background:none;
+}
+.nav-link--inactive{
+  color:var(--text-dim);
+  border:1px solid transparent;
+}
+.nav-link--inactive:hover{
+  color:var(--text);
+  border-color:var(--border-hover);
+  background:rgba(255,255,255,.03);
+}
+.nav-link--active{
+  color:var(--accent);
+  border:1px solid rgba(232,168,73,.3);
+  background:var(--accent-glow);
+}
+.nav-divider{
+  width:1px;
+  height:20px;
+  background:var(--border);
+  margin:0 12px;
+}
+.nav-link--proposals{
+  color:var(--text-dim);
+  border:1px solid transparent;
+  text-decoration:none;
+}
+.nav-link--proposals:hover{
+  color:var(--text);
+  border-color:var(--border-hover);
+  background:rgba(255,255,255,.03);
+}
+.nav-link--proposals.nav-link--active{
+  color:#b08ad4;
+  border:1px solid rgba(176,138,212,.3);
+  background:rgba(176,138,212,.15);
+}
+
+/* ── Empty state ── */
+.empty-state{
+  text-align:center;
+  padding:120px 48px;
+  position:relative;
+  z-index:1;
+}
+.empty-state-icon{
+  width:64px;
+  height:64px;
+  margin:0 auto 24px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.empty-state-icon svg{
+  width:28px;height:28px;
+  stroke:var(--text-muted);
+  stroke-width:1.5;
+  fill:none;
+}
+.empty-state h2{
+  font-family:var(--syne);
+  font-size:24px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.empty-state p{
+  font-size:15px;
+  color:var(--text-dim);
+  max-width:400px;
+  margin:0 auto;
+  line-height:1.6;
+}
+.empty-state code{
+  display:inline-block;
+  margin-top:16px;
+  font-size:13px;
+  padding:8px 16px;
+  border-radius:8px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  color:var(--accent);
+  font-family:'SF Mono',monospace;
+}
+
+/* ── Header ── */
+.header{
+  padding:0 48px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(8,8,10,.8);
+  backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-backdrop-filter:blur(24px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+}
+.header-brand{
+  font-family:var(--syne);
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:-.5px;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.header-brand .dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 12px var(--accent-glow);
+}
+.header-meta{
+  font-size:13px;
+  color:var(--text-dim);
+  font-weight:400;
+  letter-spacing:.3px;
+}
+.header-count{
+  font-family:var(--syne);
+  font-weight:700;
+  color:var(--accent);
+}
+
+/* ── Language toggle ── */
+.lang-toggle{
+  display:flex;
+  align-items:center;
+  gap:2px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  border-radius:100px;
+  padding:3px;
+  margin-left:16px;
+}
+.lang-btn{
+  font-family:var(--syne);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.5px;
+  padding:5px 14px;
+  border-radius:100px;
+  border:none;
+  cursor:pointer;
+  transition:all .25s ease;
+  background:transparent;
+  color:var(--text-dim);
+}
+.lang-btn:hover{
+  color:var(--text);
+}
+.lang-btn.active{
+  background:var(--accent);
+  color:#08080a;
+}
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* ── Hero strip ── */
+.hero{
+  padding:64px 48px 48px;
+  position:relative;
+  z-index:1;
+}
+.hero-eyebrow{
+  font-family:var(--syne);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:16px;
+  opacity:0;
+  animation:fadeUp .6s ease forwards;
+}
+.hero h1{
+  font-family:var(--syne);
+  font-size:clamp(36px, 5vw, 64px);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-2px;
+  color:var(--text);
+  max-width:700px;
+  opacity:0;
+  animation:fadeUp .6s ease .1s forwards;
+}
+.hero h1 span{
+  background:linear-gradient(135deg, var(--accent), #f0c27f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:16px;
+  color:var(--text-dim);
+  margin-top:16px;
+  max-width:480px;
+  line-height:1.65;
+  font-weight:300;
+  opacity:0;
+  animation:fadeUp .6s ease .2s forwards;
+}
+
+/* ── Filter bar ── */
+.filter-bar{
+  padding:0 48px 32px;
+  display:flex;
+  gap:8px;
+  position:relative;
+  z-index:1;
+  opacity:0;
+  animation:fadeUp .6s ease .3s forwards;
+}
+.filter-btn{
+  font-family:var(--dm);
+  font-size:13px;
+  font-weight:500;
+  padding:8px 18px;
+  border-radius:100px;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text-dim);
+  cursor:pointer;
+  transition:all .25s ease;
+}
+.filter-btn:hover,.filter-btn.active{
+  border-color:var(--accent);
+  color:var(--accent);
+  background:var(--accent-glow);
+}
+
+/* ── Grid ── */
+.grid-wrap{
+  padding:0 48px 96px;
+  position:relative;
+  z-index:1;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(var(--cols),1fr);
+  gap:24px;
+}
+
+/* ── Card ── */
+.card{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:transform .4s cubic-bezier(.2,.9,.3,1), border-color .3s, box-shadow .4s;
+  opacity:0;
+  transform:translateY(30px);
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+.card.visible{
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity .5s ease, transform .5s ease, border-color .3s, box-shadow .4s;
+}
+.card:hover{
+  transform:translateY(-6px) scale(1.008);
+  border-color:var(--border-hover);
+  box-shadow:0 24px 80px -12px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* ── iframe preview ── */
+.card-preview{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/11;
+  overflow:hidden;
+  background:#0c0c0e;
+}
+.card-preview iframe{
+  width:1440px;
+  height:1100px;
+  border:none;
+  transform-origin:top left;
+  pointer-events:none;
+  display:block;
+}
+.card-preview::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(8,8,10,.7) 100%);
+  opacity:0;
+  transition:opacity .35s ease;
+  pointer-events:none;
+}
+.card:hover .card-preview::after{
+  opacity:1;
+}
+
+/* ── Open indicator ── */
+.card-open{
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:36px;height:36px;
+  border-radius:10px;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transform:translateY(-6px);
+  transition:all .3s ease;
+  z-index:5;
+}
+.card:hover .card-open{
+  opacity:1;
+  transform:translateY(0);
+}
+.card-open svg{
+  width:16px;height:16px;
+  stroke:#fff;
+  stroke-width:2;
+  fill:none;
+}
+
+/* ── Card info ── */
+.card-info{
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-top:1px solid var(--border);
+}
+.card-num{
+  font-family:var(--syne);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+}
+.card-name{
+  font-family:var(--syne);
+  font-size:14px;
+  font-weight:600;
+  color:var(--text);
+  letter-spacing:-.2px;
+}
+.card-tag{
+  font-size:11px;
+  font-weight:500;
+  padding:4px 10px;
+  border-radius:6px;
+  background:rgba(255,255,255,.04);
+  color:var(--text-dim);
+  border:1px solid var(--border);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── Responsive ── */
+@media(max-width:1200px){
+  :root{--cols:2}
+  .top-nav,.header,.hero,.filter-bar,.grid-wrap{padding-left:32px;padding-right:32px}
+}
+@media(max-width:768px){
+  :root{--cols:1}
+  .top-nav,.header,.hero,.filter-bar,.grid-wrap{padding-left:20px;padding-right:20px}
+  .top-nav{gap:2px;padding:10px 16px;flex-wrap:wrap}
+  .nav-label{display:none}
+  .nav-link{font-size:12px;padding:7px 14px}
+  .nav-divider{margin:0 4px}
+  .header{height:60px}
+  .hero{padding-top:40px;padding-bottom:32px}
+  .hero h1{letter-spacing:-1px}
+  .card-preview iframe{width:1200px;height:920px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Top Navigation — Vertical Tabs ── -->
+<nav class="top-nav">
+  <div class="nav-section">
+    <span class="nav-label">Verticals</span>
+    <button class="nav-link nav-link--active" data-vertical="dentists">
+      <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 3-2 5.5-4 8l-3 5-3-5c-2-2.5-4-5-4-8a7 7 0 017-7z"/><circle cx="12" cy="9" r="2"/></svg>
+      Dentists
+    </button>
+    <button class="nav-link nav-link--inactive" data-vertical="auto-repair">
+      <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      Auto Repair
+    </button>
+  </div>
+  <span class="nav-divider"></span>
+  <button class="nav-link nav-link--proposals nav-link--inactive" data-vertical="proposals">
+    <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    Proposals
+  </button>
+</nav>
+
+<header class="header">
+  <div class="header-brand">
+    <span class="dot"></span>
+    <span id="brand-title">Template Gallery</span>
+  </div>
+  <div class="header-right">
+    <div class="header-meta">
+      <span class="header-count" id="template-count">22</span> templates
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="he" onclick="switchLang('he')">HEB</button>
+      <button class="lang-btn" data-lang="en" onclick="switchLang('en')">ENG</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="hero-section">
+  <div class="hero-eyebrow">Template Gallery</div>
+  <h1 id="hero-title">Landing Pages<br>for <span>Dental Clinics</span></h1>
+  <p class="hero-sub" id="hero-sub">Browse all 22 templates. Click any card to open the full template in a new tab.</p>
+</section>
+
+<div class="filter-bar" id="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="light">Light</button>
+  <button class="filter-btn" data-filter="dark">Dark</button>
+  <button class="filter-btn" data-filter="bento">Bento</button>
+</div>
+
+<div class="grid-wrap">
+  <div class="grid" id="gallery"></div>
+</div>
+
+<!-- Empty state (shown when vertical has no templates) -->
+<div class="empty-state" id="empty-state" style="display:none">
+  <div class="empty-state-icon">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+  </div>
+  <h2>No templates yet</h2>
+  <p>This vertical doesn't have any templates. Run the template-creator skill to build one.</p>
+  <code>/template-creator</code>
+</div>
+
+<script>
+/* ── Vertical Configuration ── */
+const verticals = {
+  dentists: {
+    label: 'Dental Clinics',
+    basePath: 'dentists/website',
+    heroTitle: 'Landing Pages<br>for <span>Dental Clinics</span>',
+    filters: [
+      { label: 'All', value: 'all' },
+      { label: 'Light', value: 'light' },
+      { label: 'Dark', value: 'dark' },
+      { label: 'Bento', value: 'bento' },
+    ],
+    templates: [
+      { id:1,  name:'Royal Blue',       tags:['light'] },
+      { id:2,  name:'Warm Olive',       tags:['light'] },
+      { id:3,  name:'Stats Hero',       tags:['light'] },
+      { id:4,  name:'Emerald Garden',   tags:['light'] },
+      { id:5,  name:'Midnight Neon',    tags:['dark'] },
+      { id:6,  name:'Coral Bento',      tags:['light','bento'] },
+      { id:7,  name:'Sage Clinic',      tags:['light'] },
+      { id:8,  name:'Bold Blocks',      tags:['light'] },
+      { id:9,  name:'Sky Trust',        tags:['light'] },
+      { id:10, name:'Navy Command',     tags:['light'] },
+      { id:11, name:'Warm Earth',       tags:['light'] },
+      { id:12, name:'Clean Slate',      tags:['light'] },
+      { id:13, name:'Charcoal Bento',   tags:['light','bento'] },
+      { id:14, name:'Sunset Coral',     tags:['light'] },
+      { id:15, name:'Classic Teal',     tags:['light'] },
+      { id:16, name:'Forest Deep',      tags:['light'] },
+      { id:17, name:'L-Frame Gold',     tags:['light'] },
+      { id:18, name:'Dark Mint',        tags:['dark'] },
+      { id:19, name:'Indigo Flow',      tags:['light'] },
+      { id:20, name:'Rose Blush',       tags:['light'] },
+      { id:21, name:'Nova Editorial',   tags:['light'] },
+      { id:22, name:'Nova Slate',       tags:['light'] },
+      { id:23, name:'Scroll Story',     tags:['dark'] },
+      { id:24, name:'Parallax Depth',   tags:['dark'] },
+      { id:25, name:'Reveal Cascade',   tags:['light'] },
+    ],
+    getPath: (t, suffix) => `dentists/website/template-${t.id}/template_example-${t.id}${suffix}.html`,
+  },
+  'auto-repair': {
+    label: 'Auto Repair',
+    basePath: 'auto-repair/website',
+    heroTitle: 'Landing Pages<br>for <span>Auto Repair Shops</span>',
+    filters: [
+      { label: 'All', value: 'all' },
+      { label: 'Dark', value: 'dark' },
+      { label: 'Light', value: 'light' },
+      { label: 'Editorial', value: 'editorial' },
+      { label: 'Brutalist', value: 'brutalist' },
+      { label: 'Bold', value: 'bold' },
+    ],
+    templates: [
+      { id:1,  name:'Dark Professional',   tags:['dark'] },
+      { id:2,  name:'Warm Community',       tags:['light'] },
+      { id:3,  name:'Bold Modern',          tags:['dark'] },
+      { id:4,  name:'Clean Trust',          tags:['light'] },
+      { id:5,  name:'Premium Gold',         tags:['dark'] },
+      { id:6,  name:'Editorial Warm',       tags:['light','editorial'] },
+      { id:7,  name:'Editorial Dark',       tags:['dark','editorial'] },
+      { id:8,  name:'Editorial Clean',      tags:['light','editorial'] },
+      { id:9,  name:'Brutalist Light',      tags:['light','brutalist'] },
+      { id:10, name:'Brutalist Contained',  tags:['dark','brutalist'] },
+      { id:11, name:'Cinematic Split',      tags:['dark','bold'] },
+      { id:12, name:'Neon Garage',          tags:['dark','bold'] },
+      { id:13, name:'Organic Trust',        tags:['light','bold'] },
+      { id:14, name:'Scroll Narrative',     tags:['dark','bold'] },
+      { id:15, name:'Parallax Layers',      tags:['dark','bold'] },
+      { id:16, name:'Reveal Cascade',       tags:['light','bold'] },
+    ],
+    getPath: (t, suffix) => `auto-repair/website/template-${t.id}/template_example-${t.id}${suffix}.html`,
+  },
+  proposals: {
+    label: 'Proposals',
+    basePath: 'proposals',
+    heroTitle: 'Proposal Templates<br>for <span>Client Outreach</span>',
+    filters: [
+      { label: 'All', value: 'all' },
+      { label: 'Dark', value: 'dark' },
+      { label: 'Light', value: 'light' },
+      { label: 'Ornate', value: 'ornate' },
+      { label: 'Minimal', value: 'minimal' },
+    ],
+    templates: [
+      { id:1,  file:'template-1-gazette',    name:'Gazette',     tags:['dark'] },
+      { id:2,  file:'template-2-bloom',      name:'Bloom',       tags:['light','ornate'] },
+      { id:3,  file:'template-3-swiss',      name:'Swiss',       tags:['light','minimal'] },
+      { id:4,  file:'template-4-dusk',       name:'Dusk',        tags:['dark'] },
+      { id:5,  file:'template-5-citrus',     name:'Citrus',      tags:['light','ornate'] },
+      { id:6,  file:'template-6-frost',      name:'Frost',       tags:['light','minimal'] },
+      { id:7,  file:'template-7-sakura',     name:'Sakura',      tags:['light','ornate'] },
+      { id:8,  file:'template-8-twilight',   name:'Twilight',    tags:['dark','ornate'] },
+      { id:9,  file:'template-9-porcelain',  name:'Porcelain',   tags:['light'] },
+      { id:10, file:'template-10-amethyst',  name:'Amethyst',    tags:['dark','ornate'] },
+    ],
+    getPath: (t, suffix) => `proposals/${t.file}${suffix}.html`,
+  },
+};
+
+/* ── State ── */
+let currentVertical = 'dentists';
+let currentLang = 'he';
+let currentFilter = 'all';
+
+const grid = document.getElementById('gallery');
+const heroTitle = document.getElementById('hero-title');
+const heroSub = document.getElementById('hero-sub');
+const filterBar = document.getElementById('filter-bar');
+const emptyState = document.getElementById('empty-state');
+const templateCount = document.getElementById('template-count');
+
+/* ── Render ── */
+function getLangSuffix() {
+  return currentLang === 'en' ? '-en' : '';
+}
+
+function renderCards() {
+  const v = verticals[currentVertical];
+  const suffix = getLangSuffix();
+  const filtered = currentFilter === 'all'
+    ? v.templates
+    : v.templates.filter(t => t.tags.includes(currentFilter));
+
+  grid.innerHTML = '';
+
+  if (v.templates.length === 0) {
+    grid.parentElement.style.display = 'none';
+    filterBar.style.display = 'none';
+    emptyState.style.display = '';
+    return;
+  }
+
+  grid.parentElement.style.display = '';
+  filterBar.style.display = '';
+  emptyState.style.display = 'none';
+
+  filtered.forEach((t, i) => {
+    const path = v.getPath(t, suffix);
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.href = path;
+    card.target = '_blank';
+    card.rel = 'noopener';
+    card.innerHTML = `
+      <div class="card-preview">
+        <iframe src="${path}" loading="lazy" tabindex="-1" sandbox="allow-same-origin"></iframe>
+        <div class="card-open">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-info">
+        <div>
+          <div class="card-num">No. ${String(t.id).padStart(2,'0')}</div>
+          <div class="card-name">${t.name}</div>
+        </div>
+        <span class="card-tag">${t.tags[0]}</span>
+      </div>
+    `;
+    grid.appendChild(card);
+
+    requestAnimationFrame(() => {
+      const preview = card.querySelector('.card-preview');
+      const iframe = card.querySelector('iframe');
+      if (preview && iframe) {
+        const scale = preview.offsetWidth / 1440;
+        iframe.style.transform = `scale(${scale})`;
+        preview.style.height = (1100 * scale) + 'px';
+      }
+    });
+
+    setTimeout(() => card.classList.add('visible'), 60 * i);
+  });
+}
+
+function renderFilters() {
+  const v = verticals[currentVertical];
+  filterBar.innerHTML = '';
+  v.filters.forEach(f => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (f.value === currentFilter ? ' active' : '');
+    btn.dataset.filter = f.value;
+    btn.textContent = f.label;
+    btn.addEventListener('click', () => {
+      currentFilter = f.value;
+      filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCards();
+    });
+    filterBar.appendChild(btn);
+  });
+}
+
+function switchVertical(key) {
+  if (key === currentVertical) return;
+  currentVertical = key;
+  currentFilter = 'all';
+
+  const v = verticals[key];
+
+  // Update nav tabs
+  document.querySelectorAll('.top-nav [data-vertical]').forEach(btn => {
+    const isActive = btn.dataset.vertical === key;
+    btn.classList.toggle('nav-link--active', isActive);
+    btn.classList.toggle('nav-link--inactive', !isActive);
+  });
+
+  // Update hero
+  heroTitle.innerHTML = v.heroTitle;
+  templateCount.textContent = v.templates.length;
+  heroSub.textContent = v.templates.length > 0
+    ? `Browse all ${v.templates.length} templates. Click any card to open the full template in a new tab.`
+    : `No templates yet for ${v.label}.`;
+
+  renderFilters();
+  renderCards();
+}
+
+function switchLang(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  renderCards();
+}
+
+/* ── Vertical tab clicks ── */
+document.querySelectorAll('.top-nav [data-vertical]').forEach(btn => {
+  btn.addEventListener('click', () => switchVertical(btn.dataset.vertical));
+});
+
+/* ── Handle resize for iframe scaling ── */
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.querySelectorAll('.card').forEach(card => {
+      const preview = card.querySelector('.card-preview');
+      const iframe = card.querySelector('iframe');
+      if (preview && iframe) {
+        const scale = preview.offsetWidth / 1440;
+        iframe.style.transform = `scale(${scale})`;
+        preview.style.height = (1100 * scale) + 'px';
+      }
+    });
+  }, 100);
+});
+
+/* ── Init ── */
+renderFilters();
+renderCards();
+</script>
+
+</body>
+</html>

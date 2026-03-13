@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Is My Check Engine Light On? 5 Common Causes — Precision Auto Care</title>
+<meta name="description" content="Your check engine light just came on. Don't panic. Learn the 5 most common causes and what to do next, from Austin's trusted auto repair specialists.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --white:#FFFFFF;--off-white:#F5F3F0;--services-bg:#D9DCDB;
+  --text-primary:#1A1A1A;--text-secondary:#4A4A4A;--text-muted:#8C8C8C;
+  --footer-bg:#2A2D30;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;
+  --max-w:740px;--radius:22px;
+  --transition:0.45s cubic-bezier(.25,.46,.45,.94);
+}
+body{font-family:var(--sans);color:var(--text-primary);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.container-wide{max-width:1200px;margin:0 auto;padding:0 32px}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.nav .container-wide{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--text-primary);letter-spacing:.3px}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:400;color:var(--text-secondary);transition:color var(--transition)}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-links a.active{color:var(--text-primary);font-weight:500}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-phone{font-size:.85rem;color:var(--text-secondary);font-weight:400;transition:color var(--transition)}
+.nav-phone:hover{color:var(--text-primary)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:110;min-width:48px;min-height:48px;justify-content:center;align-items:center}
+.hamburger span{width:22px;height:1.5px;background:var(--text-primary);transition:transform var(--transition),opacity var(--transition);transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,4px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-4px)}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;visibility:hidden;z-index:95;transition:opacity var(--transition),visibility var(--transition)}
+.nav-overlay.open{opacity:1;visibility:visible}
+
+/* Breadcrumb */
+.breadcrumb{padding:100px 0 0;font-size:13px;color:var(--text-muted);font-weight:300}
+.breadcrumb a{color:var(--text-muted);transition:color var(--transition)}
+.breadcrumb a:hover{color:var(--text-primary)}
+.breadcrumb .sep{margin:0 8px;opacity:.4}
+
+/* Article Hero */
+.article-hero{position:relative;height:420px;margin:24px 0 0;overflow:hidden;border-radius:var(--radius)}
+.article-hero img{width:100%;height:100%;object-fit:cover}
+.article-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.3) 100%);border-radius:var(--radius)}
+
+/* Article Header */
+.article-header{padding:40px 0 0}
+.article-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:400;display:inline-block;margin-bottom:16px}
+.article-header h1{font-family:var(--sans);font-size:clamp(28px,4vw,40px);font-weight:400;line-height:1.25;margin-bottom:20px;letter-spacing:-.01em}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:var(--text-muted);padding-bottom:32px;border-bottom:1px solid #E5E5E5;font-weight:300}
+.article-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--text-muted);opacity:.4}
+
+/* Article Body */
+.article-body{padding:40px 0 60px}
+.article-body h2{font-family:var(--sans);font-size:22px;font-weight:500;margin:40px 0 16px;color:var(--text-primary);line-height:1.35}
+.article-body h2:first-child{margin-top:0}
+.article-body h3{font-family:var(--serif);font-style:italic;font-size:18px;font-weight:400;margin:32px 0 12px;color:var(--text-secondary)}
+.article-body p{color:var(--text-secondary);font-size:16px;font-weight:300;line-height:1.8;margin-bottom:20px}
+.article-body ul,.article-body ol{color:var(--text-secondary);font-size:16px;font-weight:300;line-height:1.8;margin:0 0 20px 24px}
+.article-body li{margin-bottom:8px}
+.article-body strong{color:var(--text-primary);font-weight:500}
+
+/* Callout */
+.callout{background:var(--off-white);border:1px solid #E5E5E5;border-left:3px solid var(--text-muted);border-radius:8px;padding:24px 28px;margin:32px 0}
+.callout p{margin-bottom:0;color:var(--text-secondary)}
+.callout strong{color:var(--text-primary)}
+
+/* Related */
+.related{padding:60px 0 80px;border-top:1px solid #E5E5E5}
+.related-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;font-weight:400;display:block}
+.related h2{font-family:var(--sans);font-size:24px;font-weight:400;margin-bottom:32px}
+.related h2 em{font-family:var(--serif);font-style:italic}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.related-card{background:var(--off-white);border-radius:16px;padding:28px 24px;transition:transform var(--transition);display:block}
+.related-card:hover{transform:translateY(-4px)}
+.related-card .tag{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;display:block}
+.related-card h3{font-size:16px;font-weight:500;line-height:1.4;margin-bottom:10px;color:var(--text-primary)}
+.related-card p{font-size:14px;color:var(--text-secondary);font-weight:300;line-height:1.6}
+
+/* CTA Banner */
+.cta-banner{background:var(--off-white);padding:80px 0;text-align:center}
+.cta-inner{max-width:600px;margin:0 auto}
+.cta-inner h2{font-family:var(--sans);font-size:clamp(22px,3vw,32px);font-weight:400;margin-bottom:8px}
+.cta-inner h2 em{font-family:var(--serif);font-style:italic}
+.cta-banner-phone{font-family:var(--sans);font-size:clamp(28px,4vw,40px);font-weight:300;display:inline-block;margin:16px 0 20px;color:var(--text-primary);transition:opacity var(--transition)}
+.cta-banner-phone:hover{opacity:.6}
+.cta-banner-link{font-size:15px;color:var(--text-muted);font-weight:300;display:inline-block;transition:color var(--transition)}
+.cta-banner-link:hover{color:var(--text-primary)}
+
+/* Footer */
+.footer{background:var(--footer-bg);padding:48px 0;color:rgba(255,255,255,.6)}
+.footer .container-wide{display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--serif);font-size:1.1rem;color:#fff;letter-spacing:.3px}
+.footer-info{display:flex;gap:32px;font-size:14px}
+.footer-info a{color:rgba(255,255,255,.6);transition:color var(--transition);font-weight:300}
+.footer-info a:hover{color:#fff}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.35)}
+
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-right{display:none}
+  .nav-links{position:fixed;top:0;right:-100%;width:80vw;height:100dvh;background:var(--white);flex-direction:column;justify-content:center;padding:48px 36px;gap:28px;transition:right var(--transition);z-index:105;box-shadow:-20px 0 60px rgba(0,0,0,.1)}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.2rem;color:var(--text-primary)!important}
+  .article-hero{height:280px;margin:16px 0 0}
+  .related-grid{grid-template-columns:1fr}
+  .cta-inner{padding:0 20px}
+  .footer .container-wide{flex-direction:column;gap:20px;text-align:center}
+  .footer-info{flex-direction:column;gap:10px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "headline":"Why Is My Check Engine Light On? 5 Common Causes",
+  "image":"../../../../images/template-images/service-diagnostics.jpg",
+  "datePublished":"2026-03-10",
+  "author":{"@type":"Person","name":"Mike Thompson"},
+  "publisher":{"@type":"Organization","name":"Precision Auto Care"}
+}
+</script>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container-wide">
+    <a href="../../template_example-6.html" class="nav-logo">Precision Auto Care</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../../template_example-6.html">Home</a></li>
+      <li><a href="../../template_example-6.html#services">Services</a></li>
+      <li><a href="../../template_example-6.html#about">About</a></li>
+      <li><a href="../../template_example-6.html#reviews">Reviews</a></li>
+      <li><a href="../../blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+15558472390" class="nav-phone">(555) 847-2390</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Breadcrumb -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="../../template_example-6.html">Home</a><span class="sep">/</span>
+    <a href="../../blog.html">Blog</a><span class="sep">/</span>
+    <span>Check Engine Light</span>
+  </div>
+</div>
+
+<!-- Article Hero -->
+<div class="container">
+  <div class="article-hero">
+    <img src="../../../../images/template-images/service-diagnostics.jpg" alt="Check engine light diagnostic scan" width="1200" height="600">
+  </div>
+</div>
+
+<!-- Article Header -->
+<div class="container">
+  <div class="article-header">
+    <span class="article-tag">Diagnostics</span>
+    <h1>Why Is My Check Engine Light On? 5 Common Causes</h1>
+    <div class="article-meta">
+      <span>March 10, 2026</span>
+      <span class="dot"></span>
+      <span>Mike Thompson</span>
+      <span class="dot"></span>
+      <span>6 min read</span>
+    </div>
+  </div>
+</div>
+
+<!-- Article Body -->
+<div class="container">
+  <div class="article-body">
+    <p>Few things cause more anxiety behind the wheel than seeing your check engine light suddenly illuminate. That small amber glow on your dashboard can mean anything from a minor issue that takes five minutes to fix to a serious problem that needs immediate attention. The key is understanding what your vehicle is trying to tell you.</p>
+
+    <p>At Precision Auto Care, we diagnose check engine lights every day. After 17 years of working on vehicles of all makes, we've seen virtually every trigger code in the book. Here are the five most common causes we encounter — and what you should do about each one.</p>
+
+    <h2>1. A Loose or Faulty Gas Cap</h2>
+
+    <p>This is the most common — and least expensive — cause of a check engine light. Your fuel system is a sealed, pressurized unit. When the gas cap is loose, cracked, or missing, it allows fuel vapors to escape, which triggers the evaporative emission system (EVAP) sensor.</p>
+
+    <p>What's happening is that your vehicle's onboard diagnostics system (OBD-II) detects a pressure leak in the fuel system and flags it immediately. Modern vehicles have particularly sensitive EVAP systems that will catch even minor leaks.</p>
+
+    <div class="callout">
+      <p><strong>What to do:</strong> Pull over safely, tighten your gas cap until you hear it click, and continue driving. The light should reset within a few drive cycles. If it persists after 50-100 miles of driving, there may be a crack in the cap itself — a $15-25 replacement at most.</p>
+    </div>
+
+    <h2>2. Oxygen Sensor Failure</h2>
+
+    <p>Your vehicle has multiple oxygen sensors (also called O2 sensors or lambda sensors) that measure the amount of unburned oxygen in your exhaust. These sensors feed data to your engine's computer, which uses it to adjust the air-fuel mixture for optimal performance and emissions.</p>
+
+    <p>When an oxygen sensor fails, your engine can't optimize its fuel-air ratio properly. This leads to decreased fuel economy — sometimes as much as 40% — and increased emissions. Many modern vehicles use wideband sensors that are more precise but also more expensive to replace.</p>
+
+    <p>Symptoms often include rough idling, hesitation during acceleration, and noticeably worse gas mileage. You might also smell sulfur or rotten eggs from the exhaust.</p>
+
+    <div class="callout">
+      <p><strong>What to do:</strong> Don't ignore this one. While your car will still run, prolonged driving with a faulty O2 sensor can damage your catalytic converter — a repair that costs 5-10x more. Schedule a diagnostic appointment within a week or two.</p>
+    </div>
+
+    <h2>3. Catalytic Converter Issues</h2>
+
+    <p>The catalytic converter is one of the most critical — and expensive — components in your exhaust system. It converts harmful carbon monoxide and hydrocarbons into less harmful carbon dioxide and water vapor. When it's failing, your vehicle can't properly process exhaust emissions.</p>
+
+    <p>Common signs include reduced acceleration and engine performance, a sulfur or rotten-egg smell, dark exhaust smoke, and increased engine temperature. Catalytic converter problems are frequently caused by neglecting other issues on this list. A failing oxygen sensor or misfiring spark plugs dump unburned fuel into the converter, overheating it and accelerating wear.</p>
+
+    <div class="callout">
+      <p><strong>What to do:</strong> This is not a DIY repair. A professional diagnostic scan will confirm whether the converter itself is failing or if the issue originates upstream. Addressing the root cause early can sometimes save the converter from needing replacement entirely.</p>
+    </div>
+
+    <h2>4. Mass Airflow Sensor (MAF) Failure</h2>
+
+    <p>The mass airflow sensor measures the volume and density of air entering your engine. Your engine's computer uses this data to determine how much fuel to inject. When it sends incorrect readings, the engine runs either too rich (too much fuel) or too lean (not enough fuel).</p>
+
+    <p>MAF problems typically present as difficulty starting, stalling shortly after starting, hesitation or jerking during acceleration, and engine hiccups. Turbocharged engines are especially sensitive to MAF issues because of their precisely tuned forced-induction systems.</p>
+
+    <p>Often, a MAF sensor just needs cleaning rather than replacement. Contamination from dirty air filters or oil vapor from the PCV system can coat the sensor's delicate hot-wire element.</p>
+
+    <div class="callout">
+      <p><strong>What to do:</strong> Start with a MAF sensor cleaning using specialized MAF cleaner spray. If that doesn't resolve it, a diagnostic scan will reveal whether the sensor needs replacement. Always replace your air filter at recommended intervals to prevent MAF contamination.</p>
+    </div>
+
+    <h2>5. Spark Plug or Ignition Coil Problems</h2>
+
+    <p>Spark plugs ignite the fuel-air mixture in each cylinder, while ignition coils generate the high voltage needed to create that spark. When either component fails, you'll experience misfires — incomplete combustion events that waste fuel and increase emissions.</p>
+
+    <p>Misfires feel like a subtle shudder or stumble, especially at idle or during acceleration. You might also notice reduced power, rough running, or poor fuel economy. In severe cases, the check engine light will flash rather than stay solid, indicating active misfires that can damage your catalytic converter.</p>
+
+    <p>Modern engines often use individual coil-on-plug designs, meaning each cylinder has its own ignition coil. While this allows precise diagnosis of which cylinder is misfiring, it also means each coil is independently susceptible to failure.</p>
+
+    <div class="callout">
+      <p><strong>What to do:</strong> A flashing check engine light means "stop driving soon." Continued driving with active misfires causes unburned fuel to enter and overheat your catalytic converter. A solid light gives you more time, but don't postpone — schedule a diagnostic scan within the week.</p>
+    </div>
+
+    <h2>When to Act on Your Check Engine Light</h2>
+
+    <p>Here's a quick guide for how to respond:</p>
+
+    <ul>
+      <li><strong>Solid light, car runs normally:</strong> Schedule an appointment within 1-2 weeks. Check your gas cap first.</li>
+      <li><strong>Solid light, reduced performance:</strong> Drive carefully and schedule an appointment within a few days.</li>
+      <li><strong>Flashing light:</strong> Reduce speed, avoid heavy acceleration, and get to a shop as soon as possible. Continued driving risks serious engine damage.</li>
+    </ul>
+
+    <p>Modern vehicles have sophisticated onboard diagnostic systems that catch problems early. That's a feature, not a nuisance. Addressing issues when the light first appears almost always costs less than waiting until the problem cascades into something larger.</p>
+
+    <p>At Precision Auto Care, we use factory-grade diagnostic equipment for every make we service. A diagnostic scan takes about 20 minutes and gives us the specific trouble codes your vehicle's computer has stored. From there, we can pinpoint exactly what's happening and give you an honest assessment of what needs attention now versus what can wait.</p>
+
+    <p>Have a check engine light that needs diagnosing? Call us at <a href="tel:+15558472390" style="color:var(--text-primary);font-weight:500">(555) 847-2390</a> or stop by our shop at 1247 Industrial Blvd in Austin.</p>
+  </div>
+</div>
+
+<!-- Related Articles -->
+<div class="container">
+  <div class="related">
+    <span class="related-label">&bull; Related Articles</span>
+    <h2>More Expert <em>Insights</em></h2>
+    <div class="related-grid">
+      <a href="../oil-change-guide/index.html" class="related-card">
+        <span class="tag">Maintenance</span>
+        <h3>How Often Should You Really Change Your Oil?</h3>
+        <p>The old 3,000-mile rule is outdated. Modern engines have different needs.</p>
+      </a>
+      <a href="../brake-warning-signs/index.html" class="related-card">
+        <span class="tag">Safety</span>
+        <h3>5 Signs Your Brakes Need Replacing</h3>
+        <p>Squealing, vibration, or a soft pedal? Learn how to spot brake wear early.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Check Engine Light On? <em>We Can Help.</em></h2>
+      <a href="tel:+15558472390" class="cta-banner-phone">(555) 847-2390</a>
+      <br>
+      <a href="tel:+15558472390" class="cta-banner-link">( Schedule Diagnostic )</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container-wide">
+    <span class="footer-logo">Precision Auto Care</span>
+    <div class="footer-info">
+      <a href="tel:+15558472390">(555) 847-2390</a>
+      <a href="#">1247 Industrial Blvd, Austin, TX 78745</a>
+      <a href="../../blog.html">Blog</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 Precision Auto Care. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks'),navOverlay=document.getElementById('navOverlay');
+  function toggleMenu(){var o=navLinks.classList.toggle('open');hamburger.classList.toggle('active',o);navOverlay.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''}
+  hamburger.addEventListener('click',toggleMenu);
+  navOverlay.addEventListener('click',toggleMenu);
+  navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(navLinks.classList.contains('open'))toggleMenu()})});
+})();
+</script>
+</body>
+</html>

@@ -58,7 +58,8 @@
       "mcp__playwright__*",
       "mcp__figma__*",
       "mcp__sequential-thinking__*",
-      "mcp__memory__*"
+      "mcp__memory__*",
+      "Bash(cd \"/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code/us dentists/1 reports/inbox_list\" && python3 -c \"\nimport csv\nwith open\\('first_batch.csv', 'r'\\) as f:\n    reader = csv.DictReader\\(f\\)\n    missing = []\n    for row in reader:\n        email = row.get\\('email', ''\\).strip\\(\\)\n        if not email:\n            name = row.get\\('name', ''\\).strip\\(\\)\n            city = row.get\\('city', ''\\).strip\\(\\)\n            missing.append\\(\\(name, city\\)\\)\n    for i, \\(n, c\\) in enumerate\\(missing\\):\n        print\\(f'{i+1}|{n}|{c}'\\)\n    print\\(f'---'\\)\n    print\\(f'Total missing: {len\\(missing\\)}'\\)\")"
     ],
     "deny": [
       "Read(**/.env)",

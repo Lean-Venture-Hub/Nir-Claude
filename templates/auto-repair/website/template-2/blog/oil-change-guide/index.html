@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Often Should You Really Change Your Oil? | Precision Auto Care</title>
+  <meta name="description" content="The 3,000-mile oil change rule is outdated. Learn the real intervals for conventional, synthetic blend, and full-synthetic oils. Expert advice from Precision Auto Care.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #FAFAF5; --bg-warm: #F5F0E8; --navy: #1B3A5C; --navy-dark: #132A44;
+      --orange: #E87722; --orange-hover: #D06A1E; --text: #4A4A4A; --text-light: #6B6B6B;
+      --white: #FFFFFF; --border: #E8E4DC;
+      --shadow: 0 4px 24px rgba(27,58,92,0.08); --shadow-hover: 0 12px 40px rgba(27,58,92,0.16);
+      --radius: 12px;
+      --h1: clamp(28px, 4vw, 42px); --h2: clamp(22px, 3vw, 30px); --h3: clamp(18px, 2.5vw, 22px);
+      --body: clamp(15px, 1.1vw, 17px); --small: clamp(12px, 0.9vw, 14px);
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; font-size: var(--body); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-weight: 700; color: var(--navy); line-height: 1.3; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; border: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s ease; }
+    .btn-primary:hover { background: var(--orange-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,119,34,0.4); }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,250,245,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    .nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 14px 24px; }
+    .nav-logo { font-size: 22px; font-weight: 800; color: var(--navy); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-weight: 500; font-size: 15px; color: var(--navy); transition: color 0.2s; position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--orange); transition: all 0.3s ease; transform: translateX(-50%); }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-phone { display: flex; align-items: center; gap: 6px; font-weight: 700; color: var(--navy); font-size: 15px; }
+    .nav-phone svg { width: 18px; height: 18px; fill: var(--orange); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 6px 0; border-radius: 2px; }
+
+    .breadcrumb { padding: 100px 0 0; background: var(--bg); }
+    .breadcrumb-inner { display: flex; align-items: center; gap: 8px; font-size: var(--small); color: var(--text-light); padding: 12px 0; }
+    .breadcrumb-inner a { color: var(--orange); font-weight: 500; }
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+
+    .article-hero { position: relative; margin-bottom: 48px; border-radius: var(--radius); overflow: hidden; max-height: 420px; }
+    .article-hero img { width: 100%; height: 420px; object-fit: cover; }
+    .article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(19,42,68,0.7) 0%, transparent 60%); }
+    .article-hero-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 40px; color: var(--white); }
+    .article-hero-text .category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); background: rgba(0,0,0,0.3); padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 12px; }
+    .article-hero-text h1 { color: var(--white); margin-bottom: 12px; }
+    .article-meta { font-size: var(--small); color: rgba(255,255,255,0.8); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .article-wrap { display: grid; grid-template-columns: 1fr 300px; gap: 48px; padding-bottom: 60px; }
+    .article-body { max-width: 100%; }
+    .article-body p { margin-bottom: 20px; line-height: 1.8; }
+    .article-body h2 { font-size: var(--h2); margin: 36px 0 16px; }
+    .article-body h3 { font-size: var(--h3); margin: 28px 0 12px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+    .article-body li { margin-bottom: 8px; line-height: 1.7; }
+
+    .tip-box { background: rgba(232,119,34,0.06); border-left: 4px solid var(--orange); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .tip-box strong { color: var(--navy); display: block; margin-bottom: 4px; }
+    .tip-box p { margin-bottom: 0; color: var(--text); }
+
+    .sidebar { position: sticky; top: 100px; }
+    .sidebar-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 24px; }
+    .sidebar-box h4 { font-size: 16px; margin-bottom: 16px; }
+    .sidebar-box p { font-size: var(--small); color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+
+    /* Oil type comparison table */
+    .oil-table { width: 100%; border-collapse: collapse; margin: 24px 0 28px; font-size: var(--small); }
+    .oil-table th { background: var(--navy); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 600; }
+    .oil-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .oil-table tr:nth-child(even) td { background: var(--bg); }
+    .oil-table tr:hover td { background: rgba(232,119,34,0.04); }
+
+    .related { padding: 60px 0; background: var(--bg-warm); }
+    .related h2 { font-size: var(--h2); text-align: center; margin-bottom: 36px; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .related-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease; display: flex; }
+    .related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .related-card img { width: 200px; height: 160px; object-fit: cover; flex-shrink: 0; }
+    .related-card-body { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+    .related-card .category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 6px; display: block; }
+    .related-card h3 { font-size: 16px; line-height: 1.4; margin-bottom: 8px; }
+    .related-card .read-more { font-size: 13px; font-weight: 600; color: var(--orange); }
+
+    .cta-banner { padding: 60px 0; background: var(--bg); }
+    .cta-box { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); border-radius: var(--radius); padding: 48px; text-align: center; color: var(--white); position: relative; overflow: hidden; }
+    .cta-box::before { content: ''; position: absolute; top: -40%; left: -20%; width: 300px; height: 300px; background: rgba(232,119,34,0.15); border-radius: 50%; filter: blur(60px); }
+    .cta-box h2 { font-size: var(--h2); color: var(--white); margin-bottom: 12px; position: relative; }
+    .cta-box p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 28px; max-width: 500px; margin-inline: auto; position: relative; }
+
+    .footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 48px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+    .footer-logo { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .footer-logo span { color: var(--orange); }
+    .footer-desc { font-size: 14px; line-height: 1.7; max-width: 300px; }
+    .footer h4 { color: var(--white); font-size: 16px; margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-hours li { font-size: 14px; margin-bottom: 6px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; }
+
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; right: 0; left: 0; background: var(--white); flex-direction: column; padding: 20px 24px; gap: 16px; border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .nav-phone { display: none; }
+      .article-wrap { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .related-card { flex-direction: column; }
+      .related-card img { width: 100%; height: 180px; }
+      .article-hero-text { padding: 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .oil-table { font-size: 12px; }
+      .oil-table th, .oil-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../../template_example-2.html" class="nav-logo">Precision<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../../template_example-2.html#services">Services</a></li>
+      <li><a href="../../template_example-2.html#about">About</a></li>
+      <li><a href="../../template_example-2.html#reviews">Reviews</a></li>
+      <li><a href="../../template_example-2.html#specials">Specials</a></li>
+      <li><a href="../../blog.html">Blog</a></li>
+      <li><a href="../../template_example-2.html#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+15558472390" class="nav-phone">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+      (555) 847-2390
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="../../template_example-2.html">Home</a> &rsaquo;
+      <a href="../../blog.html">Blog</a> &rsaquo;
+      <span>Oil Change Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- Article Hero -->
+<div class="container" style="padding-top: 16px;">
+  <div class="article-hero">
+    <img src="../../../../images/template-images/service-oil.jpg" alt="Mechanic performing oil change" width="1200" height="420">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-text">
+      <span class="category">Maintenance</span>
+      <h1>How Often Should You Really Change Your Oil?</h1>
+      <div class="article-meta">
+        <span>March 10, 2026</span>
+        <span>By Mike Thompson</span>
+        <span>7 min read</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Article Content -->
+<div class="container">
+  <div class="article-wrap">
+    <article class="article-body">
+      <p>If you grew up hearing that you need to change your oil every 3,000 miles, you're not alone. For decades, this was gospel in the automotive world. But modern engine technology and dramatically improved oil formulations have made that old rule not just outdated — it's costing drivers hundreds of dollars a year in unnecessary service.</p>
+
+      <p>At Precision Auto Care, we believe in honest advice — even when it means fewer oil changes for us. Here's the real story on oil change intervals, the different types of motor oil, and how to know exactly when your vehicle actually needs fresh oil.</p>
+
+      <h2>The 3,000-Mile Myth: Where It Came From</h2>
+
+      <p>The 3,000-mile oil change interval made perfect sense in the 1970s. Engine tolerances were looser, oil filtration was basic, and conventional motor oils broke down much faster under heat and stress. Quick-lube chains popularized this number heavily, and it stuck in the cultural consciousness for decades.</p>
+
+      <p>But today's engines are precision-machined with tighter tolerances, better cooling systems, and significantly improved filtration. And modern motor oils — especially synthetics — are engineered at the molecular level to resist breakdown far longer than their predecessors. The result? Most modern vehicles can go 5,000 to 10,000 miles (or more) between oil changes.</p>
+
+      <div class="tip-box">
+        <strong>The Best Source of Truth</strong>
+        <p>Your owner's manual contains the manufacturer's recommended oil change interval, which is based on extensive testing for your specific engine. This should always be your primary guide — not a sticker on your windshield from a quick-lube shop.</p>
+      </div>
+
+      <h2>Types of Motor Oil: A Quick Breakdown</h2>
+
+      <p>Understanding the different types of motor oil helps explain why intervals vary so much. Here's what you need to know:</p>
+
+      <table class="oil-table">
+        <thead>
+          <tr>
+            <th>Oil Type</th>
+            <th>Change Interval</th>
+            <th>Cost per Change</th>
+            <th>Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Conventional</strong></td>
+            <td>3,000–5,000 miles</td>
+            <td>$35–$55</td>
+            <td>Older vehicles, light driving</td>
+          </tr>
+          <tr>
+            <td><strong>Synthetic Blend</strong></td>
+            <td>5,000–7,500 miles</td>
+            <td>$45–$70</td>
+            <td>Moderate driving, some towing</td>
+          </tr>
+          <tr>
+            <td><strong>Full Synthetic</strong></td>
+            <td>7,500–10,000 miles</td>
+            <td>$65–$95</td>
+            <td>Most modern vehicles</td>
+          </tr>
+          <tr>
+            <td><strong>High-Mileage</strong></td>
+            <td>5,000–7,500 miles</td>
+            <td>$50–$80</td>
+            <td>Vehicles over 75,000 miles</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Conventional Oil</h3>
+      <p>This is the baseline — refined from crude oil with additive packages to improve performance. It works fine for many applications but breaks down faster under extreme heat and heavy use. If your vehicle uses conventional oil, a 5,000-mile interval is typically safe for normal driving conditions.</p>
+
+      <h3>Synthetic Blend</h3>
+      <p>A mix of conventional and synthetic base oils, offering improved protection over pure conventional at a moderate price increase. This is a popular middle-ground choice and is what many manufacturers recommend for trucks and SUVs that occasionally tow or haul.</p>
+
+      <h3>Full Synthetic</h3>
+      <p>Engineered at the molecular level for maximum protection, full synthetic oil resists breakdown at extreme temperatures, flows better in cold starts, and keeps engines cleaner. Most vehicles manufactured after 2010 either require or strongly recommend full synthetic. Despite the higher per-change cost, the extended intervals often make it cheaper annually than conventional oil.</p>
+
+      <h3>High-Mileage Oil</h3>
+      <p>Formulated with seal conditioners and extra additives designed for engines with over 75,000 miles. These additives help reduce oil burn-off, minimize leaks from aging seals, and protect worn engine surfaces. If your vehicle is getting up there in mileage, this can extend engine life significantly.</p>
+
+      <div class="tip-box">
+        <strong>Cost Comparison</strong>
+        <p>A driver doing 12,000 miles per year: Conventional oil at 5,000-mile intervals = ~2.4 changes = ~$110/year. Full synthetic at 7,500-mile intervals = ~1.6 changes = ~$130/year. The difference is negligible, and the synthetic provides far better protection. It's almost always worth the upgrade.</p>
+      </div>
+
+      <h2>Factors That Shorten Your Oil Change Interval</h2>
+
+      <p>While modern intervals are longer than the old 3,000-mile rule, certain driving conditions can accelerate oil degradation. Manufacturers call these "severe" driving conditions, and they include:</p>
+
+      <ul>
+        <li><strong>Short trips under 10 miles</strong> — The engine never fully warms up, so moisture and fuel contaminate the oil faster</li>
+        <li><strong>Stop-and-go city driving</strong> — Constant acceleration and deceleration puts more stress on the oil</li>
+        <li><strong>Extreme heat</strong> — Summers in Austin regularly exceed 100°F, which breaks oil down faster</li>
+        <li><strong>Towing or heavy loads</strong> — Extra weight means extra heat and stress on the engine</li>
+        <li><strong>Dusty roads or construction zones</strong> — More particulate matter gets into the engine</li>
+        <li><strong>Frequent idling</strong> — The engine runs without efficient airflow cooling</li>
+      </ul>
+
+      <p>If your driving regularly involves several of these conditions, consider using the shorter end of your oil's recommended interval. For most Austin drivers who deal with summer heat and city traffic, we generally recommend 5,000 miles for conventional and 7,500 miles for full synthetic.</p>
+
+      <h2>Oil Life Monitors: Can You Trust Them?</h2>
+
+      <p>Most vehicles manufactured after 2010 have an oil life monitoring system that calculates when your oil needs changing based on actual driving conditions — not just mileage. These systems track engine temperature, RPM, idle time, trip length, and ambient temperature to estimate oil degradation.</p>
+
+      <p>The short answer: <strong>yes, you can trust them.</strong> These systems are remarkably accurate and are calibrated specifically for your vehicle's engine. When the monitor says you're at 15% oil life remaining, schedule your oil change. Don't wait until it hits 0%, but don't ignore it and change early at 50% either.</p>
+
+      <h2>Signs Your Oil Needs Changing Now</h2>
+
+      <p>Regardless of mileage or monitoring systems, watch for these warning signs:</p>
+
+      <ul>
+        <li><strong>Dark, gritty oil on the dipstick</strong> — Fresh oil is amber and translucent; old oil turns dark and opaque</li>
+        <li><strong>Engine noise</strong> — Louder-than-normal engine sounds, especially ticking or knocking</li>
+        <li><strong>Oil smell inside the cabin</strong> — This could indicate a leak or that oil is burning</li>
+        <li><strong>Check engine or oil pressure light</strong> — Don't ignore these; they indicate a real problem</li>
+        <li><strong>Exhaust smoke</strong> — Blue or gray exhaust smoke can indicate oil burning in the engine</li>
+      </ul>
+
+      <h2>The Bottom Line</h2>
+
+      <p>Stop changing your oil every 3,000 miles unless you're running conventional oil in severe conditions. Check your owner's manual for the manufacturer's recommendation, use the right type of oil for your vehicle, pay attention to your oil life monitor, and schedule your changes accordingly.</p>
+
+      <p>At Precision Auto Care, every oil change includes a complimentary multi-point inspection — we'll check your brakes, tires, fluids, belts, and more. It's our way of keeping you safe on the road and catching small issues before they become big ones.</p>
+
+      <p><strong>Ready for an oil change?</strong> Call us at <a href="tel:+15558472390" style="color:var(--orange); font-weight:600;">(555) 847-2390</a> or stop by 1247 Industrial Blvd in Austin. No appointment needed for oil changes — we'll get you in and out fast.</p>
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Oil Change Special</h4>
+        <p>Full-synthetic oil change with filter and multi-point inspection. New customers get <strong style="color:var(--orange);">15% off</strong>.</p>
+        <a href="tel:+15558472390" class="btn-primary" style="width:100%; justify-content:center;">Call (555) 847-2390</a>
+      </div>
+      <div class="sidebar-box">
+        <h4>Quick Facts</h4>
+        <p><strong style="color:var(--navy);">Most modern vehicles:</strong> 5,000–10,000 miles between changes</p>
+        <p><strong style="color:var(--navy);">Austin heat factor:</strong> Use the shorter end of your interval</p>
+        <p style="margin-bottom:0;"><strong style="color:var(--navy);">Best advice:</strong> Check your owner's manual</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Related Articles -->
+<section class="related">
+  <div class="container">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      <a href="../check-engine-light/index.html" class="related-card" style="color:inherit;">
+        <img src="../../../../images/template-images/service-diagnostics.jpg" alt="Check engine light" loading="lazy">
+        <div class="related-card-body">
+          <span class="category">Diagnostics</span>
+          <h3>Why Is My Check Engine Light On? 5 Common Causes</h3>
+          <span class="read-more">Read More &rarr;</span>
+        </div>
+      </a>
+      <a href="../brake-warning-signs/index.html" class="related-card" style="color:inherit;">
+        <img src="../../../../images/template-images/service-brakes.jpg" alt="Brake warning signs" loading="lazy">
+        <div class="related-card-body">
+          <span class="category">Safety</span>
+          <h3>5 Signs Your Brakes Need Replacing</h3>
+          <span class="read-more">Read More &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Due for an Oil Change?</h2>
+      <p>No appointment needed. Drive in for fast, professional oil service with a complimentary multi-point inspection.</p>
+      <a href="tel:+15558472390" class="btn-primary" style="position:relative;">Call (555) 847-2390</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">Precision<span>.</span></p>
+        <p class="footer-desc">Precision Auto Care — a family-owned shop with years of experience and a commitment to honest, professional service.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="../../template_example-2.html#services">Services</a></li>
+          <li><a href="../../template_example-2.html#about">About</a></li>
+          <li><a href="../../template_example-2.html#reviews">Reviews</a></li>
+          <li><a href="../../blog.html">Blog</a></li>
+          <li><a href="../../template_example-2.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Business Hours</h4>
+        <ul class="footer-hours footer-links">
+          <li>Mon &ndash; Fri: 7:30 AM &ndash; 6:00 PM</li>
+          <li>Saturday: 8:00 AM &ndash; 2:00 PM</li>
+          <li>Sunday: Closed</li>
+          <li style="margin-top:12px"><a href="tel:+15558472390">(555) 847-2390</a></li>
+          <li>1247 Industrial Blvd, Austin, TX 78745</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Precision Auto Care. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+  window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40));
+</script>
+</body>
+</html>

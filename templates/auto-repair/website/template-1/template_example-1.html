@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precision Auto Care — Honest Auto Repair in Austin, TX</title>
+<meta name="description" content="Precision Auto Care: Austin's trusted auto repair shop since 2008. ASE-certified mechanics, transparent pricing, 4.9★ rating. Call (555) 847-2390.">
+<meta property="og:title" content="Precision Auto Care — Honest Auto Repair in Austin, TX">
+<meta property="og:description" content="Austin's trusted auto repair shop since 2008. ASE-certified mechanics, transparent pricing, no surprises.">
+<meta property="og:image" content="../../images/template-images/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1a1a1a;--charcoal-light:#242424;--charcoal-mid:#2a2a2a;
+  --red:#C41E3A;--red-hover:#a8182f;--red-glow:rgba(196,30,58,.35);
+  --off-white:#f5f5f5;--gray-300:#d4d4d4;--gray-500:#888;
+  --font:"Inter",sans-serif;
+  --nav-h:72px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--charcoal);color:var(--off-white);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;inset-inline:0;z-index:100;padding:0 24px;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s;background:rgba(26,26,26,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav.scrolled{background:rgba(26,26,26,.95);box-shadow:0 2px 20px rgba(0,0,0,.4)}
+.nav-logo{font-weight:900;font-size:1.5rem;color:var(--red);letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--gray-300);position:relative;padding-bottom:2px;transition:color .25s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--red);transition:width .3s ease}
+.nav-links a:hover{color:var(--off-white)}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:16px}
+.nav-phone{font-weight:700;font-size:.95rem;color:var(--off-white);display:flex;align-items:center;gap:6px}
+.nav-phone svg{width:18px;height:18px;fill:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 24px;background:var(--red);color:#fff;font-weight:700;font-size:.95rem;border:none;border-radius:6px;cursor:pointer;transition:background .25s,transform .2s,box-shadow .25s}
+.btn:hover{background:var(--red-hover);transform:translateY(-2px) scale(1.02);box-shadow:0 8px 24px rgba(196,30,58,.3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--off-white);border-radius:2px;transition:transform .3s,opacity .3s}
+.mobile-menu{display:none;position:fixed;inset:0;top:var(--nav-h);background:rgba(26,26,26,.98);backdrop-filter:blur(16px);flex-direction:column;align-items:center;justify-content:center;gap:32px;z-index:99}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.25rem;font-weight:700}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('../../images/template-images/hero.jpg') center/cover no-repeat;z-index:0;will-change:transform}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,.82) 0%,rgba(26,26,26,.7) 50%,rgba(26,26,26,.92) 100%)}
+/* Grain texture overlay */
+.hero-grain{position:absolute;inset:0;z-index:1;opacity:.04;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px}
+.hero-content{position:relative;z-index:2;max-width:800px;padding:0 24px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:500;color:var(--red);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;opacity:0;visibility:hidden}
+.hero-stars{color:#facc15;font-size:1rem}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.15;margin-bottom:16px;opacity:0;visibility:hidden}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.25rem);color:var(--gray-300);font-weight:300;margin-bottom:32px;opacity:0;visibility:hidden}
+.hero-badges{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:32px;opacity:0;visibility:hidden}
+.hero-badges img{height:48px;filter:brightness(0) invert(1);opacity:.7}
+.hero-cta-row{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;opacity:0;visibility:hidden}
+.btn-outline{padding:10px 24px;border:2px solid var(--off-white);color:var(--off-white);font-weight:700;font-size:.95rem;border-radius:6px;transition:background .25s,color .25s,transform .2s,box-shadow .25s}
+.btn-outline:hover{background:var(--off-white);color:var(--charcoal);transform:translateY(-2px) scale(1.02);box-shadow:0 8px 24px rgba(255,255,255,.15)}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--charcoal-light);padding:28px 0;border-block:1px solid rgba(255,255,255,.06)}
+.trust-bar .container{display:flex;align-items:center;justify-content:center;gap:clamp(24px,5vw,56px);flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;color:var(--gray-300)}
+.trust-item svg{width:28px;height:28px;fill:var(--red);flex-shrink:0}
+
+/* ── SECTIONS COMMON ── */
+.section{padding:80px 0}
+.section-label{font-size:.8rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.section-title{font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:900;margin-bottom:16px}
+.section-desc{color:var(--gray-500);max-width:600px;margin-bottom:48px}
+
+/* ── SERVICES ── */
+.services{background:var(--charcoal)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.service-card{background:var(--charcoal-mid);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.35),0 0 20px var(--red-glow)}
+.service-card-img{aspect-ratio:16/9;overflow:hidden}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.service-card:hover .service-card-img img{transform:scale(1.08)}
+.service-card-body{padding:28px 24px}
+.service-icon{width:48px;height:48px;background:rgba(196,30,58,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.service-icon svg{width:24px;height:24px;fill:var(--red)}
+.service-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.service-card p{font-size:.9rem;color:var(--gray-500);line-height:1.5}
+
+/* ── ABOUT ── */
+.about{background:var(--charcoal-light)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-img{border-radius:12px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(26,26,26,.5),transparent);pointer-events:none}
+.about-text h3{font-size:1.6rem;font-weight:900;margin-bottom:16px}
+.about-text p{color:var(--gray-300);margin-bottom:16px;font-size:.95rem}
+.about-stats{display:flex;gap:32px;margin-top:24px}
+.stat{text-align:center}
+.stat-num{font-size:2rem;font-weight:900;color:var(--red)}
+.stat-label{font-size:.8rem;color:var(--gray-500)}
+
+/* ── REVIEWS ── */
+.reviews{background:var(--charcoal)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.review-card{background:var(--charcoal-mid);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px;transition:transform .3s}
+.review-stars{color:#facc15;font-size:1rem;margin-bottom:12px}
+.review-card blockquote{font-size:.95rem;color:var(--gray-300);line-height:1.6;margin-bottom:16px;font-style:normal}
+.review-author{font-weight:700;font-size:.9rem}
+.review-date{font-size:.8rem;color:var(--gray-500)}
+
+/* ── BLOG ── */
+.blog{background:var(--charcoal-light)}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.blog-card{background:var(--charcoal-mid);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
+.blog-card-img{aspect-ratio:16/9;overflow:hidden}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.blog-card:hover .blog-card-img img{transform:scale(1.05)}
+.blog-card-body{padding:24px}
+.blog-tag{display:inline-block;font-size:.7rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;background:rgba(196,30,58,.1);padding:4px 10px;border-radius:4px}
+.blog-card-body h3{font-size:1.05rem;font-weight:700;margin-bottom:10px;line-height:1.35}
+.blog-card-body p{font-size:.88rem;color:var(--gray-500);line-height:1.55;margin-bottom:16px}
+.blog-card-link{font-size:.88rem;font-weight:700;color:var(--red);transition:color .2s}
+.blog-card-link:hover{color:var(--red-hover)}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:linear-gradient(135deg,var(--charcoal-light),var(--charcoal));padding:64px 0;text-align:center;border-block:1px solid rgba(255,255,255,.06)}
+.cta-banner h2{font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:900;margin-bottom:8px}
+.cta-phone{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;color:var(--red);margin:16px 0 24px;display:inline-block}
+
+/* ── FOOTER ── */
+.footer{background:var(--charcoal-light);padding:48px 0 24px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-brand .nav-logo{margin-bottom:12px}
+.footer-brand p{font-size:.85rem;color:var(--gray-500);max-width:280px}
+.footer h4{font-weight:700;font-size:.9rem;margin-bottom:16px;color:var(--off-white)}
+.footer ul{list-style:none}
+.footer li{margin-bottom:8px}
+.footer li a{font-size:.85rem;color:var(--gray-500);transition:color .2s}
+.footer li a:hover{color:var(--red)}
+.footer-social{display:flex;gap:12px;margin-top:8px}
+.footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;transition:background .25s}
+.footer-social a:hover{background:var(--red)}
+.footer-social svg{width:16px;height:16px;fill:var(--off-white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;text-align:center;font-size:.8rem;color:var(--gray-500)}
+
+/* ── MOBILE STICKY CTA ── */
+.mobile-cta{display:none;position:fixed;bottom:0;inset-inline:0;z-index:100;padding:12px 16px;background:rgba(26,26,26,.95);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.08)}
+.mobile-cta .btn{width:100%;font-size:1rem;padding:14px}
+
+/* ── GSAP initial states ── */
+.gs-hidden{opacity:0;visibility:hidden}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .gs-hidden{opacity:1;visibility:visible}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-phone,.nav .btn,.nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-badges img{height:36px}
+  .services-grid,.reviews-grid,.blog-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;text-align:center}
+  .about-stats{justify-content:center}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .mobile-cta{display:block}
+  .section{padding:56px 0}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+  .hero-cta-row{flex-direction:column}
+  .hero-cta-row .btn,.hero-cta-row .btn-outline{width:100%}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AutoRepair",
+  "name":"Precision Auto Care",
+  "image":"../../images/template-images/hero.jpg",
+  "telephone":"+15558472390",
+  "address":{"@type":"PostalAddress","streetAddress":"1247 Industrial Blvd","addressLocality":"Austin","addressRegion":"TX","postalCode":"78745","addressCountry":"US"},
+  "url":"",
+  "founder":{"@type":"Person","name":"Mike Thompson"},
+  "foundingDate":"2008",
+  "description":"Austin's trusted neighborhood mechanic since 2008. ASE Master Technician with over 20 years of experience. Honest, transparent auto repair.",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"387"}
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">Precision Auto</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="#booking">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="tel:+15558472390" class="nav-phone">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.66.58 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.62a1 1 0 011 1 11.72 11.72 0 00.58 3.66 1 1 0 01-.24 1.01l-2.34 2.12z"/></svg>
+      (555) 847-2390
+    </a>
+    <a href="#booking" class="btn">Get a Free Quote</a>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#reviews">Reviews</a>
+  <a href="blog.html">Blog</a>
+  <a href="tel:+15558472390">(555) 847-2390</a>
+  <a href="#booking" class="btn">Get a Free Quote</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>4.9 — 387+ Google Reviews</span>
+    </div>
+    <h1>Honest Auto Repair — No Surprises, No Upsells</h1>
+    <p class="hero-sub">Austin's trusted neighborhood mechanic since 2008. ASE-certified technicians, transparent pricing, and repairs you can count on.</p>
+    <div class="hero-badges">
+      <img src="../../images/template-images/badge-ase.png" alt="ASE Certified" width="80" height="48">
+      <img src="../../images/template-images/badge-aaa.png" alt="AAA Approved" width="80" height="48">
+      <img src="../../images/template-images/badge-bbb.png" alt="BBB Accredited" width="80" height="48">
+    </div>
+    <div class="hero-cta-row">
+      <a href="#booking" class="btn">Get a Free Quote</a>
+      <a href="tel:+15558472390" class="btn-outline">Call Now: (555) 847-2390</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar gs-hidden">
+  <div class="container">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg>
+      <span>ASE Certified Shop</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      <span>AAA Approved</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+      <span>3-Year / 36,000-Mile Warranty</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10S22 17.52 22 12 17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+      <span>20+ Years Experience</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services section" id="services">
+  <div class="container">
+    <p class="section-label gs-hidden">Our Services</p>
+    <h2 class="section-title gs-hidden">Oil Changes, Brakes, Engines & More — All Under One Roof</h2>
+    <p class="section-desc gs-hidden">Our team of certified technicians specializes in all types of repairs and maintenance, with advanced equipment and complete transparency.</p>
+    <div class="services-grid">
+      <!-- Card 1 -->
+      <div class="service-card gs-hidden">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-oil.jpg" alt="Oil change service" loading="lazy" width="640" height="360">
+        </div>
+        <div class="service-card-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M18.36 9c.1-.76.23-1.53.23-2.34A6.66 6.66 0 0012 .34 6.66 6.66 0 005.41 6.66c0 .81.13 1.58.23 2.34L3 12.5v1l1.5.5c.77 2.53 3.17 4.5 6 5.19V22h3v-2.81c2.83-.69 5.23-2.66 6-5.19l1.5-.5v-1L18.36 9zM12 16a4 4 0 110-8 4 4 0 010 8z"/></svg>
+          </div>
+          <h3>Oil Change &amp; Lube</h3>
+          <p>Conventional, synthetic blend, and full synthetic oil changes with multi-point inspection. Keep your engine running smooth and protected.</p>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="service-card gs-hidden">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-brakes.jpg" alt="Brake repair service" loading="lazy" width="640" height="360">
+        </div>
+        <div class="service-card-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+          </div>
+          <h3>Brake Service</h3>
+          <p>Brake pads, rotors, calipers, and fluid flush. We inspect and repair your entire braking system to keep you safe on the road.</p>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="service-card gs-hidden">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-engine.jpg" alt="Engine repair service" loading="lazy" width="640" height="360">
+        </div>
+        <div class="service-card-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 7.5V3H7v4.5L3.5 9.5l1 5H6l1 5h10l1-5h1.5l1-5L17 7.5zM12 15a3 3 0 110-6 3 3 0 010 6z"/></svg>
+          </div>
+          <h3>Engine Repair</h3>
+          <p>From check engine lights to complete engine rebuilds. Our master technicians diagnose and fix engine issues right the first time.</p>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="service-card gs-hidden">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-diagnostics.jpg" alt="Transmission service" loading="lazy" width="640" height="360">
+        </div>
+        <div class="service-card-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M19.43 12.98a7.79 7.79 0 00.07-1 7.79 7.79 0 00-.07-1l2.11-1.65a.5.5 0 00.12-.64l-2-3.46a.5.5 0 00-.61-.22l-2.49 1a7.16 7.16 0 00-1.72-1l-.38-2.65A.49.49 0 0014 2h-4a.49.49 0 00-.49.42l-.38 2.65a7.16 7.16 0 00-1.72 1l-2.49-1a.5.5 0 00-.61.22l-2 3.46a.5.5 0 00.12.64L4.57 11a7.79 7.79 0 000 2l-2.11 1.65a.5.5 0 00-.12.64l2 3.46a.5.5 0 00.61.22l2.49-1a7.16 7.16 0 001.72 1l.38 2.65A.49.49 0 0010 22h4a.49.49 0 00.49-.42l.38-2.65a7.16 7.16 0 001.72-1l2.49 1a.5.5 0 00.61-.22l2-3.46a.5.5 0 00-.12-.64l-2.14-1.63zM12 15.5A3.5 3.5 0 1115.5 12 3.5 3.5 0 0112 15.5z"/></svg>
+          </div>
+          <h3>Transmission</h3>
+          <p>Transmission fluid service, diagnostics, repair, and rebuilds for both automatic and manual transmissions. Smooth shifting guaranteed.</p>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="service-card gs-hidden">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-tires.jpg" alt="Tire service" loading="lazy" width="640" height="360">
+        </div>
+        <div class="service-card-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3>Tire Service</h3>
+          <p>Tire rotation, balancing, alignment, and replacement. We carry all major brands and help you find the right tires for your vehicle and budget.</p>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="service-card gs-hidden">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-diagnostics.jpg" alt="Diagnostics equipment" loading="lazy" width="640" height="360">
+        </div>
+        <div class="service-card-body">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2a3 3 0 006 0h6a3 3 0 006 0h2v-5l-3-4zM6 18.5A1.5 1.5 0 114.5 17 1.5 1.5 0 016 18.5zm13.5-9L21 12h-4V9.5h2.5zM18 18.5a1.5 1.5 0 11-1.5-1.5 1.5 1.5 0 011.5 1.5z"/></svg>
+          </div>
+          <h3>Diagnostics</h3>
+          <p>State-of-the-art computer diagnostics for all makes and models. We pinpoint the problem accurately before recommending any repairs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img gs-hidden">
+        <img src="../../images/template-images/team.jpg" alt="The Precision Auto Care team" loading="lazy" width="800" height="600">
+      </div>
+      <div class="about-text gs-hidden">
+        <p class="section-label">About the Shop</p>
+        <h3>Precision Auto Care — Family-Owned Since 2008</h3>
+        <p>Precision Auto Care has been Austin's trusted neighborhood mechanic since 2008. Founded by Mike Thompson, an ASE Master Technician with over 20 years of experience, we believe every driver deserves honest, transparent auto repair. Our team of certified technicians treats every vehicle like their own.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-num" data-count="20">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" data-count="387">0</div>
+            <div class="stat-label">Happy Customers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" data-count="4.9" data-decimals="1">0</div>
+            <div class="stat-label">Google Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews section" id="reviews">
+  <div class="container">
+    <p class="section-label gs-hidden">What Our Customers Say</p>
+    <h2 class="section-title gs-hidden">387+ Positive Google Reviews</h2>
+    <p class="section-desc gs-hidden">We're proud of the service and trust our customers place in us. Here are some of their kind words.</p>
+    <div class="reviews-grid">
+      <div class="review-card gs-hidden">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"Took my Honda in for a check engine light. Mike's team diagnosed it in 20 minutes and had it fixed same day. Fair price, no upselling. This is our family's shop now."</blockquote>
+        <div class="review-author">Sarah Mitchell</div>
+        <div class="review-date">2 weeks ago</div>
+      </div>
+      <div class="review-card gs-hidden">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"Best mechanic in Austin, hands down. They showed me photos of what needed fixing before doing any work. Total transparency."</blockquote>
+        <div class="review-author">James Rodriguez</div>
+        <div class="review-date">1 month ago</div>
+      </div>
+      <div class="review-card gs-hidden">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"I've been coming here for 3 years. They always explain everything clearly and never push unnecessary repairs. Highly recommend."</blockquote>
+        <div class="review-author">Lisa Chen</div>
+        <div class="review-date">1 month ago</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog section" id="blog">
+  <div class="container">
+    <p class="section-label gs-hidden">From Our Blog</p>
+    <h2 class="section-title gs-hidden">Auto Care Tips &amp; Advice</h2>
+    <p class="section-desc gs-hidden">Stay informed about your vehicle with helpful articles from our team of certified technicians.</p>
+    <div class="blog-grid">
+      <a href="blog/check-engine-light/index.html" class="blog-card gs-hidden" style="color:inherit">
+        <div class="blog-card-img">
+          <img src="../../images/template-images/service-diagnostics.jpg" alt="Check engine light on dashboard" loading="lazy" width="640" height="360">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Diagnostics</span>
+          <h3>Why Is My Check Engine Light On? 5 Common Causes</h3>
+          <p>That little orange light can mean anything from a loose gas cap to a serious engine issue. Here are the five most common reasons it turns on and what you should do next.</p>
+          <span class="blog-card-link">Read More &rarr;</span>
+        </div>
+      </a>
+      <a href="blog/oil-change-guide/index.html" class="blog-card gs-hidden" style="color:inherit">
+        <div class="blog-card-img">
+          <img src="../../images/template-images/service-oil.jpg" alt="Oil change service" loading="lazy" width="640" height="360">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Maintenance</span>
+          <h3>How Often Should You Really Change Your Oil?</h3>
+          <p>The old 3,000-mile rule is outdated. Modern engines and synthetic oils have changed the game. Learn the right interval for your vehicle and driving habits.</p>
+          <span class="blog-card-link">Read More &rarr;</span>
+        </div>
+      </a>
+      <a href="blog/brake-warning-signs/index.html" class="blog-card gs-hidden" style="color:inherit">
+        <div class="blog-card-img">
+          <img src="../../images/template-images/service-brakes.jpg" alt="Brake repair service" loading="lazy" width="640" height="360">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Safety</span>
+          <h3>5 Signs Your Brakes Need Replacing</h3>
+          <p>Squealing, grinding, or a soft pedal? Don't ignore these warning signs. Learn how to spot brake problems early before they become dangerous and expensive.</p>
+          <span class="blog-card-link">Read More &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="booking">
+  <div class="container gs-hidden">
+    <h2>Ready to Schedule Your Appointment?</h2>
+    <p style="color:var(--gray-500);margin-bottom:8px">Call now for a free estimate — no obligation</p>
+    <a href="tel:+15558472390" class="cta-phone">(555) 847-2390</a>
+    <br>
+    <a href="tel:+15558472390" class="btn" style="margin-top:8px;padding:14px 40px;font-size:1.1rem">Get a Free Quote</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">Precision Auto</div>
+        <p>Precision Auto Care — a family-owned shop providing professional repair and maintenance services with complete transparency.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99C18.34 21.12 22 16.99 22 12z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.44.41a4.1 4.1 0 011.52.99c.46.46.78.93.99 1.52.17.47.36 1.27.41 2.44.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.44a4.1 4.1 0 01-.99 1.52 4.1 4.1 0 01-1.52.99c-.47.17-1.27.36-2.44.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.44-.41a4.1 4.1 0 01-1.52-.99 4.1 4.1 0 01-.99-1.52c-.17-.47-.36-1.27-.41-2.44C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.44a4.1 4.1 0 01.99-1.52 4.1 4.1 0 011.52-.99c.47-.17 1.27-.36 2.44-.41C8.86 2.17 9.24 2.16 12 2.16zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.25a3.25 3.25 0 110-6.5 3.25 3.25 0 010 6.5zM18.41 6.15a1.17 1.17 0 11-2.34 0 1.17 1.17 0 012.34 0z"/></svg></a>
+          <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.96 3.4-2.04 4.44-1.28 1.24-3.24 2.2-5.8 2.2-4.64 0-8.48-3.72-8.48-8.36s3.84-8.36 8.48-8.36c2.32 0 4 .88 5.24 2.08l2.32-2.32C18.56 2.56 15.84 1.12 12.48 1.12 6.02 1.12 .76 6.16 .76 12.48s5.26 11.36 11.72 11.36c3.44 0 6.04-1.12 8.08-3.24 2.08-2.08 2.76-5.04 2.76-7.4 0-.72-.08-1.4-.16-1.96H12.48z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#booking">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Mon–Fri: 7:30 AM – 6:00 PM</li>
+          <li>Saturday: 8:00 AM – 2:00 PM</li>
+          <li>Sunday: Closed</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="tel:+15558472390">(555) 847-2390</a></li>
+          <li>1247 Industrial Blvd, Austin, TX 78745</li>
+          <li><a href="https://maps.google.com" target="_blank" rel="noopener">Get Directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Precision Auto Care. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta">
+  <a href="tel:+15558472390" class="btn">Call Now — (555) 847-2390</a>
+</div>
+
+<!-- GSAP + ScrollTrigger -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+  /* Nav scroll effect */
+  const nav=document.querySelector('.nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>50);
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  /* Hamburger */
+  const hamburger=document.querySelector('.hamburger');
+  const menu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',()=>{
+    const open=menu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded',open);
+    hamburger.querySelectorAll('span')[0].style.transform=open?'rotate(45deg) translate(5px,5px)':'';
+    hamburger.querySelectorAll('span')[1].style.opacity=open?'0':'1';
+    hamburger.querySelectorAll('span')[2].style.transform=open?'rotate(-45deg) translate(5px,-5px)':'';
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    menu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    hamburger.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='1'});
+  }));
+});
+
+/* Wait for GSAP to load then run animations */
+function initGSAP(){
+  if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){
+    setTimeout(initGSAP,100);return;
+  }
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ─── HERO PARALLAX ─── */
+  gsap.to('.hero-bg',{
+    y:150,
+    ease:'none',
+    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
+  });
+
+  /* ─── HERO STAGGERED TIMELINE ─── */
+  const heroTl=gsap.timeline({defaults:{ease:'power3.out'}});
+  heroTl
+    .fromTo('.hero-eyebrow',{opacity:0,y:30,visibility:'hidden'},{opacity:1,y:0,visibility:'visible',duration:.8},0.3)
+    .fromTo('.hero h1',{opacity:0,y:40,visibility:'hidden'},{opacity:1,y:0,visibility:'visible',duration:1,ease:'power4.out'},0.5)
+    .fromTo('.hero-sub',{opacity:0,y:30,visibility:'hidden'},{opacity:1,y:0,visibility:'visible',duration:.8},0.8)
+    .fromTo('.hero-badges',{opacity:0,y:20,scale:.95,visibility:'hidden'},{opacity:1,y:0,scale:1,visibility:'visible',duration:.7,ease:'back.out(1.4)'},1.1)
+    .fromTo('.hero-cta-row',{opacity:0,y:20,visibility:'hidden'},{opacity:1,y:0,visibility:'visible',duration:.7},1.3);
+
+  /* ─── TRUST BAR ─── */
+  gsap.fromTo('.trust-bar',{opacity:0,visibility:'hidden'},{opacity:1,visibility:'visible',duration:.6,scrollTrigger:{trigger:'.trust-bar',start:'top 90%'}});
+  gsap.fromTo('.trust-item',{opacity:0,y:20},{opacity:1,y:0,duration:.5,stagger:.1,scrollTrigger:{trigger:'.trust-bar',start:'top 85%'}});
+
+  /* ─── SECTION HEADERS (reusable) ─── */
+  document.querySelectorAll('.section').forEach(sec=>{
+    const labels=sec.querySelectorAll('.section-label,.section-title,.section-desc');
+    if(labels.length){
+      gsap.fromTo(labels,{opacity:0,y:30,visibility:'hidden'},{opacity:1,y:0,visibility:'visible',duration:.7,stagger:.12,scrollTrigger:{trigger:sec,start:'top 80%'}});
+    }
+  });
+
+  /* ─── SERVICE CARDS: stagger with scale ─── */
+  gsap.fromTo('.service-card',
+    {opacity:0,y:60,scale:.92,visibility:'hidden'},
+    {opacity:1,y:0,scale:1,visibility:'visible',duration:.7,stagger:.12,ease:'power2.out',
+     scrollTrigger:{trigger:'.services-grid',start:'top 80%'}});
+
+  /* ─── ABOUT: image from left, text from right ─── */
+  gsap.fromTo('.about-img',
+    {opacity:0,x:-80,visibility:'hidden'},
+    {opacity:1,x:0,visibility:'visible',duration:1,ease:'power3.out',
+     scrollTrigger:{trigger:'.about-grid',start:'top 75%'}});
+  gsap.fromTo('.about-text',
+    {opacity:0,x:80,visibility:'hidden'},
+    {opacity:1,x:0,visibility:'visible',duration:1,ease:'power3.out',
+     scrollTrigger:{trigger:'.about-grid',start:'top 75%'}});
+
+  /* ─── STAT COUNT-UP ─── */
+  document.querySelectorAll('.stat-num[data-count]').forEach(el=>{
+    const target=parseFloat(el.dataset.count);
+    const decimals=parseInt(el.dataset.decimals)||0;
+    const suffix=el.dataset.count.includes('+')?'+':'';
+    const obj={val:0};
+    gsap.to(obj,{
+      val:target,duration:2,ease:'power2.out',
+      scrollTrigger:{trigger:el,start:'top 85%'},
+      onUpdate:()=>{
+        const v=decimals>0?obj.val.toFixed(decimals):Math.round(obj.val);
+        el.textContent=target>=20?v+'+':v;
+      }
+    });
+  });
+
+  /* ─── REVIEWS: stagger with slight rotation ─── */
+  gsap.fromTo('.review-card',
+    {opacity:0,y:50,rotation:-2,visibility:'hidden'},
+    {opacity:1,y:0,rotation:0,visibility:'visible',duration:.7,stagger:.15,ease:'power2.out',
+     scrollTrigger:{trigger:'.reviews-grid',start:'top 80%'}});
+
+  /* ─── BLOG CARDS: clip-path reveal ─── */
+  gsap.fromTo('.blog-card',
+    {opacity:0,scale:.9,visibility:'hidden',clipPath:'inset(10% 10% 10% 10%)'},
+    {opacity:1,scale:1,visibility:'visible',clipPath:'inset(0% 0% 0% 0%)',duration:.8,stagger:.15,ease:'power3.out',
+     scrollTrigger:{trigger:'.blog-grid',start:'top 80%'}});
+
+  /* ─── CTA BANNER ─── */
+  gsap.fromTo('.cta-banner .container',
+    {opacity:0,y:40,visibility:'hidden'},
+    {opacity:1,y:0,visibility:'visible',duration:.8,ease:'power2.out',
+     scrollTrigger:{trigger:'.cta-banner',start:'top 80%'}});
+}
+initGSAP();
+</script>
+</body>
+</html>

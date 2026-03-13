@@ -4,8 +4,9 @@
 import json, os, re, random
 
 BASE_DIR = '/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code/Dentists/reports/S4'
-TEMPLATES_DIR = '/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code/Dentists/s4-templates'
-IMAGES_DIR = os.path.join(TEMPLATES_DIR, 'images')
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATES_DIR = os.path.join(_ROOT, 'templates', 'dentists', 'website')
+IMAGES_DIR = os.path.join(_ROOT, 'templates', 'dentists', 'images', 'template-images')
 INDEX_PATH = os.path.join(BASE_DIR, '_clinics_index.json')
 
 # Templates to use (varied selection)

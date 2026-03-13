@@ -3,3 +3,6 @@ venv/
 .env
 .playwright-mcp/
 .browser-profile/
+
+tmp-video-frames/
+*.mp4

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Auto Care — Transparent Auto Repair in Austin, TX</title>
+    <meta name="description" content="Austin's trusted auto repair shop since 2008. ASE-certified technicians, transparent pricing, and honest service. Call (555) 847-2390 for a free estimate.">
+    <meta property="og:title" content="Precision Auto Care — Transparent Auto Repair in Austin, TX">
+    <meta property="og:description" content="Austin's trusted auto repair shop since 2008. ASE-certified technicians, transparent pricing, and honest service.">
+    <meta property="og:image" content="../../images/template-images/hero.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoRepair",
+        "name": "Precision Auto Care",
+        "telephone": "+15558472390",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1247 Industrial Blvd",
+            "addressLocality": "Austin",
+            "addressRegion": "TX",
+            "postalCode": "78745"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "387"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "07:30",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "08:00",
+                "closes": "14:00"
+            }
+        ]
+    }
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --blue: #2563EB;
+            --blue-dark: #1D4ED8;
+            --blue-light: #3B82F6;
+            --blue-glow: rgba(37,99,235,0.35);
+            --dark: #1F2937;
+            --text: #1F2937;
+            --text-light: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --border: #E5E7EB;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-blue: 0 8px 30px rgba(37,99,235,0.18);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- NAV --- */
+        .nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); background: rgba(255,255,255,0.95); }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-logo { font-size: 1.4rem; font-weight: 800; color: var(--dark); }
+        .nav-logo span { color: var(--blue); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text-light); transition: color 0.2s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--blue); transition: width 0.3s ease; border-radius: 1px; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .nav-phone { font-weight: 600; color: var(--dark); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; border: none; cursor: pointer; }
+        .btn-blue { background: var(--blue); color: var(--white); }
+        .btn-blue:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: var(--shadow-blue); }
+        .btn-white { background: var(--white); color: var(--blue); border: 2px solid var(--blue); }
+        .btn-white:hover { background: var(--blue); color: var(--white); box-shadow: var(--shadow-blue); }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); margin: 6px 0; transition: 0.3s; border-radius: 2px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        /* --- HERO --- */
+        .hero { position: relative; padding: 0; min-height: 600px; display: flex; align-items: center; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 50%, rgba(239,246,255,0.75) 100%); }
+        .hero-mesh { position: absolute; top: -50%; right: -20%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%); border-radius: 50%; z-index: 1; pointer-events: none; }
+        .hero-mesh-2 { position: absolute; bottom: -30%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%); border-radius: 50%; z-index: 1; pointer-events: none; }
+        .hero-content { position: relative; z-index: 2; padding: 80px 0 60px; width: 100%; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-eyebrow { font-size: 0.85rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; opacity: 0; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.25; color: var(--dark); margin-bottom: 20px; opacity: 0; }
+        .hero p.hero-desc { font-size: 1.15rem; color: var(--text-light); margin-bottom: 32px; max-width: 480px; opacity: 0; }
+        .hero-cta { display: flex; gap: 16px; margin-bottom: 32px; opacity: 0; }
+        .hero-image { position: relative; border-radius: 16px; overflow: hidden; opacity: 0; }
+        .hero-image img { width: 100%; height: 420px; object-fit: cover; border-radius: 16px; }
+        .review-badge { position: absolute; bottom: 20px; right: 20px; background: var(--white); border-radius: 12px; padding: 14px 20px; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 12px; }
+        .review-badge .stars { color: #FBBF24; font-size: 1.1rem; }
+        .review-badge .rating { font-weight: 700; font-size: 1.2rem; color: var(--dark); }
+        .review-badge .count { font-size: 0.8rem; color: var(--text-light); }
+
+        /* --- CERTIFICATIONS --- */
+        .certs { background: var(--light-gray); padding: 28px 0; }
+        .certs-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+        .certs-inner img { height: 40px; opacity: 0.6; filter: grayscale(100%); transition: all 0.3s; }
+        .certs-inner img:hover { opacity: 1; filter: grayscale(0%); }
+
+        /* --- SERVICES --- */
+        .services { padding: 80px 0; background: var(--white); }
+        .section-header { text-align: center; margin-bottom: 48px; }
+        .section-header h2 { font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+        .section-header p { color: var(--text-light); font-size: 1.05rem; max-width: 550px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; border-left: 3px solid var(--blue); transition: all 0.3s; }
+        .service-card:hover { transform: translateY(-4px) rotate(0deg) !important; box-shadow: var(--shadow-blue); }
+        .service-card-img { width: 100%; height: 160px; object-fit: cover; }
+        .service-card-body { padding: 24px; }
+        .service-icon { width: 48px; height: 48px; background: #EFF6FF; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 1.4rem; }
+        .service-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+        .service-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
+
+        /* --- TRANSPARENCY --- */
+        .transparency { padding: 80px 0; background: var(--light-gray); }
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 48px; position: relative; }
+        .steps-line { position: absolute; top: 40px; left: 15%; right: 15%; height: 2px; background: var(--border); z-index: 0; }
+        .steps-line-fill { height: 100%; width: 0; background: var(--blue); border-radius: 2px; }
+        .step { text-align: center; position: relative; z-index: 1; }
+        .step-num { width: 80px; height: 80px; border-radius: 50%; background: var(--white); border: 3px solid var(--border); color: var(--text-light); font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.5s ease; }
+        .step.active .step-num { background: var(--blue); color: var(--white); border-color: var(--blue); box-shadow: 0 4px 20px rgba(37,99,235,0.35); }
+        .step h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+        .step p { font-size: 0.9rem; color: var(--text-light); max-width: 260px; margin: 0 auto; }
+
+        /* --- ABOUT --- */
+        .about { padding: 80px 0; background: var(--white); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-image { position: relative; border-radius: 16px; overflow: hidden; }
+        .about-image img { border-radius: 16px; width: 100%; height: 380px; object-fit: cover; clip-path: inset(0 100% 0 0); }
+        .about-content .label { font-size: 0.85rem; font-weight: 600; color: var(--blue); margin-bottom: 12px; }
+        .about-content h2 { font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; }
+        .about-content p { color: var(--text-light); margin-bottom: 16px; line-height: 1.7; }
+        .about-stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+        .about-stat { display: inline-flex; align-items: center; gap: 8px; background: #EFF6FF; padding: 10px 20px; border-radius: 8px; }
+        .about-stat .num { font-size: 1.5rem; font-weight: 800; color: var(--blue); }
+        .about-stat .txt { font-size: 0.9rem; color: var(--dark); font-weight: 500; }
+
+        /* --- REVIEWS --- */
+        .reviews { padding: 80px 0; background: var(--light-gray); }
+        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .review-card { background: var(--white); border-radius: 12px; padding: 28px; box-shadow: var(--shadow); transition: all 0.3s; }
+        .review-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-blue); }
+        .review-stars { color: #FBBF24; font-size: 1rem; margin-bottom: 12px; }
+        .review-text { font-size: 0.95rem; color: var(--text); line-height: 1.6; margin-bottom: 16px; }
+        .review-author { font-weight: 600; color: var(--dark); font-size: 0.9rem; }
+        .review-date { font-size: 0.8rem; color: var(--text-light); }
+
+        /* --- BLOG --- */
+        .blog { padding: 80px 0; background: var(--white); }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+        .blog-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-blue); }
+        .blog-card-body { padding: 24px; }
+        .blog-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--blue); background: #EFF6FF; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .blog-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; line-height: 1.4; }
+        .blog-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; margin-bottom: 16px; }
+        .blog-link { font-size: 0.9rem; font-weight: 600; color: var(--blue); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+        .blog-link:hover { gap: 10px; }
+
+        /* --- CTA --- */
+        .cta-section { padding: 64px 0; background: var(--blue); text-align: center; position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%; }
+        .cta-section h2 { font-size: 2rem; font-weight: 800; color: var(--white); margin-bottom: 12px; position: relative; }
+        .cta-section p { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 28px; position: relative; }
+        .btn-cta-white { background: var(--white); color: var(--blue); padding: 14px 36px; font-size: 1.05rem; font-weight: 700; border-radius: 10px; border: none; cursor: pointer; transition: all 0.3s; position: relative; display: inline-block; }
+        .btn-cta-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+        /* --- FOOTER --- */
+        .footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 48px 0 24px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+        .footer-brand { font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+        .footer-brand span { color: var(--blue); }
+        .footer-desc { font-size: 0.9rem; line-height: 1.6; max-width: 300px; }
+        .footer h4 { color: var(--white); font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+        .footer-list { list-style: none; }
+        .footer-list li { margin-bottom: 10px; font-size: 0.9rem; }
+        .footer-list a { transition: color 0.2s; }
+        .footer-list a:hover { color: var(--blue); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+        /* --- TRUST INDICATORS --- */
+        .trust-bar { display: flex; align-items: center; gap: 24px; opacity: 0; }
+        .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-light); }
+        .trust-item svg { width: 20px; height: 20px; color: var(--blue); flex-shrink: 0; }
+
+        /* --- SCROLL TOP --- */
+        .scroll-top {
+            position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px;
+            background: var(--blue); color: var(--white); border: none; border-radius: 50%;
+            font-size: 1.2rem; cursor: pointer; opacity: 0; visibility: hidden;
+            transition: all 0.3s; z-index: 99; box-shadow: var(--shadow-lg);
+        }
+        .scroll-top.show { opacity: 1; visibility: visible; }
+        .scroll-top:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: var(--shadow-blue); }
+
+        /* --- STATS --- */
+        .stats-section { padding: 60px 0; background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
+        .stat-item .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--blue); line-height: 1.2; }
+        .stat-item .stat-suffix { font-size: 2.5rem; font-weight: 800; color: var(--blue); }
+        .stat-item .stat-label { font-size: 0.9rem; color: var(--text-light); margin-top: 4px; }
+
+        /* --- REDUCED MOTION --- */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+            .hero-eyebrow, .hero h1, .hero p.hero-desc, .hero-cta, .hero-image, .trust-bar { opacity: 1; }
+            .about-image img { clip-path: inset(0 0 0 0); }
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-links { display: none; position: absolute; top: 72px; right: 0; left: 0; background: var(--white); flex-direction: column; padding: 24px; gap: 16px; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+            .nav-links.open { display: flex; }
+            .nav-actions .nav-phone { display: none; }
+            .hero { min-height: auto; }
+            .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+            .hero h1 { font-size: 2rem; }
+            .hero-image img { height: 280px; }
+            .hero-cta { flex-direction: column; }
+            .hero-cta .btn { width: 100%; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card-img { height: 140px; }
+            .steps { grid-template-columns: 1fr; gap: 32px; }
+            .steps-line { display: none; }
+            .about-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .certs-inner { gap: 24px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .hero-mesh, .hero-mesh-2 { display: none; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="container nav-inner">
+        <a href="template_example-4.html" class="nav-logo">Precision<span>.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services" class="active">Services</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="tel:+15558472390" class="nav-phone">(555) 847-2390</a>
+            <a href="#contact" class="btn btn-blue">Book Appointment</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="../../images/template-images/exterior.jpg" alt="" loading="eager">
+    </div>
+    <div class="hero-mesh"></div>
+    <div class="hero-mesh-2"></div>
+    <div class="hero-content">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-eyebrow">Austin's Trusted Mechanic Since 2008</div>
+                <h1>Transparent Auto Repair You Can Trust</h1>
+                <p class="hero-desc">Honest diagnostics, upfront pricing, and quality repairs backed by warranty. No surprises, no upselling — just great service.</p>
+                <div class="hero-cta">
+                    <a href="tel:+15558472390" class="btn btn-blue">Call (555) 847-2390</a>
+                    <a href="#services" class="btn btn-white">Our Services</a>
+                </div>
+                <div class="trust-bar">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Full Warranty</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span>OEM Parts</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Same-Day Service</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="../../images/template-images/hero.jpg" alt="Precision Auto Care — mechanic at work" loading="eager">
+                <div class="review-badge">
+                    <div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <div><span class="rating">4.9</span> <span class="count">(387 reviews)</span></div>
+                    </div>
+                    <img src="../../images/template-images/google-icon.svg" alt="Google" style="width:28px;height:28px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS STRIP -->
+<section class="certs">
+    <div class="container certs-inner">
+        <img src="../../images/template-images/cert-ase.png" alt="ASE Certified">
+        <img src="../../images/template-images/cert-aaa.png" alt="AAA Approved">
+        <img src="../../images/template-images/cert-napa.png" alt="NAPA AutoCare">
+        <img src="../../images/template-images/cert-bosch.png" alt="Bosch Service">
+        <img src="../../images/template-images/cert-ac-delco.png" alt="AC Delco">
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div><span class="stat-number" data-target="17">0</span><span class="stat-suffix">+</span></div>
+                <div class="stat-label">Years in Business</div>
+            </div>
+            <div class="stat-item">
+                <div><span class="stat-number" data-target="387">0</span><span class="stat-suffix"></span></div>
+                <div class="stat-label">5-Star Reviews</div>
+            </div>
+            <div class="stat-item">
+                <div><span class="stat-number" data-target="15000">0</span><span class="stat-suffix">+</span></div>
+                <div class="stat-label">Vehicles Serviced</div>
+            </div>
+            <div class="stat-item">
+                <div><span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span></div>
+                <div class="stat-label">Customer Satisfaction</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Complete auto repair and maintenance under one roof</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="../../images/template-images/service-oil.jpg" alt="Oil Change Service" class="service-card-img">
+                <div class="service-card-body">
+                    <div class="service-icon">&#9881;</div>
+                    <h3>Oil Change &amp; Lube</h3>
+                    <p>Conventional, synthetic blend, and full synthetic oil changes with multi-point inspection included on every visit.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="../../images/template-images/service-brakes.jpg" alt="Brake Service" class="service-card-img">
+                <div class="service-card-body">
+                    <div class="service-icon">&#128267;</div>
+                    <h3>Brake Service</h3>
+                    <p>Brake pad replacement, rotor resurfacing, fluid flush, and complete brake system inspections to keep you safe on the road.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="../../images/template-images/service-engine.jpg" alt="Engine Repair" class="service-card-img">
+                <div class="service-card-body">
+                    <div class="service-icon">&#10052;</div>
+                    <h3>Engine Repair</h3>
+                    <p>From check engine light diagnostics to full engine rebuilds, our ASE-certified techs handle it all with precision.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="../../images/template-images/service-transmission.jpg" alt="Transmission Service" class="service-card-img">
+                <div class="service-card-body">
+                    <div class="service-icon">&#128736;</div>
+                    <h3>Transmission</h3>
+                    <p>Transmission fluid service, repair, and replacement for both automatic and manual transmissions. All work warrantied.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="../../images/template-images/service-tires.jpg" alt="Tire Service" class="service-card-img">
+                <div class="service-card-body">
+                    <div class="service-icon">&#9889;</div>
+                    <h3>Tire Service</h3>
+                    <p>Tire rotation, balancing, alignment, and new tire installation. We carry all major brands at competitive prices.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="../../images/template-images/service-diagnostics.jpg" alt="Diagnostics Service" class="service-card-img">
+                <div class="service-card-body">
+                    <div class="service-icon">&#128663;</div>
+                    <h3>Diagnostics</h3>
+                    <p>State-of-the-art computer diagnostics to pinpoint issues fast. We explain every finding before recommending any repairs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRANSPARENCY / HOW WE WORK -->
+<section class="transparency" id="process">
+    <div class="container">
+        <div class="section-header">
+            <h2>How We Work</h2>
+            <p>A transparent, simple process — no surprises</p>
+        </div>
+        <div class="steps">
+            <div class="steps-line"><div class="steps-line-fill"></div></div>
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Diagnose</h3>
+                <p>Comprehensive vehicle inspection with a detailed, transparent report on every finding</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Approve</h3>
+                <p>Detailed estimate for your approval — we never start work without your go-ahead</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Repair</h3>
+                <p>Professional repair with OEM parts and a full warranty on all work performed</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container about-grid">
+        <div class="about-image">
+            <img src="../../images/template-images/team.jpg" alt="Precision Auto Care team">
+        </div>
+        <div class="about-content">
+            <div class="label">About Precision</div>
+            <h2>A Mechanic You Can Count On</h2>
+            <p>Precision Auto Care has been Austin's trusted neighborhood mechanic since 2008. Founded by Mike Thompson, an ASE Master Technician with over 20 years of experience, we believe every driver deserves honest, transparent auto repair. Our team of certified technicians treats every vehicle like their own.</p>
+            <p>We invest in the latest diagnostic equipment and ongoing training so we can service everything from daily commuters to performance vehicles — always at fair, upfront prices.</p>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <span class="num">17+</span>
+                    <span class="txt">Years Serving Austin</span>
+                </div>
+                <div class="about-stat">
+                    <span class="num">6</span>
+                    <span class="txt">ASE-Certified Techs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+    <div class="container">
+        <div class="section-header">
+            <h2>What Our Customers Say</h2>
+            <p>4.9 stars from 387 reviews on Google</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">Took my Honda in for a check engine light. Mike's team diagnosed it in 20 minutes and had it fixed same day. Fair price, no upselling. This is our family's shop now.</p>
+                <div class="review-author">Sarah Mitchell</div>
+                <div class="review-date">2 weeks ago</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">Best mechanic in Austin, hands down. They showed me photos of what needed fixing before doing any work. Total transparency.</p>
+                <div class="review-author">James Rodriguez</div>
+                <div class="review-date">1 month ago</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">I've been coming here for 3 years. They always explain everything clearly and never push unnecessary repairs. Highly recommend.</p>
+                <div class="review-author">Lisa Chen</div>
+                <div class="review-date">3 weeks ago</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+    <div class="container">
+        <div class="section-header">
+            <h2>From Our Blog</h2>
+            <p>Tips and insights to keep your vehicle running smoothly</p>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-card-body">
+                    <span class="blog-tag">Diagnostics</span>
+                    <h3>Why Is My Check Engine Light On? 5 Common Causes</h3>
+                    <p>That little warning light can mean anything from a loose gas cap to a serious engine issue. Here are the five most common triggers and what to do about each one.</p>
+                    <a href="blog/check-engine-light/index.html" class="blog-link">Read More &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-card-body">
+                    <span class="blog-tag">Maintenance</span>
+                    <h3>How Often Should You Really Change Your Oil?</h3>
+                    <p>The old 3,000-mile rule is outdated. We break down the real intervals for conventional, synthetic blend, and full synthetic oils based on your driving habits.</p>
+                    <a href="blog/oil-change-guide/index.html" class="blog-link">Read More &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-card-body">
+                    <span class="blog-tag">Safety</span>
+                    <h3>5 Signs Your Brakes Need Replacing</h3>
+                    <p>Squealing, grinding, or a soft pedal? Don't ignore the warning signs. Learn what to look and listen for so you can catch brake problems early.</p>
+                    <a href="blog/brake-warning-signs/index.html" class="blog-link">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <h2>Get a Free Estimate Today</h2>
+        <p>Call now or stop by — honest answers and fair prices, guaranteed</p>
+        <a href="tel:+15558472390" class="btn-cta-white">Call (555) 847-2390</a>
+    </div>
+</section>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" aria-label="Back to top">&#8593;</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">Precision<span>.</span></div>
+                <p class="footer-desc">Professional, transparent, and reliable auto service. We're here to keep your vehicle in perfect condition.</p>
+            </div>
+            <div>
+                <h4>Hours</h4>
+                <ul class="footer-list">
+                    <li>Mon – Fri: 7:30 AM – 6:00 PM</li>
+                    <li>Saturday: 8:00 AM – 2:00 PM</li>
+                    <li>Sunday: Closed</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul class="footer-list">
+                    <li><a href="tel:+15558472390">(555) 847-2390</a></li>
+                    <li>1247 Industrial Blvd, Austin, TX 78745</li>
+                    <li><a href="https://maps.google.com" target="_blank" rel="noopener">Get Directions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Precision Auto Care. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => { navLinks.classList.remove('open'); hamburger.classList.remove('active'); });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        scrollTopBtn.classList.toggle('show', window.pageYOffset > 400);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Active nav link highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            if (window.pageYOffset >= section.offsetTop - 100) current = section.getAttribute('id');
+        });
+        navAnchors.forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+        });
+    }, { passive: true });
+
+    // --- GSAP ANIMATIONS ---
+    if (typeof gsap === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // HERO timeline
+    const heroTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+    heroTl
+        .to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.6 })
+        .to('.hero h1', { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+        .to('.hero p.hero-desc', { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+        .to('.hero-cta', { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
+        .to('.trust-bar', { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
+        .to('.hero-image', { opacity: 1, x: 0, scale: 1, duration: 0.8 }, '-=0.6');
+    // Set initial states
+    gsap.set('.hero-eyebrow', { opacity: 0, y: 20 });
+    gsap.set('.hero h1', { opacity: 0, y: 30 });
+    gsap.set('.hero p.hero-desc', { opacity: 0, y: 20 });
+    gsap.set('.hero-cta', { opacity: 0, y: 20 });
+    gsap.set('.trust-bar', { opacity: 0, y: 15 });
+    gsap.set('.hero-image', { opacity: 0, x: 40, scale: 0.95 });
+
+    // STATS count-up
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    statNumbers.forEach(num => {
+        const target = parseInt(num.dataset.target);
+        ScrollTrigger.create({
+            trigger: num,
+            start: 'top 85%',
+            once: true,
+            onEnter: () => {
+                gsap.to(num, {
+                    duration: 2,
+                    ease: 'power2.out',
+                    innerText: target,
+                    snap: { innerText: 1 },
+                    onUpdate: function() {
+                        num.textContent = Math.round(parseFloat(num.textContent)).toLocaleString();
+                    }
+                });
+            }
+        });
+    });
+
+    // SERVICE CARDS: stagger from bottom with slight rotation
+    gsap.set('.service-card', { opacity: 0, y: 60, rotation: 2 });
+    ScrollTrigger.batch('.service-card', {
+        start: 'top 85%',
+        onEnter: (batch) => {
+            gsap.to(batch, { opacity: 1, y: 0, rotation: 0, duration: 0.7, ease: 'power2.out', stagger: 0.12 });
+        },
+        once: true
+    });
+
+    // SECTION HEADERS
+    gsap.utils.toArray('.section-header').forEach(header => {
+        gsap.from(header, {
+            scrollTrigger: { trigger: header, start: 'top 85%', once: true },
+            opacity: 0, y: 30, duration: 0.7, ease: 'power2.out'
+        });
+    });
+
+    // HOW WE WORK: steps animate in sequence with connecting line
+    const steps = gsap.utils.toArray('.step');
+    const stepsLine = document.querySelector('.steps-line-fill');
+    gsap.set(steps, { opacity: 0, y: 40 });
+
+    ScrollTrigger.create({
+        trigger: '.steps',
+        start: 'top 75%',
+        once: true,
+        onEnter: () => {
+            const stepTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+            steps.forEach((step, i) => {
+                stepTl.to(step, { opacity: 1, y: 0, duration: 0.5 }, i * 0.3);
+                stepTl.add(() => step.classList.add('active'), i * 0.3 + 0.2);
+            });
+            if (stepsLine) {
+                stepTl.to(stepsLine, { width: '100%', duration: 1.2, ease: 'power2.inOut' }, 0);
+            }
+        }
+    });
+
+    // Process steps highlight on scroll
+    steps.forEach((step, i) => {
+        ScrollTrigger.create({
+            trigger: step,
+            start: 'top center',
+            end: 'bottom center',
+            onEnter: () => step.classList.add('active'),
+        });
+    });
+
+    // ABOUT: image clip-path reveal from left, text fades in
+    ScrollTrigger.create({
+        trigger: '.about',
+        start: 'top 70%',
+        once: true,
+        onEnter: () => {
+            gsap.to('.about-image img', { clipPath: 'inset(0 0% 0 0)', duration: 1, ease: 'power2.inOut' });
+            gsap.from('.about-content', { opacity: 0, x: 40, duration: 0.8, ease: 'power2.out', delay: 0.3 });
+        }
+    });
+
+    // REVIEWS: slide in from right with stagger
+    gsap.set('.review-card', { opacity: 0, x: 60 });
+    ScrollTrigger.batch('.review-card', {
+        start: 'top 85%',
+        onEnter: (batch) => {
+            gsap.to(batch, { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', stagger: 0.15 });
+        },
+        once: true
+    });
+
+    // BLOG CARDS: fade + translateY
+    gsap.set('.blog-card', { opacity: 0, y: 40 });
+    ScrollTrigger.batch('.blog-card', {
+        start: 'top 85%',
+        onEnter: (batch) => {
+            gsap.to(batch, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.12 });
+        },
+        once: true
+    });
+
+    // CTA section
+    gsap.from('.cta-section h2', {
+        scrollTrigger: { trigger: '.cta-section', start: 'top 80%', once: true },
+        opacity: 0, y: 30, duration: 0.6, ease: 'power2.out'
+    });
+    gsap.from('.btn-cta-white', {
+        scrollTrigger: { trigger: '.cta-section', start: 'top 80%', once: true },
+        opacity: 0, y: 20, duration: 0.5, ease: 'power2.out', delay: 0.3
+    });
+
+    // CERT logos
+    gsap.from('.certs-inner img', {
+        scrollTrigger: { trigger: '.certs', start: 'top 90%', once: true },
+        opacity: 0, y: 15, duration: 0.5, stagger: 0.08, ease: 'power2.out'
+    });
+});
+</script>
+</body>
+</html>

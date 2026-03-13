@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Often Should You Really Change Your Oil? — Precision Auto Care</title>
+<meta name="description" content="The 3,000-mile oil change rule is outdated. Learn the real intervals for BMW, Mercedes, Audi, and other European vehicles from Austin's trusted specialists.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#0C0C0C;--surface:#1A1A1A;--surface-elevated:#222222;
+  --gold:#D4A843;--gold-light:#F0D78C;--gold-dim:rgba(212,168,67,.15);--gold-glow:rgba(212,168,67,.3);--gold-subtle:rgba(212,168,67,.06);
+  --text:#E8E8E8;--text-dim:rgba(232,232,232,.6);--text-muted:rgba(232,232,232,.4);--text-faint:rgba(232,232,232,.2);
+  --white:#fff;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',sans-serif;
+  --max-w:780px;--radius:4px;--radius-lg:8px;
+  --transition:0.4s cubic-bezier(.25,.46,.45,.94);--transition-fast:0.25s cubic-bezier(.25,.46,.45,.94);
+}
+body{font-family:var(--sans);color:var(--text);line-height:1.7;background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+.grain-overlay{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.03}
+@keyframes shimmerSweep{0%{transform:translateX(-100%) skewX(-15deg)}100%{transform:translateX(200%) skewX(-15deg)}}
+
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.container-wide{max-width:1140px;margin:0 auto;padding:0 24px}
+.gold-text{background:linear-gradient(135deg,#D4A843 0%,#F0D78C 50%,#D4A843 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+a{text-decoration:none;color:inherit}
+
+/* Nav */
+.nav{position:fixed;top:0;right:0;left:0;z-index:100;padding:14px 0;background:rgba(12,12,12,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--gold-dim)}
+.nav .container-wide{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--gold);letter-spacing:.5px;transition:opacity var(--transition)}
+.nav-logo:hover{opacity:.8}
+.nav-links{display:flex;gap:32px;align-items:center;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:400;color:var(--text-dim);transition:color var(--transition);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width var(--transition)}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{font-size:.88rem;color:var(--text);font-weight:500;transition:color var(--transition)}
+.nav-phone:hover{color:var(--gold)}
+.nav-cta{font-size:.85rem;color:var(--gold);border:1px solid var(--gold);padding:8px 24px;border-radius:var(--radius);transition:all var(--transition);position:relative;overflow:hidden}
+.nav-cta:hover{background:var(--gold);color:var(--bg);box-shadow:0 0 24px var(--gold-glow)}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:4px;z-index:110}
+.hamburger span{width:24px;height:1.5px;background:var(--gold);transition:transform var(--transition),opacity var(--transition);transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-overlay{position:fixed;inset:0;background:rgba(12,12,12,.7);opacity:0;visibility:hidden;z-index:95;transition:opacity var(--transition),visibility var(--transition);backdrop-filter:blur(4px)}
+.nav-overlay.open{opacity:1;visibility:visible}
+
+/* Breadcrumb */
+.breadcrumb{padding:100px 0 0;font-size:.8rem;color:var(--text-muted)}
+.breadcrumb a{color:var(--text-muted);transition:color var(--transition)}
+.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb .sep{margin:0 8px;opacity:.4}
+
+/* Article Hero */
+.article-hero{position:relative;height:420px;margin:24px 0 0;overflow:hidden;border-radius:var(--radius-lg)}
+.article-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.article-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(12,12,12,.6) 80%,rgba(12,12,12,.9) 100%);border-radius:var(--radius-lg)}
+.article-hero::before{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));z-index:2;border-radius:0 0 var(--radius-lg) var(--radius-lg)}
+
+/* Article Header */
+.article-header{padding:40px 0 0}
+.article-tag{font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:400;display:inline-block;margin-bottom:16px}
+.article-header h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600;line-height:1.25;margin-bottom:20px}
+.article-meta{display:flex;align-items:center;gap:20px;font-size:.85rem;color:var(--text-muted);padding-bottom:32px;border-bottom:1px solid var(--gold-dim)}
+.article-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.5}
+
+/* Article Body */
+.article-body{padding:40px 0 60px}
+.article-body h2{font-family:var(--serif);font-size:1.4rem;font-weight:500;margin:40px 0 16px;color:var(--text);line-height:1.35}
+.article-body h2:first-child{margin-top:0}
+.article-body h3{font-family:var(--serif);font-size:1.15rem;font-weight:500;margin:32px 0 12px;color:var(--gold)}
+.article-body p{color:var(--text-dim);font-size:.95rem;font-weight:300;line-height:1.85;margin-bottom:20px}
+.article-body ul,.article-body ol{color:var(--text-dim);font-size:.95rem;font-weight:300;line-height:1.85;margin:0 0 20px 24px}
+.article-body li{margin-bottom:8px}
+.article-body strong{color:var(--text);font-weight:500}
+
+/* Callout box */
+.callout{background:var(--surface);border:1px solid var(--gold-dim);border-left:3px solid var(--gold);border-radius:var(--radius);padding:24px 28px;margin:32px 0;position:relative}
+.callout::before{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,var(--gold-subtle),transparent 70%);pointer-events:none}
+.callout p{margin-bottom:0;color:var(--text-dim)}
+.callout strong{color:var(--gold)}
+
+/* Related Articles */
+.related{padding:60px 0 80px;border-top:1px solid var(--gold-dim)}
+.related-label{font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:300;display:block}
+.related h2{font-family:var(--serif);font-size:1.5rem;font-weight:500;margin-bottom:32px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.related-card{background:var(--surface);border:1px solid transparent;border-radius:var(--radius-lg);padding:28px 24px;transition:all var(--transition);display:block}
+.related-card:hover{border-color:var(--gold-dim);transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.2),0 0 16px rgba(212,168,67,.05)}
+.related-card .tag{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.related-card h3{font-family:var(--serif);font-size:1.05rem;font-weight:500;line-height:1.4;margin-bottom:10px;transition:color var(--transition)}
+.related-card:hover h3{color:var(--gold)}
+.related-card p{font-size:.82rem;color:var(--text-dim);font-weight:300;line-height:1.65}
+
+/* CTA Banner */
+.cta-banner{background:var(--surface);padding:80px 0;text-align:center;position:relative;border-top:1px solid var(--gold-dim)}
+.cta-banner-inner{border:1px solid var(--gold-dim);border-radius:var(--radius-lg);padding:56px 40px;max-width:640px;margin:0 auto;background:radial-gradient(circle at center,var(--gold-subtle) 0%,transparent 60%),var(--bg)}
+.cta-banner-inner h2{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:500;margin-bottom:8px}
+.cta-banner-phone{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600;display:inline-block;margin:16px 0 20px;transition:letter-spacing var(--transition)}
+.cta-banner-phone:hover{letter-spacing:3px}
+.cta-banner-link{font-size:.9rem;color:var(--gold);letter-spacing:1.5px;display:inline-block;padding:12px 36px;border:1px solid var(--gold-dim);border-radius:var(--radius);transition:all var(--transition);position:relative;overflow:hidden}
+.cta-banner-link::before{content:'';position:absolute;top:0;left:0;width:40px;height:100%;background:linear-gradient(90deg,transparent,rgba(212,168,67,.25),transparent);transform:translateX(-100%) skewX(-15deg)}
+.cta-banner-link:hover{border-color:var(--gold);box-shadow:0 0 20px rgba(212,168,67,.15)}
+.cta-banner-link:hover::before{animation:shimmerSweep .6s ease-out}
+
+/* Footer */
+.footer{background:var(--bg);padding:48px 0;border-top:1px solid var(--gold-dim)}
+.footer .container-wide{display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--serif);font-size:1.1rem;color:var(--gold);letter-spacing:.5px}
+.footer-info{display:flex;gap:32px;font-size:.82rem;color:var(--text-muted)}
+.footer-info a{color:var(--text-muted);transition:color var(--transition)}
+.footer-info a:hover{color:var(--gold)}
+.footer-copy{font-size:.72rem;color:var(--text-muted)}
+
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-right{display:none}
+  .nav-links{position:fixed;top:0;right:-100%;width:75vw;height:100dvh;background:var(--surface);flex-direction:column;justify-content:center;padding:48px 36px;gap:28px;transition:right var(--transition);border-left:1px solid var(--gold-dim);z-index:105}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.15rem}
+  .nav-links a::after{display:none}
+  .article-hero{height:280px;margin:16px 0 0}
+  .related-grid{grid-template-columns:1fr}
+  .cta-banner-inner{padding:40px 24px}
+  .footer .container-wide{flex-direction:column;gap:20px;text-align:center}
+  .footer-info{flex-direction:column;gap:10px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "headline":"How Often Should You Really Change Your Oil?",
+  "image":"../../../../images/template-images/service-oil.jpg",
+  "datePublished":"2026-03-10",
+  "author":{"@type":"Person","name":"Mike Thompson"},
+  "publisher":{"@type":"Organization","name":"Precision Auto Care"}
+}
+</script>
+</head>
+<body>
+
+<svg class="grain-overlay" width="100%" height="100%">
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#grain)"/>
+</svg>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container-wide">
+    <a href="../../template_example-5.html" class="nav-logo">Precision Auto Care</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../../template_example-5.html">Home</a></li>
+      <li><a href="../../template_example-5.html#specs">Specializations</a></li>
+      <li><a href="../../template_example-5.html#about">About</a></li>
+      <li><a href="../../template_example-5.html#reviews">Reviews</a></li>
+      <li><a href="../../blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+15558472390" class="nav-phone">(555) 847-2390</a>
+      <a href="../../template_example-5.html#cta" class="nav-cta">Schedule Service</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Breadcrumb -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="../../template_example-5.html">Home</a><span class="sep">/</span>
+    <a href="../../blog.html">Blog</a><span class="sep">/</span>
+    <span>Oil Change Guide</span>
+  </div>
+</div>
+
+<!-- Article Hero -->
+<div class="container">
+  <div class="article-hero">
+    <img src="../../../../images/template-images/service-oil.jpg" alt="Professional oil change service" width="1200" height="600">
+  </div>
+</div>
+
+<!-- Article Header -->
+<div class="container">
+  <div class="article-header">
+    <span class="article-tag">Maintenance</span>
+    <h1>How Often Should You Really Change Your Oil?</h1>
+    <div class="article-meta">
+      <span>March 10, 2026</span>
+      <span class="dot"></span>
+      <span>Mike Thompson</span>
+      <span class="dot"></span>
+      <span>7 min read</span>
+    </div>
+  </div>
+</div>
+
+<!-- Article Body -->
+<div class="container">
+  <div class="article-body">
+    <p>If you grew up hearing "change your oil every 3,000 miles," you're not alone. That advice was sound when conventional motor oils and older engine designs were the norm. But modern European vehicles are engineered differently, and following outdated oil change rules can actually waste your money — or worse, the wrong interval can damage your engine.</p>
+
+    <p>At Precision Auto Care, we've serviced over 12,000 European vehicles in the last 17 years. Here's what we've learned about oil change intervals and what actually matters for your BMW, Mercedes-Benz, Audi, Porsche, or Volvo.</p>
+
+    <h2>Why the 3,000-Mile Rule Is Obsolete</h2>
+
+    <p>The 3,000-mile oil change recommendation dates back to an era of conventional mineral oils and engines with looser tolerances. Those oils broke down faster under heat and contamination, making frequent changes necessary to protect engine internals.</p>
+
+    <p>Today's European vehicles are different in several fundamental ways. They use advanced synthetic oils formulated to maintain their protective properties for much longer. Engine manufacturing tolerances are tighter, reducing contamination. And sophisticated oil monitoring systems track actual oil condition in real time, not just mileage.</p>
+
+    <p>BMW's Condition Based Servicing (CBS) system, for example, analyzes your driving patterns, engine temperature cycles, and fuel quality to calculate when your oil actually needs changing. Mercedes-Benz uses a similar ASSYST system. These aren't arbitrary timers — they're sophisticated algorithms based on real engineering data.</p>
+
+    <h2>What European Manufacturers Actually Recommend</h2>
+
+    <p>Each manufacturer has different recommendations based on their engine designs and approved oil specifications. Here's what the major European brands specify:</p>
+
+    <h3>BMW</h3>
+    <p>BMW recommends oil changes every <strong>10,000-15,000 miles</strong> or once per year, whichever comes first. Their engines are designed around BMW Longlife-01 or Longlife-04 approved oils, which are high-performance synthetics that maintain viscosity and protective properties over extended intervals. The CBS system may adjust this interval shorter based on your driving conditions.</p>
+
+    <h3>Mercedes-Benz</h3>
+    <p>Mercedes-Benz service intervals are typically <strong>10,000-13,000 miles</strong> or annually. They require oils meeting their MB 229.5 or 229.52 specification. The Flexible Service System (FSS) monitors driving conditions and may call for service earlier if you frequently make short trips or drive in extreme heat.</p>
+
+    <h3>Audi / Volkswagen</h3>
+    <p>Audi and VW generally recommend <strong>10,000-mile</strong> intervals using VW 502.00, 504.00, or 508.00 specification oils. Turbocharged engines, which make up the majority of their current lineup, put additional thermal stress on oil, so adhering to these intervals is particularly important.</p>
+
+    <h3>Porsche</h3>
+    <p>Porsche recommends oil changes every <strong>10,000-12,000 miles</strong> or annually. Their flat-six and turbocharged flat-four engines have specific oil requirements (Porsche A40 specification) that differ from other VAG group vehicles.</p>
+
+    <h3>Volvo</h3>
+    <p>Volvo's standard interval is <strong>10,000 miles</strong> or 12 months. Their turbocharged and supercharged four-cylinder engines run at high specific outputs, making oil quality and change intervals critical for longevity.</p>
+
+    <div class="callout">
+      <p><strong>Key takeaway:</strong> Every major European manufacturer recommends intervals of 10,000+ miles with the correct specification synthetic oil. Changing at 3,000 miles is simply throwing money away. But extending beyond the manufacturer's recommendation is risky — these intervals are calculated for a reason.</p>
+    </div>
+
+    <h2>When You Should Change Oil More Frequently</h2>
+
+    <p>While manufacturer intervals are the baseline, certain driving conditions accelerate oil degradation. The automotive industry calls these "severe service conditions," and they're more common than most people realize:</p>
+
+    <ul>
+      <li><strong>Short trips under 10 miles:</strong> The engine never fully reaches operating temperature, which means moisture and fuel vapors don't burn off. This contaminates the oil faster than highway driving.</li>
+      <li><strong>Stop-and-go city driving:</strong> Constant acceleration and braking cycles generate more heat and stress on oil than steady-state cruising.</li>
+      <li><strong>Extreme heat:</strong> In Austin's summer months, ambient temperatures above 100°F combined with stop-and-go traffic can push oil temperatures well beyond normal operating range.</li>
+      <li><strong>Towing or heavy loads:</strong> Any time your engine works harder than normal, oil degrades faster.</li>
+      <li><strong>Dusty conditions:</strong> Fine particles that bypass the air filter end up in your oil, accelerating wear on engine internals.</li>
+    </ul>
+
+    <p>If your driving regularly includes two or more of these conditions, consider shortening your oil change interval by 20-30% from the manufacturer's recommendation. For most Austin drivers who primarily do city commuting, that means approximately <strong>7,500-8,000 miles</strong> for European vehicles.</p>
+
+    <h2>Why Oil Specification Matters More Than Brand</h2>
+
+    <p>Here's something many drivers don't realize: the specific oil specification matters far more than the brand name on the bottle. Each European manufacturer has approved oil specifications that define exact viscosity, additive packages, and performance characteristics.</p>
+
+    <p>Using an oil that doesn't meet your manufacturer's specification — even if it's a premium synthetic — can cause problems. Common issues include premature timing chain wear, turbocharger deposits, sludge buildup, and even catalytic converter damage from incompatible additive chemistry.</p>
+
+    <p>At Precision Auto Care, we stock manufacturer-specified oils for every European brand we service. When you bring your BMW in, it gets BMW Longlife-approved oil. Your Mercedes gets MB-approved oil. No generic substitutions, no compromises.</p>
+
+    <div class="callout">
+      <p><strong>Pro tip:</strong> Check your owner's manual for the exact oil specification — not just the viscosity (like 5W-30). The specification code (like BMW LL-01 or MB 229.52) is what actually ensures compatibility. Many quick-lube shops don't carry these specialized oils and will substitute a generic synthetic that technically meets the viscosity grade but not the manufacturer specification.</p>
+    </div>
+
+    <h2>What Happens If You Wait Too Long?</h2>
+
+    <p>While changing oil too early just wastes money, waiting too long creates real mechanical problems. As oil degrades, it loses its ability to protect moving parts, manage heat, and suspend contaminants.</p>
+
+    <p>The first sign is usually increased engine noise — specifically, a ticking or tapping from the valve train that wasn't there before. As oil breaks down further, you may notice reduced fuel economy, sluggish performance, or an oil pressure warning light.</p>
+
+    <p>In severe cases, degraded oil becomes thick sludge that blocks oil passages, starving critical engine components of lubrication. We've seen engines with blocked oil pickup screens, scored cylinder walls, and spun rod bearings — all from simply neglecting oil changes. These repairs can cost $3,000-$8,000 or more on European engines.</p>
+
+    <h2>Our Recommendation</h2>
+
+    <p>After 17 years of servicing European vehicles in Austin, here's our straightforward advice:</p>
+
+    <ol>
+      <li><strong>Follow your manufacturer's recommended interval</strong> as a starting point — typically 10,000-15,000 miles depending on the brand.</li>
+      <li><strong>Use only manufacturer-specification oil</strong> — not just the right viscosity, but the right specification code.</li>
+      <li><strong>Shorten by 20-30%</strong> if you primarily do city driving, short trips, or drive in Austin's extreme summer heat.</li>
+      <li><strong>Trust your car's service indicator</strong> — it's monitoring real conditions, not just counting miles.</li>
+      <li><strong>Never exceed 12 months</strong> between oil changes regardless of mileage — oil degrades over time even when not being used.</li>
+    </ol>
+
+    <p>The bottom line: you don't need to change your oil every 3,000 miles, but you do need to use the right oil at the right interval. For most European vehicle owners in Austin, that sweet spot is around 7,500-10,000 miles with manufacturer-specified synthetic oil.</p>
+
+    <p>Questions about your vehicle's oil change schedule? Call us at <a href="tel:+15558472390" style="color:var(--gold)">(555) 847-2390</a> or stop by Precision Auto Care at 1247 Industrial Blvd in Austin. We're happy to look up the exact specification and interval for your specific vehicle.</p>
+  </div>
+</div>
+
+<!-- Related Articles -->
+<div class="container">
+  <div class="related">
+    <span class="related-label">Related Articles</span>
+    <h2 class="serif">More Expert <span class="gold-text">Insights</span></h2>
+    <div class="related-grid">
+      <a href="../check-engine-light/index.html" class="related-card">
+        <span class="tag">Diagnostics</span>
+        <h3>Why Is My Check Engine Light On? 5 Common Causes</h3>
+        <p>That dashboard warning can mean many things. Here are the five most common triggers.</p>
+      </a>
+      <a href="../brake-warning-signs/index.html" class="related-card">
+        <span class="tag">Safety</span>
+        <h3>5 Signs Your Brakes Need Replacing</h3>
+        <p>Squealing, vibration, or a soft pedal? Learn how to spot brake wear early.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <h2 class="serif">Due for an Oil Change? <span class="gold-text">We Use OEM Specs.</span></h2>
+      <div style="margin:0 auto;width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)"></div>
+      <a href="tel:+15558472390" class="cta-banner-phone gold-text">(555) 847-2390</a>
+      <br>
+      <a href="tel:+15558472390" class="cta-banner-link">Schedule Oil Service</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container-wide">
+    <span class="footer-logo">Precision Auto Care</span>
+    <div class="footer-info">
+      <a href="tel:+15558472390">(555) 847-2390</a>
+      <a href="#">1247 Industrial Blvd, Austin, TX 78745</a>
+      <a href="../../blog.html">Blog</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 Precision Auto Care. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks'),navOverlay=document.getElementById('navOverlay');
+  function toggleMenu(){const o=navLinks.classList.toggle('open');hamburger.classList.toggle('active',o);navOverlay.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''}
+  hamburger.addEventListener('click',toggleMenu);
+  navOverlay.addEventListener('click',toggleMenu);
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(navLinks.classList.contains('open'))toggleMenu()}));
+})();
+</script>
+</body>
+</html>

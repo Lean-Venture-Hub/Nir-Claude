@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Precision Auto Care — Honest Auto Repair in Austin, TX</title>
+<meta name="description" content="Austin's most trusted auto repair shop since 2008. ASE certified, AAA approved, 4.9 stars from 387+ reviews. Transparent pricing, no surprises. Call (555) 847-2390.">
+<meta property="og:title" content="Precision Auto Care — Honest Auto Repair in Austin, TX">
+<meta property="og:description" content="Austin's most trusted auto repair since 2008. ASE certified, 4.9 stars, transparent pricing.">
+<meta property="og:image" content="../../images/template-images/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AutoRepair",
+  "name":"Precision Auto Care",
+  "image":"../../images/template-images/hero.jpg",
+  "telephone":"(555) 847-2390",
+  "address":{"@type":"PostalAddress","streetAddress":"1247 Industrial Blvd","addressLocality":"Austin","addressRegion":"TX","postalCode":"78745"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"387"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"14:00"}
+  ],
+  "url":"https://precisionautocare.com"
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --dark:#0A0A0A;
+  --light:#F5F3F0;
+  --copper:#C87941;
+  --copper-glow:rgba(200,121,65,0.2);
+  --copper-light:rgba(200,121,65,0.12);
+  --text-dark:#F0F0F0;
+  --text-light:#1A1A1A;
+  --text-muted-dark:rgba(240,240,240,0.6);
+  --text-muted-light:rgba(26,26,26,0.55);
+  --display:'Syne',sans-serif;
+  --body:'DM Sans',sans-serif;
+  --max-w:1200px;
+  --transition:0.4s cubic-bezier(.25,.46,.45,.94);
+  --transition-fast:0.25s ease;
+}
+
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+
+body{
+  font-family:var(--body);
+  color:var(--text-dark);
+  line-height:1.7;
+  background:var(--dark);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .chapter-num,.parallax-bg{transform:none!important}
+  .pin-spacer{display:contents!important}
+  [data-speed]{transform:none!important}
+}
+
+/* Progress bar */
+.progress-bar{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--copper);z-index:1000;transition:none}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all 0.6s ease;transform:translateY(-100%);opacity:0}
+.nav.visible{transform:translateY(0);opacity:1}
+.nav.scrolled{background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,121,65,0.1);padding:14px 0}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--text-dark);letter-spacing:-0.02em}
+.nav-center{display:flex;align-items:center;gap:8px}
+.nav-phone{display:flex;align-items:center;gap:8px;color:var(--copper);font-weight:600;font-size:1rem;transition:opacity var(--transition-fast)}
+.nav-phone:hover{opacity:0.8}
+.nav-phone svg{width:18px;height:18px}
+.nav-cta{background:var(--copper);color:#fff;padding:12px 28px;border-radius:4px;font-size:.88rem;font-weight:600;font-family:var(--body);transition:all var(--transition-fast);min-height:48px;display:inline-flex;align-items:center;border:none;cursor:pointer}
+.nav-cta:hover{background:#B06A35;transform:translateY(-1px)}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted-dark);transition:color var(--transition-fast);text-transform:uppercase;letter-spacing:0.1em}
+.nav-links a:hover{color:var(--copper)}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:8px;z-index:110;min-width:48px;min-height:48px;justify-content:center;align-items:center;background:none;border:none}
+.hamburger span{width:24px;height:1.5px;background:var(--text-dark);transition:all 0.3s ease;transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-drawer{position:fixed;top:0;right:-100%;width:100%;height:100dvh;background:var(--dark);z-index:105;transition:right 0.5s cubic-bezier(.77,0,.18,1);padding:100px 40px 40px;display:flex;flex-direction:column;gap:0}
+.nav-drawer.open{right:0}
+.nav-drawer a{font-family:var(--display);font-size:clamp(2rem,6vw,3.5rem);font-weight:700;color:var(--text-dark);padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color var(--transition-fast);display:block}
+.nav-drawer a:hover{color:var(--copper)}
+.nav-drawer-phone{margin-top:auto;font-size:1.2rem;color:var(--copper);font-weight:600;display:flex;align-items:center;gap:12px}
+
+a{text-decoration:none;color:inherit}
+
+/* Chapter number */
+.chapter-num{
+  font-family:var(--display);
+  font-size:clamp(120px,20vw,240px);
+  font-weight:800;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(200,121,65,0.15);
+  position:absolute;
+  right:5%;top:5%;
+  line-height:1;
+  user-select:none;
+  pointer-events:none;
+  z-index:1;
+}
+.chapter--light .chapter-num{-webkit-text-stroke-color:rgba(26,26,26,0.08)}
+
+/* Scroll indicator */
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:5}
+.scroll-indicator span{font-size:.72rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--text-muted-dark)}
+.scroll-arrow{width:20px;height:20px;border-right:1.5px solid var(--copper);border-bottom:1.5px solid var(--copper);transform:rotate(45deg);animation:scrollBounce 2s infinite}
+@keyframes scrollBounce{0%,100%{transform:rotate(45deg) translate(0,0);opacity:1}50%{transform:rotate(45deg) translate(6px,6px);opacity:0.4}}
+
+/* ===== CHAPTER 1: HERO ===== */
+.chapter-hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:var(--dark)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;will-change:transform}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.4) 0%,rgba(10,10,10,0.7) 60%,rgba(10,10,10,0.95) 100%);z-index:1}
+.hero-content{position:relative;z-index:3;max-width:var(--max-w);margin:0 auto;padding:0 24px;width:100%}
+.hero-eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:0.25em;color:var(--copper);font-weight:600;margin-bottom:20px;display:block;opacity:0}
+.hero-headline{font-family:var(--display);font-size:clamp(48px,10vw,110px);font-weight:800;line-height:0.95;letter-spacing:-0.03em;color:var(--text-dark);margin-bottom:24px}
+.hero-headline .word{display:inline-block;overflow:hidden}
+.hero-headline .char{display:inline-block;opacity:0;transform:translateY(100%)}
+.hero-sub{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--text-muted-dark);max-width:520px;line-height:1.7;margin-bottom:32px;opacity:0}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:40px;opacity:0}
+.hero-phone{display:flex;align-items:center;gap:8px;color:var(--text-dark);font-weight:600;font-size:1rem;transition:color var(--transition-fast);min-height:48px;padding:12px 4px}
+.hero-phone:hover{color:var(--copper)}
+.hero-phone svg{width:20px;height:20px;color:var(--copper)}
+
+/* Trust bar */
+.hero-trust{display:flex;align-items:center;gap:24px;flex-wrap:wrap;opacity:0}
+.trust-rating{display:flex;align-items:center;gap:8px}
+.trust-stars{display:flex;gap:2px;color:#F5A623}
+.trust-stars svg{width:16px;height:16px}
+.trust-text{font-size:.85rem;color:var(--text-muted-dark)}
+.trust-text strong{color:var(--text-dark)}
+.trust-badges{display:flex;gap:16px;align-items:center}
+.trust-badge{display:flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;color:var(--text-muted-dark);text-transform:uppercase;letter-spacing:0.08em;padding:6px 14px;border:1px solid rgba(255,255,255,0.1);border-radius:4px}
+.trust-badge svg{width:16px;height:16px;color:var(--copper)}
+
+/* ===== CHAPTER 2: PROBLEM / STATS ===== */
+.chapter-stats{position:relative;min-height:100vh;background:var(--dark);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stats-wrapper{position:relative;z-index:2;width:100%;max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.stat-slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;padding:0 24px}
+.stat-slide.active{opacity:1}
+.stat-number{font-family:var(--display);font-size:clamp(64px,15vw,160px);font-weight:800;color:var(--copper);line-height:1;margin-bottom:16px;letter-spacing:-0.04em}
+.stat-label{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--text-muted-dark);max-width:500px;line-height:1.6}
+.stat-source{font-size:.72rem;color:rgba(255,255,255,0.25);margin-top:12px;text-transform:uppercase;letter-spacing:0.15em}
+.stats-conclusion{text-align:center;opacity:0}
+.stats-conclusion h3{font-family:var(--display);font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700;color:var(--text-dark);line-height:1.2}
+.stats-conclusion .copper-line{display:block;width:60px;height:3px;background:var(--copper);margin:16px auto 0;border-radius:2px}
+
+/* ===== CHAPTER 3: SOLUTION / ABOUT ===== */
+.chapter-about{position:relative;min-height:100vh;background:var(--light);display:flex;align-items:stretch;overflow:hidden}
+.chapter--light{color:var(--text-light)}
+.about-split{display:flex;width:100%;min-height:100vh}
+.about-left{flex:1;padding:clamp(80px,10vh,140px) clamp(24px,4vw,80px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.about-label{font-size:.72rem;text-transform:uppercase;letter-spacing:0.25em;color:var(--copper);font-weight:600;margin-bottom:16px}
+.about-title{font-family:var(--display);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--text-light);line-height:1.1;margin-bottom:32px;letter-spacing:-0.02em}
+.about-story p{font-size:1rem;color:var(--text-muted-light);line-height:1.8;margin-bottom:20px}
+.about-story p strong{color:var(--text-light)}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;padding-top:40px;border-top:1px solid rgba(26,26,26,0.08)}
+.about-stat-num{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--copper);line-height:1}
+.about-stat-label{font-size:.82rem;color:var(--text-muted-light);margin-top:4px}
+.about-right{flex:1;position:relative;overflow:hidden}
+.about-right img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform}
+.about-promise{background:rgba(200,121,65,0.06);border-left:3px solid var(--copper);padding:20px 24px;margin:24px 0;border-radius:0 6px 6px 0}
+.about-promise p{margin-bottom:0;font-size:.95rem;color:var(--text-light);font-weight:500}
+.about-warranty{display:inline-flex;align-items:center;gap:8px;background:var(--copper);color:#fff;padding:10px 24px;border-radius:4px;font-weight:600;font-size:.88rem;margin-top:8px}
+.about-warranty svg{width:18px;height:18px}
+
+/* ===== CHAPTER 4: SERVICES HORIZONTAL SCROLL ===== */
+.chapter-services{position:relative;min-height:100vh;background:var(--dark);overflow:hidden}
+.services-header{position:absolute;top:clamp(60px,8vh,100px);left:0;width:100%;z-index:3;padding:0 clamp(24px,4vw,80px)}
+.services-label{font-size:.72rem;text-transform:uppercase;letter-spacing:0.25em;color:var(--copper);font-weight:600;margin-bottom:8px}
+.services-title{font-family:var(--display);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--text-dark);letter-spacing:-0.02em}
+.services-track{display:flex;width:fit-content;height:100vh;align-items:stretch;will-change:transform}
+.service-card{width:85vw;max-width:900px;height:100vh;display:flex;align-items:center;padding:0 clamp(24px,4vw,60px);flex-shrink:0;position:relative}
+.service-card-inner{display:flex;gap:clamp(24px,4vw,60px);align-items:center;width:100%;margin-top:60px}
+.service-card-img{flex:1;height:clamp(300px,50vh,500px);border-radius:8px;overflow:hidden;position:relative}
+.service-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.service-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,121,65,0.1) 0%,transparent 60%)}
+.service-card-content{flex:1;padding:20px 0}
+.service-card-number{font-family:var(--display);font-size:.75rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--copper);margin-bottom:12px;font-weight:600}
+.service-card-name{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--text-dark);line-height:1.05;margin-bottom:16px;letter-spacing:-0.02em}
+.service-card-desc{font-size:1rem;color:var(--text-muted-dark);line-height:1.8;margin-bottom:24px;max-width:400px}
+.service-card-link{display:inline-flex;align-items:center;gap:8px;color:var(--copper);font-weight:600;font-size:.9rem;transition:gap var(--transition-fast);min-height:48px;padding:8px 0}
+.service-card-link:hover{gap:14px}
+.service-card-link svg{width:16px;height:16px}
+
+/* ===== CHAPTER 5: REVIEWS ===== */
+.chapter-reviews{position:relative;min-height:100vh;background:var(--light);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.chapter--light .chapter-num{-webkit-text-stroke-color:rgba(26,26,26,0.06)}
+.reviews-wrapper{position:relative;z-index:2;width:100%;max-width:800px;margin:0 auto;padding:0 24px;text-align:center}
+.review-slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;padding:0 24px}
+.review-slide.active{opacity:1}
+.review-quote{font-family:var(--display);font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:600;color:var(--text-light);line-height:1.5;margin-bottom:32px;position:relative;max-width:700px}
+.review-quote::before{content:'"';font-family:var(--display);font-size:clamp(60px,10vw,100px);color:var(--copper);opacity:0.3;position:absolute;top:-40px;left:-20px;line-height:1}
+.review-avatar{width:56px;height:56px;border-radius:50%;background:var(--copper-light);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-family:var(--display);font-weight:700;color:var(--copper);font-size:1rem}
+.review-name{font-weight:700;font-size:1rem;color:var(--text-light)}
+.review-date{font-size:.82rem;color:var(--text-muted-light);margin-top:4px}
+.review-stars{display:flex;gap:2px;justify-content:center;margin-top:8px;color:#F5A623}
+.review-stars svg{width:14px;height:14px}
+.reviews-count{text-align:center;opacity:0;padding:40px 24px}
+.reviews-count p{font-family:var(--display);font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--text-light)}
+.reviews-count span{color:var(--copper)}
+
+/* ===== CHAPTER 6: CTA ===== */
+.chapter-cta{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--dark)}
+.cta-bg{position:absolute;inset:0;z-index:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform}
+.cta-overlay{position:absolute;inset:0;background:rgba(10,10,10,0.82);z-index:1}
+.cta-content{position:relative;z-index:3;text-align:center;padding:0 24px;max-width:700px}
+.cta-headline{font-family:var(--display);font-size:clamp(3rem,8vw,6rem);font-weight:800;color:var(--text-dark);line-height:1;margin-bottom:24px;letter-spacing:-0.03em}
+.cta-phone{font-family:var(--display);font-size:clamp(1.4rem,4vw,2.4rem);font-weight:700;color:var(--copper);display:block;margin-bottom:32px;transition:opacity var(--transition-fast)}
+.cta-phone:hover{opacity:0.8}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--copper);color:#fff;padding:18px 48px;border-radius:4px;font-size:1.1rem;font-weight:700;font-family:var(--body);transition:all var(--transition-fast);min-height:56px;border:none;cursor:pointer}
+.cta-btn:hover{background:#B06A35;transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,121,65,0.3)}
+.cta-info{margin-top:32px;font-size:.9rem;color:var(--text-muted-dark);line-height:1.8}
+.cta-info strong{color:var(--text-dark)}
+.cta-blog-links{margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.cta-blog-links a{font-size:.82rem;color:var(--text-muted-dark);transition:color var(--transition-fast);text-transform:uppercase;letter-spacing:0.1em}
+.cta-blog-links a:hover{color:var(--copper)}
+
+/* Footer */
+.footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.04);padding:60px 0 40px}
+.footer-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.footer-col h4{font-family:var(--display);font-size:.88rem;font-weight:700;color:var(--text-dark);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em}
+.footer-col p,.footer-col a{font-size:.85rem;color:var(--text-muted-dark);line-height:1.8;display:block;transition:color var(--transition-fast)}
+.footer-col a:hover{color:var(--copper)}
+.footer-bottom{max-width:var(--max-w);margin:40px auto 0;padding:20px 24px 0;border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,0.3)}
+
+/* Mobile sticky CTA */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);padding:12px 16px;border-top:1px solid rgba(200,121,65,0.15)}
+.mobile-cta-inner{display:flex;gap:10px;max-width:600px;margin:0 auto}
+.mobile-cta a{flex:1;text-align:center;padding:14px 16px;border-radius:4px;font-weight:600;font-size:.88rem;min-height:48px;display:flex;align-items:center;justify-content:center;gap:6px}
+.mobile-cta .mc-call{background:transparent;border:1px solid var(--copper);color:var(--copper)}
+.mobile-cta .mc-estimate{background:var(--copper);color:#fff}
+
+@media(max-width:1024px){
+  .about-split{flex-direction:column}
+  .about-right{height:50vh;flex:none}
+  .about-left{padding:80px 24px 60px}
+  .service-card{width:90vw}
+  .service-card-inner{flex-direction:column;gap:24px}
+  .service-card-img{width:100%;height:40vh;flex:none}
+  .footer-inner{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:768px){
+  .nav-links,.nav-phone,.nav-center{display:none}
+  .hamburger{display:flex}
+  .mobile-cta{display:block}
+  .chapter-num{font-size:clamp(80px,18vw,140px);right:3%;top:3%}
+  .hero-trust{flex-direction:column;align-items:flex-start;gap:12px}
+  .trust-badges{flex-wrap:wrap}
+  .about-stats{grid-template-columns:repeat(3,1fr);gap:16px}
+  .service-card{width:100vw;padding:0 20px}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .cta-blog-links{flex-direction:column;gap:12px}
+  body{padding-bottom:72px}
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Nav -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Precision Auto Care</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="nav-center">
+      <a href="tel:5558472390" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (555) 847-2390
+      </a>
+    </div>
+    <a href="#cta" class="nav-cta">Get a Free Estimate</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#reviews">Reviews</a>
+  <a href="blog.html">Blog</a>
+  <a href="#cta">Contact</a>
+  <a href="tel:5558472390" class="nav-drawer-phone">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    (555) 847-2390
+  </a>
+</div>
+
+<!-- ============================== -->
+<!-- CHAPTER 1: HERO                -->
+<!-- ============================== -->
+<section class="chapter-hero" id="hero">
+  <div class="chapter-num" aria-hidden="true">01</div>
+  <div class="hero-bg">
+    <img src="../../images/template-images/hero.jpg" alt="Precision Auto Care shop" width="1920" height="1080" id="heroBgImg">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Chapter One &mdash; Austin's Most Trusted Since 2008</span>
+    <h1 class="hero-headline" id="heroHeadline">Your Car Deserves Better.</h1>
+    <p class="hero-sub">Honest diagnostics. Transparent pricing. We photograph every problem and explain it in plain English before touching anything.</p>
+    <div class="hero-actions">
+      <a href="#cta" class="nav-cta" style="font-size:1rem;padding:16px 36px;min-height:56px">Get a Free Estimate</a>
+      <a href="tel:5558472390" class="hero-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (555) 847-2390
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-rating">
+        <div class="trust-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="trust-text"><strong>4.9</strong> from 387 reviews</span>
+      </div>
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          ASE Certified
+        </div>
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          AAA Approved
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll to explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- CHAPTER 2: THE PROBLEM         -->
+<!-- ============================== -->
+<section class="chapter-stats" id="problem">
+  <div class="chapter-num" aria-hidden="true">02</div>
+  <div class="stats-wrapper" id="statsWrapper" style="min-height:100vh;position:relative">
+    <div class="stat-slide" id="stat1">
+      <div class="stat-number" data-target="66" data-suffix="%">0%</div>
+      <p class="stat-label">of drivers don't trust their mechanic</p>
+      <p class="stat-source">Source: AAA Annual Trust Survey</p>
+    </div>
+    <div class="stat-slide" id="stat2">
+      <div class="stat-number" data-target="76" data-suffix="%">0%</div>
+      <p class="stat-label">believe shops push unnecessary repairs</p>
+      <p class="stat-source">Source: AAA Consumer Research</p>
+    </div>
+    <div class="stat-slide" id="stat3">
+      <div class="stat-number" data-prefix="$" data-target="1200" data-suffix="">$0</div>
+      <p class="stat-label">average annual repair spend per household</p>
+      <p class="stat-source">Source: Bureau of Labor Statistics</p>
+    </div>
+    <div class="stats-conclusion" id="statsConclusion">
+      <h3>We're changing that.</h3>
+      <span class="copper-line"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- CHAPTER 3: THE SOLUTION        -->
+<!-- ============================== -->
+<section class="chapter-about chapter--light" id="about">
+  <div class="chapter-num" aria-hidden="true">03</div>
+  <div class="about-split">
+    <div class="about-left">
+      <span class="about-label">Chapter Three &mdash; The Solution</span>
+      <h2 class="about-title">We're Different.<br>Here's Why.</h2>
+      <div class="about-story">
+        <p>When Mike Thompson opened Precision Auto Care in 2008, he'd already spent 15 years watching the industry erode trust. Shops recommending work that wasn't needed. Customers paying for repairs they couldn't verify. A broken system built on information asymmetry.</p>
+        <p><strong>So he built a different kind of shop.</strong> One where every diagnosis comes with photos sent to your phone. Where the estimate includes a plain-English explanation of what's wrong, why it matters, and what happens if you wait. Where "no" is a perfectly acceptable answer.</p>
+        <p>Today, Precision Auto Care is the highest-rated independent shop in Austin &mdash; not because we're the cheapest, but because we've earned the trust of over 12,000 families who know they'll never be sold something they don't need.</p>
+      </div>
+      <div class="about-promise">
+        <p>"We send photos of the problem before touching anything. You see what we see."</p>
+      </div>
+      <span class="about-warranty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        3-Year / 36,000-Mile Warranty
+      </span>
+      <div class="about-stats">
+        <div>
+          <div class="about-stat-num" data-count="20">0</div>
+          <div class="about-stat-label">Years Experience</div>
+        </div>
+        <div>
+          <div class="about-stat-num" data-count="12000">0</div>
+          <div class="about-stat-label">Vehicles Serviced</div>
+        </div>
+        <div>
+          <div class="about-stat-num" data-count="4.9" data-decimal="true">0</div>
+          <div class="about-stat-label">Google Rating</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <img src="../../images/template-images/team.jpg" alt="Mike Thompson and the Precision Auto Care team" width="960" height="1080" id="aboutImg" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- CHAPTER 4: SERVICES            -->
+<!-- ============================== -->
+<section class="chapter-services" id="services">
+  <div class="chapter-num" aria-hidden="true">04</div>
+  <div class="services-header">
+    <span class="services-label">Chapter Four &mdash; What We Do</span>
+    <h2 class="services-title">Our Services</h2>
+  </div>
+  <div class="services-track" id="servicesTrack">
+    <div class="service-card">
+      <div class="service-card-inner">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-oil.jpg" alt="Oil change service" width="600" height="400" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <div class="service-card-number">Service 01</div>
+          <h3 class="service-card-name">Oil Change &amp; Lube</h3>
+          <p class="service-card-desc">Synthetic, conventional, and high-mileage options. We use premium filters and check 21 points during every visit. Your engine's lifeblood, handled right.</p>
+          <a href="#cta" class="service-card-link">Schedule Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-inner">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-brakes.jpg" alt="Brake repair service" width="600" height="400" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <div class="service-card-number">Service 02</div>
+          <h3 class="service-card-name">Brake Service</h3>
+          <p class="service-card-desc">Pads, rotors, calipers, fluid flush, and ABS diagnostics. We measure every component and show you exactly what needs attention &mdash; and what can wait.</p>
+          <a href="#cta" class="service-card-link">Schedule Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-inner">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-engine.jpg" alt="Engine repair service" width="600" height="400" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <div class="service-card-number">Service 03</div>
+          <h3 class="service-card-name">Engine Repair</h3>
+          <p class="service-card-desc">From timing belts and head gaskets to complete rebuilds. Our ASE Master Technicians diagnose with precision and repair with confidence. No guesswork.</p>
+          <a href="#cta" class="service-card-link">Schedule Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-inner">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-diagnostics.jpg" alt="Transmission repair service" width="600" height="400" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <div class="service-card-number">Service 04</div>
+          <h3 class="service-card-name">Transmission</h3>
+          <p class="service-card-desc">Fluid changes, rebuilds, replacements, clutch repair, and CVT service. We handle both automatic and manual transmissions with factory-level expertise.</p>
+          <a href="#cta" class="service-card-link">Schedule Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-inner">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-tires.jpg" alt="Tire service" width="600" height="400" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <div class="service-card-number">Service 05</div>
+          <h3 class="service-card-name">Tires &amp; Alignment</h3>
+          <p class="service-card-desc">Rotation, balancing, alignment, TPMS diagnostics, and tire sales. We'll find you the right tire for your driving style and Austin's roads.</p>
+          <a href="#cta" class="service-card-link">Schedule Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-card-inner">
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-engine.jpg" alt="Diagnostics service" width="600" height="400" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <div class="service-card-number">Service 06</div>
+          <h3 class="service-card-name">Diagnostics</h3>
+          <p class="service-card-desc">Check engine light, computer scan, electrical diagnostics, and OBD-II code analysis. We find the real problem &mdash; not just the code.</p>
+          <a href="#cta" class="service-card-link">Schedule Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- CHAPTER 5: PROOF               -->
+<!-- ============================== -->
+<section class="chapter-reviews chapter--light" id="reviews">
+  <div class="chapter-num" aria-hidden="true">05</div>
+  <div class="reviews-wrapper" id="reviewsWrapper" style="min-height:100vh;position:relative">
+    <div class="review-slide" id="review1">
+      <div class="review-quote">I've been burned by mechanics before, but Precision Auto Care restored my faith. They sent me photos of the actual problem, explained everything clearly, and the final bill was exactly what they quoted. I won't go anywhere else.</div>
+      <div class="review-avatar">SM</div>
+      <div class="review-name">Sarah Mitchell</div>
+      <div class="review-date">March 2, 2026</div>
+      <div class="review-stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+    </div>
+    <div class="review-slide" id="review2">
+      <div class="review-quote">Brought my truck in for a transmission issue. They diagnosed it in an hour, showed me exactly what was wrong on video, and had it fixed by the next day. Honest, fast, and fair. Mike and his team are the real deal.</div>
+      <div class="review-avatar">JR</div>
+      <div class="review-name">James Rodriguez</div>
+      <div class="review-date">February 15, 2026</div>
+      <div class="review-stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+    </div>
+    <div class="review-slide" id="review3">
+      <div class="review-quote">As a woman, I've always dreaded going to auto shops. Precision Auto Care is completely different. They treated me with respect, explained everything without being condescending, and even showed me how to check my own tire pressure. Life-long customer.</div>
+      <div class="review-avatar">LC</div>
+      <div class="review-name">Lisa Chen</div>
+      <div class="review-date">January 28, 2026</div>
+      <div class="review-stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+    </div>
+    <div class="reviews-count" id="reviewsCount">
+      <p><span>387+</span> five-star reviews on Google</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- CHAPTER 6: ACTION              -->
+<!-- ============================== -->
+<section class="chapter-cta" id="cta">
+  <div class="chapter-num" aria-hidden="true">06</div>
+  <div class="cta-bg">
+    <img src="../../images/template-images/exterior.jpg" alt="Precision Auto Care exterior" width="1920" height="1080" id="ctaBgImg" loading="lazy">
+    <div class="cta-overlay"></div>
+  </div>
+  <div class="cta-content">
+    <h2 class="cta-headline" id="ctaHeadline">Ready?</h2>
+    <a href="tel:5558472390" class="cta-phone">(555) 847-2390</a>
+    <a href="#" class="cta-btn">Get a Free Estimate</a>
+    <div class="cta-info">
+      <strong>Mon&ndash;Fri</strong> 7:30 AM &ndash; 6:00 PM &nbsp;&bull;&nbsp; <strong>Sat</strong> 8:00 AM &ndash; 2:00 PM<br>
+      1247 Industrial Blvd, Austin, TX 78745
+    </div>
+    <div class="cta-blog-links">
+      <a href="blog/check-engine-light/">Check Engine Light Guide</a>
+      <a href="blog/oil-change-guide/">Oil Change Guide</a>
+      <a href="blog/brake-warning-signs/">Brake Warning Signs</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Precision Auto Care</h4>
+      <p>Austin's most trusted independent auto repair shop since 2008. ASE Certified, AAA Approved.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Oil Change &amp; Lube</a>
+      <a href="#services">Brake Service</a>
+      <a href="#services">Engine Repair</a>
+      <a href="#services">Transmission</a>
+      <a href="#services">Tires &amp; Alignment</a>
+      <a href="#services">Diagnostics</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="blog.html">Blog</a>
+      <a href="blog/check-engine-light/">Check Engine Light Guide</a>
+      <a href="blog/oil-change-guide/">Oil Change Guide</a>
+      <a href="blog/brake-warning-signs/">Brake Warning Signs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:5558472390">(555) 847-2390</a>
+      <p>1247 Industrial Blvd<br>Austin, TX 78745</p>
+      <p>Mon&ndash;Fri 7:30&ndash;6<br>Sat 8&ndash;2</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Precision Auto Care. All rights reserved.</p>
+    <p class="footer-copy">ASE Certified &bull; AAA Approved &bull; 3-Year/36K Warranty</p>
+  </div>
+</footer>
+
+<!-- Mobile Sticky CTA -->
+<div class="mobile-cta" id="mobileCta">
+  <div class="mobile-cta-inner">
+    <a href="tel:5558472390" class="mc-call">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call Now
+    </a>
+    <a href="#cta" class="mc-estimate">Get a Free Estimate</a>
+  </div>
+</div>
+
+<!-- CDN Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+<script>
+(function(){
+  'use strict';
+
+  // Reduced motion check
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Lenis Smooth Scroll ----
+  let lenis;
+  if (!prefersReduced) {
+    lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    // Sync Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ---- Progress Bar ----
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    progressBar.style.width = pct + '%';
+  });
+
+  // ---- Nav ----
+  const nav = document.getElementById('mainNav');
+  ScrollTrigger.create({
+    trigger: '.chapter-hero',
+    start: 'top top',
+    end: '80% top',
+    onLeave: () => { nav.classList.add('visible', 'scrolled'); },
+    onEnterBack: () => { nav.classList.remove('visible', 'scrolled'); }
+  });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('navDrawer');
+  function toggleDrawer() {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('active', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (lenis) { isOpen ? lenis.stop() : lenis.start(); }
+  }
+  hamburger.addEventListener('click', toggleDrawer);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (drawer.classList.contains('open')) toggleDrawer(); }));
+
+  // ---- CHAPTER 1: Hero Animations ----
+  if (!prefersReduced) {
+    // Ken Burns zoom on hero bg
+    gsap.to('#heroBgImg', {
+      scale: 1.15,
+      scrollTrigger: { trigger: '.chapter-hero', start: 'top top', end: 'bottom top', scrub: 1 }
+    });
+
+    // SplitType character reveal
+    const headline = document.getElementById('heroHeadline');
+    const split = new SplitType(headline, { types: 'chars' });
+    gsap.fromTo(split.chars,
+      { y: '100%', opacity: 0 },
+      { y: '0%', opacity: 1, duration: 0.8, stagger: 0.03, ease: 'power3.out', delay: 0.3 }
+    );
+
+    // Fade in other hero elements
+    gsap.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, delay: 0.1, ease: 'power2.out' });
+    gsap.fromTo('.hero-sub', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 1.2, ease: 'power2.out' });
+    gsap.fromTo('.hero-actions', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 1.5, ease: 'power2.out' });
+    gsap.fromTo('.hero-trust', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 1.8, ease: 'power2.out' });
+
+    // Parallax on hero content
+    gsap.to('.hero-content', {
+      y: -80,
+      scrollTrigger: { trigger: '.chapter-hero', start: 'top top', end: 'bottom top', scrub: 1 }
+    });
+
+    // ---- CHAPTER 2: Stats Pin ----
+    const statSlides = [document.getElementById('stat1'), document.getElementById('stat2'), document.getElementById('stat3')];
+    const statsConclusion = document.getElementById('statsConclusion');
+
+    // Animate counter function
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1.5;
+      let obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: duration,
+        ease: 'power2.out',
+        onUpdate: () => {
+          el.textContent = prefix + (target >= 100 ? Math.round(obj.val).toLocaleString() : Math.round(obj.val)) + suffix;
+        }
+      });
+    }
+
+    // Pin the stats section
+    ScrollTrigger.create({
+      trigger: '.chapter-stats',
+      start: 'top top',
+      end: '+=300%',
+      pin: true,
+      pinSpacing: true,
+      onUpdate: (self) => {
+        const p = self.progress;
+        // 0-0.2: stat1, 0.2-0.4: stat2, 0.4-0.6: stat3, 0.6-1: conclusion
+        statSlides.forEach((s, i) => {
+          const start = i * 0.2;
+          const end = start + 0.2;
+          if (p >= start && p < end) {
+            if (!s.classList.contains('active')) {
+              s.classList.add('active');
+              gsap.fromTo(s, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+              animateCounter(s.querySelector('.stat-number'));
+            }
+          } else {
+            s.classList.remove('active');
+          }
+        });
+        // Conclusion
+        if (p >= 0.7) {
+          if (statsConclusion.style.opacity !== '1') {
+            gsap.to(statsConclusion, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
+            statsConclusion.style.opacity = '1';
+          }
+        }
+      }
+    });
+    // Position stats conclusion
+    gsap.set(statsConclusion, { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', opacity: 0, y: 30 });
+
+    // ---- CHAPTER 3: About Parallax ----
+    gsap.to('#aboutImg', {
+      y: -100,
+      scrollTrigger: { trigger: '.chapter-about', start: 'top bottom', end: 'bottom top', scrub: 1 }
+    });
+
+    // About stats count-up
+    document.querySelectorAll('.about-stat-num').forEach(el => {
+      const target = parseFloat(el.dataset.count);
+      const isDecimal = el.dataset.decimal === 'true';
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          let obj = { val: 0 };
+          gsap.to(obj, {
+            val: target,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: () => {
+              if (isDecimal) {
+                el.textContent = obj.val.toFixed(1);
+              } else if (target >= 1000) {
+                el.textContent = Math.round(obj.val).toLocaleString() + '+';
+              } else {
+                el.textContent = Math.round(obj.val) + '+';
+              }
+            }
+          });
+        }
+      });
+    });
+
+    // ---- CHAPTER 4: Horizontal Scroll ----
+    const track = document.getElementById('servicesTrack');
+    const cards = track.querySelectorAll('.service-card');
+    const totalScroll = track.scrollWidth - window.innerWidth;
+
+    gsap.to(track, {
+      x: -totalScroll,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.chapter-services',
+        start: 'top top',
+        end: () => '+=' + totalScroll,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true
+      }
+    });
+
+    // ---- CHAPTER 5: Reviews Pin ----
+    const reviewSlides = [document.getElementById('review1'), document.getElementById('review2'), document.getElementById('review3')];
+    const reviewsCount = document.getElementById('reviewsCount');
+
+    ScrollTrigger.create({
+      trigger: '.chapter-reviews',
+      start: 'top top',
+      end: '+=300%',
+      pin: true,
+      pinSpacing: true,
+      onUpdate: (self) => {
+        const p = self.progress;
+        reviewSlides.forEach((s, i) => {
+          const start = i * 0.25;
+          const end = start + 0.25;
+          if (p >= start && p < end) {
+            if (!s.classList.contains('active')) {
+              s.classList.add('active');
+              gsap.fromTo(s, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+            }
+          } else {
+            s.classList.remove('active');
+          }
+        });
+        if (p >= 0.8) {
+          if (reviewsCount.style.opacity !== '1') {
+            gsap.to(reviewsCount, { opacity: 1, duration: 0.6, ease: 'power2.out' });
+            reviewsCount.style.opacity = '1';
+          }
+        }
+      }
+    });
+    gsap.set(reviewsCount, { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0 });
+
+    // ---- CHAPTER 6: CTA Animations ----
+    // Parallax on CTA bg
+    gsap.to('#ctaBgImg', {
+      y: -60,
+      scrollTrigger: { trigger: '.chapter-cta', start: 'top bottom', end: 'bottom top', scrub: 1 }
+    });
+
+    // Headline animation: "Ready?" -> "Ready to Schedule?"
+    const ctaHL = document.getElementById('ctaHeadline');
+    ScrollTrigger.create({
+      trigger: '.chapter-cta',
+      start: 'top 40%',
+      once: true,
+      onEnter: () => {
+        gsap.to(ctaHL, {
+          duration: 0.4,
+          opacity: 0,
+          y: -20,
+          ease: 'power2.in',
+          onComplete: () => {
+            ctaHL.textContent = 'Ready to Schedule?';
+            gsap.fromTo(ctaHL, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+          }
+        });
+      }
+    });
+
+  } else {
+    // Reduced motion: show everything immediately
+    document.querySelectorAll('.hero-eyebrow,.hero-sub,.hero-actions,.hero-trust').forEach(el => {
+      el.style.opacity = '1';
+    });
+    document.querySelectorAll('.stat-slide').forEach((s,i) => {
+      s.style.position = 'relative';
+      s.style.opacity = '1';
+      s.style.marginBottom = '60px';
+      const num = s.querySelector('.stat-number');
+      const prefix = num.dataset.prefix || '';
+      const suffix = num.dataset.suffix || '';
+      num.textContent = prefix + num.dataset.target + suffix;
+    });
+    const sc = document.getElementById('statsConclusion');
+    sc.style.opacity = '1';
+    sc.style.position = 'relative';
+
+    document.querySelectorAll('.about-stat-num').forEach(el => {
+      const target = el.dataset.count;
+      const isDecimal = el.dataset.decimal === 'true';
+      el.textContent = isDecimal ? target : (parseFloat(target) >= 1000 ? parseInt(target).toLocaleString() + '+' : target + '+');
+    });
+
+    // Show all reviews stacked
+    document.querySelectorAll('.review-slide').forEach(s => {
+      s.style.position = 'relative';
+      s.style.opacity = '1';
+      s.style.marginBottom = '40px';
+    });
+    const rc = document.getElementById('reviewsCount');
+    rc.style.opacity = '1';
+    rc.style.position = 'relative';
+
+    // Services: stack vertically
+    const track = document.getElementById('servicesTrack');
+    track.style.flexDirection = 'column';
+    track.style.width = '100%';
+    track.style.height = 'auto';
+    document.querySelectorAll('.service-card').forEach(c => {
+      c.style.width = '100%';
+      c.style.height = 'auto';
+      c.style.minHeight = 'auto';
+    });
+
+    // Show nav immediately
+    nav.classList.add('visible', 'scrolled');
+
+    // CTA headline
+    document.getElementById('ctaHeadline').textContent = 'Ready to Schedule?';
+  }
+
+})();
+</script>
+</body>
+</html>

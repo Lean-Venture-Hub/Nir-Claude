@@ -1,15 +1,18 @@
 ---
 name: website-from-template-audit
-description: Audit a generated clinic website against its content.md for accuracy, completeness, visual quality, and layout correctness. Use when verifying a website built from a template — checks for generic/placeholder content, missing data, broken layout, and visual issues.
+description: Audit a generated website against its content.md for accuracy, completeness, visual quality, and layout correctness. Use when verifying a website built from a template — checks for generic/placeholder content, missing data, broken layout, and visual issues.
 ---
 
 # Website From Template — Audit
 
-Verify that a generated clinic website is production-ready: no generic content, no layout issues, all data matches content.md exactly.
+Verify that a generated website is production-ready: no generic content, no layout issues, all data matches content.md exactly, and no `{{PLACEHOLDER}}` tokens remain.
 
 ## Trigger
 
-User provides a path to a generated website folder (e.g., `Dentists/reports/output/35 - dr-pnsnkv-kvnstntyn/`) OR a live URL on the server.
+User provides a path to a generated website folder (e.g., `{Vertical}/reports/output/{business-folder}/`) OR a live URL on the server.
+
+## Prerequisites
+- `create-website-from-template` → generated website folder with `index.html` and `content.md` must exist
 
 ## Inputs
 
@@ -20,25 +23,26 @@ User provides a path to a generated website folder (e.g., `Dentists/reports/outp
 
 ## Step 1: Load Content Source of Truth
 
-Read the `content.md` file and extract ALL data fields:
+Read the `content.md` file and extract ALL data fields. The structure may vary by vertical and language, but typically includes:
 
-| Field | Where to find in content.md |
-|-------|---------------------------|
-| Clinic name (full) | `## פרטי המרפאה` → `שם` |
-| Clinic name (short) | `שם מקוצר` |
-| Doctor name | `רופא/ה` |
-| Category | `קטגוריה` |
-| Address | `כתובת` |
-| Phone | `טלפון` |
-| Google rating | `דירוג גוגל` |
-| Hero headline | `### Hero` → `כותרת` |
-| Hero subtitle | `תת-כותרת` |
-| About text | `### אודות` (full paragraph) |
-| Services list | `### שירותים` (bullet list) |
-| Blog articles | `## מאמרי בלוג` (titles + body) |
-| Reviews | `## ביקורות גוגל אמיתיות` (reviewer name, stars, text) |
+| Field | Examples |
+|-------|---------|
+| Business name (full + short) | Name / brand name |
+| Owner/professional name | Doctor, technician, owner name |
+| Category/vertical | Type of business |
+| Address | Full street address |
+| Phone | Phone number |
+| Rating | Google rating / review score |
+| Hero headline + subtitle | Main heading and subheading |
+| About text | About section paragraph(s) |
+| Services list | Bullet list of services offered |
+| Blog articles (if any) | Titles + body text |
+| Reviews/testimonials | Reviewer name, stars, text |
 
 **Save these as your checklist. Every single field must appear in the HTML.**
+
+### Placeholder Token Check (CRITICAL)
+Reference `templates/PLACEHOLDER_CONTRACT.md` for the full list of `{{PLACEHOLDER}}` tokens. Scan the generated HTML for ANY remaining `{{...}}` tokens — if even one remains, the audit is an automatic FAIL.
 
 ---
 
@@ -51,17 +55,17 @@ Use Playwright to load the website (`mcp__playwright__browser_navigate`), then `
 ### 2a: Hero Section
 - [ ] Headline matches `כותרת` from content.md exactly (word for word)
 - [ ] Subtitle matches `תת-כותרת` exactly
-- [ ] Doctor/clinic name appears correctly
-- [ ] No placeholder text like "שם המרפאה", "Nova Dental", "Dr. Smith", or template default text
+- [ ] Business/owner name appears correctly
+- [ ] No placeholder text remaining (check against `templates/PLACEHOLDER_CONTRACT.md` tokens)
 
 ### 2b: About Section
 - [ ] About paragraph matches content.md `אודות` section exactly
-- [ ] Doctor name mentioned correctly (not template placeholder)
+- [ ] Owner/professional name mentioned correctly (not template placeholder)
 - [ ] No generic filler like "Lorem ipsum" or template default about text
 
 ### 2c: Services Section
 - [ ] Services listed match `שירותים` from content.md
-- [ ] Service descriptions are specific to this clinic (not generic template text)
+- [ ] Service descriptions are specific to this business (not generic template text)
 - [ ] Number of service cards matches number of services in content.md
 - [ ] No duplicate services
 
@@ -78,9 +82,9 @@ Use Playwright to load the website (`mcp__playwright__browser_navigate`), then `
 - [ ] Phone link (`tel:`) is correctly formatted
 
 ### 2f: Navigation & Footer
-- [ ] Clinic name in navbar/logo matches
-- [ ] Footer clinic name matches
-- [ ] No "Nova Dental" or template brand name remaining
+- [ ] Business name in navbar/logo matches
+- [ ] Footer business name matches
+- [ ] No template brand name or placeholder tokens remaining
 
 ### 2g: Blog Pages (if applicable)
 - [ ] Blog article titles match content.md
@@ -153,9 +157,13 @@ Scroll through the full page with Playwright:
 - [ ] Blog links resolve to existing pages
 
 ### 4c: Meta & SEO
-- [ ] `<title>` contains clinic name
-- [ ] `<meta name="description">` exists and mentions clinic
+- [ ] `<title>` contains business name
+- [ ] `<meta name="description">` exists and mentions business
 - [ ] `lang` attribute correct ("he" or "en")
+
+### 4d: JSON-LD Schema Validation
+- [ ] JSON-LD `@type` matches the vertical (e.g., `AutoRepair` for auto repair, `Dentist` for dentists, `LandscapingBusiness` for landscaping)
+- [ ] JSON-LD `name`, `telephone`, `address` fields populated with real data (not placeholders)
 
 ---
 
@@ -164,7 +172,7 @@ Scroll through the full page with Playwright:
 Output to `{website-folder}/audit-report.md`:
 
 ```markdown
-# Audit Report — {Clinic Name}
+# Audit Report — {Business Name}
 **Date:** {date}
 **Template:** {template number}
 **Status:** PASS / FAIL / PASS WITH WARNINGS
@@ -174,7 +182,9 @@ Output to `{website-folder}/audit-report.md`:
 |-------|--------|---------|
 | Hero headline | ✅/❌ | ... |
 | Hero subtitle | ✅/❌ | ... |
-| Doctor name | ✅/❌ | ... |
+| Owner/professional name | ✅/❌ | ... |
+| Placeholder tokens ({{...}}) | ✅/❌ | ... |
+| JSON-LD schema type | ✅/❌ | ... |
 | About text | ✅/❌ | ... |
 | Services | ✅/❌ | ... |
 | Reviews (X/Y matched) | ✅/❌ | ... |
@@ -209,6 +219,6 @@ Output to `{website-folder}/audit-report.md`:
 
 ## Severity Levels
 
-- **CRITICAL (blocks shipping):** Wrong clinic name, placeholder content, wrong phone number, wrong reviews, broken layout on any viewport
+- **CRITICAL (blocks shipping):** Wrong business name, placeholder content, remaining `{{...}}` tokens, wrong phone number, wrong reviews, wrong JSON-LD schema type, broken layout on any viewport
 - **WARNING (fix but can ship):** Missing alt text, minor spacing issues, missing meta description
 - **INFO:** Suggestions for improvement (better image compression, etc.)

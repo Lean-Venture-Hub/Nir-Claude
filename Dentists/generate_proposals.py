@@ -8,7 +8,7 @@ import argparse, csv, os, re
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(SCRIPT_DIR, "labeled-dentals.csv")
-TEMPLATES_DIR = os.path.join(SCRIPT_DIR, "reports", "proposals", "templates")
+TEMPLATES_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), "templates", "proposals")
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "reports", "proposals", "output")
 
 SAMPLE_NAME = "ד״ר מיטל שגב נויהוף"

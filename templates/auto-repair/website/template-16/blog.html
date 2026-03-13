@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Auto Repair Blog — Tips & Guides | Precision Auto Care</title>
+<meta name="description" content="Expert auto repair tips, maintenance guides, and car care advice from Precision Auto Care in Austin, TX. Keep your vehicle running strong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --bg-light:#FAFAFA;--bg-dark:#111111;--accent:#E63946;--accent-dark:#C62828;
+  --navy:#1D3557;--text-light:#F5F5F5;--text-dark:#111111;--text-muted:#777;
+  --text-muted-light:rgba(255,255,255,0.6);--white:#FFF;
+  --display:'Syne',sans-serif;--sans:'DM Sans',sans-serif;
+  --max-w:900px;--radius:12px;--radius-sm:8px;
+  --transition:0.4s cubic-bezier(.25,.46,.45,.94);--transition-fast:0.25s ease;
+}
+body{font-family:var(--sans);color:var(--text-dark);line-height:1.7;background:var(--bg-light);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.container-wide{max-width:1200px;margin:0 auto;padding:0 24px}
+a{text-decoration:none;color:inherit}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(17,17,17,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.nav-logo{font-family:var(--display);font-size:1.2rem;font-weight:800;color:var(--white);letter-spacing:-0.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--text-muted-light);transition:color var(--transition-fast)}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--white);transition:color var(--transition-fast)}
+.nav-phone:hover{color:var(--accent)}
+.nav-phone svg{width:16px;height:16px;color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--white);padding:10px 24px;border-radius:999px;font-size:.85rem;font-weight:600;transition:all var(--transition-fast);min-height:48px;display:inline-flex;align-items:center}
+.nav-cta:hover{background:var(--accent-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:110;min-width:48px;min-height:48px;justify-content:center;align-items:center}
+.hamburger span{width:22px;height:2px;background:var(--white);border-radius:2px;transition:transform var(--transition),opacity var(--transition);transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-drawer{position:fixed;top:0;right:-320px;width:300px;height:100dvh;background:var(--bg-dark);z-index:105;transition:right var(--transition);padding:80px 32px 40px;border-left:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:24px}
+.nav-drawer.open{right:0}
+.nav-drawer a{font-size:1.1rem;font-weight:500;color:var(--text-light);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);opacity:0;visibility:hidden;z-index:104;transition:opacity var(--transition),visibility var(--transition)}
+.nav-overlay.open{opacity:1;visibility:visible}
+
+/* Page Header */
+.page-header{padding:140px 0 60px;background:var(--bg-dark);text-align:center}
+.page-header .breadcrumb{font-size:.82rem;color:var(--text-muted-light);margin-bottom:16px}
+.page-header .breadcrumb a{color:var(--accent);transition:opacity var(--transition-fast)}
+.page-header .breadcrumb a:hover{opacity:.7}
+.page-header .breadcrumb .sep{margin:0 8px;opacity:.4}
+.page-header h1{font-family:var(--display);font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:12px}
+.page-header p{font-size:1.05rem;color:var(--text-muted-light);max-width:500px;margin:0 auto}
+
+/* Blog Grid */
+.blog-listing{padding:80px 0}
+.blog-listing-grid{display:grid;gap:40px}
+.blog-listing-card{display:grid;grid-template-columns:300px 1fr;gap:32px;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.04);transition:all var(--transition)}
+.blog-listing-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08)}
+.blog-listing-card-img{height:100%;min-height:240px;overflow:hidden}
+.blog-listing-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 4s ease}
+.blog-listing-card:hover .blog-listing-card-img img{transform:scale(1.05)}
+.blog-listing-card-body{padding:32px 32px 32px 0;display:flex;flex-direction:column;justify-content:center}
+.blog-listing-tag{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
+.blog-listing-card-body h2{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;line-height:1.25;letter-spacing:-0.01em}
+.blog-listing-card-body p{font-size:.92rem;color:var(--text-muted);line-height:1.7;margin-bottom:16px}
+.blog-listing-meta{font-size:.8rem;color:var(--text-muted);display:flex;gap:16px;margin-bottom:12px}
+.blog-listing-link{display:inline-flex;align-items:center;gap:4px;font-size:.88rem;color:var(--accent);font-weight:600;transition:gap var(--transition-fast)}
+.blog-listing-card:hover .blog-listing-link{gap:8px}
+
+/* CTA */
+.blog-cta{padding:80px 0;background:var(--bg-dark);text-align:center}
+.blog-cta h2{font-family:var(--display);font-weight:800;font-size:1.8rem;color:var(--white);margin-bottom:12px;letter-spacing:-0.02em}
+.blog-cta p{color:var(--text-muted-light);margin-bottom:24px;font-size:1rem}
+.blog-cta .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--white);padding:16px 36px;border-radius:999px;font-size:1rem;font-weight:600;font-family:var(--sans);transition:all var(--transition-fast);min-height:48px}
+.blog-cta .btn:hover{background:var(--accent-dark);transform:translateY(-2px)}
+
+/* Footer */
+.footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,0.06);padding:32px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-brand{font-family:var(--display);font-size:1rem;font-weight:800;color:var(--white);letter-spacing:-0.02em}
+.footer-brand span{color:var(--accent)}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,0.3)}
+
+@media(max-width:768px){
+  .nav-links,.nav-phone{display:none}.hamburger{display:flex}
+  .blog-listing-card{grid-template-columns:1fr}
+  .blog-listing-card-img{min-height:200px}
+  .blog-listing-card-body{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container-wide">
+    <div class="nav-inner">
+      <a href="template_example-16.html" class="nav-logo">PRECISION<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="template_example-16.html#services">Services</a></li>
+        <li><a href="template_example-16.html#about">About</a></li>
+        <li><a href="template_example-16.html#reviews">Reviews</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="template_example-16.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:5558472390" class="nav-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (555) 847-2390
+        </a>
+        <a href="template_example-16.html#contact" class="nav-cta">Get a Free Estimate</a>
+      </div>
+      <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="template_example-16.html#services">Services</a>
+  <a href="template_example-16.html#about">About</a>
+  <a href="template_example-16.html#reviews">Reviews</a>
+  <a href="blog.html">Blog</a>
+  <a href="template_example-16.html#contact">Contact</a>
+</div>
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="template_example-16.html">Home</a><span class="sep">/</span>Blog
+    </div>
+    <h1>From the Shop</h1>
+    <p>Expert tips, maintenance guides, and car care advice from our ASE-certified technicians.</p>
+  </div>
+</header>
+
+<!-- Blog Listing -->
+<section class="blog-listing">
+  <div class="container">
+    <div class="blog-listing-grid">
+
+      <a href="blog/check-engine-light/index.html" class="blog-listing-card">
+        <div class="blog-listing-card-img">
+          <img src="../../images/template-images/service-engine.jpg" alt="Check Engine Light" loading="lazy" width="300" height="240">
+        </div>
+        <div class="blog-listing-card-body">
+          <span class="blog-listing-tag">Diagnostics</span>
+          <h2>Why Is My Check Engine Light On? 5 Common Causes</h2>
+          <div class="blog-listing-meta">
+            <span>By Mike Thompson</span>
+            <span>March 5, 2026</span>
+            <span>5 min read</span>
+          </div>
+          <p>Your check engine light just came on. Before you panic, learn the five most common causes and exactly what to do next to protect your engine and your wallet.</p>
+          <span class="blog-listing-link">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="blog/oil-change-guide/index.html" class="blog-listing-card">
+        <div class="blog-listing-card-img">
+          <img src="../../images/template-images/service-oil.jpg" alt="Oil Change Guide" loading="lazy" width="300" height="240">
+        </div>
+        <div class="blog-listing-card-body">
+          <span class="blog-listing-tag">Maintenance</span>
+          <h2>The Complete Oil Change Guide: What Every Driver Needs to Know</h2>
+          <div class="blog-listing-meta">
+            <span>By Mike Thompson</span>
+            <span>February 20, 2026</span>
+            <span>5 min read</span>
+          </div>
+          <p>How often should you really change your oil? What type do you need? This guide cuts through the noise with clear answers from our certified mechanics.</p>
+          <span class="blog-listing-link">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <a href="blog/brake-warning-signs/index.html" class="blog-listing-card">
+        <div class="blog-listing-card-img">
+          <img src="../../images/template-images/service-brakes.jpg" alt="Brake Warning Signs" loading="lazy" width="300" height="240">
+        </div>
+        <div class="blog-listing-card-body">
+          <span class="blog-listing-tag">Safety</span>
+          <h2>7 Brake Warning Signs You Should Never Ignore</h2>
+          <div class="blog-listing-meta">
+            <span>By Mike Thompson</span>
+            <span>February 8, 2026</span>
+            <span>5 min read</span>
+          </div>
+          <p>Squealing, grinding, pulling to one side — your brakes are trying to tell you something. Here are seven signs that mean it's time for immediate attention.</p>
+          <span class="blog-listing-link">Read Article &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="blog-cta">
+  <div class="container">
+    <h2>Need Expert Auto Repair?</h2>
+    <p>Schedule a free inspection with our ASE-certified team today.</p>
+    <a href="tel:5558472390" class="btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call (555) 847-2390
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-brand">PRECISION<span>.</span></div>
+      <span class="footer-copy">&copy; 2026 Precision Auto Care. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');
+const drawer=document.getElementById('navDrawer');
+const overlay=document.getElementById('navOverlay');
+function toggleMenu(){hamburger.classList.toggle('active');drawer.classList.toggle('open');overlay.classList.toggle('open')}
+hamburger.addEventListener('click',toggleMenu);
+overlay.addEventListener('click',toggleMenu);
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(drawer.classList.contains('open'))toggleMenu()}));
+</script>
+</body>
+</html>

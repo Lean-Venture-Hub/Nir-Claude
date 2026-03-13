@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Complete Oil Change Guide: When, Why &amp; What Type — Precision Auto Care</title>
+<meta name="description" content="Everything you need to know about oil changes: how often, what type of oil, what happens when you skip one, and how to save money. From Austin's trusted mechanics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#FAF8F5;--surface:#FFFFFF;--card-shadow:0 4px 24px rgba(0,0,0,0.06);
+  --green:#2E7D32;--green-light:#4CAF50;--green-bg:#E8F5E9;--green-dark:#1B5E20;
+  --warm:#8D6E63;--peach:#FFF3E0;
+  --text:#2D2D2D;--text-secondary:#666666;--white:#fff;
+  --serif:'DM Serif Display',Georgia,serif;--handwritten:'Caveat',cursive;--sans:'DM Sans',sans-serif;
+  --max-w:780px;--radius:16px;--radius-sm:8px;--radius-pill:999px;
+  --transition:0.4s cubic-bezier(.25,.46,.45,.94);--transition-fast:0.25s ease;
+}
+body{font-family:var(--sans);color:var(--text);line-height:1.7;background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.container-wide{max-width:1200px;margin:0 auto;padding:0 24px}
+a{text-decoration:none;color:inherit}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--white);box-shadow:0 2px 16px rgba(0,0,0,0.04)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.35rem;color:var(--text)}
+.nav-logo svg{flex-shrink:0}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:color var(--transition-fast)}
+.nav-links a:hover,.nav-links a.active{color:var(--green)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:.9rem;font-weight:500;color:var(--text);transition:color var(--transition-fast)}
+.nav-phone:hover{color:var(--green)}
+.nav-phone svg{width:18px;height:18px;color:var(--green)}
+.nav-cta{background:var(--green-light);color:var(--white);padding:10px 24px;border-radius:var(--radius-pill);font-size:.88rem;font-weight:600;transition:all var(--transition-fast);min-height:44px;display:inline-flex;align-items:center}
+.nav-cta:hover{background:var(--green)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:110;min-width:48px;min-height:48px;justify-content:center;align-items:center}
+.hamburger span{width:22px;height:2px;background:var(--green);border-radius:2px;transition:transform var(--transition),opacity var(--transition);transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-drawer{position:fixed;top:0;right:-320px;width:300px;height:100dvh;background:var(--white);z-index:105;transition:right var(--transition);padding:80px 32px 40px;box-shadow:-4px 0 24px rgba(0,0,0,0.1);display:flex;flex-direction:column;gap:24px}
+.nav-drawer.open{right:0}
+.nav-drawer a{font-size:1.1rem;font-weight:500;color:var(--text);padding:12px 0;border-bottom:1px solid var(--green-bg)}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);opacity:0;visibility:hidden;z-index:104;transition:opacity var(--transition),visibility var(--transition)}
+.nav-overlay.open{opacity:1;visibility:visible}
+
+.breadcrumb{padding:100px 0 0;font-size:.82rem;color:var(--text-secondary)}
+.breadcrumb a{color:var(--green);transition:opacity var(--transition-fast)}
+.breadcrumb a:hover{opacity:.7}
+.breadcrumb .sep{margin:0 8px;opacity:.4}
+
+.article-hero{position:relative;height:400px;margin:24px 0 0;overflow:hidden;border-radius:var(--radius)}
+.article-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.article-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(46,125,50,0.1) 100%);border-radius:var(--radius)}
+
+.article-header{padding:40px 0 0}
+.article-tag{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;display:inline-block;margin-bottom:12px;background:var(--green-bg);padding:4px 12px;border-radius:var(--radius-pill)}
+.article-header h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.25;margin-bottom:16px;color:var(--text)}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:.85rem;color:var(--text-secondary);padding-bottom:32px;border-bottom:2px solid var(--green-bg)}
+
+.article-body{padding:40px 0 60px}
+.article-body h2{font-family:var(--serif);font-size:1.4rem;margin:40px 0 16px;color:var(--text);line-height:1.35}
+.article-body h2:first-child{margin-top:0}
+.article-body h3{font-family:var(--serif);font-size:1.15rem;margin:32px 0 12px;color:var(--green)}
+.article-body p{margin-bottom:16px;color:var(--text-secondary);font-size:1rem;line-height:1.8}
+.article-body ul,.article-body ol{margin:0 0 20px 24px;color:var(--text-secondary)}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body strong{color:var(--text)}
+.article-body blockquote{border-left:4px solid var(--green);background:var(--green-bg);padding:20px 24px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:24px 0;font-style:italic;color:var(--text)}
+
+.callout{background:var(--green-bg);border:1px solid rgba(46,125,50,.15);border-radius:var(--radius-sm);padding:24px;margin:24px 0}
+.callout-title{font-family:var(--serif);font-size:1.05rem;color:var(--green);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{margin-bottom:0;font-size:.92rem}
+.callout .annotation{font-family:var(--handwritten);color:var(--green);font-size:20px;margin-top:8px;display:block;transform:rotate(-1deg)}
+
+.comparison-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.9rem}
+.comparison-table th{background:var(--green);color:var(--white);padding:12px 16px;text-align:left;font-weight:600;font-size:.82rem;letter-spacing:.5px}
+.comparison-table td{padding:12px 16px;border-bottom:1px solid var(--green-bg)}
+.comparison-table tr:nth-child(even) td{background:var(--green-bg)}
+.comparison-table tr:hover td{background:rgba(46,125,50,.08)}
+
+.author-box{display:flex;gap:20px;align-items:center;padding:32px;background:var(--white);border-radius:var(--radius);box-shadow:var(--card-shadow);margin:40px 0}
+.author-avatar{width:64px;height:64px;border-radius:50%;background:var(--green-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--serif);font-size:1.4rem;color:var(--green)}
+.author-info h4{font-family:var(--serif);font-size:1rem;margin-bottom:4px}
+.author-info p{font-size:.85rem;color:var(--text-secondary);margin-bottom:0}
+
+.related{padding:60px 0;background:var(--white)}
+.related h2{font-family:var(--serif);font-size:1.6rem;margin-bottom:32px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.related-card{background:var(--bg);border-radius:var(--radius);overflow:hidden;box-shadow:var(--card-shadow);transition:all var(--transition);display:flex}
+.related-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.08)}
+.related-card-img{width:180px;flex-shrink:0;overflow:hidden}
+.related-card-img img{width:100%;height:100%;object-fit:cover}
+.related-card-body{padding:20px;display:flex;flex-direction:column;justify-content:center}
+.related-card-body span{font-size:.72rem;color:var(--green);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.related-card-body h3{font-family:var(--serif);font-size:1rem;margin:6px 0;line-height:1.3}
+.related-card-body p{font-size:.82rem;color:var(--text-secondary)}
+
+.article-cta{padding:60px 0;background:var(--green-bg);text-align:center}
+.article-cta h2{font-family:var(--serif);font-size:1.6rem;margin-bottom:8px}
+.article-cta .annotation{font-family:var(--handwritten);color:var(--green);font-size:24px;display:block;margin-bottom:20px}
+.article-cta .btn{display:inline-flex;align-items:center;gap:8px;background:var(--green-light);color:var(--white);padding:14px 32px;border-radius:var(--radius-pill);font-size:1rem;font-weight:600;font-family:var(--sans);transition:all var(--transition-fast);min-height:48px}
+.article-cta .btn:hover{background:var(--green)}
+.article-cta p{margin-top:12px;font-size:.9rem;color:var(--text-secondary)}
+
+.footer{background:var(--green-dark);color:var(--white);padding:32px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-size:1rem}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,0.5)}
+
+@media(max-width:768px){
+  .nav-links,.nav-phone{display:none}.hamburger{display:flex}
+  .article-hero{height:260px}
+  .related-grid{grid-template-columns:1fr}
+  .related-card{flex-direction:column}
+  .related-card-img{width:100%;height:160px}
+  .author-box{flex-direction:column;text-align:center}
+  .comparison-table{font-size:.8rem}
+  .comparison-table th,.comparison-table td{padding:8px 10px}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container-wide">
+    <div class="nav-inner">
+      <a href="../../template_example-13.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4c-4.5 0-8 3-8 6.5 0 2.5 1.5 4.5 3.5 6 2 1.5 3.5 3.5 4.5 6.5 1-3 2.5-5 4.5-6.5 2-1.5 3.5-3.5 3.5-6C22 7 18.5 4 14 4z" stroke="#2E7D32" stroke-width="1.5" fill="none"/><circle cx="14" cy="11" r="2.5" fill="#2E7D32"/></svg>
+        Precision Auto Care
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../template_example-13.html#services">Services</a></li>
+        <li><a href="../../template_example-13.html#about">About</a></li>
+        <li><a href="../../template_example-13.html#reviews">Reviews</a></li>
+        <li><a href="../../blog.html" class="active">Blog</a></li>
+        <li><a href="../../template_example-13.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:5558472390" class="nav-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (555) 847-2390
+        </a>
+        <a href="../../template_example-13.html#contact" class="nav-cta">Book Now</a>
+      </div>
+      <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="../../template_example-13.html#services">Services</a>
+  <a href="../../template_example-13.html#about">About</a>
+  <a href="../../blog.html">Blog</a>
+  <a href="../../template_example-13.html#contact">Contact</a>
+</div>
+
+<main class="container">
+  <div class="breadcrumb">
+    <a href="../../template_example-13.html">Home</a><span class="sep">/</span>
+    <a href="../../blog.html">Blog</a><span class="sep">/</span>
+    Oil Change Guide
+  </div>
+
+  <div class="article-hero">
+    <img src="../../../../images/template-images/service-oil.jpg" alt="Professional oil change service" width="780" height="400">
+  </div>
+
+  <div class="article-header">
+    <span class="article-tag">Maintenance</span>
+    <h1>The Complete Oil Change Guide: When, Why &amp; What Type</h1>
+    <div class="article-meta">
+      <span>By Mike Thompson</span>
+      <span>&bull;</span>
+      <span>February 20, 2026</span>
+      <span>&bull;</span>
+      <span>5 min read</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+    <p>If there's one single thing you can do to extend the life of your vehicle, it's this: change your oil on time, every time. Oil is the lifeblood of your engine. It lubricates dozens of moving metal parts spinning thousands of times per minute, absorbs heat, captures contaminants, and prevents the kind of metal-on-metal friction that turns a healthy engine into an expensive paperweight.</p>
+
+    <p>Yet oil changes remain one of the most misunderstood maintenance items. How often do you really need one? Is synthetic oil worth the extra cost? What happens if you go too long? Let's clear up the confusion with straightforward answers based on twenty years of turning wrenches.</p>
+
+    <h2>How Often Do You Really Need an Oil Change?</h2>
+
+    <p>The old "every 3,000 miles" rule was great advice in 1985. Modern engines, improved oil formulations, and better filtration systems have changed the game significantly. Here's what actually determines your oil change interval:</p>
+
+    <ul>
+      <li><strong>Your owner's manual</strong> &mdash; This is always your starting point. The engineers who designed your engine know it best. Most modern vehicles specify 5,000-7,500 miles for conventional oil or 7,500-10,000 miles for full synthetic.</li>
+      <li><strong>Your driving conditions</strong> &mdash; If you do a lot of short trips under 10 miles, frequently idle in traffic, drive in extreme heat (hello, Austin summers), tow heavy loads, or drive on dusty roads, you're operating under "severe" conditions and should change oil at the shorter end of the recommended interval.</li>
+      <li><strong>Your oil type</strong> &mdash; Full synthetic oils genuinely last longer than conventional oils. They resist breakdown, handle temperature extremes better, and maintain their protective properties longer.</li>
+      <li><strong>Your vehicle's oil life monitor</strong> &mdash; Many newer vehicles have an intelligent oil life monitoring system that factors in engine temperature, driving conditions, and mileage to tell you when it's time. These are generally reliable and worth following.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="callout-title">&#128161; Mike's Honest Take</div>
+      <p>For most Austin drivers using full synthetic oil in a modern vehicle, I recommend every <strong>6,000-7,000 miles or every 6 months</strong>, whichever comes first. It's a conservative interval that provides excellent protection without being wasteful. If you're mostly highway driving with a newer car, you can safely stretch to 8,000-10,000 miles with synthetic.</p>
+      <span class="annotation">don't overthink it!</span>
+    </div>
+
+    <h2>Conventional vs. Synthetic: Which Oil Do You Need?</h2>
+
+    <p>This is one of the most common questions we get, and the answer matters more than you might think. Here's a clear comparison:</p>
+
+    <table class="comparison-table">
+      <thead>
+        <tr><th>Factor</th><th>Conventional</th><th>Synthetic Blend</th><th>Full Synthetic</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Cost per change</strong></td><td>$35-$55</td><td>$45-$70</td><td>$65-$95</td></tr>
+        <tr><td><strong>Change interval</strong></td><td>3,000-5,000 mi</td><td>5,000-7,500 mi</td><td>7,500-10,000 mi</td></tr>
+        <tr><td><strong>Heat resistance</strong></td><td>Good</td><td>Better</td><td>Excellent</td></tr>
+        <tr><td><strong>Cold-start protection</strong></td><td>Adequate</td><td>Good</td><td>Superior</td></tr>
+        <tr><td><strong>Engine wear protection</strong></td><td>Standard</td><td>Enhanced</td><td>Maximum</td></tr>
+        <tr><td><strong>Annual cost (12k mi/yr)</strong></td><td>$140-$220</td><td>$120-$140</td><td>$130-$190</td></tr>
+      </tbody>
+    </table>
+
+    <p>Notice something interesting in that last row? When you factor in longer intervals, full synthetic oil often costs about the same annually as conventional &mdash; while providing significantly better protection. For Austin's extreme summer heat and the stop-and-go traffic many of us endure, synthetic oil is almost always the smarter choice.</p>
+
+    <p><strong>Important:</strong> If your owner's manual specifies synthetic oil, you must use it. Many modern engines, especially turbocharged and direct-injection engines, are designed to operate with synthetic oil's superior thermal and lubrication properties. Using conventional oil in these engines can cause accelerated wear and potentially void your warranty.</p>
+
+    <h2>What Happens When You Skip Oil Changes?</h2>
+
+    <p>We've seen it too many times: someone goes 15,000 or 20,000 miles without an oil change because life got busy. Here's the progression of what happens inside your engine:</p>
+
+    <p><strong>First, the oil breaks down.</strong> As oil ages, its additive package depletes. The detergents that keep your engine clean stop working. The anti-wear additives thin out. The viscosity modifiers that help the oil flow properly at different temperatures degrade.</p>
+
+    <p><strong>Then, sludge forms.</strong> Broken-down oil, combined with moisture, fuel contamination, and combustion byproducts, creates a thick, tar-like sludge that coats internal engine surfaces. This sludge restricts oil flow through narrow passages, starving critical components of lubrication.</p>
+
+    <p><strong>Finally, damage accelerates.</strong> Metal components begin wearing against each other without proper lubrication. Bearings score. Cam lobes wear. Oil passages clog. By this point, you're looking at engine repairs that can cost $3,000-$8,000 &mdash; or a complete engine replacement that can exceed $10,000.</p>
+
+    <blockquote>A $75 oil change every six months versus a $6,000 engine rebuild. That's not a tough math problem. The cheapest repair is always the one you prevent.</blockquote>
+
+    <h2>What About Hybrid and Electric Vehicles?</h2>
+
+    <p>If you drive a hybrid, your vehicle still has a combustion engine that needs oil changes &mdash; but the intervals can be different. Because hybrid engines cycle on and off frequently and often run at lower temperatures, the oil can actually accumulate more moisture and fuel contamination. Some hybrid manufacturers recommend shorter intervals despite the engine running fewer total hours.</p>
+
+    <p>For plug-in hybrids that operate primarily on electric power, the engine oil can sit unused for extended periods. While the oil doesn't wear out from use in this case, it does degrade over time from moisture absorption and oxidation. We recommend changing it at least once a year regardless of mileage.</p>
+
+    <p>Fully electric vehicles like Teslas don't have engine oil at all &mdash; but they do have other fluids (coolant, brake fluid, gear reduction fluid) that need periodic attention. If you drive an EV, we're happy to help with those services too.</p>
+
+    <h2>5 Signs Your Oil Needs Changing Now</h2>
+
+    <ol>
+      <li><strong>Dark, gritty oil on the dipstick</strong> &mdash; Fresh oil is amber and translucent. If yours looks like chocolate pudding, it's past due.</li>
+      <li><strong>Engine sounds louder than usual</strong> &mdash; Old oil provides less cushioning between moving parts, making the engine sound rougher and louder, especially at startup.</li>
+      <li><strong>Oil change or maintenance light is on</strong> &mdash; Your vehicle is literally telling you. Listen to it.</li>
+      <li><strong>Oil level dropping between changes</strong> &mdash; While some oil consumption is normal, excessive oil use combined with dirty oil suggests it's time for a change and possibly further inspection.</li>
+      <li><strong>You can't remember your last oil change</strong> &mdash; If you have to think about it, it's been too long. Come in and we'll get you back on schedule.</li>
+    </ol>
+
+    <div class="callout">
+      <div class="callout-title">&#9989; Pro Tip: Keep Records</div>
+      <p>We provide a dated window sticker with every oil change showing your next service due date and mileage. We also keep digital records of all your services, so even if you lose the sticker, we know exactly when you're due. Just call and ask &mdash; we'll look it up in seconds.</p>
+    </div>
+
+    <h2>Our Eco-Friendly Oil Change Process</h2>
+
+    <p>At Precision Auto Care, every oil change includes a courtesy multi-point inspection &mdash; we check your tire pressure, fluid levels, belts, hoses, and filters at no extra charge. It's part of our commitment to helping you catch small issues before they become big problems.</p>
+
+    <p>We're also committed to responsible oil disposal. Every drop of used oil is collected and recycled through a certified waste oil program. Used oil filters are drained and recycled as scrap metal. Even our oil-absorbent materials go through proper disposal channels. Your oil change shouldn't cost the environment.</p>
+
+    <p>Ready to schedule? Give us a call at <a href="tel:5558472390" style="color:var(--green);font-weight:600">(555) 847-2390</a> or stop by. Most oil changes take 30-45 minutes, and we have a comfortable waiting area with complimentary coffee and Wi-Fi. No appointment needed for oil changes, but booking ahead guarantees minimal wait time.</p>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">MT</div>
+    <div class="author-info">
+      <h4>Mike Thompson</h4>
+      <p>ASE Master Technician and owner of Precision Auto Care in Austin, TX. 20+ years of experience helping drivers understand their vehicles and make confident repair decisions.</p>
+    </div>
+  </div>
+</main>
+
+<!-- Related -->
+<section class="related">
+  <div class="container">
+    <h2>You Might Also Like</h2>
+    <div class="related-grid">
+      <a href="../check-engine-light/index.html" class="related-card">
+        <div class="related-card-img">
+          <img src="../../../../images/template-images/service-engine.jpg" alt="Check engine light" width="180" height="180" loading="lazy">
+        </div>
+        <div class="related-card-body">
+          <span>Diagnostics</span>
+          <h3>Why Is My Check Engine Light On?</h3>
+          <p>March 5, 2026 &bull; 5 min read</p>
+        </div>
+      </a>
+      <a href="../brake-warning-signs/index.html" class="related-card">
+        <div class="related-card-img">
+          <img src="../../../../images/template-images/service-brakes.jpg" alt="Brake service" width="180" height="180" loading="lazy">
+        </div>
+        <div class="related-card-body">
+          <span>Safety</span>
+          <h3>7 Brake Warning Signs You Should Never Ignore</h3>
+          <p>February 8, 2026 &bull; 5 min read</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="article-cta">
+  <div class="container">
+    <h2>Due for an Oil Change?</h2>
+    <span class="annotation">quick, affordable, eco-friendly!</span>
+    <a href="../../template_example-13.html#contact" class="btn">Schedule Your Oil Change</a>
+    <p>Or call <a href="tel:5558472390" style="color:var(--green);font-weight:600">(555) 847-2390</a> &bull; Mon&ndash;Fri 7:30&ndash;6, Sat 8&ndash;2</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><path d="M14 4c-4.5 0-8 3-8 6.5 0 2.5 1.5 4.5 3.5 6 2 1.5 3.5 3.5 4.5 6.5 1-3 2.5-5 4.5-6.5 2-1.5 3.5-3.5 3.5-6C22 7 18.5 4 14 4z" stroke="#4CAF50" stroke-width="1.5" fill="none"/><circle cx="14" cy="11" r="2" fill="#4CAF50"/></svg>
+        Precision Auto Care
+      </div>
+      <p class="footer-copy">&copy; 2026 Precision Auto Care &bull; 1247 Industrial Blvd, Austin, TX 78745 &bull; (555) 847-2390</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');
+const drawer=document.getElementById('navDrawer');
+const overlay=document.getElementById('navOverlay');
+function toggleDrawer(){const o=drawer.classList.toggle('open');overlay.classList.toggle('open',o);hamburger.classList.toggle('active',o);document.body.style.overflow=o?'hidden':''}
+hamburger.addEventListener('click',toggleDrawer);
+overlay.addEventListener('click',toggleDrawer);
+</script>
+</body>
+</html>

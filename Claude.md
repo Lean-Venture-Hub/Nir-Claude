@@ -43,3 +43,29 @@
 → Scannable format: bullets, tables, headings over prose paragraphs
 → If a file exceeds 10KB, split it or justify why it must be longer
 
+## Website Creation Pipeline
+
+The end-to-end flow for creating websites for a new vertical:
+
+| Step | Skill | Input | Output |
+|------|-------|-------|--------|
+| 1 | `vertical-research` | Vertical name | `research/{vertical}.md` — 20+ sites, psychology, visual direction, services, SEO |
+| 2 | `web-design-research` | (general) | `design-inspiration/` — playbook, animation patterns, trends, screenshots |
+| 3 | `template-creator` | Vertical + style | `templates/{vertical}/website/template-{N}/` — reusable HTML template |
+| 4 | `create-website-from-template` | Template + business data (CSV/manual) | `{Vertical}/reports/output/{name}/` — filled site with real content |
+| 5 | `website-from-template-audit` | Generated site | Audit report — checks for placeholders, broken layout, missing data |
+
+→ Step 2 only needs to run once (shared across all verticals)
+→ Step 3 can produce multiple variants per vertical (dark/light, bold/minimal)
+→ The `modern-client-web-design` skill is the design reference — loaded by `template-creator` during Step 3
+
+### Vertical naming convention
+→ Lowercase, kebab-case, plural: `dentists`, `auto-repair`, `landscaping`, `med-spas`
+→ Used consistently in: folder names (`templates/auto-repair/`), research files (`research/auto-repair.md`), gallery config
+→ Placeholder contract: `templates/PLACEHOLDER_CONTRACT.md` — defines all `{{PLACEHOLDER}}` tokens shared between template-creator and create-website-from-template
+
+### Key reference files (design-inspiration/)
+- `web-design-playbook.md` — **consolidated**: typography, color, hero patterns, animation stack (GSAP/Lenis), CSS techniques, section patterns, responsive/RTL, performance/SEO, 2026 trends, anti-patterns
+- `sites.csv` — 57+ analyzed reference sites
+- `inspiration-sources.md` — platforms to search for new inspiration
+

@@ -11,6 +11,9 @@ Collect all public reviews for a dental clinic from 3 sources into one unified C
 
 User provides a dentist website URL (e.g., `drandy.co.il`) and wants all their reviews collected.
 
+## Prerequisites
+- None — this skill runs independently. Requires a dentist business name or website URL.
+
 ## Output
 
 Single CSV file: `dr-{name}-reviews.csv`
