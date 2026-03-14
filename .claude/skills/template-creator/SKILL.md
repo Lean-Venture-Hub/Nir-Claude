@@ -38,6 +38,8 @@ Read ALL of these files before writing any code:
 |------|-----|
 | `research/{vertical}.md` | Vertical-specific: color palettes, hero patterns, sections, services, psychology, anti-patterns |
 | `design-inspiration/web-design-playbook.md` | **Consolidated playbook**: typography, color, hero patterns, animation stack (GSAP/Lenis/ScrollTrigger), CSS techniques, section patterns, responsive/RTL, performance/SEO, 2026 trends, anti-patterns |
+| `feedback/gallery-feedback.json` | (if exists) Gallery likes & comments — shows which templates users prefer and design direction notes |
+| `feedback/sections-feedback.json` | (if exists) Section ratings & bugs — shows which section patterns work well and which have issues |
 
 Also check existing templates for this vertical:
 ```
@@ -46,6 +48,20 @@ ls templates/{vertical}/website/
 Determine the next template number (e.g., if template-22 exists, create template-23).
 
 **If the vertical research file doesn't exist**, tell the user to run the `vertical-research` skill first.
+
+---
+
+## Step 0.5: Read Feedback (if available)
+
+Check `feedback/` for `gallery-feedback.json` and `sections-feedback.json`. If either exists, read them and note:
+
+- **Liked templates** → replicate their design patterns, color palettes, and layout approaches
+- **Comments** → treat as design direction notes (e.g., "hero felt too busy" = simpler hero next time)
+- **High-rated sections** (rating >= 7) → replicate those section patterns
+- **Low-rated sections** (rating <= 3) → avoid those patterns or rethink them
+- **Bugs** → don't repeat the same issues (e.g., if a scroll animation bug was flagged, double-check Layer 4 checklist for that pattern)
+
+This step is optional — if no feedback files exist, skip and proceed to Step 1.
 
 ---
 
@@ -152,6 +168,8 @@ Reference the `modern-client-web-design` skill for full details. Here's the chec
 - [ ] Display + body font pairing from design decisions
 - [ ] `clamp()` sizing for all headings and body
 - [ ] Hero headline: tight letter-spacing (-1px to -2px), weight 700-900
+- [ ] **Hero headline word-break**: MUST include `overflow-wrap:normal;word-break:keep-all;hyphens:none` — words in hero headlines must NEVER break mid-word across lines
+- [ ] **Subtitle must be a separate element**: Hero subtitle/subheading MUST be in its own `<p>` tag with smaller font size — NEVER inside the `<h1>` tag. The `<h1>` is ONLY for the main headline.
 - [ ] ALL-CAPS labels: `letter-spacing: 0.1em`
 - [ ] RTL: use `Heebo` for Hebrew body text, display font can stay Latin
 
@@ -174,6 +192,16 @@ Reference the `modern-client-web-design` skill for full details. Here's the chec
 - [ ] Hero heading: GSAP timeline reveal on load
 - [ ] Cards/features: stagger reveal on scroll
 - [ ] `prefers-reduced-motion` CSS guard included
+- [ ] **Pinned slide pattern**: When using ScrollTrigger pin with multiple slides (stats, reviews, testimonials), EVERY slide must have an explicit fade-OUT animation when leaving its range. Never just remove a class — always `gsap.to(el, {opacity:0, duration:0.4})` on exit
+- [ ] **SplitType rule**: NEVER wrap words in `<span class="word">` manually if SplitType is also called on that element. Let SplitType handle all splitting. One or the other, never both
+- [ ] **Lenis + GSAP integration**: When using Lenis with GSAP, use ONLY `gsap.ticker.add((time) => lenis.raf(time * 1000))`. NEVER add a separate `requestAnimationFrame` loop — this causes double-speed scrolling
+- [ ] **NEVER hide content in CSS**: Content elements MUST be visible by default (`opacity:1` or no opacity set). GSAP `.from({opacity:0})` handles the animation — it temporarily sets opacity to 0 and animates to the element's natural visible state. NEVER add `opacity:0` to CSS classes like `.gsap-fade`, `.animate`, etc. If JS fails to load, content must still be visible.
+- [ ] **No `.gsap-fade{opacity:0}` pattern**: This is the #1 cause of invisible content. Instead, just use `gsap.from(el, {opacity:0, y:30})` — GSAP handles both the initial hide and the reveal. The CSS should have NO opacity manipulation.
+- [ ] **GSAP registerPlugin order**: `gsap.registerPlugin(ScrollTrigger)` MUST appear before ANY ScrollTrigger usage in the script, including Lenis ScrollTrigger.update references
+- [ ] **z-index on overlapping slides**: When pinned sections have conclusion/summary overlays, set `zIndex:5` on the conclusion element to prevent z-fighting with exiting slides
+- [ ] **Lenis ScrollTrigger sync**: After Lenis init, ALWAYS add `lenis.on('scroll', ScrollTrigger.update)` so ScrollTrigger tracks Lenis scroll position correctly
+- [ ] **Lenis reduced-motion gate**: Wrap ALL Lenis initialization (new Lenis + ticker + sync) inside `if (!prefersReducedMotion)` — smooth scroll should never run for users with reduced-motion preference
+- [ ] **Close all CSS rules**: Verify every CSS selector block has a closing `}`. An unclosed rule silently breaks all CSS below it
 
 ### Layer 5: Micro-Interactions
 - [ ] Button hover: translateY(-2px) + shadow glow
@@ -201,22 +229,54 @@ Reference the `modern-client-web-design` skill for full details. Here's the chec
 
 ---
 
-## Step 4: Placeholder Content
+## Step 4: Demo Content (CRITICAL — NO {{PLACEHOLDER}} TOKENS)
 
-Templates use realistic placeholder content that makes the template look complete. This content gets replaced by `create-website-from-template`.
+**Templates MUST contain real, realistic demo content — NOT `{{PLACEHOLDER}}` tokens.**
 
-**CRITICAL: Use EXACTLY the placeholder tokens defined in `templates/PLACEHOLDER_CONTRACT.md`.** Every replaceable value must use the `{{TOKEN_NAME}}` format from the contract. Do not invent new tokens or use ad-hoc placeholder text.
+Every template must look like a complete, finished website when opened in a browser. The `create-website-from-template` skill handles search-and-replace later — but the template itself must be a fully working demo site.
 
-### Placeholder conventions:
-- **Business name**: Use a believable name for the vertical (e.g., "מוסך אלון" for auto repair, "דנטל פלוס" for dentist)
-- **Phone**: `077-000-0000`
-- **Address**: Real-sounding address in a major Israeli city
-- **Services**: 6 services from the vertical's services taxonomy
-- **Reviews**: 3 realistic review placeholders with Hebrew names and text
-- **Doctor/owner name**: Believable Hebrew name with title (ד״ר, etc.)
-- **Images**: Reference paths like `images/hero.jpg`, `images/service-1.jpg`, etc.
+**NEVER use `{{TOKEN}}` syntax in the template HTML.** If even one `{{...}}` token remains, the template is BROKEN.
 
-**CRITICAL: Every piece of placeholder content must be obviously replaceable** — the `create-website-from-template` skill searches and replaces these. Use consistent naming.
+### Demo content per vertical:
+
+Each vertical has a standard demo business. Use this data directly in the HTML:
+
+**Auto Repair:**
+- Business: Precision Auto Works | Owner: Mike Rodriguez | Phone: (555) 482-7193
+- Location: 4821 Commerce St, Dallas, TX 75226 | Rating: 4.9 ★ (487 reviews) | Since: 2006
+- Services: Oil Changes, Brake Repair, Engine Diagnostics, Tire Services, AC & Heating, Transmission
+
+**Dentists:**
+- Business: Smile Dental Studio | Doctor: Dr. Sarah Chen | Phone: (555) 321-8765
+- Location: 1250 Oak Ave, Austin, TX 78701 | Rating: 4.8 ★ (312 reviews) | Since: 2010
+
+**Landscaping:**
+- Business: Green Valley Landscaping | Owner: Tom Parker | Phone: (555) 567-2389
+- Location: 890 Garden Blvd, Phoenix, AZ 85004 | Rating: 4.9 ★ (256 reviews) | Since: 2008
+
+**Veterinarians:**
+- Business: Companion Animal Hospital | Doctor: Dr. Emily Brooks | Phone: (555) 789-4561
+- Location: 3200 Pet Care Dr, Denver, CO 80202 | Rating: 4.9 ★ (394 reviews) | Since: 2012
+
+**Med Spas:**
+- Business: Radiance Med Spa | Director: Dr. Lisa Park | Phone: (555) 432-9876
+- Location: 1800 Beauty Ln, Miami, FL 33101 | Rating: 4.8 ★ (268 reviews) | Since: 2015
+
+**HVAC:**
+- Business: Comfort Air Solutions | Owner: Ryan Mitchell | Phone: (555) 654-3210
+- Location: 5500 Climate Way, Atlanta, GA 30301 | Rating: 4.9 ★ (423 reviews) | Since: 2004
+
+### Content requirements:
+- **Business name/owner/phone/address**: Use the demo data above directly in HTML
+- **Services**: 6 real services from the vertical's services taxonomy
+- **Reviews**: 3 realistic testimonials with names, stars, and review text
+- **About text**: 2-3 sentences about the demo business
+- **Team**: 3-4 team members with names and roles
+- **FAQ**: 4-6 real Q&As relevant to the vertical
+- **Images**: Use paths from the shared image folder (e.g., `../../images/template-images/{name}.jpg`)
+
+### Verification:
+After creating the template, run `grep -c '{{' template_example-{N}.html` — the count MUST be **0**.
 
 ---
 
@@ -263,14 +323,17 @@ Each variant gets its own folder under `templates/{vertical}/website/template-{N
 
 ## Step 7: Output & File Structure
 
-### Create this structure:
+### Create this structure (ALL items are REQUIRED):
 ```
 templates/{vertical}/website/template-{N}/
-├── template_example-{N}.html        — Hebrew RTL version
+├── template_example-{N}.html        — main website template
 ├── template_example-{N}-en.html     — English LTR version (if requested)
 ├── template-manifest.json            — placeholder token manifest (format defined in PLACEHOLDER_CONTRACT.md)
-├── blog.html                         — blog listing page (optional)
-└── blog/                             — blog article pages (optional)
+├── blog.html                         — blog listing page with 3 article cards
+└── blog/                             — 3 blog article pages
+    ├── {article-1-slug}/index.html
+    ├── {article-2-slug}/index.html
+    └── {article-3-slug}/index.html
 ```
 
 ### template-manifest.json
@@ -278,25 +341,73 @@ Generate this file alongside the HTML. It lists every `{{PLACEHOLDER}}` token us
 
 Images go in the shared `templates/{vertical}/images/` folder (or reference existing images if available).
 
+### Blog & Demo Content (REQUIRED)
+
+Every template MUST include a blog listing page and 3 blog posts with real demo content. Blog pages must match the template's exact visual design (colors, fonts, nav, footer).
+
+**blog.html — Blog listing page:**
+- Same nav and footer as main template (exact copy of HTML + CSS)
+- Hero section with "Tips & Advice" or similar title
+- 3 article cards: image, title, excerpt, "Read More" link
+- Responsive grid layout
+- Image paths: `../../images/template-images/{name}.jpg`
+
+**Blog post pages — 3 articles (~800 words each):**
+- Same nav and footer as main template
+- Article hero with background image + dark overlay
+- Breadcrumb: Home > Blog > Article Title
+- Full article body with subheadings, lists, proper typography
+- Author info section (owner name + title from placeholder data)
+- Related articles section linking to the other 2 posts
+- Image paths from blog post: `../../../../images/template-images/{name}.jpg`
+- Each file is standalone (all CSS inline), under 15KB
+
+**Blog topics by vertical:**
+
+| Vertical | Article 1 | Article 2 | Article 3 |
+|----------|-----------|-----------|-----------|
+| auto-repair | Oil Change Guide | Brake Warning Signs | Check Engine Light |
+| dentists | Dental Implants Guide | Teeth Whitening Options | When to See Emergency Dentist |
+| landscaping | Lawn Care Seasonal Guide | Hardscaping vs Softscaping | Drought-Resistant Landscaping |
+| veterinarians | Pet Vaccination Schedule | Signs Your Pet Needs Vet | Pet Nutrition Guide |
+| med-spas | Botox vs Fillers Guide | Skin Care Routine by Age | Recovery After Laser Treatment |
+| hvac | AC Maintenance Tips | When to Replace Your Furnace | Indoor Air Quality Guide |
+
+For new verticals not listed, create 3 relevant educational articles that demonstrate expertise and help with SEO.
+
 ---
 
 ## Step 8: Self-Review
 
-Before delivering, open the template in Playwright and verify:
+Before delivering, verify:
 
-### Desktop (1440x900):
+### Demo content check (BLOCKING — do this FIRST):
+- [ ] Run `grep -c '{{' template_example-{N}.html` — MUST return **0**
+- [ ] Business name, phone, address are real demo values (not placeholder tokens)
+- [ ] Reviews have real names and text (not "Customer Name" or "Review Text")
+- [ ] Services have real names (not "Service 1", "Service 2")
+- [ ] About section has real paragraph text
+- [ ] If count > 0: FIX immediately before proceeding
+
+### Main template (open in Playwright at 1440x900 + 375x812):
 - [ ] All sections render correctly
 - [ ] Animations fire on scroll
 - [ ] Hero looks complete with all 6 elements
 - [ ] No horizontal overflow
 - [ ] Colors match design brief
-
-### Mobile (375x812):
-- [ ] Hamburger menu works
-- [ ] All content is readable
+- [ ] Hamburger menu works on mobile
+- [ ] All content is readable on mobile
 - [ ] CTA is accessible (sticky bar or prominent button)
-- [ ] No text overflow or tiny tap targets
-- [ ] Images don't break layout
+
+### Blog pages:
+- [ ] blog.html exists with 3 article cards
+- [ ] 3 blog post folders exist with index.html each
+- [ ] Nav and footer match main template exactly
+- [ ] Colors, fonts, spacing match main template
+- [ ] Image paths are correct (relative to file location)
+- [ ] Articles have real, useful content (~800 words each)
+- [ ] Related articles link to the other 2 posts
+- [ ] Mobile responsive
 
 ### Take screenshots:
 - Desktop hero → `template_example-{N}-desktop.png`

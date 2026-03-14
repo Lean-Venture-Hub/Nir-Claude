@@ -1029,9 +1029,13 @@ nav{animation:fadeInUp .6s ease both}
 
 /* Scroll-triggered sections */
 .about-inner,.services-inner,.testimonials-inner,.cta-inner{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.about-inner.visible,.services-inner.visible,.testimonials-inner.visible,.cta-inner.visible{
   opacity:1;
   transform:translateY(0);
-  transition:opacity .7s ease, transform .7s ease;
 }
 
 /* ══════════════════════════════════════════
@@ -1106,6 +1110,10 @@ nav{animation:fadeInUp .6s ease both}
   object-fit:cover;
   border-radius:calc(var(--radius, 16px) - 4px);
   margin-bottom:16px;
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .about-inner,.services-inner,.testimonials-inner,.cta-inner{opacity:1!important;transform:none!important}
 }
 </style>
 </head>

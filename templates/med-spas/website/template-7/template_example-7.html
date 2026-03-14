@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiance MedSpa & Aesthetics | Premium Aesthetic Treatments in Scottsdale, AZ</title>
+<meta name="description" content="Radiance MedSpa & Aesthetics led by Dr. Elena Vasquez offers premium Botox, laser, facial, body contouring, microneedling and IV therapy treatments in Scottsdale, AZ. 4.9 stars from 418 reviews.">
+<meta property="og:title" content="Radiance MedSpa & Aesthetics | Scottsdale, AZ">
+<meta property="og:description" content="Premium aesthetic treatments by Dr. Elena Vasquez. 4.9-star rated med spa in Scottsdale.">
+<meta property="og:image" content="../../images/template-images/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Radiance MedSpa & Aesthetics",
+  "image": "../../images/template-images/hero.jpg",
+  "telephone": "(555) 923-4107",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Scottsdale",
+    "addressRegion": "AZ",
+    "addressCountry": "US"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "418"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Dr. Elena Vasquez"
+  },
+  "foundingDate": "2018",
+  "priceRange": "$$$"
+}
+</script>
+
+<style>
+/* ====== RESET & BASE ====== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #FAF6F0;
+  --cream-dark: #F0EAE0;
+  --sage: #7A917E;
+  --sage-dark: #5F7A63;
+  --sage-light: #C2D4C5;
+  --gold: #C9A96E;
+  --gold-light: #E4D5B7;
+  --charcoal: #2C2C2C;
+  --text: #3A3A3A;
+  --text-light: #6E6E6E;
+  --white: #FFFFFF;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --nav-height: 80px;
+}
+
+html { scroll-behavior: smooth; }
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ====== TYPOGRAPHY ====== */
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; line-height: 1.15; color: var(--charcoal); }
+h1 { font-size: clamp(3rem, 7vw, 6.5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2.2rem, 4.5vw, 4rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+p { font-size: clamp(0.95rem, 1.1vw, 1.1rem); color: var(--text-light); }
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.editorial-line {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 1.5rem 0;
+}
+
+/* ====== CONTAINER ====== */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+/* ====== NAVIGATION ====== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 1000;
+  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--charcoal); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  padding: 0.6rem 1.8rem !important;
+  background: var(--sage);
+  color: var(--white) !important;
+  border-radius: 2px;
+  letter-spacing: 0.1em !important;
+  transition: background 0.3s !important;
+}
+
+.nav-cta:hover { background: var(--sage-dark) !important; }
+.nav-cta::after { display: none !important; }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 1.5px;
+  background: var(--charcoal);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile Nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100dvh;
+  background: var(--cream);
+  z-index: 999;
+  transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mobile-nav.open { right: 0; }
+
+.mobile-nav a {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--charcoal);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ====== HERO ====== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../../images/template-images/hero.jpg') center/cover no-repeat;
+  transform: scale(1.08);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(250, 246, 240, 0.97) 0%,
+    rgba(250, 246, 240, 0.7) 35%,
+    rgba(250, 246, 240, 0.15) 60%,
+    rgba(250, 246, 240, 0) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: clamp(4rem, 8vh, 8rem);
+  max-width: 800px;
+}
+
+.hero-content .eyebrow { color: var(--sage); }
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--sage-dark);
+}
+
+.hero-caption {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 500px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--sage);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--sage-dark);
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+
+.btn-primary:hover::before { left: 0; }
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-outline {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--charcoal);
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  right: clamp(1.5rem, 4vw, 4rem);
+  z-index: 2;
+  writing-mode: vertical-rl;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 60px;
+  background: var(--gold);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.4); opacity: 0.4; }
+}
+
+/* ====== TRUST BAR ====== */
+.trust-bar {
+  padding: 4rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.trust-bar-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.trust-item {
+  padding: 1.5rem;
+}
+
+.trust-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--sage);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.trust-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.trust-stars {
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+/* ====== SECTION STYLING ====== */
+.section {
+  padding: clamp(5rem, 10vh, 10rem) 0;
+}
+
+.section-header {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.section-header.center { text-align: center; }
+
+.section-header.center .editorial-line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ====== SERVICES ====== */
+.services { background: var(--white); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  group: true;
+}
+
+.service-card-image {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-card-image img {
+  transform: scale(1.06);
+}
+
+.service-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(to top, rgba(44,44,44,0.85), transparent);
+}
+
+.service-card-number {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  margin-bottom: 0.3rem;
+}
+
+.service-card h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.service-card p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.service-card-tag {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+}
+
+/* ====== BEFORE/AFTER ====== */
+.before-after {
+  background: var(--charcoal);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.before-after .eyebrow { color: var(--gold-light); }
+.before-after h2 { color: var(--white); }
+.before-after p { color: rgba(255,255,255,0.6); }
+
+.ba-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.ba-slider-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ba-slider-wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-after { clip-path: inset(0 50% 0 0); }
+
+.ba-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: var(--gold);
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.ba-handle::before {
+  content: '⟨  ⟩';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+}
+
+.ba-label {
+  position: absolute;
+  bottom: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+  z-index: 4;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.ba-label-before { left: 1.5rem; }
+.ba-label-after { right: 1.5rem; }
+
+/* ====== ABOUT ====== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 8rem);
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(to top, rgba(44,44,44,0.7), transparent);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--white);
+}
+
+.about-text h2 { margin-bottom: 1.5rem; }
+
+.about-text .lead {
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.about-stat-value {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--sage);
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-top: 0.3rem;
+}
+
+/* ====== GALLERY ====== */
+.gallery { background: var(--white); }
+
+.gallery-masonry {
+  columns: 3;
+  column-gap: 1.5rem;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover img { transform: scale(1.04); }
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(44,44,44,0.6), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+.gallery-item-overlay span {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--white);
+  font-size: 0.95rem;
+}
+
+/* ====== TESTIMONIALS ====== */
+.testimonials {
+  background: var(--sage);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.testimonials .eyebrow { color: var(--gold-light); }
+.testimonials h2 { color: var(--white); }
+
+.testimonials-track {
+  display: flex;
+  gap: 3rem;
+  overflow: visible;
+}
+
+.testimonial-card {
+  min-width: min(550px, 80vw);
+  flex-shrink: 0;
+  padding: 3rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.testimonial-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.testimonial-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--gold-light);
+  line-height: 0;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--white);
+}
+
+.testimonial-meta {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.2rem;
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* ====== PROCESS ====== */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  counter-reset: process;
+}
+
+.process-step {
+  position: relative;
+  padding-top: 3rem;
+}
+
+.process-step::before {
+  counter-increment: process;
+  content: counter(process, decimal-leading-zero);
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--sage-light);
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1;
+}
+
+.process-step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.process-step p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.process-connector {
+  position: absolute;
+  top: 1.5rem;
+  right: -1.25rem;
+  width: calc(100% - 2rem);
+  height: 1px;
+  background: var(--sage-light);
+  display: none;
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  background: var(--charcoal);
+  color: var(--white);
+  padding: clamp(4rem, 8vh, 8rem) 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand .nav-logo { color: var(--white); font-size: 1.6rem; display: inline-block; margin-bottom: 1rem; }
+.footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.7; max-width: 280px; }
+
+.footer h4 {
+  color: var(--white);
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+/* Booking Form */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.8rem 1rem;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  border-color: var(--gold);
+}
+
+.booking-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='rgba(255,255,255,0.4)'%3E%3Cpath d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.booking-form select option { background: var(--charcoal); color: var(--white); }
+
+.booking-form textarea { resize: vertical; min-height: 70px; }
+
+.booking-form button {
+  padding: 0.9rem 2rem;
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: var(--font-sans);
+}
+
+.booking-form button:hover { background: var(--sage); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.8rem;
+}
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.footer-bottom a:hover { color: var(--gold); }
+
+/* ====== REVEAL ANIMATIONS ====== */
+.reveal {
+  transform: translateY(40px);
+  opacity: 0;
+}
+.service-card, .gallery-item {
+  opacity: 0;
+}
+
+.reveal-mask {
+  overflow: hidden;
+}
+
+.reveal-mask-inner {
+  transform: translateY(110%);
+}
+
+/* ====== PREFERS REDUCED MOTION ====== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .service-card, .gallery-item { opacity: 1 !important; transform: none !important; }
+  .reveal-mask-inner { transform: none; }
+  .hero-bg { transform: none; }
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-masonry { columns: 2; }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-height: 64px; }
+
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav { display: flex; }
+
+  .hero-content { max-width: 100%; }
+  .hero-scroll { display: none; }
+
+  .trust-bar-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .services-grid { grid-template-columns: 1fr; }
+
+  .ba-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-image { order: -1; }
+
+  .gallery-masonry { columns: 2; column-gap: 0.8rem; }
+  .gallery-item { margin-bottom: 0.8rem; }
+
+  .testimonial-card {
+    min-width: min(400px, 85vw);
+    padding: 2rem;
+  }
+
+  .process-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-masonry { columns: 1; }
+  .trust-bar-inner { grid-template-columns: 1fr 1fr; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ====== NAVIGATION ====== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Radiance<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#results" class="mobile-nav-link">Results</a>
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#gallery" class="mobile-nav-link">Gallery</a>
+  <a href="#testimonials" class="mobile-nav-link">Reviews</a>
+  <a href="#process" class="mobile-nav-link">Process</a>
+  <a href="tel:5559234107" class="mobile-nav-link">Call Now</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <span class="eyebrow reveal-mask"><span class="reveal-mask-inner">Scottsdale's Premier Med Spa — Est. 2018</span></span>
+    <h1 class="reveal-mask"><span class="reveal-mask-inner">The Art of<br><em>Radiant</em> Beauty</span></h1>
+    <div class="editorial-line"></div>
+    <p class="hero-caption reveal">Where clinical precision meets timeless elegance. Dr. Elena Vasquez and her team craft personalized aesthetic journeys for discerning clients.</p>
+    <div class="hero-actions reveal">
+      <a href="#contact" class="btn-primary"><span>Book Consultation</span></a>
+      <a href="#services" class="btn-outline">Explore Treatments</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+</section>
+
+<!-- ====== TRUST BAR ====== -->
+<section class="trust-bar" id="trust">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <div class="trust-item reveal">
+        <div class="trust-stars">★★★★★</div>
+        <div class="trust-number">4.9</div>
+        <div class="trust-label">Google Rating</div>
+      </div>
+      <div class="trust-item reveal">
+        <div class="trust-number">418+</div>
+        <div class="trust-label">Verified Reviews</div>
+      </div>
+      <div class="trust-item reveal">
+        <div class="trust-number">7+</div>
+        <div class="trust-label">Years of Excellence</div>
+      </div>
+      <div class="trust-item reveal">
+        <div class="trust-number">12K+</div>
+        <div class="trust-label">Treatments Performed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow reveal">Our Treatments</span>
+      <h2 class="reveal-mask"><span class="reveal-mask-inner">A Curated Menu of<br>Transformative Services</span></h2>
+      <div class="editorial-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-card-image">
+          <img src="../../images/template-images/botox.jpg" alt="Botox & Injectables treatment" loading="lazy" width="600" height="800">
+          <div class="service-card-overlay">
+            <div class="service-card-number">01</div>
+            <h3>Botox & Injectables</h3>
+            <p>Expert neurotoxin and dermal filler treatments for natural, youthful results with zero downtime.</p>
+          </div>
+          <div class="service-card-tag">Most Popular</div>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-image">
+          <img src="../../images/template-images/laser.jpg" alt="Laser Treatments" loading="lazy" width="600" height="800">
+          <div class="service-card-overlay">
+            <div class="service-card-number">02</div>
+            <h3>Laser Treatments</h3>
+            <p>Advanced laser technology for skin resurfacing, hair removal, and pigment correction.</p>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-image">
+          <img src="../../images/template-images/facial.jpg" alt="Luxury Facials" loading="lazy" width="600" height="800">
+          <div class="service-card-overlay">
+            <div class="service-card-number">03</div>
+            <h3>Luxury Facials</h3>
+            <p>Medical-grade facials combining cutting-edge ingredients with spa-level pampering.</p>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-image">
+          <img src="../../images/template-images/body-contouring.jpg" alt="Body Contouring" loading="lazy" width="600" height="800">
+          <div class="service-card-overlay">
+            <div class="service-card-number">04</div>
+            <h3>Body Contouring</h3>
+            <p>Non-invasive body sculpting treatments that target stubborn fat and tighten skin.</p>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-image">
+          <img src="../../images/template-images/microneedling.jpg" alt="Microneedling" loading="lazy" width="600" height="800">
+          <div class="service-card-overlay">
+            <div class="service-card-number">05</div>
+            <h3>Microneedling</h3>
+            <p>Collagen-boosting treatments with PRP for enhanced texture, tone, and radiance.</p>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-image">
+          <img src="../../images/template-images/iv-therapy.jpg" alt="IV Therapy & Wellness" loading="lazy" width="600" height="800">
+          <div class="service-card-overlay">
+            <div class="service-card-number">06</div>
+            <h3>IV Therapy & Wellness</h3>
+            <p>Custom vitamin infusions for hydration, energy, immunity, and inner glow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BEFORE / AFTER ====== -->
+<section class="section before-after" id="results">
+  <div class="container">
+    <div class="ba-layout">
+      <div class="ba-text">
+        <span class="eyebrow reveal">Visible Results</span>
+        <h2 class="reveal-mask"><span class="reveal-mask-inner">Real Transformations,<br>Real Confidence</span></h2>
+        <div class="editorial-line" style="background:var(--gold-light)"></div>
+        <p class="reveal" style="margin-top:1.5rem; max-width:440px; line-height:1.8;">Every treatment is an editorial transformation — thoughtfully planned, precisely executed, beautifully revealed. Drag the slider to see a client's skin renewal journey.</p>
+      </div>
+      <div class="ba-slider-wrap reveal" id="baSlider">
+        <img src="../../images/template-images/skin-tightening.jpg" alt="Before treatment" class="ba-before">
+        <img src="../../images/template-images/treatment-room.jpg" alt="After treatment" class="ba-after">
+        <div class="ba-handle" id="baHandle"></div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="../../images/template-images/team.jpg" alt="Dr. Elena Vasquez and the Radiance MedSpa team" loading="lazy" width="700" height="500">
+        <div class="about-image-caption">Dr. Vasquez with her award-winning aesthetic team</div>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow reveal">Our Story</span>
+        <h2 class="reveal-mask"><span class="reveal-mask-inner">Where Science Meets<br>Editorial Beauty</span></h2>
+        <div class="editorial-line"></div>
+        <p class="lead reveal">Founded in 2018 by Dr. Elena Vasquez, Radiance MedSpa & Aesthetics was born from a belief that aesthetic medicine should feel less clinical and more like a curated experience — intimate, personalized, and transformative.</p>
+        <p class="reveal">Board-certified in aesthetic medicine with over 15 years of experience, Dr. Vasquez has assembled a team of master injectors, licensed aestheticians, and wellness specialists who share her philosophy: that true beauty is an enhancement of what already exists.</p>
+        <div class="about-stats reveal">
+          <div>
+            <div class="about-stat-value">15+</div>
+            <div class="about-stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="about-stat-value">12K+</div>
+            <div class="about-stat-label">Treatments</div>
+          </div>
+          <div>
+            <div class="about-stat-value">4.9</div>
+            <div class="about-stat-label">Star Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== GALLERY ====== -->
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow reveal">The Gallery</span>
+      <h2 class="reveal-mask"><span class="reveal-mask-inner">An Editorial Look<br>Inside Radiance</span></h2>
+      <div class="editorial-line"></div>
+    </div>
+    <div class="gallery-masonry">
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/treatment-room.jpg" alt="Luxury treatment room at Radiance MedSpa" loading="lazy" width="600" height="800">
+        <div class="gallery-item-overlay"><span>Our Signature Treatment Suite</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/facial.jpg" alt="Luxury facial treatment" loading="lazy" width="600" height="400">
+        <div class="gallery-item-overlay"><span>Medical-Grade Facial in Progress</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/hero.jpg" alt="Radiance MedSpa exterior" loading="lazy" width="600" height="700">
+        <div class="gallery-item-overlay"><span>Welcome to Radiance</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/botox.jpg" alt="Botox injection treatment" loading="lazy" width="600" height="500">
+        <div class="gallery-item-overlay"><span>Precision Botox by Dr. Vasquez</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/laser.jpg" alt="Laser skin treatment" loading="lazy" width="600" height="600">
+        <div class="gallery-item-overlay"><span>Advanced Laser Technology</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/body-contouring.jpg" alt="Body contouring treatment" loading="lazy" width="600" height="450">
+        <div class="gallery-item-overlay"><span>Non-Invasive Body Sculpting</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/team.jpg" alt="Radiance MedSpa team" loading="lazy" width="600" height="400">
+        <div class="gallery-item-overlay"><span>Our Expert Team</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/microneedling.jpg" alt="Microneedling with PRP" loading="lazy" width="600" height="700">
+        <div class="gallery-item-overlay"><span>Microneedling + PRP Session</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/iv-therapy.jpg" alt="IV vitamin therapy" loading="lazy" width="600" height="500">
+        <div class="gallery-item-overlay"><span>Wellness IV Lounge</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../../images/template-images/skin-tightening.jpg" alt="Skin tightening results" loading="lazy" width="600" height="600">
+        <div class="gallery-item-overlay"><span>Skin Tightening Results</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIALS ====== -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow reveal">Client Voices</span>
+      <h2 class="reveal-mask"><span class="reveal-mask-inner">What Our Clients<br>Are Saying</span></h2>
+      <div class="editorial-line" style="background:var(--gold-light)"></div>
+    </div>
+    <div class="testimonials-track" id="testimonialsTrack">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <div class="testimonial-quote">Dr. Vasquez has a true artist's eye. My Botox looks so natural — friends keep asking if I've been on vacation. The entire experience, from consultation to aftercare, felt like a luxury editorial shoot.</div>
+        <div class="testimonial-author">Sophia M.</div>
+        <div class="testimonial-meta">Botox & Fillers · Scottsdale</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <div class="testimonial-quote">I've visited med spas across the country, and Radiance is in a league of its own. The attention to detail, the ambiance, the results — everything is curated to perfection. My skin has never looked better.</div>
+        <div class="testimonial-author">Jennifer K.</div>
+        <div class="testimonial-meta">Laser Treatment · Paradise Valley</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <div class="testimonial-quote">The body contouring results exceeded every expectation. Three sessions and I feel like a completely different person. Dr. Vasquez explained everything clearly and made me feel so comfortable throughout.</div>
+        <div class="testimonial-author">Michelle R.</div>
+        <div class="testimonial-meta">Body Contouring · Scottsdale</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <div class="testimonial-quote">The microneedling with PRP changed my skin texture completely. People keep complimenting my glow and I just smile. This team truly understands the science and art of beautiful skin.</div>
+        <div class="testimonial-author">Amanda L.</div>
+        <div class="testimonial-meta">Microneedling + PRP · Tempe</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROCESS ====== -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow reveal">Your Journey</span>
+      <h2 class="reveal-mask"><span class="reveal-mask-inner">Four Steps to<br>Your Best Self</span></h2>
+      <div class="editorial-line"></div>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <h3>Consultation</h3>
+        <p>A private, unhurried conversation with Dr. Vasquez to understand your goals, assess your skin, and craft a personalized treatment plan.</p>
+      </div>
+      <div class="process-step reveal">
+        <h3>Custom Plan</h3>
+        <p>Your bespoke treatment roadmap — combining the ideal procedures, timeline, and maintenance schedule for optimal results.</p>
+      </div>
+      <div class="process-step reveal">
+        <h3>Treatment</h3>
+        <p>Experience your treatment in our serene, spa-like suites with expert practitioners using the latest medical-grade technology.</p>
+      </div>
+      <div class="process-step reveal">
+        <h3>Aftercare</h3>
+        <p>Dedicated follow-up care, progress tracking, and adjustments to ensure your results are everything you envisioned and more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Radiance<span>.</span></a>
+        <p>Premium aesthetic treatments in Scottsdale, AZ. Where clinical precision meets editorial beauty, guided by Dr. Elena Vasquez since 2018.</p>
+        <div style="margin-top:1.5rem;">
+          <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">
+            <strong style="color:var(--gold);">Phone:</strong> <a href="tel:5559234107" style="color:rgba(255,255,255,0.7);text-decoration:none;">(555) 923-4107</a>
+          </p>
+          <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;margin-top:0.3rem;">
+            <strong style="color:var(--gold);">Location:</strong> Scottsdale, AZ
+          </p>
+        </div>
+      </div>
+      <div>
+        <h4>Treatments</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Botox & Injectables</a></li>
+          <li><a href="#services">Laser Treatments</a></li>
+          <li><a href="#services">Luxury Facials</a></li>
+          <li><a href="#services">Body Contouring</a></li>
+          <li><a href="#services">Microneedling</a></li>
+          <li><a href="#services">IV Therapy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Dr. Vasquez</a></li>
+          <li><a href="#results">Before & After</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Client Reviews</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Book a Consultation</h4>
+        <form class="booking-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='SENT — WE\'LL BE IN TOUCH'; this.querySelector('button').style.background='var(--sage)';">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number">
+          <select>
+            <option value="" disabled selected>Select Treatment</option>
+            <option>Botox & Injectables</option>
+            <option>Laser Treatments</option>
+            <option>Luxury Facials</option>
+            <option>Body Contouring</option>
+            <option>Microneedling</option>
+            <option>IV Therapy & Wellness</option>
+            <option>Other / Not Sure</option>
+          </select>
+          <textarea placeholder="Tell us about your goals..."></textarea>
+          <button type="submit">REQUEST CONSULTATION</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Radiance MedSpa & Aesthetics. All rights reserved.</p>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== SCRIPTS ====== -->
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // ====== REDUCED MOTION CHECK ======
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ====== LENIS SMOOTH SCROLL ======
+  let lenis;
+  if (!prefersReduced) {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      touchMultiplier: 2,
+      smoothWheel: true,
+    });
+
+    // Sync Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ====== REGISTER SCROLLTRIGGER ======
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ====== NAV SCROLL ======
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  // ====== MOBILE NAV ======
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileLinks = mobileNav.querySelectorAll('a');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+
+    if (!prefersReduced && mobileNav.classList.contains('open')) {
+      gsap.fromTo(mobileLinks,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, stagger: 0.06, duration: 0.5, ease: 'power2.out', delay: 0.2 }
+      );
+    } else {
+      mobileLinks.forEach(l => { l.style.opacity = '1'; l.style.transform = 'none'; });
+    }
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ====== SMOOTH SCROLL ANCHORS ======
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -80 });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  // ====== ANIMATIONS (skip if reduced motion) ======
+  if (!prefersReduced) {
+
+    // Hero parallax
+    gsap.to('.hero-bg', {
+      yPercent: 18,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
+      }
+    });
+
+    // Hero entrance
+    const heroTl = gsap.timeline({ delay: 0.3 });
+    heroTl
+      .to('.hero .reveal-mask-inner', {
+        y: 0,
+        duration: 1.1,
+        ease: 'power3.out',
+        stagger: 0.15,
+      })
+      .to('.hero .reveal', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        stagger: 0.1,
+      }, '-=0.5')
+      .to('.hero-bg', {
+        scale: 1,
+        duration: 1.8,
+        ease: 'power2.out',
+      }, 0);
+
+    // Generic reveal elements
+    gsap.utils.toArray('.reveal').forEach((el) => {
+      if (el.closest('.hero')) return; // skip hero reveals
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+        }
+      });
+    });
+
+    // Text reveal masks (non-hero)
+    gsap.utils.toArray('.reveal-mask-inner').forEach((el) => {
+      if (el.closest('.hero')) return;
+      gsap.to(el, {
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el.parentElement,
+          start: 'top 85%',
+          once: true,
+        }
+      });
+    });
+
+    // Service cards stagger
+    gsap.utils.toArray('.service-card').forEach((card, i) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: (i % 3) * 0.12,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          once: true,
+        }
+      });
+    });
+
+    // Gallery items stagger
+    gsap.utils.toArray('.gallery-item').forEach((item, i) => {
+      gsap.to(item, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: (i % 3) * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 90%',
+          once: true,
+        }
+      });
+    });
+
+    // Trust bar number count-up
+    gsap.utils.toArray('.trust-number').forEach((el) => {
+      const text = el.textContent;
+      const num = parseFloat(text);
+      const suffix = text.replace(/[0-9.]/g, '');
+      if (isNaN(num)) return;
+
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: num,
+        duration: 1.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          once: true,
+        },
+        onUpdate: () => {
+          el.textContent = (num % 1 !== 0 ? obj.val.toFixed(1) : Math.round(obj.val)) + suffix;
+        }
+      });
+    });
+
+    // Testimonials horizontal scroll
+    const track = document.getElementById('testimonialsTrack');
+    if (track) {
+      const totalScroll = track.scrollWidth - track.parentElement.offsetWidth;
+      gsap.to(track, {
+        x: -totalScroll,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.testimonials',
+          start: 'top top',
+          end: () => '+=' + totalScroll,
+          pin: true,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        }
+      });
+    }
+
+    // Process steps
+    gsap.utils.toArray('.process-step').forEach((step, i) => {
+      gsap.to(step, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: i * 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: step,
+          start: 'top 88%',
+          once: true,
+        }
+      });
+    });
+
+  } // end reduced motion check
+
+  // ====== BEFORE / AFTER SLIDER ======
+  const baSlider = document.getElementById('baSlider');
+  if (baSlider) {
+    const handle = document.getElementById('baHandle');
+    const afterImg = baSlider.querySelector('.ba-after');
+    let isDragging = false;
+
+    function updateSlider(x) {
+      const rect = baSlider.getBoundingClientRect();
+      let pct = ((x - rect.left) / rect.width) * 100;
+      pct = Math.max(2, Math.min(98, pct));
+      afterImg.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = pct + '%';
+    }
+
+    function onStart(e) {
+      isDragging = true;
+      const x = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+      updateSlider(x);
+    }
+
+    function onMove(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+      updateSlider(x);
+    }
+
+    function onEnd() { isDragging = false; }
+
+    baSlider.addEventListener('mousedown', onStart);
+    baSlider.addEventListener('touchstart', onStart, { passive: true });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onEnd);
+    window.addEventListener('touchend', onEnd);
+  }
+
+})();
+</script>
+
+</body>
+</html>

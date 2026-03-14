@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PawCare Veterinary Clinic — Trusted Vet in Denver, CO</title>
+<meta name="description" content="PawCare Veterinary Clinic in Denver, CO. Dr. Sarah Mitchell and team providing compassionate pet care since 2015. 4.8★ from 287 reviews. Call (555) 847-2196.">
+<meta property="og:title" content="PawCare Veterinary Clinic — Trusted Vet in Denver, CO">
+<meta property="og:description" content="Compassionate veterinary care in Denver since 2015. 4.8★ rated, 287+ reviews.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VeterinaryCare",
+  "name":"PawCare Veterinary Clinic",
+  "telephone":"(555) 847-2196",
+  "address":{"@type":"PostalAddress","addressLocality":"Denver","addressRegion":"CO"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"287"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"14:00"}
+  ],
+  "foundingDate":"2015",
+  "description":"Compassionate veterinary care for dogs, cats & exotic pets in Denver, CO.",
+  "employee":{"@type":"Person","name":"Dr. Sarah Mitchell","jobTitle":"Lead Veterinarian"}
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#FAF6F0;
+  --bg-warm:#F5EDE0;
+  --bg-card:#FFFBF5;
+  --cream:#FDF8F0;
+  --brown:#6B4226;
+  --brown-dark:#4A2E19;
+  --brown-light:#8B6140;
+  --amber:#C4883A;
+  --amber-light:#D4A05A;
+  --amber-dim:rgba(196,136,58,0.12);
+  --green:#3B6B3A;
+  --green-dark:#2A4F2A;
+  --green-light:#5A8C59;
+  --green-dim:rgba(59,107,58,0.1);
+  --rust:#A0522D;
+  --text:#3A2A1A;
+  --text-muted:rgba(58,42,26,0.65);
+  --text-light:rgba(58,42,26,0.5);
+  --white:#FFFDF9;
+  --serif:'Playfair Display',Georgia,serif;
+  --body-serif:'Lora',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --max-w:1200px;
+  --radius:12px;
+  --radius-sm:8px;
+  --radius-lg:20px;
+  --shadow:0 4px 24px rgba(74,46,25,0.08);
+  --shadow-md:0 8px 32px rgba(74,46,25,0.12);
+  --shadow-lg:0 16px 48px rgba(74,46,25,0.16);
+  --transition:0.5s cubic-bezier(.25,.46,.45,.94);
+  --wood-grain:repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(107,66,38,0.03) 2px,
+    rgba(107,66,38,0.03) 4px
+  );
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--sans);
+  font-weight:400;
+  color:var(--text);
+  line-height:1.7;
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* Subtle paper/linen texture */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+  background-size:256px 256px;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .fade-up,.service-card,.review-card,.process-step,.gallery-item{
+    opacity:1!important;transform:none!important;
+  }
+  .lenis{scroll-behavior:auto!important}
+}
+
+/* Typography */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.15;color:var(--brown-dark)}
+h1{font-size:clamp(2.6rem,5.5vw,5rem);font-weight:700}
+h2{font-size:clamp(1.9rem,3.8vw,3rem)}
+h3{font-size:clamp(1.25rem,2.2vw,1.7rem)}
+p{font-family:var(--body-serif);font-size:clamp(0.95rem,1.1vw,1.05rem);line-height:1.8}
+
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button{font-family:var(--sans);cursor:pointer;border:none}
+
+.container{width:min(var(--max-w),92%);margin:0 auto}
+
+section{padding:clamp(80px,12vw,140px) 0;position:relative;overflow:hidden}
+
+/* Accent text */
+.accent-text{color:var(--amber)}
+.green-text{color:var(--green)}
+
+/* Handwritten style accent */
+.handwritten{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  color:var(--amber);
+  letter-spacing:0.02em;
+}
+
+/* Section label */
+.section-label{
+  font-family:var(--sans);
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--amber);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+}
+.section-label::before{
+  content:'';
+  width:40px;
+  height:2px;
+  background:var(--amber);
+  border-radius:2px;
+}
+
+/* Section subtitle */
+.section-subtitle{
+  font-family:var(--body-serif);
+  font-size:clamp(1rem,1.3vw,1.15rem);
+  color:var(--text-muted);
+  max-width:600px;
+  margin-top:12px;
+  line-height:1.7;
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 36px;
+  font-family:var(--sans);
+  font-size:0.9rem;
+  font-weight:600;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  border-radius:var(--radius);
+  transition:all 0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+.btn-primary{
+  background:var(--brown);
+  color:var(--cream);
+  box-shadow:0 4px 16px rgba(107,66,38,0.3);
+}
+.btn-primary:hover{
+  background:var(--brown-dark);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(107,66,38,0.4);
+}
+.btn-outline{
+  background:transparent;
+  color:var(--brown);
+  border:2px solid var(--brown);
+}
+.btn-outline:hover{
+  background:var(--brown);
+  color:var(--cream);
+}
+.btn-warm{
+  background:var(--amber);
+  color:var(--white);
+  box-shadow:0 4px 16px rgba(196,136,58,0.3);
+}
+.btn-warm:hover{
+  background:var(--amber-light);
+  transform:translateY(-2px);
+}
+
+/* Fade up animation class */
+.fade-up{opacity:1;transform:translateY(0)}
+
+/* Wood divider */
+.wood-divider{
+  width:100%;
+  height:6px;
+  background:var(--wood-grain),linear-gradient(90deg,var(--amber-dim),var(--brown-light),var(--amber-dim));
+  border-radius:3px;
+  opacity:0.4;
+}
+
+/* Paw print decorative SVG */
+.paw-deco{
+  position:absolute;
+  opacity:0.04;
+  pointer-events:none;
+}
+
+/* =========================================
+   NAV — Warm rustic top bar
+   ========================================= */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  padding:0 5%;
+  transition:all 0.4s ease;
+  background:rgba(250,246,240,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(107,66,38,0.08);
+}
+.nav.scrolled{
+  background:rgba(250,246,240,0.95);
+  box-shadow:0 2px 20px rgba(74,46,25,0.08);
+}
+.nav-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:76px;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.nav-logo svg{width:36px;height:36px}
+.nav-logo-text{
+  font-family:var(--serif);
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--brown-dark);
+}
+.nav-logo-text span{color:var(--amber)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  font-family:var(--sans);
+  font-size:0.85rem;
+  font-weight:500;
+  letter-spacing:0.03em;
+  color:var(--text-muted);
+  transition:color 0.3s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-4px;left:0;
+  width:0;height:2px;
+  background:var(--amber);
+  border-radius:2px;
+  transition:width 0.3s ease;
+}
+.nav-links a:hover{color:var(--brown-dark)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:10px 24px;
+  background:var(--brown);
+  color:var(--cream);
+  font-family:var(--sans);
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  border-radius:var(--radius-sm);
+  transition:all 0.3s ease;
+}
+.nav-cta:hover{background:var(--brown-dark);transform:translateY(-1px)}
+
+/* Hamburger */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  z-index:1001;
+  background:none;
+  padding:8px;
+}
+.hamburger span{
+  display:block;width:26px;height:2.5px;
+  background:var(--brown);border-radius:2px;
+  transition:all 0.3s ease;
+}
+.hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* Mobile nav */
+.mobile-menu{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(250,246,240,0.98);
+  backdrop-filter:blur(30px);
+  -webkit-backdrop-filter:blur(30px);
+  z-index:999;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.4s ease;
+}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{
+  font-family:var(--serif);
+  font-size:1.6rem;
+  font-weight:500;
+  color:var(--brown-dark);
+  transition:color 0.3s;
+}
+.mobile-menu a:hover{color:var(--amber)}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:flex}
+}
+
+/* =========================================
+   HERO — Full-screen rustic hero
+   ========================================= */
+.hero{
+  position:relative;
+  height:100vh;
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.hero-bg img{
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(74,46,25,0.75) 0%,
+    rgba(107,66,38,0.55) 35%,
+    rgba(59,107,58,0.3) 70%,
+    rgba(196,136,58,0.2) 100%
+  );
+  z-index:1;
+}
+.hero-overlay::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:200px;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:700px;
+  padding:0 5%;
+  margin-left:8%;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 20px;
+  background:rgba(255,253,249,0.15);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,253,249,0.25);
+  border-radius:50px;
+  font-family:var(--sans);
+  font-size:0.8rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:28px;
+}
+.hero-badge svg{width:16px;height:16px}
+.hero h1{
+  color:var(--cream);
+  margin-bottom:20px;
+  text-shadow:0 2px 30px rgba(0,0,0,0.15);
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--amber-light);
+}
+.hero-sub{
+  font-family:var(--body-serif);
+  font-size:clamp(1.05rem,1.4vw,1.2rem);
+  color:rgba(253,248,240,0.85);
+  line-height:1.8;
+  margin-bottom:36px;
+  max-width:520px;
+}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.hero .btn-primary{
+  background:var(--amber);
+  box-shadow:0 4px 20px rgba(196,136,58,0.4);
+}
+.hero .btn-primary:hover{background:var(--amber-light)}
+.hero .btn-outline{
+  border-color:rgba(253,248,240,0.5);
+  color:var(--cream);
+}
+.hero .btn-outline:hover{
+  background:rgba(253,248,240,0.15);
+  border-color:var(--cream);
+}
+.hero-scroll{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  color:rgba(253,248,240,0.6);
+  font-family:var(--sans);
+  font-size:0.7rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+}
+.hero-scroll-line{
+  width:1px;height:40px;
+  background:linear-gradient(transparent,rgba(253,248,240,0.4));
+  animation:scrollPulse 2s ease infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:0.3;transform:scaleY(0.6)}
+  50%{opacity:1;transform:scaleY(1)}
+}
+
+/* =========================================
+   TRUST BAR
+   ========================================= */
+.trust{
+  background:var(--bg-warm);
+  padding:clamp(50px,8vw,80px) 0;
+  border-top:1px solid rgba(107,66,38,0.06);
+  border-bottom:1px solid rgba(107,66,38,0.06);
+}
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+.trust-item{
+  text-align:center;
+  padding:28px 16px;
+  background:var(--bg-card);
+  border-radius:var(--radius);
+  border:1px solid rgba(107,66,38,0.06);
+  box-shadow:var(--shadow);
+  transition:transform 0.3s ease;
+}
+.trust-item:hover{transform:translateY(-4px)}
+.trust-icon{
+  width:52px;height:52px;
+  margin:0 auto 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--amber-dim);
+  border-radius:50%;
+}
+.trust-icon svg{width:24px;height:24px;color:var(--amber)}
+.trust-number{
+  font-family:var(--serif);
+  font-size:clamp(2rem,3.5vw,2.8rem);
+  font-weight:700;
+  color:var(--brown-dark);
+  line-height:1.1;
+}
+.trust-label{
+  font-family:var(--sans);
+  font-size:0.85rem;
+  color:var(--text-muted);
+  margin-top:4px;
+}
+
+@media(max-width:768px){
+  .trust-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+}
+
+/* =========================================
+   SERVICES
+   ========================================= */
+.services{background:var(--bg)}
+.services-header{text-align:center;margin-bottom:60px}
+.services-header h2{margin-bottom:8px}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.service-card{
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  background:var(--bg-card);
+  border:1px solid rgba(107,66,38,0.06);
+  box-shadow:var(--shadow);
+  transition:all 0.5s ease;
+  opacity:1;
+  transform:translateY(0);
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-lg);
+}
+.service-card-img{
+  position:relative;
+  height:220px;
+  overflow:hidden;
+}
+.service-card-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.6s ease;
+}
+.service-card:hover .service-card-img img{transform:scale(1.08)}
+.service-card-img::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:80px;
+  background:linear-gradient(transparent,var(--bg-card));
+}
+.service-card-body{padding:24px 28px 28px}
+.service-card-body h3{
+  font-size:1.25rem;
+  margin-bottom:8px;
+  color:var(--brown-dark);
+}
+.service-card-body p{
+  font-size:0.9rem;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+.service-card-tag{
+  display:inline-block;
+  margin-top:14px;
+  padding:5px 14px;
+  background:var(--green-dim);
+  color:var(--green);
+  font-family:var(--sans);
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  border-radius:50px;
+}
+
+@media(max-width:900px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+}
+
+/* =========================================
+   BEFORE / AFTER SLIDER
+   ========================================= */
+.before-after{
+  background:var(--bg-warm);
+  overflow:hidden;
+}
+.ba-header{text-align:center;margin-bottom:50px}
+.ba-wrapper{
+  position:relative;
+  max-width:800px;
+  margin:0 auto;
+  aspect-ratio:16/10;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  cursor:ew-resize;
+  user-select:none;
+  border:4px solid rgba(107,66,38,0.1);
+}
+.ba-wrapper img{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.ba-before{z-index:1;clip-path:inset(0 50% 0 0)}
+.ba-after{z-index:0}
+.ba-handle{
+  position:absolute;
+  top:0;bottom:0;
+  left:50%;
+  z-index:3;
+  width:4px;
+  background:var(--cream);
+  transform:translateX(-50%);
+  box-shadow:0 0 12px rgba(0,0,0,0.3);
+}
+.ba-handle::before{
+  content:'';
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:48px;height:48px;
+  background:var(--cream);
+  border-radius:50%;
+  box-shadow:0 2px 12px rgba(74,46,25,0.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.ba-handle::after{
+  content:'◂ ▸';
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-size:0.85rem;
+  color:var(--brown);
+  font-weight:700;
+  letter-spacing:4px;
+  white-space:nowrap;
+  z-index:1;
+}
+.ba-label{
+  position:absolute;
+  bottom:16px;
+  z-index:4;
+  padding:6px 16px;
+  background:rgba(74,46,25,0.7);
+  backdrop-filter:blur(6px);
+  color:var(--cream);
+  font-family:var(--sans);
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  border-radius:50px;
+}
+.ba-label-before{left:16px}
+.ba-label-after{right:16px}
+
+/* =========================================
+   ABOUT
+   ========================================= */
+.about{background:var(--bg)}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.about-img{
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.about-img img{width:100%;height:auto;display:block}
+.about-img::before{
+  content:'';
+  position:absolute;
+  inset:-6px;
+  border:3px solid var(--amber-dim);
+  border-radius:calc(var(--radius-lg) + 6px);
+  z-index:-1;
+}
+.about-badge{
+  position:absolute;
+  bottom:20px;right:20px;
+  padding:12px 20px;
+  background:var(--brown);
+  color:var(--cream);
+  border-radius:var(--radius-sm);
+  font-family:var(--sans);
+  font-size:0.8rem;
+  font-weight:600;
+  box-shadow:var(--shadow-md);
+}
+.about-text h2{margin-bottom:20px}
+.about-text .handwritten{
+  font-size:clamp(1.3rem,2vw,1.6rem);
+  margin-bottom:16px;
+  display:block;
+}
+.about-text p{
+  color:var(--text-muted);
+  margin-bottom:16px;
+}
+.about-stats{
+  display:flex;
+  gap:32px;
+  margin-top:28px;
+  padding-top:28px;
+  border-top:1px solid rgba(107,66,38,0.1);
+}
+.about-stat-num{
+  font-family:var(--serif);
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--amber);
+}
+.about-stat-label{
+  font-family:var(--sans);
+  font-size:0.8rem;
+  color:var(--text-muted);
+}
+
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+}
+
+/* =========================================
+   GALLERY
+   ========================================= */
+.gallery{background:var(--bg-warm)}
+.gallery-header{text-align:center;margin-bottom:50px}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto auto;
+  gap:16px;
+}
+.gallery-item{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  opacity:1;
+  transform:translateY(0);
+  cursor:pointer;
+}
+.gallery-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.6s ease;
+}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 50%,rgba(74,46,25,0.4));
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+.gallery-item:hover::after{opacity:1}
+/* Span featured items */
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:1}
+.gallery-item:nth-child(2){aspect-ratio:4/3}
+.gallery-item:nth-child(3){aspect-ratio:4/3}
+.gallery-item:nth-child(4){aspect-ratio:4/3}
+.gallery-item:nth-child(5){aspect-ratio:4/3}
+.gallery-item:nth-child(6){grid-column:span 2;aspect-ratio:2/1}
+.gallery-item:nth-child(7){aspect-ratio:4/3}
+.gallery-item:nth-child(8){aspect-ratio:4/3}
+.gallery-item:nth-child(9){grid-column:span 2;aspect-ratio:2/1}
+.gallery-item:nth-child(10){grid-column:span 2;aspect-ratio:2/1}
+
+@media(max-width:768px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-item:nth-child(1){grid-column:span 2}
+  .gallery-item:nth-child(6),
+  .gallery-item:nth-child(9),
+  .gallery-item:nth-child(10){grid-column:span 2}
+}
+
+/* =========================================
+   TESTIMONIALS
+   ========================================= */
+.testimonials{background:var(--bg)}
+.testimonials-header{text-align:center;margin-bottom:50px}
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.review-card{
+  background:var(--bg-card);
+  padding:36px 32px;
+  border-radius:var(--radius-lg);
+  border:1px solid rgba(107,66,38,0.06);
+  box-shadow:var(--shadow);
+  position:relative;
+  opacity:1;
+  transform:translateY(0);
+}
+.review-card::before{
+  content:'\201C';
+  position:absolute;
+  top:12px;left:24px;
+  font-family:var(--serif);
+  font-size:4rem;
+  color:var(--amber-dim);
+  line-height:1;
+}
+.review-stars{
+  display:flex;
+  gap:3px;
+  margin-bottom:16px;
+}
+.review-stars svg{width:16px;height:16px;color:var(--amber)}
+.review-text{
+  font-size:0.92rem;
+  color:var(--text-muted);
+  line-height:1.75;
+  margin-bottom:20px;
+}
+.review-author{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.review-avatar{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--amber-dim);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--serif);
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--amber);
+}
+.review-name{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:0.9rem;
+  color:var(--brown-dark);
+}
+.review-pet{
+  font-family:var(--sans);
+  font-size:0.75rem;
+  color:var(--text-light);
+}
+
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr}}
+
+/* =========================================
+   PROCESS
+   ========================================= */
+.process{
+  background:var(--brown-dark);
+  color:var(--cream);
+  position:relative;
+}
+.process::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--wood-grain);
+  opacity:0.5;
+  pointer-events:none;
+}
+.process-header{text-align:center;margin-bottom:60px;position:relative;z-index:1}
+.process-header h2{color:var(--cream)}
+.process-header .section-label{justify-content:center;color:var(--amber-light)}
+.process-header .section-label::before{background:var(--amber-light)}
+.process-header .section-subtitle{color:rgba(253,248,240,0.6);margin:12px auto 0}
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+  position:relative;
+  z-index:1;
+}
+.process-step{
+  text-align:center;
+  padding:40px 28px;
+  background:rgba(253,248,240,0.05);
+  border:1px solid rgba(253,248,240,0.08);
+  border-radius:var(--radius-lg);
+  backdrop-filter:blur(10px);
+  transition:all 0.4s ease;
+  opacity:1;
+  transform:translateY(0);
+}
+.process-step:hover{
+  background:rgba(253,248,240,0.1);
+  transform:translateY(-4px);
+}
+.process-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:64px;height:64px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--amber),var(--amber-light));
+  font-family:var(--serif);
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--brown-dark);
+  margin-bottom:24px;
+  box-shadow:0 4px 20px rgba(196,136,58,0.3);
+}
+.process-step h3{
+  color:var(--cream);
+  margin-bottom:12px;
+  font-size:1.3rem;
+}
+.process-step p{
+  font-size:0.9rem;
+  color:rgba(253,248,240,0.65);
+  line-height:1.7;
+}
+.process-icon{
+  width:48px;height:48px;
+  margin:0 auto 16px;
+  color:var(--amber-light);
+}
+
+@media(max-width:768px){
+  .process-steps{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+}
+
+/* =========================================
+   FOOTER / CONTACT
+   ========================================= */
+.footer{
+  background:var(--brown-dark);
+  color:var(--cream);
+  padding:clamp(80px,12vw,120px) 0 0;
+  position:relative;
+}
+.footer::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--wood-grain);
+  opacity:0.3;
+  pointer-events:none;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  position:relative;
+  z-index:1;
+}
+.footer-info h2{color:var(--cream);margin-bottom:12px}
+.footer-info .handwritten{
+  font-size:1.2rem;
+  display:block;
+  margin-bottom:24px;
+}
+.footer-info p{
+  color:rgba(253,248,240,0.65);
+  margin-bottom:12px;
+  font-size:0.92rem;
+}
+.footer-contact-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0;
+  color:rgba(253,248,240,0.75);
+  font-family:var(--sans);
+  font-size:0.9rem;
+}
+.footer-contact-item svg{width:18px;height:18px;color:var(--amber-light);flex-shrink:0}
+.footer-contact-item a{color:rgba(253,248,240,0.75);transition:color 0.3s}
+.footer-contact-item a:hover{color:var(--amber-light)}
+
+.footer-form{
+  background:rgba(253,248,240,0.05);
+  border:1px solid rgba(253,248,240,0.08);
+  border-radius:var(--radius-lg);
+  padding:36px;
+  backdrop-filter:blur(10px);
+}
+.footer-form h3{
+  color:var(--cream);
+  margin-bottom:20px;
+  font-size:1.3rem;
+}
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:16px;
+}
+.form-group{margin-bottom:16px}
+.form-group label{
+  display:block;
+  font-family:var(--sans);
+  font-size:0.78rem;
+  font-weight:500;
+  color:rgba(253,248,240,0.5);
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  padding:12px 16px;
+  background:rgba(253,248,240,0.06);
+  border:1px solid rgba(253,248,240,0.12);
+  border-radius:var(--radius-sm);
+  font-family:var(--sans);
+  font-size:0.9rem;
+  color:var(--cream);
+  transition:border-color 0.3s;
+  outline:none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder{color:rgba(253,248,240,0.3)}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{border-color:var(--amber)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group select option{background:var(--brown-dark);color:var(--cream)}
+.form-submit{
+  width:100%;
+  padding:14px;
+  background:var(--amber);
+  color:var(--brown-dark);
+  font-family:var(--sans);
+  font-size:0.85rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  border-radius:var(--radius-sm);
+  transition:all 0.3s ease;
+}
+.form-submit:hover{background:var(--amber-light);transform:translateY(-2px)}
+
+.footer-bottom{
+  margin-top:60px;
+  padding:24px 0;
+  border-top:1px solid rgba(253,248,240,0.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  z-index:1;
+}
+.footer-bottom p{
+  font-family:var(--sans);
+  font-size:0.8rem;
+  color:rgba(253,248,240,0.4);
+}
+.footer-bottom-links{display:flex;gap:24px}
+.footer-bottom-links a{
+  font-family:var(--sans);
+  font-size:0.8rem;
+  color:rgba(253,248,240,0.4);
+  transition:color 0.3s;
+}
+.footer-bottom-links a:hover{color:var(--amber-light)}
+
+@media(max-width:768px){
+  .footer-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+}
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--brown-light);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--brown)}
+</style>
+</head>
+
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="#C4883A" stroke-width="2" fill="none"/>
+        <path d="M10 14c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3zm10 0c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3zm-8 7c0 0 2 5 6 5s6-5 6-5-2 3-6 3-6-3-6-3z" fill="#6B4226"/>
+        <circle cx="12" cy="9" r="2" fill="#C4883A"/>
+        <circle cx="24" cy="9" r="2" fill="#C4883A"/>
+      </svg>
+      <span class="nav-logo-text">Paw<span>Care</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+15558472196" class="nav-cta">Call Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#gallery" onclick="closeMobile()">Gallery</a>
+  <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+  <a href="#process" onclick="closeMobile()">How It Works</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="tel:+15558472196" class="btn btn-warm" style="margin-top:16px" onclick="closeMobile()">Call (555) 847-2196</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="../../images/template-images/hero.jpg" alt="PawCare Veterinary Clinic — compassionate pet care in Denver, CO" loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+      4.8 Stars — 287 Reviews — Trusted Since 2015
+    </div>
+    <h1>Where Every Pet<br>Feels <em>at Home</em></h1>
+    <p class="hero-sub">Dr. Sarah Mitchell and our warm, dedicated team provide gentle, thorough veterinary care in a cozy, countryside-inspired clinic right here in Denver.</p>
+    <div class="hero-buttons">
+      <a href="tel:+15558472196" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Book a Visit
+      </a>
+      <a href="#services" class="btn btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    Scroll
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ====== TRUST BAR ====== -->
+<section class="trust" id="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item fade-up">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="trust-number" data-count="4.8">0</div>
+        <div class="trust-label">Star Rating</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="trust-number" data-count="287">0</div>
+        <div class="trust-label">Happy Reviews</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="trust-number" data-count="10">0</div>
+        <div class="trust-label">Years of Caring</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="trust-number" data-count="5200">0</div>
+        <div class="trust-label">Pets Treated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header fade-up">
+      <div class="section-label" style="justify-content:center"><span>Our Services</span></div>
+      <h2>Caring for Your <span class="accent-text">Companion</span></h2>
+      <p class="section-subtitle" style="margin:12px auto 0">From routine check-ups to specialized surgery, we treat every pet like family in our warm, welcoming clinic.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="../../images/template-images/exam-dog.jpg" alt="Comprehensive wellness exam for dogs at PawCare" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <h3>Wellness Exams</h3>
+          <p>Thorough nose-to-tail check-ups to keep your furry friend happy and healthy at every stage of life.</p>
+          <span class="service-card-tag">Preventive Care</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="../../images/template-images/dental.jpg" alt="Pet dental cleaning and oral health services" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <h3>Dental Care</h3>
+          <p>Professional cleanings, extractions, and oral health assessments for brighter smiles and better breath.</p>
+          <span class="service-card-tag">Oral Health</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="../../images/template-images/cat-care.jpg" alt="Specialized feline veterinary care" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <h3>Feline Medicine</h3>
+          <p>Cat-friendly handling techniques and a calm environment designed to keep your kitty stress-free.</p>
+          <span class="service-card-tag">Cat Care</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="../../images/template-images/surgery.jpg" alt="Veterinary surgical procedures" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <h3>Surgery</h3>
+          <p>Spay/neuter, soft tissue, and orthopedic procedures with modern anesthesia monitoring and gentle recovery care.</p>
+          <span class="service-card-tag">Surgical</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="../../images/template-images/vaccination.jpg" alt="Pet vaccinations and immunizations" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <h3>Vaccinations</h3>
+          <p>Customized vaccination schedules tailored to your pet's lifestyle, age, and risk factors.</p>
+          <span class="service-card-tag">Immunization</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="../../images/template-images/grooming.jpg" alt="Professional pet grooming services" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <h3>Grooming</h3>
+          <p>Bath, brush, nail trims, and breed-specific styling in a calm, patient environment your pet will love.</p>
+          <span class="service-card-tag">Wellness</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BEFORE / AFTER ====== -->
+<section class="before-after" id="results">
+  <div class="container">
+    <div class="ba-header fade-up">
+      <div class="section-label" style="justify-content:center"><span>Transformations</span></div>
+      <h2>See the <span class="accent-text">Difference</span> We Make</h2>
+      <p class="section-subtitle" style="margin:12px auto 0">Drag the slider to reveal the remarkable recovery and care transformations at PawCare.</p>
+    </div>
+    <div class="ba-wrapper" id="baSlider">
+      <img class="ba-before" src="../../images/template-images/emergency.jpg" alt="Pet before treatment at PawCare">
+      <img class="ba-after" src="../../images/template-images/grooming.jpg" alt="Pet after treatment at PawCare — healthy and happy">
+      <div class="ba-handle" id="baHandle"></div>
+      <span class="ba-label ba-label-before">Before</span>
+      <span class="ba-label ba-label-after">After</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img fade-up">
+        <img src="../../images/template-images/team.jpg" alt="Dr. Sarah Mitchell and the PawCare veterinary team" loading="lazy">
+        <div class="about-badge">Est. 2015 — Denver, CO</div>
+      </div>
+      <div class="about-text fade-up">
+        <div class="section-label"><span>Our Story</span></div>
+        <span class="handwritten">"Every pet deserves gentle hands and a warm heart."</span>
+        <h2>Meet <span class="accent-text">Dr. Sarah Mitchell</span></h2>
+        <p>When Dr. Mitchell opened PawCare Veterinary Clinic in 2015, she had a simple dream: to create a place where animals feel safe and owners feel heard. Inspired by her childhood on a Colorado ranch, she designed a clinic that feels more like a cozy farmhouse than a sterile office.</p>
+        <p>Today, our team of passionate veterinarians and technicians continues that tradition — blending modern medicine with old-fashioned compassion. From nervous puppies to senior cats, every patient gets the unhurried, personal attention they deserve.</p>
+        <div class="about-stats">
+          <div>
+            <div class="about-stat-num">10+</div>
+            <div class="about-stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="about-stat-num">6</div>
+            <div class="about-stat-label">Team Members</div>
+          </div>
+          <div>
+            <div class="about-stat-num">24/7</div>
+            <div class="about-stat-label">Emergency Line</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== GALLERY ====== -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-up">
+      <div class="section-label" style="justify-content:center"><span>Our Clinic</span></div>
+      <h2>Life at <span class="accent-text">PawCare</span></h2>
+      <p class="section-subtitle" style="margin:12px auto 0">A peek inside our warm, welcoming clinic and the furry friends we care for every day.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../images/template-images/hero.jpg" alt="PawCare clinic exterior and welcoming entrance" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/exam-dog.jpg" alt="Dog wellness exam at PawCare" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/cat-care.jpg" alt="Gentle feline care" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/dental.jpg" alt="Pet dental procedures" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/surgery.jpg" alt="Modern veterinary surgery suite" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/vaccination.jpg" alt="Pet vaccination and immunization" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/grooming.jpg" alt="Professional pet grooming" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/team.jpg" alt="PawCare veterinary team" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/emergency.jpg" alt="Emergency veterinary care" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../images/template-images/boarding.jpg" alt="Comfortable pet boarding facilities" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIALS ====== -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header fade-up">
+      <div class="section-label" style="justify-content:center"><span>Kind Words</span></div>
+      <h2>What Pet Parents <span class="accent-text">Say</span></h2>
+      <p class="section-subtitle" style="margin:12px auto 0">Real stories from real families who trust PawCare with their beloved companions.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+        </div>
+        <p class="review-text">Dr. Mitchell is absolutely wonderful. She took the time to explain everything about our golden retriever's condition and made us feel so at ease. The clinic has such a warm, homey feel — nothing like other vet offices.</p>
+        <div class="review-author">
+          <div class="review-avatar">JR</div>
+          <div>
+            <div class="review-name">Jessica R.</div>
+            <div class="review-pet">Pet parent to Biscuit (Golden Retriever)</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+        </div>
+        <p class="review-text">We've been bringing our two cats here since PawCare opened. The cat-friendly room is genius — Luna and Mochi are actually calm during their visits now. Best vet experience in Denver, hands down.</p>
+        <div class="review-author">
+          <div class="review-avatar">MT</div>
+          <div>
+            <div class="review-name">Marcus T.</div>
+            <div class="review-pet">Pet parent to Luna & Mochi (Cats)</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5.5l-4.3 3.2 1.6 5.3L8 10.3l-4.8 3.2 1.6-5.3L.5 5H6z"/></svg>
+        </div>
+        <p class="review-text">When our lab needed emergency surgery at 2 AM, PawCare's on-call team saved his life. The follow-up care was incredible — they called us every day to check in. These people truly love what they do.</p>
+        <div class="review-author">
+          <div class="review-avatar">AK</div>
+          <div>
+            <div class="review-name">Amanda K.</div>
+            <div class="review-pet">Pet parent to Cooper (Labrador)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROCESS ====== -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header fade-up">
+      <div class="section-label"><span>How It Works</span></div>
+      <h2>Your Visit in <span style="color:var(--amber-light)">3 Easy Steps</span></h2>
+      <p class="section-subtitle">From booking to follow-up, we make every visit simple, warm, and stress-free for you and your pet.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="8" width="36" height="36" rx="4"/><line x1="16" y1="4" x2="16" y2="12"/><line x1="32" y1="4" x2="32" y2="12"/><line x1="6" y1="18" x2="42" y2="18"/><circle cx="24" cy="30" r="4" fill="currentColor" opacity="0.3"/></svg>
+        </div>
+        <h3>Book Your Visit</h3>
+        <p>Call us or fill out the form below. We'll find a time that works and send you a friendly reminder the day before.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 8.61a10 10 0 00-14.14 0 10 10 0 000 14.14L24 40l17.3-17.25a10 10 0 000-14.14 10 10 0 00-14.14 0L24 11.74l-3.16-3.13z"/></svg>
+        </div>
+        <h3>Meet & Examine</h3>
+        <p>Dr. Mitchell takes her time — a gentle greeting, a thorough exam, and a clear explanation of findings and next steps.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M40 28c0 8-7.16 14-16 14S8 36 8 28"/><circle cx="24" cy="18" r="12"/><path d="M20 16l4 4 6-6" stroke-width="3"/></svg>
+        </div>
+        <h3>Happy & Healthy</h3>
+        <p>Go home with a personalized care plan. We follow up to make sure your companion is thriving — because we care beyond the visit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER / CONTACT ====== -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-info fade-up">
+        <div class="section-label" style="color:var(--amber-light)"><span>Get in Touch</span></div>
+        <h2>Let's Care for Your <span style="color:var(--amber-light)">Companion</span></h2>
+        <span class="handwritten">"We're just a phone call away."</span>
+        <p>Whether it's a routine check-up or an urgent concern, our doors (and hearts) are always open for your furry family members.</p>
+
+        <div style="margin-top:28px">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+15558472196">(555) 847-2196</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>1247 Maple Creek Drive, Denver, CO 80220</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Mon–Fri: 7:30 AM – 6 PM &nbsp;|&nbsp; Sat: 8 AM – 2 PM</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:hello@pawcaredenver.com">hello@pawcaredenver.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-form fade-up">
+        <h3>Request an Appointment</h3>
+        <form onsubmit="event.preventDefault();alert('Thank you! We will contact you shortly to confirm your appointment.')">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" placeholder="Jane Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="fphone">Phone</label>
+              <input type="tel" id="fphone" placeholder="(555) 123-4567" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fpet">Pet's Name</label>
+              <input type="text" id="fpet" placeholder="Buddy">
+            </div>
+            <div class="form-group">
+              <label for="fservice">Service Needed</label>
+              <select id="fservice">
+                <option value="">Select a service</option>
+                <option>Wellness Exam</option>
+                <option>Dental Care</option>
+                <option>Vaccination</option>
+                <option>Surgery Consultation</option>
+                <option>Grooming</option>
+                <option>Emergency</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" placeholder="Tell us about your pet and any concerns..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Book My Visit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 PawCare Veterinary Clinic. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== SCRIPTS ====== -->
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ── Lenis smooth scroll ── */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let lenis;
+  if (!prefersReduced) {
+    lenis = new Lenis({ duration: 1.4, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+  }
+
+  /* ── GSAP + ScrollTrigger ── */
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (lenis) {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* ── Nav scroll effect ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ── Mobile menu ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  window.closeMobile = function() {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  if (prefersReduced) return; // Skip all animations
+
+  /* ── Hero animations ── */
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  heroTl
+    .from('.hero-bg img', { scale: 1.15, duration: 2 })
+    .from('.hero-badge', { y: 30, opacity: 0, duration: 0.8 }, 0.4)
+    .from('.hero h1', { y: 50, opacity: 0, duration: 1 }, 0.6)
+    .from('.hero-sub', { y: 30, opacity: 0, duration: 0.8 }, 0.9)
+    .from('.hero-buttons', { y: 20, opacity: 0, duration: 0.7 }, 1.1)
+    .from('.hero-scroll', { opacity: 0, duration: 0.6 }, 1.5);
+
+  /* ── Hero parallax ── */
+  gsap.to('.hero-bg img', {
+    y: 100,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  /* ── Fade up elements ── */
+  gsap.utils.toArray('.fade-up').forEach(el => {
+    gsap.to(el, {
+      y: 0, opacity: 1, duration: 0.9, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+    });
+  });
+
+  /* ── Trust bar counters ── */
+  gsap.utils.toArray('.trust-number').forEach(el => {
+    const target = el.dataset.count;
+    const isDecimal = target.includes('.');
+    const num = { val: 0 };
+    gsap.to(num, {
+      val: parseFloat(target),
+      duration: 2,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+      onUpdate: () => {
+        el.textContent = isDecimal ? num.val.toFixed(1) : Math.round(num.val).toLocaleString();
+      }
+    });
+  });
+
+  /* ── Trust items stagger ── */
+  gsap.utils.toArray('.trust-item').forEach((item, i) => {
+    gsap.from(item, {
+      y: 30, opacity: 0, duration: 0.7, delay: i * 0.12,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.trust', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+  });
+
+  /* ── Service cards stagger ── */
+  gsap.utils.toArray('.service-card').forEach((card, i) => {
+    gsap.to(card, {
+      y: 0, opacity: 1, duration: 0.8, delay: i * 0.1,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+  });
+
+  /* ── Gallery items stagger ── */
+  gsap.utils.toArray('.gallery-item').forEach((item, i) => {
+    gsap.to(item, {
+      y: 0, opacity: 1, duration: 0.7, delay: i * 0.06,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' }
+    });
+  });
+
+  /* ── Review cards stagger ── */
+  gsap.utils.toArray('.review-card').forEach((card, i) => {
+    gsap.to(card, {
+      y: 0, opacity: 1, duration: 0.8, delay: i * 0.15,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.reviews-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+  });
+
+  /* ── Process steps stagger ── */
+  gsap.utils.toArray('.process-step').forEach((step, i) => {
+    gsap.to(step, {
+      y: 0, opacity: 1, duration: 0.8, delay: i * 0.2,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.process-steps', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+  });
+
+  /* ── About section parallax ── */
+  gsap.from('.about-img img', {
+    y: 40,
+    ease: 'none',
+    scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  /* ── Before/After Slider ── */
+  const baSlider = document.getElementById('baSlider');
+  const baHandle = document.getElementById('baHandle');
+  const baBefore = baSlider.querySelector('.ba-before');
+  let isDragging = false;
+
+  function updateSlider(x) {
+    const rect = baSlider.getBoundingClientRect();
+    let pct = ((x - rect.left) / rect.width) * 100;
+    pct = Math.max(2, Math.min(98, pct));
+    baBefore.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    baHandle.style.left = pct + '%';
+  }
+
+  function onPointerDown(e) {
+    isDragging = true;
+    e.preventDefault();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    updateSlider(clientX);
+  }
+  function onPointerMove(e) {
+    if (!isDragging) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    updateSlider(clientX);
+  }
+  function onPointerUp() { isDragging = false; }
+
+  baSlider.addEventListener('mousedown', onPointerDown);
+  baSlider.addEventListener('touchstart', onPointerDown, { passive: false });
+  window.addEventListener('mousemove', onPointerMove);
+  window.addEventListener('touchmove', onPointerMove, { passive: false });
+  window.addEventListener('mouseup', onPointerUp);
+  window.addEventListener('touchend', onPointerUp);
+
+  /* ── Gentle section parallax for warm feel ── */
+  gsap.utils.toArray('section:not(.hero)').forEach(section => {
+    const bg = section.querySelector('.container');
+    if (bg) {
+      gsap.from(bg, {
+        y: 20,
+        ease: 'none',
+        scrollTrigger: { trigger: section, start: 'top bottom', end: 'top center', scrub: true }
+      });
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>

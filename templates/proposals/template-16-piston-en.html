@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Meital Segev Neuhoff — Digital Presence Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #090e12; --paper: #111921; --accent: #30c8b0; --text: #d8e4ea;
+    --danger: #d45555; --accent-dim: rgba(48,200,176,0.1); --accent-glow: rgba(48,200,176,0.25);
+  }
+
+  body {
+    background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif;
+    direction: ltr; min-height: 100vh; overflow-x: hidden; line-height: 1.65; font-weight: 400;
+  }
+
+  /* Blueprint grid background */
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      linear-gradient(rgba(48,200,176,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(48,200,176,0.03) 1px, transparent 1px),
+      linear-gradient(rgba(48,200,176,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(48,200,176,0.015) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  }
+  body::after {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 700px 500px at 30% 25%, rgba(48,200,176,0.03) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 600px at 70% 65%, rgba(212,85,85,0.02) 0%, transparent 70%);
+  }
+
+  .container { max-width: 850px; margin: 0 auto; padding: 0 24px 60px; position: relative; z-index: 1; }
+  h1, h2, h3 { font-family: 'Chakra Petch', sans-serif; font-weight: 700; }
+
+  /* Animations */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes warnPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(212,85,85,0.12); }
+    50% { box-shadow: 0 0 35px rgba(212,85,85,0.25); }
+  }
+  @keyframes scanLine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  @keyframes dataFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  .animate { opacity: 0; animation: fadeSlideUp 0.7s ease-out forwards; }
+  .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; } .delay-6 { animation-delay: 0.6s; }
+  .delay-7 { animation-delay: 0.7s; } .delay-8 { animation-delay: 0.8s; }
+  .delay-9 { animation-delay: 0.9s; } .delay-10 { animation-delay: 1.0s; }
+  .delay-11 { animation-delay: 1.1s; } .delay-12 { animation-delay: 1.2s; }
+
+  /* Tech line divider */
+  .tech-line {
+    height: 2px; border: none; border-radius: 0; position: relative; overflow: hidden;
+    background: linear-gradient(90deg, transparent, rgba(48,200,176,0.2), transparent);
+  }
+  .tech-line::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 60px; height: 100%;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    animation: scanLine 3s ease-in-out infinite;
+  }
+
+  .pin { display: inline-block; color: var(--accent); font-size: 8px; opacity: 0.4; }
+
+  /* ═══ HERO / MASTHEAD ═══ */
+  .hero { position: relative; padding: 0 0 40px; text-align: center; }
+  .hero .tech-line { margin-bottom: 48px; }
+  .hero-badge {
+    display: inline-block; background: var(--accent-dim); border: 1px solid var(--accent-glow);
+    border-radius: 2px; padding: 8px 28px; font-size: 12px; color: var(--accent);
+    font-family: 'Chakra Petch', sans-serif; font-weight: 500; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .hero-title {
+    font-size: 50px; color: #f0f6fa; letter-spacing: 2px; line-height: 1.15; margin-bottom: 10px;
+  }
+  .hero-location {
+    font-family: 'Chakra Petch', sans-serif; font-size: 18px; color: var(--accent);
+    font-weight: 300; letter-spacing: 6px; display: block; margin-bottom: 40px; text-transform: uppercase;
+  }
+
+  /* Stat strip */
+  .stat-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 60px; }
+  .stat-box {
+    background: var(--paper); border: 1px solid rgba(48,200,176,0.12); border-radius: 4px;
+    padding: 28px 20px; text-align: center; position: relative; overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .stat-box:hover { transform: translateY(-3px); border-color: var(--accent-glow); }
+  .stat-box::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
+  }
+  .stat-box::after {
+    content: ''; position: absolute; bottom: 8px; right: 8px; width: 20px; height: 20px;
+    border-right: 1px solid rgba(48,200,176,0.15); border-bottom: 1px solid rgba(48,200,176,0.15);
+  }
+  .stat-number { font-family: 'Chakra Petch', sans-serif; font-size: 38px; color: #f0f6fa; font-weight: 700; }
+  .stat-stars { color: var(--accent); font-size: 14px; letter-spacing: 3px; margin: 4px 0; }
+  .stat-label { font-size: 11px; color: rgba(216,228,234,0.4); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+
+  /* Section heading */
+  .section-title { text-align: center; font-size: 26px; color: var(--accent); letter-spacing: 4px; margin-bottom: 12px; text-transform: uppercase; }
+  .section-divider { max-width: 200px; margin: 0 auto 36px; }
+
+  /* ═══ COMPETITOR TABLE ═══ */
+  .comp-section { margin-bottom: 60px; }
+  .comp-wrap {
+    background: var(--paper); border-radius: 4px; overflow: hidden;
+    border: 1px solid rgba(48,200,176,0.1);
+  }
+  .comp-table { width: 100%; border-collapse: collapse; }
+  .comp-header-row { background: rgba(9,14,18,0.8); }
+  .comp-header-row th {
+    padding: 16px 14px; font-family: 'Chakra Petch', sans-serif; font-size: 12px;
+    font-weight: 600; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; text-align: center;
+  }
+  .comp-header-row th:first-child { text-align: left; }
+  .comp-row { border-bottom: 1px solid rgba(48,200,176,0.05); transition: background 0.2s ease; }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-row:hover { background: rgba(48,200,176,0.03); }
+  .comp-row td { padding: 13px 14px; font-size: 14px; text-align: center; color: rgba(216,228,234,0.75); }
+  .cell-label { text-align: left !important; font-weight: 500; color: rgba(216,228,234,0.45); font-size: 13px; letter-spacing: 0.5px; font-family: 'Chakra Petch', sans-serif; }
+  .cell-you { border-left: 2px solid var(--accent); background: var(--accent-dim); color: #f0f6fa; font-weight: 700; }
+  .cell-comp { color: rgba(216,228,234,0.6); }
+  .win { color: var(--accent); }
+  .lose { color: var(--danger); }
+
+  /* Callout alert */
+  .callout-alert {
+    margin: 24px 16px 16px; background: rgba(212,85,85,0.06); border: 1px solid rgba(212,85,85,0.25);
+    border-radius: 4px; padding: 22px 26px; text-align: center;
+    animation: warnPulse 4s ease-in-out infinite;
+  }
+  .callout-alert .warn-icon { font-size: 20px; margin-bottom: 8px; display: block; }
+  .callout-alert p { font-size: 15px; line-height: 1.7; color: rgba(216,228,234,0.85); }
+  .callout-alert strong { color: var(--danger); font-weight: 700; }
+  .callout-alert .stat-highlight { color: var(--accent); font-weight: 700; }
+
+  /* ═══ RATING HERO ═══ */
+  .reputation-section { margin-bottom: 60px; }
+  .rating-hero { text-align: center; padding: 48px 20px 24px; }
+  .rating-huge {
+    font-family: 'Chakra Petch', sans-serif; font-size: 110px; font-weight: 700; color: var(--accent);
+    line-height: 1; text-shadow: 0 0 80px rgba(48,200,176,0.3), 0 0 160px rgba(48,200,176,0.1);
+    margin-bottom: 4px; letter-spacing: -2px;
+  }
+  .rating-stars-big { font-size: 22px; color: var(--accent); letter-spacing: 5px; margin-bottom: 10px; }
+  .rating-subtitle { font-size: 14px; color: rgba(216,228,234,0.35); font-weight: 400; letter-spacing: 1px; }
+
+  .insight-card {
+    max-width: 540px; margin: 24px auto 40px; background: var(--paper);
+    border: 1px solid rgba(48,200,176,0.2); border-radius: 4px; padding: 22px 28px;
+    text-align: center; font-size: 16px; color: rgba(216,228,234,0.8);
+  }
+  .insight-card strong { color: var(--accent); }
+
+  /* Calc table */
+  .calc-card {
+    background: var(--paper); border-radius: 4px; overflow: hidden;
+    border: 1px solid rgba(48,200,176,0.1); margin-bottom: 32px;
+  }
+  .calc-card .calc-title {
+    padding: 18px 24px; font-family: 'Chakra Petch', sans-serif; font-size: 14px;
+    font-weight: 600; color: var(--accent); background: rgba(9,14,18,0.6);
+    letter-spacing: 3px; text-align: center; text-transform: uppercase;
+  }
+  .calc-table { width: 100%; border-collapse: collapse; }
+  .calc-table th { padding: 13px 18px; font-size: 11px; text-align: center; color: var(--accent); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(9,14,18,0.4); font-family: 'Chakra Petch', sans-serif; }
+  .calc-table td { padding: 13px 18px; font-size: 14px; text-align: center; color: rgba(216,228,234,0.65); border-bottom: 1px solid rgba(48,200,176,0.05); }
+  .calc-table tr:last-child td { border-bottom: none; }
+  .calc-highlight td { background: var(--accent-dim); color: #f0f6fa; font-weight: 600; }
+
+  /* Competitor reference grid */
+  .comp-ref-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  .comp-ref-card {
+    background: var(--paper); border: 1px solid rgba(48,200,176,0.12); border-radius: 4px;
+    padding: 24px 18px; text-align: center; transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+  }
+  .comp-ref-card::before {
+    content: ''; position: absolute; top: 8px; left: 8px; width: 6px; height: 6px;
+    border-left: 1px solid rgba(48,200,176,0.2); border-top: 1px solid rgba(48,200,176,0.2);
+  }
+  .comp-ref-card::after {
+    content: ''; position: absolute; bottom: 8px; right: 8px; width: 6px; height: 6px;
+    border-right: 1px solid rgba(48,200,176,0.2); border-bottom: 1px solid rgba(48,200,176,0.2);
+  }
+  .comp-ref-card:hover { transform: translateY(-3px); border-color: var(--accent-glow); }
+  .comp-ref-card .comp-ref-name { font-family: 'Chakra Petch', sans-serif; font-size: 14px; font-weight: 600; color: rgba(216,228,234,0.9); margin-bottom: 12px; line-height: 1.4; }
+  .comp-ref-card .comp-ref-rating { font-family: 'Chakra Petch', sans-serif; font-size: 30px; font-weight: 700; color: #f0f6fa; margin-bottom: 2px; }
+  .comp-ref-card .comp-ref-stars { color: var(--accent); font-size: 12px; letter-spacing: 2px; margin-bottom: 6px; }
+  .comp-ref-card .comp-ref-reviews { font-size: 12px; color: rgba(216,228,234,0.35); }
+
+  /* Urgency callout */
+  .callout-urgency {
+    background: var(--paper); border: 1px solid rgba(212,85,85,0.25); border-radius: 4px;
+    padding: 24px 28px; text-align: center; margin-bottom: 60px; position: relative; overflow: hidden;
+  }
+  .callout-urgency::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--danger), transparent);
+  }
+  .callout-urgency p { font-size: 15px; color: rgba(216,228,234,0.8); line-height: 1.7; }
+  .callout-urgency strong { color: var(--danger); }
+
+  /* ═══ CTA ═══ */
+  .cta-box {
+    background: var(--paper); border-radius: 4px; padding: 44px 36px; text-align: center;
+    position: relative; margin-bottom: 48px; overflow: hidden;
+    border: 1px solid var(--accent);
+  }
+  .cta-box::before {
+    content: ''; position: absolute; inset: 0; opacity: 0.03;
+    background-image:
+      linear-gradient(rgba(48,200,176,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(48,200,176,0.5) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  .cta-box::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), rgba(48,200,176,0.3), var(--accent));
+    background-size: 200% 100%; animation: dataFlow 4s linear infinite;
+  }
+  .cta-title { font-size: 28px; color: #f0f6fa; letter-spacing: 3px; margin-bottom: 12px; text-transform: uppercase; }
+  .cta-subtitle { font-size: 15px; color: rgba(216,228,234,0.45); margin-bottom: 28px; letter-spacing: 0.5px; }
+  .cta-button {
+    display: inline-block; position: relative; z-index: 1;
+    background: var(--accent); color: var(--bg); font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700; font-size: 15px; padding: 14px 44px; border-radius: 2px;
+    text-decoration: none; letter-spacing: 3px; text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 25px rgba(48,200,176,0.25);
+  }
+  .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 35px rgba(48,200,176,0.4); }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; font-size: 11px; color: rgba(216,228,234,0.18); letter-spacing: 2px; font-family: 'Chakra Petch', sans-serif; }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .hero-title { font-size: 34px; }
+    .stat-strip { grid-template-columns: 1fr; gap: 12px; }
+    .comp-header-row th, .comp-row td { padding: 10px 6px; font-size: 11px; }
+    .comp-ref-grid { grid-template-columns: 1fr; }
+    .rating-huge { font-size: 80px; }
+    .section-title { font-size: 20px; letter-spacing: 2px; }
+    .cta-box { padding: 32px 20px; }
+    .cta-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ HERO / MASTHEAD ═══ -->
+  <section class="hero animate">
+    <hr class="tech-line">
+    <div style="padding-top: 44px;">
+      <div class="hero-badge animate delay-2">Digital Presence Report // March 2026</div>
+      <h1 class="hero-title animate delay-3">Dr. Meital Segev Neuhoff</h1>
+      <span class="hero-location animate delay-4">Tel Aviv</span>
+    </div>
+
+    <!-- Stat strip -->
+    <div class="stat-strip">
+      <div class="stat-box animate delay-5">
+        <div class="stat-number">5.0</div>
+        <div class="stat-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="stat-label"><span class="pin">&#9632;</span> Google Rating <span class="pin">&#9632;</span></div>
+      </div>
+      <div class="stat-box animate delay-6">
+        <div class="stat-number">24</div>
+        <div class="stat-stars">&#9632;</div>
+        <div class="stat-label"><span class="pin">&#9632;</span> Reviews <span class="pin">&#9632;</span></div>
+      </div>
+      <div class="stat-box animate delay-7">
+        <div class="stat-number">8/10</div>
+        <div class="stat-stars">&#9632;</div>
+        <div class="stat-label"><span class="pin">&#9632;</span> Website Score <span class="pin">&#9632;</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPETITOR COMPARISON ═══ -->
+  <section class="comp-section animate delay-6">
+    <div class="section-divider"><hr class="tech-line"></div>
+    <h2 class="section-title">Competitor Analysis</h2>
+    <div style="text-align:center; margin-bottom: 28px;"><span class="pin">&#9632;</span></div>
+
+    <div class="comp-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr class="comp-header-row">
+            <th></th>
+            <th>You</th>
+            <th>Care Laser</th>
+            <th>Myodent — Dr. Max</th>
+            <th>Dr. Shira Hazak</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="comp-row">
+            <td class="cell-label">Google Rating</td>
+            <td class="cell-you">5.0</td>
+            <td class="cell-comp win">4.0</td>
+            <td class="cell-comp">5.0</td>
+            <td class="cell-comp">5.0</td>
+          </tr>
+          <tr class="comp-row">
+            <td class="cell-label">Reviews</td>
+            <td class="cell-you">24</td>
+            <td class="cell-comp lose">756</td>
+            <td class="cell-comp lose">485</td>
+            <td class="cell-comp lose">354</td>
+          </tr>
+          <tr class="comp-row">
+            <td class="cell-label">Website Score</td>
+            <td class="cell-you">8</td>
+            <td class="cell-comp win">0</td>
+            <td class="cell-comp">8</td>
+            <td class="cell-comp lose">9</td>
+          </tr>
+          <tr class="comp-row">
+            <td class="cell-label">Online Booking</td>
+            <td class="cell-you">&#10003;</td>
+            <td class="cell-comp win">&#10007;</td>
+            <td class="cell-comp">&#10003;</td>
+            <td class="cell-comp">&#10003;</td>
+          </tr>
+          <tr class="comp-row">
+            <td class="cell-label">Facebook</td>
+            <td class="cell-you">&#10003;</td>
+            <td class="cell-comp win">&#10007;</td>
+            <td class="cell-comp win">&#10007;</td>
+            <td class="cell-comp">&#10003;</td>
+          </tr>
+          <tr class="comp-row">
+            <td class="cell-label">Instagram</td>
+            <td class="cell-you">&#10003;</td>
+            <td class="cell-comp win">&#10007;</td>
+            <td class="cell-comp win">&#10007;</td>
+            <td class="cell-comp win">&#10007;</td>
+          </tr>
+          <tr class="comp-row">
+            <td class="cell-label">GBP Photos</td>
+            <td class="cell-you">15</td>
+            <td class="cell-comp lose">85</td>
+            <td class="cell-comp lose">120</td>
+            <td class="cell-comp lose">65</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout-alert animate delay-8">
+        <span class="warn-icon">&#9888;</span>
+        <p>
+          <strong>Your Position: 4th out of 4</strong> by Review count.<br>
+          The leading competitor has <span class="stat-highlight">756 Reviews</span> — 31.5x more than you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REPUTATION ANALYSIS ═══ -->
+  <section class="reputation-section animate delay-7">
+    <div class="section-divider"><hr class="tech-line"></div>
+    <h2 class="section-title">Reputation Diagnostics</h2>
+    <div style="text-align:center; margin-bottom: 28px;"><span class="pin">&#9632;</span></div>
+
+    <div class="rating-hero">
+      <div class="rating-huge">5.0</div>
+      <div class="rating-stars-big">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rating-subtitle">24 Reviews on Google</div>
+    </div>
+
+    <div class="insight-card animate delay-8">
+      <strong>Perfect 5.0 rating</strong> — but only 24 reviews. Your digital footprint is still thin compared to competitors.
+    </div>
+
+    <div class="calc-card animate delay-9">
+      <div class="calc-title"><span class="pin">&#9632;</span> Rating Forecast Model <span class="pin">&#9632;</span></div>
+      <table class="calc-table">
+        <thead>
+          <tr><th>New Reviews</th><th>Projected Rating</th><th>Delta</th></tr>
+        </thead>
+        <tbody>
+          <tr class="calc-highlight"><td>Today</td><td>5.0</td><td>—</td></tr>
+          <tr><td>+5</td><td>5.0</td><td>+0.0</td></tr>
+          <tr><td>+10</td><td>5.0</td><td>+0.0</td></tr>
+          <tr><td>+15</td><td>5.0</td><td>+0.0</td></tr>
+          <tr><td>+20</td><td>5.0</td><td>+0.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Competitor reference grid -->
+    <div class="comp-ref-grid">
+      <div class="comp-ref-card animate delay-9">
+        <div class="comp-ref-name">Myodent — Dr. Max</div>
+        <div class="comp-ref-rating">5.0</div>
+        <div class="comp-ref-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="comp-ref-reviews">485 Reviews</div>
+      </div>
+      <div class="comp-ref-card animate delay-10">
+        <div class="comp-ref-name">Dr. Shira Hazak</div>
+        <div class="comp-ref-rating">5.0</div>
+        <div class="comp-ref-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="comp-ref-reviews">354 Reviews</div>
+      </div>
+      <div class="comp-ref-card animate delay-11">
+        <div class="comp-ref-name">Care Laser</div>
+        <div class="comp-ref-rating">4.0</div>
+        <div class="comp-ref-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <div class="comp-ref-reviews">756 Reviews</div>
+      </div>
+    </div>
+
+    <!-- Urgency callout -->
+    <div class="callout-urgency animate delay-10">
+      <p>
+        <strong>Every day without new reviews</strong>, your competitors pull further ahead.<br>
+        With only 24 reviews, you are far behind. The time to act is now.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="animate delay-11">
+    <div class="cta-box">
+      <h2 class="cta-title">Want the Full Analysis?</h2>
+      <p class="cta-subtitle">10 minutes on Zoom — let's review your online presence together.</p>
+      <a href="#" class="cta-button">Schedule a Quick Call</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer animate delay-12">
+    <p><span class="pin">&#9632;</span> Based on public data // March 2026 <span class="pin">&#9632;</span></p>
+  </footer>
+
+</div>
+</body>
+</html>

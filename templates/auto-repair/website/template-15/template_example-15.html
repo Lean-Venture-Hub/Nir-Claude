@@ -80,7 +80,7 @@ a{text-decoration:none;color:inherit}
 img{max-width:100%;height:auto;display:block}
 
 /* GSAP initial states */
-.gsap-fade{opacity:0;transform:translateY(40px)}
+.gsap-fade{transform:translateY(40px)}
 .gsap-scale{opacity:0;transform:scale(0.9)}
 
 /* Keyframes */
@@ -726,7 +726,7 @@ img{max-width:100%;height:auto;display:block}
       </div>
       <div class="service-card gsap-fade parallax-layer" data-speed="0.6">
         <div class="service-card-img">
-          <img src="../../images/template-images/service-transmission.jpg" alt="Transmission repair" width="400" height="300" loading="lazy">
+          <img src="../../images/template-images/service-engine.jpg" alt="Transmission repair" width="400" height="300" loading="lazy">
         </div>
         <div class="service-card-body">
           <h3>Transmission</h3>
@@ -736,7 +736,7 @@ img{max-width:100%;height:auto;display:block}
       </div>
       <div class="service-card gsap-fade parallax-layer" data-speed="0.5">
         <div class="service-card-img">
-          <img src="../../images/template-images/service-ac.jpg" alt="AC and heating repair" width="400" height="300" loading="lazy">
+          <img src="../../images/template-images/service-diagnostics.jpg" alt="AC and heating repair" width="400" height="300" loading="lazy">
         </div>
         <div class="service-card-body">
           <h3>Heating &amp; Cooling</h3>
@@ -1006,8 +1006,6 @@ img{max-width:100%;height:auto;display:block}
   let lenis;
   if (!prefersReduced) {
     lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);

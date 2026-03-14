@@ -110,7 +110,7 @@ body{
 }
 
 .anim-in{
-  opacity:1;
+  opacity:0;
   animation:fadeInUp .7s ease forwards;
 }
 .anim-d1{animation-delay:.1s}
@@ -1220,6 +1220,10 @@ body{
   .about-stat::after{display:none}
   .cta-heading{font-size:28px}
   .cta-btn{padding:14px 36px;font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .anim-in{opacity:1!important;transform:none!important}
 }
 </style>
 </head>

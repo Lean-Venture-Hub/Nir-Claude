@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!--
+  TEMPLATE DESIGN BRIEF
+  Vertical: Auto Repair
+  Template: #19 — "Neon Mechanic"
+  Mood: Electric, Futuristic, Bold
+  Palette: Deep Black #050505 + Neon Green #39FF14 + Dark Gray #111 + Muted Green #0a3d00
+  Fonts: JetBrains Mono (monospace display + body)
+  Hero: Full-screen dark with scanline overlay, typewriter headline, pulsing CTA
+  Animation: GSAP ScrollTrigger + Lenis smooth scroll + typewriter + counting + progress bars
+  Sections: Nav > Hero > Stats > About > Services > Diagnostics > Reviews > Gallery > Team > Technology > Specials > Book Now > Footer
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precision Auto Works | Expert Auto Repair | Dallas, TX</title>
+<meta name="description" content="Trusted auto repair in Dallas, TX. ASE-certified mechanics, 4.9★ rating, 487+ reviews. Oil changes, brakes, diagnostics &amp; more. Call (555) 482-7193.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Precision Auto Works",
+  "telephone": "(555) 482-7193",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dallas"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "487"
+  },
+  "url": "",
+  "image": "../../images/template-images/hero.jpg"
+}
+</script>
+
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+:root {
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #0d0d0d;
+  --bg-card-hover: #111;
+  --neon: #39FF14;
+  --neon-dim: #1a7a0a;
+  --neon-glow: rgba(57, 255, 20, 0.4);
+  --neon-glow-strong: rgba(57, 255, 20, 0.7);
+  --text-primary: #e0e0e0;
+  --text-muted: #777;
+  --text-dim: #444;
+  --border: #1a1a1a;
+  --font: 'JetBrains Mono', monospace;
+  --h1-hero: clamp(36px, 7vw, 72px);
+  --h1: clamp(28px, 5vw, 52px);
+  --h2: clamp(22px, 3.5vw, 36px);
+  --h3: clamp(18px, 2.5vw, 24px);
+  --body: clamp(14px, 1.1vw, 16px);
+  --small: clamp(11px, 0.9vw, 13px);
+  --section-pad: clamp(60px, 10vw, 120px);
+}
+
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--neon); text-decoration: none; transition: all 0.3s; }
+a:hover { text-shadow: 0 0 8px var(--neon-glow); }
+
+/* ===== UTILITY ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section-pad { padding: var(--section-pad) 0; }
+.neon-text { color: var(--neon); text-shadow: 0 0 10px var(--neon-glow), 0 0 20px rgba(57,255,20,0.2); }
+.terminal-label {
+  font-size: var(--small);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon);
+  margin-bottom: 12px;
+  display: inline-block;
+}
+.terminal-label::before { content: '> '; color: var(--neon-dim); }
+
+.section-title {
+  font-size: var(--h2);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: var(--body);
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+/* Scanline overlay */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Neon border card */
+.neon-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 32px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+.neon-card:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 20px rgba(57,255,20,0.1), inset 0 0 20px rgba(57,255,20,0.03);
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 0;
+  background: rgba(5, 5, 5, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--neon);
+  text-shadow: 0 0 10px var(--neon-glow);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-logo span { color: var(--text-muted); font-weight: 400; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--neon);
+  box-shadow: 0 0 4px var(--neon-glow);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--neon); text-shadow: none; }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  font-size: 12px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--neon);
+  color: var(--neon) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.nav-cta:hover {
+  background: var(--neon);
+  color: #050505 !important;
+  box-shadow: 0 0 20px var(--neon-glow);
+  text-shadow: none !important;
+}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2px; background: var(--neon); transition: all 0.3s; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  filter: grayscale(80%) brightness(0.5);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,5,5,0.7) 0%, rgba(5,5,5,0.9) 60%, var(--bg-primary) 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  font-size: var(--small);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--neon);
+  margin-bottom: 20px;
+}
+.hero-eyebrow::before { content: '[ '; }
+.hero-eyebrow::after { content: ' ]'; }
+.hero-h1 {
+  font-size: var(--h1-hero);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+.hero-h1 .neon-word {
+  color: var(--neon);
+  text-shadow: 0 0 20px var(--neon-glow), 0 0 40px rgba(57,255,20,0.15);
+}
+.hero-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background: var(--neon);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+  vertical-align: baseline;
+  box-shadow: 0 0 8px var(--neon-glow);
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.hero-sub {
+  font-size: clamp(14px, 1.2vw, 18px);
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 32px;
+}
+.hero-cta-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.btn-neon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--neon);
+  color: #050505;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+  text-decoration: none;
+  box-shadow: 0 0 20px var(--neon-glow), 0 0 40px rgba(57,255,20,0.15);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--neon-glow), 0 0 40px rgba(57,255,20,0.15); }
+  50% { box-shadow: 0 0 30px var(--neon-glow-strong), 0 0 60px rgba(57,255,20,0.3); }
+}
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px var(--neon-glow-strong), 0 0 80px rgba(57,255,20,0.3);
+  text-shadow: none;
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--neon);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(57,255,20,0.3);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-ghost:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 15px rgba(57,255,20,0.2);
+  transform: translateY(-2px);
+  text-shadow: none;
+}
+.hero-proof {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero-proof-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--small);
+  color: var(--text-muted);
+}
+.hero-proof-item .stars { color: var(--neon); }
+.hero-proof-divider { width: 1px; height: 24px; background: var(--border); }
+
+/* ===== STATS BAR ===== */
+.stats {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  opacity: 0.5;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+.stat-item { position: relative; }
+.stat-item::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+.stat-item:last-child::after { display: none; }
+.stat-number {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  color: var(--neon);
+  text-shadow: 0 0 20px var(--neon-glow);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: var(--small);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ===== ABOUT ===== */
+.about { background: var(--bg-primary); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.about-terminal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+.terminal-dot.red { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #27c93f; }
+.terminal-title { font-size: 11px; color: var(--text-dim); margin-left: 12px; }
+.terminal-body {
+  padding: 24px;
+  font-size: var(--body);
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+.terminal-body .prompt { color: var(--neon); }
+.terminal-body .cmd { color: var(--text-primary); }
+.terminal-body .output { color: var(--text-muted); display: block; padding-left: 16px; margin: 8px 0; }
+.about-image-wrap {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.about-image-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 2px solid var(--neon);
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  box-shadow: 0 0 20px var(--neon-glow);
+  z-index: 1;
+  pointer-events: none;
+}
+.about-image-wrap:hover::before { opacity: 1; }
+.about-image-wrap img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  filter: grayscale(40%);
+  transition: filter 0.4s;
+}
+.about-image-wrap:hover img { filter: grayscale(0%); }
+.about-image-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-size: 11px;
+  color: var(--neon);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(5,5,5,0.8);
+  padding: 6px 12px;
+  border: 1px solid var(--neon-dim);
+  z-index: 2;
+}
+
+/* ===== SERVICES ===== */
+.services { background: var(--bg-secondary); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.4s;
+  position: relative;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--neon);
+  transform: scaleX(0);
+  transition: transform 0.4s;
+  box-shadow: 0 0 10px var(--neon-glow);
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover {
+  border-color: rgba(57,255,20,0.3);
+  box-shadow: 0 0 30px rgba(57,255,20,0.08);
+  transform: translateY(-4px);
+}
+.service-card-image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  filter: grayscale(60%) brightness(0.7);
+  transition: all 0.4s;
+}
+.service-card:hover .service-card-image { filter: grayscale(20%) brightness(0.9); }
+.service-card-body { padding: 24px; }
+.service-card-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--neon-dim);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--neon);
+  font-size: 18px;
+  transition: all 0.4s;
+}
+.service-card:hover .service-card-icon {
+  border-color: var(--neon);
+  box-shadow: 0 0 12px rgba(57,255,20,0.2);
+}
+.service-card-title {
+  font-size: var(--h3);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.service-card-desc {
+  font-size: var(--small);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===== DIAGNOSTICS ===== */
+.diagnostics { background: var(--bg-primary); }
+.diag-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.diag-steps { display: flex; flex-direction: column; gap: 32px; }
+.diag-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.diag-step-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--neon);
+  background: rgba(57,255,20,0.08);
+  border: 1px solid var(--neon-dim);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.diag-step-content h4 {
+  font-size: var(--body);
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.diag-step-content p {
+  font-size: var(--small);
+  color: var(--text-muted);
+}
+.diag-visual {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 32px;
+}
+.diag-bar-group { margin-bottom: 24px; }
+.diag-bar-group:last-child { margin-bottom: 0; }
+.diag-bar-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: var(--small);
+}
+.diag-bar-label span:first-child { color: var(--text-primary); }
+.diag-bar-label span:last-child { color: var(--neon); }
+.diag-bar-track {
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.diag-bar-fill {
+  height: 100%;
+  background: var(--neon);
+  box-shadow: 0 0 8px var(--neon-glow);
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.5s ease;
+}
+
+/* ===== REVIEWS ===== */
+.reviews { background: var(--bg-secondary); }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 32px;
+  position: relative;
+  transition: all 0.3s;
+}
+.review-card:hover { border-color: rgba(57,255,20,0.2); }
+.review-stars { color: var(--neon); font-size: 14px; margin-bottom: 16px; letter-spacing: 4px; }
+.review-text {
+  font-size: var(--body);
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.review-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.review-name {
+  font-size: var(--small);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.review-date {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* ===== GALLERY ===== */
+.gallery { background: var(--bg-primary); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(50%);
+  transition: all 0.5s;
+}
+.gallery-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
+.gallery-item::before,
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid transparent;
+  transition: all 0.4s;
+  z-index: 2;
+}
+.gallery-item::before { top: 8px; left: 8px; border-top-color: transparent; border-left-color: transparent; }
+.gallery-item::after { bottom: 8px; right: 8px; border-bottom-color: transparent; border-right-color: transparent; }
+.gallery-item:hover::before { border-top-color: var(--neon); border-left-color: var(--neon); box-shadow: -2px -2px 8px rgba(57,255,20,0.3); }
+.gallery-item:hover::after { border-bottom-color: var(--neon); border-right-color: var(--neon); box-shadow: 2px 2px 8px rgba(57,255,20,0.3); }
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,5,5,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+}
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+.gallery-item-overlay span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon);
+  border: 1px solid var(--neon);
+  padding: 6px 14px;
+}
+
+/* ===== TEAM ===== */
+.team { background: var(--bg-secondary); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s;
+}
+.team-card:hover { border-color: rgba(57,255,20,0.2); }
+.team-card-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: grayscale(60%);
+  transition: filter 0.4s;
+}
+.team-card:hover .team-card-image { filter: grayscale(0%); }
+.team-card-info { padding: 20px; }
+.team-card-name {
+  font-size: var(--body);
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+.team-card-role {
+  font-size: var(--small);
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.team-card-underline {
+  width: 40px;
+  height: 2px;
+  background: var(--neon);
+  margin: 0 auto;
+  box-shadow: 0 0 6px var(--neon-glow);
+  transition: width 0.4s;
+}
+.team-card:hover .team-card-underline { width: 60px; }
+
+/* ===== TECHNOLOGY ===== */
+.technology { background: var(--bg-primary); }
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.tech-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: all 0.3s;
+}
+.tech-card:hover { border-color: rgba(57,255,20,0.2); box-shadow: 0 0 20px rgba(57,255,20,0.05); }
+.tech-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--neon-dim);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neon);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.tech-card h4 {
+  font-size: var(--body);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.tech-card p {
+  font-size: var(--small);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.tech-spec {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--neon);
+  border: 1px solid var(--neon-dim);
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ===== SPECIALS ===== */
+.specials { background: var(--bg-secondary); }
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.special-card {
+  background: var(--bg-card);
+  border: 1px solid var(--neon-dim);
+  border-radius: 4px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.special-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--neon);
+  box-shadow: 0 0 10px var(--neon-glow);
+}
+.special-card:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 30px rgba(57,255,20,0.1);
+}
+.special-badge {
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--bg-primary);
+  background: var(--neon);
+  padding: 4px 12px;
+  margin-bottom: 16px;
+}
+.special-title {
+  font-size: var(--h3);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.special-price {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--neon);
+  text-shadow: 0 0 10px var(--neon-glow);
+  margin-bottom: 8px;
+}
+.special-original {
+  font-size: var(--small);
+  color: var(--text-dim);
+  text-decoration: line-through;
+  margin-bottom: 16px;
+}
+.special-desc {
+  font-size: var(--small);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.special-timer {
+  font-size: 11px;
+  color: var(--neon);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.timer-digits {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.timer-digit {
+  background: rgba(57,255,20,0.08);
+  border: 1px solid var(--neon-dim);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--neon);
+  min-width: 44px;
+}
+.timer-digit small {
+  display: block;
+  font-size: 9px;
+  color: var(--text-dim);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* ===== BOOK NOW ===== */
+.book-now {
+  background: var(--bg-primary);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.book-now::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(57,255,20,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.book-now .section-title { font-size: var(--h1); }
+.book-now .section-subtitle { margin: 0 auto 40px; }
+.book-now-phone {
+  font-size: var(--h2);
+  font-weight: 700;
+  color: var(--neon);
+  text-shadow: 0 0 20px var(--neon-glow);
+  display: block;
+  margin-bottom: 32px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 64px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand .nav-logo { margin-bottom: 16px; display: inline-block; }
+.footer-desc {
+  font-size: var(--small);
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--neon);
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a { font-size: var(--small); color: var(--text-muted); }
+.footer-col a:hover { color: var(--neon); }
+.footer-social { display: flex; gap: 12px; margin-top: 20px; }
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+.footer-social a:hover {
+  border-color: var(--neon);
+  color: var(--neon);
+  box-shadow: 0 0 10px rgba(57,255,20,0.2);
+  text-shadow: none;
+}
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* ===== MOBILE STICKY CTA ===== */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--neon-dim);
+  padding: 12px 24px;
+}
+.mobile-cta a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--neon);
+  color: #050505;
+  padding: 14px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-eyebrow, .hero-h1, .hero-sub, .hero-cta-wrap, .hero-proof { opacity: 1 !important; transform: none !important; }
+  .btn-neon { animation: none; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(5,5,5,0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 24px;
+    gap: 20px;
+  }
+  .nav-links.active .nav-cta { width: 100%; text-align: center; }
+  .hero-h1 { letter-spacing: -1px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .stat-item::after { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-image-wrap { order: -1; }
+  .services-grid { grid-template-columns: 1fr; }
+  .diag-grid { grid-template-columns: 1fr; gap: 32px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .tech-grid { grid-template-columns: 1fr; }
+  .specials-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .mobile-cta { display: block; }
+  body { padding-bottom: 70px; }
+  .hero-proof { flex-direction: column; gap: 12px; }
+  .hero-proof-divider { width: 40px; height: 1px; }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .timer-digits { gap: 8px; }
+  .timer-digit { min-width: 36px; font-size: 14px; padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" role="navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Precision Auto<span>_</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#diagnostics">Diagnostics</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#specials">Specials</a></li>
+      <li><a href="tel:+15554827193" class="nav-cta">(555) 482-7193</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero scanlines" id="hero">
+  <div class="hero-bg">
+    <img src="../../images/template-images/hero.jpg" alt="Precision Auto Works auto repair shop" width="1920" height="1080" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">ASE Certified · Since 2006</div>
+    <h1 class="hero-h1">
+      <span class="neon-word">Precision</span> Auto Repair.<br>
+      <span class="neon-word">Zero</span> Guesswork.<span class="hero-cursor"></span>
+    </h1>
+    <p class="hero-sub">Dallas's highest-rated auto shop. ASE-certified mechanics, transparent pricing, and a 3-year warranty on every repair.</p>
+    <div class="hero-cta-wrap">
+      <a href="tel:+15554827193" class="btn-neon">Schedule Service</a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>4.9 stars &mdash; 487 reviews</span>
+      </div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item">ASE Certified &bull; AAA Approved</div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item">Since 2006</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== STATS BAR ===== -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" data-target="18">0</div>
+        <div class="stat-label">Years in Business</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="42000">0</div>
+        <div class="stat-label">Cars Serviced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="487">0</div>
+        <div class="stat-label">5-Star Reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="98">0</div>
+        <div class="stat-label">% Customer Retention</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="terminal-label">About Us</div>
+        <h2 class="section-title">Built Different.<br>Wired <span class="neon-text">Better</span>.</h2>
+        <div class="about-terminal">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">about_Precision Auto.sh</span>
+          </div>
+          <div class="terminal-body">
+            <span class="prompt">$</span> <span class="cmd">cat company_info.txt</span>
+            <span class="output">Founded in 2006, Precision Auto Works has grown from a two-bay garage into Dallas's most trusted auto repair shop. Owner Mike Rodriguez and his team of ASE-certified technicians have completed over 50,000 repairs with a 4.9-star rating. We believe in transparent pricing, honest diagnostics, and treating every car like our own.</span>
+            <span class="prompt">$</span> <span class="cmd">echo $OWNER</span>
+            <span class="output">Mike Rodriguez &mdash; Founder &amp; Lead Technician</span>
+            <span class="prompt">$</span> <span class="cmd">echo $LOCATION</span>
+            <span class="output">4821 Commerce St, Dallas, TX 75226, Dallas</span>
+            <span class="prompt">$</span> <span class="cmd">uptime</span>
+            <span class="output">18 years, 0 days of downtime_</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-image-wrap">
+        <img src="../../images/template-images/mechanic-portrait.jpg" alt="Mike Rodriguez, founder of Precision Auto Works" width="600" height="750" loading="lazy">
+        <div class="about-image-label">// founder_portrait.jpg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services section-pad" id="services">
+  <div class="container">
+    <div class="terminal-label">Our Services</div>
+    <h2 class="section-title">Full-Stack <span class="neon-text">Auto Care</span></h2>
+    <p class="section-subtitle">From routine maintenance to complex diagnostics &mdash; we handle every system under the hood.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <img class="service-card-image" src="../../images/template-images/service-oil.jpg" alt="{{SERVICE_1_TITLE}}" width="600" height="375" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-card-icon">&#9881;</div>
+          <h3 class="service-card-title">{{SERVICE_1_TITLE}}</h3>
+          <p class="service-card-desc">{{SERVICE_1_DESC}}</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img class="service-card-image" src="../../images/template-images/service-brakes.jpg" alt="{{SERVICE_2_TITLE}}" width="600" height="375" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-card-icon">&#9881;</div>
+          <h3 class="service-card-title">{{SERVICE_2_TITLE}}</h3>
+          <p class="service-card-desc">{{SERVICE_2_DESC}}</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img class="service-card-image" src="../../images/template-images/service-engine.jpg" alt="{{SERVICE_3_TITLE}}" width="600" height="375" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-card-icon">&#9881;</div>
+          <h3 class="service-card-title">{{SERVICE_3_TITLE}}</h3>
+          <p class="service-card-desc">{{SERVICE_3_DESC}}</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img class="service-card-image" src="../../images/template-images/service-diagnostics.jpg" alt="{{SERVICE_4_TITLE}}" width="600" height="375" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-card-icon">&#9881;</div>
+          <h3 class="service-card-title">{{SERVICE_4_TITLE}}</h3>
+          <p class="service-card-desc">{{SERVICE_4_DESC}}</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img class="service-card-image" src="../../images/template-images/service-tires.jpg" alt="{{SERVICE_5_TITLE}}" width="600" height="375" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-card-icon">&#9881;</div>
+          <h3 class="service-card-title">{{SERVICE_5_TITLE}}</h3>
+          <p class="service-card-desc">{{SERVICE_5_DESC}}</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img class="service-card-image" src="../../images/template-images/engine-work.jpg" alt="{{SERVICE_6_TITLE}}" width="600" height="375" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-card-icon">&#9881;</div>
+          <h3 class="service-card-title">{{SERVICE_6_TITLE}}</h3>
+          <p class="service-card-desc">{{SERVICE_6_DESC}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIAGNOSTICS ===== -->
+<section class="diagnostics section-pad" id="diagnostics">
+  <div class="container">
+    <div class="terminal-label">Diagnostic Process</div>
+    <h2 class="section-title">How We <span class="neon-text">Debug</span> Your Vehicle</h2>
+    <p class="section-subtitle">Our systematic diagnostic workflow pinpoints problems fast &mdash; no guesswork, no unnecessary repairs.</p>
+    <div class="diag-grid">
+      <div class="diag-steps">
+        <div class="diag-step">
+          <div class="diag-step-num">01</div>
+          <div class="diag-step-content">
+            <h4>System Scan</h4>
+            <p>Full OBD-II computer scan reads every module in your vehicle, pulling live data and stored fault codes.</p>
+          </div>
+        </div>
+        <div class="diag-step">
+          <div class="diag-step-num">02</div>
+          <div class="diag-step-content">
+            <h4>Root Cause Analysis</h4>
+            <p>Our ASE-certified techs trace each code to its source &mdash; not just the symptom, but the actual failure point.</p>
+          </div>
+        </div>
+        <div class="diag-step">
+          <div class="diag-step-num">03</div>
+          <div class="diag-step-content">
+            <h4>Digital Inspection Report</h4>
+            <p>You receive photos and video of the issue on your phone &mdash; complete transparency before any wrench turns.</p>
+          </div>
+        </div>
+        <div class="diag-step">
+          <div class="diag-step-num">04</div>
+          <div class="diag-step-content">
+            <h4>Upfront Estimate</h4>
+            <p>Flat-rate pricing with no surprises. You approve the work &mdash; we execute with precision.</p>
+          </div>
+        </div>
+      </div>
+      <div class="diag-visual">
+        <div class="diag-bar-group">
+          <div class="diag-bar-label"><span>Engine Systems</span><span>98%</span></div>
+          <div class="diag-bar-track"><div class="diag-bar-fill" data-width="98"></div></div>
+        </div>
+        <div class="diag-bar-group">
+          <div class="diag-bar-label"><span>Electrical / CAN Bus</span><span>95%</span></div>
+          <div class="diag-bar-track"><div class="diag-bar-fill" data-width="95"></div></div>
+        </div>
+        <div class="diag-bar-group">
+          <div class="diag-bar-label"><span>Transmission</span><span>92%</span></div>
+          <div class="diag-bar-track"><div class="diag-bar-fill" data-width="92"></div></div>
+        </div>
+        <div class="diag-bar-group">
+          <div class="diag-bar-label"><span>Brake Systems</span><span>97%</span></div>
+          <div class="diag-bar-track"><div class="diag-bar-fill" data-width="97"></div></div>
+        </div>
+        <div class="diag-bar-group">
+          <div class="diag-bar-label"><span>HVAC / Climate</span><span>90%</span></div>
+          <div class="diag-bar-track"><div class="diag-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="diag-bar-group">
+          <div class="diag-bar-label"><span>Suspension / Steering</span><span>94%</span></div>
+          <div class="diag-bar-track"><div class="diag-bar-fill" data-width="94"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews section-pad" id="reviews">
+  <div class="container">
+    <div class="terminal-label">Customer Feedback</div>
+    <h2 class="section-title">487+ Reviews. <span class="neon-text">4.9 Stars</span>.</h2>
+    <p class="section-subtitle">Real feedback from real customers &mdash; see why Dallas trusts us with their vehicles.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"{{REVIEW_1_TEXT}}"</p>
+        <div class="review-author">
+          <span class="review-name">{{REVIEW_1_NAME}}</span>
+          <span class="review-date">{{REVIEW_1_DATE}}</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"{{REVIEW_2_TEXT}}"</p>
+        <div class="review-author">
+          <span class="review-name">{{REVIEW_2_NAME}}</span>
+          <span class="review-date">{{REVIEW_2_DATE}}</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"{{REVIEW_3_TEXT}}"</p>
+        <div class="review-author">
+          <span class="review-name">{{REVIEW_3_NAME}}</span>
+          <span class="review-date">{{REVIEW_3_DATE}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery section-pad" id="gallery">
+  <div class="container">
+    <div class="terminal-label">Our Shop</div>
+    <h2 class="section-title">Inside the <span class="neon-text">Machine</span></h2>
+    <p class="section-subtitle">Take a look inside our facility &mdash; where precision meets passion.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../../images/template-images/shop-interior.jpg" alt="Shop interior" width="800" height="600" loading="lazy">
+        <div class="gallery-item-overlay"><span>View</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/car-lift.jpg" alt="Car on lift" width="800" height="600" loading="lazy">
+        <div class="gallery-item-overlay"><span>View</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/diagnostic-scan.jpg" alt="Diagnostic scanning" width="800" height="600" loading="lazy">
+        <div class="gallery-item-overlay"><span>View</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/brake-service.jpg" alt="Brake service" width="800" height="600" loading="lazy">
+        <div class="gallery-item-overlay"><span>View</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/tire-alignment.jpg" alt="Tire alignment" width="800" height="600" loading="lazy">
+        <div class="gallery-item-overlay"><span>View</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/under-car.jpg" alt="Under car repair" width="800" height="600" loading="lazy">
+        <div class="gallery-item-overlay"><span>View</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team section-pad" id="team">
+  <div class="container">
+    <div class="terminal-label">The Crew</div>
+    <h2 class="section-title">Meet the <span class="neon-text">Operators</span></h2>
+    <p class="section-subtitle">ASE-certified technicians with decades of combined experience.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <img class="team-card-image" src="../../images/template-images/mechanic-portrait.jpg" alt="Mike Rodriguez" width="400" height="400" loading="lazy">
+        <div class="team-card-info">
+          <div class="team-card-name">Mike Rodriguez</div>
+          <div class="team-card-role">Founder &amp; Lead Tech</div>
+          <div class="team-card-underline"></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <img class="team-card-image" src="../../images/template-images/team.jpg" alt="Team member" width="400" height="400" loading="lazy">
+        <div class="team-card-info">
+          <div class="team-card-name">Carlos Vega</div>
+          <div class="team-card-role">Diagnostics Specialist</div>
+          <div class="team-card-underline"></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <img class="team-card-image" src="../../images/template-images/engine-work.jpg" alt="Team member" width="400" height="400" loading="lazy">
+        <div class="team-card-info">
+          <div class="team-card-name">James Cooper</div>
+          <div class="team-card-role">Engine &amp; Transmission</div>
+          <div class="team-card-underline"></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <img class="team-card-image" src="../../images/template-images/brake-service.jpg" alt="Team member" width="400" height="400" loading="lazy">
+        <div class="team-card-info">
+          <div class="team-card-name">Aisha Patel</div>
+          <div class="team-card-role">Service Advisor</div>
+          <div class="team-card-underline"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TECHNOLOGY ===== -->
+<section class="technology section-pad" id="technology">
+  <div class="container">
+    <div class="terminal-label">Our Equipment</div>
+    <h2 class="section-title">Cutting-Edge <span class="neon-text">Tech Stack</span></h2>
+    <p class="section-subtitle">We invest in the latest diagnostic and repair technology so you get the best results.</p>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-icon">&#9883;</div>
+        <div>
+          <h4>OBD-II Pro Scanner</h4>
+          <p>Factory-level bi-directional scan tool that reads every module in your vehicle &mdash; domestic, Asian, and European.</p>
+          <span class="tech-spec">All Makes &amp; Models</span>
+        </div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">&#9881;</div>
+        <div>
+          <h4>4-Post Alignment Rack</h4>
+          <p>Precision laser alignment system ensures your wheels track perfectly &mdash; extending tire life and improving handling.</p>
+          <span class="tech-spec">0.01&deg; Accuracy</span>
+        </div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">&#9889;</div>
+        <div>
+          <h4>Digital Inspection Suite</h4>
+          <p>HD cameras and tablets let us send photos and video of every finding directly to your phone in real time.</p>
+          <span class="tech-spec">Real-Time Reports</span>
+        </div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-icon">&#9670;</div>
+        <div>
+          <h4>Brake Lathe System</h4>
+          <p>On-car rotor resurfacing delivers a factory-smooth finish without removing wheels &mdash; saves time and money.</p>
+          <span class="tech-spec">On-Car Precision</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPECIALS ===== -->
+<section class="specials section-pad" id="specials">
+  <div class="container">
+    <div class="terminal-label">Current Specials</div>
+    <h2 class="section-title">Limited-Time <span class="neon-text">Offers</span></h2>
+    <p class="section-subtitle">Take advantage of these deals before they expire.</p>
+    <div class="specials-grid">
+      <div class="special-card">
+        <div class="special-badge">New Customer</div>
+        <h3 class="special-title">Full Synthetic Oil Change</h3>
+        <div class="special-price">$49.99</div>
+        <div class="special-original">Regular $89.99</div>
+        <p class="special-desc">Includes up to 5 quarts full synthetic oil, premium filter, and 21-point inspection.</p>
+        <div class="special-timer">
+          <span>Offer expires in:</span>
+          <div class="timer-digits">
+            <div class="timer-digit" data-timer="days">07<small>Days</small></div>
+            <div class="timer-digit" data-timer="hours">12<small>Hrs</small></div>
+            <div class="timer-digit" data-timer="mins">45<small>Min</small></div>
+            <div class="timer-digit" data-timer="secs">00<small>Sec</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="special-card">
+        <div class="special-badge">Popular</div>
+        <h3 class="special-title">Brake Service Package</h3>
+        <div class="special-price">$149</div>
+        <div class="special-original">Regular $229</div>
+        <p class="special-desc">Premium pads, rotor inspection, brake fluid check, and road test included.</p>
+        <div class="special-timer">
+          <span>Offer expires in:</span>
+          <div class="timer-digits">
+            <div class="timer-digit" data-timer="days">07<small>Days</small></div>
+            <div class="timer-digit" data-timer="hours">12<small>Hrs</small></div>
+            <div class="timer-digit" data-timer="mins">45<small>Min</small></div>
+            <div class="timer-digit" data-timer="secs">00<small>Sec</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="special-card">
+        <div class="special-badge">Free</div>
+        <h3 class="special-title">Check Engine Diagnostic</h3>
+        <div class="special-price">FREE</div>
+        <div class="special-original">Regular $89</div>
+        <p class="special-desc">Complete computer scan and written diagnostic report &mdash; no obligation to repair.</p>
+        <div class="special-timer">
+          <span>Offer expires in:</span>
+          <div class="timer-digits">
+            <div class="timer-digit" data-timer="days">07<small>Days</small></div>
+            <div class="timer-digit" data-timer="hours">12<small>Hrs</small></div>
+            <div class="timer-digit" data-timer="mins">45<small>Min</small></div>
+            <div class="timer-digit" data-timer="secs">00<small>Sec</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOK NOW ===== -->
+<section class="book-now section-pad" id="book">
+  <div class="container">
+    <div class="terminal-label">Ready?</div>
+    <h2 class="section-title">Let's <span class="neon-text">Get Started</span></h2>
+    <p class="section-subtitle">Book your appointment today or call us directly. Same-day service available.</p>
+    <a href="tel:+15554827193" class="book-now-phone">(555) 482-7193</a>
+    <a href="tel:+15554827193" class="btn-neon" style="font-size:15px; padding:18px 40px;">Schedule Service</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Precision Auto<span>_</span></a>
+        <p class="footer-desc">Precision Auto Works &mdash; ASE-certified auto repair in Dallas. Honest service, transparent pricing, and cutting-edge diagnostics since 2006.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Google">G</a>
+          <a href="#" aria-label="Yelp">Y</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">{{SERVICE_1_TITLE}}</a></li>
+          <li><a href="#">{{SERVICE_2_TITLE}}</a></li>
+          <li><a href="#">{{SERVICE_3_TITLE}}</a></li>
+          <li><a href="#">{{SERVICE_4_TITLE}}</a></li>
+          <li><a href="#">{{SERVICE_5_TITLE}}</a></li>
+          <li><a href="#">{{SERVICE_6_TITLE}}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#specials">Specials</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15554827193">(555) 482-7193</a></li>
+          <li><a href="#">4821 Commerce St, Dallas, TX 75226</a></li>
+          <li><a href="#">Dallas</a></li>
+          <li><a href="#">Mon-Fri: 7:30am - 6pm</a></li>
+          <li><a href="#">Sat: 8am - 2pm</a></li>
+          <li><a href="https://maps.google.com/?q=4821+Commerce+St+Dallas+TX+75226">Get Directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Precision Auto Works. All rights reserved.</span>
+      <span>Powered by precision.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE STICKY CTA ===== -->
+<div class="mobile-cta">
+  <a href="tel:+15554827193">&#9742; Call Now &mdash; (555) 482-7193</a>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===== HAMBURGER MENU =====
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+    var spans = hamburger.querySelectorAll('span');
+    if (navLinks.classList.contains('active')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  });
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('active');
+      var spans = hamburger.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    });
+  });
+
+  // ===== COUNTDOWN TIMER =====
+  function startCountdown() {
+    var endDate = new Date();
+    endDate.setDate(endDate.getDate() + 7);
+    endDate.setHours(23, 59, 59, 0);
+
+    function updateTimers() {
+      var now = new Date();
+      var diff = endDate - now;
+      if (diff < 0) diff = 0;
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.querySelectorAll('.timer-digits').forEach(function(group) {
+        var digits = group.querySelectorAll('.timer-digit');
+        if (digits[0]) digits[0].innerHTML = String(days).padStart(2, '0') + '<small>Days</small>';
+        if (digits[1]) digits[1].innerHTML = String(hours).padStart(2, '0') + '<small>Hrs</small>';
+        if (digits[2]) digits[2].innerHTML = String(mins).padStart(2, '0') + '<small>Min</small>';
+        if (digits[3]) digits[3].innerHTML = String(secs).padStart(2, '0') + '<small>Sec</small>';
+      });
+    }
+    updateTimers();
+    setInterval(updateTimers, 1000);
+  }
+  startCountdown();
+
+  // ===== WAIT FOR GSAP + LENIS =====
+  function waitForLibs(cb) {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && typeof Lenis !== 'undefined') {
+      cb();
+    } else {
+      setTimeout(function() { waitForLibs(cb); }, 50);
+    }
+  }
+
+  waitForLibs(function() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ===== LENIS SMOOTH SCROLL =====
+    if (!prefersReducedMotion) {
+      var lenis = new Lenis({
+        duration: 1.2,
+        easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+        smoothWheel: true,
+        smoothTouch: false
+      });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    if (prefersReducedMotion) return;
+
+    // ===== HERO ANIMATIONS =====
+    var heroTl = gsap.timeline({ delay: 0.3 });
+    heroTl
+      .from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.5 })
+      .from('.hero-h1', { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out' }, '-=0.2')
+      .from('.hero-sub', { opacity: 0, y: 20, duration: 0.5 }, '-=0.3')
+      .from('.hero-cta-wrap', { opacity: 0, y: 20, duration: 0.5 }, '-=0.2')
+      .from('.hero-proof', { opacity: 0, duration: 0.5 }, '-=0.2');
+
+    // ===== COUNTING ANIMATION =====
+    document.querySelectorAll('.stat-number').forEach(function(el) {
+      var target = parseInt(el.getAttribute('data-target'));
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter: function() {
+          gsap.to(el, {
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: function() {
+              var progress = this.progress();
+              var current = Math.round(target * progress);
+              if (target >= 1000) {
+                el.textContent = current.toLocaleString() + '+';
+              } else if (el.closest('.stat-item') && el.closest('.stat-item').querySelector('.stat-label').textContent.includes('%')) {
+                el.textContent = current + '%';
+              } else {
+                el.textContent = current + '+';
+              }
+            }
+          });
+        }
+      });
+    });
+
+    // ===== SECTION REVEALS =====
+    document.querySelectorAll('.terminal-label, .section-title, .section-subtitle').forEach(function(el) {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%' },
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: 'power2.out'
+      });
+    });
+
+    // ===== SERVICE CARDS STAGGER =====
+    gsap.from('.service-card', {
+      scrollTrigger: { trigger: '.services-grid', start: 'top 80%' },
+      opacity: 0,
+      y: 40,
+      stagger: 0.12,
+      duration: 0.7,
+      ease: 'power2.out'
+    });
+
+    // ===== DIAGNOSTIC STEPS =====
+    gsap.from('.diag-step', {
+      scrollTrigger: { trigger: '.diag-steps', start: 'top 80%' },
+      opacity: 0,
+      x: -30,
+      stagger: 0.15,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+
+    // ===== DIAGNOSTIC PROGRESS BARS =====
+    document.querySelectorAll('.diag-bar-fill').forEach(function(bar) {
+      var targetWidth = bar.getAttribute('data-width');
+      ScrollTrigger.create({
+        trigger: bar,
+        start: 'top 90%',
+        once: true,
+        onEnter: function() {
+          bar.style.width = targetWidth + '%';
+        }
+      });
+    });
+
+    // ===== REVIEW CARDS STAGGER =====
+    gsap.from('.review-card', {
+      scrollTrigger: { trigger: '.reviews-grid', start: 'top 80%' },
+      opacity: 0,
+      y: 30,
+      stagger: 0.15,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+
+    // ===== GALLERY ITEMS =====
+    gsap.from('.gallery-item', {
+      scrollTrigger: { trigger: '.gallery-grid', start: 'top 80%' },
+      opacity: 0,
+      scale: 0.95,
+      stagger: 0.1,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+
+    // ===== TEAM CARDS =====
+    gsap.from('.team-card', {
+      scrollTrigger: { trigger: '.team-grid', start: 'top 80%' },
+      opacity: 0,
+      y: 30,
+      stagger: 0.12,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+
+    // ===== TECH CARDS =====
+    gsap.from('.tech-card', {
+      scrollTrigger: { trigger: '.tech-grid', start: 'top 80%' },
+      opacity: 0,
+      y: 30,
+      stagger: 0.12,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+
+    // ===== SPECIAL CARDS =====
+    gsap.from('.special-card', {
+      scrollTrigger: { trigger: '.specials-grid', start: 'top 80%' },
+      opacity: 0,
+      y: 30,
+      stagger: 0.15,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+
+    // ===== BOOK NOW =====
+    gsap.from('.book-now .section-title, .book-now .section-subtitle, .book-now-phone, .book-now .btn-neon', {
+      scrollTrigger: { trigger: '.book-now', start: 'top 80%' },
+      opacity: 0,
+      y: 20,
+      stagger: 0.12,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+
+    // ===== ABOUT TERMINAL =====
+    gsap.from('.about-terminal', {
+      scrollTrigger: { trigger: '.about-terminal', start: 'top 80%' },
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: 'power2.out'
+    });
+
+    gsap.from('.about-image-wrap', {
+      scrollTrigger: { trigger: '.about-image-wrap', start: 'top 80%' },
+      opacity: 0,
+      x: 30,
+      duration: 0.8,
+      ease: 'power2.out'
+    });
+  });
+});
+</script>
+</body>
+</html>

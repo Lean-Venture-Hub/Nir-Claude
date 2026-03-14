@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precision Auto Works | Expert Auto Repair | Dallas, TX</title>
+<meta name="description" content="Trusted auto repair in Dallas, TX. ASE-certified mechanics, 4.9★ rating, 487+ reviews. Oil changes, brakes, diagnostics & more. Call (555) 482-7193.">
+<meta property="og:title" content="Precision Auto Works | Expert Auto Repair | Dallas, TX">
+<meta property="og:description" content="Trusted auto repair in Dallas, TX. ASE-certified mechanics, 4.9★ rating, 487+ reviews. Oil changes, brakes, diagnostics & more. Call (555) 482-7193.">
+<meta property="og:image" content="../../images/template-images/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Precision Auto Works",
+  "image": "../../images/template-images/hero.jpg",
+  "telephone": "(555) 482-7193",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dallas"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "487"
+  },
+  "url": "",
+  "priceRange": "$$$"
+}
+</script>
+
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0C1222;--navy-light:#131B2E;--navy-mid:#1A2340;
+  --gold:#C9A84C;--gold-light:#D4B96A;--gold-dark:#B8943A;--gold-pale:rgba(201,168,76,0.08);
+  --white:#FFFFFF;--off-white:#F5F3EE;--cream:#FAF8F4;
+  --gray-300:#9CA3AF;--gray-400:#6B7280;--gray-600:#374151;
+  --font-heading:'Cormorant Garamond',serif;
+  --font-body:'DM Sans',sans-serif;
+  --ease-luxury:cubic-bezier(0.16,1,0.3,1);
+  --gold-gradient:linear-gradient(135deg,#C9A84C 0%,#D4B96A 40%,#E8D48B 60%,#C9A84C 100%);
+}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--white);background:var(--navy);overflow-x:hidden;line-height:1.7;font-weight:400}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:600;line-height:1.15}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+section{position:relative;overflow:hidden}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+}
+
+/* ===== GRAIN TEXTURE ===== */
+.grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:0.03}
+.grain::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");background-repeat:repeat;background-size:128px 128px}
+
+/* ===== GOLD DIVIDER ===== */
+.gold-line{width:60px;height:1px;background:var(--gold-gradient);display:block}
+.gold-line-center{margin:0 auto}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:18px 40px;font-family:var(--font-heading);font-weight:600;font-size:1.1rem;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.5s var(--ease-luxury);position:relative}
+.btn-gold{background:var(--gold-gradient);color:var(--navy);background-size:200% 100%}
+.btn-gold:hover{background-position:100% 0;transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,0.3)}
+.btn-outline-gold{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.btn-outline-gold:hover{background:var(--gold);color:var(--navy);transform:translateY(-2px)}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:24px 0;transition:all 0.5s var(--ease-luxury)}
+.nav.scrolled{background:rgba(12,18,34,0.95);padding:14px 0;backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.1)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-heading);font-size:1.6rem;font-weight:600;color:var(--white);letter-spacing:0.05em}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{color:var(--gray-300);font-family:var(--font-body);font-weight:500;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.15em;position:relative;padding:4px 0;transition:color 0.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:1px;background:var(--gold);transition:all 0.3s var(--ease-luxury);transform:translateX(-50%)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:12px 28px;border:1px solid var(--gold);color:var(--gold);font-family:var(--font-body);font-weight:500;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;transition:all 0.3s var(--ease-luxury)}
+.nav-cta:hover{background:var(--gold);color:var(--navy)}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;z-index:1001;padding:8px}
+.hamburger span{display:block;width:28px;height:1.5px;background:var(--gold);transition:all 0.3s var(--ease-luxury)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--navy);position:relative}
+.hero-bg{position:absolute;inset:0;z-index:1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.2;filter:brightness(0.6)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,18,34,0.7) 0%,rgba(12,18,34,0.5) 40%,rgba(12,18,34,0.8) 100%);z-index:2}
+.hero-vignette{position:absolute;inset:0;z-index:3;box-shadow:inset 0 0 200px rgba(12,18,34,0.8)}
+.hero-content{position:relative;z-index:4;max-width:800px;padding:0 32px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:16px;font-family:var(--font-body);font-size:0.75rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:0.3em;margin-bottom:32px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold-gradient)}
+.hero h1{font-size:clamp(2.8rem,6vw,5.5rem);color:var(--white);margin-bottom:16px;font-weight:400;letter-spacing:0.02em;font-style:italic}
+.hero h1 em{font-style:normal;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-gold-line{width:80px;height:1px;background:var(--gold-gradient);margin:24px auto 28px}
+.hero-sub{font-size:1.1rem;color:var(--gray-300);margin-bottom:48px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.8;font-weight:400}
+.hero-ctas{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gold);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em}
+.hero-scroll-line{width:1px;height:40px;background:var(--gold);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ===== DISTINCTION (Gold Divider) ===== */
+.distinction{padding:100px 0;background:var(--navy);text-align:center;position:relative}
+.distinction::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.distinction::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.distinction-icon{font-size:2rem;color:var(--gold);margin-bottom:24px;display:block}
+.distinction h2{font-family:var(--font-heading);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:400;font-style:italic;color:var(--white);max-width:700px;margin:0 auto;line-height:1.5}
+.distinction h2 em{font-style:normal;color:var(--gold)}
+
+/* ===== SECTION HEADERS ===== */
+.section-header{text-align:center;margin-bottom:72px}
+.section-eyebrow{font-family:var(--font-body);font-size:0.75rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:0.3em;margin-bottom:16px;display:block}
+.section-title{font-size:clamp(2rem,4vw,3.2rem);color:var(--white);font-weight:400;font-style:italic}
+.section-title em{font-style:normal;color:var(--gold)}
+.section-line{width:60px;height:1px;background:var(--gold-gradient);margin:20px auto 0}
+.section-sub{color:var(--gray-300);font-size:1rem;max-width:560px;margin:20px auto 0;line-height:1.7}
+
+/* ===== SERVICES ===== */
+.services{padding:140px 0;background:var(--navy-light)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.service-card{background:var(--navy);border:1px solid rgba(201,168,76,0.12);position:relative;overflow:hidden;transition:all 0.5s var(--ease-luxury)}
+.service-card:hover{border-color:rgba(201,168,76,0.35);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.service-card-img{height:240px;overflow:hidden;position:relative}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s var(--ease-luxury);filter:brightness(0.8)}
+.service-card:hover .service-card-img img{transform:scale(1.06);filter:brightness(0.9)}
+.service-card-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--navy))}
+.service-card-body{padding:32px;border-top:1px solid rgba(201,168,76,0.15)}
+.service-card-body h3{font-family:var(--font-heading);font-size:1.4rem;color:var(--white);margin-bottom:12px;font-weight:500;font-style:italic}
+.service-card-body p{color:var(--gray-400);font-size:0.9rem;line-height:1.7}
+.service-card-accent{position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold-gradient);transform:scaleX(0);transform-origin:left;transition:transform 0.5s var(--ease-luxury)}
+.service-card:hover .service-card-accent{transform:scaleX(1)}
+
+/* ===== HERITAGE ===== */
+.heritage{padding:140px 0;background:var(--navy);position:relative}
+.heritage-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.heritage-image{position:relative}
+.heritage-image img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:brightness(0.85)}
+.heritage-image::before{content:'';position:absolute;top:-16px;left:-16px;right:16px;bottom:16px;border:1px solid var(--gold);opacity:0.3;z-index:-1}
+.heritage-image::after{content:'';position:absolute;bottom:24px;right:-24px;width:120px;height:120px;border:1px solid var(--gold);opacity:0.2}
+.heritage-content .section-eyebrow{text-align:left}
+.heritage-content h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:400;font-style:italic;color:var(--white);margin-bottom:24px}
+.heritage-content h2 em{font-style:normal;color:var(--gold)}
+.heritage-year{font-family:var(--font-heading);font-size:5rem;font-weight:300;color:var(--gold);opacity:0.15;position:absolute;top:-20px;right:0;letter-spacing:0.05em}
+.heritage-text{color:var(--gray-300);font-size:1rem;line-height:1.8;margin-bottom:24px}
+.heritage-stats{display:flex;gap:40px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(201,168,76,0.15)}
+.heritage-stat-num{font-family:var(--font-heading);font-size:2.5rem;font-weight:400;color:var(--gold)}
+.heritage-stat-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray-400);margin-top:4px}
+
+/* ===== EXPERTISE ===== */
+.expertise{padding:140px 0;background:var(--navy-light);position:relative}
+.expertise-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px}
+.expertise-item{text-align:center;padding:48px 24px;border:1px solid rgba(201,168,76,0.1);background:var(--navy);transition:all 0.4s var(--ease-luxury)}
+.expertise-item:hover{border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.04)}
+.expertise-logo{font-family:var(--font-heading);font-size:1.6rem;font-weight:600;color:var(--gold);margin-bottom:16px;font-style:italic}
+.expertise-item p{color:var(--gray-400);font-size:0.85rem;line-height:1.6}
+
+/* ===== CLIENTELE (Testimonials) ===== */
+.clientele{padding:140px 0;background:var(--navy);position:relative}
+.clientele::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);border:1px solid rgba(201,168,76,0.05);border-radius:50%;pointer-events:none}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.testimonial-card{background:var(--navy-light);border:1px solid rgba(201,168,76,0.1);padding:48px 36px;position:relative;transition:all 0.4s var(--ease-luxury)}
+.testimonial-card:hover{border-color:rgba(201,168,76,0.25)}
+.testimonial-quote{position:absolute;top:20px;left:28px;font-family:var(--font-heading);font-size:5rem;color:var(--gold);opacity:0.2;line-height:1}
+.testimonial-stars{display:flex;gap:4px;margin-bottom:20px;color:var(--gold);font-size:0.9rem}
+.testimonial-text{color:var(--gray-300);font-size:0.95rem;line-height:1.8;margin-bottom:28px;font-style:italic;position:relative;z-index:1}
+.testimonial-author{display:flex;align-items:center;gap:16px;padding-top:20px;border-top:1px solid rgba(201,168,76,0.1)}
+.testimonial-avatar{width:48px;height:48px;border-radius:50%;background:var(--gold-gradient);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.2rem;color:var(--navy);font-weight:600}
+.testimonial-name{font-family:var(--font-heading);font-size:1.1rem;color:var(--white);font-weight:500}
+.testimonial-date{font-size:0.8rem;color:var(--gray-400);margin-top:2px}
+
+/* ===== GALLERY ===== */
+.gallery{padding:140px 0;background:var(--navy-light)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-item{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:all 0.6s var(--ease-luxury);filter:brightness(0.7) saturate(0.9)}
+.gallery-item:hover img{transform:scale(1.05);filter:brightness(0.85) saturate(1)}
+.gallery-item::before{content:'';position:absolute;inset:8px;border:1px solid transparent;z-index:2;transition:border-color 0.4s var(--ease-luxury);pointer-events:none}
+.gallery-item:hover::before{border-color:rgba(201,168,76,0.4)}
+.gallery-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(transparent,rgba(12,18,34,0.6));z-index:1}
+
+/* ===== CONCIERGE ===== */
+.concierge{padding:140px 0;background:var(--navy);position:relative}
+.concierge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.concierge-item{text-align:center;padding:48px 32px;position:relative}
+.concierge-item::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:40px;height:1px;background:var(--gold-gradient)}
+.concierge-icon{font-size:2.2rem;margin-bottom:20px;display:block}
+.concierge-item h3{font-family:var(--font-heading);font-size:1.5rem;font-weight:500;color:var(--white);margin-bottom:12px;font-style:italic}
+.concierge-item p{color:var(--gray-400);font-size:0.9rem;line-height:1.7}
+
+/* ===== TEAM ===== */
+.team{padding:140px 0;background:var(--navy-light)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.team-card{position:relative;overflow:hidden;background:var(--navy);border:1px solid rgba(201,168,76,0.1);transition:all 0.4s var(--ease-luxury)}
+.team-card:hover{border-color:rgba(201,168,76,0.3)}
+.team-card-img{height:320px;overflow:hidden}
+.team-card-img img{width:100%;height:100%;object-fit:cover;filter:brightness(0.8) saturate(0.9);transition:all 0.6s var(--ease-luxury)}
+.team-card:hover .team-card-img img{filter:brightness(0.9) saturate(1);transform:scale(1.03)}
+.team-card-info{padding:28px 24px;text-align:center}
+.team-card-info h3{font-family:var(--font-heading);font-size:1.4rem;font-weight:500;color:var(--gold);font-style:italic;margin-bottom:4px}
+.team-card-info p{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray-400)}
+
+/* ===== COMMITMENT ===== */
+.commitment{padding:140px 0;background:var(--navy);position:relative;text-align:center}
+.commitment-bg{position:absolute;inset:0;z-index:0}
+.commitment-bg img{width:100%;height:100%;object-fit:cover;opacity:0.08;filter:brightness(0.5)}
+.commitment-content{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.commitment-seal{width:100px;height:100px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 32px;position:relative}
+.commitment-seal::before{content:'';position:absolute;inset:6px;border:1px solid rgba(201,168,76,0.3);border-radius:50%}
+.commitment-seal-icon{font-size:2rem;color:var(--gold)}
+.commitment h2{font-size:clamp(2rem,4vw,3rem);font-weight:400;font-style:italic;color:var(--white);margin-bottom:24px}
+.commitment h2 em{font-style:normal;color:var(--gold)}
+.commitment p{color:var(--gray-300);font-size:1.05rem;line-height:1.8;margin-bottom:20px}
+.commitment-guarantees{display:flex;justify-content:center;gap:48px;margin-top:48px;flex-wrap:wrap}
+.commitment-guarantee{text-align:center}
+.commitment-guarantee-icon{font-size:1.5rem;margin-bottom:8px;display:block}
+.commitment-guarantee span{font-family:var(--font-heading);font-size:1rem;color:var(--gold);font-style:italic}
+
+/* ===== RESERVE (Booking CTA) ===== */
+.reserve{padding:140px 0;background:var(--navy-light);position:relative}
+.reserve::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.reserve-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.reserve-content h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:400;font-style:italic;color:var(--white);margin-bottom:16px}
+.reserve-content h2 em{font-style:normal;color:var(--gold)}
+.reserve-content p{color:var(--gray-300);font-size:1rem;line-height:1.8;margin-bottom:32px}
+.reserve-form{display:flex;flex-direction:column;gap:20px}
+.reserve-form input,.reserve-form select,.reserve-form textarea{width:100%;padding:16px 20px;background:var(--navy);border:1px solid rgba(201,168,76,0.2);color:var(--white);font-family:var(--font-body);font-size:0.95rem;transition:border-color 0.3s;outline:none}
+.reserve-form input::placeholder,.reserve-form textarea::placeholder{color:var(--gray-400)}
+.reserve-form input:focus,.reserve-form select:focus,.reserve-form textarea:focus{border-color:var(--gold)}
+.reserve-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23C9A84C'%3E%3Cpath d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.reserve-form select option{background:var(--navy);color:var(--white)}
+.reserve-form textarea{resize:vertical;min-height:100px}
+.reserve-form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* ===== FOOTER ===== */
+.footer{padding:80px 0 40px;background:var(--navy);border-top:1px solid rgba(201,168,76,0.1)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
+.footer-brand h3{font-family:var(--font-heading);font-size:1.8rem;font-weight:500;color:var(--white);margin-bottom:16px;font-style:italic}
+.footer-brand h3 span{color:var(--gold)}
+.footer-brand p{color:var(--gray-400);font-size:0.9rem;line-height:1.7;margin-bottom:20px}
+.footer-col h4{font-family:var(--font-body);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);margin-bottom:20px}
+.footer-col a{display:block;color:var(--gray-400);font-size:0.9rem;margin-bottom:10px;transition:color 0.3s}
+.footer-col a:hover{color:var(--gold)}
+.footer-col p{color:var(--gray-400);font-size:0.9rem;line-height:1.6}
+.footer-bottom{text-align:center;padding-top:32px;border-top:1px solid rgba(201,168,76,0.08)}
+.footer-bottom p{color:var(--gray-400);font-size:0.8rem;letter-spacing:0.05em}
+
+/* ===== MOBILE NAV ===== */
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(12,18,34,0.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity 0.4s var(--ease-luxury)}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--font-heading);font-size:1.8rem;color:var(--white);font-style:italic;transition:color 0.3s}
+.mobile-menu a:hover{color:var(--gold)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .expertise-grid{grid-template-columns:repeat(2,1fr)}
+  .testimonials-grid{grid-template-columns:1fr 1fr}
+  .testimonials-grid .testimonial-card:last-child{grid-column:1/-1;max-width:50%;margin:0 auto}
+  .heritage-grid{gap:48px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .reserve-inner{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:flex}
+  .hero h1{font-size:clamp(2.2rem,8vw,3.5rem)}
+  .services-grid{grid-template-columns:1fr}
+  .heritage-grid{grid-template-columns:1fr}
+  .heritage-image{order:-1}
+  .expertise-grid{grid-template-columns:1fr 1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .testimonials-grid .testimonial-card:last-child{max-width:100%}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .concierge-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .commitment-guarantees{gap:24px}
+  .reserve-inner{grid-template-columns:1fr}
+  .reserve-form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .hero-scroll{display:none}
+  .heritage-year{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Grain Texture Overlay -->
+<div class="grain"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo"><span>Precision Auto</span> Auto</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#heritage">Heritage</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reserve" class="nav-cta">Reserve Service</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#heritage" onclick="closeMobile()">Heritage</a>
+  <a href="#expertise" onclick="closeMobile()">Expertise</a>
+  <a href="#gallery" onclick="closeMobile()">Gallery</a>
+  <a href="#concierge" onclick="closeMobile()">Concierge</a>
+  <a href="#reserve" onclick="closeMobile()">Reserve Service</a>
+  <a href="tel:+15554827193" class="btn btn-gold" onclick="closeMobile()">(555) 482-7193</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"><img src="../../images/template-images/hero.jpg" alt="Precision Auto Works luxury auto service"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">ASE Certified · Since 2006</p>
+    <h1>Expert Auto Repair You Can Trust</h1>
+    <div class="hero-gold-line"></div>
+    <p class="hero-sub">Dallas's highest-rated auto shop. ASE-certified mechanics, transparent pricing, and a 3-year warranty on every repair.</p>
+    <div class="hero-ctas">
+      <a href="#reserve" class="btn btn-gold">Schedule Service</a>
+      <a href="tel:+15554827193" class="btn btn-outline-gold">(555) 482-7193</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Discover</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== DISTINCTION ===== -->
+<section class="distinction" id="distinction">
+  <div class="container">
+    <span class="distinction-icon">&#9830;</span>
+    <h2>"Where <em>automotive excellence</em> meets an uncompromising standard of care — every vehicle deserves nothing less than <em>perfection</em>."</h2>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Our Expertise</span>
+      <h2 class="section-title">Premier <em>Services</em></h2>
+      <div class="section-line"></div>
+      <p class="section-sub">Each service is performed with meticulous attention to detail, using only the finest parts and fluids your vehicle demands.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-accent"></div>
+        <div class="service-card-img"><img src="../../images/template-images/service-brakes.jpg" alt="Oil Changes & Fluid Services"></div>
+        <div class="service-card-body">
+          <h3>Oil Changes & Fluid Services</h3>
+          <p>Conventional, synthetic, and high-mileage oil changes plus complete fluid system maintenance to keep your engine running at peak performance.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-accent"></div>
+        <div class="service-card-img"><img src="../../images/template-images/service-diagnostics.jpg" alt="Brake Repair & Replacement"></div>
+        <div class="service-card-body">
+          <h3>Brake Repair & Replacement</h3>
+          <p>Comprehensive brake inspections, pad and rotor replacement, brake fluid flushes, and complete brake system diagnostics for safe stopping power.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-accent"></div>
+        <div class="service-card-img"><img src="../../images/template-images/service-engine.jpg" alt="Engine Diagnostics & Repair"></div>
+        <div class="service-card-body">
+          <h3>Engine Diagnostics & Repair</h3>
+          <p>Advanced computer diagnostics, check engine light diagnosis, engine rebuilds, and precision repairs using factory-grade scan tools.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-accent"></div>
+        <div class="service-card-img"><img src="../../images/template-images/service-oil.jpg" alt="Tire Services & Alignment"></div>
+        <div class="service-card-body">
+          <h3>Tire Services & Alignment</h3>
+          <p>Tire mounting, balancing, rotation, flat repair, and precision 4-wheel alignment to extend tire life and improve handling.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-accent"></div>
+        <div class="service-card-img"><img src="../../images/template-images/service-tires.jpg" alt="AC & Heating Service"></div>
+        <div class="service-card-body">
+          <h3>AC & Heating Service</h3>
+          <p>Complete climate control service including AC recharge, compressor repair, heater core replacement, and full system diagnostics.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-accent"></div>
+        <div class="service-card-img"><img src="../../images/template-images/oil-change.jpg" alt="Transmission Service"></div>
+        <div class="service-card-body">
+          <h3>Transmission Service</h3>
+          <p>Transmission fluid changes, filter replacement, diagnostics, and repair for both automatic and manual transmissions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HERITAGE ===== -->
+<section class="heritage" id="heritage">
+  <div class="container">
+    <div class="heritage-grid">
+      <div class="heritage-image">
+        <img src="../../images/template-images/shop-interior.jpg" alt="Precision Auto Works facility">
+      </div>
+      <div class="heritage-content" style="position:relative">
+        <span class="heritage-year">2006</span>
+        <span class="section-eyebrow">Our Heritage</span>
+        <h2>A Legacy of <em>Automotive Excellence</em></h2>
+        <div class="gold-line" style="margin:20px 0"></div>
+        <p class="heritage-text">Founded in 2006, Precision Auto Works has grown from a two-bay garage into Dallas's most trusted auto repair shop. Owner Mike Rodriguez and his team of ASE-certified technicians have completed over 50,000 repairs with a 4.9-star rating. We believe in transparent pricing, honest diagnostics, and treating every car like our own.</p>
+        <p class="heritage-text">Founded by Mike Rodriguez with a singular vision: to create a sanctuary where vehicles receive the caliber of care typically reserved for the world's finest automobiles. Every detail of our facility has been designed to reflect our commitment to excellence.</p>
+        <div class="heritage-stats">
+          <div>
+            <div class="heritage-stat-num">18+</div>
+            <div class="heritage-stat-label">Years of Excellence</div>
+          </div>
+          <div>
+            <div class="heritage-stat-num">4.9</div>
+            <div class="heritage-stat-label">Star Rating</div>
+          </div>
+          <div>
+            <div class="heritage-stat-num">487+</div>
+            <div class="heritage-stat-label">Client Reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERTISE ===== -->
+<section class="expertise" id="expertise">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Specialized Knowledge</span>
+      <h2 class="section-title">Marques We <em>Master</em></h2>
+      <div class="section-line"></div>
+      <p class="section-sub">Our master technicians hold factory-level certifications across the world's most prestigious automotive brands.</p>
+    </div>
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <div class="expertise-logo">Mercedes-Benz</div>
+        <p>AMG performance tuning, COMAND diagnostics, air suspension specialists</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-logo">BMW</div>
+        <p>M-Series performance, iDrive systems, VANOS timing, valvetronic service</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-logo">Audi</div>
+        <p>Quattro AWD systems, MMI technology, S/RS performance calibration</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-logo">Porsche</div>
+        <p>PDK transmission, PASM suspension, flat-six engine rebuild specialists</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-logo">Lexus</div>
+        <p>Hybrid synergy drive, Mark Levinson audio, precision valve adjustments</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-logo">Land Rover</div>
+        <p>Terrain Response systems, air suspension, supercharged V8 service</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-logo">Jaguar</div>
+        <p>Supercharged performance, adaptive dynamics, InControl diagnostics</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-logo">Volvo</div>
+        <p>T8 hybrid systems, advanced safety calibration, Drive-E powertrains</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIENTELE (Testimonials) ===== -->
+<section class="clientele" id="clientele">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Distinguished Clientele</span>
+      <h2 class="section-title">Words of <em>Distinction</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <span class="testimonial-quote">&ldquo;</span>
+        <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testimonial-text">Honest, fair pricing, and they always explain what needs to be done. Best mechanic in Dallas!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Sarah M.</div>
+          <div>
+            <div class="testimonial-name">Sarah M.</div>
+            <div class="testimonial-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-quote">&ldquo;</span>
+        <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testimonial-text">Mike and his team saved me thousands by diagnosing the real issue. Highly recommend!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">James K.</div>
+          <div>
+            <div class="testimonial-name">James K.</div>
+            <div class="testimonial-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="testimonial-quote">&ldquo;</span>
+        <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testimonial-text">I've been coming here for 8 years. They treat you like family and do amazing work.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Maria L.</div>
+          <div>
+            <div class="testimonial-name">Maria L.</div>
+            <div class="testimonial-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Our Atelier</span>
+      <h2 class="section-title">The <em>Workshop</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../images/template-images/engine-work.jpg" alt="Precision engine work"></div>
+      <div class="gallery-item"><img src="../../images/template-images/diagnostic-scan.jpg" alt="Advanced diagnostics"></div>
+      <div class="gallery-item"><img src="../../images/template-images/brake-service.jpg" alt="Expert brake service"></div>
+      <div class="gallery-item"><img src="../../images/template-images/car-lift.jpg" alt="Professional lift service"></div>
+      <div class="gallery-item"><img src="../../images/template-images/under-car.jpg" alt="Undercarriage inspection"></div>
+      <div class="gallery-item"><img src="../../images/template-images/tire-alignment.jpg" alt="Precision alignment"></div>
+      <div class="gallery-item"><img src="../../images/template-images/team.jpg" alt="Our expert team"></div>
+      <div class="gallery-item"><img src="../../images/template-images/customer-handshake.jpg" alt="Client consultation"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONCIERGE ===== -->
+<section class="concierge" id="concierge">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">The Experience</span>
+      <h2 class="section-title">Concierge <em>Services</em></h2>
+      <div class="section-line"></div>
+      <p class="section-sub">We believe your service experience should be as refined as the vehicle you drive.</p>
+    </div>
+    <div class="concierge-grid">
+      <div class="concierge-item">
+        <span class="concierge-icon">&#128664;</span>
+        <h3>Complimentary Loaner</h3>
+        <p>Continue your day uninterrupted with our fleet of premium loaner vehicles, available for all major services.</p>
+      </div>
+      <div class="concierge-item">
+        <span class="concierge-icon">&#128666;</span>
+        <h3>Pickup & Delivery</h3>
+        <p>Our white-glove pickup and delivery service brings the shop to your door. We handle everything, you handle nothing.</p>
+      </div>
+      <div class="concierge-item">
+        <span class="concierge-icon">&#9749;</span>
+        <h3>Executive Lounge</h3>
+        <p>Espresso bar, high-speed WiFi, and a curated reading selection in our climate-controlled client lounge.</p>
+      </div>
+      <div class="concierge-item">
+        <span class="concierge-icon">&#128247;</span>
+        <h3>Digital Inspection</h3>
+        <p>Receive a comprehensive photo and video report of your vehicle's condition, with transparent recommendations.</p>
+      </div>
+      <div class="concierge-item">
+        <span class="concierge-icon">&#128274;</span>
+        <h3>Warranty Protected</h3>
+        <p>All services maintain your manufacturer warranty. We use only OEM and premium aftermarket components.</p>
+      </div>
+      <div class="concierge-item">
+        <span class="concierge-icon">&#128197;</span>
+        <h3>Priority Scheduling</h3>
+        <p>Our preferred clients enjoy same-day appointments and expedited service for time-sensitive repairs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MASTER TECHNICIANS ===== -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">The Artisans</span>
+      <h2 class="section-title">Master <em>Technicians</em></h2>
+      <div class="section-line"></div>
+      <p class="section-sub">Our team combines decades of factory training with a passion for automotive perfection.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-img"><img src="../../images/template-images/mechanic-portrait.jpg" alt="Mike Rodriguez"></div>
+        <div class="team-card-info">
+          <h3>Mike Rodriguez</h3>
+          <p>Founder & Master Technician</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img"><img src="../../images/template-images/engine-work.jpg" alt="Lead European Specialist"></div>
+        <div class="team-card-info">
+          <h3>David Hartmann</h3>
+          <p>Lead European Specialist</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img"><img src="../../images/template-images/diagnostic-scan.jpg" alt="Senior Diagnostics Engineer"></div>
+        <div class="team-card-info">
+          <h3>James Park</h3>
+          <p>Senior Diagnostics Engineer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMITMENT ===== -->
+<section class="commitment" id="commitment">
+  <div class="commitment-bg"><img src="../../images/template-images/exterior.jpg" alt="Precision Auto Works"></div>
+  <div class="container">
+    <div class="commitment-content">
+      <div class="commitment-seal">
+        <span class="commitment-seal-icon">&#9733;</span>
+      </div>
+      <span class="section-eyebrow">Our Promise</span>
+      <h2>An Unwavering <em>Commitment</em></h2>
+      <div class="section-line"></div>
+      <p>Every vehicle that enters our care receives the same meticulous attention — whether a routine oil service or a complete engine restoration. We stand behind every repair with our comprehensive guarantee.</p>
+      <p>Your trust is the foundation of our reputation. That's why 4.9 stars across 487+ reviews isn't just a number — it's our promise kept, every single day.</p>
+      <div class="commitment-guarantees">
+        <div class="commitment-guarantee">
+          <span class="commitment-guarantee-icon">&#128737;</span>
+          <span>36-Month Warranty</span>
+        </div>
+        <div class="commitment-guarantee">
+          <span class="commitment-guarantee-icon">&#9989;</span>
+          <span>OEM-Grade Parts</span>
+        </div>
+        <div class="commitment-guarantee">
+          <span class="commitment-guarantee-icon">&#128200;</span>
+          <span>Transparent Pricing</span>
+        </div>
+        <div class="commitment-guarantee">
+          <span class="commitment-guarantee-icon">&#128176;</span>
+          <span>Price-Match Promise</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESERVE SERVICE ===== -->
+<section class="reserve" id="reserve">
+  <div class="container">
+    <div class="reserve-inner">
+      <div class="reserve-content">
+        <span class="section-eyebrow">Book Now</span>
+        <h2>Reserve Your <em>Service</em></h2>
+        <div class="gold-line" style="margin:20px 0"></div>
+        <p>Schedule your appointment at Dallas's premier automotive service center. Whether it's routine maintenance or specialized repair, our master technicians are ready to provide an unparalleled experience.</p>
+        <p style="margin-top:16px">
+          <strong style="color:var(--gold);font-family:var(--font-heading);font-style:italic;font-size:1.1rem">Or call us directly:</strong><br>
+          <a href="tel:+15554827193" style="color:var(--gold);font-family:var(--font-heading);font-size:1.8rem;font-weight:500;font-style:italic;transition:opacity 0.3s">(555) 482-7193</a>
+        </p>
+      </div>
+      <form class="reserve-form" onsubmit="return false">
+        <div class="reserve-form-row">
+          <input type="text" placeholder="Full Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+        </div>
+        <input type="email" placeholder="Email Address">
+        <div class="reserve-form-row">
+          <input type="text" placeholder="Vehicle Make & Model">
+          <input type="text" placeholder="Year">
+        </div>
+        <select>
+          <option value="" disabled selected>Select Service Type</option>
+          <option>Routine Maintenance</option>
+          <option>Engine & Performance</option>
+          <option>Brake Service</option>
+          <option>Diagnostics</option>
+          <option>Tire & Alignment</option>
+          <option>Other / Custom Request</option>
+        </select>
+        <textarea placeholder="Additional details or special requests..."></textarea>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">Reserve Appointment</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3><span>Precision Auto</span> Auto</h3>
+        <p>Redefining automotive care with a commitment to excellence since 2006. Dallas's premier destination for discerning vehicle owners.</p>
+        <div style="display:flex;gap:8px;align-items:center;color:var(--gold);font-family:var(--font-heading);font-size:1rem;font-style:italic">
+          &#9733; 4.9 &middot; 487+ Reviews
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Engine Repair</a>
+        <a href="#services">Brake Service</a>
+        <a href="#services">Diagnostics</a>
+        <a href="#services">Oil Service</a>
+        <a href="#services">Tire & Alignment</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#heritage">Our Heritage</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#team">Our Team</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#clientele">Testimonials</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>4821 Commerce St, Dallas, TX 75226</p>
+        <p style="margin-top:8px"><a href="tel:+15554827193" style="color:var(--gold)">(555) 482-7193</a></p>
+        <p style="margin-top:16px;font-size:0.8rem">
+          Mon – Fri: 7:30 AM – 6:00 PM<br>
+          Saturday: 8:00 AM – 3:00 PM<br>
+          Sunday: Closed
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Precision Auto Works. All rights reserved. Crafted with precision in Dallas.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== LENIS SMOOTH SCROLL =====
+  const lenis = new Lenis({
+    duration: 1.4,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    smoothWheel: true
+  });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+
+  // ===== NAV SCROLL =====
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // ===== MOBILE MENU =====
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // ===== GSAP + SCROLLTRIGGER =====
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero entrance
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  heroTl
+    .from('.hero-eyebrow', { y: 30, opacity: 0, duration: 1, delay: 0.3 })
+    .from('.hero h1', { y: 50, opacity: 0, duration: 1.2 }, '-=0.6')
+    .from('.hero-gold-line', { scaleX: 0, opacity: 0, duration: 0.8 }, '-=0.6')
+    .from('.hero-sub', { y: 30, opacity: 0, duration: 1 }, '-=0.5')
+    .from('.hero-ctas .btn', { y: 20, opacity: 0, duration: 0.8, stagger: 0.15 }, '-=0.5')
+    .from('.hero-scroll', { opacity: 0, duration: 1 }, '-=0.3');
+
+  // Distinction
+  gsap.from('.distinction-icon', {
+    scrollTrigger: { trigger: '.distinction', start: 'top 80%' },
+    scale: 0, opacity: 0, duration: 0.8, ease: 'back.out(1.7)'
+  });
+  gsap.from('.distinction h2', {
+    scrollTrigger: { trigger: '.distinction', start: 'top 80%' },
+    y: 40, opacity: 0, duration: 1.2, delay: 0.2
+  });
+
+  // Section headers
+  document.querySelectorAll('.section-header').forEach(header => {
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: header, start: 'top 82%' }
+    });
+    tl.from(header.querySelector('.section-eyebrow'), { y: 20, opacity: 0, duration: 0.8 })
+      .from(header.querySelector('.section-title'), { y: 30, opacity: 0, duration: 1 }, '-=0.4')
+      .from(header.querySelector('.section-line'), { scaleX: 0, opacity: 0, duration: 0.6 }, '-=0.4');
+    const sub = header.querySelector('.section-sub');
+    if (sub) tl.from(sub, { y: 20, opacity: 0, duration: 0.8 }, '-=0.3');
+  });
+
+  // Service cards
+  gsap.from('.service-card', {
+    scrollTrigger: { trigger: '.services-grid', start: 'top 82%' },
+    y: 60, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power2.out'
+  });
+
+  // Heritage
+  gsap.from('.heritage-image', {
+    scrollTrigger: { trigger: '.heritage-grid', start: 'top 80%' },
+    x: -60, opacity: 0, duration: 1.2
+  });
+  gsap.from('.heritage-content', {
+    scrollTrigger: { trigger: '.heritage-grid', start: 'top 80%' },
+    x: 60, opacity: 0, duration: 1.2, delay: 0.2
+  });
+  gsap.from('.heritage-stat-num', {
+    scrollTrigger: { trigger: '.heritage-stats', start: 'top 90%' },
+    y: 20, opacity: 0, duration: 0.8, stagger: 0.15
+  });
+
+  // Expertise items
+  gsap.from('.expertise-item', {
+    scrollTrigger: { trigger: '.expertise-grid', start: 'top 82%' },
+    y: 40, opacity: 0, duration: 0.8, stagger: 0.08
+  });
+
+  // Testimonial cards
+  gsap.from('.testimonial-card', {
+    scrollTrigger: { trigger: '.testimonials-grid', start: 'top 82%' },
+    y: 50, opacity: 0, duration: 0.9, stagger: 0.15
+  });
+
+  // Gallery items
+  gsap.from('.gallery-item', {
+    scrollTrigger: { trigger: '.gallery-grid', start: 'top 82%' },
+    scale: 0.9, opacity: 0, duration: 0.8, stagger: 0.1
+  });
+
+  // Concierge items
+  gsap.from('.concierge-item', {
+    scrollTrigger: { trigger: '.concierge-grid', start: 'top 82%' },
+    y: 40, opacity: 0, duration: 0.8, stagger: 0.1
+  });
+
+  // Team cards
+  gsap.from('.team-card', {
+    scrollTrigger: { trigger: '.team-grid', start: 'top 82%' },
+    y: 50, opacity: 0, duration: 0.9, stagger: 0.15
+  });
+
+  // Commitment
+  gsap.from('.commitment-seal', {
+    scrollTrigger: { trigger: '.commitment', start: 'top 80%' },
+    scale: 0, rotation: -180, opacity: 0, duration: 1, ease: 'back.out(1.4)'
+  });
+  gsap.from('.commitment h2', {
+    scrollTrigger: { trigger: '.commitment', start: 'top 80%' },
+    y: 30, opacity: 0, duration: 1, delay: 0.3
+  });
+  gsap.from('.commitment p', {
+    scrollTrigger: { trigger: '.commitment', start: 'top 75%' },
+    y: 20, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.4
+  });
+  gsap.from('.commitment-guarantee', {
+    scrollTrigger: { trigger: '.commitment-guarantees', start: 'top 90%' },
+    y: 20, opacity: 0, duration: 0.6, stagger: 0.1
+  });
+
+  // Reserve section
+  gsap.from('.reserve-content', {
+    scrollTrigger: { trigger: '.reserve-inner', start: 'top 80%' },
+    x: -50, opacity: 0, duration: 1
+  });
+  gsap.from('.reserve-form', {
+    scrollTrigger: { trigger: '.reserve-inner', start: 'top 80%' },
+    x: 50, opacity: 0, duration: 1, delay: 0.2
+  });
+
+  // Footer
+  gsap.from('.footer-top > div', {
+    scrollTrigger: { trigger: '.footer', start: 'top 85%' },
+    y: 30, opacity: 0, duration: 0.8, stagger: 0.1
+  });
+});
+
+function closeMobile() {
+  document.getElementById('hamburger').classList.remove('active');
+  document.getElementById('mobileMenu').classList.remove('active');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>

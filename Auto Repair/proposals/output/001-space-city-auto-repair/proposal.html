@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Analysis — Space city auto repair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e0d; --paper: #1c1a17; --accent: #e07a3a; --text: #e8e2d6;
+    --accent-glow: rgba(224,122,58,0.25); --accent-dim: rgba(224,122,58,0.08);
+    --danger: #c94444; --win: #5cb87a; --lose: #c94444;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif;
+    direction: ltr; min-height: 100vh; overflow-x: hidden; line-height: 1.65; font-weight: 400;
+  }
+  /* Cross-hatch background pattern */
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 14px, rgba(224,122,58,0.3) 14px, rgba(224,122,58,0.3) 15px),
+      repeating-linear-gradient(90deg, transparent, transparent 14px, rgba(224,122,58,0.3) 14px, rgba(224,122,58,0.3) 15px);
+  }
+  body::after {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 500px 400px at 25% 20%, rgba(224,122,58,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 500px at 75% 70%, rgba(224,122,58,0.03) 0%, transparent 70%);
+  }
+
+  .container { max-width: 850px; margin: 0 auto; padding: 0 24px 60px; position: relative; z-index: 1; }
+  h1, h2, h3 { font-family: 'Oswald', sans-serif; font-weight: 600; text-transform: uppercase; }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+    50% { box-shadow: 0 0 40px rgba(224,122,58,0.4); }
+  }
+  @keyframes emberDrift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  .animate { opacity: 0; animation: fadeSlideUp 0.7s ease-out forwards; }
+  .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; } .delay-6 { animation-delay: 0.6s; }
+  .delay-7 { animation-delay: 0.7s; } .delay-8 { animation-delay: 0.8s; }
+  .delay-9 { animation-delay: 0.9s; } .delay-10 { animation-delay: 1.0s; }
+  .delay-11 { animation-delay: 1.1s; } .delay-12 { animation-delay: 1.2s; }
+
+  .ember-line {
+    height: 3px; border: none; border-radius: 2px;
+    background: linear-gradient(90deg, #e07a3a, #c94444, #e07a3a, #f0a060, #e07a3a);
+    background-size: 200% 100%; animation: emberDrift 5s linear infinite;
+  }
+  .rivet { display: inline-block; color: var(--accent); font-size: 8px; opacity: 0.4; vertical-align: middle; }
+
+  /* HERO / MASTHEAD */
+  .hero { position: relative; padding: 0 0 40px; text-align: center; }
+  .hero .ember-line { margin-bottom: 48px; }
+  .hero-badge {
+    display: inline-block; background: var(--accent-dim); border: 1px solid rgba(224,122,58,0.3);
+    border-radius: 4px; padding: 8px 24px; font-size: 13px; color: var(--accent); font-weight: 600;
+    letter-spacing: 2px; margin-bottom: 24px; text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+  }
+  .hero-title {
+    font-size: 52px; color: #f5f0e8; letter-spacing: 3px; line-height: 1.15; margin-bottom: 10px;
+  }
+  .hero-location {
+    font-family: 'Inter', sans-serif; font-size: 16px; color: var(--accent);
+    font-weight: 500; letter-spacing: 6px; display: block; margin-bottom: 40px; text-transform: uppercase;
+  }
+
+  /* Stat strip */
+  .stat-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 60px; }
+  .stat-box {
+    background: var(--paper); border: 1px solid rgba(224,122,58,0.15); border-radius: 6px;
+    padding: 28px 20px; text-align: center; position: relative; overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .stat-box:hover { transform: translateY(-3px); box-shadow: 0 8px 30px var(--accent-glow); }
+  .stat-box::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.6;
+  }
+  .stat-number { font-family: 'Oswald', sans-serif; font-size: 38px; color: #f5f0e8; margin-bottom: 2px; }
+  .stat-stars { color: var(--accent); font-size: 16px; letter-spacing: 3px; margin-bottom: 6px; }
+  .stat-label { font-size: 12px; color: rgba(232,226,214,0.4); font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* Section headings */
+  .section-title { text-align: center; font-size: 26px; color: var(--accent); letter-spacing: 4px; margin-bottom: 12px; }
+  .section-divider { max-width: 200px; margin: 0 auto 36px; }
+
+  /* COMPETITOR TABLE */
+  .comp-section { margin-bottom: 60px; }
+  .comp-card {
+    background: var(--paper); border-radius: 8px; overflow: hidden;
+    border: 1px solid rgba(224,122,58,0.12); box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .comp-table { width: 100%; display: flex; flex-direction: column; }
+  .comp-header-row {
+    display: grid; grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+    background: rgba(15,14,13,0.8);
+  }
+  .comp-header-row .comp-cell {
+    padding: 16px 14px; font-size: 12px; font-weight: 700; color: var(--accent);
+    letter-spacing: 1px; text-align: center; text-transform: uppercase; font-family: 'Oswald', sans-serif;
+  }
+  .comp-header-row .comp-cell:first-child { text-align: left; }
+  .comp-row {
+    display: grid; grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(224,122,58,0.06); transition: background 0.2s ease;
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-row:hover { background: rgba(224,122,58,0.03); }
+  .comp-cell { padding: 14px 14px; font-size: 14px; display: flex; align-items: center; justify-content: center; color: rgba(232,226,214,0.75); }
+  .cell-label { justify-content: flex-start; font-weight: 500; color: rgba(232,226,214,0.5); font-size: 13px; letter-spacing: 0.5px; }
+  .cell-you { border-left: 3px solid var(--accent); background: var(--accent-dim); color: var(--text); font-weight: 600; }
+  .cell-comp { color: rgba(232,226,214,0.65); }
+  .win { color: var(--win); position: relative; }
+  .win::after { content: ''; position: absolute; inset: 4px; border-radius: 4px; background: rgba(92,184,122,0.08); pointer-events: none; }
+  .lose { color: var(--lose); position: relative; }
+  .lose::after { content: ''; position: absolute; inset: 4px; border-radius: 4px; background: rgba(201,68,68,0.08); pointer-events: none; }
+
+  /* Alert callout */
+  .alert-card {
+    margin: 24px 20px 20px; background: rgba(201,68,68,0.06); border: 1px solid rgba(201,68,68,0.3);
+    border-radius: 6px; padding: 22px 26px; text-align: center; position: relative;
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+  .alert-card .alert-icon { font-size: 20px; margin-bottom: 8px; display: block; }
+  .alert-card p { font-size: 15px; line-height: 1.7; color: rgba(232,226,214,0.85); }
+  .alert-card strong { color: var(--danger); font-weight: 700; }
+  .alert-card .stat-highlight { color: var(--accent); font-weight: 700; }
+
+  /* REPUTATION */
+  .reputation-section { margin-bottom: 60px; }
+  .rating-hero { text-align: center; padding: 48px 20px 24px; }
+  .rating-huge {
+    font-family: 'Oswald', sans-serif; font-size: 110px; color: var(--accent); line-height: 1;
+    text-shadow: 0 0 60px var(--accent-glow), 0 0 120px rgba(224,122,58,0.1);
+    margin-bottom: 4px; font-weight: 700;
+  }
+  .rating-stars-big { font-size: 22px; color: var(--accent); letter-spacing: 5px; margin-bottom: 10px; }
+  .rating-subtitle { font-size: 15px; color: rgba(232,226,214,0.4); font-weight: 300; }
+
+  .insight-card {
+    max-width: 540px; margin: 24px auto 40px; background: var(--paper);
+    border: 1px solid rgba(92,184,122,0.25); border-radius: 6px; padding: 22px 28px;
+    text-align: center; font-size: 16px; color: rgba(232,226,214,0.8);
+  }
+  .insight-card strong { color: var(--win); }
+
+  /* Calculator */
+  .calc-card {
+    background: var(--paper); border-radius: 8px; overflow: hidden;
+    border: 1px solid rgba(224,122,58,0.12); margin-bottom: 32px;
+  }
+  .calc-card .calc-title {
+    padding: 18px 24px; font-size: 14px; font-weight: 600; color: var(--accent);
+    background: rgba(15,14,13,0.8); letter-spacing: 2px; text-align: center;
+    font-family: 'Oswald', sans-serif; text-transform: uppercase;
+  }
+  .calc-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid rgba(224,122,58,0.06); }
+  .calc-row:last-child { border-bottom: none; }
+  .calc-row.calc-header { background: rgba(15,14,13,0.5); }
+  .calc-cell { padding: 13px 18px; font-size: 14px; text-align: center; color: rgba(232,226,214,0.7); }
+  .calc-header .calc-cell { font-weight: 600; color: var(--accent); font-size: 12px; letter-spacing: 1px; font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+  .calc-row-highlight { background: var(--accent-dim); }
+  .calc-row-highlight .calc-cell { color: var(--text); font-weight: 500; }
+
+  /* Competitor reference cards */
+  .competitor-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  .competitor-card {
+    background: var(--paper); border: 1px solid rgba(224,122,58,0.15); border-radius: 6px;
+    padding: 24px 18px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .competitor-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+  .competitor-card.glow-a { border-top: 3px solid var(--accent); }
+  .competitor-card.glow-b { border-top: 3px solid var(--danger); }
+  .competitor-card.glow-c { border-top: 3px solid var(--win); }
+  .competitor-name { font-size: 14px; font-weight: 600; color: rgba(232,226,214,0.9); margin-bottom: 12px; line-height: 1.4; }
+  .competitor-rating { font-family: 'Oswald', sans-serif; font-size: 30px; color: #f5f0e8; margin-bottom: 2px; }
+  .competitor-stars { color: var(--accent); font-size: 12px; letter-spacing: 2px; margin-bottom: 6px; }
+  .competitor-reviews { font-size: 12px; color: rgba(232,226,214,0.4); }
+
+  /* Urgency callout */
+  .urgency-card {
+    background: var(--paper); border: 1px solid rgba(201,68,68,0.3); border-radius: 6px;
+    padding: 24px 28px; text-align: center; margin-bottom: 60px; position: relative; overflow: hidden;
+  }
+  .urgency-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--danger), transparent);
+  }
+  .urgency-card p { font-size: 15px; color: rgba(232,226,214,0.8); line-height: 1.7; }
+  .urgency-card strong { color: var(--danger); }
+
+  /* CTA */
+  .cta-card {
+    background: var(--paper); border-radius: 8px; padding: 44px 36px; text-align: center;
+    position: relative; margin-bottom: 48px; overflow: hidden;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 40px var(--accent-glow), inset 0 0 60px rgba(224,122,58,0.03);
+  }
+  .cta-title { font-size: 30px; color: #f5f0e8; letter-spacing: 3px; margin-bottom: 12px; }
+  .cta-subtitle { font-size: 16px; color: rgba(232,226,214,0.5); margin-bottom: 28px; font-family: 'Inter', sans-serif; }
+  .cta-button {
+    display: inline-block; background: var(--accent); color: var(--bg);
+    font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px;
+    padding: 14px 44px; border-radius: 4px; text-decoration: none;
+    letter-spacing: 2px; text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 25px var(--accent-glow);
+  }
+  .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 35px rgba(224,122,58,0.45); }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: rgba(232,226,214,0.2); letter-spacing: 1px; }
+  .footer .rivet { opacity: 0.3; margin: 0 6px; }
+
+  @media (max-width: 700px) {
+    .hero-title { font-size: 34px; letter-spacing: 2px; }
+    .stat-strip { grid-template-columns: 1fr; gap: 12px; }
+    .comp-header-row, .comp-row { grid-template-columns: 1.4fr 1.2fr 1fr 1fr 1fr; font-size: 11px; }
+    .comp-cell { padding: 10px 6px; font-size: 11px; }
+    .competitor-cards { grid-template-columns: 1fr; }
+    .rating-huge { font-size: 80px; }
+    .section-title { font-size: 20px; letter-spacing: 2px; }
+    .cta-card { padding: 32px 20px; }
+    .cta-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO / MASTHEAD -->
+  <section class="hero animate">
+    <hr class="ember-line">
+    <div style="padding-top: 40px;">
+      <div class="hero-badge animate delay-2">Digital Analysis &mdash; March 2026</div>
+      <h1 class="hero-title animate delay-3">Space city auto repair</h1>
+      <span class="hero-location animate delay-4">Houston, Texas</span>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-box animate delay-5">
+        <div class="stat-number">5.0</div>
+        <div class="stat-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="stat-label"><span class="rivet">&#9670;</span> Google Rating <span class="rivet">&#9670;</span></div>
+      </div>
+      <div class="stat-box animate delay-6">
+        <div class="stat-number">10</div>
+        <div class="stat-stars">&#9670;</div>
+        <div class="stat-label"><span class="rivet">&#9670;</span> Reviews <span class="rivet">&#9670;</span></div>
+      </div>
+      <div class="stat-box animate delay-7">
+        <div class="stat-number">0/10</div>
+        <div class="stat-stars">&#9670;</div>
+        <div class="stat-label"><span class="rivet">&#9670;</span> Website Score <span class="rivet">&#9670;</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITOR COMPARISON -->
+  <section class="comp-section animate delay-6">
+    <div class="section-divider"><hr class="ember-line"></div>
+    <h2 class="section-title">Competitor Comparison</h2>
+    <div style="text-align:center; margin-bottom: 32px;"><span class="rivet">&#9670;</span></div>
+
+    <div class="comp-card">
+      <div class="comp-table">
+<tbody>
+<tr class="comp-header-row">
+  <th class="cell-label"></th>
+  <th class="cell-you">You</th>
+  <th class="cell-comp">Discount Inspection & Brake</th>
+  <th class="cell-comp">Porsche North Houston Service </th>
+  <th class="cell-comp">Group 1 Restoration Center</th>
+</tr>
+<tr class="comp-row">
+  <td class="cell-label">Google Rating</td>
+  <td class="cell-you comp-cell">5.0</td>
+  <td class="cell-comp comp-cell lose">4.9</td>
+  <td class="cell-comp comp-cell lose">4.9</td>
+  <td class="cell-comp comp-cell lose">4.4</td>
+</tr>
+<tr class="comp-row reviews-row">
+  <td class="cell-label">Reviews</td>
+  <td class="cell-you comp-cell">10</td>
+  <td class="cell-comp comp-cell win">2301</td>
+  <td class="cell-comp comp-cell win">2175</td>
+  <td class="cell-comp comp-cell win">2032</td>
+</tr>
+<tr class="comp-row">
+  <td class="cell-label">Website</td>
+  <td class="cell-you comp-cell">&#10007;</td>
+  <td class="cell-comp comp-cell win">&#10003;</td>
+  <td class="cell-comp comp-cell win">&#10003;</td>
+  <td class="cell-comp comp-cell win">&#10003;</td>
+</tr>
+<tr class="comp-row">
+  <td class="cell-label">Facebook</td>
+  <td class="cell-you comp-cell">&#10003;</td>
+  <td class="cell-comp comp-cell">&#10007;</td>
+  <td class="cell-comp comp-cell">&#10007;</td>
+  <td class="cell-comp comp-cell">&#10007;</td>
+</tr>
+<tr class="comp-row">
+  <td class="cell-label">Instagram</td>
+  <td class="cell-you comp-cell">&#10003;</td>
+  <td class="cell-comp comp-cell">&#10007;</td>
+  <td class="cell-comp comp-cell">&#10007;</td>
+  <td class="cell-comp comp-cell">&#10007;</td>
+</tr>
+</tbody>
+</div>
+          <div class="comp-cell">You</div>
+          <div class="comp-cell">Care Laser</div>
+          <div class="comp-cell">Myodent — Dr. Max</div>
+          <div class="comp-cell">Dr. Shira Hazak</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">Google Rating</div>
+          <div class="comp-cell cell-you">5.0</div>
+          <div class="comp-cell cell-comp win">4.0</div>
+          <div class="comp-cell cell-comp">5.0</div>
+          <div class="comp-cell cell-comp">5.0</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">Reviews</div>
+          <div class="comp-cell cell-you">24</div>
+          <div class="comp-cell cell-comp lose">756</div>
+          <div class="comp-cell cell-comp lose">485</div>
+          <div class="comp-cell cell-comp lose">354</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">Website Score</div>
+          <div class="comp-cell cell-you">8</div>
+          <div class="comp-cell cell-comp win">0</div>
+          <div class="comp-cell cell-comp">8</div>
+          <div class="comp-cell cell-comp lose">9</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">Online Booking</div>
+          <div class="comp-cell cell-you">&#10003;</div>
+          <div class="comp-cell cell-comp win">&#10007;</div>
+          <div class="comp-cell cell-comp">&#10003;</div>
+          <div class="comp-cell cell-comp">&#10003;</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">Facebook</div>
+          <div class="comp-cell cell-you">&#10003;</div>
+          <div class="comp-cell cell-comp win">&#10007;</div>
+          <div class="comp-cell cell-comp win">&#10007;</div>
+          <div class="comp-cell cell-comp">&#10003;</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">Instagram</div>
+          <div class="comp-cell cell-you">&#10003;</div>
+          <div class="comp-cell cell-comp win">&#10007;</div>
+          <div class="comp-cell cell-comp win">&#10007;</div>
+          <div class="comp-cell cell-comp win">&#10007;</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell cell-label">GBP Photos</div>
+          <div class="comp-cell cell-you">15</div>
+          <div class="comp-cell cell-comp lose">85</div>
+          <div class="comp-cell cell-comp lose">120</div>
+          <div class="comp-cell cell-comp lose">65</div>
+        </div>
+      </div>
+
+      <div class="alert-card animate delay-8">
+        <span class="alert-icon">&#9888;</span>
+        <p>
+          <strong>Your Position: 4th out of 4</strong> by Reviews.<br>
+          The leading competitor holds <span class="stat-highlight">756 Reviews</span> &mdash; 31.5x more than you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPUTATION ANALYSIS -->
+  <section class="reputation-section animate delay-7">
+    <div class="section-divider"><hr class="ember-line"></div>
+    <h2 class="section-title">Reputation Analysis &amp; Improvement Forecast</h2>
+    <div style="text-align:center; margin-bottom: 32px;"><span class="rivet">&#9670;</span></div>
+
+    <div class="rating-hero">
+      <div class="rating-huge">5.0</div>
+      <div class="rating-stars-big">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rating-subtitle">10 Reviews on Google</div>
+    </div>
+
+    <div class="insight-card animate delay-8">
+      <strong>Excellent rating</strong> &mdash; but only 24 reviews. Your digital footprint is still too thin to compete.
+    </div>
+
+    <div class="calc-card animate delay-9">
+      <div class="calc-title"><span class="rivet">&#9670;</span> Rating Forecast Calculator <span class="rivet">&#9670;</span></div>
+      <div class="comp-table">
+        <div class="calc-row calc-header">
+          <div class="calc-cell">New Reviews</div>
+          <div class="calc-cell">New Rating</div>
+          <div class="calc-cell">Improvement</div>
+        </div>
+        <div class="calc-row calc-row-highlight">
+          <div class="calc-cell">Today</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">&mdash;</div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-cell">+5</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">+0.0</div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-cell">+10</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">+0.0</div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-cell">+15</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">+0.0</div>
+        </div>
+        <div class="calc-row">
+          <div class="calc-cell">+20</div>
+          <div class="calc-cell">5.0</div>
+          <div class="calc-cell">+0.0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="competitor-cards">
+      <div class="competitor-card glow-a animate delay-9">
+        <div class="competitor-name">Myodent &mdash; Dr. Max</div>
+        <div class="competitor-rating">5.0</div>
+        <div class="competitor-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="competitor-reviews">485 Reviews</div>
+      </div>
+      <div class="competitor-card glow-b animate delay-10">
+        <div class="competitor-name">Dr. Shira Hazak</div>
+        <div class="competitor-rating">5.0</div>
+        <div class="competitor-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="competitor-reviews">354 Reviews</div>
+      </div>
+      <div class="competitor-card glow-c animate delay-11">
+        <div class="competitor-name">Care Laser</div>
+        <div class="competitor-rating">4.0</div>
+        <div class="competitor-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <div class="competitor-reviews">756 Reviews</div>
+      </div>
+    </div>
+
+    <div class="urgency-card animate delay-10">
+      <p>
+        <strong>Every day without new reviews</strong> &mdash; your competitors keep pulling ahead.<br>
+        With only 24 reviews, you are far behind. The time to act is now.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="animate delay-11">
+    <div class="cta-card">
+      <h2 class="cta-title">Want to See the Full Analysis?</h2>
+      <p class="cta-subtitle">10 minutes on Zoom &mdash; interested?</p>
+      
+<div class="reviews-quotes" style="margin:32px 0;padding:24px;background:rgba(155,142,194,0.06);border:1px solid rgba(155,142,194,0.15);border-radius:8px;">
+  <h3 style="font-family:var(--playfair);font-size:22px;margin-bottom:16px;color:var(--accent);">What Your Customers Say</h3>
+  <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(155,142,194,0.1);">
+    <div style="font-size:13px;color:var(--accent);margin-bottom:4px;">★★★★★</div>
+    <div style="font-style:italic;color:var(--text);line-height:1.6;">"Went for brake job. Amer is friendly and provided great service! I recommend coming here. They will check your car issues and give you honest advice with what needs to be done."</div>
+    <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">— mohammed hassan</div>
+  </div>
+  <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(155,142,194,0.1);">
+    <div style="font-size:13px;color:var(--accent);margin-bottom:4px;">★★★★★</div>
+    <div style="font-style:italic;color:var(--text);line-height:1.6;">"I have to brag about this place! I had issues with my truck this morning and Amer saved me from the start by towing my truck to his shop, figuring out the issue, getting me the best deal on parts and "</div>
+    <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">— Molly Griffey</div>
+  </div>
+  <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(155,142,194,0.1);">
+    <div style="font-size:13px;color:var(--accent);margin-bottom:4px;">★★★★★</div>
+    <div style="font-style:italic;color:var(--text);line-height:1.6;">"I had a great experience at this shop! They worked on my car and got everything fixed quickly and efficiently. The service was top-notch, and the pricing was very affordable—no surprises or upsells. T"</div>
+    <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">— 31ibrahim 31pro69</div>
+  </div>
+</div>
+<a href="#" class="cta-button">Schedule a Quick Call</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer animate delay-12">
+    <p><span class="rivet">&#9670;</span> Based on public data | March 2026 <span class="rivet">&#9670;</span></p>
+  </footer>
+
+</div>
+</body>
+</html>

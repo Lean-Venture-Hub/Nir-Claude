@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenScape Pro — Premium Landscaping in Austin TX</title>
+<meta name="description" content="GreenScape Pro delivers expert landscape design, lawn care, hardscaping & outdoor living in Austin TX. 4.9 stars, 312 reviews. Call (555) 739-2841.">
+<meta property="og:title" content="GreenScape Pro — Premium Landscaping in Austin TX">
+<meta property="og:description" content="Your landscape, our craft. Transforming Austin outdoor spaces since 2011.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LandscapingBusiness",
+  "name": "GreenScape Pro",
+  "description": "Premium landscaping design, lawn care, hardscaping and outdoor living services in Austin, TX.",
+  "telephone": "+15557392841",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Austin",
+    "addressRegion": "TX"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312"
+  },
+  "foundingDate": "2011",
+  "owner": {
+    "@type": "Person",
+    "name": "Mike Anderson"
+  }
+}
+</script>
+<style>
+/* ══════════════════════════════════════════════
+   RESET & CSS CUSTOM PROPERTIES
+   ══════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0D0D0D;
+  --bg-alt:#111111;
+  --text:#F8F4EF;
+  --text-dim:rgba(248,244,239,.6);
+  --text-muted:rgba(248,244,239,.4);
+  --accent:#C4654A;
+  --accent-glow:rgba(196,101,74,.25);
+  --accent-hover:#d87560;
+  --green:#4A7C59;
+  --green-glow:rgba(74,124,89,.2);
+  --green-light:#6aad7a;
+  --surface:rgba(248,244,239,.04);
+  --surface-hover:rgba(248,244,239,.07);
+  --border:rgba(248,244,239,.08);
+  --border-hover:rgba(248,244,239,.15);
+  --font-display:'Clash Display','Inter',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:auto;overflow-x:hidden}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  font-weight:400;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a{text-decoration:none;color:inherit}
+button{border:none;background:none;cursor:pointer;font-family:inherit;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ══════════════════════════════════════════════
+   SCROLL PROGRESS INDICATOR
+   ══════════════════════════════════════════════ */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--green));
+  z-index:10001;pointer-events:none;
+  will-change:width;
+}
+
+/* ══════════════════════════════════════════════
+   CHAPTER 0: STICKY NAVIGATION
+   ══════════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:10000;
+  padding:18px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(13,13,13,.55);
+  backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-backdrop-filter:blur(24px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+  transition:transform .45s var(--ease-out),background .3s;
+}
+.nav.scrolled{background:rgba(13,13,13,.85)}
+.nav.hidden{transform:translateY(-110%)}
+.nav-logo{
+  font-family:var(--font-display);font-weight:700;font-size:1.25rem;
+  letter-spacing:-.02em;display:flex;align-items:center;gap:10px;
+}
+.nav-logo-mark{
+  width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,var(--green),var(--accent));
+  display:grid;place-items:center;flex-shrink:0;
+}
+.nav-logo-mark svg{width:18px;height:18px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{
+  font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-dim);transition:color .3s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
+  background:var(--accent);transition:width .3s var(--ease-out);
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--accent);color:var(--text);
+  padding:10px 26px;border-radius:100px;
+  font-size:.82rem;font-weight:600;letter-spacing:.02em;
+  transition:background .3s,transform .2s,box-shadow .3s;
+}
+.nav-cta:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 6px 24px var(--accent-glow)}
+.burger{display:none;flex-direction:column;gap:5px;width:26px;cursor:pointer;padding:4px 0}
+.burger span{display:block;height:2px;background:var(--text);border-radius:2px;transition:transform .35s,opacity .25s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(13,13,13,.97);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  opacity:0;transition:opacity .4s;
+}
+.mob-menu.open{display:flex;opacity:1}
+.mob-menu a{
+  font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.2rem);
+  font-weight:600;color:var(--text);
+}
+
+/* ══════════════════════════════════════════════
+   SHARED CHAPTER STYLES
+   ══════════════════════════════════════════════ */
+.chapter{
+  position:relative;width:100%;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.chapter-inner{
+  width:100%;max-width:1280px;
+  padding:80px clamp(20px,5vw,60px);
+  position:relative;z-index:2;
+}
+
+/* ══════════════════════════════════════════════
+   CHAPTER 1: HERO
+   ══════════════════════════════════════════════ */
+.ch-hero{background:var(--bg);position:relative}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.2;z-index:0}
+.hero-ambient{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 55% at 30% 60%,rgba(74,124,89,.12),transparent 70%),
+    radial-gradient(ellipse 50% 45% at 75% 30%,rgba(196,101,74,.08),transparent 60%);
+  opacity:0;transition:opacity 1.2s;
+}
+.hero-ambient.visible{opacity:1}
+.hero-grain{
+  position:absolute;inset:0;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  background-size:128px;pointer-events:none;
+}
+.hero-eyebrow{
+  font-size:clamp(.72rem,.85vw,.88rem);font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:28px;
+  opacity:0;transform:translateY(12px);
+}
+.hero-headline{
+  font-family:var(--font-display);
+  font-size:clamp(3.2rem,8.5vw,8rem);
+  font-weight:700;line-height:1;
+  letter-spacing:-.045em;
+  margin-bottom:28px;
+}
+.hero-headline .word{
+  display:inline-block;opacity:0;
+  transform:translateY(60px) rotateX(30deg);
+  transform-origin:bottom center;
+}
+.hero-sub{
+  font-size:clamp(1rem,1.3vw,1.2rem);
+  max-width:480px;color:var(--text-dim);line-height:1.75;
+  margin-bottom:40px;opacity:0;transform:translateY(20px);
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(20px)}
+.btn-fill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:var(--text);
+  padding:16px 34px;border-radius:100px;
+  font-size:.95rem;font-weight:600;
+  transition:background .3s,transform .25s,box-shadow .3s;
+}
+.btn-fill:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 10px 36px var(--accent-glow)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--border-hover);color:var(--text-dim);
+  padding:16px 34px;border-radius:100px;
+  font-size:.95rem;font-weight:500;
+  transition:border-color .3s,color .3s,background .3s;
+}
+.btn-ghost:hover{border-color:var(--text-dim);color:var(--text);background:rgba(248,244,239,.04)}
+.scroll-cue{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  opacity:0;
+}
+.scroll-cue span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted)}
+.scroll-cue-line{width:1px;height:44px;background:var(--border-hover);position:relative;overflow:hidden}
+.scroll-cue-line::after{
+  content:'';position:absolute;top:-100%;width:100%;height:100%;
+  background:var(--accent);animation:cue-pulse 2.2s ease-in-out infinite;
+}
+@keyframes cue-pulse{0%{top:-100%}50%{top:100%}100%{top:100%}}
+
+/* ══════════════════════════════════════════════
+   CHAPTER 2: TRUST BAR + SERVICES
+   ══════════════════════════════════════════════ */
+.ch-services{background:var(--bg)}
+.trust-row{
+  display:flex;justify-content:center;gap:clamp(28px,5vw,72px);
+  margin-bottom:clamp(56px,7vw,96px);flex-wrap:wrap;
+}
+.trust-cell{text-align:center;opacity:0;transform:translateY(28px)}
+.trust-val{
+  font-family:var(--font-display);font-size:clamp(2.6rem,4.8vw,4rem);
+  font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px;
+}
+.trust-lbl{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.12em;font-weight:500}
+.sect-title{
+  font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:700;text-align:center;letter-spacing:-.035em;
+  margin-bottom:10px;opacity:0;
+}
+.sect-sub{
+  text-align:center;color:var(--text-dim);max-width:520px;
+  margin:0 auto 48px;font-size:.95rem;opacity:0;
+}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:clamp(24px,3vw,32px);
+  opacity:0;transform:translateY(44px);
+  transition:border-color .35s,background .35s,transform .35s;
+}
+.svc-card:hover{border-color:var(--accent);background:var(--surface-hover);transform:translateY(-3px)!important}
+.svc-icon{
+  width:46px;height:46px;border-radius:12px;
+  display:grid;place-items:center;margin-bottom:18px;
+}
+.svc-icon svg{width:22px;height:22px}
+.svc-card h3{
+  font-family:var(--font-display);font-size:1.1rem;font-weight:600;
+  letter-spacing:-.01em;margin-bottom:8px;
+}
+.svc-card p{font-size:.88rem;color:var(--text-muted);line-height:1.65}
+
+/* ══════════════════════════════════════════════
+   CHAPTER 3: BEFORE / AFTER
+   ══════════════════════════════════════════════ */
+.ch-ba{background:linear-gradient(180deg,var(--bg),#101210)}
+.ba-wrap{max-width:880px;margin:0 auto}
+.ba-title{
+  font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:700;text-align:center;letter-spacing:-.035em;
+  margin-bottom:10px;opacity:0;
+}
+.ba-desc{text-align:center;color:var(--text-dim);margin-bottom:44px;font-size:.95rem;opacity:0}
+.ba-box{
+  position:relative;width:100%;aspect-ratio:16/10;
+  border-radius:16px;overflow:hidden;cursor:ew-resize;
+  user-select:none;-webkit-user-select:none;
+  border:1px solid var(--border);
+}
+.ba-layer{position:absolute;inset:0}
+.ba-after-layer{
+  background:linear-gradient(145deg,#152a18 0%,#1f4a28 25%,#4A7C59 55%,#6aad7a 80%,#8fd4a0 100%);
+}
+.ba-after-layer img,.ba-before-layer img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+}
+.ba-after-layer::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:35%;
+  background:linear-gradient(to top,rgba(0,0,0,.25),transparent);
+}
+.ba-after-layer::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 35% 35% at 55% 40%,rgba(255,240,180,.08),transparent);
+}
+.ba-before-clip{position:absolute;top:0;bottom:0;left:0;width:50%;overflow:hidden;z-index:2}
+.ba-before-layer{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:linear-gradient(145deg,#2a1f14 0%,#4a3828 25%,#6e5a3e 50%,#8b7355 75%,#a09070 100%);
+}
+.ba-before-layer::after{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(82deg,transparent,transparent 55px,rgba(0,0,0,.08) 55px,rgba(0,0,0,.08) 56px),
+    repeating-linear-gradient(170deg,transparent,transparent 38px,rgba(0,0,0,.05) 38px,rgba(0,0,0,.05) 39px);
+}
+.ba-tag{
+  position:absolute;bottom:16px;padding:7px 18px;border-radius:100px;
+  font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;z-index:5;
+}
+.ba-tag-before{left:16px;background:rgba(196,101,74,.85);color:var(--text)}
+.ba-tag-after{right:16px;background:rgba(74,124,89,.85);color:var(--text)}
+.ba-divider{
+  position:absolute;top:0;bottom:0;left:50%;width:3px;
+  background:var(--text);z-index:10;transform:translateX(-50%);
+}
+.ba-knob{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:44px;height:44px;border-radius:50%;
+  background:var(--text);z-index:11;
+  box-shadow:0 2px 16px rgba(0,0,0,.45);
+  display:grid;place-items:center;
+}
+.ba-knob svg{width:20px;height:20px;color:var(--bg)}
+
+/* ══════════════════════════════════════════════
+   CHAPTER 4: PORTFOLIO
+   ══════════════════════════════════════════════ */
+.ch-port{background:var(--bg)}
+.port-filters{
+  display:flex;justify-content:center;gap:10px;margin-bottom:36px;
+  flex-wrap:wrap;opacity:0;
+}
+.f-btn{
+  padding:8px 20px;border-radius:100px;
+  font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--border);color:var(--text-muted);
+  transition:all .3s;
+}
+.f-btn.on,.f-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--text)}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.port-card{
+  position:relative;border-radius:12px;overflow:hidden;
+  aspect-ratio:4/3;opacity:0;transform:scale(.92);
+  cursor:pointer;
+}
+.port-bg{
+  position:absolute;inset:0;transition:transform .65s var(--ease-out);
+}
+.port-bg img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+}
+.port-card:hover .port-bg{transform:scale(1.06)}
+.port-over{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(13,13,13,.82) 0%,transparent 55%);
+  opacity:0;transition:opacity .35s;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:20px;
+}
+.port-card:hover .port-over{opacity:1}
+.port-over h4{font-family:var(--font-display);font-size:1.05rem;font-weight:600;margin-bottom:3px}
+.port-over span{font-size:.75rem;color:var(--text-dim)}
+
+/* ══════════════════════════════════════════════
+   CHAPTER 5: ABOUT + REVIEWS
+   ══════════════════════════════════════════════ */
+.ch-about{background:linear-gradient(180deg,var(--bg),#0e110f)}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1.1fr;
+  gap:clamp(36px,5vw,72px);align-items:center;
+  margin-bottom:clamp(56px,7vw,96px);
+}
+.about-img{
+  position:relative;border-radius:16px;overflow:hidden;
+  aspect-ratio:3/4;opacity:0;
+}
+.about-img-fill{
+  position:absolute;inset:0;
+  background:linear-gradient(155deg,#14261a,#234a30,var(--green),#5e9a70);
+}
+.about-img-fill img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+}
+.about-img-fill::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 55% 35%,rgba(248,244,239,.06),transparent 55%);
+}
+.about-stamp{
+  position:absolute;bottom:20px;left:20px;
+  background:rgba(13,13,13,.78);backdrop-filter:blur(12px);
+  border-radius:12px;padding:14px 18px;
+  display:flex;align-items:center;gap:10px;
+}
+.about-stamp-dot{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--accent);display:grid;place-items:center;
+}
+.about-stamp-dot svg{width:18px;height:18px}
+.about-stamp-text span{display:block;font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+.about-stamp-text strong{font-family:var(--font-display);font-size:1rem}
+.about-copy{opacity:0}
+.about-tag{
+  font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--green-light);margin-bottom:14px;
+}
+.about-copy h2{
+  font-family:var(--font-display);font-size:clamp(1.8rem,3.4vw,2.8rem);
+  font-weight:700;line-height:1.12;letter-spacing:-.03em;margin-bottom:18px;
+}
+.about-copy p{color:var(--text-dim);font-size:.95rem;line-height:1.75;margin-bottom:14px}
+.about-sig{
+  font-family:var(--font-display);font-size:1.2rem;font-weight:600;
+  color:var(--accent);font-style:italic;margin-top:20px;
+}
+
+/* Reviews */
+.rev-head{
+  font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);
+  font-weight:700;text-align:center;letter-spacing:-.02em;margin-bottom:6px;
+  opacity:0;
+}
+.rev-stars{text-align:center;margin-bottom:36px;opacity:0;color:var(--accent);font-size:1.3rem}
+.rev-stars .rev-meta{color:var(--text-muted);font-size:.85rem;margin-left:8px}
+.rev-track{
+  display:flex;gap:18px;overflow-x:auto;padding-bottom:16px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.rev-track::-webkit-scrollbar{display:none}
+.rev-card{
+  min-width:320px;max-width:360px;flex-shrink:0;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:26px;
+  opacity:0;transform:translateX(50px);
+  transition:border-color .3s;
+}
+.rev-card:hover{border-color:var(--border-hover)}
+.rev-card-stars{color:var(--accent);font-size:.85rem;margin-bottom:10px;letter-spacing:2px}
+.rev-card p{font-size:.9rem;color:var(--text-dim);line-height:1.65;margin-bottom:14px;font-style:italic}
+.rev-author{display:flex;align-items:center;gap:10px}
+.rev-av{
+  width:36px;height:36px;border-radius:50%;
+  display:grid;place-items:center;font-weight:700;font-size:.8rem;
+}
+.rev-author-info span{display:block}
+.rev-author-info .rev-name{font-weight:600;font-size:.85rem}
+.rev-author-info .rev-loc{font-size:.72rem;color:var(--text-muted)}
+
+/* ══════════════════════════════════════════════
+   CHAPTER 6: CTA + FOOTER
+   ══════════════════════════════════════════════ */
+.ch-cta{
+  background:linear-gradient(180deg,var(--bg),#090909);
+  flex-direction:column;
+}
+.cta-block{text-align:center;padding-bottom:clamp(48px,6vw,80px);width:100%}
+.cta-block h2{
+  font-family:var(--font-display);font-size:clamp(2.4rem,6vw,5.2rem);
+  font-weight:700;line-height:1.05;letter-spacing:-.045em;
+  margin-bottom:16px;opacity:0;
+}
+.cta-block h2 em{font-style:normal;color:var(--accent)}
+.cta-desc{color:var(--text-dim);font-size:1.05rem;max-width:480px;margin:0 auto 36px;opacity:0}
+.cta-form{max-width:520px;margin:0 auto;opacity:0;transform:translateY(36px)}
+.f-row{display:flex;gap:10px;margin-bottom:10px}
+.f-row input,.f-row textarea{
+  flex:1;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:14px 16px;color:var(--text);
+  font-family:var(--font-body);font-size:.92rem;
+  transition:border-color .3s;outline:none;
+}
+.f-row input:focus,.f-row textarea:focus{border-color:var(--accent)}
+.f-row input::placeholder,.f-row textarea::placeholder{color:var(--text-muted)}
+.f-row textarea{resize:vertical;min-height:90px}
+.f-submit{
+  width:100%;background:var(--accent);color:var(--text);
+  padding:16px;border-radius:12px;border:none;
+  font-family:var(--font-body);font-size:1rem;font-weight:600;
+  cursor:pointer;transition:background .3s,transform .2s,box-shadow .3s;margin-top:4px;
+}
+.f-submit:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 32px var(--accent-glow)}
+
+/* Footer */
+.site-footer{width:100%;border-top:1px solid var(--border);padding:44px 0 28px}
+.footer-grid{
+  max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,60px);
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;
+}
+.footer-brand p{color:var(--text-muted);font-size:.82rem;margin-top:10px;line-height:1.65;max-width:260px}
+.footer-col h4{
+  font-family:var(--font-display);font-size:.78rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;
+}
+.footer-col a{display:block;color:var(--text-muted);font-size:.82rem;margin-bottom:8px;transition:color .3s}
+.footer-col a:hover{color:var(--accent)}
+.footer-end{
+  max-width:1280px;margin:0 auto;padding:20px clamp(20px,5vw,60px) 0;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--border);margin-top:28px;
+  font-size:.7rem;color:var(--text-muted);
+}
+
+/* ══════════════════════════════════════════════
+   REDUCED MOTION
+   ══════════════════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important}
+  .chapter{min-height:auto!important}
+  .scroll-progress{display:none}
+  .hero-headline .word,.hero-eyebrow,.hero-sub,.hero-btns,.scroll-cue,
+  .trust-cell,.sect-title,.sect-sub,.svc-card,
+  .ba-title,.ba-desc,.port-filters,.port-card,
+  .about-img,.about-copy,.rev-head,.rev-stars,.rev-card,
+  .cta-block h2,.cta-desc,.cta-form{
+    opacity:1!important;transform:none!important;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024)
+   ══════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .port-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .about-img{max-width:380px;margin:0 auto}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768)
+   ══════════════════════════════════════════════ */
+@media(max-width:768px){
+  .nav{padding:14px 20px}
+  .nav-links{display:none}
+  .burger{display:flex}
+  .svc-grid{grid-template-columns:1fr}
+  .port-grid{grid-template-columns:1fr 1fr}
+  .f-row{flex-direction:column}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-end{flex-direction:column;gap:6px;text-align:center}
+  .trust-row{gap:20px}
+  .rev-card{min-width:270px}
+  .ba-box{aspect-ratio:4/3}
+  .chapter{padding:40px 0}
+}
+@media(max-width:480px){
+  .port-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-headline{font-size:clamp(2.6rem,11vw,3.8rem)}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ SCROLL PROGRESS ═══ -->
+<div class="scroll-progress" id="prog"></div>
+
+<!-- ═══ CHAPTER 0: NAV ═══ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#F8F4EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10"/><path d="M12 2c3 3.2 5 7.2 5 10s-2 6.8-5 10"/><path d="M2 12h10"/><path d="M12 22c-3-3.2-5-7.2-5-10s2-6.8 5-10"/></svg>
+    </span>
+    GreenScape Pro
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:+15557392841" class="nav-cta">(555) 739-2841</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#portfolio" class="mob-link">Portfolio</a>
+  <a href="#about" class="mob-link">About</a>
+  <a href="#reviews" class="mob-link">Reviews</a>
+  <a href="tel:+15557392841" class="btn-fill" style="margin-top:12px">Call (555) 739-2841</a>
+</div>
+
+<!-- ═══ CHAPTER 1: HERO ═══ -->
+<section class="chapter ch-hero" id="hero">
+  <img class="hero-bg-img" src="../../images/template-images/hero.jpg" alt="Stunning backyard with pergola, stone patio, green lawn at golden hour">
+  <div class="hero-ambient" id="heroAmb"></div>
+  <div class="hero-grain"></div>
+  <div class="chapter-inner">
+    <p class="hero-eyebrow">Austin's Premier Landscaping &bull; Since 2011</p>
+    <h1 class="hero-headline" id="heroHL">Your Landscape, Our Craft</h1>
+    <p class="hero-sub">We don't just mow lawns — we design outdoor experiences. Award-winning landscaping that transforms how you live outside.</p>
+    <div class="hero-btns">
+      <a href="tel:+15557392841" class="btn-fill">
+        Get Free Quote
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#portfolio" class="btn-ghost">
+        See Our Work
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-cue" id="scrollCue">
+    <span>Scroll to explore</span>
+    <div class="scroll-cue-line"></div>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER 2: TRUST + SERVICES ═══ -->
+<section class="chapter ch-services" id="services">
+  <div class="chapter-inner">
+    <div class="trust-row">
+      <div class="trust-cell">
+        <div class="trust-val" data-to="14">0</div>
+        <div class="trust-lbl">Years Experience</div>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-val" data-to="312">0</div>
+        <div class="trust-lbl">5-Star Reviews</div>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-val" data-to="1800">0</div>
+        <div class="trust-lbl">Projects Done</div>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-val" data-to="4.9" data-dec="1">0</div>
+        <div class="trust-lbl">Google Rating</div>
+      </div>
+    </div>
+
+    <h2 class="sect-title">What We Do Best</h2>
+    <p class="sect-sub">From concept to completion — comprehensive outdoor transformations for Central Texas homes.</p>
+
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--green-glow)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-light)" stroke-width="2" stroke-linecap="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+        </div>
+        <h3>Landscape Design</h3>
+        <p>Custom 3D renderings and master plans — we visualize your dream space before a single plant goes in the ground.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--accent-glow)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg>
+        </div>
+        <h3>Hardscaping</h3>
+        <p>Patios, retaining walls, walkways, and outdoor kitchens built with premium natural stone and pavers.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--green-glow)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-light)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+        </div>
+        <h3>Lawn Care</h3>
+        <p>Year-round maintenance programs — mowing, fertilization, aeration, and seasonal treatments for a perfect lawn.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--accent-glow)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M12 22c-4-3-8-6-8-11a4 4 0 0 1 8 0 4 4 0 0 1 8 0c0 5-4 8-8 11z"/></svg>
+        </div>
+        <h3>Planting & Gardens</h3>
+        <p>Native Texas xeriscaping, garden beds, and seasonal color designed for Austin's heat and water-smart living.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--green-glow)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-light)" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Irrigation Systems</h3>
+        <p>Smart sprinkler design, drip lines, and water management that cuts your bill and keeps everything green.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--accent-glow)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M9 18h6M10 22h4M12 2v1"/><path d="M4.2 12.2A8 8 0 0 1 12 4a8 8 0 0 1 7.8 8.2"/><path d="M5 16.8A8 8 0 0 0 12 20a8 8 0 0 0 7-3.2"/></svg>
+        </div>
+        <h3>Outdoor Lighting</h3>
+        <p>Architectural LED and landscape lighting that extends your outdoor hours and adds dramatic curb appeal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER 3: BEFORE / AFTER ═══ -->
+<section class="chapter ch-ba" id="beforeafter">
+  <div class="chapter-inner">
+    <div class="ba-wrap">
+      <h2 class="ba-title">See the Transformation</h2>
+      <p class="ba-desc">Drag the slider to reveal the dramatic difference our craft makes to a real Austin backyard.</p>
+
+      <div class="ba-box" id="baBox">
+        <!-- After (full width, behind) -->
+        <div class="ba-layer ba-after-layer"><img src="../../images/template-images/after.jpg" alt="Beautiful renovated backyard with lawn, fence, and patio" loading="lazy"></div>
+        <span class="ba-tag ba-tag-after">After</span>
+        <!-- Before (clipped) -->
+        <div class="ba-before-clip" id="baClip">
+          <div class="ba-before-layer"><img src="../../images/template-images/before.jpg" alt="Neglected overgrown backyard before renovation" loading="lazy"></div>
+          <span class="ba-tag ba-tag-before">Before</span>
+        </div>
+        <!-- Divider + knob -->
+        <div class="ba-divider" id="baDivider"></div>
+        <div class="ba-knob" id="baKnob">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M8 5l-5 7 5 7"/><path d="M16 5l5 7-5 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER 4: PORTFOLIO ═══ -->
+<section class="chapter ch-port" id="portfolio">
+  <div class="chapter-inner">
+    <h2 class="sect-title" style="opacity:0" id="portTitle">Our Recent Work</h2>
+    <p class="sect-sub" style="opacity:0" id="portSub">A curated gallery of projects across Austin and Central Texas.</p>
+
+    <div class="port-filters" id="portFilters">
+      <button class="f-btn on" data-f="all">All</button>
+      <button class="f-btn" data-f="design">Design</button>
+      <button class="f-btn" data-f="hardscape">Hardscape</button>
+      <button class="f-btn" data-f="garden">Garden</button>
+      <button class="f-btn" data-f="lighting">Lighting</button>
+    </div>
+
+    <div class="port-grid">
+      <div class="port-card" data-cat="design">
+        <div class="port-bg" style="background:linear-gradient(140deg,#1a3a22,#2d5a38,#4A7C59,#72b882)"><img src="../../images/template-images/lawn-care.jpg" alt="Aerial view of striped lawn with flower beds" loading="lazy"></div>
+        <div class="port-over"><h4>Barton Hills Retreat</h4><span>Full Landscape Design</span></div>
+      </div>
+      <div class="port-card" data-cat="hardscape">
+        <div class="port-bg" style="background:linear-gradient(140deg,#4a3825,#6e5a3e,#9a8060,#C4654A)"><img src="../../images/template-images/hardscape-patio.jpg" alt="Stone paver patio with fire pit" loading="lazy"></div>
+        <div class="port-over"><h4>Lakeway Patio & Kitchen</h4><span>Hardscaping</span></div>
+      </div>
+      <div class="port-card" data-cat="garden">
+        <div class="port-bg" style="background:linear-gradient(140deg,#142a18,#3a6a44,#6aad7a,#a0d8aa)"><img src="../../images/template-images/outdoor-living.jpg" alt="Outdoor kitchen with pergola at twilight" loading="lazy"></div>
+        <div class="port-over"><h4>South Congress Native Garden</h4><span>Native Plantings</span></div>
+      </div>
+      <div class="port-card" data-cat="lighting">
+        <div class="port-bg" style="background:linear-gradient(140deg,#0D0D0D,#1a1a10,#3a3a20,#C4654A)"><img src="../../images/template-images/landscape-lighting.jpg" alt="Lit garden pathway at night with uplighted trees" loading="lazy"></div>
+        <div class="port-over"><h4>Westlake Night Lighting</h4><span>Outdoor Lighting</span></div>
+      </div>
+      <div class="port-card" data-cat="design">
+        <div class="port-bg" style="background:linear-gradient(140deg,#2a4a28,#4a7a50,#72b882,#a0e8b0)"><img src="../../images/template-images/irrigation.jpg" alt="Sprinkler system with rainbow spray" loading="lazy"></div>
+        <div class="port-over"><h4>Circle C Modern Yard</h4><span>Full Redesign</span></div>
+      </div>
+      <div class="port-card" data-cat="hardscape">
+        <div class="port-bg" style="background:linear-gradient(140deg,#3a2a1a,#5a4a32,#8a7a5a,#b0a080)"><img src="../../images/template-images/retaining-wall.jpg" alt="Stone retaining wall with terraced plantings" loading="lazy"></div>
+        <div class="port-over"><h4>Bee Cave Stone Walls</h4><span>Retaining Walls</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER 5: ABOUT + REVIEWS ═══ -->
+<section class="chapter ch-about" id="about">
+  <div class="chapter-inner">
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="about-img-fill"><img src="../../images/template-images/team.jpg" alt="GreenScape Pro landscaping crew in green polos" loading="lazy"></div>
+        <div class="about-stamp">
+          <div class="about-stamp-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#F8F4EF" stroke-width="2" stroke-linecap="round"><path d="M12 15l-3 3 1-5-4-3h5L12 5l1 5h5l-4 3 1 5z"/></svg>
+          </div>
+          <div class="about-stamp-text">
+            <span>Google Rated</span>
+            <strong>4.9 / 5.0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <p class="about-tag">Our Story</p>
+        <h2>From a One-Truck Crew to Austin's Most Trusted Team</h2>
+        <p>When Mike Anderson started GreenScape Pro in 2011, he had one truck, a handful of tools, and a vision: bring design-forward landscaping to every home in Austin — not just the mansions.</p>
+        <p>Today, our team of 24 landscape professionals has completed over 1,800 projects across Central Texas. We still operate with the same hands-on attention that built our reputation. Every project starts with Mike on-site, and every detail gets his sign-off.</p>
+        <div class="about-sig">— Mike Anderson, Founder</div>
+      </div>
+    </div>
+
+    <div id="reviews">
+      <h3 class="rev-head">What Our Clients Say</h3>
+      <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span class="rev-meta">4.9 from 312 reviews</span></div>
+
+      <div class="rev-track">
+        <div class="rev-card">
+          <div class="rev-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Mike and his team completely transformed our backyard. The design process was collaborative and the result exceeded every expectation. Worth every penny."</p>
+          <div class="rev-author">
+            <div class="rev-av" style="background:var(--green-glow);color:var(--green-light)">JR</div>
+            <div class="rev-author-info"><span class="rev-name">James Rodriguez</span><span class="rev-loc">Barton Hills, Austin</span></div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"We've used three landscapers before GreenScape. The difference is night and day. They actually listen, show up on time, and the craftsmanship is impeccable."</p>
+          <div class="rev-author">
+            <div class="rev-av" style="background:var(--accent-glow);color:var(--accent)">ST</div>
+            <div class="rev-author-info"><span class="rev-name">Sarah Thompson</span><span class="rev-loc">Lakeway, TX</span></div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"The outdoor lighting transformed our home. Neighbors constantly stop to compliment it. GreenScape's eye for detail is something special."</p>
+          <div class="rev-author">
+            <div class="rev-av" style="background:var(--green-glow);color:var(--green-light)">DK</div>
+            <div class="rev-author-info"><span class="rev-name">David Kim</span><span class="rev-loc">Westlake Hills, TX</span></div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"From consultation to final walkthrough, every step was professional. Our patio and garden are now our favorite room in the house — outdoors!"</p>
+          <div class="rev-author">
+            <div class="rev-av" style="background:var(--accent-glow);color:var(--accent)">LP</div>
+            <div class="rev-author-info"><span class="rev-name">Lisa Patel</span><span class="rev-loc">Circle C Ranch</span></div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Mike personally oversaw our project and it shows. The native plantings they chose are thriving with minimal water — perfect for Texas summers."</p>
+          <div class="rev-author">
+            <div class="rev-av" style="background:var(--green-glow);color:var(--green-light)">BW</div>
+            <div class="rev-author-info"><span class="rev-name">Brian Walsh</span><span class="rev-loc">South Austin, TX</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER 6: CTA + FOOTER ═══ -->
+<section class="chapter ch-cta" id="contact">
+  <div class="chapter-inner" style="width:100%;max-width:1280px">
+    <div class="cta-block">
+      <h2>Let's Transform Your<br><em>Outdoor Space</em></h2>
+      <p class="cta-desc">Free consultation and detailed quote — no pressure, just honest advice from Austin's top-rated landscaping team.</p>
+
+      <form class="cta-form" id="ctaForm" onsubmit="event.preventDefault();this.querySelector('.f-submit').textContent='Message Sent!';setTimeout(()=>this.querySelector('.f-submit').textContent='Get Your Free Quote →',2500)">
+        <div class="f-row">
+          <input type="text" placeholder="Your Name" required aria-label="Your name">
+          <input type="tel" placeholder="Phone Number" required aria-label="Phone number">
+        </div>
+        <div class="f-row">
+          <input type="email" placeholder="Email Address" required aria-label="Email address">
+        </div>
+        <div class="f-row">
+          <textarea placeholder="Tell us about your project..." aria-label="Project details"></textarea>
+        </div>
+        <button type="submit" class="f-submit">Get Your Free Quote &rarr;</button>
+      </form>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="nav-logo-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F8F4EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10"/><path d="M12 2c3 3.2 5 7.2 5 10s-2 6.8-5 10"/><path d="M2 12h10"/><path d="M12 22c-3-3.2-5-7.2-5-10s2-6.8 5-10"/></svg>
+            </span>
+            GreenScape Pro
+          </div>
+          <p>Design-driven landscaping that transforms Austin outdoor spaces. Family-owned and operated since 2011.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#services">Landscape Design</a>
+          <a href="#services">Hardscaping</a>
+          <a href="#services">Lawn Care</a>
+          <a href="#services">Irrigation</a>
+          <a href="#services">Outdoor Lighting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#about">About Us</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+15557392841">(555) 739-2841</a>
+          <a href="mailto:info@greenscapepro.com">info@greenscapepro.com</a>
+          <a>Austin, TX</a>
+        </div>
+      </div>
+      <div class="footer-end">
+        <span>&copy; 2026 GreenScape Pro. All rights reserved.</span>
+        <span>Proudly serving Austin &amp; Central Texas</span>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT — GSAP ScrollTrigger Chapters
+     ═══════════════════════════════════════════ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ── Feature detection ── */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mob = () => window.innerWidth < 768;
+
+  /* ── Lenis smooth scroll ── */
+  let lenis = null;
+  if (!reduced) {
+    lenis = new Lenis({
+      duration: 1.35,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      touchMultiplier: 1.5,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Scroll progress bar ── */
+  const prog = document.getElementById('prog');
+  function updateProgress() {
+    const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    prog.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  /* ── Nav hide/show + scrolled state ── */
+  let lastY = 0;
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('hidden', y > lastY && y > 180);
+    nav.classList.toggle('scrolled', y > 60);
+    lastY = y;
+  }, { passive: true });
+
+  /* ── Mobile menu ── */
+  const burger = document.getElementById('burger');
+  const mobMenu = document.getElementById('mobMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobMenu.classList.toggle('open');
+    document.body.style.overflow = mobMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mob-link').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ── Counter animation helper ── */
+  function countUp(el, target, dur) {
+    const dec = parseInt(el.dataset.dec || '0');
+    const t0 = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      const v = target * e;
+      el.textContent = dec ? v.toFixed(dec) : Math.floor(v).toLocaleString();
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  /* ── Bail early for reduced motion ── */
+  if (reduced) {
+    document.querySelectorAll('.trust-val').forEach(el => {
+      const t = parseFloat(el.dataset.to);
+      el.textContent = el.dataset.dec ? t.toFixed(parseInt(el.dataset.dec)) : t.toLocaleString();
+    });
+    document.getElementById('heroAmb').classList.add('visible');
+    return;
+  }
+
+  /* ═══════════════════════════════════════
+     PIN HELPER — only pin on desktop
+     ═══════════════════════════════════════ */
+  function pinChapter(trigger, endOffset, timelineCb) {
+    const end = '+=' + endOffset;
+
+    if (!mob()) {
+      ScrollTrigger.create({
+        trigger, start: 'top top', end, pin: true, pinSpacing: true,
+      });
+    }
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger,
+        start: mob() ? 'top 80%' : 'top top',
+        end: mob() ? 'bottom 20%' : end,
+        scrub: mob() ? false : 0.6,
+      }
+    });
+    timelineCb(tl);
+    return tl;
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 1 — HERO: word-by-word reveal
+     ═══════════════════════════════════════ */
+  const heroEl = document.getElementById('hero');
+  const hlEl = document.getElementById('heroHL');
+  const heroAmb = document.getElementById('heroAmb');
+
+  // Split into words
+  hlEl.innerHTML = hlEl.textContent.trim().split(/\s+/).map(w => '<span class="word">' + w + '</span>').join(' ');
+  const words = hlEl.querySelectorAll('.word');
+
+  if (!mob()) {
+    ScrollTrigger.create({ trigger: heroEl, start: 'top top', end: '+=220%', pin: true, pinSpacing: true });
+
+    const hTl = gsap.timeline({
+      scrollTrigger: { trigger: heroEl, start: 'top top', end: '+=180%', scrub: 0.7 }
+    });
+
+    hTl.to('.hero-eyebrow', { opacity: 1, y: 0, duration: .12 }, 0);
+    words.forEach((w, i) => {
+      hTl.to(w, { opacity: 1, y: 0, rotateX: 0, duration: .18, ease: 'power3.out' }, .04 + i * .09);
+    });
+    hTl.call(() => heroAmb.classList.add('visible'), null, .25);
+    hTl.to('.hero-sub', { opacity: 1, y: 0, duration: .18 }, .45);
+    hTl.to('.hero-btns', { opacity: 1, y: 0, duration: .18 }, .55);
+    hTl.to('#scrollCue', { opacity: 1, duration: .12 }, .65);
+    // Exit fade
+    hTl.to('.hero-eyebrow, .hero-sub, .hero-btns, #scrollCue', { opacity: 0, y: -30, duration: .12 }, .82);
+    hTl.to(words, { opacity: 0, y: -30, duration: .12 }, .82);
+  } else {
+    heroAmb.classList.add('visible');
+    gsap.to('.hero-eyebrow', { opacity: 1, y: 0, delay: .1, duration: .6, scrollTrigger: { trigger: heroEl, start: 'top 80%' } });
+    gsap.to(words, { opacity: 1, y: 0, rotateX: 0, stagger: .06, duration: .5, scrollTrigger: { trigger: heroEl, start: 'top 80%' } });
+    gsap.to('.hero-sub', { opacity: 1, y: 0, delay: .3, duration: .5, scrollTrigger: { trigger: heroEl, start: 'top 80%' } });
+    gsap.to('.hero-btns', { opacity: 1, y: 0, delay: .5, duration: .5, scrollTrigger: { trigger: heroEl, start: 'top 80%' } });
+    gsap.to('#scrollCue', { opacity: 1, delay: .7, duration: .5, scrollTrigger: { trigger: heroEl, start: 'top 80%' } });
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 2 — TRUST + SERVICES
+     ═══════════════════════════════════════ */
+  const svcEl = document.getElementById('services');
+
+  // Counters — fire once
+  let counted = false;
+  ScrollTrigger.create({
+    trigger: svcEl, start: 'top 65%',
+    onEnter: () => {
+      if (counted) return; counted = true;
+      document.querySelectorAll('.trust-val').forEach(el => countUp(el, parseFloat(el.dataset.to), 2200));
+    }
+  });
+
+  if (!mob()) {
+    ScrollTrigger.create({ trigger: svcEl, start: 'top top', end: '+=220%', pin: true, pinSpacing: true });
+
+    const sTl = gsap.timeline({
+      scrollTrigger: { trigger: svcEl, start: 'top top', end: '+=200%', scrub: .6 }
+    });
+
+    document.querySelectorAll('.trust-cell').forEach((c, i) => {
+      sTl.to(c, { opacity: 1, y: 0, duration: .12 }, i * .05);
+    });
+    sTl.to('.sect-title', { opacity: 1, duration: .1 }, .25);
+    sTl.to('.sect-sub', { opacity: 1, duration: .1 }, .3);
+    document.querySelectorAll('.svc-card').forEach((c, i) => {
+      sTl.to(c, { opacity: 1, y: 0, duration: .12 }, .35 + i * .04);
+    });
+    // Exit fade
+    sTl.to('.trust-cell, .sect-title, .sect-sub, .svc-card', { opacity: 0, y: -30, duration: .1 }, .82);
+  } else {
+    gsap.utils.toArray('.trust-cell').forEach((c, i) => {
+      gsap.to(c, { opacity: 1, y: 0, delay: i * .08, duration: .5, scrollTrigger: { trigger: c, start: 'top 88%' } });
+    });
+    gsap.to('.sect-title', { opacity: 1, duration: .5, scrollTrigger: { trigger: '.sect-title', start: 'top 85%' } });
+    gsap.to('.sect-sub', { opacity: 1, duration: .5, scrollTrigger: { trigger: '.sect-sub', start: 'top 85%' } });
+    gsap.utils.toArray('.svc-card').forEach((c, i) => {
+      gsap.to(c, { opacity: 1, y: 0, delay: i * .06, duration: .5, scrollTrigger: { trigger: c, start: 'top 90%' } });
+    });
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 3 — BEFORE / AFTER
+     ═══════════════════════════════════════ */
+  const baEl = document.getElementById('beforeafter');
+
+  if (!mob()) {
+    ScrollTrigger.create({ trigger: baEl, start: 'top top', end: '+=200%', pin: true, pinSpacing: true });
+    const bTl = gsap.timeline({
+      scrollTrigger: { trigger: baEl, start: 'top top', end: '+=130%', scrub: .5 }
+    });
+    bTl.to('.ba-title', { opacity: 1, duration: .18 }, 0);
+    bTl.to('.ba-desc', { opacity: 1, duration: .18 }, .1);
+    // Exit fade
+    bTl.to('.ba-title, .ba-desc, .ba-box', { opacity: 0, y: -30, duration: .12 }, .82);
+  } else {
+    gsap.to('.ba-title', { opacity: 1, duration: .5, scrollTrigger: { trigger: baEl, start: 'top 80%' } });
+    gsap.to('.ba-desc', { opacity: 1, duration: .5, scrollTrigger: { trigger: '.ba-desc', start: 'top 85%' } });
+  }
+
+  // Interactive slider
+  const baBox = document.getElementById('baBox');
+  const baClip = document.getElementById('baClip');
+  const baDivider = document.getElementById('baDivider');
+  const baKnob = document.getElementById('baKnob');
+  let dragging = false;
+
+  function setSlider(x) {
+    const r = baBox.getBoundingClientRect();
+    let pct = ((x - r.left) / r.width) * 100;
+    pct = Math.max(3, Math.min(97, pct));
+    baClip.style.width = pct + '%';
+    baDivider.style.left = pct + '%';
+    baKnob.style.left = pct + '%';
+    baDivider.style.transform = 'translateX(-50%)';
+    baKnob.style.transform = 'translate(-50%,-50%)';
+    baKnob.style.top = '50%';
+  }
+
+  baBox.addEventListener('mousedown', e => { dragging = true; setSlider(e.clientX); });
+  window.addEventListener('mousemove', e => { if (dragging) { e.preventDefault(); setSlider(e.clientX); } });
+  window.addEventListener('mouseup', () => dragging = false);
+  baBox.addEventListener('touchstart', e => { dragging = true; setSlider(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchmove', e => { if (dragging) setSlider(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend', () => dragging = false);
+
+  // Initial position
+  setSlider(baBox.getBoundingClientRect().left + baBox.getBoundingClientRect().width * .5);
+
+  /* ═══════════════════════════════════════
+     CHAPTER 4 — PORTFOLIO
+     ═══════════════════════════════════════ */
+  const portEl = document.getElementById('portfolio');
+
+  if (!mob()) {
+    ScrollTrigger.create({ trigger: portEl, start: 'top top', end: '+=220%', pin: true, pinSpacing: true });
+    const pTl = gsap.timeline({
+      scrollTrigger: { trigger: portEl, start: 'top top', end: '+=180%', scrub: .6 }
+    });
+    pTl.to('#portTitle', { opacity: 1, duration: .12 }, 0);
+    pTl.to('#portSub', { opacity: 1, duration: .12 }, .05);
+    pTl.to('#portFilters', { opacity: 1, duration: .12 }, .1);
+    document.querySelectorAll('.port-card').forEach((c, i) => {
+      pTl.to(c, { opacity: 1, scale: 1, duration: .14, ease: 'power2.out' }, .15 + i * .06);
+    });
+    // Exit fade
+    pTl.to('#portTitle, #portSub, #portFilters, .port-card', { opacity: 0, y: -30, duration: .1 }, .82);
+  } else {
+    gsap.to('#portTitle', { opacity: 1, duration: .5, scrollTrigger: { trigger: portEl, start: 'top 80%' } });
+    gsap.to('#portSub', { opacity: 1, duration: .5, scrollTrigger: { trigger: '#portSub', start: 'top 85%' } });
+    gsap.to('#portFilters', { opacity: 1, duration: .5, scrollTrigger: { trigger: '#portFilters', start: 'top 85%' } });
+    gsap.utils.toArray('.port-card').forEach((c, i) => {
+      gsap.to(c, { opacity: 1, scale: 1, delay: i * .08, duration: .5, scrollTrigger: { trigger: c, start: 'top 90%' } });
+    });
+  }
+
+  // Filter
+  document.querySelectorAll('.f-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.f;
+      document.querySelectorAll('.port-card').forEach(c => {
+        c.style.display = (f === 'all' || c.dataset.cat === f) ? '' : 'none';
+      });
+    });
+  });
+
+  /* ═══════════════════════════════════════
+     CHAPTER 5 — ABOUT + REVIEWS
+     ═══════════════════════════════════════ */
+  const aboutEl = document.getElementById('about');
+
+  if (!mob()) {
+    ScrollTrigger.create({ trigger: aboutEl, start: 'top top', end: '+=260%', pin: true, pinSpacing: true });
+    const aTl = gsap.timeline({
+      scrollTrigger: { trigger: aboutEl, start: 'top top', end: '+=220%', scrub: .6 }
+    });
+    aTl.to('.about-img', { opacity: 1, duration: .18 }, 0);
+    aTl.to('.about-copy', { opacity: 1, duration: .18 }, .08);
+    aTl.to('.rev-head', { opacity: 1, duration: .12 }, .35);
+    aTl.to('.rev-stars', { opacity: 1, duration: .12 }, .4);
+    document.querySelectorAll('.rev-card').forEach((c, i) => {
+      aTl.to(c, { opacity: 1, x: 0, duration: .14, ease: 'power2.out' }, .45 + i * .05);
+    });
+    // Exit fade
+    aTl.to('.about-img, .about-copy, .rev-head, .rev-stars, .rev-card', { opacity: 0, y: -30, duration: .1 }, .85);
+  } else {
+    gsap.to('.about-img', { opacity: 1, duration: .6, scrollTrigger: { trigger: '.about-img', start: 'top 80%' } });
+    gsap.to('.about-copy', { opacity: 1, duration: .6, scrollTrigger: { trigger: '.about-copy', start: 'top 80%' } });
+    gsap.to('.rev-head', { opacity: 1, duration: .5, scrollTrigger: { trigger: '.rev-head', start: 'top 85%' } });
+    gsap.to('.rev-stars', { opacity: 1, duration: .5, scrollTrigger: { trigger: '.rev-stars', start: 'top 85%' } });
+    gsap.utils.toArray('.rev-card').forEach((c, i) => {
+      gsap.to(c, { opacity: 1, x: 0, delay: i * .08, duration: .5, scrollTrigger: { trigger: c, start: 'top 90%' } });
+    });
+  }
+
+  /* ═══════════════════════════════════════
+     CHAPTER 6 — CTA + FOOTER
+     ═══════════════════════════════════════ */
+  const ctaEl = document.getElementById('contact');
+
+  if (!mob()) {
+    ScrollTrigger.create({ trigger: ctaEl, start: 'top top', end: '+=160%', pin: true, pinSpacing: true });
+    const cTl = gsap.timeline({
+      scrollTrigger: { trigger: ctaEl, start: 'top top', end: '+=130%', scrub: .5 }
+    });
+    cTl.to('.cta-block h2', { opacity: 1, duration: .18 }, 0);
+    cTl.to('.cta-desc', { opacity: 1, duration: .18 }, .1);
+    cTl.to('.cta-form', { opacity: 1, y: 0, duration: .22 }, .2);
+  } else {
+    gsap.to('.cta-block h2', { opacity: 1, duration: .6, scrollTrigger: { trigger: ctaEl, start: 'top 80%' } });
+    gsap.to('.cta-desc', { opacity: 1, duration: .5, scrollTrigger: { trigger: '.cta-desc', start: 'top 85%' } });
+    gsap.to('.cta-form', { opacity: 1, y: 0, duration: .5, scrollTrigger: { trigger: '.cta-form', start: 'top 85%' } });
+  }
+
+  /* ── Smooth anchor scrolling ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (!target) return;
+      if (lenis) lenis.scrollTo(target, { offset: -80 });
+      else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  /* ── Resize handler: refresh ScrollTrigger ── */
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 250);
+  });
+
+})();
+</script>
+</body>
+</html>

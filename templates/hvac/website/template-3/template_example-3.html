@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{META_TITLE}}</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<meta property="og:title" content="{{META_TITLE}}">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
+<meta property="og:image" content="{{OG_IMAGE}}">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "{{BUSINESS_NAME}}",
+  "telephone": "{{PHONE}}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{CITY}}"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{GOOGLE_RATING}}",
+    "reviewCount": "{{REVIEW_COUNT}}"
+  },
+  "url": "{{GOOGLE_MAPS_URL}}"
+}
+</script>
+<style>
+/* ============================================
+   BOLD EMERGENCY — Dark HVAC Template
+   Black + Red/Orange + White
+   ============================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #0a0a0a;
+  --dark: #111111;
+  --dark-card: #1a1a1a;
+  --dark-border: #2a2a2a;
+  --red: #e63946;
+  --red-dark: #c1121f;
+  --orange: #ff6b35;
+  --orange-glow: rgba(255, 107, 53, 0.3);
+  --white: #ffffff;
+  --gray: #999999;
+  --light-gray: #cccccc;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .pulse-cta { animation: none !important; }
+}
+
+/* ---- Typography ---- */
+h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.1; }
+h1 { font-size: clamp(2.8rem, 7vw, 6rem); }
+h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+p { color: var(--light-gray); }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ---- Emergency Banner ---- */
+.emergency-banner {
+  background: var(--red);
+  padding: 10px 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1001;
+}
+.emergency-banner a { color: var(--white); }
+.emergency-banner .pulse-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  background: var(--white);
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: pulseDot 1.5s ease-in-out infinite;
+  vertical-align: middle;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+
+/* ---- Nav ---- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.nav.scrolled {
+  background: rgba(10,10,10,0.97);
+  box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo .logo-icon {
+  width: 36px; height: 36px;
+  background: var(--red);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--light-gray);
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--orange); }
+
+.nav-phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: background 0.3s, transform 0.3s;
+  animation: pulsePhone 2s ease-in-out infinite;
+}
+.nav-phone:hover { background: var(--red-dark); transform: scale(1.05); }
+@keyframes pulsePhone {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.6); }
+  50% { box-shadow: 0 0 20px 8px rgba(230, 57, 70, 0.2); }
+}
+
+/* Hamburger */
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1010; }
+.hamburger span { display: block; width: 28px; height: 3px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  background: rgba(10,10,10,0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.mobile-menu.active { display: flex; }
+.mobile-menu a {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--orange); }
+
+@media (max-width: 900px) {
+  .nav-links, .nav-phone-desktop { display: none !important; }
+  .hamburger { display: flex; }
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 90px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../../images/template-images/hero.jpg') center/cover no-repeat;
+  z-index: 0;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.7) 50%, rgba(230,57,70,0.15) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 24px;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(230, 57, 70, 0.2);
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-eyebrow .live-dot {
+  width: 8px; height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulseDot 1.5s ease-in-out infinite;
+}
+.hero h1 { margin-bottom: 20px; }
+.hero h1 span { color: var(--orange); display: block; }
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--light-gray);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-emergency {
+  background: var(--red);
+  color: var(--white);
+  animation: pulseBtn 2s ease-in-out infinite;
+}
+.btn-emergency:hover { background: var(--red-dark); transform: translateY(-2px); }
+@keyframes pulseBtn {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(230,57,70,0.5); }
+  50% { box-shadow: 0 0 30px 10px rgba(230,57,70,0.15); }
+}
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+.btn-outline:hover { background: var(--white); color: var(--black); }
+.btn-orange {
+  background: var(--orange);
+  color: var(--white);
+}
+.btn-orange:hover { background: #e55a28; transform: translateY(-2px); }
+
+/* Hero rating */
+.hero-rating {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--gray);
+}
+.hero-rating .stars { color: #ffc107; font-size: 1.2rem; }
+
+/* ---- Trust Bar ---- */
+.trust-bar {
+  background: var(--dark);
+  padding: 60px 0;
+  border-top: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+.trust-item { padding: 24px; }
+.trust-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.trust-label {
+  font-size: 0.9rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+@media (max-width: 700px) {
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Section shared ---- */
+.section { padding: 100px 0; }
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--orange);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 30px; height: 2px;
+  background: var(--orange);
+}
+.section-title { margin-bottom: 16px; }
+.section-title span { color: var(--orange); }
+.section-desc { max-width: 600px; font-size: 1.05rem; margin-bottom: 48px; }
+
+/* ---- Services ---- */
+.services { background: var(--black); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  position: relative;
+  background: var(--dark-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--dark-border);
+  transition: transform 0.4s, border-color 0.4s;
+}
+.service-card:hover { transform: translateY(-6px); border-color: var(--orange); }
+.service-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.service-card-body { padding: 24px; }
+.service-card h3 { margin-bottom: 10px; color: var(--white); }
+.service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
+.service-card .service-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+/* Featured emergency card */
+.service-card.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  border-color: var(--red);
+}
+.service-card.featured .service-card-img { height: 100%; min-height: 300px; }
+.service-card.featured .service-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(10,10,10,0.95));
+  padding: 40px 30px;
+}
+.service-card.featured h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); color: var(--red); }
+.service-card.featured .emergency-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--red);
+  color: var(--white);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card.featured { grid-column: span 1; grid-row: span 1; }
+  .service-card.featured .service-card-img { height: 280px; }
+}
+
+/* ---- Before/After Slider ---- */
+.before-after { background: var(--dark); }
+.ba-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: ew-resize;
+  border: 2px solid var(--dark-border);
+}
+.ba-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ba-before { clip-path: inset(0 50% 0 0); }
+.ba-after { z-index: 1; }
+.ba-before { z-index: 2; }
+.ba-slider-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: var(--orange);
+  z-index: 10;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.ba-slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px; height: 48px;
+  background: var(--orange);
+  border-radius: 50%;
+  z-index: 11;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--white);
+  box-shadow: 0 0 20px var(--orange-glow);
+  pointer-events: none;
+}
+.ba-label {
+  position: absolute;
+  top: 16px;
+  z-index: 5;
+  padding: 6px 16px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+}
+.ba-label-before { left: 16px; background: var(--red); color: var(--white); }
+.ba-label-after { right: 16px; background: var(--orange); color: var(--white); }
+
+/* ---- About ---- */
+.about { background: var(--black); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.about-image img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+.about-image .exp-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--red);
+  color: var(--white);
+  padding: 16px 24px;
+  border-radius: 12px;
+  text-align: center;
+}
+.exp-badge-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.exp-badge-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.about-text h2 { margin-bottom: 20px; }
+.about-text p { margin-bottom: 16px; }
+.about-certs {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.cert-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cert-badge .cert-icon {
+  width: 28px; height: 28px;
+  background: var(--orange);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+@media (max-width: 800px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Gallery ---- */
+.gallery { background: var(--dark); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 50%, rgba(10,10,10,0.7));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-item:hover::after { opacity: 1; }
+@media (max-width: 700px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Testimonials ---- */
+.testimonials { background: var(--black); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: 12px;
+  padding: 32px;
+  transition: border-color 0.3s;
+}
+.testimonial-card:hover { border-color: var(--red); }
+.testimonial-card.emergency-story { border-left: 4px solid var(--red); }
+.testimonial-stars { color: #ffc107; font-size: 1.1rem; margin-bottom: 16px; }
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--light-gray);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  background: var(--dark-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--orange);
+}
+.testimonial-name { font-weight: 700; font-size: 0.9rem; }
+.testimonial-date { font-size: 0.75rem; color: var(--gray); }
+@media (max-width: 800px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Process ---- */
+.process { background: var(--dark); }
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+}
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), var(--orange), var(--red));
+  z-index: 0;
+}
+.process-step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.process-number {
+  width: 80px; height: 80px;
+  margin: 0 auto 20px;
+  background: var(--dark-card);
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--red);
+}
+.process-step h3 { margin-bottom: 10px; color: var(--white); }
+.process-step p { font-size: 0.9rem; color: var(--gray); max-width: 280px; margin: 0 auto; }
+.process-time {
+  display: inline-block;
+  margin-top: 14px;
+  background: rgba(230,57,70,0.15);
+  color: var(--red);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+@media (max-width: 700px) {
+  .process-grid { grid-template-columns: 1fr; gap: 48px; }
+  .process-grid::before { display: none; }
+}
+
+/* ---- Footer ---- */
+.footer {
+  background: var(--dark);
+  padding: 80px 0 40px;
+  border-top: 2px solid var(--red);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--red);
+}
+.footer-form p { margin-bottom: 24px; font-size: 0.9rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.3s;
+}
+.form-input:focus { outline: none; border-color: var(--red); }
+.form-input.full { grid-column: 1 / -1; }
+textarea.form-input { resize: vertical; min-height: 100px; }
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 12px;
+}
+.form-submit:hover { background: var(--red-dark); }
+
+.footer-links h4 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: var(--orange);
+}
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+  color: var(--gray);
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--white); }
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--dark-border);
+  color: var(--gray);
+  font-size: 0.8rem;
+}
+.footer-phone-big {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+@media (max-width: 800px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== EMERGENCY BANNER ===== -->
+<div class="emergency-banner" id="top">
+  <a href="tel:{{PHONE_TEL}}">
+    <span class="pulse-dot"></span>
+    AC Emergency? Call Now — <strong>{{PHONE}}</strong> — 24/7 Response in Under 60 Minutes
+  </a>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="logo-icon">&#9888;</span>
+      {{BUSINESS_NAME_SHORT}}
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:{{PHONE_TEL}}" class="nav-phone nav-phone-desktop">&#9742; {{PHONE}}</a>
+    <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#testimonials" class="mobile-link">Reviews</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="tel:{{PHONE_TEL}}" class="btn btn-emergency" style="margin-top:16px;">&#9742; {{PHONE}}</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="live-dot"></span>
+      {{HERO_EYEBROW}}
+    </div>
+    <h1>{{HERO_HEADLINE}}<span>{{HERO_SUBTITLE}}</span></h1>
+    <p class="hero-sub">Your AC doesn't wait for business hours to break down. Neither do we. NATE-certified technicians at your door — fast.</p>
+    <div class="hero-ctas">
+      <a href="tel:{{PHONE_TEL}}" class="btn btn-emergency">&#9742; Call Now — {{PHONE}}</a>
+      <a href="#contact" class="btn btn-outline">Schedule Service</a>
+    </div>
+    <div class="hero-rating">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>{{GOOGLE_RATING}} stars from {{REVIEW_COUNT}} reviews</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<section class="trust-bar" id="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-number" data-count="60">&lt;60</div>
+        <div class="trust-label">Minute Response</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number" data-count="523">0</div>
+        <div class="trust-label">5-Star Reviews</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number" data-count="17">0</div>
+        <div class="trust-label">Years Serving {{CITY}}</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-number" data-count="24">24/7</div>
+        <div class="trust-label">Emergency Service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">{{SERVICE_1_TITLE}} &amp; <span>Emergency Repairs</span></h2>
+    <p class="section-desc">From routine maintenance to 2am emergencies — we handle every heating and cooling challenge with urgency and expertise.</p>
+
+    <div class="services-grid">
+      <!-- Featured Emergency Card -->
+      <div class="service-card featured" data-animate="service">
+        <img src="../../images/template-images/emergency.jpg" alt="24/7 Emergency HVAC Service" class="service-card-img">
+        <div class="service-card-body">
+          <div class="emergency-badge"><span class="pulse-dot" style="width:6px;height:6px;margin-right:4px;"></span> 24/7 Emergency</div>
+          <h3>Emergency HVAC Repair</h3>
+          <p>System down at 2am? We dispatch NATE-certified techs in under 60 minutes. No overtime charges on nights or weekends.</p>
+        </div>
+      </div>
+
+      <!-- Service Cards -->
+      <div class="service-card" data-animate="service">
+        <img src="../../images/template-images/ac-install.jpg" alt="{{SERVICE_1_TITLE}}" class="service-card-img">
+        <div class="service-card-body">
+          <h3>{{SERVICE_1_TITLE}}</h3>
+          <p>{{SERVICE_1_DESC}}</p>
+          <span class="service-tag">Top Rated</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-animate="service">
+        <img src="../../images/template-images/furnace-repair.jpg" alt="{{SERVICE_2_TITLE}}" class="service-card-img">
+        <div class="service-card-body">
+          <h3>{{SERVICE_2_TITLE}}</h3>
+          <p>{{SERVICE_2_DESC}}</p>
+          <span class="service-tag">Same Day</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-animate="service">
+        <img src="../../images/template-images/ductwork.jpg" alt="{{SERVICE_3_TITLE}}" class="service-card-img">
+        <div class="service-card-body">
+          <h3>{{SERVICE_3_TITLE}}</h3>
+          <p>{{SERVICE_3_DESC}}</p>
+          <span class="service-tag">Expert</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-animate="service">
+        <img src="../../images/template-images/thermostat.jpg" alt="{{SERVICE_4_TITLE}}" class="service-card-img">
+        <div class="service-card-body">
+          <h3>{{SERVICE_4_TITLE}}</h3>
+          <p>{{SERVICE_4_DESC}}</p>
+          <span class="service-tag">Smart Home</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-animate="service">
+        <img src="../../images/template-images/maintenance.jpg" alt="{{SERVICE_5_TITLE}}" class="service-card-img">
+        <div class="service-card-body">
+          <h3>{{SERVICE_5_TITLE}}</h3>
+          <p>{{SERVICE_5_DESC}}</p>
+          <span class="service-tag">Preventive</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-animate="service">
+        <img src="../../images/template-images/heat-pump.jpg" alt="{{SERVICE_6_TITLE}}" class="service-card-img">
+        <div class="service-card-body">
+          <h3>{{SERVICE_6_TITLE}}</h3>
+          <p>{{SERVICE_6_DESC}}</p>
+          <span class="service-tag">Energy Efficient</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEFORE / AFTER ===== -->
+<section class="section before-after" id="before-after">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="section-label" style="justify-content:center;">See The Difference</div>
+      <h2 class="section-title">Before &amp; <span>After</span></h2>
+      <p class="section-desc" style="margin-left:auto; margin-right:auto;">Drag the slider to see the transformation. From neglected to peak performance.</p>
+    </div>
+    <div class="ba-container" id="baSlider">
+      <img src="../../images/template-images/maintenance.jpg" alt="Before — old system" class="ba-after">
+      <img src="../../images/template-images/ac-install.jpg" alt="After — new installation" class="ba-before" id="baBefore">
+      <div class="ba-slider-line" id="baLine"></div>
+      <div class="ba-slider-handle" id="baHandle">&#8596;</div>
+      <span class="ba-label ba-label-before">Before</span>
+      <span class="ba-label ba-label-after">After</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image" data-animate="about-img">
+        <img src="../../images/template-images/team.jpg" alt="{{OWNER_NAME}} and the {{BUSINESS_NAME}} team">
+        <div class="exp-badge">
+          <div class="exp-badge-number">17+</div>
+          <div class="exp-badge-text">Years Experience</div>
+        </div>
+      </div>
+      <div class="about-text" data-animate="about-text">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Meet <span>{{OWNER_NAME}}</span></h2>
+        <p>{{ABOUT_TEXT}}</p>
+        <p>Since 2008, we've been the name {{CITY}} homeowners trust when their comfort is on the line. Every technician is NATE-certified, background-checked, and treats your home like their own.</p>
+        <div class="about-certs">
+          <div class="cert-badge"><span class="cert-icon">&#10003;</span> NATE Certified</div>
+          <div class="cert-badge"><span class="cert-icon">&#10003;</span> Licensed &amp; Insured</div>
+          <div class="cert-badge"><span class="cert-icon">&#10003;</span> BBB A+ Rated</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="section-label" style="justify-content:center;">Our Work</div>
+      <h2 class="section-title">Project <span>Gallery</span></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/hero.jpg" alt="HVAC project 1"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/ac-install.jpg" alt="AC installation"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/furnace-repair.jpg" alt="Furnace repair"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/ductwork.jpg" alt="Ductwork"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/thermostat.jpg" alt="Smart thermostat install"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/maintenance.jpg" alt="Maintenance service"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/emergency.jpg" alt="Emergency repair"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/commercial.jpg" alt="Commercial HVAC"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/heat-pump.jpg" alt="Heat pump installation"></div>
+      <div class="gallery-item" data-animate="gallery"><img src="../../images/template-images/team.jpg" alt="{{BUSINESS_NAME}} team"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="section-label" style="justify-content:center;">What Customers Say</div>
+      <h2 class="section-title">Emergency <span>Stories</span></h2>
+      <p class="section-desc" style="margin-left:auto; margin-right:auto;">Real reviews from {{CITY}} homeowners we've helped — often at their most desperate moments.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card emergency-story" data-animate="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"{{REVIEW_1_TEXT}}"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">{{REVIEW_1_NAME}}</div>
+          <div>
+            <div class="testimonial-name">{{REVIEW_1_NAME}}</div>
+            <div class="testimonial-date">{{REVIEW_1_DATE}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card emergency-story" data-animate="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"{{REVIEW_2_TEXT}}"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">{{REVIEW_2_NAME}}</div>
+          <div>
+            <div class="testimonial-name">{{REVIEW_2_NAME}}</div>
+            <div class="testimonial-date">{{REVIEW_2_DATE}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-animate="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"{{REVIEW_3_TEXT}}"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">{{REVIEW_3_NAME}}</div>
+          <div>
+            <div class="testimonial-name">{{REVIEW_3_NAME}}</div>
+            <div class="testimonial-date">{{REVIEW_3_DATE}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card emergency-story" data-animate="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"{{REVIEW_4_TEXT}}"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">{{REVIEW_4_NAME}}</div>
+          <div>
+            <div class="testimonial-name">{{REVIEW_4_NAME}}</div>
+            <div class="testimonial-date">{{REVIEW_4_DATE}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-animate="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"{{REVIEW_5_TEXT}}"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">{{REVIEW_5_NAME}}</div>
+          <div>
+            <div class="testimonial-name">{{REVIEW_5_NAME}}</div>
+            <div class="testimonial-date">{{REVIEW_5_DATE}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="section process" id="process">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:60px;">
+      <div class="section-label" style="justify-content:center;">How It Works</div>
+      <h2 class="section-title">3 Fast <span>Steps</span></h2>
+      <p class="section-desc" style="margin-left:auto; margin-right:auto;">From your call to cool air — we move fast because your comfort can't wait.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step" data-animate="process">
+        <div class="process-number">1</div>
+        <h3>You Call</h3>
+        <p>Call our emergency line any time — day or night. A live person answers, not a machine.</p>
+        <span class="process-time">Instant</span>
+      </div>
+      <div class="process-step" data-animate="process">
+        <div class="process-number">2</div>
+        <h3>We Diagnose</h3>
+        <p>A NATE-certified tech arrives fast, diagnoses the issue, and gives you an upfront price — no surprises.</p>
+        <span class="process-time">&lt; 60 Minutes</span>
+      </div>
+      <div class="process-step" data-animate="process">
+        <div class="process-number">3</div>
+        <h3>We Fix It</h3>
+        <p>We carry 90% of common parts on our trucks. Most repairs completed on the first visit.</p>
+        <span class="process-time">Same Visit</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Emergency Form -->
+      <div class="footer-form">
+        <h3>&#9888; Emergency Service Request</h3>
+        <p>Fill out the form and we'll call you back within 15 minutes — or call us directly at the number above.</p>
+        <form action="#" method="POST" onsubmit="return false;">
+          <div class="form-row">
+            <input type="text" class="form-input" placeholder="Your Name" required aria-label="Your Name">
+            <input type="tel" class="form-input" placeholder="Phone Number" required aria-label="Phone Number">
+          </div>
+          <input type="email" class="form-input full" placeholder="Email Address" style="margin-bottom:12px;" aria-label="Email Address">
+          <select class="form-input full" style="margin-bottom:12px;" aria-label="Service Type">
+            <option value="">Select Issue Type</option>
+            <option value="ac-emergency">AC Not Working (Emergency)</option>
+            <option value="heat-emergency">No Heat (Emergency)</option>
+            <option value="ac-install">AC Installation</option>
+            <option value="furnace">Furnace Repair</option>
+            <option value="maintenance">Maintenance / Tune-Up</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea class="form-input full" placeholder="Describe your issue..." aria-label="Describe your issue"></textarea>
+          <button type="submit" class="form-submit">&#9888; Request Emergency Service</button>
+        </form>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Emergency Repair</a></li>
+          <li><a href="#services">AC Installation</a></li>
+          <li><a href="#services">Furnace Repair</a></li>
+          <li><a href="#services">Ductwork</a></li>
+          <li><a href="#services">Smart Thermostats</a></li>
+          <li><a href="#services">Maintenance Plans</a></li>
+          <li><a href="#services">Heat Pump Systems</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:{{PHONE_TEL}}" class="footer-phone-big">{{PHONE}}</a></li>
+          <li><a href="#">{{ADDRESS}}</a></li>
+          <li><a href="{{GOOGLE_MAPS_URL}}">Get Directions</a></li>
+          <li style="margin-top:20px;"><strong style="color:var(--red);">24/7 Emergency Service</strong></li>
+          <li>Mon-Fri: 7am - 8pm</li>
+          <li>Sat: 8am - 5pm</li>
+          <li>Sun: Emergency Only</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 {{BUSINESS_NAME}}. All rights reserved. | Licensed &amp; Insured | Serving {{CITY}} and surrounding areas since 2008.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // ---- Lenis Smooth Scroll ----
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let lenis;
+  if (!prefersReduced) {
+    lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), touchMultiplier: 2 });
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ---- GSAP ScrollTrigger ----
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (lenis) {
+    lenis.on('scroll', ScrollTrigger.update);
+  }
+
+  // ---- Nav scroll effect ----
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // ---- Hamburger ----
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ---- Skip animations if reduced motion ----
+  if (prefersReduced) return;
+
+  // ---- Hero animations ----
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' }});
+  heroTl
+    .from('.hero-eyebrow', { y: 30, opacity: 0, duration: 0.8 })
+    .from('.hero h1', { y: 50, opacity: 0, duration: 1 }, '-=0.4')
+    .from('.hero-sub', { y: 30, opacity: 0, duration: 0.8 }, '-=0.5')
+    .from('.hero-ctas .btn', { y: 20, opacity: 0, duration: 0.6, stagger: 0.15 }, '-=0.4')
+    .from('.hero-rating', { y: 20, opacity: 0, duration: 0.6 }, '-=0.3');
+
+  // ---- Trust bar counters ----
+  const trustNumbers = document.querySelectorAll('.trust-number[data-count]');
+  trustNumbers.forEach(el => {
+    const target = parseInt(el.dataset.count);
+    if (isNaN(target)) return;
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to({ val: 0 }, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            const v = Math.round(this.targets()[0].val);
+            if (el.textContent.includes('<')) el.textContent = '<' + v;
+            else if (el.textContent.includes('/')) el.textContent = v + '/7';
+            else el.textContent = v.toLocaleString();
+          }
+        });
+      }
+    });
+  });
+
+  // ---- Service cards ----
+  gsap.utils.toArray('[data-animate="service"]').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 88%', once: true },
+      y: 60, opacity: 0, duration: 0.8, delay: i * 0.1, ease: 'power3.out'
+    });
+  });
+
+  // ---- Gallery items ----
+  gsap.utils.toArray('[data-animate="gallery"]').forEach((item, i) => {
+    gsap.from(item, {
+      scrollTrigger: { trigger: item, start: 'top 90%', once: true },
+      scale: 0.85, opacity: 0, duration: 0.6, delay: i * 0.06, ease: 'back.out(1.4)'
+    });
+  });
+
+  // ---- Testimonials ----
+  gsap.utils.toArray('[data-animate="testimonial"]').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 88%', once: true },
+      y: 40, opacity: 0, duration: 0.7, delay: i * 0.12, ease: 'power3.out'
+    });
+  });
+
+  // ---- Process steps ----
+  gsap.utils.toArray('[data-animate="process"]').forEach((step, i) => {
+    gsap.from(step, {
+      scrollTrigger: { trigger: step, start: 'top 85%', once: true },
+      y: 50, opacity: 0, duration: 0.8, delay: i * 0.2, ease: 'power3.out'
+    });
+  });
+
+  // ---- About section ----
+  gsap.from('[data-animate="about-img"]', {
+    scrollTrigger: { trigger: '.about-grid', start: 'top 80%', once: true },
+    x: -60, opacity: 0, duration: 1, ease: 'power3.out'
+  });
+  gsap.from('[data-animate="about-text"]', {
+    scrollTrigger: { trigger: '.about-grid', start: 'top 80%', once: true },
+    x: 60, opacity: 0, duration: 1, delay: 0.2, ease: 'power3.out'
+  });
+
+  // ---- Before/After Slider ----
+  const baSlider = document.getElementById('baSlider');
+  const baBefore = document.getElementById('baBefore');
+  const baLine = document.getElementById('baLine');
+  const baHandle = document.getElementById('baHandle');
+  let isDragging = false;
+
+  function updateSlider(x) {
+    const rect = baSlider.getBoundingClientRect();
+    let pos = (x - rect.left) / rect.width;
+    pos = Math.max(0.02, Math.min(0.98, pos));
+    const pct = pos * 100;
+    baBefore.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    baLine.style.left = pct + '%';
+    baHandle.style.left = pct + '%';
+  }
+
+  baSlider.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
+  baSlider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
+  window.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('mouseup', () => { isDragging = false; });
+  window.addEventListener('touchend', () => { isDragging = false; });
+
+})();
+</script>
+</body>
+</html>

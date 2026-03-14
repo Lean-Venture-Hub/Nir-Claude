@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenScape Pro | Next-Level Landscaping in Austin, TX</title>
+    <meta name="description" content="GreenScape Pro delivers cutting-edge landscaping design, installation & maintenance in Austin, TX. 15+ years, 312 five-star reviews. Get your free estimate today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LandscapingBusiness",
+        "name": "GreenScape Pro",
+        "image": "../../images/template-images/hero.jpg",
+        "telephone": "(555) 739-2841",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Austin",
+            "addressRegion": "TX"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "312"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Mike Anderson"
+        },
+        "foundingDate": "2011"
+    }
+    </script>
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0A;
+            --bg-elevated: #111111;
+            --bg-card: rgba(17, 17, 17, 0.7);
+            --text: #F0F0F0;
+            --text-muted: #999999;
+            --accent: #00FF88;
+            --accent-secondary: #0D9F5C;
+            --accent-glow: rgba(0, 255, 136, 0.3);
+            --accent-glow-soft: rgba(0, 255, 136, 0.1);
+            --glass: rgba(0, 255, 136, 0.05);
+            --glass-border: rgba(0, 255, 136, 0.15);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Grain texture overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 560px;
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow-soft);
+        }
+
+        .neon-text-glow {
+            text-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow-soft);
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: var(--bg);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow-soft);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--accent-glow), 0 0 80px rgba(0, 255, 136, 0.2);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--accent);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 255, 136, 0.1);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: var(--transition);
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 10px 0;
+        }
+
+        .nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo .accent { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            padding: 10px 24px !important;
+            background: var(--accent) !important;
+            color: var(--bg) !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow-soft) !important;
+        }
+
+        .nav-cta:hover { color: var(--bg) !important; }
+        .nav-cta::after { display: none !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(10, 10, 10, 0.97);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .mobile-menu.active { display: flex; }
+
+        .mobile-menu a {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.85) 60%, var(--bg) 100%),
+                radial-gradient(ellipse at 30% 50%, rgba(0,255,136,0.12) 0%, transparent 60%);
+        }
+
+        /* Grid lines background */
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(0,255,136,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,136,0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 1;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            color: var(--accent);
+        }
+
+        .hero-badge .dot {
+            width: 8px; height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+            50% { box-shadow: 0 0 0 8px transparent; }
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        .hero-title .glow-word {
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .glow-word::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow-soft);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ===== TRUST BAR ===== */
+        .trust {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .trust-card {
+            padding: 32px 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .trust-card:hover {
+            border-color: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 30px var(--accent-glow-soft);
+        }
+
+        .trust-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .trust-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        .service-card {
+            padding: 40px 28px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(0,255,136,0.06), transparent 60%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-card:hover {
+            border-color: rgba(0, 255, 136, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px var(--accent-glow-soft);
+        }
+
+        .service-icon {
+            width: 48px; height: 48px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== BEFORE/AFTER ===== */
+        .before-after {
+            padding: 100px 0;
+        }
+
+        .ba-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 48px auto 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 2px solid var(--glass-border);
+            box-shadow: 0 0 40px var(--accent-glow-soft);
+            aspect-ratio: 16/9;
+            cursor: ew-resize;
+            user-select: none;
+        }
+
+        .ba-before, .ba-after {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .ba-before img, .ba-after img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .ba-before {
+            z-index: 2;
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .ba-divider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: var(--accent);
+            z-index: 3;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow-soft);
+        }
+
+        .ba-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px; height: 48px;
+            background: var(--accent);
+            border-radius: 50%;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow-soft);
+            cursor: ew-resize;
+        }
+
+        .ba-handle svg { width: 20px; height: 20px; color: var(--bg); }
+
+        .ba-label {
+            position: absolute;
+            top: 16px;
+            z-index: 5;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .ba-label-before {
+            left: 16px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--glass-border);
+            color: var(--accent);
+        }
+
+        .ba-label-after {
+            right: 16px;
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        /* ===== PORTFOLIO ===== */
+        .portfolio {
+            padding: 100px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .portfolio-item:hover img { transform: scale(1.05); }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,255,136,0.05) 0%, rgba(10,10,10,0.8) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+        .portfolio-overlay h3 {
+            font-size: 1.2rem;
+            transform: translateY(12px);
+            transition: var(--transition);
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .portfolio-item:hover .portfolio-overlay h3 { transform: translateY(0); }
+
+        .portfolio-overlay .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(0, 255, 136, 0.15);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-top: 8px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 100px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 48px;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--glass-border);
+            box-shadow: inset 0 0 40px rgba(0, 255, 136, 0.05);
+            pointer-events: none;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .about-highlight {
+            display: flex;
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .about-highlight-item {
+            text-align: center;
+        }
+
+        .about-highlight-item .number {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .about-highlight-item .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== REVIEWS ===== */
+        .reviews {
+            padding: 100px 0;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        .review-card {
+            padding: 32px;
+            position: relative;
+        }
+
+        .review-quote {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(0, 255, 136, 0.15);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        .review-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .review-stars {
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        /* ===== PROCESS ===== */
+        .process {
+            padding: 100px 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 48px;
+            position: relative;
+        }
+
+        .process-line {
+            position: absolute;
+            top: 40px;
+            left: 16.66%;
+            width: 66.66%;
+            height: 3px;
+            background: rgba(0, 255, 136, 0.1);
+            z-index: 0;
+        }
+
+        .process-line-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-number {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow-soft);
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .cta-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(0,255,136,0.08) 0%, transparent 60%);
+        }
+
+        .cta-content {
+            position: relative;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent), #00cc6a, var(--accent));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .cta-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+
+        .cta-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .cta-form .form-group {
+            margin-bottom: 16px;
+        }
+
+        .cta-form input,
+        .cta-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .cta-form input:focus,
+        .cta-form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow-soft);
+        }
+
+        .cta-form textarea { resize: vertical; min-height: 100px; }
+
+        .cta-form .btn-primary { width: 100%; justify-content: center; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 60px 0 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-grid-bg {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 200px;
+            background-image:
+                linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: linear-gradient(transparent, rgba(0,0,0,0.3));
+            -webkit-mask-image: linear-gradient(transparent, rgba(0,0,0,0.3));
+        }
+
+        .footer .container { position: relative; z-index: 1; }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand .nav-logo { margin-bottom: 12px; }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .footer-links-group h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .footer-links-group a {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links-group a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .reveal { opacity: 0; transform: translateY(30px); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            .hero-stats { gap: 24px; flex-wrap: wrap; }
+            .hero-stat-number { font-size: 2rem; }
+
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; gap: 32px; }
+            .process-line { display: none; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+
+            .footer-top { flex-direction: column; }
+        }
+
+        @media (max-width: 480px) {
+            .trust-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; align-items: flex-start; }
+            .about-highlight { flex-direction: column; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <span class="accent">//</span> GreenScape<span class="accent">Pro</span>
+            </a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact" class="nav-cta">Get Estimate</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#services" onclick="closeMobile()">Services</a>
+        <a href="#portfolio" onclick="closeMobile()">Portfolio</a>
+        <a href="#about" onclick="closeMobile()">About</a>
+        <a href="#reviews" onclick="closeMobile()">Reviews</a>
+        <a href="#contact" onclick="closeMobile()" class="btn-primary" style="margin-top:16px;">Get Estimate</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="../../images/template-images/hero.jpg" alt="Premium landscaping in Austin, TX by GreenScape Pro">
+        </div>
+        <div class="hero-grid"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Now booking Spring 2026
+            </div>
+            <h1 class="hero-title">
+                NEXT-LEVEL<br><span class="glow-word">LANDSCAPING</span>
+            </h1>
+            <p class="hero-subtitle">We merge cutting-edge design with nature's beauty to transform Austin properties into extraordinary outdoor living spaces.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">
+                    Get Free Estimate
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#portfolio" class="btn-outline">View Our Work</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-count="15">0</div>
+                    <div class="hero-stat-label">Years of Excellence</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-count="312">0</div>
+                    <div class="hero-stat-label">5-Star Reviews</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-count="2400">0</div>
+                    <div class="hero-stat-label">Projects Completed</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-count="4.9" data-decimal="true">0</div>
+                    <div class="hero-stat-label">Google Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust" id="trust">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-card glass-card reveal">
+                    <div class="trust-number">15+</div>
+                    <div class="trust-label">Years in Austin</div>
+                </div>
+                <div class="trust-card glass-card reveal">
+                    <div class="trust-number">4.9★</div>
+                    <div class="trust-label">Google Rating</div>
+                </div>
+                <div class="trust-card glass-card reveal">
+                    <div class="trust-number">312</div>
+                    <div class="trust-label">5-Star Reviews</div>
+                </div>
+                <div class="trust-card glass-card reveal">
+                    <div class="trust-number">100%</div>
+                    <div class="trust-label">Licensed & Insured</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="container">
+            <span class="section-label reveal">What We Do</span>
+            <h2 class="section-title reveal">Full-Spectrum<br>Landscaping Services</h2>
+            <p class="section-subtitle reveal">From concept to completion, we handle every element of your outdoor transformation.</p>
+
+            <div class="services-grid">
+                <div class="service-card glass-card reveal">
+                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M24 4C15 4 8 12 8 20c0 6 4 11 8 14h16c4-3 8-8 8-14 0-8-7-16-16-16z"/>
+                        <path d="M20 38v6h8v-6"/><path d="M24 4v16m-8-8l8 8 8-8"/>
+                    </svg>
+                    <h3>Landscape Design</h3>
+                    <p>Custom 3D-rendered designs tailored to Austin's climate and your vision. Data-driven plans with smart irrigation mapping.</p>
+                </div>
+                <div class="service-card glass-card reveal">
+                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="24" width="40" height="16" rx="2"/><path d="M12 24V12l12-4 12 4v12"/>
+                        <circle cx="24" cy="16" r="3"/>
+                    </svg>
+                    <h3>Hardscape & Patios</h3>
+                    <p>Precision-built patios, walkways, and retaining walls using premium materials. Engineered for Austin's expansive clay soils.</p>
+                </div>
+                <div class="service-card glass-card reveal">
+                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 44l4-16h28l4 16"/><path d="M12 28c0-8 5-20 12-24 7 4 12 16 12 24"/>
+                        <path d="M24 4v24"/><path d="M18 16l6 6 6-6"/>
+                    </svg>
+                    <h3>Lawn Care</h3>
+                    <p>Year-round lawn programs including seasonal fertilization, aeration, and weed management customized for your turf type.</p>
+                </div>
+                <div class="service-card glass-card reveal">
+                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="24" cy="16" r="6"/><path d="M24 22v10"/>
+                        <path d="M12 44c0-8 5-12 12-12s12 4 12 12"/><path d="M18 10l-4-6m18 6l4-6"/>
+                        <line x1="24" y1="4" x2="24" y2="6"/>
+                    </svg>
+                    <h3>Landscape Lighting</h3>
+                    <p>LED systems that transform your property after dark. Path lights, uplighting, and programmable accent features.</p>
+                </div>
+                <div class="service-card glass-card reveal">
+                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 36c0-12 8-24 16-32 8 8 16 20 16 32"/>
+                        <path d="M24 4v40"/><path d="M16 20c4 2 8 2 12-2"/>
+                        <path d="M14 30c5 2 10 2 16-2"/>
+                    </svg>
+                    <h3>Irrigation Systems</h3>
+                    <p>Smart irrigation with WiFi controllers and drip zones. Save up to 40% on water while keeping your landscape thriving.</p>
+                </div>
+                <div class="service-card glass-card reveal">
+                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 40h36"/><path d="M10 40V20l8-6v26"/>
+                        <path d="M22 40V16l8-6v30"/><path d="M34 40V12l8-6v34"/>
+                    </svg>
+                    <h3>Outdoor Living</h3>
+                    <p>Complete outdoor kitchens, fire features, pergolas, and water elements. Designed for Austin's year-round outdoor lifestyle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE / AFTER -->
+    <section class="before-after" id="before-after">
+        <div class="container">
+            <div style="text-align:center;">
+                <span class="section-label reveal">Transformations</span>
+                <h2 class="section-title reveal">See the Difference</h2>
+                <p class="section-subtitle reveal" style="margin:0 auto;">Drag the handle to reveal the transformation. Real results, real properties.</p>
+            </div>
+            <div class="ba-wrapper" id="baSlider">
+                <div class="ba-after">
+                    <img src="../../images/template-images/after.jpg" alt="After landscaping transformation" loading="lazy">
+                </div>
+                <div class="ba-before" id="baBefore">
+                    <img src="../../images/template-images/before.jpg" alt="Before landscaping transformation" loading="lazy">
+                </div>
+                <div class="ba-divider" id="baDivider"></div>
+                <div class="ba-handle" id="baHandle">
+                    <svg viewBox="0 0 20 20" fill="none"><path d="M7 4l-4 6 4 6M13 4l4 6-4 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="ba-label ba-label-before">Before</span>
+                <span class="ba-label ba-label-after">After</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <span class="section-label reveal">Our Work</span>
+            <h2 class="section-title reveal">Featured Projects</h2>
+            <p class="section-subtitle reveal">A selection of recent transformations across Austin and the surrounding Hill Country.</p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item reveal">
+                    <img src="../../images/template-images/hardscape-patio.jpg" alt="Modern patio installation in Austin" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3>Modern Patio Build</h3>
+                            <span class="tag">Hardscape</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="../../images/template-images/lawn-care.jpg" alt="Premium lawn care result" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3>Full Lawn Restoration</h3>
+                            <span class="tag">Lawn Care</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="../../images/template-images/outdoor-living.jpg" alt="Outdoor living space design" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3>Outdoor Kitchen + Pergola</h3>
+                            <span class="tag">Outdoor Living</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="../../images/template-images/landscape-lighting.jpg" alt="Landscape lighting design" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3>LED Accent System</h3>
+                            <span class="tag">Lighting</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="../../images/template-images/irrigation.jpg" alt="Smart irrigation system" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3>Smart Drip Irrigation</h3>
+                            <span class="tag">Irrigation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="../../images/template-images/retaining-wall.jpg" alt="Retaining wall construction" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3>Tiered Retaining Wall</h3>
+                            <span class="tag">Hardscape</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="../../images/template-images/team.jpg" alt="Mike Anderson, founder of GreenScape Pro" loading="lazy">
+                </div>
+                <div class="about-content">
+                    <span class="section-label reveal">About Us</span>
+                    <h2 class="reveal">Built by Mike Anderson.<br>Driven by <span style="color:var(--accent)">Results</span>.</h2>
+                    <p class="reveal">Since 2011, GreenScape Pro has been redefining what landscaping looks like in Austin, TX. Founded by Mike Anderson, we combine modern design methodology with deep horticultural knowledge to deliver outdoor spaces that perform year-round.</p>
+                    <p class="reveal">Our team of 22 professionals handles everything in-house — no subcontractors, no surprises. Every project gets a dedicated project manager, 3D design renders, and a 2-year workmanship warranty.</p>
+                    <div class="about-highlight reveal">
+                        <div class="about-highlight-item">
+                            <div class="number">22</div>
+                            <div class="label">Team Members</div>
+                        </div>
+                        <div class="about-highlight-item">
+                            <div class="number">2yr</div>
+                            <div class="label">Warranty</div>
+                        </div>
+                        <div class="about-highlight-item">
+                            <div class="number">0</div>
+                            <div class="label">Subcontractors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div style="text-align:center;">
+                <span class="section-label reveal">Testimonials</span>
+                <h2 class="section-title reveal">What Clients Say</h2>
+                <p class="section-subtitle reveal" style="margin:0 auto;">312 five-star reviews and counting. Here's why Austin trusts GreenScape Pro.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card glass-card reveal">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">Mike and his team turned our dead backyard into something out of a magazine. The 3D renders they showed us were almost identical to the final result. Absolutely blown away.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">JT</div>
+                        <div>
+                            <div class="review-name">Jason Torres</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card glass-card reveal">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">The smart irrigation system they installed cut our water bill by 35%. Professional from start to finish — they even cleaned up better than when they arrived.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SL</div>
+                        <div>
+                            <div class="review-name">Sarah Lin</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card glass-card reveal">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">We've used three landscapers before GreenScape Pro. Night and day difference. The outdoor kitchen they built is now where we spend every weekend. Worth every penny.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">RM</div>
+                        <div>
+                            <div class="review-name">Robert Mitchell</div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+        <div class="container">
+            <div style="text-align:center;">
+                <span class="section-label reveal">How It Works</span>
+                <h2 class="section-title reveal">Three Steps to Your<br>Dream Landscape</h2>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-line"><div class="process-line-fill" id="processLineFill"></div></div>
+                <div class="process-step reveal">
+                    <div class="process-number">01</div>
+                    <h3>Consultation</h3>
+                    <p>Free on-site visit with Mike or a senior designer. We assess your property, discuss your goals, and define the scope.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">02</div>
+                    <h3>Design & Plan</h3>
+                    <p>You receive a detailed 3D render, material selections, and transparent pricing. No hidden fees — ever.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">03</div>
+                    <h3>Build & Enjoy</h3>
+                    <p>Our crew handles every detail with daily progress updates. Average project: 2-4 weeks from groundbreaking to glory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content">
+                <span class="section-label reveal">Get Started</span>
+                <h2 class="cta-title reveal">Ready to Transform Your Property?</h2>
+                <p class="cta-subtitle reveal">Get a free, no-obligation estimate. Most quotes delivered within 48 hours.</p>
+                <div class="cta-form glass-card reveal">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            Request Free Estimate
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid-bg"></div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <span class="accent">//</span> GreenScape<span class="accent">Pro</span>
+                    </div>
+                    <p>Austin's premier landscaping company. Designing, building, and maintaining extraordinary outdoor spaces since 2011.</p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Services</h4>
+                    <a href="#services">Landscape Design</a>
+                    <a href="#services">Hardscape & Patios</a>
+                    <a href="#services">Lawn Care</a>
+                    <a href="#services">Irrigation</a>
+                    <a href="#services">Outdoor Living</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Contact</h4>
+                    <a href="tel:5557392841">(555) 739-2841</a>
+                    <a href="mailto:info@greenscapepro.com">info@greenscapepro.com</a>
+                    <a>Austin, TX</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 GreenScape Pro. All rights reserved.</span>
+                <span>Designed with precision in Austin, TX</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+
+    <script>
+        /* ===== LENIS SMOOTH SCROLL ===== */
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+
+        /* ===== NAV SCROLL ===== */
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        /* ===== HAMBURGER ===== */
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        function closeMobile() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        /* ===== REDUCED MOTION CHECK ===== */
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ===== GSAP REGISTER ===== */
+        gsap.registerPlugin(ScrollTrigger);
+
+        if (!prefersReducedMotion) {
+
+            /* ===== HERO ANIMATIONS ===== */
+            const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+            heroTL
+                .from('.hero-badge', { opacity: 0, y: 20, duration: 0.5 }, 0.3)
+                .from('.hero-title', { opacity: 0, y: 40, duration: 0.6 }, 0.5)
+                .from('.hero-subtitle', { opacity: 0, y: 30, duration: 0.5 }, 0.8)
+                .from('.hero-buttons', { opacity: 0, y: 20, duration: 0.5 }, 1)
+                .from('.hero-stats', { opacity: 0, y: 20, duration: 0.5 }, 1.2);
+
+            /* ===== SPLIT TEXT ===== */
+            try {
+                const heroTitle = new SplitType('.hero-title', { types: 'chars' });
+                gsap.from(heroTitle.chars, {
+                    opacity: 0,
+                    y: 30,
+                    rotateX: -40,
+                    stagger: 0.02,
+                    duration: 0.5,
+                    ease: 'power3.out',
+                    delay: 0.5,
+                });
+            } catch(e) { /* SplitType fallback — title still shows via timeline */ }
+
+            /* ===== COUNTER ANIMATION ===== */
+            const counters = document.querySelectorAll('.hero-stat-number');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.dataset.count);
+                const isDecimal = counter.dataset.decimal === 'true';
+                gsap.to(counter, {
+                    innerText: target,
+                    duration: 2,
+                    delay: 1.5,
+                    ease: 'power2.out',
+                    snap: { innerText: isDecimal ? 0.1 : 1 },
+                    onUpdate: function() {
+                        const val = parseFloat(counter.innerText);
+                        if (isDecimal) {
+                            counter.innerText = val.toFixed(1);
+                        } else if (val >= 1000) {
+                            counter.innerText = val.toLocaleString();
+                        }
+                    }
+                });
+            });
+
+            /* ===== GLOW WORD PULSE ===== */
+            gsap.to('.glow-word::after', {
+                boxShadow: '0 0 30px rgba(0,255,136,0.5), 0 0 80px rgba(0,255,136,0.2)',
+                repeat: -1,
+                yoyo: true,
+                duration: 2,
+                ease: 'sine.inOut'
+            });
+
+            /* ===== REVEAL ANIMATIONS ===== */
+            gsap.utils.toArray('.reveal').forEach(el => {
+                gsap.fromTo(el,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1, y: 0,
+                        duration: 0.6,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 85%',
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            /* ===== SERVICE CARDS STAGGER ===== */
+            gsap.utils.toArray('.service-card').forEach((card, i) => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 40, scale: 0.96 },
+                    {
+                        opacity: 1, y: 0, scale: 1,
+                        duration: 0.5,
+                        delay: i * 0.08,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            /* ===== PORTFOLIO ITEMS STAGGER ===== */
+            gsap.utils.toArray('.portfolio-item').forEach((item, i) => {
+                gsap.fromTo(item,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1, y: 0,
+                        duration: 0.5,
+                        delay: i * 0.1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top 85%',
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            /* ===== PROCESS LINE FILL ===== */
+            gsap.to('#processLineFill', {
+                width: '100%',
+                duration: 1.5,
+                ease: 'power2.inOut',
+                scrollTrigger: {
+                    trigger: '.process-grid',
+                    start: 'top 70%',
+                    once: true
+                }
+            });
+
+            /* ===== PROCESS STEPS STAGGER ===== */
+            gsap.utils.toArray('.process-step').forEach((step, i) => {
+                gsap.fromTo(step,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1, y: 0,
+                        duration: 0.5,
+                        delay: i * 0.2,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: step,
+                            start: 'top 85%',
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            /* ===== NEON GLOW PULSE ON PROCESS NUMBERS ===== */
+            gsap.utils.toArray('.process-number').forEach(num => {
+                gsap.to(num, {
+                    boxShadow: '0 0 30px rgba(0,255,136,0.5), 0 0 80px rgba(0,255,136,0.2)',
+                    repeat: -1,
+                    yoyo: true,
+                    duration: 2,
+                    ease: 'sine.inOut',
+                    scrollTrigger: {
+                        trigger: num,
+                        start: 'top 85%',
+                        once: true
+                    }
+                });
+            });
+
+            /* ===== REVIEW CARDS STAGGER ===== */
+            gsap.utils.toArray('.review-card').forEach((card, i) => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 30, scale: 0.97 },
+                    {
+                        opacity: 1, y: 0, scale: 1,
+                        duration: 0.5,
+                        delay: i * 0.12,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            /* ===== HERO GRID PARALLAX ===== */
+            gsap.to('.hero-grid', {
+                y: 100,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+
+        } /* end prefersReducedMotion check */
+
+        /* ===== BEFORE/AFTER SLIDER ===== */
+        const baSlider = document.getElementById('baSlider');
+        const baBefore = document.getElementById('baBefore');
+        const baDivider = document.getElementById('baDivider');
+        const baHandle = document.getElementById('baHandle');
+        let isDragging = false;
+
+        function updateSlider(x) {
+            const rect = baSlider.getBoundingClientRect();
+            let pos = (x - rect.left) / rect.width;
+            pos = Math.max(0.02, Math.min(0.98, pos));
+            const pct = pos * 100;
+            baBefore.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+            baDivider.style.left = pct + '%';
+            baHandle.style.left = pct + '%';
+        }
+
+        baSlider.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
+        window.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        baSlider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('touchend', () => { isDragging = false; });
+
+        /* ===== FORM HANDLER ===== */
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn-primary');
+            btn.textContent = 'Request Sent ✓';
+            btn.style.background = 'var(--accent-secondary)';
+            setTimeout(() => {
+                btn.innerHTML = 'Request Free Estimate <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+                btn.style.background = '';
+                this.reset();
+            }, 3000);
+        });
+
+        /* ===== SMOOTH SCROLL FOR ANCHORS ===== */
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    lenis.scrollTo(target, { offset: -80 });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

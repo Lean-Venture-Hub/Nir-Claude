@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Engine Light On? Here's What It Actually Means | Precision Auto Works</title>
+<meta name="description" content="Common causes of the check engine light: gas cap, O2 sensor, catalytic converter, spark plugs, MAF sensor. Learn severity levels and what to do next.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--cream-dark:#EDE5D5;--cream-light:#FAF7F2;
+  --green:#2D5016;--green-dark:#1E3A0E;--green-light:#3D6B1E;
+  --brown:#8B6914;--brown-dark:#3D2B1F;--brown-light:#A47D2B;
+  --text-dark:#2C2418;--text-muted:#6B5D4F;--text-light:#F5F0E8;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Lato','Helvetica Neue',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --h2:clamp(28px,4vw,48px);--body:clamp(16px,1.1vw,18px);--small:clamp(12px,0.9vw,14px);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text-dark);background:var(--cream);overflow-x:hidden;line-height:1.6;font-size:var(--body)}
+img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:12px 0;background:var(--cream);box-shadow:0 2px 20px rgba(61,43,31,0.1);border-bottom:1px solid rgba(139,105,20,0.15)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--green);display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:var(--font-body);font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dark);transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--brown);transition:width 0.3s}
+.nav-links a:hover::after{width:100%}
+.nav-phone{font-family:var(--font-display);font-weight:700;color:var(--green);font-size:0.95rem}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001;background:none;border:none}
+.hamburger span{width:28px;height:2px;background:var(--text-dark);transition:all 0.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100dvh;background:var(--cream);z-index:999;flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--font-display);font-size:1.5rem;color:var(--green);font-weight:700}
+
+.article-hero{padding:140px 0 60px;background:var(--cream-dark);position:relative}
+.article-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(61,43,31,0.015) 2px,rgba(61,43,31,0.015) 4px);pointer-events:none}
+.breadcrumb{font-size:var(--small);color:var(--text-muted);margin-bottom:24px;display:flex;gap:8px;align-items:center;position:relative;z-index:1}
+.breadcrumb a{color:var(--green);font-weight:700;transition:color 0.3s}.breadcrumb a:hover{color:var(--green-dark)}
+.breadcrumb span{color:var(--brown-light)}
+.article-hero h1{font-size:var(--h2);color:var(--green);margin-bottom:20px;max-width:700px;position:relative;z-index:1}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:var(--small);color:var(--text-muted);position:relative;z-index:1}
+.article-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--brown)}
+
+.article{padding:60px 0 100px;background:var(--cream)}
+.article-inner{display:grid;grid-template-columns:1fr 340px;gap:60px}
+.article-content{max-width:720px}
+.article-content .featured-img{width:100%;height:400px;object-fit:cover;border-radius:8px;margin-bottom:40px;filter:sepia(0.1);box-shadow:8px 8px 0 var(--green)}
+.article-content h2{font-family:var(--font-display);font-size:1.5rem;color:var(--green);margin:40px 0 16px}
+.article-content h3{font-family:var(--font-display);font-size:1.15rem;color:var(--green);margin:28px 0 12px}
+.article-content p{color:var(--text-muted);line-height:1.8;margin-bottom:20px}
+.article-content ul,.article-content ol{margin:16px 0 24px 20px;list-style:disc}
+.article-content ol{list-style:decimal}
+.article-content li{color:var(--text-muted);line-height:1.7;margin-bottom:8px}
+.article-content strong{font-weight:700;color:var(--text-dark)}
+.article-content blockquote{border-left:4px solid var(--brown);padding:24px 32px;margin:24px 0;background:rgba(139,105,20,0.06);border-radius:0 8px 8px 0}
+.article-content blockquote p{font-family:var(--font-display);font-style:italic;font-size:1.1rem;color:var(--green);margin:0;line-height:1.5}
+
+.author-card{background:var(--cream-light);border-radius:8px;padding:28px;margin-bottom:32px;border:1px solid rgba(139,105,20,0.15);position:relative}
+.author-card::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:16px;height:16px;background:var(--green);border-radius:50%;border:2px solid var(--cream)}
+.author-card h4{font-family:var(--font-display);font-size:1rem;color:var(--green);margin-bottom:4px}
+.author-card .author-title{font-size:var(--small);color:var(--brown);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.author-card p{font-size:0.9rem;color:var(--text-muted);line-height:1.6}
+.related-heading{font-family:var(--font-display);font-size:1rem;color:var(--green);margin-bottom:16px}
+.related-post{display:block;padding:16px 0;border-bottom:1px solid rgba(139,105,20,0.15)}
+.related-post:last-child{border-bottom:none}
+.related-post h4{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--green);margin-bottom:4px;transition:color 0.3s}
+.related-post:hover h4{color:var(--brown)}
+.related-post span{font-size:var(--small);color:var(--text-muted)}
+
+.cta-banner{background:var(--green);padding:48px;border-radius:8px;text-align:center;margin-top:48px}
+.cta-banner h3{font-family:var(--font-display);color:var(--cream);font-size:1.4rem;margin-bottom:8px}
+.cta-banner p{color:rgba(245,240,232,0.85);margin-bottom:20px}
+.cta-banner a{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--cream);color:var(--green);font-family:var(--font-display);font-weight:700;font-size:0.95rem;border-radius:4px;transition:transform 0.3s}
+.cta-banner a:hover{transform:translateY(-2px)}
+
+.footer{background:var(--brown-dark);color:var(--cream);padding:80px 0 32px}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.footer-brand h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:16px}
+.footer-brand p{color:rgba(245,240,232,0.65);line-height:1.6;font-size:0.9rem;max-width:280px}
+.footer-col h4{font-family:var(--font-display);font-size:1rem;margin-bottom:20px;color:var(--brown-light)}
+.footer-col a{display:block;color:rgba(245,240,232,0.65);font-size:0.9rem;padding:4px 0;transition:color 0.3s}
+.footer-col a:hover{color:var(--cream)}
+.footer-bottom{border-top:1px solid rgba(245,240,232,0.1);padding-top:32px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{color:rgba(245,240,232,0.45);font-size:0.8rem}
+.footer-certs{display:flex;gap:16px}
+.footer-cert{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(245,240,232,0.45);border:1px solid rgba(245,240,232,0.15);padding:6px 12px;border-radius:4px}
+
+@media(max-width:1024px){.article-inner{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links,.nav-phone{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.footer-inner{grid-template-columns:1fr;text-align:center}.footer-bottom{flex-direction:column;gap:16px;text-align:center}.footer-certs{justify-content:center}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="../../template_example-24.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="12" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/><text x="18" y="15" text-anchor="middle" fill="currentColor" font-family="'Playfair Display',serif" font-size="8" font-weight="700">EST</text><text x="18" y="25" text-anchor="middle" fill="currentColor" font-family="'Playfair Display',serif" font-size="10" font-weight="900">2006</text></svg>
+      Precision Auto Works
+    </a>
+    <nav class="nav-links">
+      <a href="../../template_example-24.html#services">Services</a>
+      <a href="../../template_example-24.html#about">About</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../template_example-24.html#testimonials">Reviews</a>
+      <a href="../../template_example-24.html#visit">Visit</a>
+    </nav>
+    <a href="tel:+15554827193" class="nav-phone">(555) 482-7193</a>
+    <div class="hamburger" role="button" tabindex="0" aria-label="Toggle menu"><span></span><span></span><span></span></div>
+  </div>
+</header>
+<div class="mobile-menu"><a href="../../template_example-24.html#services">Services</a><a href="../../blog.html">Blog</a><a href="tel:+15554827193">(555) 482-7193</a></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../../template_example-24.html">Home</a><span>/</span>
+      <a href="../../blog.html">Blog</a><span>/</span>
+      Check Engine Light
+    </div>
+    <h1>Check Engine Light On? Here's What It Actually Means</h1>
+    <div class="article-meta">
+      <span>By Mike Rodriguez</span>
+      <span class="article-meta-dot"></span>
+      <span>ASE Certified Master Technician</span>
+      <span class="article-meta-dot"></span>
+      <span>9 min read</span>
+    </div>
+  </div>
+</section>
+
+<section class="article">
+  <div class="container">
+    <div class="article-inner">
+      <div class="article-content">
+        <img src="../../../../images/template-images/diagnostic-scan.jpg" alt="Diagnostic scan for check engine light" class="featured-img" width="800" height="500" loading="lazy">
+
+        <p>Few things cause more anxiety for drivers than watching that amber check engine light flicker on. Your mind races through worst-case scenarios — a blown engine, a transmission rebuild, a repair bill that rivals your car payment. But here's the truth: the check engine light covers an enormous range of issues, from a loose gas cap that costs nothing to fix, to a failing catalytic converter that might run into four figures.</p>
+
+        <p>Understanding the most common triggers — and how serious each one is — can help you respond appropriately instead of either panicking or ignoring it.</p>
+
+        <h2>How the Check Engine Light Works</h2>
+        <p>Your vehicle's onboard diagnostic system (OBD-II) continuously monitors dozens of sensors and systems throughout the engine and emissions components. When it detects a reading that falls outside expected parameters, it stores a diagnostic trouble code (DTC) and illuminates the check engine light.</p>
+        <p>Important distinction: a <strong>steady</strong> check engine light indicates a non-emergency issue that should be diagnosed soon. A <strong>flashing</strong> check engine light indicates a severe misfire or condition that can cause immediate catalytic converter damage — pull over safely and call for service.</p>
+
+        <h2>The 5 Most Common Causes</h2>
+
+        <h3>1. Loose or Damaged Gas Cap</h3>
+        <p>This is the most common — and least serious — trigger. Your fuel system is sealed, and a loose, cracked, or missing gas cap allows fuel vapors to escape, which the evaporative emission system detects as a leak. The fix is literally tightening or replacing your gas cap, which costs <strong>$0 to $20</strong>.</p>
+        <p>If the light comes on shortly after fueling, try tightening the cap until it clicks. Drive for a day or two — the light will clear itself if that was the issue.</p>
+
+        <h3>2. Oxygen (O2) Sensor Failure</h3>
+        <p>Oxygen sensors measure unburned oxygen in your exhaust and help the engine computer adjust the fuel-air mixture. Most vehicles have two to four O2 sensors, and they degrade over time from heat and contamination.</p>
+        <p>A failing O2 sensor won't leave you stranded, but it can reduce fuel economy by 10-40% and cause emissions test failure. Replacement typically costs <strong>$150 to $300</strong> per sensor. Ignoring it long-term can damage the catalytic converter — a much more expensive repair.</p>
+
+        <h3>3. Catalytic Converter Issues</h3>
+        <p>The catalytic converter transforms harmful exhaust gases into less toxic emissions. When it fails or becomes clogged, you'll typically notice reduced engine performance, decreased fuel economy, and sometimes a sulfur (rotten egg) smell.</p>
+        <p>This is one of the more expensive repairs, typically ranging from <strong>$1,000 to $2,500</strong> depending on vehicle make and model. However, catalytic converters rarely fail on their own — they're usually damaged by upstream problems that went unaddressed.</p>
+
+        <h3>4. Spark Plugs and Ignition Coils</h3>
+        <p>Spark plugs ignite the fuel-air mixture in each cylinder, and ignition coils deliver the high voltage needed to create that spark. When either fails, the engine misfires — causing rough running, hesitation, poor fuel economy, and increased emissions.</p>
+        <p>Modern spark plugs last 60,000 to 100,000 miles depending on type. Replacement costs <strong>$150 to $400</strong> for a full set. Ignition coils run <strong>$75 to $250 each</strong> including labor.</p>
+
+        <h3>5. Mass Airflow (MAF) Sensor</h3>
+        <p>The MAF sensor measures the volume of air entering the engine so the computer can calculate the correct amount of fuel to inject. A dirty or failing MAF sensor results in poor fuel economy, rough idle, hesitation, and sometimes stalling.</p>
+        <p>Sometimes a MAF sensor just needs cleaning with specialized MAF cleaner spray — a <strong>$10 fix</strong>. If it's actually failed, replacement costs <strong>$200 to $400</strong> including parts and labor.</p>
+
+        <h2>Severity Levels: What to Do</h2>
+        <ul>
+          <li><strong>Steady light, no symptoms:</strong> Schedule a diagnostic appointment within the next week or two. Continue driving normally.</li>
+          <li><strong>Steady light with minor symptoms</strong> (rough idle, reduced power): Get it checked within a few days. Reduce hard acceleration.</li>
+          <li><strong>Flashing light:</strong> This is urgent. Reduce speed, avoid hard acceleration, and get to a shop as soon as safely possible.</li>
+          <li><strong>Light with other warning lights:</strong> If accompanied by oil pressure or temperature warnings, pull over immediately and shut off the engine. Call for a tow.</li>
+        </ul>
+
+        <blockquote><p>A $100 diagnostic scan today can prevent a $3,000 repair tomorrow. The check engine light is telling you something — don't wait until it becomes a bigger conversation.</p></blockquote>
+
+        <h2>What Happens During a Diagnostic Scan?</h2>
+        <p>When you bring your vehicle to us, we connect a professional-grade scan tool to your OBD-II port. This reads all stored trouble codes and freeze-frame data — a snapshot of engine conditions at the moment the code was set.</p>
+        <p>But here's what separates a professional diagnosis from a parts-store code reader: we don't just read codes and replace parts. Codes point to a system or circuit, not necessarily a specific failed component. Our technicians use the code as a starting point, then perform targeted testing to identify the actual root cause.</p>
+        <p>Most diagnostic evaluations take 30 to 60 minutes, and we'll explain exactly what we find and what we recommend — along with transparent pricing — before any work begins.</p>
+
+        <div class="cta-banner">
+          <h3>Check Engine Light On?</h3>
+          <p>Get a professional diagnostic scan and honest assessment. No guesswork, no surprises.</p>
+          <a href="tel:+15554827193">Call (555) 482-7193</a>
+        </div>
+      </div>
+
+      <aside class="article-sidebar">
+        <div class="author-card">
+          <h4>Mike Rodriguez</h4>
+          <div class="author-title">ASE Certified Master Technician</div>
+          <p>With over 18 years of experience, Mike founded Precision Auto Works to bring honest, transparent auto care to Dallas. He holds 12 ASE certifications.</p>
+        </div>
+        <div class="related-heading">Related Articles</div>
+        <a href="../oil-change-guide/index.html" class="related-post">
+          <h4>How Often Should You Really Change Your Oil?</h4>
+          <span>Maintenance</span>
+        </a>
+        <a href="../brake-warning-signs/index.html" class="related-post">
+          <h4>5 Brake Warning Signs You Should Never Ignore</h4>
+          <span>Safety</span>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Precision Auto Works</h3>
+        <p>Honest auto repair with old-school values and modern expertise. Proudly serving Dallas, TX since 2006.</p>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><a href="../../template_example-24.html#services">Services</a><a href="../../blog.html">Blog</a><a href="../../template_example-24.html#testimonials">Reviews</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:+15554827193">(555) 482-7193</a><a href="../../template_example-24.html#visit">Hours & Directions</a></div>
+      <div class="footer-col"><h4>Resources</h4><a href="../oil-change-guide/index.html">Oil Change Guide</a><a href="../brake-warning-signs/index.html">Brake Warning Signs</a><a href="../check-engine-light/index.html">Check Engine Light</a></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Precision Auto Works. All rights reserved.</p>
+      <div class="footer-certs"><span class="footer-cert">ASE Certified</span><span class="footer-cert">AAA Approved</span><span class="footer-cert">BBB A+ Rated</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hamburger=document.querySelector('.hamburger'),mm=document.querySelector('.mobile-menu');
+hamburger.addEventListener('click',function(){hamburger.classList.toggle('active');mm.classList.toggle('active');document.body.style.overflow=mm.classList.contains('active')?'hidden':''});
+mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hamburger.classList.remove('active');mm.classList.remove('active');document.body.style.overflow=''})});
+</script>
+</body>
+</html>

@@ -70,6 +70,7 @@ body{
   .chapter-num,.parallax-bg{transform:none!important}
   .pin-spacer{display:contents!important}
   [data-speed]{transform:none!important}
+  .nav,.hero-eyebrow,.hero-headline .char,.hero-sub,.hero-actions,.hero-trust,.stat-slide,.stats-conclusion,.review-slide,.reviews-count{opacity:1!important;transform:none!important}
 }
 
 /* Progress bar */
@@ -134,7 +135,7 @@ a{text-decoration:none;color:inherit}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.4) 0%,rgba(10,10,10,0.7) 60%,rgba(10,10,10,0.95) 100%);z-index:1}
 .hero-content{position:relative;z-index:3;max-width:var(--max-w);margin:0 auto;padding:0 24px;width:100%}
 .hero-eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:0.25em;color:var(--copper);font-weight:600;margin-bottom:20px;display:block;opacity:0}
-.hero-headline{font-family:var(--display);font-size:clamp(48px,10vw,110px);font-weight:800;line-height:0.95;letter-spacing:-0.03em;color:var(--text-dark);margin-bottom:24px}
+.hero-headline{font-family:var(--display);font-size:clamp(48px,10vw,110px);font-weight:800;line-height:0.95;letter-spacing:-0.03em;color:var(--text-dark);margin-bottom:24px;overflow-wrap:normal;word-break:keep-all;hyphens:none}
 .hero-headline .word{display:inline-block;overflow:hidden}
 .hero-headline .char{display:inline-block;opacity:0;transform:translateY(100%)}
 .hero-sub{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--text-muted-dark);max-width:520px;line-height:1.7;margin-bottom:32px;opacity:0}
@@ -670,8 +671,6 @@ a{text-decoration:none;color:inherit}
   let lenis;
   if (!prefersReduced) {
     lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), orientation: 'vertical', smoothWheel: true });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
     // Sync Lenis with GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => { lenis.raf(time * 1000); });
@@ -778,12 +777,13 @@ a{text-decoration:none;color:inherit}
               gsap.fromTo(s, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
               animateCounter(s.querySelector('.stat-number'));
             }
-          } else {
+          } else if (s.classList.contains('active')) {
             s.classList.remove('active');
+            gsap.to(s, { opacity: 0, y: -30, duration: 0.4, ease: 'power2.in' });
           }
         });
         // Conclusion
-        if (p >= 0.7) {
+        if (p >= 0.65) {
           if (statsConclusion.style.opacity !== '1') {
             gsap.to(statsConclusion, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
             statsConclusion.style.opacity = '1';
@@ -792,7 +792,7 @@ a{text-decoration:none;color:inherit}
       }
     });
     // Position stats conclusion
-    gsap.set(statsConclusion, { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', opacity: 0, y: 30 });
+    gsap.set(statsConclusion, { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', opacity: 0, y: 30, zIndex: 5 });
 
     // ---- CHAPTER 3: About Parallax ----
     gsap.to('#aboutImg', {
@@ -866,11 +866,12 @@ a{text-decoration:none;color:inherit}
               s.classList.add('active');
               gsap.fromTo(s, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
             }
-          } else {
+          } else if (s.classList.contains('active')) {
             s.classList.remove('active');
+            gsap.to(s, { opacity: 0, y: -30, duration: 0.4, ease: 'power2.in' });
           }
         });
-        if (p >= 0.8) {
+        if (p >= 0.75) {
           if (reviewsCount.style.opacity !== '1') {
             gsap.to(reviewsCount, { opacity: 1, duration: 0.6, ease: 'power2.out' });
             reviewsCount.style.opacity = '1';
@@ -878,7 +879,7 @@ a{text-decoration:none;color:inherit}
         }
       }
     });
-    gsap.set(reviewsCount, { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0 });
+    gsap.set(reviewsCount, { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0, zIndex: 5 });
 
     // ---- CHAPTER 6: CTA Animations ----
     // Parallax on CTA bg

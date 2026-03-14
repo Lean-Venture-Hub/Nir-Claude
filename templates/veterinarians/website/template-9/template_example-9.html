@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PawCare Veterinary Clinic in Denver, CO — Dr. Sarah Mitchell and team providing compassionate, cutting-edge veterinary care since 2015. Book your appointment today.">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>PawCare Veterinary Clinic | Modern Veterinary Care in Denver, CO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VeterinaryCare",
+        "name": "PawCare Veterinary Clinic",
+        "image": "../../images/template-images/hero.jpg",
+        "telephone": "(555) 847-2196",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Denver",
+            "addressRegion": "CO"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "287"
+        },
+        "foundingDate": "2015",
+        "employee": {
+            "@type": "Person",
+            "name": "Dr. Sarah Mitchell",
+            "jobTitle": "Lead Veterinarian"
+        },
+        "url": "#",
+        "priceRange": "$$"
+    }
+    </script>
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --neon-green: #39ff14;
+            --neon-cyan: #00f0ff;
+            --neon-magenta: #ff00e5;
+            --bg-dark: #0a0a0f;
+            --bg-card: #111118;
+            --bg-card-hover: #16161f;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8a8a9a;
+            --glow-green: 0 0 10px rgba(57, 255, 20, 0.4), 0 0 30px rgba(57, 255, 20, 0.15);
+            --glow-cyan: 0 0 10px rgba(0, 240, 255, 0.4), 0 0 30px rgba(0, 240, 255, 0.15);
+            --glow-green-strong: 0 0 10px rgba(57, 255, 20, 0.6), 0 0 40px rgba(57, 255, 20, 0.3), 0 0 80px rgba(57, 255, 20, 0.1);
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --nav-height: 80px;
+        }
+
+        html { scroll-behavior: auto; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .section-title .neon-word {
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 56px;
+            font-weight: 300;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* ===== NEON BUTTON ===== */
+        .neon-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bg-dark);
+            background: var(--neon-green);
+            border: 2px solid var(--neon-green);
+            border-radius: 4px;
+            box-shadow: var(--glow-green);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-btn:hover {
+            background: transparent;
+            color: var(--neon-green);
+            box-shadow: var(--glow-green-strong);
+        }
+
+        .neon-btn-outline {
+            background: transparent;
+            color: var(--neon-green);
+        }
+
+        .neon-btn-outline:hover {
+            background: var(--neon-green);
+            color: var(--bg-dark);
+        }
+
+        .neon-btn-cyan {
+            background: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .neon-btn-cyan:hover {
+            background: transparent;
+            color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 40px rgba(0, 240, 255, 0.3);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            z-index: 1000;
+            transition: background 0.3s, backdrop-filter 0.3s;
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(57, 255, 20, 0.15);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-logo span {
+            color: var(--text-primary);
+            text-shadow: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: color 0.3s, text-shadow 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-green);
+            box-shadow: var(--glow-green);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            padding: 10px 24px;
+            font-size: 0.8rem;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--neon-green);
+            box-shadow: 0 0 6px rgba(57, 255, 20, 0.5);
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 15, 0.97);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .mobile-nav.open { display: flex; }
+
+        .mobile-nav a {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(10, 10, 15, 0.6) 0%,
+                rgba(10, 10, 15, 0.4) 40%,
+                rgba(10, 10, 15, 0.85) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            padding: 0 24px;
+            margin-left: 8%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--neon-green);
+            background: rgba(57, 255, 20, 0.06);
+            margin-bottom: 28px;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--neon-green);
+            box-shadow: 0 0 8px var(--neon-green);
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--neon-green); }
+            50% { opacity: 0.5; box-shadow: 0 0 16px var(--neon-green); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 .neon-text {
+            color: var(--neon-green);
+            text-shadow: var(--glow-green-strong);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Neon line decoration */
+        .hero-neon-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-green), var(--neon-cyan), transparent);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+        }
+
+        /* ===== TRUST BAR ===== */
+        .trust-bar {
+            background: var(--bg-card);
+            border-top: 1px solid rgba(57, 255, 20, 0.1);
+            border-bottom: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 60px 0;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .trust-item {
+            padding: 20px;
+        }
+
+        .trust-number {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+            margin-bottom: 8px;
+        }
+
+        .trust-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+        }
+
+        /* ===== SERVICES ===== */
+        .services { background: var(--bg-dark); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 8px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.1);
+        }
+
+        .service-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: brightness(0.75) saturate(0.8);
+            transition: filter 0.4s;
+        }
+
+        .service-card:hover .service-card-img {
+            filter: brightness(0.9) saturate(1);
+        }
+
+        .service-card-body {
+            padding: 28px 24px;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .service-card:hover h3 {
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .service-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: gap 0.3s, text-shadow 0.3s;
+        }
+
+        .service-card-link:hover {
+            gap: 12px;
+            text-shadow: var(--glow-cyan);
+        }
+
+        /* ===== BEFORE/AFTER ===== */
+        .before-after {
+            background: var(--bg-card);
+            overflow: hidden;
+        }
+
+        .ba-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(57, 255, 20, 0.25);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.08);
+            user-select: none;
+            touch-action: none;
+            aspect-ratio: 16 / 10;
+        }
+
+        .ba-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .ba-before {
+            z-index: 2;
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .ba-after {
+            z-index: 1;
+        }
+
+        .ba-slider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--neon-green);
+            box-shadow: var(--glow-green-strong);
+            z-index: 10;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+        }
+
+        .ba-slider::before {
+            content: '⟨ ⟩';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: var(--bg-dark);
+            border: 2px solid var(--neon-green);
+            box-shadow: var(--glow-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--neon-green);
+            letter-spacing: 4px;
+        }
+
+        .ba-label {
+            position: absolute;
+            bottom: 16px;
+            z-index: 11;
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: rgba(10, 10, 15, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            color: var(--neon-green);
+        }
+
+        .ba-label-before { left: 16px; }
+        .ba-label-after { right: 16px; color: var(--neon-cyan); border-color: rgba(0, 240, 255, 0.3); }
+
+        /* ===== ABOUT ===== */
+        .about { background: var(--bg-dark); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img-wrap {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(57, 255, 20, 0.15);
+        }
+
+        .about-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+        }
+
+        .about-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.2), transparent, rgba(0, 240, 255, 0.2)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .about-content h3 {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            margin-bottom: 16px;
+        }
+
+        .about-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .about-content h2 .neon-word {
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .about-stat-num {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+        }
+
+        .about-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery { background: var(--bg-card); }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 240px);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(57, 255, 20, 0.08);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(10, 10, 15, 0.7));
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover::before { opacity: 1; }
+
+        .gallery-item:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.15);
+            transform: scale(1.02);
+            z-index: 5;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials { background: var(--bg-dark); }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(57, 255, 20, 0.08);
+            border-radius: 12px;
+            padding: 36px 28px;
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(57, 255, 20, 0.25);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.06);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-stars span {
+            color: var(--neon-green);
+            text-shadow: 0 0 6px rgba(57, 255, 20, 0.4);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-card blockquote {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 22px;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--bg-dark);
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-pet {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== PROCESS ===== */
+        .process {
+            background: var(--bg-card);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 16.67%;
+            right: 16.67%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+            box-shadow: 0 0 12px rgba(57, 255, 20, 0.3);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step-number {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            background: var(--bg-dark);
+            border: 2px solid var(--neon-green);
+            box-shadow: var(--glow-green);
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+            transition: all 0.4s;
+        }
+
+        .process-step:hover .process-step-number {
+            background: var(--neon-green);
+            color: var(--bg-dark);
+            text-shadow: none;
+            box-shadow: var(--glow-green-strong);
+        }
+
+        .process-step h3 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+            max-width: 280px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER / CONTACT ===== */
+        .footer {
+            background: var(--bg-dark);
+            border-top: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-info h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-info h2 .neon-word {
+            color: var(--neon-green);
+            text-shadow: var(--glow-green);
+        }
+
+        .footer-info p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-weight: 300;
+        }
+
+        .footer-contact-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-line .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(57, 255, 20, 0.08);
+            border: 1px solid rgba(57, 255, 20, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-green);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 18px;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 14px 16px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 12px rgba(57, 255, 20, 0.15);
+        }
+
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-group select { cursor: pointer; }
+        .form-group select option { background: var(--bg-dark); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--neon-green);
+        }
+
+        /* ===== PREFERS REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 200px);
+            }
+            .gallery-grid .gallery-item:nth-child(9),
+            .gallery-grid .gallery-item:nth-child(10) {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .hamburger { display: flex; }
+
+            .hero-content { margin-left: 0; }
+            .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+
+            .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+            .services-grid { grid-template-columns: 1fr; }
+
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 180px);
+            }
+
+            .testimonials-grid { grid-template-columns: 1fr; }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            .process-steps::before { display: none; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .form-row { flex-direction: column; }
+
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .trust-grid { grid-template-columns: 1fr 1fr; }
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons .neon-btn { width: 100%; justify-content: center; }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+        }
+
+        /* ===== NEON GLOW ANIMATION ===== */
+        @keyframes neonPulse {
+            0%, 100% { text-shadow: 0 0 10px rgba(57,255,20,0.6), 0 0 40px rgba(57,255,20,0.3), 0 0 80px rgba(57,255,20,0.1); }
+            50% { text-shadow: 0 0 20px rgba(57,255,20,0.8), 0 0 60px rgba(57,255,20,0.5), 0 0 120px rgba(57,255,20,0.2); }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { border-color: rgba(57,255,20,0.2); box-shadow: 0 0 15px rgba(57,255,20,0.08); }
+            50% { border-color: rgba(57,255,20,0.4); box-shadow: 0 0 30px rgba(57,255,20,0.15); }
+        }
+
+        .neon-pulse-text { animation: neonPulse 3s ease-in-out infinite; }
+        .neon-pulse-border { animation: borderGlow 3s ease-in-out infinite; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">PAW<span>CARE</span></a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+            </ul>
+            <a href="#contact" class="neon-btn nav-cta">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#services" onclick="closeMobileNav()">Services</a>
+        <a href="#results" onclick="closeMobileNav()">Results</a>
+        <a href="#about" onclick="closeMobileNav()">About</a>
+        <a href="#gallery" onclick="closeMobileNav()">Gallery</a>
+        <a href="#reviews" onclick="closeMobileNav()">Reviews</a>
+        <a href="#contact" class="neon-btn" onclick="closeMobileNav()">Book Now</a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="../../images/template-images/hero.jpg" alt="PawCare Veterinary Clinic — modern veterinary facility in Denver" loading="eager">
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Now Accepting New Patients
+            </div>
+            <h1>
+                Your Pet Deserves<br>
+                <span class="neon-text neon-pulse-text">Next-Level</span> Care
+            </h1>
+            <p>PawCare Veterinary Clinic in Denver, CO — where cutting-edge medicine meets genuine compassion. Led by Dr. Sarah Mitchell since 2015.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="neon-btn">Schedule a Visit</a>
+                <a href="tel:5558472196" class="neon-btn neon-btn-outline">Call (555) 847-2196</a>
+            </div>
+        </div>
+        <div class="hero-neon-line"></div>
+    </section>
+
+    <!-- ===== TRUST BAR ===== -->
+    <section class="trust-bar" id="trust">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-number" data-count="10">0</div>
+                    <div class="trust-label">Years of Care</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number" data-count="287">0</div>
+                    <div class="trust-label">5-Star Reviews</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number" data-count="15000">0</div>
+                    <div class="trust-label">Pets Treated</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number" data-count="4.8" data-decimal="true">0</div>
+                    <div class="trust-label">Google Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our <span class="neon-word">Services</span></h2>
+            <p class="section-subtitle">Comprehensive veterinary care powered by modern technology and a team that genuinely cares about your furry family.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="../../images/template-images/exam-dog.jpg" alt="Comprehensive wellness exam for dogs at PawCare" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <h3>Wellness Exams</h3>
+                        <p>Thorough nose-to-tail checkups with advanced diagnostics to catch issues early and keep your pet thriving.</p>
+                        <a href="#contact" class="service-card-link">Book Exam &rarr;</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="../../images/template-images/dental.jpg" alt="Pet dental cleaning and care" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <h3>Dental Care</h3>
+                        <p>Professional cleanings, digital dental X-rays, and extractions to maintain your pet's oral health and comfort.</p>
+                        <a href="#contact" class="service-card-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="../../images/template-images/cat-care.jpg" alt="Specialized feline veterinary care" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <h3>Cat Care</h3>
+                        <p>Fear-free feline medicine in a calm, cat-friendly environment designed to minimize stress for your kitty.</p>
+                        <a href="#contact" class="service-card-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="../../images/template-images/surgery.jpg" alt="Veterinary surgical procedures" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <h3>Surgery</h3>
+                        <p>State-of-the-art surgical suite for spay/neuter, soft tissue, and orthopedic procedures with attentive post-op care.</p>
+                        <a href="#contact" class="service-card-link">Consult Now &rarr;</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="../../images/template-images/vaccination.jpg" alt="Pet vaccinations and preventive care" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <h3>Vaccinations</h3>
+                        <p>Customized vaccination protocols based on your pet's lifestyle, age, and risk factors to ensure optimal protection.</p>
+                        <a href="#contact" class="service-card-link">Get Started &rarr;</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="../../images/template-images/grooming.jpg" alt="Professional pet grooming services" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <h3>Grooming</h3>
+                        <p>Full-service grooming by certified groomers — baths, haircuts, nail trims, and breed-specific styling.</p>
+                        <a href="#contact" class="service-card-link">Book Groom &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BEFORE/AFTER ===== -->
+    <section class="before-after" id="results">
+        <div class="container">
+            <h2 class="section-title">Real <span class="neon-word">Results</span></h2>
+            <p class="section-subtitle">See the transformative difference compassionate, expert care makes. Drag the slider to compare.</p>
+            <div class="ba-wrapper" id="baSlider">
+                <img src="../../images/template-images/emergency.jpg" alt="Pet before treatment at PawCare" class="ba-before">
+                <img src="../../images/template-images/boarding.jpg" alt="Pet after treatment at PawCare — healthy and happy" class="ba-after">
+                <div class="ba-slider" id="baHandle"></div>
+                <span class="ba-label ba-label-before">Before</span>
+                <span class="ba-label ba-label-after">After</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img-wrap">
+                    <img src="../../images/template-images/team.jpg" alt="Dr. Sarah Mitchell and the PawCare veterinary team" loading="lazy">
+                </div>
+                <div class="about-content">
+                    <h3>About PawCare</h3>
+                    <h2>Where <span class="neon-word">Passion</span> Meets Precision</h2>
+                    <p>Founded in 2015 by Dr. Sarah Mitchell, PawCare Veterinary Clinic was built on a simple belief: every pet deserves access to modern, compassionate medicine — delivered by a team that treats them like family.</p>
+                    <p>Our Denver clinic combines state-of-the-art diagnostic technology with a warm, welcoming environment. From routine wellness exams to complex surgical procedures, we bring the same level of dedication and expertise to every visit.</p>
+                    <div class="about-stats">
+                        <div>
+                            <div class="about-stat-num">10+</div>
+                            <div class="about-stat-label">Years</div>
+                        </div>
+                        <div>
+                            <div class="about-stat-num">4.8</div>
+                            <div class="about-stat-label">Star Rating</div>
+                        </div>
+                        <div>
+                            <div class="about-stat-num">6</div>
+                            <div class="about-stat-label">Vets on Staff</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Inside <span class="neon-word">PawCare</span></h2>
+            <p class="section-subtitle">A glimpse into our clinic, team, and the happy pets we care for every day.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="../../images/template-images/hero.jpg" alt="PawCare clinic exterior" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/team.jpg" alt="PawCare veterinary team" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/exam-dog.jpg" alt="Dog wellness exam" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/dental.jpg" alt="Pet dental procedure" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/cat-care.jpg" alt="Cat receiving gentle care" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/surgery.jpg" alt="Surgical suite" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/vaccination.jpg" alt="Pet vaccination" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/grooming.jpg" alt="Pet grooming session" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/emergency.jpg" alt="Emergency care" loading="lazy"></div>
+                <div class="gallery-item"><img src="../../images/template-images/boarding.jpg" alt="Pet boarding facility" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials" id="reviews">
+        <div class="container">
+            <h2 class="section-title">What Pet Parents <span class="neon-word">Say</span></h2>
+            <p class="section-subtitle">287 five-star reviews and counting. Here's why Denver trusts PawCare.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card neon-pulse-border">
+                    <div class="testimonial-stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <blockquote>"Dr. Mitchell saved our golden retriever's life when he swallowed a toy. The emergency team was calm, fast, and incredibly skilled. We can't thank PawCare enough."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JR</div>
+                        <div>
+                            <div class="testimonial-name">Jessica R.</div>
+                            <div class="testimonial-pet">Pet parent to Max (Golden Retriever)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <blockquote>"My anxious cat finally has a vet he doesn't hate! The fear-free approach and the gentle handling make all the difference. The staff here truly gets it."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MK</div>
+                        <div>
+                            <div class="testimonial-name">Michael K.</div>
+                            <div class="testimonial-pet">Pet parent to Whiskers (Tabby Cat)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <blockquote>"Clean, modern facility with a team that actually takes time to explain everything. The dental work they did on our old beagle was exceptional. Highly recommend!"</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AT</div>
+                        <div>
+                            <div class="testimonial-name">Amanda T.</div>
+                            <div class="testimonial-pet">Pet parent to Biscuit (Beagle)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">How It <span class="neon-word">Works</span></h2>
+            <p class="section-subtitle">Getting started with PawCare is simple. Three steps to better care for your pet.</p>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">01</div>
+                    <h3>Book Online</h3>
+                    <p>Choose your service, pick a time that works, and submit your request. We'll confirm within the hour.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">02</div>
+                    <h3>Visit Us</h3>
+                    <p>Bring your pet to our Denver clinic. Our team handles the rest — thorough exam, clear communication, zero stress.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">03</div>
+                    <h3>Thrive Together</h3>
+                    <p>Get a personalized care plan, digital records access, and ongoing support to keep your pet healthy long-term.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER / CONTACT ===== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h2>Let's <span class="neon-word">Connect</span></h2>
+                    <p>Ready to give your pet the care they deserve? Reach out or fill out the form — we'll get back to you fast.</p>
+                    <div style="margin-top: 28px;">
+                        <div class="footer-contact-line">
+                            <span class="icon">&#9742;</span>
+                            <a href="tel:5558472196" style="color: var(--neon-green);">(555) 847-2196</a>
+                        </div>
+                        <div class="footer-contact-line">
+                            <span class="icon">&#9993;</span>
+                            <span>hello@pawcaredenver.com</span>
+                        </div>
+                        <div class="footer-contact-line">
+                            <span class="icon">&#9900;</span>
+                            <span>Denver, Colorado</span>
+                        </div>
+                        <div class="footer-contact-line">
+                            <span class="icon">&#9200;</span>
+                            <span>Mon–Fri 8am–6pm &middot; Sat 9am–3pm</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We\'ll be in touch shortly.');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="wellness">Wellness Exam</option>
+                                <option value="dental">Dental Care</option>
+                                <option value="surgery">Surgery Consult</option>
+                                <option value="vaccination">Vaccination</option>
+                                <option value="grooming">Grooming</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Pet</label>
+                        <textarea id="message" name="message" placeholder="Pet name, breed, age, and reason for visit..."></textarea>
+                    </div>
+                    <button type="submit" class="neon-btn neon-btn-cyan" style="width:100%; justify-content:center;">Send Request</button>
+                </form>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PawCare Veterinary Clinic. All rights reserved. Denver, CO.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        /* ===== CHECK REDUCED MOTION ===== */
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ===== LENIS SMOOTH SCROLL ===== */
+        if (!prefersReducedMotion) {
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                orientation: 'vertical',
+                smoothWheel: true
+            });
+
+            // Sync Lenis with GSAP ScrollTrigger
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+        }
+
+        /* ===== GSAP + SCROLLTRIGGER ===== */
+        gsap.registerPlugin(ScrollTrigger);
+
+        if (!prefersReducedMotion) {
+
+            /* --- Nav scroll effect --- */
+            ScrollTrigger.create({
+                start: 'top -80',
+                onUpdate: (self) => {
+                    document.getElementById('nav').classList.toggle('scrolled', self.progress > 0);
+                }
+            });
+
+            /* --- Hero entrance --- */
+            const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+            heroTl
+                .from('.hero-badge', { opacity: 0, y: 30, duration: 0.8 }, 0.3)
+                .from('.hero h1', { opacity: 0, y: 50, duration: 1 }, 0.5)
+                .from('.hero p', { opacity: 0, y: 30, duration: 0.8 }, 0.8)
+                .from('.hero-buttons .neon-btn', { opacity: 0, y: 20, stagger: 0.15, duration: 0.7 }, 1)
+                .from('.hero-neon-line', { scaleX: 0, duration: 1.2, ease: 'power2.inOut' }, 0.6);
+
+            /* --- Trust bar counter animation --- */
+            document.querySelectorAll('.trust-number').forEach(el => {
+                const target = parseFloat(el.dataset.count);
+                const isDecimal = el.dataset.decimal === 'true';
+
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: 'top 85%',
+                    once: true,
+                    onEnter: () => {
+                        gsap.to({ val: 0 }, {
+                            val: target,
+                            duration: 2,
+                            ease: 'power2.out',
+                            onUpdate: function() {
+                                const v = this.targets()[0].val;
+                                if (isDecimal) {
+                                    el.textContent = v.toFixed(1);
+                                } else if (target >= 1000) {
+                                    el.textContent = Math.floor(v).toLocaleString() + '+';
+                                } else {
+                                    el.textContent = Math.floor(v) + '+';
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+
+            /* --- Service cards stagger --- */
+            gsap.from('.service-card', {
+                scrollTrigger: { trigger: '.services-grid', start: 'top 80%' },
+                opacity: 0,
+                y: 60,
+                stagger: 0.12,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+
+            /* --- Before/After reveal --- */
+            gsap.from('.ba-wrapper', {
+                scrollTrigger: { trigger: '.ba-wrapper', start: 'top 80%' },
+                opacity: 0,
+                scale: 0.95,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            /* --- About section --- */
+            gsap.from('.about-img-wrap', {
+                scrollTrigger: { trigger: '.about-grid', start: 'top 75%' },
+                opacity: 0,
+                x: -60,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            gsap.from('.about-content', {
+                scrollTrigger: { trigger: '.about-grid', start: 'top 75%' },
+                opacity: 0,
+                x: 60,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            /* --- Gallery items --- */
+            gsap.from('.gallery-item', {
+                scrollTrigger: { trigger: '.gallery-grid', start: 'top 80%' },
+                opacity: 0,
+                y: 40,
+                scale: 0.92,
+                stagger: { amount: 0.6, from: 'random' },
+                duration: 0.7,
+                ease: 'power3.out'
+            });
+
+            /* --- Testimonial cards --- */
+            gsap.from('.testimonial-card', {
+                scrollTrigger: { trigger: '.testimonials-grid', start: 'top 80%' },
+                opacity: 0,
+                y: 50,
+                stagger: 0.15,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+
+            /* --- Process steps --- */
+            gsap.from('.process-step', {
+                scrollTrigger: { trigger: '.process-steps', start: 'top 80%' },
+                opacity: 0,
+                y: 40,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+
+            /* --- Footer form --- */
+            gsap.from('.footer-info', {
+                scrollTrigger: { trigger: '.footer-grid', start: 'top 85%' },
+                opacity: 0,
+                x: -40,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            gsap.from('.contact-form', {
+                scrollTrigger: { trigger: '.footer-grid', start: 'top 85%' },
+                opacity: 0,
+                x: 40,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+
+            /* --- Neon glow text-shadow animation on section titles --- */
+            document.querySelectorAll('.section-title .neon-word').forEach(el => {
+                gsap.to(el, {
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+                    keyframes: [
+                        { textShadow: '0 0 10px rgba(57,255,20,0.6), 0 0 40px rgba(57,255,20,0.3), 0 0 80px rgba(57,255,20,0.1)', duration: 0.5 },
+                        { textShadow: '0 0 25px rgba(57,255,20,0.9), 0 0 60px rgba(57,255,20,0.5), 0 0 120px rgba(57,255,20,0.2)', duration: 0.3 },
+                        { textShadow: '0 0 10px rgba(57,255,20,0.6), 0 0 40px rgba(57,255,20,0.3), 0 0 80px rgba(57,255,20,0.1)', duration: 0.5 }
+                    ],
+                    ease: 'power2.inOut'
+                });
+            });
+
+        } else {
+            /* Reduced motion: just make nav sticky */
+            document.getElementById('nav').classList.add('scrolled');
+        }
+
+        /* ===== HAMBURGER MENU ===== */
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        window.closeMobileNav = function() {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+
+        /* ===== BEFORE/AFTER SLIDER ===== */
+        const baWrapper = document.getElementById('baSlider');
+        const baHandle = document.getElementById('baHandle');
+        const baBeforeImg = baWrapper.querySelector('.ba-before');
+        let isDragging = false;
+
+        function updateSlider(x) {
+            const rect = baWrapper.getBoundingClientRect();
+            let pos = (x - rect.left) / rect.width;
+            pos = Math.max(0.02, Math.min(0.98, pos));
+            const pct = pos * 100;
+            baBeforeImg.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+            baHandle.style.left = pct + '%';
+        }
+
+        // Mouse events
+        baHandle.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+        baWrapper.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            updateSlider(e.clientX);
+        });
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) updateSlider(e.clientX);
+        });
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        // Touch events
+        baHandle.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+        baWrapper.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            updateSlider(e.touches[0].clientX);
+        });
+        window.addEventListener('touchmove', (e) => {
+            if (isDragging) updateSlider(e.touches[0].clientX);
+        });
+        window.addEventListener('touchend', () => { isDragging = false; });
+
+        /* ===== NAV SCROLL CLASS (fallback for reduced motion) ===== */
+        if (prefersReducedMotion) {
+            window.addEventListener('scroll', () => {
+                document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+            }, { passive: true });
+        }
+
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radiance MedSpa & Aesthetics | Dr. Elena Vasquez | Scottsdale AZ</title>
+<meta name="description" content="Scottsdale's premier med spa. Botox, laser treatments, facials, body contouring & more. Led by Dr. Elena Vasquez. 4.9★ rated, 418+ reviews. Book your consultation today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MedicalBusiness",
+  "name":"Radiance MedSpa & Aesthetics",
+  "image":"../../images/template-images/hero.jpg",
+  "telephone":"(555) 923-4107",
+  "address":{"@type":"PostalAddress","addressLocality":"Scottsdale","addressRegion":"AZ"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"418"},
+  "foundingDate":"2018",
+  "medicalSpecialty":"Dermatology",
+  "priceRange":"$$-$$$",
+  "url":"https://radiancemedspa.com"
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --bg:#0a0a0a;
+  --bg-card:#111111;
+  --bg-elevated:#161616;
+  --rose:#c9a96e;
+  --rose-light:#dfc59a;
+  --rose-dark:#a17e42;
+  --rose-glow:rgba(201,169,110,0.25);
+  --white:#f5f0eb;
+  --white-pure:#ffffff;
+  --gray:#8a8580;
+  --gray-dark:#4a4545;
+  --radius:8px;
+  --radius-lg:16px;
+  --font-sans:'Montserrat',sans-serif;
+  --font-serif:'Cormorant Garamond',serif;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+}
+
+body{
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1280px;margin:0 auto;padding:0 60px}
+
+/* ── SCROLLBAR ─────────────────────────── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--rose-dark);border-radius:3px}
+
+/* ── NAV ───────────────────────────────── */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 60px;height:80px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,10,10,0.85);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(201,169,110,0.08);
+  transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.navbar.scrolled{
+  background:rgba(10,10,10,0.95);
+  box-shadow:0 4px 40px rgba(0,0,0,0.4),0 1px 0 rgba(201,169,110,0.12);
+  height:68px;
+}
+.nav-logo{
+  font-family:var(--font-serif);
+  font-size:22px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--rose);
+}
+.nav-logo span{color:var(--white);font-weight:300}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{
+  font-size:12px;font-weight:500;color:var(--gray);
+  text-transform:uppercase;letter-spacing:2px;
+  transition:color 0.3s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
+  background:var(--rose);transition:width 0.3s;
+}
+.nav-links a:hover{color:var(--rose)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:10px 28px;background:transparent;
+  border:1px solid var(--rose);color:var(--rose);
+  font-family:var(--font-sans);font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  border-radius:0;cursor:pointer;transition:all 0.4s;
+}
+.nav-cta:hover{background:var(--rose);color:var(--bg)}
+
+/* Hamburger */
+.nav-hamburger{
+  display:none;flex-direction:column;gap:6px;
+  background:none;border:none;cursor:pointer;padding:8px;z-index:1001;
+}
+.nav-hamburger span{
+  width:24px;height:1px;background:var(--rose);transition:all 0.3s;display:block;
+}
+.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-hamburger.active span:nth-child(2){opacity:0}
+.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile menu */
+.mobile-menu{
+  position:fixed;inset:0;z-index:999;
+  background:rgba(10,10,10,0.98);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;
+  opacity:0;pointer-events:none;transition:opacity 0.4s;
+}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{
+  font-family:var(--font-serif);font-size:28px;color:var(--white);
+  letter-spacing:2px;transition:color 0.3s;
+}
+.mobile-menu a:hover{color:var(--rose)}
+
+/* ── HERO ──────────────────────────────── */
+.hero{
+  position:relative;width:100%;height:100vh;min-height:750px;
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.1)}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(10,10,10,0.5) 0%,rgba(10,10,10,0.7) 40%,rgba(10,10,10,0.92) 100%);
+}
+.hero-vignette{
+  position:absolute;inset:0;z-index:2;
+  box-shadow:inset 0 0 200px rgba(0,0,0,0.6);
+  pointer-events:none;
+}
+.hero-content{
+  position:relative;z-index:3;text-align:center;
+  max-width:900px;padding:0 40px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 24px;
+  border:1px solid rgba(201,169,110,0.3);
+  font-size:11px;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:var(--rose);
+  margin-bottom:32px;
+}
+.hero-badge .dot{width:4px;height:4px;border-radius:50%;background:var(--rose)}
+.hero-title{
+  font-family:var(--font-serif);
+  font-size:clamp(48px,7vw,96px);
+  font-weight:300;line-height:1.05;
+  color:var(--white-pure);
+  margin-bottom:24px;
+}
+.hero-title em{font-style:italic;color:var(--rose);font-weight:400}
+.hero-sub{
+  font-size:16px;font-weight:300;color:var(--gray);
+  letter-spacing:1px;margin-bottom:48px;
+  max-width:600px;margin-left:auto;margin-right:auto;
+}
+.hero-btns{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  padding:16px 48px;background:var(--rose);color:var(--bg);
+  font-family:var(--font-sans);font-size:12px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all 0.4s;
+  position:relative;overflow:hidden;
+}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(45deg,transparent,rgba(255,255,255,0.15),transparent);
+  transform:translateX(-100%);transition:transform 0.6s;
+}
+.btn-primary:hover::before{transform:translateX(100%)}
+.btn-primary:hover{background:var(--rose-light);box-shadow:0 8px 40px var(--rose-glow)}
+.btn-outline{
+  padding:16px 48px;background:transparent;
+  border:1px solid rgba(201,169,110,0.4);
+  color:var(--rose-light);
+  font-family:var(--font-sans);font-size:12px;font-weight:500;
+  letter-spacing:3px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.4s;
+}
+.btn-outline:hover{border-color:var(--rose);color:var(--white-pure);background:rgba(201,169,110,0.08)}
+
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.hero-scroll span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--rose),transparent);animation:scrollPulse 2s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.3;height:40px}50%{opacity:1;height:60px}}
+
+/* ── TRUST BAR ─────────────────────────── */
+.trust-bar{
+  padding:48px 0;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-card) 100%);
+  border-top:1px solid rgba(201,169,110,0.08);
+  border-bottom:1px solid rgba(201,169,110,0.08);
+}
+.trust-items{
+  display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 28px;
+  border:1px solid rgba(201,169,110,0.12);
+  transition:all 0.4s;
+}
+.trust-item:hover{border-color:var(--rose);box-shadow:0 4px 30px var(--rose-glow)}
+.trust-icon{
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--rose);color:var(--rose);font-size:18px;
+}
+.trust-text{font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--white)}
+.trust-text small{display:block;font-size:10px;font-weight:300;color:var(--gray);letter-spacing:0.5px;text-transform:none;margin-top:2px}
+
+/* ── SECTION HEADINGS ──────────────────── */
+.section-tag{
+  font-size:11px;font-weight:600;letter-spacing:4px;
+  text-transform:uppercase;color:var(--rose);
+  margin-bottom:16px;display:flex;align-items:center;gap:12px;
+}
+.section-tag::before{content:'';width:40px;height:1px;background:var(--rose)}
+.section-title{
+  font-family:var(--font-serif);
+  font-size:clamp(36px,4vw,60px);
+  font-weight:300;line-height:1.15;
+  color:var(--white-pure);margin-bottom:20px;
+}
+.section-title em{font-style:italic;color:var(--rose);font-weight:400}
+.section-desc{font-size:15px;font-weight:300;color:var(--gray);max-width:560px;line-height:1.8}
+
+/* ── SERVICES ──────────────────────────── */
+.services{padding:120px 0;background:var(--bg)}
+.services-header{text-align:center;margin-bottom:72px}
+.services-header .section-tag{justify-content:center}
+.services-header .section-tag::before{display:none}
+.services-header .section-desc{margin:0 auto}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.service-card{
+  position:relative;overflow:hidden;
+  border:1px solid rgba(201,169,110,0.08);
+  background:var(--bg-card);
+  transition:all 0.5s cubic-bezier(0.16,1,0.3,1);
+  cursor:pointer;group:true;
+}
+.service-card:hover{
+  border-color:var(--rose);
+  transform:translateY(-8px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 40px var(--rose-glow);
+}
+.service-img{
+  width:100%;height:280px;overflow:hidden;position:relative;
+}
+.service-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s cubic-bezier(0.16,1,0.3,1);filter:brightness(0.7) saturate(0.8)}
+.service-card:hover .service-img img{transform:scale(1.08);filter:brightness(0.85) saturate(1)}
+.service-img::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:60%;
+  background:linear-gradient(to top,var(--bg-card),transparent);
+}
+.service-body{padding:28px 28px 32px}
+.service-name{
+  font-family:var(--font-serif);font-size:24px;font-weight:400;
+  color:var(--white-pure);margin-bottom:8px;
+}
+.service-desc{font-size:13px;font-weight:300;color:var(--gray);line-height:1.7;margin-bottom:16px}
+.service-link{
+  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--rose);display:inline-flex;align-items:center;gap:8px;
+  transition:gap 0.3s;
+}
+.service-card:hover .service-link{gap:14px}
+.service-link svg{width:16px;height:16px;transition:transform 0.3s}
+.service-card:hover .service-link svg{transform:translateX(4px)}
+
+/* ── BEFORE/AFTER ──────────────────────── */
+.before-after{
+  padding:120px 0;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-elevated) 50%,var(--bg) 100%);
+}
+.ba-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ba-slider{
+  position:relative;width:100%;aspect-ratio:4/5;
+  overflow:hidden;cursor:ew-resize;
+  border:1px solid rgba(201,169,110,0.15);
+  box-shadow:0 20px 80px rgba(0,0,0,0.4);
+}
+.ba-slider img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.ba-after{clip-path:inset(0 50% 0 0)}
+.ba-handle{
+  position:absolute;top:0;bottom:0;left:50%;width:3px;
+  background:var(--rose);z-index:2;transform:translateX(-50%);
+  box-shadow:0 0 20px var(--rose-glow);
+}
+.ba-handle::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:48px;height:48px;border-radius:50%;
+  border:2px solid var(--rose);
+  background:rgba(10,10,10,0.8);
+  box-shadow:0 0 30px var(--rose-glow);
+}
+.ba-handle::after{
+  content:'⟨ ⟩';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  color:var(--rose);font-size:14px;letter-spacing:6px;
+  font-weight:300;
+}
+.ba-label{
+  position:absolute;bottom:20px;z-index:3;
+  padding:6px 16px;background:rgba(10,10,10,0.8);
+  font-size:10px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--rose);
+  border:1px solid rgba(201,169,110,0.3);
+}
+.ba-label-before{left:20px}
+.ba-label-after{right:20px}
+.ba-info .section-desc{margin-top:24px}
+.ba-stats{display:flex;gap:40px;margin-top:40px}
+.ba-stat-num{
+  font-family:var(--font-serif);font-size:48px;font-weight:300;
+  color:var(--rose);line-height:1;
+}
+.ba-stat-label{font-size:12px;font-weight:400;color:var(--gray);letter-spacing:1px;margin-top:4px}
+
+/* ── ABOUT ─────────────────────────────── */
+.about{padding:120px 0;background:var(--bg)}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img-wrap{
+  position:relative;
+}
+.about-img{
+  width:100%;aspect-ratio:3/4;object-fit:cover;
+  filter:brightness(0.85) saturate(0.9);
+  border:1px solid rgba(201,169,110,0.1);
+}
+.about-img-accent{
+  position:absolute;top:-20px;left:-20px;
+  width:100%;height:100%;
+  border:1px solid var(--rose);
+  z-index:-1;opacity:0.3;
+}
+.about-info .section-desc{margin-top:24px}
+.about-credentials{
+  display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;
+}
+.credential{
+  padding:8px 20px;
+  border:1px solid rgba(201,169,110,0.2);
+  font-size:11px;font-weight:500;letter-spacing:1px;
+  color:var(--rose-light);
+}
+.about-signature{
+  margin-top:40px;font-family:var(--font-serif);
+  font-size:24px;font-style:italic;color:var(--rose);
+}
+
+/* ── GALLERY ───────────────────────────── */
+.gallery{
+  padding:120px 0;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-elevated) 100%);
+}
+.gallery-header{text-align:center;margin-bottom:72px}
+.gallery-header .section-tag{justify-content:center}
+.gallery-header .section-tag::before{display:none}
+.gallery-header .section-desc{margin:0 auto}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto auto;
+  gap:16px;
+}
+.gallery-item{
+  position:relative;overflow:hidden;
+  border:1px solid rgba(201,169,110,0.06);
+  cursor:pointer;transition:all 0.5s;
+}
+.gallery-item:hover{
+  border-color:var(--rose);
+  box-shadow:0 10px 40px rgba(0,0,0,0.4),0 0 30px var(--rose-glow);
+  z-index:2;transform:scale(1.03);
+}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(0.7) saturate(0.7);
+  transition:all 0.6s;
+}
+.gallery-item:hover img{filter:brightness(0.9) saturate(1);transform:scale(1.05)}
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery-item:nth-child(1) img{height:100%}
+.gallery-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,10,10,0.7),transparent 60%);
+  opacity:0;transition:opacity 0.4s;
+  display:flex;align-items:flex-end;padding:20px;
+}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-overlay span{
+  font-size:12px;font-weight:500;letter-spacing:1px;color:var(--rose-light);
+}
+
+/* ── TESTIMONIALS ──────────────────────── */
+.testimonials{padding:120px 0;background:var(--bg)}
+.testimonials-header{text-align:center;margin-bottom:72px}
+.testimonials-header .section-tag{justify-content:center}
+.testimonials-header .section-tag::before{display:none}
+.testimonials-header .section-desc{margin:0 auto}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{
+  padding:40px 32px;
+  background:var(--bg-card);
+  border:1px solid rgba(201,169,110,0.08);
+  transition:all 0.4s;position:relative;
+}
+.testimonial-card:hover{
+  border-color:rgba(201,169,110,0.2);
+  box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+.testimonial-card::before{
+  content:'\201C';position:absolute;top:20px;right:24px;
+  font-family:var(--font-serif);font-size:80px;line-height:1;
+  color:rgba(201,169,110,0.1);
+}
+.testimonial-stars{display:flex;gap:3px;margin-bottom:20px}
+.testimonial-stars svg{width:14px;height:14px;fill:var(--rose)}
+.testimonial-text{
+  font-size:14px;font-weight:300;color:var(--gray);
+  line-height:1.8;font-style:italic;margin-bottom:24px;
+}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose-dark),var(--rose));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-serif);font-size:16px;color:var(--bg);font-weight:600;
+}
+.testimonial-name{font-size:13px;font-weight:600;color:var(--white-pure)}
+.testimonial-detail{font-size:11px;font-weight:300;color:var(--gray);margin-top:2px}
+
+/* ── PROCESS ───────────────────────────── */
+.process{
+  padding:120px 0;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-elevated) 100%);
+}
+.process-header{text-align:center;margin-bottom:80px}
+.process-header .section-tag{justify-content:center}
+.process-header .section-tag::before{display:none}
+.process-header .section-desc{margin:0 auto}
+.process-steps{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:48px;
+  position:relative;
+}
+.process-steps::before{
+  content:'';position:absolute;top:60px;left:16.66%;right:16.66%;
+  height:1px;background:linear-gradient(to right,transparent,var(--rose),transparent);
+}
+.process-step{text-align:center;position:relative}
+.step-num{
+  width:120px;height:120px;margin:0 auto 32px;
+  border-radius:50%;
+  border:1px solid rgba(201,169,110,0.2);
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);position:relative;z-index:1;
+  transition:all 0.5s;
+}
+.step-num:hover{
+  border-color:var(--rose);
+  box-shadow:0 0 60px var(--rose-glow);
+}
+.step-num span{
+  font-family:var(--font-serif);font-size:40px;font-weight:300;color:var(--rose);
+}
+.step-title{
+  font-family:var(--font-serif);font-size:24px;font-weight:400;
+  color:var(--white-pure);margin-bottom:12px;
+}
+.step-desc{font-size:13px;font-weight:300;color:var(--gray);line-height:1.7;max-width:280px;margin:0 auto}
+
+/* ── FOOTER ────────────────────────────── */
+.footer{
+  padding:100px 0 40px;
+  background:var(--bg-card);
+  border-top:1px solid rgba(201,169,110,0.1);
+}
+.footer-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  margin-bottom:80px;
+}
+.footer-brand .nav-logo{font-size:26px;margin-bottom:20px;display:block}
+.footer-brand p{font-size:14px;font-weight:300;color:var(--gray);line-height:1.8;max-width:400px;margin-bottom:24px}
+.footer-contact{display:flex;flex-direction:column;gap:12px}
+.footer-contact a{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;color:var(--gray);transition:color 0.3s;
+}
+.footer-contact a:hover{color:var(--rose)}
+.footer-contact svg{width:16px;height:16px;stroke:var(--rose);fill:none;stroke-width:1.5}
+.footer-form h3{
+  font-family:var(--font-serif);font-size:32px;font-weight:400;
+  color:var(--white-pure);margin-bottom:8px;
+}
+.footer-form p{font-size:13px;color:var(--gray);margin-bottom:28px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:span 2}
+.form-group label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--rose)}
+.form-group input,.form-group select,.form-group textarea{
+  padding:14px 16px;
+  background:var(--bg);border:1px solid rgba(201,169,110,0.12);
+  color:var(--white);font-family:var(--font-sans);font-size:13px;
+  transition:border-color 0.3s;outline:none;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:var(--rose);box-shadow:0 0 20px rgba(201,169,110,0.1);
+}
+.form-group select{-webkit-appearance:none;cursor:pointer}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{
+  margin-top:20px;width:100%;padding:16px;
+  background:var(--rose);color:var(--bg);border:none;
+  font-family:var(--font-sans);font-size:12px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.4s;
+}
+.form-submit:hover{background:var(--rose-light);box-shadow:0 8px 40px var(--rose-glow)}
+.footer-bottom{
+  padding-top:40px;
+  border-top:1px solid rgba(201,169,110,0.06);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.footer-bottom p{font-size:11px;color:var(--gray-dark);letter-spacing:0.5px}
+.footer-socials{display:flex;gap:16px}
+.footer-socials a{
+  width:36px;height:36px;border:1px solid rgba(201,169,110,0.15);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.3s;
+}
+.footer-socials a:hover{border-color:var(--rose);background:rgba(201,169,110,0.08)}
+.footer-socials svg{width:14px;height:14px;fill:var(--rose)}
+
+/* ── RESPONSIVE ────────────────────────── */
+@media(max-width:1024px){
+  .container{padding:0 40px}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(3,1fr)}
+  .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .ba-layout,.about-layout,.footer-layout{grid-template-columns:1fr;gap:48px}
+  .process-steps::before{display:none}
+}
+@media(max-width:768px){
+  .container{padding:0 24px}
+  .navbar{padding:0 24px}
+  .nav-links,.nav-cta{display:none}
+  .nav-hamburger{display:flex}
+  .services-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-item:nth-child(1){grid-column:span 2}
+  .testimonials-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr;gap:48px}
+  .trust-items{gap:16px}
+  .trust-item{padding:12px 16px}
+  .form-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:span 1}
+  .hero-title{font-size:clamp(36px,10vw,60px)}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .ba-stats{justify-content:center}
+}
+@media(max-width:480px){
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-item:nth-child(1){grid-column:span 1}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">Radiance <span>MedSpa</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:5559234107" class="nav-cta">Book Now</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#results">Results</a>
+  <a href="#about">About</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:5559234107" style="color:var(--rose)">Book Now</a>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="../../images/template-images/hero.jpg" alt="Radiance MedSpa luxury treatment room" loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span> Scottsdale's Premier Med Spa <span class="dot"></span>
+    </div>
+    <h1 class="hero-title">Where Science<br>Meets <em>Glamour</em></h1>
+    <p class="hero-sub">Discover transformative aesthetic treatments curated by Dr. Elena Vasquez. Luxury results that speak for themselves.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Book Consultation</a>
+      <a href="#services" class="btn-outline">Explore Treatments</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════ TRUST BAR ═══════ -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="trust-text">4.9 Stars<small>418+ Verified Reviews</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="trust-text">Board Certified<small>Dr. Elena Vasquez, MD</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="trust-text">Since 2018<small>7+ Years of Excellence</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="trust-text">FDA Approved<small>Premium Products Only</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SERVICES ═══════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-tag">Our Treatments</div>
+      <h2 class="section-title">Curated for <em>Your</em> Radiance</h2>
+      <p class="section-desc">From subtle enhancements to dramatic transformations, our signature treatments are designed to reveal your most radiant self.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-img"><img src="../../images/template-images/botox.jpg" alt="Botox & Neurotoxins" loading="lazy"></div>
+        <div class="service-body">
+          <h3 class="service-name">Botox & Neurotoxins</h3>
+          <p class="service-desc">Precision-injected wrinkle relaxers for a naturally smooth, youthful look. Results in as little as 3 days.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img"><img src="../../images/template-images/laser.jpg" alt="Laser Treatments" loading="lazy"></div>
+        <div class="service-body">
+          <h3 class="service-name">Laser Treatments</h3>
+          <p class="service-desc">Advanced laser technology for skin resurfacing, pigmentation correction, and vascular therapy.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img"><img src="../../images/template-images/facial.jpg" alt="Luxury Facials" loading="lazy"></div>
+        <div class="service-body">
+          <h3 class="service-name">Luxury Facials</h3>
+          <p class="service-desc">Medical-grade facials combining clinical efficacy with spa-level pampering. Hydration, glow, rejuvenation.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img"><img src="../../images/template-images/body-contouring.jpg" alt="Body Contouring" loading="lazy"></div>
+        <div class="service-body">
+          <h3 class="service-name">Body Contouring</h3>
+          <p class="service-desc">Non-invasive body sculpting to eliminate stubborn fat and tighten skin. Zero downtime, real results.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img"><img src="../../images/template-images/microneedling.jpg" alt="Microneedling" loading="lazy"></div>
+        <div class="service-body">
+          <h3 class="service-name">Microneedling</h3>
+          <p class="service-desc">Collagen-boosting micro-injury therapy with PRP for scar reduction, pore refinement, and texture renewal.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img"><img src="../../images/template-images/iv-therapy.jpg" alt="IV Therapy" loading="lazy"></div>
+        <div class="service-body">
+          <h3 class="service-name">IV Therapy</h3>
+          <p class="service-desc">Custom vitamin infusions for radiance from within. Hydration, immunity, and the signature Glow Drip.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ BEFORE/AFTER ═══════ -->
+<section class="before-after" id="results">
+  <div class="container">
+    <div class="ba-layout">
+      <div class="ba-slider" id="baSlider">
+        <img src="../../images/template-images/skin-tightening.jpg" alt="Before treatment" class="ba-before">
+        <img src="../../images/template-images/treatment-room.jpg" alt="After treatment" class="ba-after">
+        <div class="ba-handle" id="baHandle"></div>
+        <div class="ba-label ba-label-before">Before</div>
+        <div class="ba-label ba-label-after">After</div>
+      </div>
+      <div class="ba-info">
+        <div class="section-tag">Real Results</div>
+        <h2 class="section-title">See the <em>Transformation</em></h2>
+        <p class="section-desc">Every result tells a story of renewed confidence. Our patients don't just look different — they feel extraordinary. Drag the slider to reveal the transformation.</p>
+        <div class="ba-stats">
+          <div>
+            <div class="ba-stat-num">98%</div>
+            <div class="ba-stat-label">Patient Satisfaction</div>
+          </div>
+          <div>
+            <div class="ba-stat-num">5K+</div>
+            <div class="ba-stat-label">Treatments Performed</div>
+          </div>
+          <div>
+            <div class="ba-stat-num">7+</div>
+            <div class="ba-stat-label">Years of Excellence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-info">
+        <div class="section-tag">Meet the Doctor</div>
+        <h2 class="section-title">Dr. Elena <em>Vasquez</em></h2>
+        <p class="section-desc">With over 15 years in aesthetic medicine, Dr. Vasquez is Scottsdale's most sought-after injector and skin specialist. Her philosophy blends artistic vision with medical precision — enhancing your natural beauty, never masking it.</p>
+        <p class="section-desc" style="margin-top:16px">After training at Johns Hopkins and completing her fellowship in dermatologic surgery, she founded Radiance in 2018 with a singular mission: to create a space where luxury and clinical excellence coexist.</p>
+        <div class="about-credentials">
+          <span class="credential">Board Certified</span>
+          <span class="credential">Johns Hopkins</span>
+          <span class="credential">15+ Years</span>
+          <span class="credential">Allergan Top 1%</span>
+        </div>
+        <div class="about-signature">— Dr. Elena Vasquez, MD</div>
+      </div>
+      <div class="about-img-wrap">
+        <img src="../../images/template-images/team.jpg" alt="Dr. Elena Vasquez" class="about-img" loading="lazy">
+        <div class="about-img-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GALLERY ═══════ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <div class="section-tag">The Experience</div>
+      <h2 class="section-title">Inside <em>Radiance</em></h2>
+      <p class="section-desc">Step into our world of dark luxury and clinical excellence. Every detail curated for your comfort.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../../images/template-images/treatment-room.jpg" alt="Treatment suite" loading="lazy">
+        <div class="gallery-overlay"><span>Treatment Suite</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/hero.jpg" alt="Reception" loading="lazy">
+        <div class="gallery-overlay"><span>Reception</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/facial.jpg" alt="Facial treatment" loading="lazy">
+        <div class="gallery-overlay"><span>Facial Treatment</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/botox.jpg" alt="Botox session" loading="lazy">
+        <div class="gallery-overlay"><span>Botox Session</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/laser.jpg" alt="Laser room" loading="lazy">
+        <div class="gallery-overlay"><span>Laser Room</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/body-contouring.jpg" alt="Body contouring" loading="lazy">
+        <div class="gallery-overlay"><span>Body Contouring</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/microneedling.jpg" alt="Microneedling" loading="lazy">
+        <div class="gallery-overlay"><span>Microneedling</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/iv-therapy.jpg" alt="IV lounge" loading="lazy">
+        <div class="gallery-overlay"><span>IV Lounge</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/skin-tightening.jpg" alt="Skin tightening" loading="lazy">
+        <div class="gallery-overlay"><span>Skin Tightening</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/team.jpg" alt="Our team" loading="lazy">
+        <div class="gallery-overlay"><span>Our Team</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TESTIMONIALS ═══════ -->
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-tag">Client Love</div>
+      <h2 class="section-title">What They <em>Say</em></h2>
+      <p class="section-desc">Real stories from real clients who discovered their most radiant selves at our Scottsdale studio.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"Dr. Vasquez is an artist. My Botox looks so natural — my friends keep asking what skincare I use. The whole experience feels like a five-star hotel, not a clinic."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sophia M.</div>
+            <div class="testimonial-detail">Botox & Lip Filler</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"After 3 sessions of microneedling, my acne scars are practically invisible. The results are life-changing. I finally feel confident without makeup."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">Jessica R.</div>
+            <div class="testimonial-detail">Microneedling with PRP</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"The IV Glow Drip before my wedding was the best decision. My skin was luminous for weeks. Now I come back monthly — it's my secret weapon."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Amanda K.</div>
+            <div class="testimonial-detail">IV Therapy & Facials</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROCESS ═══════ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header">
+      <div class="section-tag">Your Journey</div>
+      <h2 class="section-title">Three Steps to <em>Radiance</em></h2>
+      <p class="section-desc">A seamless, luxurious experience from first consultation to final reveal.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num"><span>01</span></div>
+        <h3 class="step-title">Consultation</h3>
+        <p class="step-desc">A private, in-depth session with Dr. Vasquez to understand your goals, assess your features, and design a personalized treatment plan.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num"><span>02</span></div>
+        <h3 class="step-title">Treatment</h3>
+        <p class="step-desc">Experience your custom procedure in our serene, state-of-the-art suites. Comfort and precision at every step, with real-time guidance.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num"><span>03</span></div>
+        <h3 class="step-title">Reveal</h3>
+        <p class="step-desc">Watch your transformation unfold. We provide aftercare support and follow-up appointments to ensure your results exceed expectations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-layout">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Radiance <span>MedSpa</span></a>
+        <p>Scottsdale's premier destination for luxury aesthetic treatments. Where science meets glamour, and every visit feels extraordinary.</p>
+        <div class="footer-contact">
+          <a href="tel:5559234107">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (555) 923-4107
+          </a>
+          <a href="#">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            8500 E Princess Dr, Scottsdale, AZ 85255
+          </a>
+          <a href="mailto:hello@radiancemedspa.com">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hello@radiancemedspa.com
+          </a>
+        </div>
+      </div>
+      <div class="footer-form">
+        <h3>Book Your <em style="font-family:var(--font-serif);color:var(--rose);font-style:italic">Consultation</em></h3>
+        <p>Take the first step toward your most radiant self. We'll respond within 24 hours.</p>
+        <form onsubmit="return false">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Your first name">
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Your last name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+            </div>
+            <div class="form-group full">
+              <label for="service">Treatment Interest</label>
+              <select id="service" name="service">
+                <option value="">Select a treatment...</option>
+                <option>Botox & Neurotoxins</option>
+                <option>Laser Treatments</option>
+                <option>Luxury Facials</option>
+                <option>Body Contouring</option>
+                <option>Microneedling</option>
+                <option>IV Therapy</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your goals..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="form-submit">Request Consultation</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Radiance MedSpa & Aesthetics. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════ SCRIPTS ═══════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  /* ── Reduced Motion Check ──────────────── */
+  const prefersRM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── GSAP Register ─────────────────────── */
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Lenis Smooth Scroll ───────────────── */
+  if(!prefersRM){
+    const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),touchMultiplier:2});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(time=>{lenis.raf(time*1000)});
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* ── Navbar Scroll ─────────────────────── */
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>{
+    navbar.classList.toggle('scrolled',window.scrollY>60);
+  });
+
+  /* ── Hamburger ─────────────────────────── */
+  const hamburger=document.getElementById('hamburger');
+  const mobileMenu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',()=>{
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow=mobileMenu.classList.contains('active')?'hidden':'';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',()=>{
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow='';
+    });
+  });
+
+  /* ── Hero Animations ───────────────────── */
+  if(!prefersRM){
+    const heroTl=gsap.timeline({defaults:{ease:'power3.out'}});
+    heroTl
+      .from('.hero-bg img',{scale:1.3,duration:2.5,ease:'power2.out'})
+      .from('.hero-badge',{opacity:0,y:30,duration:0.8},0.5)
+      .from('.hero-title',{opacity:0,y:50,duration:1},0.7)
+      .from('.hero-sub',{opacity:0,y:30,duration:0.8},1)
+      .from('.hero-btns',{opacity:0,y:30,duration:0.8},1.2)
+      .from('.hero-scroll',{opacity:0,duration:0.6},1.6);
+  }
+
+  /* ── Trust Bar ─────────────────────────── */
+  if(!prefersRM){
+    gsap.from('.trust-item',{
+      scrollTrigger:{trigger:'.trust-bar',start:'top 85%'},
+      opacity:0,y:30,stagger:0.15,duration:0.8,ease:'power3.out'
+    });
+  }
+
+  /* ── Services Cards ────────────────────── */
+  if(!prefersRM){
+    gsap.from('.service-card',{
+      scrollTrigger:{trigger:'.services-grid',start:'top 80%'},
+      opacity:0,y:60,stagger:0.12,duration:0.9,ease:'power3.out'
+    });
+  }
+
+  /* ── Section Headers ───────────────────── */
+  if(!prefersRM){
+    document.querySelectorAll('.section-tag,.section-title,.section-desc').forEach(el=>{
+      gsap.from(el,{
+        scrollTrigger:{trigger:el,start:'top 88%'},
+        opacity:0,y:40,duration:0.8,ease:'power3.out'
+      });
+    });
+  }
+
+  /* ── Before/After Slider ───────────────── */
+  const slider=document.getElementById('baSlider');
+  const handle=document.getElementById('baHandle');
+  const afterImg=slider.querySelector('.ba-after');
+  let isDragging=false;
+
+  function updateSlider(x){
+    const rect=slider.getBoundingClientRect();
+    let pct=((x-rect.left)/rect.width)*100;
+    pct=Math.max(2,Math.min(98,pct));
+    handle.style.left=pct+'%';
+    afterImg.style.clipPath='inset(0 '+(100-pct)+'% 0 0)';
+  }
+
+  slider.addEventListener('mousedown',e=>{isDragging=true;updateSlider(e.clientX);e.preventDefault()});
+  window.addEventListener('mousemove',e=>{if(isDragging)updateSlider(e.clientX)});
+  window.addEventListener('mouseup',()=>{isDragging=false});
+  slider.addEventListener('touchstart',e=>{isDragging=true;updateSlider(e.touches[0].clientX)},{passive:true});
+  window.addEventListener('touchmove',e=>{if(isDragging)updateSlider(e.touches[0].clientX)},{passive:true});
+  window.addEventListener('touchend',()=>{isDragging=false});
+
+  /* ── Before/After Animate In ───────────── */
+  if(!prefersRM){
+    gsap.from('.ba-slider',{
+      scrollTrigger:{trigger:'.before-after',start:'top 75%'},
+      opacity:0,x:-60,duration:1.2,ease:'power3.out'
+    });
+    gsap.from('.ba-info',{
+      scrollTrigger:{trigger:'.before-after',start:'top 75%'},
+      opacity:0,x:60,duration:1.2,ease:'power3.out',delay:0.2
+    });
+    gsap.from('.ba-stat-num',{
+      scrollTrigger:{trigger:'.ba-stats',start:'top 90%'},
+      opacity:0,y:20,stagger:0.15,duration:0.6,ease:'power3.out'
+    });
+  }
+
+  /* ── About ─────────────────────────────── */
+  if(!prefersRM){
+    gsap.from('.about-img-wrap',{
+      scrollTrigger:{trigger:'.about',start:'top 75%'},
+      opacity:0,x:80,duration:1.2,ease:'power3.out'
+    });
+    gsap.from('.about-info',{
+      scrollTrigger:{trigger:'.about',start:'top 75%'},
+      opacity:0,x:-60,duration:1.2,ease:'power3.out'
+    });
+    gsap.from('.credential',{
+      scrollTrigger:{trigger:'.about-credentials',start:'top 90%'},
+      opacity:0,y:20,stagger:0.1,duration:0.5,ease:'power3.out'
+    });
+  }
+
+  /* ── Gallery ───────────────────────────── */
+  if(!prefersRM){
+    gsap.from('.gallery-item',{
+      scrollTrigger:{trigger:'.gallery-grid',start:'top 80%'},
+      opacity:0,scale:0.9,stagger:{amount:0.8,grid:'auto',from:'random'},
+      duration:0.7,ease:'power3.out'
+    });
+  }
+
+  /* ── Testimonials ──────────────────────── */
+  if(!prefersRM){
+    gsap.from('.testimonial-card',{
+      scrollTrigger:{trigger:'.testimonials-grid',start:'top 80%'},
+      opacity:0,y:50,stagger:0.15,duration:0.8,ease:'power3.out'
+    });
+  }
+
+  /* ── Process Steps ─────────────────────── */
+  if(!prefersRM){
+    gsap.from('.process-step',{
+      scrollTrigger:{trigger:'.process-steps',start:'top 80%'},
+      opacity:0,y:60,stagger:0.2,duration:0.9,ease:'power3.out'
+    });
+    gsap.from('.step-num',{
+      scrollTrigger:{trigger:'.process-steps',start:'top 80%'},
+      scale:0.5,stagger:0.2,duration:0.6,ease:'back.out(2)',delay:0.3
+    });
+  }
+
+  /* ── Footer Form ───────────────────────── */
+  if(!prefersRM){
+    gsap.from('.footer-form',{
+      scrollTrigger:{trigger:'.footer',start:'top 80%'},
+      opacity:0,y:40,duration:0.8,ease:'power3.out'
+    });
+    gsap.from('.footer-brand',{
+      scrollTrigger:{trigger:'.footer',start:'top 80%'},
+      opacity:0,y:40,duration:0.8,ease:'power3.out',delay:0.15
+    });
+  }
+
+  /* ── Rose Gold Glow on Service Cards ───── */
+  if(!prefersRM){
+    document.querySelectorAll('.service-card').forEach(card=>{
+      card.addEventListener('mousemove',e=>{
+        const r=card.getBoundingClientRect();
+        const x=e.clientX-r.left;
+        const y=e.clientY-r.top;
+        card.style.background=`radial-gradient(600px circle at ${x}px ${y}px, rgba(201,169,110,0.06), var(--bg-card) 60%)`;
+      });
+      card.addEventListener('mouseleave',()=>{
+        card.style.background='var(--bg-card)';
+      });
+    });
+  }
+
+  /* ── Parallax Hero ─────────────────────── */
+  if(!prefersRM){
+    gsap.to('.hero-bg img',{
+      yPercent:20,ease:'none',
+      scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
+    });
+  }
+
+})();
+</script>
+</body>
+</html>

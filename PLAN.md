@@ -1,95 +1,82 @@
-# Website Pipeline — Improvement Plan
+# Master Plan
 
-**Created:** 2026-03-12 | **Status:** In Progress
-
-## TL;DR
-The pipeline works end-to-end for dentists but is blocked for any other vertical. Three critical fixes unlock multi-vertical support: generalize `create-website-from-template`, define a placeholder contract, and consolidate overlapping reference files. Then we can ship auto-repair as the first non-dentist vertical.
+**Updated:** 2026-03-14 | **Cross-session state:** see `SESSIONS.md`
 
 ---
 
-## Phase 1: Unblock Multi-Vertical (CRITICAL)
+## Current Template Count
 
-| # | Task | Skill/File | Status | Depends On |
-|---|------|-----------|--------|------------|
-| 1.1 | Generalize `create-website-from-template` — replace all `dentists/` hardcoding with `{vertical}` param, make output path dynamic, derive schema type from vertical research | `create-website-from-template` | ✅ DONE | — |
-| 1.2 | Generalize `website-from-template-audit` — remove dentist assumptions | `website-from-template-audit` | ✅ DONE | — |
-| 1.3 | Define placeholder contract — `templates/PLACEHOLDER_CONTRACT.md` with exact field names (`{{BUSINESS_NAME}}`, `{{PHONE}}`, etc.) used by both template-creator and create-website | New file | ✅ DONE | — |
-| 1.4 | Update `template-creator` to use placeholder contract | `template-creator` | ✅ DONE | 1.3 |
-| 1.5 | Update `create-website-from-template` to read contract for deterministic replacement | `create-website-from-template` | ✅ DONE | 1.3 |
-| 1.6 | Add "Prerequisites" section to each skill listing required prior skills | All 7 skills | ✅ DONE | — |
-| 1.7 | Standardize vertical naming: lowercase, kebab-case, plural (`dentists`, `auto-repair`) — document in CLAUDE.md | CLAUDE.md | ✅ DONE | — |
+| Vertical | Templates | Images | Research | Gallery | Deployed |
+|----------|-----------|--------|----------|---------|----------|
+| Dentists | 25 | yes | yes | yes | yes |
+| Auto Repair | 26 | 18 | yes | yes | yes |
+| Landscaping | 13 | yes | yes | yes | yes |
+| Veterinarians | 10 | 10 | yes | yes | yes |
+| Med Spas | 10 | 10 | yes | yes | yes |
+| HVAC | 10 | 10 | yes | yes | yes |
 
----
-
-## Phase 2: Consolidate Reference Files (IMPORTANT)
-
-| # | Task | File | Status | Depends On |
-|---|------|------|--------|------------|
-| 2.1 | Merge `animation-patterns-reference.md` + `modern-client-web-dev-research.md` + `design-trends-2026.md` INTO `web-design-playbook.md` — one reference instead of 4 overlapping files | `design-inspiration/` | ✅ DONE | — |
-| 2.2 | Update `modern-client-web-design` skill to be thin pointer to consolidated playbook | `modern-client-web-design` | ✅ DONE | 2.1 |
-| 2.3 | Update `template-creator` Step 0 to read 1 file instead of 4 | `template-creator` | ✅ DONE | 2.1 |
-| 2.4 | Delete the 3 merged files | `design-inspiration/` | ✅ DONE | 2.1-2.3 |
+**Gallery:** https://lp.scalefox.ai/gallerywebsite/gallery.html (6 vertical tabs + responsive dropdown)
 
 ---
 
-## Phase 3: Feedback Loop & Quality (IMPORTANT)
+## Completed Phases
 
-| # | Task | File | Status | Depends On |
-|---|------|------|--------|------------|
-| 3.1 | Add `template-manifest.json` output to `template-creator` — lists all placeholders, images, sections, schema type | `template-creator` | ✅ DONE (Step 7) | 1.3 |
-| 3.2 | Make `create-website-from-template` read manifest for deterministic replacement | `create-website-from-template` | ✅ DONE (references PLACEHOLDER_CONTRACT) | 3.1 |
-| 3.3 | Add `templates/{vertical}/feedback.md` — audit findings feed back into templates | New convention | DEFERRED (created on first audit) | — |
-| 3.4 | Add `templates/INDEX.md` — master index of all templates with descriptions | New file | ✅ DONE | — |
+### Phase 1: Multi-Vertical Pipeline (DONE)
+- Generalized all skills for any vertical (not just dentists)
+- Placeholder contract (`templates/PLACEHOLDER_CONTRACT.md`)
+- Template manifests, audit skill, vertical naming convention
 
----
+### Phase 2: Reference Consolidation (DONE)
+- Merged 4 overlapping design files → single `web-design-playbook.md`
+- Updated skills to point to consolidated playbook
 
-## Phase 4: First Non-Dentist Vertical — Auto Repair (HIGH)
-
-| # | Task | Skill | Status | Depends On |
-|---|------|-------|--------|------------|
-| 4.1 | Run `vertical-research` for auto-repair | `vertical-research` | ✅ DONE | — |
-| 4.2 | Create `templates/auto-repair/` folder structure | Manual | ✅ DONE | — |
-| 4.3 | Run `template-creator` — 5 variants (dark-professional, warm-community, bold-modern, clean-trust, premium-gold) | `template-creator` | ✅ DONE | Phase 1, 4.1 |
-| 4.4 | Update `gallery.html` with auto-repair templates | `gallery.html` | ✅ DONE | 4.3 |
-| 4.5 | End-to-end test: create website for real auto-repair shop | `create-website-from-template` | TODO | 1.1, 4.3 |
-| 4.6 | Audit generated site | `website-from-template-audit` | TODO | 4.5 |
+### Phase 3: 6 Verticals Live (DONE — 2026-03-14)
+- Full pipeline for all 6 verticals: research → images → templates → gallery → deploy
+- 94 total templates across 6 verticals
+- Gallery with likes, comments, export, responsive dropdown
 
 ---
 
-## Phase 5: Polish (NICE-TO-HAVE)
+## Active / Next Up
+
+### Phase 4: Vertical Scout Skill (IN PROGRESS)
+Build a skill to quickly evaluate new verticals before investing in templates.
 
 | # | Task | Status |
 |---|------|--------|
-| 5.1 | Document screenshot batch workaround (max 3 sites/agent) in `web-design-research` | TODO |
-| 5.2 | Add screenshot capture to `vertical-research` (top 5 sites) | TODO |
-| 5.3 | Gallery auto-discovery from folder structure instead of hardcoded JS | TODO |
+| 4.1 | Define segment criteria (1-5, 4a/4b) | DONE — saved to `memory/reference_lead_segments.md` |
+| 4.2 | Estimate costs ($3-7 per quick check) | DONE |
+| 4.3 | Build the `vertical-scout` skill | TODO |
+| 4.4 | Test on 2-3 candidate verticals | TODO |
+
+### Phase 5: Lead Pipeline (PLANNED)
+End-to-end from vertical scout → scrape → classify → enrich emails → outreach.
+
+| # | Task | Status |
+|---|------|--------|
+| 5.1 | Build email enrichment into vertical-scout | TODO |
+| 5.2 | Create outreach templates per vertical | TODO |
+| 5.3 | Test end-to-end on auto-repair (Houston data exists) | TODO |
+
+### Phase 6: Polish & Scale (BACKLOG)
+
+| # | Task | Status |
+|---|------|--------|
+| 6.1 | Gallery auto-discovery from folder structure (no hardcoded JS) | TODO |
+| 6.2 | Screenshot capture in vertical-research (top 5 sites) | TODO |
+| 6.3 | E2E test: create website for real business from CSV | TODO |
+| 6.4 | Builder tools (Section Reviewer + Editor) updates for new verticals | TODO |
 
 ---
 
-## Completed (2026-03-12)
+## Key References
 
-- Created `modern-client-web-design` skill (7 craft layers)
-- Created `template-creator` skill (full workflow)
-- Created `animation-patterns-reference.md` and `modern-client-web-dev-research.md`
-- Captured 15 site screenshots (desktop + mobile)
-- Restructured templates: `Dentists/templates/` → `templates/{vertical}/`
-- Fixed all path references (skills, Python scripts, galleries)
-- Created unified cross-vertical `templates/gallery.html`
-- Added pipeline documentation to CLAUDE.md
-
----
-
-## Recommended Execution Order
-
-```
-1.3 (placeholder contract) ──→ 1.4 + 1.5 (update skills)
-                            └→ 3.1 (manifest) → 3.2
-
-1.1 + 1.2 (generalize skills) → 4.5 (e2e test)
-
-1.6 + 1.7 (prerequisites + naming)
-
-2.1 → 2.2 → 2.3 → 2.4 (consolidate files)
-
-4.1 (research) → 4.3 (templates) → 4.4 (gallery) → 4.5 (test) → 4.6 (audit)
-```
+| Resource | Path |
+|----------|------|
+| Gallery (live) | https://lp.scalefox.ai/gallerywebsite/gallery.html |
+| Gallery (local) | http://localhost:8080/templates/gallery.html |
+| Server reference | `lp-scalefox/server-reference.md` |
+| Design playbook | `design-inspiration/web-design-playbook.md` |
+| Placeholder contract | `templates/PLACEHOLDER_CONTRACT.md` |
+| Lead segments | `memory/reference_lead_segments.md` |
+| Session tracking | `SESSIONS.md` |

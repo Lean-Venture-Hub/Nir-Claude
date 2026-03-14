@@ -1,0 +1,31 @@
+{
+  "id": 20,
+  "name": "Editorial Garage",
+  "vertical": "auto-repair",
+  "variant": "editorial-light",
+  "language": "en",
+  "has_english": true,
+  "schema_type": "AutoRepair",
+  "sections": ["nav", "hero", "intro", "services", "story", "craftsmanship", "testimonials", "numbers", "gallery", "process", "location", "cta", "footer"],
+  "placeholders": [
+    "BUSINESS_NAME", "BUSINESS_NAME_SHORT", "OWNER_NAME", "PHONE", "PHONE_TEL",
+    "ADDRESS", "CITY", "GOOGLE_MAPS_URL", "GOOGLE_RATING", "REVIEW_COUNT",
+    "HERO_HEADLINE", "HERO_SUBTITLE", "HERO_EYEBROW", "ABOUT_TEXT", "CTA_TEXT",
+    "META_TITLE", "META_DESCRIPTION", "SCHEMA_TYPE", "OG_IMAGE",
+    "SERVICE_1_TITLE", "SERVICE_1_DESC", "SERVICE_2_TITLE", "SERVICE_2_DESC",
+    "SERVICE_3_TITLE", "SERVICE_3_DESC", "SERVICE_4_TITLE", "SERVICE_4_DESC",
+    "SERVICE_5_TITLE", "SERVICE_5_DESC", "SERVICE_6_TITLE", "SERVICE_6_DESC",
+    "REVIEW_1_NAME", "REVIEW_1_TEXT",
+    "REVIEW_2_NAME", "REVIEW_2_TEXT",
+    "REVIEW_3_NAME", "REVIEW_3_TEXT"
+  ],
+  "images_required": [
+    "hero.jpg", "mechanic-portrait.jpg", "engine-work.jpg",
+    "service-engine.jpg", "service-brakes.jpg", "service-diagnostics.jpg",
+    "service-oil.jpg", "service-tires.jpg", "brake-service.jpg",
+    "shop-interior.jpg", "car-lift.jpg", "diagnostic-scan.jpg",
+    "under-car.jpg", "tire-alignment.jpg"
+  ],
+  "fonts": ["Cormorant Garamond", "Inter"],
+  "color_mode": "light"
+}

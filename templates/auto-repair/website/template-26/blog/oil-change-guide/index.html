@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Often Should You Really Change Your Oil? | Precision Auto Works</title>
+<meta name="description" content="Debunking the 3,000-mile oil change myth. Learn what modern engines actually need from ASE Certified Master Technician Mike Rodriguez.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0C1222;--navy-light:#131B2E;--navy-mid:#1A2340;--gold:#C9A84C;--gold-light:#D4B96A;--gold-dark:#B8943A;--gold-pale:rgba(201,168,76,0.08);--white:#FFFFFF;--off-white:#F5F3EE;--cream:#FAF8F4;--gray-300:#9CA3AF;--gray-400:#6B7280;--gray-600:#374151;--font-heading:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;--ease-luxury:cubic-bezier(0.16,1,0.3,1);--gold-gradient:linear-gradient(135deg,#C9A84C 0%,#D4B96A 40%,#E8D48B 60%,#C9A84C 100%)}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--white);background:var(--navy);overflow-x:hidden;line-height:1.7;font-weight:400}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--font-heading);font-weight:600;line-height:1.15}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:0.03}
+.grain::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");background-repeat:repeat;background-size:128px 128px}
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:14px 0;background:rgba(12,18,34,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.1)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-heading);font-size:1.6rem;font-weight:600;color:var(--white);letter-spacing:0.05em}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{color:var(--gray-300);font-family:var(--font-body);font-weight:500;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.15em;padding:4px 0;transition:color 0.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:12px 28px;border:1px solid var(--gold);color:var(--gold)!important;font-family:var(--font-body);font-weight:500;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;transition:all 0.3s}
+.nav-cta:hover{background:var(--gold);color:var(--navy)!important}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;z-index:1001;padding:8px}
+.hamburger span{display:block;width:28px;height:1.5px;background:var(--gold);transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(12,18,34,0.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--font-heading);font-size:1.8rem;color:var(--white);font-style:italic;transition:color 0.3s}
+.mobile-menu a:hover{color:var(--gold)}
+
+.article-hero{padding:180px 0 80px;background:var(--navy);position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.article-hero-bg{position:absolute;inset:0;z-index:0}
+.article-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.12;filter:brightness(0.6)}
+.article-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,18,34,0.8),rgba(12,18,34,0.6),rgba(12,18,34,0.9));z-index:1}
+.article-hero-content{position:relative;z-index:2;max-width:800px}
+.breadcrumb{display:flex;gap:10px;align-items:center;font-size:0.75rem;color:var(--gray-400);margin-bottom:24px;text-transform:uppercase;letter-spacing:0.15em}
+.breadcrumb a{color:var(--gold);font-weight:500}
+.breadcrumb a:hover{color:var(--gold-light)}
+.article-tag{font-family:var(--font-body);font-size:0.7rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:0.25em;margin-bottom:16px;display:block}
+.article-hero h1{font-size:clamp(2rem,4.5vw,3.2rem);color:var(--white);font-weight:400;font-style:italic;margin-bottom:16px;line-height:1.2}
+.article-hero h1 em{font-style:normal;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gold-line{width:60px;height:1px;background:var(--gold-gradient);margin:20px 0}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:0.85rem;color:var(--gray-300)}
+.article-meta-author{font-family:var(--font-heading);font-weight:500;color:var(--gold);font-style:italic;font-size:1rem}
+
+.article-body{padding:80px 0;background:var(--navy-light)}
+.article-content{max-width:720px;margin:0 auto}
+.article-content p{font-size:1.02rem;color:var(--gray-300);line-height:1.9;margin-bottom:24px}
+.article-content h2{font-family:var(--font-heading);font-size:1.8rem;color:var(--white);font-weight:500;font-style:italic;margin:56px 0 20px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.15)}
+.article-content h2 em{font-style:normal;color:var(--gold)}
+.article-content h3{font-family:var(--font-heading);font-size:1.3rem;color:var(--gold);margin:36px 0 12px;font-weight:500;font-style:italic}
+.article-content ul,.article-content ol{margin:0 0 24px 20px;color:var(--gray-300)}
+.article-content li{padding:6px 0;font-size:0.98rem;line-height:1.75}
+.article-content li::marker{color:var(--gold)}
+.article-content strong{color:var(--white);font-weight:600}
+.article-content blockquote{border-left:2px solid var(--gold);padding:24px 28px;margin:36px 0;background:var(--gold-pale);font-family:var(--font-heading);font-style:italic;color:var(--gray-300);font-size:1.15rem;line-height:1.7}
+
+.author-box{display:flex;align-items:center;gap:24px;padding:36px;background:var(--navy);border:1px solid rgba(201,168,76,0.15);margin-top:64px}
+.author-avatar{width:72px;height:72px;background:var(--gold-gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.6rem;color:var(--navy);font-weight:600;flex-shrink:0}
+.author-info h4{font-family:var(--font-heading);font-size:1.2rem;color:var(--gold);font-style:italic;font-weight:500;margin-bottom:4px}
+.author-info .role{font-size:0.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.15em}
+.author-info p{font-size:0.9rem;color:var(--gray-300);margin-top:8px;line-height:1.6}
+
+.related{padding:100px 0;background:var(--navy)}
+.related-header{text-align:center;margin-bottom:48px}
+.related-header span{font-family:var(--font-body);font-size:0.75rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.3em;display:block;margin-bottom:12px}
+.related-header h2{font-family:var(--font-heading);font-size:2rem;font-weight:400;font-style:italic;color:var(--white)}
+.related-header h2 em{font-style:normal;color:var(--gold)}
+.related-line{width:60px;height:1px;background:var(--gold-gradient);margin:16px auto 0}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:800px;margin:0 auto}
+.related-card{background:var(--navy-light);border:1px solid rgba(201,168,76,0.1);padding:32px;transition:all 0.4s var(--ease-luxury)}
+.related-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px)}
+.related-card h3{font-family:var(--font-heading);font-size:1.2rem;color:var(--white);font-weight:500;font-style:italic;margin-bottom:10px;line-height:1.3}
+.related-card p{font-size:0.85rem;color:var(--gray-400);line-height:1.6;margin-bottom:16px}
+.related-card .read-link{font-size:0.75rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.15em;font-weight:500}
+
+.footer{padding:80px 0 40px;background:var(--navy);border-top:1px solid rgba(201,168,76,0.1)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
+.footer-brand h3{font-family:var(--font-heading);font-size:1.8rem;font-weight:500;color:var(--white);margin-bottom:16px;font-style:italic}
+.footer-brand h3 span{color:var(--gold)}
+.footer-brand p{color:var(--gray-400);font-size:0.9rem;line-height:1.7;margin-bottom:20px}
+.footer-col h4{font-family:var(--font-body);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);margin-bottom:20px}
+.footer-col a{display:block;color:var(--gray-400);font-size:0.9rem;margin-bottom:10px;transition:color 0.3s}
+.footer-col a:hover{color:var(--gold)}
+.footer-col p{color:var(--gray-400);font-size:0.9rem;line-height:1.6}
+.footer-bottom{text-align:center;padding-top:32px;border-top:1px solid rgba(201,168,76,0.08)}
+.footer-bottom p{color:var(--gray-400);font-size:0.8rem;letter-spacing:0.05em}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.related-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.author-box{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../../template_example-26.html" class="nav-logo"><span>Precision</span> Auto</a>
+    <div class="nav-links">
+      <a href="../../template_example-26.html#services">Services</a>
+      <a href="../../template_example-26.html#heritage">Heritage</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../template_example-26.html#reserve" class="nav-cta">Reserve Service</a>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../../template_example-26.html#services" onclick="closeMobile()">Services</a>
+  <a href="../../template_example-26.html#heritage" onclick="closeMobile()">Heritage</a>
+  <a href="../../blog.html" onclick="closeMobile()">Blog</a>
+  <a href="../../template_example-26.html#reserve" onclick="closeMobile()">Reserve Service</a>
+</div>
+
+<section class="article-hero">
+  <div class="article-hero-bg"><img src="../../../../images/template-images/oil-change.jpg" alt="Oil change service"></div>
+  <div class="article-hero-overlay"></div>
+  <div class="container article-hero-content">
+    <div class="breadcrumb">
+      <a href="../../template_example-26.html">Home</a><span>&mdash;</span>
+      <a href="../../blog.html">Blog</a><span>&mdash;</span>
+      <span>Oil Change Guide</span>
+    </div>
+    <span class="article-tag">Maintenance</span>
+    <h1>How Often Should You Really <em>Change Your Oil?</em></h1>
+    <div class="gold-line"></div>
+    <div class="article-meta">
+      <span class="article-meta-author">Mike Rodriguez</span>
+      <span>&middot;</span>
+      <span>ASE Certified Master Technician</span>
+      <span>&middot;</span>
+      <span>8 min read</span>
+    </div>
+  </div>
+</section>
+
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+      <p>If you've been changing your oil every 3,000 miles like clockwork, you might be throwing money away. The 3,000-mile oil change rule is one of the most persistent myths in automotive maintenance, and it's time to set the record straight. Modern engines and modern oils have changed the game dramatically.</p>
+
+      <h2>The 3,000-Mile Myth: <em>Where It Came From</em></h2>
+      <p>Back in the 1970s, conventional motor oils genuinely broke down faster and engines had looser tolerances. Oil companies and quick-lube shops promoted the 3,000-mile interval, and it stuck in America's collective consciousness. But today's engines are engineered to much tighter specifications, and oil technology has evolved significantly.</p>
+      <p>Most modern vehicles have manufacturer-recommended oil change intervals of <strong>5,000 to 10,000 miles</strong>, and some synthetic oils can last up to 15,000 miles under ideal conditions. Your owner's manual is the single best authority on when your specific vehicle needs an oil change.</p>
+
+      <h2>Synthetic vs. Conventional: <em>What's the Difference?</em></h2>
+      <p>Understanding your oil type is critical to determining the right interval:</p>
+      <ul>
+        <li><strong>Conventional oil:</strong> Derived directly from crude oil. Generally needs changing every 3,000 to 5,000 miles. Best suited for older vehicles or simple engine designs.</li>
+        <li><strong>Synthetic blend:</strong> A mix of conventional and synthetic base oils. Good for 5,000 to 7,500 miles. A solid middle ground between cost and protection.</li>
+        <li><strong>Full synthetic:</strong> Engineered molecule by molecule for maximum protection. Typically lasts 7,500 to 15,000 miles depending on driving conditions and manufacturer specifications.</li>
+      </ul>
+      <p>At Precision Auto Works, we see vehicles every day that are perfectly fine running full synthetic on 7,500-mile intervals. The key is using the oil weight and specification your manufacturer recommends.</p>
+
+      <h2>5 Signs Your Oil <em>Actually Needs Changing</em></h2>
+      <p>Regardless of mileage, watch for these warning signs that your oil has degraded:</p>
+      <ol>
+        <li><strong>Dark, gritty appearance.</strong> Fresh oil is amber and translucent. If it looks like thick, dark mud on your dipstick, it's time for a change.</li>
+        <li><strong>Engine noise has increased.</strong> Oil lubricates moving parts. When it breaks down, you'll hear more ticking, knocking, or general engine noise than usual.</li>
+        <li><strong>Oil change light or check engine light.</strong> Modern vehicles have oil life monitoring systems that account for your driving conditions. Don't ignore these alerts.</li>
+        <li><strong>Exhaust smoke.</strong> While some vapor on cold mornings is normal, persistent blue or gray exhaust smoke can indicate oil burning due to degradation or leaks.</li>
+        <li><strong>Oil smell inside the cabin.</strong> If you can smell oil while driving, you may have a leak or the oil is overheating. Both situations warrant immediate inspection.</li>
+      </ol>
+
+      <h2>Seasonal <em>Considerations</em></h2>
+      <p>Dallas weather puts unique demands on your engine oil. Summer temperatures regularly exceed 100 degrees Fahrenheit, which accelerates oil breakdown. If you're doing a lot of stop-and-go driving in summer heat, consider shortening your interval by 1,000 to 2,000 miles.</p>
+      <p>Winter brings its own challenges. Cold starts put extra stress on oil before it reaches operating temperature. If your commute is mostly short trips where the engine never fully warms up, that's considered <strong>severe duty driving</strong> and calls for more frequent changes.</p>
+
+      <blockquote>"I tell every customer the same thing: follow your manufacturer's recommendations, use quality oil, and pay attention to how your car feels. That simple approach will keep your engine running strong for 200,000 miles or more." &mdash; Mike Rodriguez</blockquote>
+
+      <h2>The <em>Bottom Line</em></h2>
+      <p>Stop changing your oil every 3,000 miles unless your manual specifically says to. Check your owner's manual for the manufacturer's recommended interval, use the correct oil specification, and pay attention to the warning signs listed above. You'll save money, reduce waste, and your engine will be perfectly happy.</p>
+      <p>If you're not sure what interval is right for your specific vehicle, <strong>bring it to Precision Auto Works</strong>. We'll check your oil condition, consult your vehicle's service requirements, and give you an honest recommendation. No upselling, no pressure &mdash; just straight talk from certified technicians who know engines inside and out.</p>
+
+      <div class="author-box">
+        <div class="author-avatar">MR</div>
+        <div class="author-info">
+          <h4>Mike Rodriguez</h4>
+          <span class="role">ASE Certified Master Technician</span>
+          <p>Owner of Precision Auto Works in Dallas, TX. 18+ years of experience keeping vehicles running at peak performance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="container">
+    <div class="related-header">
+      <span>Continue Reading</span>
+      <h2>Related <em>Articles</em></h2>
+      <div class="related-line"></div>
+    </div>
+    <div class="related-grid">
+      <a href="../brake-warning-signs/index.html" class="related-card">
+        <h3>5 Brake Warning Signs You Should Never Ignore</h3>
+        <p>From squealing to vibration, know when your brakes need immediate professional attention.</p>
+        <span class="read-link">Read Article &rarr;</span>
+      </a>
+      <a href="../check-engine-light/index.html" class="related-card">
+        <h3>Check Engine Light On? Here's What It Actually Means</h3>
+        <p>Common causes and severity levels explained by our master technician.</p>
+        <span class="read-link">Read Article &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3><span>Precision</span> Auto</h3>
+        <p>Redefining automotive care with a commitment to excellence since 2006. Dallas, TX's premier destination for discerning vehicle owners.</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><a href="../../template_example-26.html#services">Engine Repair</a><a href="../../template_example-26.html#services">Brake Service</a><a href="../../template_example-26.html#services">Diagnostics</a><a href="../../template_example-26.html#services">Oil Service</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="../../template_example-26.html#heritage">Our Heritage</a><a href="../../blog.html">Blog</a><a href="../../template_example-26.html#gallery">Gallery</a><a href="../../template_example-26.html#clientele">Testimonials</a></div>
+      <div class="footer-col"><h4>Contact</h4><p>Dallas, TX</p><p style="margin-top:8px"><a href="tel:5554827193" style="color:var(--gold)">(555) 482-7193</a></p><p style="margin-top:16px;font-size:0.8rem">Mon&ndash;Fri: 7:30 AM&ndash;6:00 PM<br>Sat: 8:00 AM&ndash;3:00 PM<br>Sun: Closed</p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Precision Auto Works. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
+h.addEventListener('click',()=>{h.classList.toggle('active');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':''});
+function closeMobile(){h.classList.remove('active');m.classList.remove('active');document.body.style.overflow=''}
+</script>
+</body>
+</html>

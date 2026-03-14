@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiance MedSpa & Aesthetics | Scottsdale's Premier Medical Spa</title>
+<meta name="description" content="Radiance MedSpa & Aesthetics in Scottsdale AZ — led by Dr. Elena Vasquez. Botox, laser treatments, facials, body contouring & more. 4.9 stars, 418+ reviews. Book your consultation today.">
+<meta property="og:title" content="Radiance MedSpa & Aesthetics | Scottsdale AZ">
+<meta property="og:description" content="Bold beauty, precision results. Scottsdale's top-rated medical spa since 2018.">
+<meta property="og:image" content="../../images/template-images/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Radiance MedSpa & Aesthetics",
+  "image": "../../images/template-images/hero.jpg",
+  "telephone": "(555) 923-4107",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Scottsdale",
+    "addressRegion": "AZ",
+    "addressCountry": "US"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "418"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Dr. Elena Vasquez"
+  },
+  "foundingDate": "2018",
+  "priceRange": "$$$",
+  "url": "#"
+}
+</script>
+
+<style>
+/* ============================================
+   BOLD BEAUTY — Dark Plum / Burgundy Theme
+   Radiance MedSpa Template #4
+   ============================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Deep plum / burgundy palette */
+  --bg-primary: #0e0a0c;
+  --bg-secondary: #1a1218;
+  --bg-tertiary: #231a20;
+  --bg-card: #1e151b;
+  --plum: #4a1942;
+  --plum-deep: #2d0f28;
+  --burgundy: #7a1b3e;
+  --burgundy-light: #a82255;
+  --pink-accent: #e84d8a;
+  --pink-soft: #f5a0c0;
+  --rose-gold: #c9a0a0;
+  --text-primary: #f5f0f2;
+  --text-muted: #a89a9e;
+  --text-dim: #6b5a60;
+  --white: #ffffff;
+
+  /* Typography scale */
+  --h1-hero: clamp(56px, 12vw, 140px);
+  --h1: clamp(36px, 6vw, 72px);
+  --h2: clamp(28px, 4vw, 52px);
+  --h3: clamp(22px, 3vw, 32px);
+  --body: clamp(16px, 1.1vw, 18px);
+  --small: clamp(12px, 0.9vw, 14px);
+  --label: clamp(11px, 0.8vw, 13px);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* Grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}
+
+.display-font {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+}
+
+/* Eyebrow labels */
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink-accent);
+  font-weight: 600;
+}
+
+/* Section spacing */
+section {
+  padding: clamp(80px, 12vh, 160px) 0;
+  position: relative;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: background 0.4s, padding 0.4s;
+}
+
+.nav.scrolled {
+  background: rgba(14, 10, 12, 0.92);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid rgba(232, 77, 138, 0.1);
+  padding: 14px 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  letter-spacing: 3px;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.nav-logo span {
+  color: var(--pink-accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--pink-accent);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  padding: 12px 28px;
+  background: var(--burgundy);
+  color: var(--white) !important;
+  border-radius: 0;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 12px;
+  transition: background 0.3s, transform 0.3s;
+  border: 1px solid var(--burgundy-light);
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.nav-cta:hover {
+  background: var(--burgundy-light);
+  transform: translateY(-2px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: transform 0.4s, opacity 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Mobile Nav */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.mobile-nav.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 8vw, 56px);
+  letter-spacing: 4px;
+  color: var(--text-primary);
+  transition: color 0.3s;
+}
+
+.mobile-nav a:hover {
+  color: var(--pink-accent);
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+
+.hero {
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35) contrast(1.1) saturate(0.8);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 10, 12, 0.3) 0%,
+    rgba(14, 10, 12, 0.1) 30%,
+    rgba(14, 10, 12, 0.6) 70%,
+    rgba(14, 10, 12, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+/* Plum glow */
+.hero-overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(ellipse, rgba(122, 27, 62, 0.25), transparent 70%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(20px, 6vw, 80px) clamp(60px, 8vh, 120px);
+  max-width: 1200px;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--pink-accent);
+}
+
+.hero-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: var(--h1-hero);
+  line-height: 0.92;
+  letter-spacing: -1px;
+  color: var(--white);
+  margin-bottom: 28px;
+  max-width: 900px;
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: var(--pink-accent);
+  display: inline-block;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: var(--text-muted);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-cta-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-bold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 40px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.btn-bold-primary {
+  background: var(--burgundy);
+  color: var(--white);
+  border: 1px solid var(--burgundy-light);
+}
+
+.btn-bold-primary:hover {
+  background: var(--burgundy-light);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(168, 34, 85, 0.4);
+}
+
+.btn-bold-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(245, 160, 192, 0.3);
+}
+
+.btn-bold-ghost:hover {
+  border-color: var(--pink-accent);
+  color: var(--pink-accent);
+  transform: translateY(-2px);
+}
+
+.hero-proof {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(245, 160, 192, 0.1);
+}
+
+.hero-stars {
+  color: var(--pink-accent);
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.hero-rating-text {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.hero-rating-text strong {
+  color: var(--text-primary);
+}
+
+/* Side accent line — asymmetric */
+.hero::before {
+  content: '';
+  position: absolute;
+  right: 6%;
+  top: 20%;
+  width: 1px;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--pink-accent), transparent);
+  z-index: 3;
+  opacity: 0.4;
+}
+
+/* ============================================
+   TRUST BAR
+   ============================================ */
+
+.trust-bar {
+  padding: clamp(50px, 8vh, 80px) 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid rgba(232, 77, 138, 0.08);
+  border-bottom: 1px solid rgba(232, 77, 138, 0.08);
+}
+
+.trust-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 4vw, 60px);
+  text-align: center;
+}
+
+.trust-stat {
+  position: relative;
+}
+
+.trust-stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50px;
+  width: 1px;
+  background: rgba(232, 77, 138, 0.15);
+}
+
+.trust-stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.trust-stat-number span {
+  color: var(--pink-accent);
+}
+
+.trust-stat-label {
+  font-size: var(--small);
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   SERVICES
+   ============================================ */
+
+.services {
+  background: var(--bg-primary);
+}
+
+.section-header {
+  margin-bottom: clamp(48px, 6vh, 80px);
+}
+
+.section-header-asymmetric {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.section-title-bold {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: var(--h1);
+  line-height: 0.95;
+  letter-spacing: 2px;
+}
+
+.section-title-bold em {
+  font-style: normal;
+  color: var(--pink-accent);
+}
+
+.section-subtitle {
+  font-size: var(--body);
+  color: var(--text-muted);
+  max-width: 380px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  group: true;
+}
+
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+  filter: brightness(0.55) saturate(0.7);
+}
+
+.service-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.4) saturate(0.9);
+}
+
+.service-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(14, 10, 12, 0.9) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(20px, 3vw, 36px);
+  transition: background 0.5s;
+}
+
+.service-card:hover .service-card-overlay {
+  background: linear-gradient(180deg, rgba(74, 25, 66, 0.2) 0%, rgba(14, 10, 12, 0.95) 100%);
+}
+
+.service-card-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 5vw, 72px);
+  color: rgba(232, 77, 138, 0.15);
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  line-height: 1;
+}
+
+.service-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(24px, 2.5vw, 36px);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  transform: translateY(10px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-card-title {
+  transform: translateY(0);
+}
+
+.service-card-desc {
+  font-size: var(--small);
+  color: var(--text-muted);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s 0.1s, transform 0.5s 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 280px;
+}
+
+.service-card:hover .service-card-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card-arrow {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(245, 160, 192, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.service-card:hover .service-card-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card-arrow svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--pink-accent);
+}
+
+/* ============================================
+   BEFORE / AFTER SLIDER
+   ============================================ */
+
+.before-after {
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.ba-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+
+.ba-text {
+  padding-right: clamp(20px, 4vw, 60px);
+}
+
+.ba-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: var(--h1);
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+
+.ba-title em {
+  font-style: normal;
+  color: var(--pink-accent);
+}
+
+.ba-desc {
+  color: var(--text-muted);
+  font-size: var(--body);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.ba-slider-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ba-slider-container img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-after {
+  clip-path: inset(0 50% 0 0);
+}
+
+.ba-slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--pink-accent);
+  z-index: 5;
+  transform: translateX(-50%);
+}
+
+.ba-slider-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--pink-accent);
+  background: rgba(14, 10, 12, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.ba-slider-handle::after {
+  content: '\2194';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--pink-accent);
+  font-size: 20px;
+  z-index: 6;
+}
+
+.ba-label {
+  position: absolute;
+  bottom: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  z-index: 4;
+  background: rgba(14, 10, 12, 0.6);
+  padding: 6px 16px;
+  backdrop-filter: blur(8px);
+}
+
+.ba-label-before {
+  left: 16px;
+}
+
+.ba-label-after {
+  right: 16px;
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+
+.about {
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+
+.about-image-wrap {
+  position: relative;
+}
+
+.about-image-wrap img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.about-image-accent {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--pink-accent);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.about-image-tag {
+  position: absolute;
+  bottom: 30px;
+  right: -30px;
+  background: var(--burgundy);
+  padding: 20px 28px;
+  z-index: 2;
+}
+
+.about-image-tag .display-font {
+  font-size: 36px;
+  line-height: 1;
+  color: var(--white);
+}
+
+.about-image-tag small {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink-soft);
+}
+
+.about-text .eyebrow {
+  margin-bottom: 20px;
+}
+
+.about-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: var(--h2);
+  line-height: 1;
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+}
+
+.about-name em {
+  font-style: normal;
+  color: var(--pink-accent);
+}
+
+.about-body {
+  color: var(--text-muted);
+  font-size: var(--body);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.about-credentials {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(232, 77, 138, 0.1);
+}
+
+.about-credential {
+  text-align: center;
+}
+
+.about-credential .display-font {
+  font-size: 32px;
+  color: var(--pink-accent);
+  line-height: 1;
+}
+
+.about-credential small {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   GALLERY
+   ============================================ */
+
+.gallery {
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+  filter: brightness(0.7) saturate(0.8);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+  filter: brightness(0.85) saturate(1);
+}
+
+/* Featured items span more */
+.gallery-item:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item:nth-child(5) {
+  grid-column: span 2;
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(14, 10, 12, 0.7) 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+
+.gallery-item-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+
+.testimonials {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(122, 27, 62, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(232, 77, 138, 0.06);
+  padding: clamp(28px, 4vw, 48px);
+  position: relative;
+  transition: border-color 0.4s, transform 0.4s;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(232, 77, 138, 0.2);
+  transform: translateY(-4px);
+}
+
+.testimonial-card:first-child {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial-quote-mark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px;
+  color: var(--burgundy);
+  line-height: 0.8;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.testimonial-text {
+  font-size: clamp(16px, 1.3vw, 20px);
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.testimonial-card:first-child .testimonial-text {
+  font-size: clamp(20px, 1.8vw, 28px);
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-author-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.testimonial-author-role {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.testimonial-stars {
+  color: var(--pink-accent);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   PROCESS
+   ============================================ */
+
+.process {
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  counter-reset: step;
+}
+
+.process-step {
+  padding: clamp(32px, 4vw, 56px);
+  position: relative;
+  border-right: 1px solid rgba(232, 77, 138, 0.08);
+  counter-increment: step;
+}
+
+.process-step:last-child {
+  border-right: none;
+}
+
+.process-step-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(72px, 8vw, 120px);
+  color: rgba(232, 77, 138, 0.08);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.process-step-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: var(--h3);
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.process-step-desc {
+  color: var(--text-muted);
+  font-size: var(--body);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.process-step-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.process-step-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--pink-accent);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: var(--bg-primary);
+  border-top: 1px solid rgba(232, 77, 138, 0.08);
+  padding: clamp(60px, 10vh, 120px) 0 40px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(40px, 6vw, 100px);
+  margin-bottom: 60px;
+}
+
+.footer-brand-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(32px, 4vw, 56px);
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.footer-brand-name span {
+  color: var(--pink-accent);
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+  font-size: var(--body);
+  margin-bottom: 28px;
+  font-weight: 300;
+  max-width: 400px;
+  line-height: 1.7;
+}
+
+.footer-info-row {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.footer-info-item svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--pink-accent);
+  flex-shrink: 0;
+}
+
+.footer-info-item a {
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+.footer-info-item a:hover {
+  color: var(--pink-accent);
+}
+
+/* Footer form */
+.footer-form-wrap {
+  background: var(--bg-card);
+  border: 1px solid rgba(232, 77, 138, 0.08);
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.footer-form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: var(--h3);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.footer-form-sub {
+  font-size: var(--small);
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-form input,
+.footer-form textarea {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(232, 77, 138, 0.1);
+  padding: 14px 18px;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.footer-form input:focus,
+.footer-form textarea:focus {
+  border-color: var(--pink-accent);
+}
+
+.footer-form input::placeholder,
+.footer-form textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.footer-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.footer-form button {
+  align-self: flex-start;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(232, 77, 138, 0.06);
+  font-size: 12px;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  color: var(--text-dim);
+  transition: color 0.3s;
+  font-size: 12px;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--pink-accent);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .gallery-item:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-image-tag {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .ba-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero-headline {
+    font-size: clamp(48px, 14vw, 80px);
+  }
+
+  .trust-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .trust-stat:nth-child(2)::after {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    aspect-ratio: 4/3;
+  }
+
+  .service-card-desc {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card:first-child {
+    grid-row: span 1;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    border-right: none;
+    border-bottom: 1px solid rgba(232, 77, 138, 0.08);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header-asymmetric {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-bold {
+    justify-content: center;
+  }
+
+  .about-credentials {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .footer-info-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .service-card img,
+  .gallery-item img {
+    transition: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo display-font">RADIANCE<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#results" onclick="closeMobileNav()">Results</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#gallery" onclick="closeMobileNav()">Gallery</a>
+  <a href="#reviews" onclick="closeMobileNav()">Reviews</a>
+  <a href="#contact" onclick="closeMobileNav()">Book Now</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="../../images/template-images/hero.jpg" alt="Radiance MedSpa luxury treatment room" width="1920" height="1080" fetchpriority="high" decoding="sync">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow eyebrow">Scottsdale's Premier MedSpa</div>
+    <h1 class="hero-headline display-font">
+      BOLD BEAUTY<br>
+      <em>BEGINS</em> HERE
+    </h1>
+    <p class="hero-sub">
+      Precision aesthetics led by Dr. Elena Vasquez. Where clinical expertise meets the art of beauty — transformations you can see and feel.
+    </p>
+    <div class="hero-cta-wrap">
+      <a href="tel:5559234107" class="btn-bold btn-bold-primary">Book Consultation</a>
+      <a href="#services" class="btn-bold btn-bold-ghost">View Services</a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="hero-rating-text">
+        <strong>4.9</strong> rating &middot; 418+ verified reviews
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<section class="trust-bar" id="trust">
+  <div class="container">
+    <div class="trust-stats">
+      <div class="trust-stat">
+        <div class="trust-stat-number display-font">4.9<span>/5</span></div>
+        <div class="trust-stat-label">Star Rating</div>
+      </div>
+      <div class="trust-stat">
+        <div class="trust-stat-number display-font">418<span>+</span></div>
+        <div class="trust-stat-label">Verified Reviews</div>
+      </div>
+      <div class="trust-stat">
+        <div class="trust-stat-number display-font">7<span>+</span></div>
+        <div class="trust-stat-label">Years of Excellence</div>
+      </div>
+      <div class="trust-stat">
+        <div class="trust-stat-number display-font">12K<span>+</span></div>
+        <div class="trust-stat-label">Treatments Performed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="container-wide">
+    <div class="section-header section-header-asymmetric">
+      <div>
+        <div class="eyebrow" style="margin-bottom: 16px;">What We Offer</div>
+        <h2 class="section-title-bold">OUR <em>SIGNATURE</em><br>TREATMENTS</h2>
+      </div>
+      <p class="section-subtitle">Every treatment is tailored by Dr. Vasquez and her expert team to unlock your most radiant self.</p>
+    </div>
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <img src="../../images/template-images/botox.jpg" alt="Botox treatment at Radiance MedSpa" width="600" height="800" loading="lazy" decoding="async">
+        <div class="service-card-overlay">
+          <span class="service-card-number display-font">01</span>
+          <div class="service-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg></div>
+          <h3 class="service-card-title display-font">Botox & Fillers</h3>
+          <p class="service-card-desc">Precision injectables that smooth, lift, and restore youthful contours with natural-looking results.</p>
+        </div>
+      </div>
+      <!-- Service 2 -->
+      <div class="service-card">
+        <img src="../../images/template-images/laser.jpg" alt="Laser skin treatment" width="600" height="800" loading="lazy" decoding="async">
+        <div class="service-card-overlay">
+          <span class="service-card-number display-font">02</span>
+          <div class="service-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg></div>
+          <h3 class="service-card-title display-font">Laser Treatments</h3>
+          <p class="service-card-desc">Advanced laser technology for resurfacing, hair removal, pigmentation correction, and skin renewal.</p>
+        </div>
+      </div>
+      <!-- Service 3 -->
+      <div class="service-card">
+        <img src="../../images/template-images/facial.jpg" alt="Luxury facial treatment" width="600" height="800" loading="lazy" decoding="async">
+        <div class="service-card-overlay">
+          <span class="service-card-number display-font">03</span>
+          <div class="service-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg></div>
+          <h3 class="service-card-title display-font">Luxury Facials</h3>
+          <p class="service-card-desc">Medical-grade facials combining clinical actives with indulgent relaxation for luminous skin.</p>
+        </div>
+      </div>
+      <!-- Service 4 -->
+      <div class="service-card">
+        <img src="../../images/template-images/body-contouring.jpg" alt="Body contouring treatment" width="600" height="800" loading="lazy" decoding="async">
+        <div class="service-card-overlay">
+          <span class="service-card-number display-font">04</span>
+          <div class="service-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg></div>
+          <h3 class="service-card-title display-font">Body Contouring</h3>
+          <p class="service-card-desc">Non-invasive body sculpting that eliminates stubborn fat and tightens skin for a confident silhouette.</p>
+        </div>
+      </div>
+      <!-- Service 5 -->
+      <div class="service-card">
+        <img src="../../images/template-images/microneedling.jpg" alt="Microneedling treatment" width="600" height="800" loading="lazy" decoding="async">
+        <div class="service-card-overlay">
+          <span class="service-card-number display-font">05</span>
+          <div class="service-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg></div>
+          <h3 class="service-card-title display-font">Microneedling</h3>
+          <p class="service-card-desc">Collagen-boosting micro-treatments with PRP for smoother texture, smaller pores, and radiant glow.</p>
+        </div>
+      </div>
+      <!-- Service 6 -->
+      <div class="service-card">
+        <img src="../../images/template-images/iv-therapy.jpg" alt="IV therapy wellness drip" width="600" height="800" loading="lazy" decoding="async">
+        <div class="service-card-overlay">
+          <span class="service-card-number display-font">06</span>
+          <div class="service-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg></div>
+          <h3 class="service-card-title display-font">IV Therapy</h3>
+          <p class="service-card-desc">Customized vitamin infusions for energy, immunity, skin glow, and total body wellness from within.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="before-after" id="results">
+  <div class="container">
+    <div class="ba-layout">
+      <div class="ba-text">
+        <div class="eyebrow" style="margin-bottom: 16px;">Proven Results</div>
+        <h2 class="ba-title display-font">SEE THE<br><em>TRANSFORMATION</em></h2>
+        <p class="ba-desc">Real results from real patients. Our before-and-after gallery showcases the precision artistry of Dr. Vasquez and the life-changing confidence our treatments deliver.</p>
+        <a href="tel:5559234107" class="btn-bold btn-bold-primary">Book Your Consultation</a>
+      </div>
+      <div class="ba-slider-container" id="baSlider">
+        <img src="../../images/template-images/skin-tightening.jpg" alt="Before treatment" class="ba-before" width="800" height="600" loading="lazy" decoding="async">
+        <img src="../../images/template-images/facial.jpg" alt="After treatment" class="ba-after" width="800" height="600" loading="lazy" decoding="async">
+        <div class="ba-slider-handle" id="baHandle"></div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-image-wrap">
+        <img src="../../images/template-images/team.jpg" alt="Dr. Elena Vasquez and the Radiance MedSpa team" width="800" height="1067" loading="lazy" decoding="async">
+        <div class="about-image-accent"></div>
+        <div class="about-image-tag">
+          <div class="display-font">Since 2018</div>
+          <small>Scottsdale, AZ</small>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow">Meet Your Expert</div>
+        <h2 class="about-name display-font">DR. ELENA<br><em>VASQUEZ</em></h2>
+        <p class="about-body">
+          Board-certified and fellowship-trained in aesthetic medicine, Dr. Vasquez founded Radiance MedSpa with a singular vision: to merge clinical precision with artistic beauty. Her approach is bold yet refined — never cookie-cutter.
+        </p>
+        <p class="about-body">
+          With over a decade of experience and thousands of successful treatments, she has built Scottsdale's most trusted destination for patients who demand visible, lasting results.
+        </p>
+        <div class="about-credentials">
+          <div class="about-credential">
+            <div class="display-font">10+</div>
+            <small>Years Experience</small>
+          </div>
+          <div class="about-credential">
+            <div class="display-font">12K+</div>
+            <small>Treatments</small>
+          </div>
+          <div class="about-credential">
+            <div class="display-font">4.9</div>
+            <small>Star Rating</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="container-wide">
+    <div class="section-header" style="text-align: center;">
+      <div class="eyebrow" style="margin-bottom: 16px;">Our Space & Results</div>
+      <h2 class="section-title-bold display-font" style="margin: 0 auto;">THE <em>GALLERY</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../../images/template-images/treatment-room.jpg" alt="Radiance MedSpa treatment room" width="800" height="600" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Treatment Suite</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/botox.jpg" alt="Botox treatment" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Botox</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/laser.jpg" alt="Laser treatment" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Laser</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/facial.jpg" alt="Luxury facial" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Facials</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/body-contouring.jpg" alt="Body contouring" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Body Contouring</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/microneedling.jpg" alt="Microneedling" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Microneedling</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/iv-therapy.jpg" alt="IV therapy" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">IV Therapy</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/skin-tightening.jpg" alt="Skin tightening" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Skin Tightening</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/hero.jpg" alt="Radiance MedSpa" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Our Space</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../images/template-images/team.jpg" alt="Our expert team" width="600" height="400" loading="lazy" decoding="async">
+        <div class="gallery-item-overlay"><span class="gallery-item-label">Our Team</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-bottom: clamp(48px, 6vh, 80px);">
+      <div class="eyebrow" style="margin-bottom: 16px;">Client Love</div>
+      <h2 class="section-title-bold display-font">WHAT THEY <em>SAY</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <!-- Featured testimonial -->
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark display-font">&ldquo;</div>
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">Dr. Vasquez completely transformed my confidence. Her artistry with Botox and fillers is unmatched — I look refreshed, not frozen. The entire Radiance team made me feel like royalty from the moment I walked in.</p>
+        <div class="testimonial-author">
+          <div>
+            <div class="testimonial-author-name">Jessica M.</div>
+            <div class="testimonial-author-role">Botox & Filler Client</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">The laser treatment cleared my sun damage in just three sessions. My skin hasn't looked this good since my twenties. Absolutely worth every penny.</p>
+        <div class="testimonial-author">
+          <div>
+            <div class="testimonial-author-name">Sarah K.</div>
+            <div class="testimonial-author-role">Laser Treatment Client</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">I drove 2 hours for my body contouring sessions here. The results speak for themselves — down two dress sizes without surgery. Dr. Vasquez is a genius.</p>
+        <div class="testimonial-author">
+          <div>
+            <div class="testimonial-author-name">Amanda R.</div>
+            <div class="testimonial-author-role">Body Contouring Client</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-bottom: clamp(48px, 6vh, 80px);">
+      <div class="eyebrow" style="margin-bottom: 16px;">How It Works</div>
+      <h2 class="section-title-bold display-font">YOUR <em>JOURNEY</em></h2>
+    </div>
+    <div class="process-steps">
+      <!-- Step 1 -->
+      <div class="process-step">
+        <div class="process-step-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
+        </div>
+        <div class="process-step-number display-font">01</div>
+        <h3 class="process-step-title display-font">CONSULTATION</h3>
+        <p class="process-step-desc">A complimentary one-on-one with Dr. Vasquez to discuss your goals, assess your unique anatomy, and craft a personalized treatment plan.</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="process-step">
+        <div class="process-step-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
+        </div>
+        <div class="process-step-number display-font">02</div>
+        <h3 class="process-step-title display-font">TREATMENT</h3>
+        <p class="process-step-desc">Experience your customized treatment in our state-of-the-art suite. Precision techniques, premium products, and your comfort are our top priorities.</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="process-step">
+        <div class="process-step-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+        </div>
+        <div class="process-step-number display-font">03</div>
+        <h3 class="process-step-title display-font">RADIANT RESULTS</h3>
+        <p class="process-step-desc">Walk out feeling confident and beautiful. We provide aftercare guidance and follow-up to ensure your results exceed expectations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name display-font">RADIANCE<span>.</span></div>
+        <p class="footer-tagline">Scottsdale's premier destination for bold, confidence-defining beauty. Led by Dr. Elena Vasquez since 2018.</p>
+        <div class="footer-info-row">
+          <div class="footer-info-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            <a href="tel:5559234107">(555) 923-4107</a>
+          </div>
+          <div class="footer-info-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0115 0z"/></svg>
+            <span>Scottsdale, AZ</span>
+          </div>
+        </div>
+        <div class="footer-info-row">
+          <div class="footer-info-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Mon–Fri 9am–6pm &middot; Sat 10am–4pm</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-form-wrap">
+        <h3 class="footer-form-title display-font">BOOK YOUR<br>CONSULTATION</h3>
+        <p class="footer-form-sub">Fill out the form and our team will contact you within 24 hours.</p>
+        <form class="footer-form" onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+          <input type="text" placeholder="Your Name" required aria-label="Your name">
+          <input type="tel" placeholder="Phone Number" required aria-label="Phone number">
+          <input type="email" placeholder="Email Address" required aria-label="Email address">
+          <textarea placeholder="Tell us about your goals..." aria-label="Your message"></textarea>
+          <button type="submit" class="btn-bold btn-bold-primary" style="width: 100%; justify-content: center;">Send Request</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Radiance MedSpa & Aesthetics. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // ============ REDUCED MOTION CHECK ============
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ============ LENIS SMOOTH SCROLL ============
+  let lenis;
+  if (!prefersReducedMotion) {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ============ GSAP + SCROLLTRIGGER ============
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ============ NAVIGATION ============
+  const nav = document.getElementById('nav');
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  // Scroll-based nav styling
+  ScrollTrigger.create({
+    start: 'top -80',
+    end: 99999,
+    toggleClass: { className: 'scrolled', targets: nav },
+  });
+
+  // Hamburger toggle
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+  });
+
+  window.closeMobileNav = function() {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  // ============ HERO ANIMATION ============
+  if (!prefersReducedMotion) {
+    const heroTL = gsap.timeline({ delay: 0.3 });
+    heroTL
+      .from('.hero-eyebrow', { opacity: 0, x: -30, duration: 0.6, ease: 'power3.out' })
+      .from('.hero-headline', { opacity: 0, y: 60, duration: 1, ease: 'power4.out' }, '-=0.3')
+      .from('.hero-headline em', { opacity: 0, scale: 1.2, duration: 0.7, ease: 'back.out(1.7)' }, '-=0.5')
+      .from('.hero-sub', { opacity: 0, y: 24, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+      .from('.hero-cta-wrap', { opacity: 0, y: 20, duration: 0.5 }, '-=0.3')
+      .from('.hero-proof', { opacity: 0, y: 16, duration: 0.5 }, '-=0.2')
+      .from('.hero::before', { scaleY: 0, duration: 1, ease: 'power2.out' }, '-=0.8');
+  }
+
+  // ============ TRUST BAR — Counter Animation ============
+  if (!prefersReducedMotion) {
+    gsap.from('.trust-stat', {
+      scrollTrigger: { trigger: '.trust-bar', start: 'top 80%' },
+      opacity: 0,
+      y: 40,
+      stagger: 0.15,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.trust-stat-number', {
+      scrollTrigger: { trigger: '.trust-bar', start: 'top 80%' },
+      scale: 0.5,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 1,
+      ease: 'elastic.out(1, 0.5)',
+    });
+  }
+
+  // ============ SERVICES — Bold Card Reveals ============
+  if (!prefersReducedMotion) {
+    gsap.from('.services .section-header > *', {
+      scrollTrigger: { trigger: '.services', start: 'top 75%' },
+      opacity: 0,
+      y: 40,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.service-card', {
+      scrollTrigger: { trigger: '.services-grid', start: 'top 80%' },
+      opacity: 0,
+      y: 60,
+      scale: 0.95,
+      stagger: { each: 0.1, grid: 'auto', from: 'start' },
+      duration: 0.9,
+      ease: 'power3.out',
+    });
+  }
+
+  // ============ BEFORE/AFTER SLIDER ============
+  const baSlider = document.getElementById('baSlider');
+  const baHandle = document.getElementById('baHandle');
+  const baAfter = baSlider.querySelector('.ba-after');
+  let isDragging = false;
+
+  function updateSlider(x) {
+    const rect = baSlider.getBoundingClientRect();
+    let pos = (x - rect.left) / rect.width;
+    pos = Math.max(0.05, Math.min(0.95, pos));
+    baAfter.style.clipPath = `inset(0 ${(1 - pos) * 100}% 0 0)`;
+    baHandle.style.left = (pos * 100) + '%';
+  }
+
+  function startDrag(e) {
+    isDragging = true;
+    e.preventDefault();
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    updateSlider(x);
+  }
+
+  function onDrag(e) {
+    if (!isDragging) return;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    updateSlider(x);
+  }
+
+  function stopDrag() {
+    isDragging = false;
+  }
+
+  baSlider.addEventListener('mousedown', startDrag);
+  baSlider.addEventListener('touchstart', startDrag, { passive: false });
+  document.addEventListener('mousemove', onDrag);
+  document.addEventListener('touchmove', onDrag, { passive: false });
+  document.addEventListener('mouseup', stopDrag);
+  document.addEventListener('touchend', stopDrag);
+
+  // Before/After section animation
+  if (!prefersReducedMotion) {
+    gsap.from('.ba-text > *', {
+      scrollTrigger: { trigger: '.before-after', start: 'top 75%' },
+      opacity: 0,
+      x: -40,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.ba-slider-container', {
+      scrollTrigger: { trigger: '.before-after', start: 'top 75%' },
+      opacity: 0,
+      x: 60,
+      scale: 0.95,
+      duration: 1,
+      ease: 'power3.out',
+    });
+  }
+
+  // ============ ABOUT — Asymmetric Reveal ============
+  if (!prefersReducedMotion) {
+    gsap.from('.about-image-wrap', {
+      scrollTrigger: { trigger: '.about', start: 'top 70%' },
+      opacity: 0,
+      x: -80,
+      duration: 1.2,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.about-image-accent', {
+      scrollTrigger: { trigger: '.about', start: 'top 70%' },
+      opacity: 0,
+      x: -100,
+      duration: 1.4,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.about-image-tag', {
+      scrollTrigger: { trigger: '.about', start: 'top 65%' },
+      opacity: 0,
+      y: 30,
+      scale: 0.9,
+      duration: 0.8,
+      delay: 0.3,
+      ease: 'back.out(1.7)',
+    });
+
+    gsap.from('.about-text > *', {
+      scrollTrigger: { trigger: '.about-text', start: 'top 80%' },
+      opacity: 0,
+      y: 30,
+      stagger: 0.1,
+      duration: 0.7,
+      ease: 'power3.out',
+    });
+  }
+
+  // ============ GALLERY — Bold Grid Reveal ============
+  if (!prefersReducedMotion) {
+    gsap.from('.gallery-item', {
+      scrollTrigger: { trigger: '.gallery-grid', start: 'top 80%' },
+      opacity: 0,
+      scale: 0.9,
+      stagger: { each: 0.08, grid: [2, 5], from: 'center' },
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+  }
+
+  // ============ TESTIMONIALS — Quote Reveals ============
+  if (!prefersReducedMotion) {
+    gsap.from('.testimonial-card', {
+      scrollTrigger: { trigger: '.testimonials-grid', start: 'top 80%' },
+      opacity: 0,
+      y: 50,
+      stagger: 0.15,
+      duration: 0.9,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.testimonial-quote-mark', {
+      scrollTrigger: { trigger: '.testimonials-grid', start: 'top 80%' },
+      scale: 0,
+      opacity: 0,
+      duration: 1,
+      ease: 'elastic.out(1, 0.4)',
+    });
+  }
+
+  // ============ PROCESS — Step Reveals ============
+  if (!prefersReducedMotion) {
+    gsap.from('.process-step', {
+      scrollTrigger: { trigger: '.process-steps', start: 'top 80%' },
+      opacity: 0,
+      y: 60,
+      stagger: 0.2,
+      duration: 0.9,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.process-step-number', {
+      scrollTrigger: { trigger: '.process-steps', start: 'top 80%' },
+      opacity: 0,
+      scale: 0.5,
+      stagger: 0.2,
+      duration: 1.2,
+      ease: 'elastic.out(1, 0.5)',
+    });
+  }
+
+  // ============ FOOTER — Form Reveal ============
+  if (!prefersReducedMotion) {
+    gsap.from('.footer-brand > *', {
+      scrollTrigger: { trigger: '.footer', start: 'top 85%' },
+      opacity: 0,
+      y: 30,
+      stagger: 0.1,
+      duration: 0.7,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.footer-form-wrap', {
+      scrollTrigger: { trigger: '.footer', start: 'top 80%' },
+      opacity: 0,
+      x: 50,
+      duration: 1,
+      ease: 'power3.out',
+    });
+  }
+
+  // ============ PARALLAX — Subtle on Hero ============
+  if (!prefersReducedMotion) {
+    gsap.to('.hero-bg img', {
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
+      },
+      y: 120,
+      scale: 1.05,
+    });
+  }
+
+})();
+</script>
+</body>
+</html>

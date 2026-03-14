@@ -1,0 +1,1029 @@
+<!--
+  TEMPLATE DESIGN BRIEF
+  Vertical: Auto Repair
+  Template: #24 — Vintage Garage
+  Variant: vintage-nostalgic
+  Mood: Nostalgic, Charming, Trustworthy
+  Palette: Cream #F5F0E8 + Forest Green #2D5016 + Vintage Brown #8B6914 + Dark Brown #3D2B1F + Aged Cream #EDE5D5
+  Fonts: Playfair Display (display) + Lato (body) — Google Fonts
+  Hero: Full-screen with sepia overlay, retro badge SVG, classic typography
+  Animation: GSAP ScrollTrigger reveals + Lenis smooth scroll + vintage fade-ins
+  Sections: Nav → Hero → Heritage → Services → About → Quality Promise → Testimonials → Gallery → Our Garage → Specials → Community → Visit Us → Footer
+  Language: English (LTR)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precision Auto Works | Expert Auto Repair | Dallas, TX</title>
+<meta name="description" content="Trusted auto repair in Dallas, TX. ASE-certified mechanics, 4.9★ rating, 487+ reviews. Oil changes, brakes, diagnostics & more. Call (555) 482-7193.">
+<meta property="og:title" content="Precision Auto Works | Expert Auto Repair | Dallas, TX">
+<meta property="og:description" content="Trusted auto repair in Dallas, TX. ASE-certified mechanics, 4.9★ rating, 487+ reviews. Oil changes, brakes, diagnostics & more. Call (555) 482-7193.">
+<meta property="og:image" content="../../images/template-images/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Precision Auto Works",
+  "image": "../../images/template-images/hero.jpg",
+  "telephone": "(555) 482-7193",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dallas"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "487"
+  },
+  "url": "",
+  "priceRange": "$$"
+}
+</script>
+
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--cream-dark:#EDE5D5;--cream-light:#FAF7F2;
+  --green:#2D5016;--green-dark:#1E3A0E;--green-light:#3D6B1E;
+  --brown:#8B6914;--brown-dark:#3D2B1F;--brown-light:#A47D2B;
+  --text-dark:#2C2418;--text-muted:#6B5D4F;--text-light:#F5F0E8;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Lato','Helvetica Neue',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --h1-hero:clamp(40px, 8vw, 80px);
+  --h2:clamp(28px, 4vw, 48px);
+  --h3:clamp(20px, 3vw, 28px);
+  --body:clamp(16px, 1.1vw, 18px);
+  --small:clamp(12px, 0.9vw, 14px);
+}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text-dark);background:var(--cream);overflow-x:hidden;line-height:1.6;font-size:var(--body)}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.15}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{position:relative;overflow:hidden}
+
+/* Vintage texture overlay */
+.vintage-texture::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(61,43,31,0.015) 2px,rgba(61,43,31,0.015) 4px);
+  pointer-events:none;z-index:1;
+}
+
+/* Worn paper texture via CSS */
+.paper-texture{
+  background:linear-gradient(135deg,var(--cream) 0%,var(--cream-dark) 25%,var(--cream) 50%,var(--cream-dark) 75%,var(--cream) 100%);
+  background-size:400px 400px;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  .hero-badge,.hero-content *,.gsap-reveal{opacity:1!important;transform:none!important}
+}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;font-family:var(--font-display);font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.3s var(--ease-out);position:relative;letter-spacing:0.03em}
+.btn-green{background:var(--green);color:var(--text-light);border-radius:4px}
+.btn-green:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,80,22,0.3)}
+.btn-outline{background:transparent;border:2px solid var(--green);color:var(--green);border-radius:4px}
+.btn-outline:hover{background:var(--green);color:var(--text-light);transform:translateY(-2px)}
+.btn-cream{background:var(--cream);color:var(--green);border-radius:4px}
+.btn-cream:hover{background:var(--cream-light);transform:translateY(-2px)}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 0;transition:all 0.4s var(--ease-out)}
+.nav.scrolled{background:var(--cream);padding:12px 0;box-shadow:0 2px 20px rgba(61,43,31,0.1);border-bottom:1px solid rgba(139,105,20,0.15)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--cream);display:flex;align-items:center;gap:10px;transition:color 0.4s}
+.nav.scrolled .nav-logo{color:var(--green)}
+.nav-logo-icon{width:36px;height:36px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:var(--font-body);font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--cream);transition:color 0.3s;position:relative}
+.nav.scrolled .nav-links a{color:var(--text-dark)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--brown);transition:width 0.3s var(--ease-out)}
+.nav-links a:hover::after{width:100%}
+.nav-phone{font-family:var(--font-display);font-weight:700;color:var(--cream);font-size:0.95rem;transition:color 0.4s}
+.nav.scrolled .nav-phone{color:var(--green)}
+.nav-cta{display:none}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001}
+.hamburger span{width:28px;height:2px;background:var(--cream);transition:all 0.3s}
+.nav.scrolled .hamburger span{background:var(--text-dark)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile Menu */
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100dvh;background:var(--cream);z-index:999;flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--font-display);font-size:1.5rem;color:var(--green);font-weight:700}
+
+/* ===== HERO ===== */
+.hero{min-height:100dvh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:var(--brown-dark)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:sepia(0.4) brightness(0.5) contrast(1.1)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(61,43,31,0.6) 0%,rgba(45,80,22,0.3) 50%,rgba(61,43,31,0.7) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:800px;padding:0 24px}
+
+/* Retro badge SVG */
+.hero-badge{width:140px;height:140px;margin:0 auto 32px}
+.hero-badge svg{width:100%;height:100%}
+
+.hero-eyebrow{font-family:var(--font-body);font-size:var(--small);text-transform:uppercase;letter-spacing:0.2em;color:var(--brown-light);margin-bottom:16px}
+.hero h1{font-size:var(--h1-hero);color:var(--cream);font-weight:800;letter-spacing:-1px;margin-bottom:20px;line-height:1}
+.hero h1 em{font-style:italic;color:var(--brown-light)}
+.hero-subtitle{font-size:clamp(16px, 1.5vw, 20px);color:rgba(245,240,232,0.85);max-width:600px;margin:0 auto 32px;line-height:1.6}
+.hero-cta-wrap{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.hero-proof{display:flex;align-items:center;justify-content:center;gap:16px}
+.hero-stars{color:#D4A843;font-size:1.2rem;letter-spacing:2px}
+.hero-rating{color:var(--cream);font-family:var(--font-display);font-size:0.95rem}
+
+/* ===== SECTION HEADERS ===== */
+.section-header{text-align:center;margin-bottom:60px}
+.section-eyebrow{font-family:var(--font-body);font-size:var(--small);text-transform:uppercase;letter-spacing:0.2em;color:var(--brown);margin-bottom:12px;display:block}
+.section-title{font-size:var(--h2);color:var(--green);margin-bottom:16px}
+.section-divider{width:60px;height:3px;background:var(--brown);margin:20px auto 0;border-radius:2px}
+
+/* ===== HERITAGE ===== */
+.heritage{padding:120px 0;background:var(--cream-dark)}
+.heritage-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.heritage-stamp{width:200px;height:200px;border:3px solid var(--green);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;margin:0 auto}
+.heritage-stamp::before{content:'';position:absolute;inset:8px;border:2px dashed var(--green);border-radius:50%;opacity:0.5}
+.heritage-stamp .year{font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:var(--green);line-height:1}
+.heritage-stamp .label{font-family:var(--font-body);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--brown);margin-top:4px}
+.heritage-stamp .est{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--green);margin-bottom:4px}
+.heritage-text h2{font-size:var(--h2);color:var(--green);margin-bottom:20px}
+.heritage-text p{color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+.heritage-photo{border-radius:8px;overflow:hidden;position:relative;box-shadow:8px 8px 0 var(--green)}
+.heritage-photo img{width:100%;filter:sepia(0.3) contrast(1.05);transition:filter 0.5s}
+.heritage-photo:hover img{filter:sepia(0) contrast(1)}
+
+/* ===== SERVICES ===== */
+.services{padding:120px 0;background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.service-card{background:var(--cream-light);border-radius:8px;overflow:hidden;transition:transform 0.3s var(--ease-out),box-shadow 0.3s;border:1px solid rgba(139,105,20,0.1)}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(61,43,31,0.12)}
+.service-card-header{background:var(--green);padding:16px 24px;position:relative}
+.service-card-header h3{font-family:var(--font-display);font-size:1.15rem;color:var(--cream);font-weight:700}
+.service-card-header::after{content:'';position:absolute;bottom:-8px;left:20px;width:16px;height:16px;background:var(--green);transform:rotate(45deg)}
+.service-card-img{height:200px;overflow:hidden;position:relative}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s var(--ease-out)}
+.service-card:hover .service-card-img img{transform:scale(1.05)}
+.service-card-body{padding:24px}
+.service-card-body p{color:var(--text-muted);line-height:1.6;font-size:0.95rem}
+/* Stamp icon */
+.service-stamp{position:absolute;top:12px;right:12px;width:48px;height:48px;background:var(--brown);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px dashed rgba(245,240,232,0.4);z-index:2}
+.service-stamp svg{width:24px;height:24px;fill:var(--cream)}
+
+/* ===== ABOUT ===== */
+.about{padding:120px 0;background:var(--cream-dark)}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-column h2{font-size:var(--h2);color:var(--green);margin-bottom:24px}
+.about-column p{color:var(--text-muted);line-height:1.8;margin-bottom:16px;font-size:1rem}
+.about-column p:first-of-type::first-letter{font-family:var(--font-display);font-size:3.2rem;float:left;line-height:1;margin-right:8px;color:var(--green);font-weight:900}
+.about-pullquote{border-left:4px solid var(--brown);padding:24px 32px;margin:32px 0;background:rgba(139,105,20,0.06);border-radius:0 8px 8px 0}
+.about-pullquote p{font-family:var(--font-display);font-style:italic;font-size:1.2rem;color:var(--green);line-height:1.5;margin:0}
+.about-pullquote cite{font-family:var(--font-body);font-style:normal;font-size:0.85rem;color:var(--brown);display:block;margin-top:12px;text-transform:uppercase;letter-spacing:0.1em}
+.about-image{border-radius:8px;overflow:hidden;position:relative}
+.about-image img{width:100%;height:100%;object-fit:cover;min-height:500px}
+.about-image::after{content:'';position:absolute;inset:12px;border:2px solid rgba(245,240,232,0.3);border-radius:4px;pointer-events:none}
+
+/* ===== QUALITY PROMISE ===== */
+.quality{padding:120px 0;background:var(--green);color:var(--cream);text-align:center}
+.quality .section-eyebrow{color:var(--brown-light)}
+.quality .section-title{color:var(--cream)}
+.quality .section-divider{background:var(--brown-light)}
+.quality-badge{width:220px;height:220px;margin:0 auto 48px;position:relative}
+.quality-badge-outer{width:100%;height:100%;border:3px solid var(--cream);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative}
+.quality-badge-outer::before{content:'';position:absolute;inset:6px;border:2px dashed rgba(245,240,232,0.3);border-radius:50%}
+.quality-badge-inner{text-align:center}
+.quality-badge-inner .seal-text{font-family:var(--font-display);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--brown-light)}
+.quality-badge-inner .seal-number{font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--cream);line-height:1;margin:4px 0}
+.quality-badge-inner .seal-label{font-family:var(--font-body);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--cream)}
+.quality-promises{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.quality-item{padding:32px;border:1px solid rgba(245,240,232,0.2);border-radius:8px;transition:background 0.3s}
+.quality-item:hover{background:rgba(245,240,232,0.08)}
+.quality-item h3{font-family:var(--font-display);font-size:1.2rem;margin-bottom:12px}
+.quality-item p{color:rgba(245,240,232,0.75);line-height:1.6;font-size:0.95rem}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials{padding:120px 0;background:var(--cream)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.testimonial-card{background:var(--cream-light);border:1px solid rgba(139,105,20,0.15);border-radius:8px;padding:32px;position:relative;transition:transform 0.3s var(--ease-out)}
+.testimonial-card:hover{transform:translateY(-4px)}
+/* Stamp corner */
+.testimonial-card::before{content:'';position:absolute;top:12px;right:12px;width:40px;height:40px;border:2px solid var(--brown);border-radius:50%;opacity:0.2}
+.testimonial-card::after{content:'\201C';position:absolute;top:16px;left:24px;font-family:var(--font-display);font-size:4rem;color:var(--green);opacity:0.15;line-height:1}
+.testimonial-stars{color:#D4A843;font-size:0.9rem;letter-spacing:2px;margin-bottom:16px;position:relative;z-index:1}
+.testimonial-text{font-style:italic;color:var(--text-muted);line-height:1.7;margin-bottom:20px;position:relative;z-index:1;font-size:0.95rem}
+.testimonial-author{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--cream);font-size:1rem}
+.testimonial-name{font-family:var(--font-display);font-weight:700;color:var(--green);font-size:0.95rem}
+.testimonial-date{font-size:0.8rem;color:var(--text-muted)}
+
+/* ===== GALLERY ===== */
+.gallery{padding:120px 0;background:var(--cream-dark)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.gallery-item{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:all 0.5s var(--ease-out)}
+.gallery-item:hover img{transform:scale(1.05);filter:sepia(0.4)}
+/* Photo corner mounts */
+.gallery-item::before,.gallery-item::after{content:'';position:absolute;width:24px;height:24px;border:2px solid var(--brown);opacity:0.4;z-index:2;transition:opacity 0.3s}
+.gallery-item::before{top:8px;left:8px;border-right:none;border-bottom:none}
+.gallery-item::after{bottom:8px;right:8px;border-left:none;border-top:none}
+.gallery-item:hover::before,.gallery-item:hover::after{opacity:0.8}
+
+/* ===== OUR GARAGE ===== */
+.garage{padding:120px 0;background:var(--cream)}
+.garage-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.garage-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.garage-photo{border-radius:8px;overflow:hidden;position:relative}
+.garage-photo img{width:100%;height:250px;object-fit:cover;filter:sepia(0.15);transition:filter 0.4s}
+.garage-photo:hover img{filter:sepia(0)}
+.garage-photo:first-child{grid-column:span 2}
+.garage-photo:first-child img{height:300px}
+.garage-text h2{font-size:var(--h2);color:var(--green);margin-bottom:20px}
+.garage-text p{color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+.garage-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+.garage-stat{text-align:center;padding:20px;border:1px solid rgba(139,105,20,0.2);border-radius:8px;background:var(--cream-light)}
+.garage-stat .number{font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--green)}
+.garage-stat .label{font-family:var(--font-body);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:4px}
+
+/* ===== SPECIALS ===== */
+.specials{padding:120px 0;background:var(--green);color:var(--cream)}
+.specials .section-eyebrow{color:var(--brown-light)}
+.specials .section-title{color:var(--cream)}
+.specials .section-divider{background:var(--brown-light)}
+.specials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.special-ticket{background:rgba(245,240,232,0.08);border:2px dashed rgba(245,240,232,0.25);border-radius:8px;padding:36px 28px;text-align:center;position:relative;transition:all 0.3s var(--ease-out)}
+.special-ticket:hover{background:rgba(245,240,232,0.12);transform:translateY(-4px)}
+/* Ticket perforations */
+.special-ticket::before,.special-ticket::after{content:'';position:absolute;left:50%;width:80%;height:1px;border-bottom:2px dashed rgba(245,240,232,0.2);transform:translateX(-50%)}
+.special-ticket::before{top:16px}
+.special-ticket::after{bottom:16px}
+.special-ticket .discount{font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:var(--brown-light);line-height:1;margin-bottom:12px}
+.special-ticket h3{font-family:var(--font-display);font-size:1.2rem;margin-bottom:8px;color:var(--cream)}
+.special-ticket p{color:rgba(245,240,232,0.7);font-size:0.9rem;line-height:1.5}
+.special-ticket .validity{margin-top:16px;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--brown-light)}
+
+/* ===== COMMUNITY ===== */
+.community{padding:120px 0;background:var(--cream-dark)}
+.community-board{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:900px;margin:0 auto}
+.community-pin{background:var(--cream-light);border-radius:8px;padding:32px;position:relative;transition:transform 0.3s var(--ease-out);border:1px solid rgba(139,105,20,0.1)}
+.community-pin:hover{transform:rotate(-1deg) translateY(-4px)}
+/* Pushpin */
+.community-pin::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:16px;height:16px;background:var(--green);border-radius:50%;border:2px solid var(--cream-dark)}
+.community-pin h3{font-family:var(--font-display);font-size:1.1rem;color:var(--green);margin-bottom:8px}
+.community-pin p{color:var(--text-muted);font-size:0.9rem;line-height:1.6}
+
+/* ===== VISIT US ===== */
+.visit{padding:120px 0;background:var(--cream)}
+.visit-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.visit-info h2{font-size:var(--h2);color:var(--green);margin-bottom:32px}
+.visit-detail{display:flex;gap:16px;margin-bottom:24px;align-items:start}
+.visit-icon{width:44px;height:44px;min-width:44px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.visit-icon svg{width:20px;height:20px;fill:var(--cream)}
+.visit-detail h3{font-family:var(--font-display);font-size:1rem;color:var(--green);margin-bottom:4px}
+.visit-detail p{color:var(--text-muted);font-size:0.95rem;line-height:1.5}
+.visit-map{border-radius:12px;overflow:hidden;background:var(--cream-dark);min-height:400px;display:flex;align-items:center;justify-content:center;border:2px solid rgba(139,105,20,0.15);position:relative}
+.visit-map-placeholder{text-align:center;padding:40px}
+.visit-map-placeholder svg{width:64px;height:64px;fill:var(--green);opacity:0.3;margin-bottom:16px}
+.visit-map-placeholder p{color:var(--text-muted);font-family:var(--font-display);font-style:italic}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--brown-dark);color:var(--cream);padding:80px 0 32px}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.footer-brand h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:16px}
+.footer-brand p{color:rgba(245,240,232,0.65);line-height:1.6;font-size:0.9rem;max-width:280px}
+.footer-col h4{font-family:var(--font-display);font-size:1rem;margin-bottom:20px;color:var(--brown-light)}
+.footer-col a{display:block;color:rgba(245,240,232,0.65);font-size:0.9rem;padding:4px 0;transition:color 0.3s}
+.footer-col a:hover{color:var(--cream)}
+.footer-social{display:flex;gap:12px;margin-top:20px}
+.footer-social a{width:40px;height:40px;border:1px solid rgba(245,240,232,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.footer-social a:hover{background:var(--green);border-color:var(--green)}
+.footer-social svg{width:18px;height:18px;fill:var(--cream)}
+.footer-bottom{border-top:1px solid rgba(245,240,232,0.1);padding-top:32px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{color:rgba(245,240,232,0.45);font-size:0.8rem}
+.footer-certs{display:flex;gap:16px;align-items:center}
+.footer-cert{font-family:var(--font-body);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(245,240,232,0.45);border:1px solid rgba(245,240,232,0.15);padding:6px 12px;border-radius:4px}
+
+/* ===== MOBILE STICKY CTA ===== */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;width:100%;background:var(--green);padding:12px 24px;z-index:998;box-shadow:0 -4px 20px rgba(0,0,0,0.2)}
+.mobile-cta a{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--cream);font-family:var(--font-display);font-weight:700;font-size:1rem}
+.mobile-cta svg{width:20px;height:20px;fill:var(--cream)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(3,1fr)}
+  .quality-promises{grid-template-columns:repeat(2,1fr)}
+  .specials-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-phone,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:flex}
+  .mobile-cta{display:block}
+  .hero h1{font-size:clamp(32px,10vw,52px)}
+  .heritage-inner{grid-template-columns:1fr;text-align:center}
+  .heritage-photo{margin-top:32px}
+  .services-grid{grid-template-columns:1fr}
+  .about-inner{grid-template-columns:1fr}
+  .about-image{order:-1}
+  .about-image img{min-height:300px}
+  .quality-promises{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .garage-inner{grid-template-columns:1fr}
+  .garage-photos{order:-1}
+  .specials-grid{grid-template-columns:1fr}
+  .community-board{grid-template-columns:1fr}
+  .visit-inner{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;text-align:center}
+  .footer-social{justify-content:center}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+  .footer-certs{justify-content:center}
+  body{padding-bottom:56px}
+  .section-header{margin-bottom:40px}
+  section{padding:80px 0!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav" role="banner">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="currentColor" stroke-width="2"/>
+        <circle cx="18" cy="18" r="12" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="18" y="15" text-anchor="middle" fill="currentColor" font-family="'Playfair Display',serif" font-size="8" font-weight="700">EST</text>
+        <text x="18" y="25" text-anchor="middle" fill="currentColor" font-family="'Playfair Display',serif" font-size="10" font-weight="900">2006</text>
+      </svg>
+      Precision Auto
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#heritage">Heritage</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="tel:+15554827193" class="nav-phone">(555) 482-7193</a>
+    <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="#heritage">Heritage</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#specials">Specials</a>
+  <a href="#visit">Visit Us</a>
+  <a href="tel:+15554827193" class="btn btn-green">Call (555) 482-7193</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="../../images/template-images/hero.jpg" alt="Precision Auto Works vintage auto shop exterior" width="1920" height="1080" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="70" cy="70" r="66" fill="none" stroke="#D4A843" stroke-width="2"/>
+        <circle cx="70" cy="70" r="58" fill="none" stroke="#D4A843" stroke-width="1" stroke-dasharray="4 4"/>
+        <text x="70" y="42" text-anchor="middle" fill="#F5F0E8" font-family="'Playfair Display',serif" font-size="9" font-weight="700" letter-spacing="3">ESTABLISHED</text>
+        <text x="70" y="76" text-anchor="middle" fill="#F5F0E8" font-family="'Playfair Display',serif" font-size="32" font-weight="900">2006</text>
+        <text x="70" y="96" text-anchor="middle" fill="#D4A843" font-family="'Lato',sans-serif" font-size="7" font-weight="700" letter-spacing="4">QUALITY AUTO CARE</text>
+        <line x1="30" y1="50" x2="110" y2="50" stroke="#D4A843" stroke-width="0.5"/>
+        <line x1="30" y1="84" x2="110" y2="84" stroke="#D4A843" stroke-width="0.5"/>
+      </svg>
+    </div>
+    <p class="hero-eyebrow">ASE Certified · Since 2006</p>
+    <h1>Expert Auto Repair You Can Trust</h1>
+    <p class="hero-subtitle">Dallas's highest-rated auto shop. ASE-certified mechanics, transparent pricing, and a 3-year warranty on every repair.</p>
+    <div class="hero-cta-wrap">
+      <a href="tel:+15554827193" class="btn btn-green">Schedule Service</a>
+      <a href="#services" class="btn btn-outline" style="border-color:var(--cream);color:var(--cream)">Our Services</a>
+    </div>
+    <div class="hero-proof">
+      <span class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="hero-rating">4.9 Stars &middot; 487 Reviews</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HERITAGE ===== -->
+<section class="heritage vintage-texture" id="heritage">
+  <div class="container heritage-inner">
+    <div>
+      <div class="heritage-stamp gsap-reveal">
+        <span class="est">Est.</span>
+        <span class="year">2006</span>
+        <span class="label">Dallas, Texas</span>
+      </div>
+      <div style="margin-top:40px" class="gsap-reveal">
+        <h2>A Legacy of Honest Auto Care</h2>
+        <p>When Mike Rodriguez opened the doors of Precision Auto Works in 2006, the mission was simple: treat every car like it was family, and every customer like a neighbor. Nearly two decades later, that handshake promise still drives everything we do.</p>
+        <p>From a two-bay shop to a full-service garage trusted by hundreds of families across Dallas, our story is one of dedication, integrity, and a genuine love for the craft of automotive repair.</p>
+      </div>
+    </div>
+    <div class="heritage-photo gsap-reveal">
+      <img src="../../images/template-images/team.jpg" alt="Precision Auto Works team photo" width="600" height="450" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services paper-texture" id="services">
+  <div class="container">
+    <div class="section-header gsap-reveal">
+      <span class="section-eyebrow">What We Do</span>
+      <h2 class="section-title">Expert Services</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card gsap-reveal">
+        <div class="service-card-header"><h3>Oil Changes & Fluid Services</h3></div>
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-oil.jpg" alt="Oil Changes & Fluid Services" width="600" height="400" loading="lazy">
+          <div class="service-stamp">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body"><p>Conventional, synthetic, and high-mileage oil changes plus complete fluid system maintenance to keep your engine running at peak performance.</p></div>
+      </div>
+      <div class="service-card gsap-reveal">
+        <div class="service-card-header"><h3>Brake Repair & Replacement</h3></div>
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-brakes.jpg" alt="Brake Repair & Replacement" width="600" height="400" loading="lazy">
+          <div class="service-stamp">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body"><p>Comprehensive brake inspections, pad and rotor replacement, brake fluid flushes, and complete brake system diagnostics for safe stopping power.</p></div>
+      </div>
+      <div class="service-card gsap-reveal">
+        <div class="service-card-header"><h3>Engine Diagnostics & Repair</h3></div>
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-engine.jpg" alt="Engine Diagnostics & Repair" width="600" height="400" loading="lazy">
+          <div class="service-stamp">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body"><p>Advanced computer diagnostics, check engine light diagnosis, engine rebuilds, and precision repairs using factory-grade scan tools.</p></div>
+      </div>
+      <div class="service-card gsap-reveal">
+        <div class="service-card-header"><h3>Tire Services & Alignment</h3></div>
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-diagnostics.jpg" alt="Tire Services & Alignment" width="600" height="400" loading="lazy">
+          <div class="service-stamp">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body"><p>Tire mounting, balancing, rotation, flat repair, and precision 4-wheel alignment to extend tire life and improve handling.</p></div>
+      </div>
+      <div class="service-card gsap-reveal">
+        <div class="service-card-header"><h3>AC & Heating Service</h3></div>
+        <div class="service-card-img">
+          <img src="../../images/template-images/service-tires.jpg" alt="AC & Heating Service" width="600" height="400" loading="lazy">
+          <div class="service-stamp">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body"><p>Complete climate control service including AC recharge, compressor repair, heater core replacement, and full system diagnostics.</p></div>
+      </div>
+      <div class="service-card gsap-reveal">
+        <div class="service-card-header"><h3>Transmission Service</h3></div>
+        <div class="service-card-img">
+          <img src="../../images/template-images/brake-service.jpg" alt="Transmission Service" width="600" height="400" loading="lazy">
+          <div class="service-stamp">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body"><p>Transmission fluid changes, filter replacement, diagnostics, and repair for both automatic and manual transmissions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about vintage-texture" id="about">
+  <div class="container about-inner">
+    <div class="about-column gsap-reveal">
+      <span class="section-eyebrow">Our Story</span>
+      <h2>Meet Mike Rodriguez</h2>
+      <p>Founded in 2006, Precision Auto Works has grown from a two-bay garage into Dallas's most trusted auto repair shop. Owner Mike Rodriguez and his team of ASE-certified technicians have completed over 50,000 repairs with a 4.9-star rating. We believe in transparent pricing, honest diagnostics, and treating every car like our own.</p>
+      <p>With ASE-certified technicians and state-of-the-art diagnostic equipment, we bridge old-school values with modern expertise. Every vehicle gets a thorough inspection, honest assessment, and quality repairs backed by our warranty.</p>
+      <div class="about-pullquote">
+        <p>"We don't just fix cars — we build relationships. When you bring your car here, you're family."</p>
+        <cite>— Mike Rodriguez, Founder</cite>
+      </div>
+    </div>
+    <div class="about-image gsap-reveal">
+      <img src="../../images/template-images/mechanic-portrait.jpg" alt="Mike Rodriguez at Precision Auto Works" width="600" height="800" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUALITY PROMISE ===== -->
+<section class="quality" id="quality">
+  <div class="container">
+    <div class="section-header gsap-reveal">
+      <span class="section-eyebrow">Our Commitment</span>
+      <h2 class="section-title">Quality Guarantee</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="quality-badge gsap-reveal">
+      <div class="quality-badge-outer">
+        <div class="quality-badge-inner">
+          <span class="seal-text">Trusted by</span>
+          <span class="seal-number">487+</span>
+          <span class="seal-label">Families</span>
+        </div>
+      </div>
+    </div>
+    <div class="quality-promises">
+      <div class="quality-item gsap-reveal">
+        <h3>Transparent Pricing</h3>
+        <p>No hidden fees, no surprise charges. We provide detailed estimates before any work begins and explain everything in plain language.</p>
+      </div>
+      <div class="quality-item gsap-reveal">
+        <h3>Warranty Protection</h3>
+        <p>Every repair is backed by our comprehensive warranty. We stand behind our work because we know the quality we deliver.</p>
+      </div>
+      <div class="quality-item gsap-reveal">
+        <h3>ASE Certified Team</h3>
+        <p>Our technicians hold current ASE certifications and receive ongoing training to stay current with the latest automotive technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header gsap-reveal">
+      <span class="section-eyebrow">What Our Customers Say</span>
+      <h2 class="section-title">Trusted Reviews</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card gsap-reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Honest, fair pricing, and they always explain what needs to be done. Best mechanic in Dallas!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Sarah M.</div>
+          <div>
+            <div class="testimonial-name">Sarah M.</div>
+            <div class="testimonial-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card gsap-reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Mike and his team saved me thousands by diagnosing the real issue. Highly recommend!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">James K.</div>
+          <div>
+            <div class="testimonial-name">James K.</div>
+            <div class="testimonial-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card gsap-reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"I've been coming here for 8 years. They treat you like family and do amazing work."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Maria L.</div>
+          <div>
+            <div class="testimonial-name">Maria L.</div>
+            <div class="testimonial-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header gsap-reveal">
+      <span class="section-eyebrow">Our Work</span>
+      <h2 class="section-title">Photo Gallery</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item gsap-reveal">
+        <img src="../../images/template-images/engine-work.jpg" alt="Engine repair at Precision Auto Works" width="600" height="450" loading="lazy">
+      </div>
+      <div class="gallery-item gsap-reveal">
+        <img src="../../images/template-images/brake-service.jpg" alt="Brake service work" width="600" height="450" loading="lazy">
+      </div>
+      <div class="gallery-item gsap-reveal">
+        <img src="../../images/template-images/car-lift.jpg" alt="Vehicle on lift for inspection" width="600" height="450" loading="lazy">
+      </div>
+      <div class="gallery-item gsap-reveal">
+        <img src="../../images/template-images/diagnostic-scan.jpg" alt="Diagnostic scanning" width="600" height="450" loading="lazy">
+      </div>
+      <div class="gallery-item gsap-reveal">
+        <img src="../../images/template-images/tire-alignment.jpg" alt="Tire alignment service" width="600" height="450" loading="lazy">
+      </div>
+      <div class="gallery-item gsap-reveal">
+        <img src="../../images/template-images/oil-change.jpg" alt="Oil change service" width="600" height="450" loading="lazy">
+      </div>
+      <div class="gallery-item gsap-reveal">
+        <img src="../../images/template-images/under-car.jpg" alt="Under-car inspection" width="600" height="450" loading="lazy">
+      </div>
+      <div class="gallery-item gsap-reveal">
+        <img src="../../images/template-images/customer-handshake.jpg" alt="Customer service at Precision Auto Works" width="600" height="450" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR GARAGE ===== -->
+<section class="garage vintage-texture" id="garage">
+  <div class="container garage-inner">
+    <div class="garage-photos">
+      <div class="garage-photo gsap-reveal">
+        <img src="../../images/template-images/shop-interior.jpg" alt="Inside Precision Auto Works garage" width="800" height="400" loading="lazy">
+      </div>
+      <div class="garage-photo gsap-reveal">
+        <img src="../../images/template-images/car-lift.jpg" alt="Service bay" width="400" height="300" loading="lazy">
+      </div>
+      <div class="garage-photo gsap-reveal">
+        <img src="../../images/template-images/diagnostic-scan.jpg" alt="Diagnostic equipment" width="400" height="300" loading="lazy">
+      </div>
+      <div class="garage-photo gsap-reveal">
+        <img src="../../images/template-images/exterior.jpg" alt="Precision Auto Works exterior" width="800" height="400" loading="lazy">
+      </div>
+    </div>
+    <div class="garage-text gsap-reveal">
+      <span class="section-eyebrow">Behind the Scenes</span>
+      <h2>Our Garage</h2>
+      <p>Step inside our fully-equipped shop where classic craftsmanship meets cutting-edge technology. Every bay is outfitted with the latest diagnostic tools and lift systems.</p>
+      <p>From our climate-controlled waiting room with complimentary coffee to our spotless service bays, we've built a space where quality work and customer comfort come first.</p>
+      <div class="garage-stats">
+        <div class="garage-stat">
+          <div class="number">8</div>
+          <div class="label">Service Bays</div>
+        </div>
+        <div class="garage-stat">
+          <div class="number">18+</div>
+          <div class="label">Years Experience</div>
+        </div>
+        <div class="garage-stat">
+          <div class="number">15K+</div>
+          <div class="label">Cars Serviced</div>
+        </div>
+        <div class="garage-stat">
+          <div class="number">6</div>
+          <div class="label">ASE Technicians</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPECIALS ===== -->
+<section class="specials" id="specials">
+  <div class="container">
+    <div class="section-header gsap-reveal">
+      <span class="section-eyebrow">Limited Time</span>
+      <h2 class="section-title">Current Specials</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="specials-grid">
+      <div class="special-ticket gsap-reveal">
+        <div class="discount">$29.99</div>
+        <h3>Conventional Oil Change</h3>
+        <p>Includes up to 5 quarts of conventional oil, new filter, and multi-point inspection.</p>
+        <div class="validity">Valid through March 2026</div>
+      </div>
+      <div class="special-ticket gsap-reveal">
+        <div class="discount">15% OFF</div>
+        <h3>First-Time Customer</h3>
+        <p>Welcome to the family! New customers receive 15% off their first repair service over $150.</p>
+        <div class="validity">New customers only</div>
+      </div>
+      <div class="special-ticket gsap-reveal">
+        <div class="discount">FREE</div>
+        <h3>Brake Inspection</h3>
+        <p>Complimentary brake inspection with any service. Know the condition of your brakes — on us.</p>
+        <div class="validity">With any paid service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMUNITY ===== -->
+<section class="community" id="community">
+  <div class="container">
+    <div class="section-header gsap-reveal">
+      <span class="section-eyebrow">Giving Back</span>
+      <h2 class="section-title">In the Community</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="community-board">
+      <div class="community-pin gsap-reveal">
+        <h3>Youth Auto Skills Workshop</h3>
+        <p>Every summer we host free automotive basics workshops for local high school students. Teaching the next generation essential car care skills.</p>
+      </div>
+      <div class="community-pin gsap-reveal">
+        <h3>Charity Car Care Days</h3>
+        <p>Quarterly free oil changes and safety inspections for single parents, veterans, and seniors in the Dallas community.</p>
+      </div>
+      <div class="community-pin gsap-reveal">
+        <h3>Local Sports Sponsorship</h3>
+        <p>Proud sponsor of the Dallas youth baseball league for over a decade. Because community means showing up — both on and off the field.</p>
+      </div>
+      <div class="community-pin gsap-reveal">
+        <h3>Food Drive Partner</h3>
+        <p>Drop off non-perishable donations at our shop year-round. We partner with local food banks to keep our neighbors fed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT US ===== -->
+<section class="visit" id="visit">
+  <div class="container visit-inner">
+    <div class="visit-info gsap-reveal">
+      <span class="section-eyebrow">Come See Us</span>
+      <h2>Visit Our Shop</h2>
+      <div class="visit-detail">
+        <div class="visit-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <p>4821 Commerce St, Dallas, TX 75226</p>
+        </div>
+      </div>
+      <div class="visit-detail">
+        <div class="visit-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <h3>Phone</h3>
+          <p><a href="tel:+15554827193">(555) 482-7193</a></p>
+        </div>
+      </div>
+      <div class="visit-detail">
+        <div class="visit-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <p>Monday – Friday: 7:30 AM – 6:00 PM<br>Saturday: 8:00 AM – 2:00 PM<br>Sunday: Closed</p>
+        </div>
+      </div>
+      <div style="margin-top:32px">
+        <a href="https://maps.google.com/?q=4821+Commerce+St+Dallas+TX+75226" target="_blank" rel="noopener" class="btn btn-green">Get Directions</a>
+      </div>
+    </div>
+    <div class="visit-map gsap-reveal">
+      <div class="visit-map-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <p>4821 Commerce St, Dallas, TX 75226<br>Dallas</p>
+        <a href="https://maps.google.com/?q=4821+Commerce+St+Dallas+TX+75226" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:20px;border-color:var(--green);color:var(--green)">View on Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Precision Auto Works</h3>
+        <p>Honest auto repair with old-school values and modern expertise. Proudly serving Dallas since 2006.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M16 4H8C5.79 4 4 5.79 4 8v8c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zm-4 11a3 3 0 110-6 3 3 0 010 6zm4.5-7.5a1 1 0 110-2 1 1 0 010 2z"/></svg></a>
+          <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#">Oil Changes & Fluid Services</a>
+        <a href="#">Brake Repair & Replacement</a>
+        <a href="#">Engine Diagnostics & Repair</a>
+        <a href="#">Tire Services & Alignment</a>
+        <a href="#">AC & Heating Service</a>
+        <a href="#">Transmission Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#heritage">Our Heritage</a>
+        <a href="#about">About Us</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#specials">Specials</a>
+        <a href="#visit">Visit Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+15554827193">(555) 482-7193</a>
+        <a href="#">4821 Commerce St, Dallas, TX 75226</a>
+        <a href="#">Mon-Fri: 7:30AM - 6PM</a>
+        <a href="#">Sat: 8AM - 2PM</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Precision Auto Works. All rights reserved.</p>
+      <div class="footer-certs">
+        <span class="footer-cert">ASE Certified</span>
+        <span class="footer-cert">AAA Approved</span>
+        <span class="footer-cert">BBB A+ Rated</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Sticky CTA -->
+<div class="mobile-cta">
+  <a href="tel:+15554827193">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    Call Now — (555) 482-7193
+  </a>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Register GSAP plugins first
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ===== LENIS SMOOTH SCROLL =====
+  if (!prefersReducedMotion) {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      smoothTouch: false
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ===== NAV SCROLL =====
+  var nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 80) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // ===== HAMBURGER MENU =====
+  var hamburger = document.querySelector('.hamburger');
+  var mobileMenu = document.querySelector('.mobile-menu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+  // Close on link click
+  mobileMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ===== HERO ENTRANCE ANIMATION =====
+  if (!prefersReducedMotion) {
+    var heroTl = gsap.timeline({ delay: 0.3 });
+    heroTl
+      .from('.hero-badge',    { opacity: 0, scale: 0.8, rotation: -10, duration: 0.8, ease: 'back.out(1.7)' })
+      .from('.hero-eyebrow',  { opacity: 0, y: 10, duration: 0.5 }, '-=0.3')
+      .from('.hero h1',       { opacity: 0, y: 30, duration: 0.7, ease: 'power3.out' }, '-=0.2')
+      .from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.5 }, '-=0.3')
+      .from('.hero-cta-wrap', { opacity: 0, y: 15, duration: 0.5 }, '-=0.2')
+      .from('.hero-proof',    { opacity: 0, duration: 0.5 }, '-=0.2');
+  } else {
+    // Make everything visible immediately
+    document.querySelectorAll('.hero-badge,.hero-eyebrow,.hero h1,.hero-subtitle,.hero-cta-wrap,.hero-proof').forEach(function(el) {
+      el.style.opacity = '1';
+    });
+  }
+
+  // ===== SCROLL ANIMATIONS =====
+  if (!prefersReducedMotion) {
+    // Generic reveals
+    document.querySelectorAll('.gsap-reveal').forEach(function(el) {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+        opacity: 0, y: 40, duration: 0.8, ease: 'power2.out'
+      });
+    });
+
+    // Service cards stagger
+    gsap.from('.service-card', {
+      scrollTrigger: { trigger: '.services-grid', start: 'top 80%', once: true },
+      opacity: 0, y: 30, stagger: 0.12, duration: 0.7, ease: 'power2.out'
+    });
+
+    // Testimonial cards stagger
+    gsap.from('.testimonial-card', {
+      scrollTrigger: { trigger: '.testimonials-grid', start: 'top 80%', once: true },
+      opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: 'power2.out'
+    });
+
+    // Gallery items stagger
+    gsap.from('.gallery-item', {
+      scrollTrigger: { trigger: '.gallery-grid', start: 'top 80%', once: true },
+      opacity: 0, scale: 0.95, stagger: 0.08, duration: 0.6, ease: 'power2.out'
+    });
+
+    // Heritage stamp spin-in
+    gsap.from('.heritage-stamp', {
+      scrollTrigger: { trigger: '.heritage-stamp', start: 'top 80%', once: true },
+      opacity: 0, scale: 0.6, rotation: -20, duration: 1, ease: 'back.out(1.5)'
+    });
+
+    // Quality badge
+    gsap.from('.quality-badge', {
+      scrollTrigger: { trigger: '.quality-badge', start: 'top 80%', once: true },
+      opacity: 0, scale: 0.7, duration: 0.8, ease: 'back.out(1.5)'
+    });
+
+    // Quality items stagger
+    gsap.from('.quality-item', {
+      scrollTrigger: { trigger: '.quality-promises', start: 'top 80%', once: true },
+      opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: 'power2.out'
+    });
+
+    // Special tickets stagger
+    gsap.from('.special-ticket', {
+      scrollTrigger: { trigger: '.specials-grid', start: 'top 80%', once: true },
+      opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: 'power2.out'
+    });
+
+    // Community pins stagger
+    gsap.from('.community-pin', {
+      scrollTrigger: { trigger: '.community-board', start: 'top 80%', once: true },
+      opacity: 0, y: 20, rotation: 2, stagger: 0.12, duration: 0.6, ease: 'power2.out'
+    });
+
+    // Parallax on heritage photo
+    gsap.to('.heritage-photo img', {
+      scrollTrigger: { trigger: '.heritage', scrub: 1 },
+      y: -30, ease: 'none'
+    });
+
+    // Parallax on hero
+    gsap.to('.hero-bg img', {
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
+      y: 100, ease: 'none'
+    });
+  }
+
+  // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

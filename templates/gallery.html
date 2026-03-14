@@ -72,7 +72,7 @@ body::after{
   z-index:200;
   display:flex;
   align-items:center;
-  justify-content:center;
+  justify-content:space-between;
   gap:4px;
   padding:12px 48px;
   background:rgba(8,8,10,.92);
@@ -80,10 +80,14 @@ body::after{
   -webkit-backdrop-filter:blur(32px) saturate(1.4);
   border-bottom:1px solid var(--border);
 }
+.nav-left{display:flex;align-items:center;gap:4px;min-width:0;flex-wrap:nowrap;overflow:hidden}
+.top-nav.use-dropdown .nav-left{overflow:visible}
+.nav-right{display:flex;align-items:center;gap:4px}
 .nav-section{
   display:flex;
   align-items:center;
   gap:4px;
+  flex-shrink:0;
 }
 .nav-label{
   font-family:var(--syne);
@@ -106,6 +110,8 @@ body::after{
   cursor:pointer;
   border:none;
   background:none;
+  flex-shrink:0;
+  white-space:nowrap;
 }
 .nav-link--inactive{
   color:var(--text-dim);
@@ -126,6 +132,7 @@ body::after{
   height:20px;
   background:var(--border);
   margin:0 12px;
+  flex-shrink:0;
 }
 .nav-link--proposals{
   color:var(--text-dim);
@@ -142,6 +149,29 @@ body::after{
   border:1px solid rgba(176,138,212,.3);
   background:rgba(176,138,212,.15);
 }
+.nav-tool{
+  font-family:var(--syne);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.5px;
+  padding:7px 18px;
+  border-radius:100px;
+  text-decoration:none;
+  color:var(--text-dim);
+  border:1px solid var(--border);
+  background:none;
+  transition:all .25s ease;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.nav-tool:hover{
+  color:var(--text);
+  border-color:var(--border-hover);
+  background:rgba(255,255,255,.05);
+}
+.nav-tool svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
 
 /* ── Empty state ── */
 .empty-state{
@@ -410,11 +440,9 @@ body::after{
   opacity:1;
 }
 
-/* ── Open indicator ── */
-.card-open{
+/* ── Card action buttons (open, heart, comment) ── */
+.card-action{
   position:absolute;
-  top:16px;
-  right:16px;
   width:36px;height:36px;
   border-radius:10px;
   background:rgba(0,0,0,.5);
@@ -428,16 +456,176 @@ body::after{
   transform:translateY(-6px);
   transition:all .3s ease;
   z-index:5;
+  cursor:pointer;
+  padding:0;
 }
-.card:hover .card-open{
+.card:hover .card-action{
   opacity:1;
   transform:translateY(0);
 }
-.card-open svg{
+.card-action svg{
   width:16px;height:16px;
   stroke:#fff;
   stroke-width:2;
   fill:none;
+}
+.card-open{ top:16px; right:16px; }
+.card-heart{ top:16px; right:56px; }
+.card-comment{ top:16px; right:96px; }
+
+/* Heart liked state */
+.card-heart.liked{
+  opacity:1!important;
+  transform:translateY(0)!important;
+}
+.card-heart.liked svg{
+  fill:#ef4444;
+  stroke:#ef4444;
+}
+
+/* Comment count badge */
+.comment-count{
+  position:absolute;
+  top:-4px;right:-4px;
+  min-width:16px;height:16px;
+  border-radius:100px;
+  background:var(--accent);
+  color:#08080a;
+  font-family:var(--syne);
+  font-size:9px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 4px;
+  line-height:1;
+}
+
+/* ── Comment Modal ── */
+.comment-modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  z-index:10000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.comment-modal-overlay.open{
+  display:flex;
+}
+.comment-modal{
+  background:#141418;
+  border:1px solid var(--border-hover);
+  border-radius:16px;
+  width:480px;
+  max-width:90vw;
+  max-height:70vh;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 32px 80px -16px rgba(0,0,0,.8);
+}
+.comment-modal-header{
+  padding:20px 24px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.comment-modal-header h3{
+  font-family:var(--syne);
+  font-size:16px;
+  font-weight:700;
+  color:var(--text);
+}
+.comment-modal-close{
+  width:32px;height:32px;
+  border-radius:8px;
+  border:none;
+  background:rgba(255,255,255,.05);
+  color:var(--text-dim);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  transition:all .2s;
+}
+.comment-modal-close:hover{
+  background:rgba(255,255,255,.1);
+  color:var(--text);
+}
+.comment-list{
+  flex:1;
+  overflow-y:auto;
+  padding:16px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.comment-list:empty::after{
+  content:'No comments yet';
+  color:var(--text-dim);
+  font-size:13px;
+  text-align:center;
+  padding:24px 0;
+}
+.comment-item{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 16px;
+}
+.comment-item-text{
+  font-size:14px;
+  color:var(--text);
+  line-height:1.5;
+}
+.comment-item-time{
+  font-size:11px;
+  color:var(--text-dim);
+  margin-top:6px;
+}
+.comment-input-row{
+  padding:16px 24px;
+  border-top:1px solid var(--border);
+  display:flex;
+  gap:8px;
+}
+.comment-input{
+  flex:1;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 14px;
+  color:var(--text);
+  font-family:var(--dm);
+  font-size:13px;
+  outline:none;
+  transition:border-color .2s;
+}
+.comment-input:focus{
+  border-color:var(--accent);
+}
+.comment-input::placeholder{
+  color:var(--text-dim);
+}
+.comment-submit{
+  padding:10px 18px;
+  border-radius:10px;
+  border:none;
+  background:var(--accent);
+  color:#08080a;
+  font-family:var(--syne);
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .2s;
+}
+.comment-submit:hover{
+  filter:brightness(1.1);
 }
 
 /* ── Card info ── */
@@ -450,10 +638,10 @@ body::after{
 }
 .card-num{
   font-family:var(--syne);
-  font-size:11px;
-  font-weight:700;
+  font-size:15px;
+  font-weight:800;
   letter-spacing:2px;
-  color:var(--text-muted);
+  color:#fff;
   text-transform:uppercase;
 }
 .card-name{
@@ -479,6 +667,114 @@ body::after{
   to{opacity:1;transform:translateY(0)}
 }
 
+/* ── Vertical Dropdown (responsive) ── */
+.nav-dropdown{
+  position:relative;
+  display:none;
+}
+.nav-dropdown-trigger{
+  font-family:var(--syne);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.3px;
+  padding:10px 20px;
+  border-radius:12px;
+  border:1px solid rgba(232,168,73,.3);
+  background:var(--accent-glow);
+  color:var(--accent);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:all .25s ease;
+  white-space:nowrap;
+}
+.nav-dropdown-trigger:hover{
+  background:rgba(232,168,73,.2);
+  border-color:rgba(232,168,73,.5);
+}
+.nav-dropdown-trigger svg{
+  width:12px;height:12px;
+  stroke:currentColor;fill:none;stroke-width:2.5;
+  transition:transform .25s ease;
+}
+.nav-dropdown.open .nav-dropdown-trigger svg{
+  transform:rotate(180deg);
+}
+.nav-dropdown-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;
+  min-width:260px;
+  background:rgba(18,18,22,.97);
+  backdrop-filter:blur(32px) saturate(1.4);
+  -webkit-backdrop-filter:blur(32px) saturate(1.4);
+  border:1px solid var(--border-hover);
+  border-radius:14px;
+  padding:6px;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-8px);
+  transition:all .2s ease;
+  z-index:500;
+  box-shadow:0 24px 64px -12px rgba(0,0,0,.7);
+}
+.nav-dropdown.open .nav-dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.nav-dropdown-item{
+  font-family:var(--syne);
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.2px;
+  padding:12px 16px;
+  border-radius:10px;
+  border:none;
+  background:none;
+  color:var(--text-dim);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:100%;
+  text-align:left;
+  transition:all .15s ease;
+}
+.nav-dropdown-item:hover{
+  background:rgba(255,255,255,.05);
+  color:var(--text);
+}
+.nav-dropdown-item.active{
+  color:var(--accent);
+  background:var(--accent-glow);
+}
+.nav-dropdown-item svg{
+  width:16px;height:16px;
+  stroke:currentColor;fill:none;stroke-width:2;
+  flex-shrink:0;
+}
+.nav-dropdown-item .item-count{
+  margin-left:auto;
+  font-size:11px;
+  font-weight:500;
+  color:var(--text-muted);
+  font-family:var(--dm);
+}
+.nav-dropdown-divider{
+  height:1px;
+  background:var(--border);
+  margin:4px 8px;
+}
+
+/* when dropdown is active, hide the inline buttons */
+.top-nav.use-dropdown .nav-section .nav-link[data-vertical]{display:none}
+.top-nav.use-dropdown .nav-label{display:none}
+.top-nav.use-dropdown .nav-dropdown{display:block}
+.top-nav.use-dropdown .nav-divider{display:none}
+.top-nav.use-dropdown .nav-link--proposals{display:none}
+
 /* ── Responsive ── */
 @media(max-width:1200px){
   :root{--cols:2}
@@ -487,14 +783,13 @@ body::after{
 @media(max-width:768px){
   :root{--cols:1}
   .top-nav,.header,.hero,.filter-bar,.grid-wrap{padding-left:20px;padding-right:20px}
-  .top-nav{gap:2px;padding:10px 16px;flex-wrap:wrap}
-  .nav-label{display:none}
-  .nav-link{font-size:12px;padding:7px 14px}
+  .top-nav{gap:2px;padding:10px 16px}
   .nav-divider{margin:0 4px}
   .header{height:60px}
   .hero{padding-top:40px;padding-bottom:32px}
   .hero h1{letter-spacing:-1px}
   .card-preview iframe{width:1200px;height:920px}
+  .nav-tool span{display:none}
 }
 </style>
 </head>
@@ -502,22 +797,61 @@ body::after{
 
 <!-- ── Top Navigation — Vertical Tabs ── -->
 <nav class="top-nav">
-  <div class="nav-section">
-    <span class="nav-label">Verticals</span>
-    <button class="nav-link nav-link--active" data-vertical="dentists">
-      <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 3-2 5.5-4 8l-3 5-3-5c-2-2.5-4-5-4-8a7 7 0 017-7z"/><circle cx="12" cy="9" r="2"/></svg>
-      Dentists
-    </button>
-    <button class="nav-link nav-link--inactive" data-vertical="auto-repair">
-      <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-      Auto Repair
-    </button>
+  <div class="nav-left">
+    <div class="nav-section">
+      <div class="nav-dropdown" id="nav-dropdown">
+        <button class="nav-dropdown-trigger" id="dropdown-trigger">
+          <span id="dropdown-label">Dentists</span>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="dropdown-menu"></div>
+      </div>
+      <span class="nav-label">Verticals</span>
+      <button class="nav-link nav-link--active" data-vertical="dentists">
+        <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 3-2 5.5-4 8l-3 5-3-5c-2-2.5-4-5-4-8a7 7 0 017-7z"/><circle cx="12" cy="9" r="2"/></svg>
+        Dentists
+      </button>
+      <button class="nav-link nav-link--inactive" data-vertical="auto-repair">
+        <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        Auto Repair
+      </button>
+      <button class="nav-link nav-link--inactive" data-vertical="landscaping">
+        <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75"/></svg>
+        Landscaping
+      </button>
+      <button class="nav-link nav-link--inactive" data-vertical="veterinarians">
+        <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5M14 5.172C14 3.782 15.577 2.679 17.5 3c2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.96-1.45-2.344-2.5"/><path d="M8 14v.5M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75z"/><path d="M4.42 11.247A13.152 13.152 0 004 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 00-.493-3.309"/></svg>
+        Veterinarians
+      </button>
+      <button class="nav-link nav-link--inactive" data-vertical="med-spas">
+        <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Med Spas
+      </button>
+      <button class="nav-link nav-link--inactive" data-vertical="hvac">
+        <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+        HVAC
+      </button>
+    </div>
+    <span class="nav-divider"></span>
+    <a href="proposals/gallery.html" class="nav-link nav-link--proposals nav-link--inactive" style="text-decoration:none">
+      <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Proposals
+    </a>
   </div>
-  <span class="nav-divider"></span>
-  <button class="nav-link nav-link--proposals nav-link--inactive" data-vertical="proposals">
-    <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-    Proposals
-  </button>
+  <div class="nav-right">
+    <button class="nav-tool" onclick="exportGalleryFeedback()" title="Export likes & comments as JSON">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Export Feedback</span>
+    </button>
+    <a href="../tools/builder/editor.html" target="_blank" class="nav-tool" style="text-decoration:none">
+      <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Editor
+    </a>
+    <a href="../tools/builder/index.html" target="_blank" class="nav-tool" style="text-decoration:none">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Sections
+    </a>
+  </div>
 </nav>
 
 <header class="header">
@@ -551,6 +885,21 @@ body::after{
 
 <div class="grid-wrap">
   <div class="grid" id="gallery"></div>
+</div>
+
+<!-- Comment Modal -->
+<div class="comment-modal-overlay" id="commentModal">
+  <div class="comment-modal">
+    <div class="comment-modal-header">
+      <h3 id="commentModalTitle">Comments</h3>
+      <button class="comment-modal-close" onclick="closeCommentModal()">&times;</button>
+    </div>
+    <div class="comment-list" id="commentList"></div>
+    <div class="comment-input-row">
+      <input class="comment-input" id="commentInput" type="text" placeholder="Add a comment..." onkeydown="if(event.key==='Enter')addComment()">
+      <button class="comment-submit" onclick="addComment()">Add</button>
+    </div>
+  </div>
 </div>
 
 <!-- Empty state (shown when vertical has no templates) -->
@@ -616,6 +965,9 @@ const verticals = {
       { label: 'Editorial', value: 'editorial' },
       { label: 'Brutalist', value: 'brutalist' },
       { label: 'Bold', value: 'bold' },
+      { label: 'Industrial', value: 'industrial' },
+      { label: 'Luxury', value: 'luxury' },
+      { label: 'Vintage', value: 'vintage' },
     ],
     templates: [
       { id:1,  name:'Dark Professional',   tags:['dark'] },
@@ -634,33 +986,122 @@ const verticals = {
       { id:14, name:'Scroll Narrative',     tags:['dark','bold'] },
       { id:15, name:'Parallax Layers',      tags:['dark','bold'] },
       { id:16, name:'Reveal Cascade',       tags:['light','bold'] },
+      { id:17, name:'Midnight Garage',      tags:['dark','bold'] },
+      { id:18, name:'Warm Workshop',        tags:['light'] },
+      { id:19, name:'Neon Mechanic',        tags:['dark','bold'] },
+      { id:20, name:'Editorial Garage',     tags:['light','editorial'] },
+      { id:21, name:'Patriot Blue',         tags:['dark','bold'] },
+      { id:22, name:'Copper Industrial',    tags:['dark','industrial'] },
+      { id:23, name:'Clean Minimalist',     tags:['light'] },
+      { id:24, name:'Vintage Garage',       tags:['light','vintage'] },
+      { id:25, name:'Speed Racing',         tags:['dark','bold'] },
+      { id:26, name:'Luxury Auto',          tags:['dark','luxury'] },
     ],
     getPath: (t, suffix) => `auto-repair/website/template-${t.id}/template_example-${t.id}${suffix}.html`,
   },
-  proposals: {
-    label: 'Proposals',
-    basePath: 'proposals',
-    heroTitle: 'Proposal Templates<br>for <span>Client Outreach</span>',
+  landscaping: {
+    label: 'Landscaping',
+    basePath: 'landscaping/website',
+    heroTitle: 'Landing Pages<br>for <span>Landscaping Companies</span>',
     filters: [
       { label: 'All', value: 'all' },
-      { label: 'Dark', value: 'dark' },
       { label: 'Light', value: 'light' },
-      { label: 'Ornate', value: 'ornate' },
-      { label: 'Minimal', value: 'minimal' },
+      { label: 'Dark', value: 'dark' },
+      { label: 'Editorial', value: 'editorial' },
+      { label: 'Brutalist', value: 'brutalist' },
+      { label: 'Bold', value: 'bold' },
     ],
     templates: [
-      { id:1,  file:'template-1-gazette',    name:'Gazette',     tags:['dark'] },
-      { id:2,  file:'template-2-bloom',      name:'Bloom',       tags:['light','ornate'] },
-      { id:3,  file:'template-3-swiss',      name:'Swiss',       tags:['light','minimal'] },
-      { id:4,  file:'template-4-dusk',       name:'Dusk',        tags:['dark'] },
-      { id:5,  file:'template-5-citrus',     name:'Citrus',      tags:['light','ornate'] },
-      { id:6,  file:'template-6-frost',      name:'Frost',       tags:['light','minimal'] },
-      { id:7,  file:'template-7-sakura',     name:'Sakura',      tags:['light','ornate'] },
-      { id:8,  file:'template-8-twilight',   name:'Twilight',    tags:['dark','ornate'] },
-      { id:9,  file:'template-9-porcelain',  name:'Porcelain',   tags:['light'] },
-      { id:10, file:'template-10-amethyst',  name:'Amethyst',    tags:['dark','ornate'] },
+      { id:1, name:'Forest Editorial',   tags:['light','editorial'] },
+      { id:2, name:'Dark Earth',          tags:['dark','editorial'] },
+      { id:3, name:'Brutalist Nature',    tags:['light','brutalist'] },
+      { id:4, name:'Scroll Narrative',    tags:['dark','bold'] },
+      { id:5, name:'Parallax Layers',     tags:['dark','bold'] },
+      { id:6, name:'Reveal Cascade',      tags:['light','bold'] },
+      { id:7, name:'Cinematic Split',     tags:['dark','bold'] },
+      { id:8, name:'Organic Flow',        tags:['light','bold'] },
+      { id:9, name:'Zen Minimalist',     tags:['light'] },
+      { id:10, name:'Neon Garden',        tags:['dark','bold'] },
+      { id:11, name:'Warm Rustic',        tags:['light'] },
+      { id:12, name:'Magazine Spread',    tags:['light','editorial'] },
+      { id:13, name:'Dark Botanical',     tags:['dark','editorial'] },
     ],
-    getPath: (t, suffix) => `proposals/${t.file}${suffix}.html`,
+    getPath: (t, suffix) => `landscaping/website/template-${t.id}/template_example-${t.id}${suffix}.html`,
+  },
+  veterinarians: {
+    label: 'Veterinarians',
+    basePath: 'veterinarians/website',
+    heroTitle: 'Landing Pages<br>for <span>Veterinary Clinics</span>',
+    filters: [
+      { label: 'All', value: 'all' },
+      { label: 'Light', value: 'light' },
+      { label: 'Dark', value: 'dark' },
+      { label: 'Editorial', value: 'editorial' },
+      { label: 'Bold', value: 'bold' },
+    ],
+    templates: [
+      { id:1,  name:'Warm Trust',        tags:['light'] },
+      { id:2,  name:'Dark Clinical',     tags:['dark'] },
+      { id:3,  name:'Playful Paws',      tags:['light','bold'] },
+      { id:4,  name:'Editorial Vet',     tags:['light','editorial'] },
+      { id:5,  name:'Cinematic Care',    tags:['dark','bold'] },
+      { id:6,  name:'Organic Wellness',  tags:['light'] },
+      { id:7,  name:'Bold Emergency',    tags:['dark','bold'] },
+      { id:8,  name:'Minimalist Clinic', tags:['light'] },
+      { id:9,  name:'Neon Vet',          tags:['dark','bold'] },
+      { id:10, name:'Rustic Companion',  tags:['light'] },
+    ],
+    getPath: (t, suffix) => `veterinarians/website/template-${t.id}/template_example-${t.id}${suffix}.html`,
+  },
+  'med-spas': {
+    label: 'Med Spas',
+    basePath: 'med-spas/website',
+    heroTitle: 'Landing Pages<br>for <span>Med Spas & Aesthetics</span>',
+    filters: [
+      { label: 'All', value: 'all' },
+      { label: 'Light', value: 'light' },
+      { label: 'Dark', value: 'dark' },
+      { label: 'Editorial', value: 'editorial' },
+      { label: 'Bold', value: 'bold' },
+    ],
+    templates: [
+      { id:1,  name:'Quiet Luxury',      tags:['light','editorial'] },
+      { id:2,  name:'Dark Glam',         tags:['dark'] },
+      { id:3,  name:'Marble Elegance',   tags:['light'] },
+      { id:4,  name:'Bold Beauty',       tags:['dark','bold'] },
+      { id:5,  name:'Rose Gold',         tags:['light'] },
+      { id:6,  name:'Noir Aesthetic',    tags:['dark','editorial'] },
+      { id:7,  name:'Editorial Glow',    tags:['light','editorial'] },
+      { id:8,  name:'Cinematic Spa',     tags:['dark','bold'] },
+      { id:9,  name:'Zen Serenity',      tags:['light'] },
+      { id:10, name:'Neon Glam',         tags:['dark','bold'] },
+    ],
+    getPath: (t, suffix) => `med-spas/website/template-${t.id}/template_example-${t.id}${suffix}.html`,
+  },
+  hvac: {
+    label: 'HVAC',
+    basePath: 'hvac/website',
+    heroTitle: 'Landing Pages<br>for <span>HVAC Companies</span>',
+    filters: [
+      { label: 'All', value: 'all' },
+      { label: 'Light', value: 'light' },
+      { label: 'Dark', value: 'dark' },
+      { label: 'Editorial', value: 'editorial' },
+      { label: 'Bold', value: 'bold' },
+    ],
+    templates: [
+      { id:1,  name:'Trust Blue',        tags:['light'] },
+      { id:2,  name:'Dark Industrial',   tags:['dark','bold'] },
+      { id:3,  name:'Bold Emergency',    tags:['dark','bold'] },
+      { id:4,  name:'Clean Pro',         tags:['light'] },
+      { id:5,  name:'Patriot',           tags:['light'] },
+      { id:6,  name:'Night Shift',       tags:['dark'] },
+      { id:7,  name:'Editorial Tech',    tags:['light','editorial'] },
+      { id:8,  name:'Slate Pro',         tags:['dark'] },
+      { id:9,  name:'Warm Home',         tags:['light'] },
+      { id:10, name:'Neon HVAC',         tags:['dark','bold'] },
+    ],
+    getPath: (t, suffix) => `hvac/website/template-${t.id}/template_example-${t.id}${suffix}.html`,
   },
 };
 
@@ -675,6 +1116,18 @@ const heroSub = document.getElementById('hero-sub');
 const filterBar = document.getElementById('filter-bar');
 const emptyState = document.getElementById('empty-state');
 const templateCount = document.getElementById('template-count');
+
+/* ── Feedback State (localStorage) ── */
+function loadFeedback(key) {
+  try { return JSON.parse(localStorage.getItem(key) || '{}'); }
+  catch { return {}; }
+}
+function saveLikes() { localStorage.setItem('gallery-likes', JSON.stringify(galleryLikes)); }
+function saveComments() { localStorage.setItem('gallery-comments', JSON.stringify(galleryComments)); }
+
+let galleryLikes = loadFeedback('gallery-likes');       // { "dentists-5": true }
+let galleryComments = loadFeedback('gallery-comments'); // { "dentists-5": [{text, timestamp}] }
+let commentModalKey = null;
 
 /* ── Render ── */
 function getLangSuffix() {
@@ -703,6 +1156,10 @@ function renderCards() {
 
   filtered.forEach((t, i) => {
     const path = v.getPath(t, suffix);
+    const feedbackKey = `${currentVertical}-${t.id}`;
+    const isLiked = galleryLikes[feedbackKey];
+    const commentCount = (galleryComments[feedbackKey] || []).length;
+
     const card = document.createElement('a');
     card.className = 'card';
     card.href = path;
@@ -711,7 +1168,18 @@ function renderCards() {
     card.innerHTML = `
       <div class="card-preview">
         <iframe src="${path}" loading="lazy" tabindex="-1" sandbox="allow-same-origin"></iframe>
-        <div class="card-open">
+        <button class="card-action card-comment" data-key="${feedbackKey}" data-name="${t.name}" title="Comments">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+          ${commentCount ? `<span class="comment-count">${commentCount}</span>` : ''}
+        </button>
+        <button class="card-action card-heart ${isLiked ? 'liked' : ''}" data-key="${feedbackKey}" title="Like">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </button>
+        <div class="card-action card-open">
           <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
             <polyline points="15 3 21 3 21 9"/>
@@ -727,6 +1195,26 @@ function renderCards() {
         <span class="card-tag">${t.tags[0]}</span>
       </div>
     `;
+
+    // Heart click handler
+    card.querySelector('.card-heart').addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      const btn = e.currentTarget;
+      const key = btn.dataset.key;
+      if (galleryLikes[key]) { delete galleryLikes[key]; btn.classList.remove('liked'); }
+      else { galleryLikes[key] = true; btn.classList.add('liked'); }
+      saveLikes();
+    });
+
+    // Comment click handler
+    card.querySelector('.card-comment').addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      const btn = e.currentTarget;
+      openCommentModal(btn.dataset.key, btn.dataset.name);
+    });
+
     grid.appendChild(card);
 
     requestAnimationFrame(() => {
@@ -816,6 +1304,174 @@ window.addEventListener('resize', () => {
     });
   }, 100);
 });
+
+/* ── Responsive Dropdown ── */
+const topNav = document.querySelector('.top-nav');
+const navSection = document.querySelector('.nav-section');
+const navDropdown = document.getElementById('nav-dropdown');
+const dropdownTrigger = document.getElementById('dropdown-trigger');
+const dropdownLabel = document.getElementById('dropdown-label');
+const dropdownMenu = document.getElementById('dropdown-menu');
+
+// Get SVG icon from the inline button for each vertical
+function getVerticalIcon(key) {
+  const btn = document.querySelector(`.nav-link[data-vertical="${key}"] svg`);
+  return btn ? btn.outerHTML.replace(/style="[^"]*"/,'') : '';
+}
+
+function buildDropdownMenu() {
+  dropdownMenu.innerHTML = '';
+  const keys = Object.keys(verticals);
+  keys.forEach((key, i) => {
+    const v = verticals[key];
+    const btn = document.createElement('button');
+    btn.className = 'nav-dropdown-item' + (key === currentVertical ? ' active' : '');
+    btn.dataset.vertical = key;
+    const icon = getVerticalIcon(key);
+    btn.innerHTML = `${icon}<span>${v.label}</span><span class="item-count">${v.templates.length}</span>`;
+    btn.addEventListener('click', () => {
+      switchVertical(key);
+      navDropdown.classList.remove('open');
+    });
+    dropdownMenu.appendChild(btn);
+
+    // Add divider after regular verticals, before proposals
+    if (i === keys.length - 1) {
+      const proposalLink = document.querySelector('.nav-link--proposals');
+      if (proposalLink) {
+        const div = document.createElement('div');
+        div.className = 'nav-dropdown-divider';
+        dropdownMenu.appendChild(div);
+        const pItem = document.createElement('a');
+        pItem.className = 'nav-dropdown-item';
+        pItem.href = proposalLink.href;
+        pItem.style.textDecoration = 'none';
+        pItem.innerHTML = `${proposalLink.querySelector('svg')?.outerHTML.replace(/style="[^"]*"/,'') || ''}<span>Proposals</span>`;
+        dropdownMenu.appendChild(pItem);
+      }
+    }
+  });
+}
+
+function updateDropdownLabel() {
+  const v = verticals[currentVertical];
+  dropdownLabel.textContent = v.label;
+  dropdownMenu.querySelectorAll('.nav-dropdown-item').forEach(item => {
+    item.classList.toggle('active', item.dataset.vertical === currentVertical);
+  });
+}
+
+dropdownTrigger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  navDropdown.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+  if (!navDropdown.contains(e.target)) {
+    navDropdown.classList.remove('open');
+  }
+});
+
+// Detect overflow: check if nav-left scrollWidth exceeds its visible width
+function checkNavOverflow() {
+  // Temporarily show buttons to measure
+  topNav.classList.remove('use-dropdown');
+  const navLeft = document.querySelector('.nav-left');
+
+  // Force layout recalc
+  void navLeft.offsetWidth;
+
+  if (navLeft.scrollWidth > navLeft.clientWidth + 4) {
+    topNav.classList.add('use-dropdown');
+  }
+}
+
+// Patch switchVertical to also update dropdown
+const origSwitchVertical = switchVertical;
+switchVertical = function(key) {
+  origSwitchVertical(key);
+  updateDropdownLabel();
+};
+
+buildDropdownMenu();
+updateDropdownLabel();
+
+const navObserver = new ResizeObserver(() => checkNavOverflow());
+navObserver.observe(topNav);
+// Initial check after a tick
+requestAnimationFrame(checkNavOverflow);
+
+/* ── Comment Modal ── */
+function openCommentModal(key, name) {
+  commentModalKey = key;
+  document.getElementById('commentModalTitle').textContent = `Comments — ${name}`;
+  renderCommentList();
+  document.getElementById('commentModal').classList.add('open');
+  setTimeout(() => document.getElementById('commentInput').focus(), 100);
+}
+
+function closeCommentModal() {
+  document.getElementById('commentModal').classList.remove('open');
+  commentModalKey = null;
+}
+
+function renderCommentList() {
+  const list = document.getElementById('commentList');
+  const comments = galleryComments[commentModalKey] || [];
+  list.innerHTML = comments.map(c => `
+    <div class="comment-item">
+      <div class="comment-item-text">${c.text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+      <div class="comment-item-time">${new Date(c.timestamp).toLocaleString()}</div>
+    </div>
+  `).join('');
+}
+
+function addComment() {
+  const input = document.getElementById('commentInput');
+  const text = input.value.trim();
+  if (!text || !commentModalKey) return;
+  if (!galleryComments[commentModalKey]) galleryComments[commentModalKey] = [];
+  galleryComments[commentModalKey].push({ text, timestamp: Date.now() });
+  saveComments();
+  input.value = '';
+  renderCommentList();
+  // Update badge on the card
+  const badge = document.querySelector(`.card-comment[data-key="${commentModalKey}"]`);
+  if (badge) {
+    const count = galleryComments[commentModalKey].length;
+    let span = badge.querySelector('.comment-count');
+    if (!span) { span = document.createElement('span'); span.className = 'comment-count'; badge.appendChild(span); }
+    span.textContent = count;
+  }
+}
+
+// Close modal on overlay click
+document.getElementById('commentModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeCommentModal();
+});
+
+/* ── Export Gallery Feedback ── */
+function exportGalleryFeedback() {
+  const likedTemplates = Object.keys(galleryLikes).filter(k => galleryLikes[k]);
+  const totalComments = Object.values(galleryComments).reduce((sum, arr) => sum + arr.length, 0);
+  const data = {
+    source: 'gallery',
+    exportDate: new Date().toISOString(),
+    gallery: { likes: galleryLikes, comments: galleryComments },
+    summary: {
+      totalLikes: likedTemplates.length,
+      totalComments,
+      likedTemplates,
+    }
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `gallery-feedback-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
 
 /* ── Init ── */
 renderFilters();

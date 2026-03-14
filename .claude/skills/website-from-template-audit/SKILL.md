@@ -9,10 +9,14 @@ Verify that a generated website is production-ready: no generic content, no layo
 
 ## Trigger
 
-User provides a path to a generated website folder (e.g., `{Vertical}/reports/output/{business-folder}/`) OR a live URL on the server.
+User provides a path to:
+- A **generated website** folder (e.g., `{Vertical}/reports/output/{business-folder}/`)
+- A **template** folder (e.g., `templates/{vertical}/website/template-{N}/`)
+- A live URL on the server
 
 ## Prerequisites
-- `create-website-from-template` → generated website folder with `index.html` and `content.md` must exist
+- For generated websites: `create-website-from-template` → generated website folder with `index.html` and `content.md` must exist
+- For templates: the template HTML must exist (audits demo content quality instead of content.md matching)
 
 ## Inputs
 
@@ -134,12 +138,40 @@ document.querySelectorAll('img').forEach(img => {
 - [ ] Images have appropriate alt text (not empty, not "image1")
 - [ ] Hero background image loads
 
-### 3e: Scroll & Animation Check
-Scroll through the full page with Playwright:
-- [ ] `.reveal` elements become `.visible` on scroll
+### 3e: Scroll & Animation Check (CRITICAL — must catch all patterns)
+
+Use Playwright to scroll through the full page and verify animations work correctly.
+
+**Basic scroll checks:**
+- [ ] `.reveal` / `.animate-on-scroll` elements become `.visible` on scroll
 - [ ] No layout jumps or shifts during scroll
 - [ ] Lazy-loaded images load when scrolled into view
 - [ ] Navbar becomes fixed/frosted on scroll
+
+**Pinned section checks (stats, reviews, testimonials with ScrollTrigger pin):**
+- [ ] Scroll through each pinned section slowly — each slide must appear AND disappear cleanly
+- [ ] No overlapping text between slides at any scroll position
+- [ ] Conclusion/summary slide appears only after all slides have exited
+- [ ] Take a screenshot mid-transition between slides to verify no overlap
+
+**Animation code audit (read the JS, not just visual):**
+- [ ] **NO CSS opacity:0 on content**: Search for `opacity:0` or `opacity: 0` in CSS — content elements (headings, paragraphs, cards, sections) MUST NOT start hidden. GSAP `.from()` handles animation. Classes like `.gsap-fade{opacity:0}` are BANNED — they make content invisible if JS fails. FIX: remove `opacity:0` from CSS, let GSAP handle it via `.from({opacity:0})`
+- [ ] **Subtitle not inside h1**: Verify subtitle/subheading text is in a `<p>` tag, NOT inside `<h1>`. Subtitle text inside `<h1>` renders at headline size
+- [ ] **Hero word-break**: Hero headline CSS must include `word-break:keep-all` — words must never break mid-word
+- [ ] If SplitType is used, verify no manual `<span class="word">` wrappers exist on the same element
+- [ ] If Lenis is used, verify only ONE raf integration exists (gsap.ticker.add OR requestAnimationFrame, never both)
+- [ ] If Lenis is used, verify `lenis.on('scroll', ScrollTrigger.update)` exists after Lenis init
+- [ ] If Lenis is used, verify it's wrapped inside `if (!prefersReducedMotion)` — smooth scroll must not run for reduced-motion users
+- [ ] Verify `gsap.registerPlugin(ScrollTrigger)` appears before any ScrollTrigger usage (including `ScrollTrigger.update` in Lenis sync)
+- [ ] Verify all CSS selector blocks have closing `}` — scan for unclosed rules that silently break styles below
+
+**Overlap detection (automated):**
+Run this Playwright evaluate at multiple scroll positions through pinned sections:
+```javascript
+const visible = [...document.querySelectorAll('.stat-slide, .review-slide, [class*="slide"]')]
+  .filter(el => getComputedStyle(el).opacity > 0.5);
+if (visible.length > 1) console.error('OVERLAP: multiple slides visible simultaneously');
+```
 
 ---
 
@@ -219,6 +251,36 @@ Output to `{website-folder}/audit-report.md`:
 
 ## Severity Levels
 
-- **CRITICAL (blocks shipping):** Wrong business name, placeholder content, remaining `{{...}}` tokens, wrong phone number, wrong reviews, wrong JSON-LD schema type, broken layout on any viewport
+- **CRITICAL (blocks shipping):** Wrong business name, placeholder content, remaining `{{...}}` tokens, wrong phone number, wrong reviews, wrong JSON-LD schema type, broken layout on any viewport, overlapping content in pinned scroll sections, scroll animations that never trigger (opacity:1 initial state with .visible pattern), Lenis double-raf causing jittery scrolling
 - **WARNING (fix but can ship):** Missing alt text, minor spacing issues, missing meta description
 - **INFO:** Suggestions for improvement (better image compression, etc.)
+
+---
+
+## Template-Specific Audit (when auditing a template, not a generated site)
+
+When the path points to a `templates/{vertical}/website/template-{N}/` folder (not a generated site), run these checks instead of content.md matching:
+
+### Demo Content Check (CRITICAL — automatic FAIL if any remain)
+```bash
+grep -c '{{' template_example-{N}.html
+```
+- [ ] Count is **0** — no `{{PLACEHOLDER}}` tokens remain
+- [ ] Business name is a real demo name (not "Business Name" or "{{BUSINESS_NAME}}")
+- [ ] Phone number is a real demo number (not "000-000-0000" or "{{PHONE}}")
+- [ ] Reviews have real names and text (not "Customer Name" or "Review text here")
+- [ ] Services have real names (not "Service 1" or "{{SERVICE_1}}")
+- [ ] About section has a real paragraph (not lorem ipsum or placeholder)
+
+### File Structure Check
+- [ ] `template_example-{N}.html` exists
+- [ ] `template-manifest.json` exists
+- [ ] `blog.html` exists with 3 article cards
+- [ ] `blog/` folder exists with 3 subfolders, each containing `index.html`
+- [ ] Blog pages match the template's design (same nav, footer, colors, fonts)
+
+### Technical Checks (same as generated site)
+- Run all Layer 4 animation checks (Lenis CDN, sync, opacity, etc.)
+- Run responsive checks at 1440px, 768px, 375px
+- Verify JSON-LD schema data uses demo values (not placeholders)
+- Check all image paths resolve to files in the shared images folder

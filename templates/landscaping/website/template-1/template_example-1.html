@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GreenScape Pro | Premium Landscaping in Austin, TX</title>
+<meta name="description" content="GreenScape Pro delivers expert landscape design, lawn care, hardscaping, and outdoor living spaces in Austin, TX. 4.9★ rated, 312+ reviews. Call (555) 739-2841.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+  "name": "GreenScape Pro",
+  "description": "Premium landscaping services in Austin, TX. Landscape design, lawn care, hardscaping, outdoor living spaces, irrigation systems, and landscape lighting.",
+  "telephone": "(555) 739-2841",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Austin",
+    "addressRegion": "TX",
+    "postalCode": "78745"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "30.2672",
+    "longitude": "-97.7431"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312"
+  },
+  "foundingDate": "2011",
+  "founder": {
+    "@type": "Person",
+    "name": "Mike Anderson"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Austin"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Sa 07:00-18:00",
+  "url": "https://greenscapepro.com"
+}
+</script>
+
+<style>
+/* ── Reset & Base ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --forest: #1B4332;
+  --forest-light: #2D6A4F;
+  --forest-dark: #0F2B1F;
+  --cream: #FAF3E0;
+  --cream-dark: #F0E6CC;
+  --sunset: #E76F51;
+  --sunset-hover: #D4573A;
+  --brown: #5C4033;
+  --brown-light: #7A5E50;
+  --brown-muted: #8B7355;
+  --text-muted: #9A8B7A;
+  --border: rgba(27,67,50,0.12);
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --h1-hero: clamp(42px, 7.5vw, 82px);
+  --h2: clamp(28px, 4vw, 48px);
+  --h3: clamp(20px, 2.5vw, 28px);
+  --body: clamp(16px, 1.1vw, 18px);
+  --small: clamp(12px, 0.9vw, 14px);
+  --nav-height: 72px;
+  --section-pad: clamp(80px, 10vw, 140px);
+  --container: min(1280px, 90vw);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--sans);
+  font-size: var(--body);
+  color: var(--brown);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+ul, ol { list-style: none; }
+
+.container { width: var(--container); margin: 0 auto; }
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  color: var(--forest);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+/* ── PREFERS REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .anim-fade,
+  .anim-fade-left,
+  .anim-fade-right,
+  .anim-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 1000;
+  transition: background 0.4s, box-shadow 0.4s, backdrop-filter 0.4s;
+}
+
+.nav.scrolled {
+  background: rgba(250, 243, 224, 0.85);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.nav-inner {
+  width: var(--container);
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--forest);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo svg {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brown);
+  position: relative;
+  transition: color 0.3s;
+  letter-spacing: 0.3px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--forest);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--forest); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-phone {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--forest);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-phone svg { width: 16px; height: 16px; }
+
+.nav-cta {
+  background: var(--sunset);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(231, 111, 81, 0.35);
+  background: var(--sunset-hover);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--forest);
+  transition: transform 0.3s, opacity 0.3s;
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--cream);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--forest);
+  font-weight: 700;
+}
+
+.mobile-menu .nav-cta {
+  font-size: 18px;
+  padding: 16px 40px;
+}
+
+@media (max-width: 768px) {
+  .nav-links, .nav-phone { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+  .nav-right .nav-cta { display: none; }
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--nav-height) + 40px) 0 80px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(45,106,79,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 80%, rgba(27,67,50,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(15,43,31,0.15) 0%, transparent 70%),
+    linear-gradient(175deg, #1B4332 0%, #0F2B1F 35%, #143328 65%, #1B4332 100%);
+  z-index: 0;
+}
+
+.hero-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 70%, rgba(231,111,81,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(250,243,224,0.06) 0%, transparent 35%);
+}
+
+/* Decorative leaf pattern - SVG */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 10 Q70 30 60 50 Q50 30 60 10Z' fill='rgba(250,243,224,0.02)'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+  opacity: 0.5;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,43,31,0.3) 0%, rgba(15,43,31,0.1) 50%, rgba(15,43,31,0.5) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 24px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--small);
+  font-weight: 600;
+  color: rgba(250,243,224,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: rgba(250,243,224,0.3);
+}
+
+.hero-h1 {
+  font-size: var(--h1-hero);
+  color: var(--cream);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(250,243,224,0.85);
+}
+
+.hero-sub {
+  font-size: clamp(17px, 1.3vw, 20px);
+  color: rgba(250,243,224,0.75);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.btn-primary {
+  background: var(--sunset);
+  color: #fff;
+  padding: 16px 36px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(231,111,81,0.4);
+  background: var(--sunset-hover);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  padding: 16px 36px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1.5px solid rgba(250,243,224,0.3);
+  transition: transform 0.2s, border-color 0.3s, background 0.3s;
+  min-height: 48px;
+}
+
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  border-color: rgba(250,243,224,0.6);
+  background: rgba(250,243,224,0.06);
+}
+
+.hero-phone {
+  font-size: 15px;
+  color: rgba(250,243,224,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hero-phone a {
+  color: rgba(250,243,224,0.85);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.hero-phone a:hover { color: var(--sunset); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(250,243,224,0.4);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(250,243,224,0.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 0.8; transform: scaleY(1.2); }
+}
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  padding: 60px 0;
+  background: var(--forest);
+  position: relative;
+}
+
+.trust-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15,43,31,0.5) 0%, transparent 50%, rgba(15,43,31,0.5) 100%);
+}
+
+.trust-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.trust-number {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.trust-number .star {
+  color: var(--sunset);
+}
+
+.trust-label {
+  font-size: var(--small);
+  color: rgba(250,243,224,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+.trust-divider {
+  width: 1px;
+  background: rgba(250,243,224,0.15);
+  align-self: stretch;
+  justify-self: end;
+}
+
+@media (max-width: 768px) {
+  .trust-items { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── SECTION SHARED ── */
+.section {
+  padding: var(--section-pad) 0;
+}
+
+.section-eyebrow {
+  font-size: var(--small);
+  font-weight: 600;
+  color: var(--sunset);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: var(--h2);
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.section-subtitle {
+  font-size: var(--body);
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header .section-subtitle {
+  margin: 0 auto;
+}
+
+/* ── SERVICES ── */
+.services {
+  background: var(--cream);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 32px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--forest), var(--forest-light));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(27,67,50,0.12);
+}
+
+.service-card:hover::before { opacity: 1; }
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(27,67,50,0.08), rgba(45,106,79,0.12));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.service-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--forest);
+}
+
+.service-card h3 {
+  font-size: var(--h3);
+  margin-bottom: 12px;
+  color: var(--forest);
+}
+
+.service-card p {
+  color: var(--brown-light);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.service-card .learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--forest);
+  transition: gap 0.3s, color 0.3s;
+}
+
+.service-card:hover .learn-more { gap: 10px; color: var(--sunset); }
+
+@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } }
+
+/* ── BEFORE/AFTER ── */
+.before-after {
+  background: var(--forest-dark);
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.before-after .section-eyebrow { color: var(--sunset); }
+.before-after .section-title { color: var(--cream); }
+.before-after .section-subtitle { color: rgba(250,243,224,0.6); }
+
+.ba-slider-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  cursor: col-resize;
+}
+
+.ba-before, .ba-after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ba-before {
+  background:
+    linear-gradient(135deg, #8B7355 0%, #A0896D 30%, #6B5842 60%, #8B7355 100%);
+  z-index: 1;
+}
+
+.ba-before img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-after {
+  background:
+    linear-gradient(135deg, #2D6A4F 0%, #40916C 30%, #1B4332 60%, #2D6A4F 100%);
+  clip-path: inset(0 0 0 50%);
+  z-index: 2;
+  transition: clip-path 0s;
+}
+
+.ba-after img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-label {
+  position: relative;
+  z-index: 3;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  pointer-events: none;
+}
+
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #fff;
+  z-index: 10;
+  transform: translateX(-50%);
+  pointer-events: none;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.ba-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.ba-handle-arrows {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  pointer-events: none;
+  display: flex;
+  gap: 8px;
+  color: var(--forest);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ba-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+  opacity: 0;
+  cursor: col-resize;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ── ABOUT ── */
+.about {
+  background: #fff;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background:
+    linear-gradient(160deg, var(--forest) 0%, var(--forest-light) 50%, #40916C 100%);
+}
+
+.about-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(250,243,224,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(231,111,81,0.06) 0%, transparent 50%);
+}
+
+.about-visual-label {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.about-content { }
+
+.about-content .section-title {
+  margin-bottom: 24px;
+}
+
+.about-text {
+  color: var(--brown-light);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.about-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.about-stat-number {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--forest);
+}
+
+.about-stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-visual { aspect-ratio: 16 / 9; }
+}
+
+/* ── PORTFOLIO ── */
+.portfolio {
+  background: var(--cream);
+}
+
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brown);
+  transition: all 0.3s;
+  font-family: var(--sans);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--forest);
+  color: var(--cream);
+  border-color: var(--forest);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.portfolio-item {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+.portfolio-item:hover { transform: scale(1.02); }
+
+.portfolio-item:nth-child(1) { background: linear-gradient(135deg, #2D6A4F, #40916C); }
+.portfolio-item:nth-child(2) { background: linear-gradient(135deg, #8B7355, #A0896D); }
+.portfolio-item:nth-child(3) { background: linear-gradient(135deg, #1B4332, #2D6A4F); }
+.portfolio-item:nth-child(4) { background: linear-gradient(135deg, #5C4033, #8B7355); }
+.portfolio-item:nth-child(5) { background: linear-gradient(135deg, #40916C, #52B788); }
+.portfolio-item:nth-child(6) { background: linear-gradient(135deg, #2D6A4F, #1B4332); }
+.portfolio-item:nth-child(7) { background: linear-gradient(135deg, #8B7355, #5C4033); }
+.portfolio-item:nth-child(8) { background: linear-gradient(135deg, #1B4332, #40916C); }
+
+.portfolio-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.portfolio-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1), transparent 60%);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15,43,31,0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+.portfolio-overlay h4 {
+  color: var(--cream);
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.portfolio-overlay span {
+  color: rgba(250,243,224,0.6);
+  font-size: 13px;
+}
+
+@media (max-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .portfolio-grid { grid-template-columns: 1fr; } }
+
+/* ── REVIEWS ── */
+.reviews {
+  background: #fff;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reviews-grid .review-card:first-child {
+  grid-row: span 2;
+}
+
+.review-card {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(27,67,50,0.08);
+}
+
+.review-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.review-stars svg {
+  width: 18px;
+  height: 18px;
+  color: var(--sunset);
+  fill: var(--sunset);
+}
+
+.review-text {
+  font-size: 15px;
+  color: var(--brown);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.reviews-grid .review-card:first-child .review-text {
+  font-size: 17px;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cream);
+}
+
+.review-avatar:nth-of-type(1) { background: var(--forest); }
+
+.review-author-info h4 {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.review-author-info span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reviews-grid .review-card:first-child { grid-row: span 1; }
+}
+
+@media (max-width: 640px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+
+/* ── PROCESS ── */
+.process {
+  background: var(--cream);
+  position: relative;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  position: relative;
+}
+
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 16.66%;
+  right: 16.66%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--forest), var(--forest-light), var(--forest));
+  opacity: 0.2;
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+}
+
+.process-number {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.process-step h3 {
+  font-size: var(--h3);
+  margin-bottom: 12px;
+}
+
+.process-step p {
+  color: var(--brown-light);
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .process-grid::before { display: none; }
+}
+
+/* ── SERVICE AREA ── */
+.service-area {
+  background: #fff;
+}
+
+.area-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.area-map-visual {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(45,106,79,0.15) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(27,67,50,0.05), rgba(45,106,79,0.08));
+  border-radius: 16px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.area-map-visual::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px dashed rgba(27,67,50,0.15);
+  animation: mapPulse 4s ease-in-out infinite;
+}
+
+.area-map-visual::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px dashed rgba(27,67,50,0.08);
+}
+
+@keyframes mapPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.area-map-pin {
+  width: 48px;
+  height: 48px;
+  background: var(--forest);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.area-map-pin svg { width: 24px; height: 24px; color: var(--cream); }
+
+.area-neighborhoods {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.area-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--cream);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--brown);
+  border: 1px solid var(--border);
+}
+
+.area-tag::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--forest);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .area-grid { grid-template-columns: 1fr; gap: 40px; }
+  .area-neighborhoods { grid-template-columns: 1fr; }
+}
+
+/* ── FOOTER CTA ── */
+.footer-cta {
+  background: var(--forest);
+  padding: var(--section-pad) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(231,111,81,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(250,243,224,0.05) 0%, transparent 50%);
+}
+
+.cta-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-text h2 {
+  font-size: var(--h2);
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+
+.cta-text p {
+  color: rgba(250,243,224,0.65);
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.cta-guarantee {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(250,243,224,0.5);
+  font-size: 14px;
+}
+
+.cta-guarantee svg {
+  width: 20px;
+  height: 20px;
+  color: var(--sunset);
+  flex-shrink: 0;
+}
+
+.cta-form {
+  background: rgba(250,243,224,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(250,243,224,0.1);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.cta-form h3 {
+  font-size: 24px;
+  color: var(--cream);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(250,243,224,0.6);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(250,243,224,0.08);
+  border: 1px solid rgba(250,243,224,0.15);
+  border-radius: 8px;
+  color: var(--cream);
+  font-size: 15px;
+  font-family: var(--sans);
+  transition: border-color 0.3s, background 0.3s;
+  outline: none;
+  min-height: 48px;
+}
+
+.form-group input::placeholder { color: rgba(250,243,224,0.35); }
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--sunset);
+  background: rgba(250,243,224,0.12);
+}
+
+.form-group select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(250,243,224,0.5)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.form-group select option {
+  background: var(--forest-dark);
+  color: var(--cream);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-submit {
+  width: 100%;
+  background: var(--sunset);
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+  min-height: 48px;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(231,111,81,0.4);
+  background: var(--sunset-hover);
+}
+
+@media (max-width: 768px) {
+  .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--forest-dark);
+  padding: 80px 0 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 60px;
+}
+
+.footer-brand .nav-logo {
+  margin-bottom: 16px;
+  color: var(--cream);
+}
+
+.footer-brand p {
+  color: rgba(250,243,224,0.5);
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(250,243,224,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.footer-social a:hover {
+  background: rgba(250,243,224,0.15);
+  transform: translateY(-2px);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  color: rgba(250,243,224,0.6);
+}
+
+.footer-col h4 {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(250,243,224,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: rgba(250,243,224,0.6);
+  padding: 6px 0;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover { color: var(--cream); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(250,243,224,0.08);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: rgba(250,243,224,0.35);
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  font-size: 13px;
+  color: rgba(250,243,224,0.35);
+  transition: color 0.3s;
+}
+
+.footer-bottom-links a:hover { color: rgba(250,243,224,0.6); }
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Mobile sticky CTA ── */
+.mobile-sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--forest);
+  padding: 12px 20px;
+  z-index: 998;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+
+.mobile-sticky-cta-inner {
+  display: flex;
+  gap: 12px;
+}
+
+.mobile-sticky-cta a {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mobile-sticky-cta .call-btn {
+  background: rgba(250,243,224,0.1);
+  color: var(--cream);
+  border: 1px solid rgba(250,243,224,0.2);
+}
+
+.mobile-sticky-cta .estimate-btn {
+  background: var(--sunset);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-cta { display: block; }
+  body { padding-bottom: 80px; }
+}
+
+/* Animations base states */
+.anim-fade { opacity: 0; transform: translateY(30px); }
+.anim-fade-left { opacity: 0; transform: translateX(-40px); }
+.anim-fade-right { opacity: 0; transform: translateX(40px); }
+.anim-scale { opacity: 0; transform: scale(0.92); }
+</style>
+</head>
+
+<body>
+
+<!-- ════════════════════════════════ NAV ════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 2C14 2 8 8 8 14c0 3.3 2.7 6 6 6s6-2.7 6-6c0-6-6-12-6-12z" fill="#1B4332"/>
+        <path d="M14 8c-2 3-3 6-3 8.5A3.5 3.5 0 0014.5 20c1.9 0 3.5-1.6 3.5-3.5 0-2.5-1-5.5-4-8.5z" fill="#2D6A4F"/>
+        <circle cx="14" cy="24" r="2" fill="#E76F51"/>
+      </svg>
+      GreenScape Pro
+    </a>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="tel:+15557392841" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (555) 739-2841
+      </a>
+      <a href="#estimate" class="nav-cta">Free Estimate</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#reviews" class="mobile-nav-link">Reviews</a>
+  <a href="tel:+15557392841" class="mobile-nav-link">(555) 739-2841</a>
+  <a href="#estimate" class="nav-cta">Free Estimate</a>
+</div>
+
+<!-- ════════════════════════════════ HERO ════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"><img src="../../images/template-images/hero.jpg" alt="Beautiful landscaped backyard with pergola and stone patio at golden hour"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Austin's Premier Landscaping Since 2011</div>
+    <h1 class="hero-h1">Transforming Austin's<br>Outdoor Spaces <em>Since 2011</em></h1>
+    <p class="hero-sub">Award-winning landscape design, artisan hardscaping, and meticulous lawn care — crafted by a team that treats every yard like our own.</p>
+    <div class="hero-ctas">
+      <a href="#estimate" class="btn-primary">
+        Get Free Estimate
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#portfolio" class="btn-ghost">View Our Work</a>
+    </div>
+    <div class="hero-phone">
+      Or call us directly:
+      <a href="tel:+15557392841">(555) 739-2841</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    Scroll
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ TRUST BAR ════════════════════════════════ -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item anim-fade">
+        <div class="trust-number">4.9 <span class="star">&#9733;</span></div>
+        <div class="trust-label">Google Rating &middot; 312 Reviews</div>
+      </div>
+      <div class="trust-item anim-fade">
+        <div class="trust-number">15+</div>
+        <div class="trust-label">Years in Business</div>
+      </div>
+      <div class="trust-item anim-fade">
+        <div class="trust-number">2,400+</div>
+        <div class="trust-label">Projects Completed</div>
+      </div>
+      <div class="trust-item anim-fade">
+        <div class="trust-number">8</div>
+        <div class="trust-label">Industry Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ SERVICES ════════════════════════════════ -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow anim-fade">What We Do</div>
+      <h2 class="section-title anim-fade">Comprehensive Landscaping<br>Services</h2>
+      <p class="section-subtitle anim-fade">From initial design through ongoing maintenance, we handle every aspect of creating and caring for your outdoor living space.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service 1: Landscape Design -->
+      <div class="service-card anim-fade">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Landscape Design</h3>
+        <p>Custom 3D-rendered landscape plans that blend architecture, horticulture, and your personal vision into a cohesive outdoor masterpiece.</p>
+        <span class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <!-- Service 2: Lawn Care -->
+      <div class="service-card anim-fade">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22V8"/>
+            <path d="M5 12H2a10 10 0 0020 0h-3"/>
+            <path d="M8 5.2C9 3.8 10.5 3 12 3s3 .8 4 2.2"/>
+            <circle cx="12" cy="5" r="2"/>
+          </svg>
+        </div>
+        <h3>Lawn Care</h3>
+        <p>Year-round lawn programs including mowing, fertilization, weed control, aeration, and overseeding tailored to Central Texas conditions.</p>
+        <span class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <!-- Service 3: Hardscaping -->
+      <div class="service-card anim-fade">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </div>
+        <h3>Hardscaping</h3>
+        <p>Patios, retaining walls, walkways, and driveways built with premium stone, pavers, and natural materials that stand the test of time.</p>
+        <span class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <!-- Service 4: Outdoor Living -->
+      <div class="service-card anim-fade">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3>Outdoor Living</h3>
+        <p>Complete outdoor kitchens, fire pits, pergolas, and entertainment areas designed to extend your home into the Austin outdoors.</p>
+        <span class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <!-- Service 5: Irrigation -->
+      <div class="service-card anim-fade">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/>
+          </svg>
+        </div>
+        <h3>Irrigation</h3>
+        <p>Smart irrigation system design, installation, and maintenance with rain sensors and zone-based scheduling that saves water and money.</p>
+        <span class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <!-- Service 6: Landscape Lighting -->
+      <div class="service-card anim-fade">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </div>
+        <h3>Landscape Lighting</h3>
+        <p>Professional LED lighting design that enhances beauty, extends outdoor enjoyment, and adds security to your property after dark.</p>
+        <span class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ BEFORE/AFTER ════════════════════════════════ -->
+<section class="before-after" id="before-after">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow anim-fade">The Transformation</div>
+      <h2 class="section-title anim-fade">See the Difference</h2>
+      <p class="section-subtitle anim-fade">Drag the slider to reveal the full transformation. Real results from a Tarrytown backyard renovation.</p>
+    </div>
+
+    <div class="ba-slider-wrapper anim-scale">
+      <div class="ba-before">
+        <img src="../../images/template-images/before.jpg" alt="Neglected overgrown backyard before renovation" loading="lazy">
+        <span class="ba-label">Before</span>
+      </div>
+      <div class="ba-after" id="baAfter">
+        <img src="../../images/template-images/after.jpg" alt="Beautiful renovated backyard with lawn, fence, and patio" loading="lazy">
+        <span class="ba-label">After</span>
+      </div>
+      <div class="ba-handle" id="baHandle"></div>
+      <div class="ba-handle-arrows" id="baArrows">
+        <span>&#9664;</span>
+        <span>&#9654;</span>
+      </div>
+      <input type="range" class="ba-range" id="baRange" min="0" max="100" value="50" aria-label="Before and after comparison slider">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ ABOUT ════════════════════════════════ -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual anim-fade-left">
+        <img src="../../images/template-images/team.jpg" alt="GreenScape Pro landscaping crew in green polos" loading="lazy">
+        <div class="about-visual-label">Mike Anderson, Founder</div>
+      </div>
+      <div class="about-content">
+        <div class="section-eyebrow anim-fade">Our Story</div>
+        <h2 class="section-title anim-fade">Rooted in Austin,<br>Growing <em>Together</em></h2>
+        <p class="about-text anim-fade">When Mike Anderson started GreenScape Pro in 2011 with a single truck and a passion for turning ordinary yards into extraordinary retreats, he had one rule: treat every property like it was his own.</p>
+        <p class="about-text anim-fade">Fifteen years and 2,400+ projects later, that philosophy hasn't changed. Our crew of 22 certified landscapers, designers, and horticulturists are all Austin locals who understand the unique challenges of Central Texas landscaping — from the limestone soil to the summer heat.</p>
+        <p class="about-text anim-fade">We're not just landscapers. We're your neighbors, invested in making Austin more beautiful one yard at a time.</p>
+        <div class="about-stats anim-fade">
+          <div>
+            <div class="about-stat-number">22</div>
+            <div class="about-stat-label">Team Members</div>
+          </div>
+          <div>
+            <div class="about-stat-number">100%</div>
+            <div class="about-stat-label">Licensed & Insured</div>
+          </div>
+          <div>
+            <div class="about-stat-number">24hr</div>
+            <div class="about-stat-label">Response Time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ PORTFOLIO ════════════════════════════════ -->
+<section class="section portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow anim-fade">Our Work</div>
+      <h2 class="section-title anim-fade">Featured Projects</h2>
+      <p class="section-subtitle anim-fade">Browse our portfolio of completed landscape transformations across Austin.</p>
+    </div>
+
+    <div class="portfolio-filters anim-fade">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="patios">Patios</button>
+      <button class="filter-btn" data-filter="lawns">Lawns</button>
+      <button class="filter-btn" data-filter="water">Water Features</button>
+      <button class="filter-btn" data-filter="hardscaping">Hardscaping</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item anim-fade" data-category="patios">
+        <img src="../../images/template-images/hardscape-patio.jpg" alt="Stone paver patio with fire pit" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>Barton Hills Patio</h4>
+          <span>Flagstone &middot; Outdoor Living</span>
+        </div>
+      </div>
+      <div class="portfolio-item anim-fade" data-category="lawns">
+        <img src="../../images/template-images/lawn-care.jpg" alt="Aerial view of striped lawn with flower beds" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>South Congress Lawn</h4>
+          <span>Sod Installation &middot; Design</span>
+        </div>
+      </div>
+      <div class="portfolio-item anim-fade" data-category="water">
+        <img src="../../images/template-images/irrigation.jpg" alt="Sprinkler system with rainbow spray" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>Westlake Pond</h4>
+          <span>Water Feature &middot; Lighting</span>
+        </div>
+      </div>
+      <div class="portfolio-item anim-fade" data-category="hardscaping">
+        <img src="../../images/template-images/retaining-wall.jpg" alt="Stone retaining wall with terraced plantings" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>Tarrytown Walkway</h4>
+          <span>Stone Pavers &middot; Retaining Wall</span>
+        </div>
+      </div>
+      <div class="portfolio-item anim-fade" data-category="patios">
+        <img src="../../images/template-images/outdoor-living.jpg" alt="Outdoor kitchen with pergola at twilight" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>Mueller Kitchen</h4>
+          <span>Outdoor Kitchen &middot; Pergola</span>
+        </div>
+      </div>
+      <div class="portfolio-item anim-fade" data-category="lawns">
+        <img src="../../images/template-images/landscape-lighting.jpg" alt="Lit garden pathway at night with uplighted trees" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>Circle C Ranch</h4>
+          <span>Full Lawn Renovation</span>
+        </div>
+      </div>
+      <div class="portfolio-item anim-fade" data-category="water">
+        <img src="../../images/template-images/hardscape-patio.jpg" alt="Stone patio with fire pit and string lights" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>Lakeway Fountain</h4>
+          <span>Modern Fountain &middot; LED</span>
+        </div>
+      </div>
+      <div class="portfolio-item anim-fade" data-category="hardscaping">
+        <img src="../../images/template-images/retaining-wall.jpg" alt="Stone retaining wall with garden path" loading="lazy">
+        <div class="portfolio-overlay">
+          <h4>Hyde Park Steps</h4>
+          <span>Limestone &middot; Garden Path</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ REVIEWS ════════════════════════════════ -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow anim-fade">Testimonials</div>
+      <h2 class="section-title anim-fade">What Our Clients <em>Say</em></h2>
+      <p class="section-subtitle anim-fade">312 five-star reviews and counting. Here's what Austin homeowners think about working with us.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- Review 1 (featured, spans 2 rows) -->
+      <div class="review-card anim-fade">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Mike and the GreenScape team completely transformed our backyard from a barren, patchy lawn into a stunning outdoor retreat. The patio, native plantings, and lighting design exceeded every expectation. Our neighbors keep asking who did our yard — we happily point them to GreenScape every time."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: var(--forest);">SR</div>
+          <div class="review-author-info">
+            <h4>Sarah Reynolds</h4>
+            <span>Barton Hills &middot; Full Landscape Renovation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card anim-fade">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"The irrigation system they installed has cut our water bill by 40%. Smart, efficient, and they explained every detail. Top-notch professionalism."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: var(--sunset);">JM</div>
+          <div class="review-author-info">
+            <h4>James Mitchell</h4>
+            <span>Circle C Ranch &middot; Irrigation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card anim-fade">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Our outdoor kitchen is the envy of the neighborhood. From design to completion in just 3 weeks. Mike's team is incredible."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: var(--brown);">LP</div>
+          <div class="review-author-info">
+            <h4>Lisa Patel</h4>
+            <span>Westlake Hills &middot; Outdoor Kitchen</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card anim-fade">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"We've used GreenScape for weekly lawn care for 3 years. Consistently excellent. They even noticed a drainage issue we'd missed and fixed it before it became a real problem."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: var(--forest-light);">DK</div>
+          <div class="review-author-info">
+            <h4>David Kim</h4>
+            <span>Mueller &middot; Lawn Maintenance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 5 -->
+      <div class="review-card anim-fade">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"The landscape lighting transformed our home. It looks like a luxury resort at night. Friends can't believe it's the same house. Worth every penny."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background: #8B7355;">AT</div>
+          <div class="review-author-info">
+            <h4>Amanda Torres</h4>
+            <span>Tarrytown &middot; Landscape Lighting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ PROCESS ════════════════════════════════ -->
+<section class="section process" id="process">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow anim-fade">How It Works</div>
+      <h2 class="section-title anim-fade">Three Simple Steps to Your<br><em>Dream Landscape</em></h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step anim-fade">
+        <div class="process-number">1</div>
+        <h3>Free Consultation</h3>
+        <p>We visit your property, listen to your vision, assess the space, and provide a detailed estimate — all completely free, no pressure.</p>
+      </div>
+      <div class="process-step anim-fade">
+        <div class="process-number">2</div>
+        <h3>Custom Design</h3>
+        <p>Our design team creates a 3D-rendered plan with plant selections, materials, and a phased timeline that fits your budget and lifestyle.</p>
+      </div>
+      <div class="process-step anim-fade">
+        <div class="process-number">3</div>
+        <h3>Expert Installation</h3>
+        <p>Our certified crew brings the design to life with precision craftsmanship. We handle permits, cleanup, and a final walkthrough with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ SERVICE AREA ════════════════════════════════ -->
+<section class="section service-area" id="service-area">
+  <div class="container">
+    <div class="area-grid">
+      <div>
+        <div class="section-eyebrow anim-fade">Service Area</div>
+        <h2 class="section-title anim-fade">Proudly Serving<br>Greater <em>Austin</em></h2>
+        <p class="section-subtitle anim-fade" style="margin-bottom: 0;">We provide full landscaping services within a 30-mile radius of downtown Austin, covering these neighborhoods and beyond.</p>
+
+        <div class="area-neighborhoods anim-fade">
+          <div class="area-tag">Barton Hills</div>
+          <div class="area-tag">Westlake Hills</div>
+          <div class="area-tag">Tarrytown</div>
+          <div class="area-tag">Circle C Ranch</div>
+          <div class="area-tag">Mueller</div>
+          <div class="area-tag">Hyde Park</div>
+          <div class="area-tag">South Congress</div>
+          <div class="area-tag">Lakeway</div>
+          <div class="area-tag">Cedar Park</div>
+          <div class="area-tag">Pflugerville</div>
+          <div class="area-tag">Round Rock</div>
+          <div class="area-tag">Bee Cave</div>
+        </div>
+      </div>
+
+      <div class="area-map-visual anim-fade-right">
+        <div class="area-map-pin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ FOOTER CTA ════════════════════════════════ -->
+<section class="footer-cta" id="estimate">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text anim-fade-left">
+        <div class="section-eyebrow" style="color: var(--sunset);">Get Started Today</div>
+        <h2>Ready to Transform<br>Your Outdoor Space?</h2>
+        <p>Tell us about your project and we'll get back to you within 24 hours with a free, no-obligation estimate.</p>
+        <div class="cta-guarantee">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span>Free estimates &middot; No pressure &middot; Licensed &amp; Insured</span>
+        </div>
+      </div>
+
+      <form class="cta-form anim-fade-right" onsubmit="event.preventDefault(); alert('Thank you! We\'ll contact you within 24 hours.');">
+        <h3>Get Your Free Estimate</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="(512) 555-0000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Property Address</label>
+          <input type="text" id="address" placeholder="123 Main St, Austin, TX">
+        </div>
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service" required>
+            <option value="" disabled selected>Select a service...</option>
+            <option value="landscape-design">Landscape Design</option>
+            <option value="lawn-care">Lawn Care</option>
+            <option value="hardscaping">Hardscaping</option>
+            <option value="outdoor-living">Outdoor Living</option>
+            <option value="irrigation">Irrigation</option>
+            <option value="lighting">Landscape Lighting</option>
+            <option value="other">Other / Multiple</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Request Free Estimate</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ FOOTER ════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2C14 2 8 8 8 14c0 3.3 2.7 6 6 6s6-2.7 6-6c0-6-6-12-6-12z" fill="#2D6A4F"/>
+            <path d="M14 8c-2 3-3 6-3 8.5A3.5 3.5 0 0014.5 20c1.9 0 3.5-1.6 3.5-3.5 0-2.5-1-5.5-4-8.5z" fill="#40916C"/>
+            <circle cx="14" cy="24" r="2" fill="#E76F51"/>
+          </svg>
+          GreenScape Pro
+        </a>
+        <p>Premium landscaping services in Austin, TX. Transforming outdoor spaces since 2011.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#0F2B1F"/></svg>
+          </a>
+          <a href="#" aria-label="Nextdoor">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-5h2v5zm4 0h-2v-5h2v5zm0-7H9V8h6v2z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Landscape Design</a>
+        <a href="#services">Lawn Care</a>
+        <a href="#services">Hardscaping</a>
+        <a href="#services">Outdoor Living</a>
+        <a href="#services">Irrigation</a>
+        <a href="#services">Landscape Lighting</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#process">Our Process</a>
+        <a href="#service-area">Service Area</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+15557392841">(555) 739-2841</a>
+        <a href="mailto:info@greenscapepro.com">info@greenscapepro.com</a>
+        <a href="#">Austin, TX</a>
+        <a href="#">Mon-Sat: 7am - 6pm</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 GreenScape Pro. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Sticky CTA -->
+<div class="mobile-sticky-cta">
+  <div class="mobile-sticky-cta-inner">
+    <a href="tel:+15557392841" class="call-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call
+    </a>
+    <a href="#estimate" class="estimate-btn">Free Estimate</a>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ SCRIPTS ════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Reduced motion check ──
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Lenis Smooth Scroll ──
+  let lenis;
+  if (!prefersReducedMotion) {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+  }
+
+  // ── GSAP & ScrollTrigger ──
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (lenis) {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ── Nav scroll effect ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── Hamburger menu ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ── Before/After Slider ──
+  const baRange = document.getElementById('baRange');
+  const baAfter = document.getElementById('baAfter');
+  const baHandle = document.getElementById('baHandle');
+  const baArrows = document.getElementById('baArrows');
+
+  function updateSlider(val) {
+    const pct = val + '%';
+    baAfter.style.clipPath = `inset(0 0 0 ${pct})`;
+    baHandle.style.left = pct;
+    baArrows.style.left = pct;
+  }
+
+  baRange.addEventListener('input', (e) => updateSlider(e.target.value));
+  // Initialize
+  updateSlider(50);
+
+  // ── Portfolio Filter ──
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      portfolioItems.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.style.display = '';
+          gsap.fromTo(item, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // ── Skip animations if reduced motion ──
+  if (prefersReducedMotion) {
+    document.querySelectorAll('.anim-fade, .anim-fade-left, .anim-fade-right, .anim-scale').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    return;
+  }
+
+  // ── Hero Load Animation ──
+  document.fonts.ready.then(() => {
+    // SplitType headline
+    const heroH1 = document.querySelector('.hero-h1');
+    if (heroH1 && typeof SplitType !== 'undefined') {
+      const split = new SplitType(heroH1, { types: 'words' });
+
+      const heroTl = gsap.timeline({ delay: 0.3 });
+      heroTl
+        .from('.hero-eyebrow', { opacity: 0, y: 12, duration: 0.6, ease: 'power3.out' })
+        .from(split.words, {
+          yPercent: 100,
+          opacity: 0,
+          rotationX: -30,
+          duration: 1,
+          stagger: 0.05,
+          ease: 'expo.out',
+        }, '-=0.3')
+        .from('.hero-sub', { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out' }, '-=0.5')
+        .from('.hero-ctas', { opacity: 0, y: 12, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+        .from('.hero-phone', { opacity: 0, duration: 0.4 }, '-=0.2')
+        .from('.hero-scroll', { opacity: 0, duration: 0.5 }, '-=0.1');
+    }
+
+    // ── Scroll-triggered animations ──
+
+    // Fade up elements
+    gsap.utils.toArray('.anim-fade').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    // Fade left
+    gsap.utils.toArray('.anim-fade-left').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, x: -40 },
+        {
+          opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 80%' }
+        }
+      );
+    });
+
+    // Fade right
+    gsap.utils.toArray('.anim-fade-right').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, x: 40 },
+        {
+          opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 80%' }
+        }
+      );
+    });
+
+    // Scale in
+    gsap.utils.toArray('.anim-scale').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, scale: 0.92 },
+        {
+          opacity: 1, scale: 1, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 80%' }
+        }
+      );
+    });
+
+    // ── Service cards stagger ──
+    gsap.fromTo('.service-card', {
+      opacity: 0, y: 40
+    }, {
+      opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out',
+      scrollTrigger: { trigger: '.services-grid', start: 'top 75%' }
+    });
+
+    // ── Trust bar counter stagger ──
+    gsap.fromTo('.trust-item', {
+      opacity: 0, y: 20
+    }, {
+      opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out',
+      scrollTrigger: { trigger: '.trust-bar', start: 'top 85%' }
+    });
+
+    // ── Review cards stagger ──
+    gsap.fromTo('.review-card', {
+      opacity: 0, y: 30
+    }, {
+      opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+      scrollTrigger: { trigger: '.reviews-grid', start: 'top 75%' }
+    });
+
+    // ── Process steps stagger ──
+    gsap.fromTo('.process-step', {
+      opacity: 0, y: 40
+    }, {
+      opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out',
+      scrollTrigger: { trigger: '.process-grid', start: 'top 75%' }
+    });
+
+    // ── Portfolio items stagger ──
+    gsap.fromTo('.portfolio-item', {
+      opacity: 0, scale: 0.9
+    }, {
+      opacity: 1, scale: 1, duration: 0.6, stagger: 0.08, ease: 'power2.out',
+      scrollTrigger: { trigger: '.portfolio-grid', start: 'top 75%' }
+    });
+
+    // ── Area tags stagger ──
+    gsap.fromTo('.area-tag', {
+      opacity: 0, x: -10
+    }, {
+      opacity: 1, x: 0, duration: 0.4, stagger: 0.06, ease: 'power2.out',
+      scrollTrigger: { trigger: '.area-neighborhoods', start: 'top 80%' }
+    });
+
+    // ── Parallax on hero background ──
+    gsap.to('.hero-bg', {
+      y: -80,
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
+      }
+    });
+
+    // ── Parallax on about visual ──
+    gsap.to('.about-visual', {
+      y: -40,
+      scrollTrigger: {
+        trigger: '.about',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1,
+      }
+    });
+
+    // ── Process number scale-in ──
+    gsap.fromTo('.process-number', {
+      scale: 0, opacity: 0
+    }, {
+      scale: 1, opacity: 1, duration: 0.6, stagger: 0.2, ease: 'back.out(2)',
+      scrollTrigger: { trigger: '.process-grid', start: 'top 75%' }
+    });
+
+    // ── Section title reveals with SplitType ──
+    if (typeof SplitType !== 'undefined') {
+      document.querySelectorAll('.section-title').forEach(title => {
+        const split = new SplitType(title, { types: 'words' });
+        gsap.fromTo(split.words,
+          { yPercent: 80, opacity: 0 },
+          {
+            yPercent: 0, opacity: 1,
+            duration: 0.9, stagger: 0.04, ease: 'expo.out',
+            scrollTrigger: { trigger: title, start: 'top 85%' }
+          }
+        );
+      });
+    }
+  });
+
+  // ── Smooth scroll for anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -72 });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

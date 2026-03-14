@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenScape Pro — Premium Landscaping in Austin, TX</title>
+<meta name="description" content="GreenScape Pro delivers award-winning landscape design, hardscaping, and outdoor living spaces in Austin, TX. 4.9★ rated with 312+ reviews. Call (555) 739-2841.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://greenscapepro.com">
+<meta property="og:title" content="GreenScape Pro — Premium Landscaping in Austin, TX">
+<meta property="og:description" content="Award-winning landscape design, hardscaping, and outdoor living spaces. 4.9★ rated.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LandscapingBusiness",
+  "name": "GreenScape Pro",
+  "description": "Premium landscaping design and installation in Austin, TX",
+  "telephone": "(555) 739-2841",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Austin",
+    "addressRegion": "TX"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312"
+  },
+  "foundingDate": "2011",
+  "founder": {
+    "@type": "Person",
+    "name": "Mike Anderson"
+  }
+}
+</script>
+<style>
+/* ═══════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: local('Neue Montreal'), local('NeueMontreal-Regular');
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --bg-deep: #0C1F17;
+  --bg-forest: #1A3A2A;
+  --bg-mid: #132B1F;
+  --text-sage: #E8EDE4;
+  --text-muted: #8A9B8F;
+  --accent-lime: #84CC16;
+  --accent-lime-dim: rgba(132, 204, 22, 0.15);
+  --accent-lime-glow: rgba(132, 204, 22, 0.3);
+  --glass: rgba(26, 58, 42, 0.4);
+  --glass-border: rgba(232, 237, 228, 0.08);
+  --h1-hero: clamp(42px, 8vw, 88px);
+  --h2: clamp(28px, 4vw, 48px);
+  --h3: clamp(20px, 2.5vw, 28px);
+  --body: clamp(15px, 1.1vw, 18px);
+  --small: clamp(12px, 0.9vw, 14px);
+  --section-pad: clamp(80px, 12vh, 160px);
+}
+
+html {
+  background: var(--bg-deep);
+  color: var(--text-sage);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: var(--body);
+  line-height: 1.6;
+  scroll-behavior: auto;
+  overflow-x: hidden;
+}
+
+body { overflow-x: hidden; }
+
+h1, h2, h3, h4 {
+  font-family: 'Neue Montreal', 'Cabinet Grotesk', 'DM Sans', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-sage);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; font-family: inherit; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+
+/* ═══════════════════════════════════════════
+   PARALLAX LAYERS (decorative)
+   ═══════════════════════════════════════════ */
+.parallax-layer {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.leaf-shape {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.leaf-shape svg { width: 100%; height: 100%; }
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease;
+}
+
+.nav.scrolled {
+  background: rgba(12, 31, 23, 0.85);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Neue Montreal', 'Cabinet Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.nav-logo span { color: var(--accent-lime); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--accent-lime);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--text-sage); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: var(--accent-lime) !important;
+  color: var(--bg-deep) !important;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-lime-glow); color: var(--bg-deep) !important; }
+
+.nav-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  padding: 8px;
+}
+
+.nav-mobile-toggle span {
+  width: 24px; height: 2px;
+  background: var(--text-sage);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   HERO — 3-LAYER PARALLAX
+   ═══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+/* Back layer — hero image with gradient overlay */
+.hero-layer--back {
+  background:
+    radial-gradient(ellipse 120% 80% at 20% 80%, rgba(26, 58, 42, 0.7) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 100% at 50% 100%, rgba(19, 43, 31, 0.8) 0%, transparent 60%),
+    url('../../images/template-images/hero.jpg') center/cover no-repeat;
+}
+
+/* Mid layer — decorative shapes */
+.hero-layer--mid { z-index: 1; }
+
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  will-change: transform;
+}
+
+.hero-blob--1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(132, 204, 22, 0.15), transparent 70%);
+  top: 10%; left: -10%;
+}
+
+.hero-blob--2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(26, 58, 42, 0.6), transparent 70%);
+  top: 30%; right: -5%;
+}
+
+.hero-blob--3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(132, 204, 22, 0.1), transparent 70%);
+  bottom: 10%; left: 40%;
+}
+
+/* Front layer — content */
+.hero-layer--front {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding-top: 100px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--small);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-lime);
+  margin-bottom: 24px;
+  opacity: 0;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1.5px;
+  background: var(--accent-lime);
+}
+
+.hero-headline {
+  font-size: var(--h1-hero);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 28px;
+  max-width: 800px;
+}
+
+.hero-headline .line { display: block; overflow: hidden; }
+.hero-headline .word { display: inline-block; }
+
+.hero-sub {
+  font-size: clamp(16px, 1.3vw, 20px);
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+  opacity: 0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+}
+
+.btn-primary {
+  background: var(--accent-lime);
+  color: var(--bg-deep);
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 40px var(--accent-lime-glow);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-sage);
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+  opacity: 0;
+}
+
+.hero-scroll-hint span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(180deg, var(--accent-lime), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* Floating leaf SVGs in hero */
+.hero-leaf {
+  position: absolute;
+  opacity: 0.15;
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════
+   TRUST BAR
+   ═══════════════════════════════════════════ */
+.trust-bar {
+  position: relative;
+  padding: 60px 0;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.trust-bar-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--bg-deep) 100%);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.trust-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+
+.trust-card:hover {
+  border-color: rgba(132, 204, 22, 0.2);
+  transform: translateY(-4px);
+}
+
+.trust-number {
+  font-family: 'Neue Montreal', 'Cabinet Grotesk', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700;
+  color: var(--accent-lime);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.trust-label {
+  font-size: var(--small);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════════════ */
+.services {
+  position: relative;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.services-bg-layer {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 30% 50%, rgba(26, 58, 42, 0.3), transparent);
+  will-change: transform;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(48px, 6vw, 80px);
+  position: relative;
+  z-index: 2;
+}
+
+.section-eyebrow {
+  font-size: var(--small);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-lime);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.section-title { font-size: var(--h2); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 40px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-lime), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover { border-color: rgba(132, 204, 22, 0.25); transform: translateY(-6px); }
+.service-card:hover::before { opacity: 1; }
+
+.service-icon {
+  width: 56px; height: 56px;
+  background: var(--accent-lime-dim);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.service-icon svg { width: 28px; height: 28px; stroke: var(--accent-lime); fill: none; stroke-width: 1.5; }
+
+.service-card h3 {
+  font-size: var(--h3);
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   BEFORE / AFTER
+   ═══════════════════════════════════════════ */
+.before-after {
+  position: relative;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.ba-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.ba-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-forest);
+  will-change: transform;
+}
+
+.ba-frame-depth {
+  position: absolute;
+  inset: -40px;
+  border-radius: 28px;
+  border: 1px solid rgba(132, 204, 22, 0.05);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.ba-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.ba-side {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ba-side--before {
+  background: url('../../images/template-images/before.jpg') center/cover no-repeat;
+  z-index: 1;
+}
+
+.ba-side--after {
+  background: url('../../images/template-images/after.jpg') center/cover no-repeat;
+  clip-path: inset(0 50% 0 0);
+  z-index: 2;
+}
+
+.ba-label {
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 40px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+
+.ba-side--before .ba-label { color: #8B6D54; }
+.ba-side--after .ba-label { color: var(--accent-lime); }
+
+.ba-handle {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: var(--accent-lime);
+  z-index: 10;
+  transform: translateX(-50%);
+  pointer-events: none;
+  box-shadow: 0 0 20px var(--accent-lime-glow);
+}
+
+.ba-handle-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px; height: 48px;
+  background: var(--accent-lime);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  box-shadow: 0 0 30px var(--accent-lime-glow);
+}
+
+.ba-handle-circle svg { width: 24px; height: 24px; fill: var(--bg-deep); }
+
+.ba-bg-element {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO
+   ═══════════════════════════════════════════ */
+.portfolio {
+  position: relative;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-item {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--glass-border);
+  will-change: transform;
+  transition: border-color 0.3s ease;
+}
+
+.portfolio-item:hover { border-color: rgba(132, 204, 22, 0.2); }
+
+.portfolio-item:nth-child(1) { grid-row: span 2; }
+.portfolio-item:nth-child(4) { grid-row: span 2; }
+
+.portfolio-fill {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s ease;
+}
+
+.portfolio-item:hover .portfolio-fill { transform: scale(1.05); }
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(12, 31, 23, 0.9) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+.portfolio-overlay h4 { font-size: 18px; }
+.portfolio-overlay p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+/* Portfolio items with real images */
+.pf-1 { background: linear-gradient(145deg, #1A3A2A, #2D5A3D 50%, #1B4332); }
+.pf-2 { background: linear-gradient(145deg, #132B1F, #3A7D50 30%, #1A3A2A 80%); }
+.pf-3 { background: linear-gradient(145deg, #2D5A3D, #0C1F17 50%, #1A3A2A); }
+.pf-4 { background: linear-gradient(145deg, #1B4332, #4A8C5C 20%, #132B1F 70%); }
+.pf-5 { background: linear-gradient(145deg, #0F2A1C, #1A3A2A 50%, #2D5A3D); }
+.pf-6 { background: linear-gradient(145deg, #1A3A2A, #132B1F 50%, #0C1F17); }
+
+.pf-1 img, .pf-2 img, .pf-3 img, .pf-4 img, .pf-5 img, .pf-6 img {
+  width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════════════ */
+.about {
+  position: relative;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.about-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.about-visual-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #1A3A2A, #2D5A3D 40%, #132B1F);
+}
+
+.about-visual-fill img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.about-visual-accent {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 160px; height: 160px;
+  border: 2px solid var(--accent-lime);
+  border-radius: 16px;
+  opacity: 0.3;
+  will-change: transform;
+}
+
+.about-content { position: relative; }
+
+.about-content .section-eyebrow { margin-bottom: 16px; display: block; }
+
+.about-content h2 {
+  font-size: var(--h2);
+  margin-bottom: 24px;
+}
+
+.about-content p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.about-sig {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.about-sig-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg-forest), var(--accent-lime-dim));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--accent-lime);
+}
+
+.about-sig-info strong { display: block; font-size: 16px; }
+.about-sig-info span { font-size: 13px; color: var(--text-muted); }
+
+.about-floating-leaf {
+  position: absolute;
+  will-change: transform;
+  opacity: 0.08;
+}
+
+/* ═══════════════════════════════════════════
+   REVIEWS
+   ═══════════════════════════════════════════ */
+.reviews {
+  position: relative;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.review-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 36px 28px;
+  position: relative;
+  will-change: transform;
+  transition: border-color 0.3s ease;
+}
+
+.review-card:hover { border-color: rgba(132, 204, 22, 0.2); }
+
+.review-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.review-stars svg { width: 18px; height: 18px; fill: var(--accent-lime); }
+
+.review-text {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.review-author { display: flex; align-items: center; gap: 12px; }
+
+.review-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--accent-lime-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-lime);
+}
+
+.review-name { font-weight: 600; font-size: 14px; }
+.review-date { font-size: 12px; color: var(--text-muted); }
+
+/* ═══════════════════════════════════════════
+   PROCESS
+   ═══════════════════════════════════════════ */
+.process {
+  position: relative;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.process-timeline {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.process-line-svg {
+  position: absolute;
+  left: 32px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  z-index: 0;
+}
+
+.process-line-bg { stroke: var(--glass-border); }
+.process-line-progress { stroke: var(--accent-lime); stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+
+.process-step {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 40px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.process-step:first-child { padding-top: 0; }
+.process-step:last-child { padding-bottom: 0; }
+
+.process-dot {
+  flex-shrink: 0;
+  width: 64px; height: 64px;
+  background: var(--bg-forest);
+  border: 2px solid var(--glass-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--accent-lime);
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.process-step.active .process-dot {
+  border-color: var(--accent-lime);
+  background: var(--accent-lime-dim);
+}
+
+.process-step-content h3 {
+  font-size: var(--h3);
+  margin-bottom: 8px;
+}
+
+.process-step-content p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════ */
+.cta-section {
+  position: relative;
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.cta-bg-layer-1 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 100% 80% at 50% 50%, rgba(26, 58, 42, 0.5), transparent);
+  will-change: transform;
+}
+
+.cta-bg-layer-2 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(132, 204, 22, 0.06), transparent 50%);
+  will-change: transform;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  padding: clamp(48px, 6vw, 80px);
+  text-align: center;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.cta-inner h2 {
+  font-size: var(--h2);
+  margin-bottom: 16px;
+}
+
+.cta-inner p {
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.cta-form {
+  display: flex;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 16px 24px;
+  background: rgba(12, 31, 23, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  color: var(--text-sage);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.cta-form input::placeholder { color: var(--text-muted); }
+.cta-form input:focus { border-color: var(--accent-lime); }
+
+.cta-form button {
+  padding: 16px 36px;
+  background: var(--accent-lime);
+  color: var(--bg-deep);
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px var(--accent-lime-glow);
+}
+
+.cta-phone {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.cta-phone a {
+  color: var(--accent-lime);
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.cta-phone a:hover { opacity: 0.8; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+.footer {
+  border-top: 1px solid var(--glass-border);
+  padding: 48px 0 32px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  font-family: 'Neue Montreal', 'Cabinet Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.footer-logo span { color: var(--accent-lime); }
+
+.footer-links { display: flex; gap: 28px; list-style: none; }
+
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-links a:hover { color: var(--accent-lime); }
+
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--glass-border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════
+   GRAIN OVERLAY
+   ═══════════════════════════════════════════ */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: rgba(12, 31, 23, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+  .portfolio-item:nth-child(1), .portfolio-item:nth-child(4) { grid-row: span 1; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-visual { max-height: 360px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .process-step { gap: 20px; }
+  .process-dot { width: 48px; height: 48px; font-size: 18px; }
+  .process-line-svg { left: 24px; }
+  .hero-content { padding-top: 120px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .trust-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .trust-card { padding: 20px 16px; }
+  .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+  .cta-form { flex-direction: column; }
+  .cta-form input { min-width: auto; }
+}
+
+/* ═══════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-line { animation: none; }
+  .hero-eyebrow,
+  .hero-sub,
+  .hero-actions,
+  .hero-scroll-hint {
+    opacity: 1 !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Grain overlay -->
+<div class="grain-overlay"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">Green<span>Scape</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Get Estimate</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HERO — 3-LAYER PARALLAX ═══ -->
+<section class="hero" id="hero">
+  <!-- Layer 1: Back (slow gradient) -->
+  <div class="hero-layer hero-layer--back" data-parallax-speed="0.15"></div>
+
+  <!-- Layer 2: Mid (floating shapes & SVG leaves) -->
+  <div class="hero-layer hero-layer--mid" data-parallax-speed="0.35">
+    <div class="hero-blob hero-blob--1"></div>
+    <div class="hero-blob hero-blob--2"></div>
+    <div class="hero-blob hero-blob--3"></div>
+
+    <!-- SVG Leaf shapes at different depths -->
+    <svg class="hero-leaf" style="width:120px;top:15%;left:10%;" data-parallax-speed="0.25" viewBox="0 0 100 140" fill="none">
+      <path d="M50 0C50 0 90 40 90 80C90 120 70 140 50 140C30 140 10 120 10 80C10 40 50 0 50 0Z" fill="rgba(132,204,22,0.12)"/>
+      <line x1="50" y1="10" x2="50" y2="130" stroke="rgba(132,204,22,0.08)" stroke-width="1"/>
+      <line x1="50" y1="40" x2="30" y2="70" stroke="rgba(132,204,22,0.06)" stroke-width="0.8"/>
+      <line x1="50" y1="60" x2="72" y2="85" stroke="rgba(132,204,22,0.06)" stroke-width="0.8"/>
+    </svg>
+    <svg class="hero-leaf" style="width:80px;top:60%;right:15%;" data-parallax-speed="0.45" viewBox="0 0 100 140" fill="none">
+      <path d="M50 0C50 0 90 40 90 80C90 120 70 140 50 140C30 140 10 120 10 80C10 40 50 0 50 0Z" fill="rgba(132,204,22,0.1)"/>
+      <line x1="50" y1="10" x2="50" y2="130" stroke="rgba(132,204,22,0.06)" stroke-width="1"/>
+    </svg>
+    <svg class="hero-leaf" style="width:60px;top:40%;left:65%;" data-parallax-speed="0.5" viewBox="0 0 80 120" fill="none">
+      <path d="M40 0C40 0 75 35 75 65C75 100 60 120 40 120C20 120 5 100 5 65C5 35 40 0 40 0Z" fill="rgba(132,204,22,0.08)"/>
+    </svg>
+    <svg class="hero-leaf" style="width:100px;bottom:20%;left:30%;" data-parallax-speed="0.3" viewBox="0 0 120 80" fill="none">
+      <ellipse cx="60" cy="40" rx="58" ry="38" fill="rgba(26,58,42,0.3)"/>
+    </svg>
+    <svg class="hero-leaf" style="width:90px;top:25%;right:30%;" data-parallax-speed="0.55" viewBox="0 0 100 140" fill="none">
+      <path d="M50 0C50 0 85 35 85 75C85 115 68 140 50 140C32 140 15 115 15 75C15 35 50 0 50 0Z" fill="rgba(132,204,22,0.06)"/>
+      <line x1="50" y1="15" x2="50" y2="125" stroke="rgba(132,204,22,0.04)" stroke-width="1"/>
+      <line x1="50" y1="50" x2="28" y2="80" stroke="rgba(132,204,22,0.03)" stroke-width="0.6"/>
+      <line x1="50" y1="70" x2="74" y2="95" stroke="rgba(132,204,22,0.03)" stroke-width="0.6"/>
+    </svg>
+    <svg class="hero-leaf" style="width:45px;top:75%;left:75%;" data-parallax-speed="0.6" viewBox="0 0 60 90" fill="none">
+      <path d="M30 0C30 0 55 25 55 50C55 75 45 90 30 90C15 90 5 75 5 50C5 25 30 0 30 0Z" fill="rgba(132,204,22,0.09)"/>
+    </svg>
+  </div>
+
+  <!-- Layer 3: Front (content) -->
+  <div class="hero-layer hero-layer--front" data-parallax-speed="0.6">
+    <div class="container hero-content">
+      <div class="hero-eyebrow">Premium Landscaping — Austin, TX</div>
+      <h1 class="hero-headline" id="heroHeadline">
+        Landscapes That Move You
+      </h1>
+      <p class="hero-sub">Award-winning outdoor transformations backed by 15 years of craft. From design to installation, we bring your vision to life.</p>
+      <div class="hero-actions">
+        <a href="tel:5557392841" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (555) 739-2841
+        </a>
+        <a href="#portfolio" class="btn-secondary">
+          View Our Work
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" id="scrollHint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══ -->
+<section class="trust-bar" id="trustBar">
+  <div class="trust-bar-bg" data-parallax-speed="0.1"></div>
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-card" data-parallax-offset="20">
+        <div class="trust-number" data-count="15">0</div>
+        <div class="trust-label">Years Experience</div>
+      </div>
+      <div class="trust-card" data-parallax-offset="35">
+        <div class="trust-number" data-count="312">0</div>
+        <div class="trust-label">5-Star Reviews</div>
+      </div>
+      <div class="trust-card" data-parallax-offset="15">
+        <div class="trust-number" data-count="1200">0</div>
+        <div class="trust-label">Projects Done</div>
+      </div>
+      <div class="trust-card" data-parallax-offset="40">
+        <div class="trust-number" data-count="4.9" data-decimal="true">0</div>
+        <div class="trust-label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="services" id="services">
+  <div class="services-bg-layer" data-parallax-speed="0.1"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">What We Do</span>
+      <h2 class="section-title">Crafted Outdoor Spaces</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-depth="0.05">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Landscape Design</h3>
+        <p>Custom 3D-rendered plans that transform your outdoor vision into a detailed blueprint for paradise.</p>
+      </div>
+      <div class="service-card" data-depth="0.1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <h3>Hardscaping</h3>
+        <p>Patios, retaining walls, fire pits, and walkways using premium natural stone and pavers.</p>
+      </div>
+      <div class="service-card" data-depth="0.15">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22c4-4 8-7.58 8-12a8 8 0 10-16 0c0 4.42 4 8 8 12z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Planting & Gardens</h3>
+        <p>Native Texas plants, seasonal color beds, and drought-resistant gardens curated for Austin's climate.</p>
+      </div>
+      <div class="service-card" data-depth="0.08">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <h3>Irrigation Systems</h3>
+        <p>Smart drip and sprinkler systems that save water, optimize coverage, and keep your landscape thriving.</p>
+      </div>
+      <div class="service-card" data-depth="0.12">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <h3>Outdoor Lighting</h3>
+        <p>Architectural LED lighting that extends your living space into the evening with drama and safety.</p>
+      </div>
+      <div class="service-card" data-depth="0.06">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <h3>Outdoor Living</h3>
+        <p>Pergolas, outdoor kitchens, and living areas designed as true extensions of your home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BEFORE / AFTER ═══ -->
+<section class="before-after" id="beforeAfter">
+  <div class="ba-bg-element" style="width:500px;height:500px;background:radial-gradient(circle,rgba(132,204,22,0.06),transparent);top:-10%;left:-10%;" data-parallax-speed="0.2"></div>
+  <div class="ba-bg-element" style="width:400px;height:400px;background:radial-gradient(circle,rgba(26,58,42,0.3),transparent);bottom:-10%;right:-10%;" data-parallax-speed="0.15"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Transformations</span>
+      <h2 class="section-title">See the Difference</h2>
+    </div>
+    <div class="ba-wrapper">
+      <div class="ba-frame-depth" data-parallax-speed="0.08"></div>
+      <div class="ba-frame" data-parallax-speed="0.02">
+        <div class="ba-slider" id="baSlider">
+          <div class="ba-side ba-side--before">
+            <span class="ba-label">Before</span>
+          </div>
+          <div class="ba-side ba-side--after" id="baAfter">
+            <span class="ba-label">After</span>
+          </div>
+          <div class="ba-handle" id="baHandle">
+            <div class="ba-handle-circle">
+              <svg viewBox="0 0 24 24"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PORTFOLIO ═══ -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Our Work</span>
+      <h2 class="section-title">Recent Projects</h2>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-parallax-speed="0.06">
+        <div class="portfolio-fill pf-1"><img src="../../images/template-images/outdoor-living.jpg" alt="Lakeway Estate landscape redesign" loading="lazy"></div>
+        <div class="portfolio-overlay"><div><h4>Lakeway Estate</h4><p>Full landscape redesign — 2 acres</p></div></div>
+      </div>
+      <div class="portfolio-item" data-parallax-speed="0.12">
+        <div class="portfolio-fill pf-2"><img src="../../images/template-images/hardscape-patio.jpg" alt="Barton Creek patio and fire pit" loading="lazy"></div>
+        <div class="portfolio-overlay"><div><h4>Barton Creek Patio</h4><p>Limestone patio & fire pit</p></div></div>
+      </div>
+      <div class="portfolio-item" data-parallax-speed="0.04">
+        <div class="portfolio-fill pf-3"><img src="../../images/template-images/lawn-care.jpg" alt="Westlake native garden" loading="lazy"></div>
+        <div class="portfolio-overlay"><div><h4>Westlake Garden</h4><p>Drought-resistant native garden</p></div></div>
+      </div>
+      <div class="portfolio-item" data-parallax-speed="0.14">
+        <div class="portfolio-fill pf-4"><img src="../../images/template-images/outdoor-living.jpg" alt="Round Rock outdoor kitchen" loading="lazy"></div>
+        <div class="portfolio-overlay"><div><h4>Round Rock Retreat</h4><p>Outdoor kitchen & pergola</p></div></div>
+      </div>
+      <div class="portfolio-item" data-parallax-speed="0.08">
+        <div class="portfolio-fill pf-5"><img src="../../images/template-images/retaining-wall.jpg" alt="Bee Cave water feature" loading="lazy"></div>
+        <div class="portfolio-overlay"><div><h4>Bee Cave Water Feature</h4><p>Custom stone waterfall</p></div></div>
+      </div>
+      <div class="portfolio-item" data-parallax-speed="0.1">
+        <div class="portfolio-fill pf-6"><img src="../../images/template-images/landscape-lighting.jpg" alt="Cedar Park modern landscape" loading="lazy"></div>
+        <div class="portfolio-overlay"><div><h4>Cedar Park Modern</h4><p>Contemporary minimalist landscape</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <!-- Floating decorative leaves -->
+  <svg class="about-floating-leaf" style="width:180px;top:10%;right:5%;" viewBox="0 0 100 140" fill="none">
+    <path d="M50 0C50 0 95 45 95 85C95 125 75 140 50 140C25 140 5 125 5 85C5 45 50 0 50 0Z" fill="rgba(132,204,22,0.06)"/>
+    <line x1="50" y1="12" x2="50" y2="128" stroke="rgba(132,204,22,0.04)" stroke-width="0.8"/>
+  </svg>
+  <svg class="about-floating-leaf" style="width:100px;bottom:15%;left:3%;" viewBox="0 0 80 120" fill="none">
+    <path d="M40 0C40 0 78 38 78 68C78 105 60 120 40 120C20 120 2 105 2 68C2 38 40 0 40 0Z" fill="rgba(26,58,42,0.15)"/>
+  </svg>
+  <svg class="about-floating-leaf" style="width:70px;top:50%;left:85%;" viewBox="0 0 70 100" fill="none">
+    <path d="M35 0C35 0 65 30 65 55C65 85 52 100 35 100C18 100 5 85 5 55C5 30 35 0 35 0Z" fill="rgba(132,204,22,0.04)"/>
+  </svg>
+
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual" data-parallax-speed="0.06">
+        <div class="about-visual-fill"><img src="../../images/template-images/team.jpg" alt="GreenScape Pro landscaping team" loading="lazy"></div>
+        <div class="about-visual-accent" data-parallax-speed="0.15"></div>
+      </div>
+      <div class="about-content">
+        <span class="section-eyebrow">Our Story</span>
+        <h2>Built on Soil, Driven by Vision</h2>
+        <p>Since 2011, GreenScape Pro has been Austin's trusted partner for outdoor transformations. What started as a one-man operation has grown into a team of 18 dedicated landscaping professionals.</p>
+        <p>We believe every yard tells a story. Our job is to make it a story worth looking at — one that evolves with the seasons and grows more beautiful each year.</p>
+        <div class="about-sig">
+          <div class="about-sig-avatar">MA</div>
+          <div class="about-sig-info">
+            <strong>Mike Anderson</strong>
+            <span>Founder & Lead Designer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Testimonials</span>
+      <h2 class="section-title">What Clients Say</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card" data-depth="0.04" data-rotate="0.5">
+        <div class="review-stars">
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+        </div>
+        <p class="review-text">"Mike and his team completely transformed our backyard. The attention to detail is incredible — every stone, every plant, perfectly placed. It's like having a private park."</p>
+        <div class="review-author">
+          <div class="review-avatar">SR</div>
+          <div>
+            <div class="review-name">Sarah Richardson</div>
+            <div class="review-date">3 weeks ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-depth="0.08" data-rotate="-0.3">
+        <div class="review-stars">
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+        </div>
+        <p class="review-text">"Best investment we've made in our home. The outdoor kitchen they designed is where we spend every weekend now. Professional, on-time, on-budget."</p>
+        <div class="review-author">
+          <div class="review-avatar">JT</div>
+          <div>
+            <div class="review-name">James Torres</div>
+            <div class="review-date">1 month ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card" data-depth="0.06" data-rotate="0.8">
+        <div class="review-stars">
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+          <svg viewBox="0 0 20 20"><polygon points="10,1 12.6,7.4 19.5,7.6 14,12.1 15.8,19 10,15.4 4.2,19 6,12.1 0.5,7.6 7.4,7.4"/></svg>
+        </div>
+        <p class="review-text">"They turned our dying lawn into a stunning xeriscaped masterpiece. Water bill dropped 60% and it looks better than it ever has. Highly recommend GreenScape Pro."</p>
+        <div class="review-author">
+          <div class="review-avatar">LP</div>
+          <div>
+            <div class="review-name">Lisa Park</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">How It Works</span>
+      <h2 class="section-title">Three Simple Steps</h2>
+    </div>
+    <div class="process-timeline">
+      <svg class="process-line-svg" viewBox="0 0 2 600" preserveAspectRatio="none">
+        <line class="process-line-bg" x1="1" y1="0" x2="1" y2="600" stroke-width="2"/>
+        <line class="process-line-progress" id="processLine" x1="1" y1="0" x2="1" y2="600" stroke-width="2"/>
+      </svg>
+      <div class="process-step">
+        <div class="process-dot">1</div>
+        <div class="process-step-content">
+          <h3>Consultation & Vision</h3>
+          <p>We visit your property, listen to your goals, and craft a free detailed proposal with 3D renderings so you can see the result before a single shovel breaks ground.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">2</div>
+        <div class="process-step-content">
+          <h3>Design & Planning</h3>
+          <p>Our designers refine every detail — materials, plants, drainage, lighting. You approve the final plan and we lock in your timeline and budget.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">3</div>
+        <div class="process-step-content">
+          <h3>Build & Enjoy</h3>
+          <p>Our crew executes with precision. Weekly photo updates, on-site project management, and a 2-year warranty on all hardscape work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA SECTION ═══ -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg-layer-1" data-parallax-speed="0.12"></div>
+  <div class="cta-bg-layer-2" data-parallax-speed="0.2"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Ready to Transform Your Yard?</h2>
+      <p>Get a free consultation and detailed estimate. No pressure, no obligation — just expert advice from Austin's top-rated landscaping team.</p>
+      <form class="cta-form" onsubmit="event.preventDefault();">
+        <input type="text" placeholder="Your name" aria-label="Your name" required>
+        <input type="tel" placeholder="Phone number" aria-label="Phone number" required>
+        <button type="submit">Get Free Estimate</button>
+      </form>
+      <div class="cta-phone">Or call now: <a href="tel:5557392841">(555) 739-2841</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Green<span>Scape</span></div>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">&copy; 2024 GreenScape Pro. All rights reserved. Austin, TX. | <a href="tel:5557392841" style="color:var(--accent-lime);">(555) 739-2841</a></div>
+  </div>
+</footer>
+
+<!-- ═══ CDN SCRIPTS ═══ -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
+
+<script>
+/* ═══════════════════════════════════════════
+   INIT — Lenis Smooth Scroll + GSAP
+   ═══════════════════════════════════════════ */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile = window.innerWidth < 768;
+const parallaxMultiplier = isMobile ? 0.3 : 1;
+
+let lenis;
+if (!prefersReducedMotion) {
+  lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+}
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* ═══════════════════════════════════════════
+   NAV — Scroll glass effect + mobile toggle
+   ═══════════════════════════════════════════ */
+const nav = document.getElementById('nav');
+ScrollTrigger.create({
+  start: 80,
+  onUpdate: (self) => nav.classList.toggle('scrolled', self.scroll() > 80)
+});
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* ═══════════════════════════════════════════
+   HERO — 3-Layer Parallax System
+   ═══════════════════════════════════════════ */
+if (!prefersReducedMotion) {
+  // Back layer — slowest movement
+  gsap.to('.hero-layer--back', {
+    yPercent: 20 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  // Mid layer — medium speed
+  gsap.to('.hero-layer--mid', {
+    yPercent: 40 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  // Individual blobs at slightly different speeds for organic feel
+  gsap.to('.hero-blob--1', {
+    y: -80 * parallaxMultiplier, x: 30 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  gsap.to('.hero-blob--2', {
+    y: -120 * parallaxMultiplier, x: -20 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  gsap.to('.hero-blob--3', {
+    y: -60 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  // Front layer — fastest (content moves most, fades out)
+  gsap.to('.hero-content', {
+    yPercent: 60 * parallaxMultiplier,
+    opacity: 0,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: '80% top', scrub: true }
+  });
+
+  // Floating leaves — each at a unique parallax speed
+  document.querySelectorAll('.hero-leaf').forEach((leaf, i) => {
+    const speed = parseFloat(leaf.dataset.parallaxSpeed) || 0.3;
+    gsap.to(leaf, {
+      y: (-100 - i * 40) * speed * parallaxMultiplier,
+      rotation: (i % 2 === 0 ? 15 : -15) * parallaxMultiplier,
+      ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+  });
+
+  // Scroll hint fade on scroll
+  gsap.to('#scrollHint', {
+    opacity: 0,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: '10% top', end: '25% top', scrub: true }
+  });
+}
+
+/* ═══════════════════════════════════════════
+   HERO — SplitType Text Animation
+   ═══════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const heroText = new SplitType('#heroHeadline', { types: 'lines, words, chars' });
+
+    if (!prefersReducedMotion) {
+      gsap.set(heroText.chars, { y: 80, opacity: 0, rotationX: -40 });
+      gsap.to(heroText.chars, {
+        y: 0, opacity: 1, rotationX: 0,
+        duration: 0.8,
+        stagger: 0.025,
+        ease: 'power3.out',
+        delay: 0.3
+      });
+    } else {
+      gsap.set(heroText.chars, { opacity: 1 });
+    }
+  } catch(e) {
+    document.getElementById('heroHeadline').style.opacity = 1;
+  }
+
+  // Staggered entrance for hero elements
+  if (!prefersReducedMotion) {
+    gsap.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, delay: 0.1, ease: 'power2.out' });
+    gsap.from('.hero-eyebrow', { y: 20, duration: 0.8, delay: 0.1, ease: 'power2.out' });
+    gsap.to('.hero-sub', { opacity: 1, y: 0, duration: 0.8, delay: 0.9, ease: 'power2.out' });
+    gsap.from('.hero-sub', { y: 20, duration: 0.8, delay: 0.9, ease: 'power2.out' });
+    gsap.to('.hero-actions', { opacity: 1, y: 0, duration: 0.8, delay: 1.1, ease: 'power2.out' });
+    gsap.from('.hero-actions', { y: 20, duration: 0.8, delay: 1.1, ease: 'power2.out' });
+    gsap.to('#scrollHint', { opacity: 1, duration: 1, delay: 1.5 });
+  } else {
+    gsap.set(['.hero-eyebrow', '.hero-sub', '.hero-actions', '#scrollHint'], { opacity: 1 });
+  }
+});
+
+/* ═══════════════════════════════════════════
+   TRUST BAR — Counter Animation + Parallax Offsets
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.trust-card').forEach((card, i) => {
+  const offset = parseInt(card.dataset.parallaxOffset) || 20;
+
+  if (!prefersReducedMotion) {
+    gsap.from(card, {
+      y: offset * parallaxMultiplier,
+      opacity: 0,
+      duration: 0.8,
+      delay: i * 0.1,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none none' }
+    });
+
+    // Each card floats at a different parallax speed
+    gsap.to(card, {
+      y: -offset * 0.5 * parallaxMultiplier,
+      ease: 'none',
+      scrollTrigger: { trigger: '.trust-bar', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+});
+
+// Animated counters on scroll
+ScrollTrigger.create({
+  trigger: '.trust-bar',
+  start: 'top 80%',
+  once: true,
+  onEnter: () => {
+    document.querySelectorAll('.trust-number').forEach(el => {
+      const target = parseFloat(el.dataset.count);
+      const isDecimal = el.dataset.decimal === 'true';
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 2,
+        ease: 'power2.out',
+        onUpdate: () => {
+          if (isDecimal) {
+            el.textContent = obj.val.toFixed(1);
+          } else {
+            const rounded = Math.round(obj.val);
+            el.textContent = rounded.toLocaleString() + '+';
+          }
+        }
+      });
+    });
+  }
+});
+
+/* ═══════════════════════════════════════════
+   SERVICES — Staggered Entry + Depth Parallax
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.service-card').forEach((card, i) => {
+  const depth = parseFloat(card.dataset.depth) || 0.05;
+
+  if (!prefersReducedMotion) {
+    gsap.from(card, {
+      y: 60 + i * 10,
+      opacity: 0,
+      duration: 0.8,
+      delay: i * 0.08,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' }
+    });
+
+    // Each card scrolls at a different depth
+    gsap.to(card, {
+      y: -(40 + i * 15) * depth * 10 * parallaxMultiplier,
+      ease: 'none',
+      scrollTrigger: { trigger: '.services', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+});
+
+// Services background layer parallax
+if (!prefersReducedMotion) {
+  gsap.to('.services-bg-layer', {
+    yPercent: -15 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.services', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+}
+
+/* ═══════════════════════════════════════════
+   BEFORE / AFTER — Interactive Slider
+   ═══════════════════════════════════════════ */
+const baSlider = document.getElementById('baSlider');
+const baAfter = document.getElementById('baAfter');
+const baHandle = document.getElementById('baHandle');
+let isDragging = false;
+
+function updateSlider(x) {
+  const rect = baSlider.getBoundingClientRect();
+  let pct = ((x - rect.left) / rect.width) * 100;
+  pct = Math.max(2, Math.min(98, pct));
+  baAfter.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+  baHandle.style.left = pct + '%';
+}
+
+baSlider.addEventListener('pointerdown', (e) => {
+  isDragging = true;
+  baSlider.setPointerCapture(e.pointerId);
+  updateSlider(e.clientX);
+});
+baSlider.addEventListener('pointermove', (e) => { if (isDragging) updateSlider(e.clientX); });
+baSlider.addEventListener('pointerup', () => isDragging = false);
+baSlider.addEventListener('pointercancel', () => isDragging = false);
+
+// Parallax depth layers around the slider
+if (!prefersReducedMotion) {
+  gsap.to('.ba-frame-depth', {
+    y: 30 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.before-after', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  gsap.to('.ba-frame', {
+    y: -15 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.before-after', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  document.querySelectorAll('.ba-bg-element').forEach((el, i) => {
+    const speed = parseFloat(el.dataset.parallaxSpeed) || 0.15;
+    gsap.to(el, {
+      y: (i % 2 === 0 ? -80 : 80) * speed * parallaxMultiplier,
+      ease: 'none',
+      scrollTrigger: { trigger: '.before-after', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  });
+
+  gsap.from('.ba-wrapper', {
+    y: 60, opacity: 0, duration: 1, ease: 'power2.out',
+    scrollTrigger: { trigger: '.before-after', start: 'top 75%', toggleActions: 'play none none none' }
+  });
+}
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO — Masonry with Variable Parallax Speeds
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.portfolio-item').forEach((item, i) => {
+  const speed = parseFloat(item.dataset.parallaxSpeed) || 0.06;
+
+  if (!prefersReducedMotion) {
+    gsap.from(item, {
+      y: 80,
+      opacity: 0,
+      duration: 0.8,
+      delay: i * 0.06,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: item, start: 'top 90%', toggleActions: 'play none none none' }
+    });
+
+    // Different speeds = 3D depth illusion
+    gsap.to(item, {
+      y: (-60 + i * 20) * speed * 10 * parallaxMultiplier,
+      ease: 'none',
+      scrollTrigger: { trigger: '.portfolio', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+});
+
+/* ═══════════════════════════════════════════
+   ABOUT — Split Layout + Floating Elements
+   ═══════════════════════════════════════════ */
+if (!prefersReducedMotion) {
+  gsap.from('.about-visual', {
+    y: 60, opacity: 0, duration: 1, ease: 'power2.out',
+    scrollTrigger: { trigger: '.about', start: 'top 70%', toggleActions: 'play none none none' }
+  });
+
+  gsap.from('.about-content', {
+    y: 40, opacity: 0, duration: 1, delay: 0.2, ease: 'power2.out',
+    scrollTrigger: { trigger: '.about', start: 'top 70%', toggleActions: 'play none none none' }
+  });
+
+  gsap.to('.about-visual', {
+    y: -30 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  gsap.to('.about-visual-accent', {
+    y: -50 * parallaxMultiplier, x: 20 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  // Floating leaf parallax
+  document.querySelectorAll('.about-floating-leaf').forEach((leaf, i) => {
+    gsap.to(leaf, {
+      y: (i % 2 === 0 ? -80 : 60) * parallaxMultiplier,
+      rotation: (i % 2 === 0 ? 10 : -10) * parallaxMultiplier,
+      ease: 'none',
+      scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  });
+}
+
+/* ═══════════════════════════════════════════
+   REVIEWS — Floating Depth + Rotation Parallax
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.review-card').forEach((card, i) => {
+  const depth = parseFloat(card.dataset.depth) || 0.05;
+  const rotateAmount = parseFloat(card.dataset.rotate) || 0;
+
+  if (!prefersReducedMotion) {
+    gsap.from(card, {
+      y: 60 + i * 20,
+      opacity: 0,
+      rotation: rotateAmount * 3,
+      duration: 0.8,
+      delay: i * 0.12,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+
+    // Each card at a different depth with slight rotation
+    gsap.to(card, {
+      y: -(30 + i * 25) * depth * 10 * parallaxMultiplier,
+      rotation: rotateAmount * parallaxMultiplier,
+      ease: 'none',
+      scrollTrigger: { trigger: '.reviews', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+});
+
+/* ═══════════════════════════════════════════
+   PROCESS — SVG Line Draw via ScrollTrigger
+   ═══════════════════════════════════════════ */
+if (!prefersReducedMotion) {
+  const processLine = document.getElementById('processLine');
+
+  // Animate stroke-dashoffset to draw the connecting line
+  gsap.to(processLine, {
+    strokeDashoffset: 0,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.process-timeline',
+      start: 'top 70%',
+      end: 'bottom 60%',
+      scrub: true
+    }
+  });
+
+  // Staggered step entrance
+  document.querySelectorAll('.process-step').forEach((step, i) => {
+    gsap.from(step, {
+      x: -40, opacity: 0, duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: step, start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    ScrollTrigger.create({
+      trigger: step,
+      start: 'top 60%',
+      onEnter: () => step.classList.add('active'),
+    });
+  });
+}
+
+/* ═══════════════════════════════════════════
+   CTA — Parallax Background Layers
+   ═══════════════════════════════════════════ */
+if (!prefersReducedMotion) {
+  gsap.to('.cta-bg-layer-1', {
+    yPercent: -20 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.cta-section', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  gsap.to('.cta-bg-layer-2', {
+    yPercent: -35 * parallaxMultiplier,
+    ease: 'none',
+    scrollTrigger: { trigger: '.cta-section', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  gsap.from('.cta-inner', {
+    y: 40, opacity: 0, duration: 1, ease: 'power2.out',
+    scrollTrigger: { trigger: '.cta-section', start: 'top 75%', toggleActions: 'play none none none' }
+  });
+}
+
+/* ═══════════════════════════════════════════
+   SECTION HEADERS — Universal Reveal
+   ═══════════════════════════════════════════ */
+if (!prefersReducedMotion) {
+  document.querySelectorAll('.section-header').forEach(header => {
+    const eyebrow = header.querySelector('.section-eyebrow');
+    const title = header.querySelector('.section-title');
+
+    if (eyebrow) {
+      gsap.from(eyebrow, {
+        y: 20, opacity: 0, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    }
+
+    if (title) {
+      gsap.from(title, {
+        y: 30, opacity: 0, duration: 0.8, delay: 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    }
+  });
+}
+
+/* ═══════════════════════════════════════════
+   SMOOTH SCROLL — Anchor Links
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      if (lenis) {
+        lenis.scrollTo(target, { offset: -80 });
+      } else {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Template Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0b;
+  --bg-elevated: #131316;
+  --bg-card: #1a1a1f;
+  --bg-hover: #222228;
+  --border: rgba(255,255,255,.06);
+  --border-active: rgba(255,255,255,.15);
+  --text: #e8e8ed;
+  --text-muted: #888;
+  --text-dim: #555;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-glow: rgba(99,102,241,.15);
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --orange: #f97316;
+  --radius: 10px;
+  --transition: all .2s ease;
+  --topbar-h: 52px;
+  --sidebar-w: 340px;
+}
+
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--topbar-h);
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  z-index: 50;
+}
+.topbar-brand {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--accent);
+  margin-right: 8px;
+}
+.topbar-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+.topbar-template-name {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.topbar-template-name span {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+.topbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  font-size: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+.topbar-btn:hover { background: var(--bg-hover); color: var(--text); border-color: var(--border-active); }
+.topbar-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.topbar-btn.primary:hover { background: var(--accent-hover); }
+.topbar-btn svg { width: 14px; height: 14px; }
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.topbar-link {
+  font-size: .7rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+.topbar-link:hover { color: var(--text-muted); background: var(--bg-hover); }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--bg-elevated);
+  border-right: 1px solid var(--border);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+}
+.sidebar.open { transform: translateX(0); }
+.sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar-header h2 {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-muted);
+}
+.sidebar-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.sidebar-close:hover { background: var(--bg-hover); color: var(--text); }
+.sidebar-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.sidebar-tab {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: .7rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: var(--transition);
+}
+.sidebar-tab:hover { background: var(--bg-hover); color: var(--text-muted); }
+.sidebar-tab.active { background: var(--accent); color: #fff; font-weight: 600; }
+.sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+.sidebar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* ── SIDEBAR THUMB CARD ── */
+.thumb-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.thumb-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+}
+.thumb-card.active-template {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+.thumb-preview {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #fff;
+}
+.thumb-preview iframe {
+  width: 1440px;
+  height: 900px;
+  border: none;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+.thumb-label {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.thumb-label-text {
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.thumb-label-vertical {
+  font-size: .55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.thumb-label-vertical.dentists { background: rgba(99,102,241,.15); color: var(--accent-hover); }
+.thumb-label-vertical.auto-repair { background: rgba(245,158,11,.15); color: var(--amber); }
+
+/* ── EDITOR AREA ── */
+.editor-area {
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.editor-iframe-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+.editor-iframe-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── EMPTY STATE ── */
+.editor-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-dim);
+  gap: 16px;
+}
+.editor-empty h2 { font-size: 1.3rem; font-weight: 700; color: var(--text-muted); }
+.editor-empty p { font-size: .85rem; max-width: 400px; text-align: center; line-height: 1.6; }
+
+/* overlay elements removed — toolbar lives inside iframe now */
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.08); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.15); }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span class="topbar-brand">Editor</span>
+  <div class="topbar-divider"></div>
+  <span class="topbar-template-name" id="templateName">No template selected</span>
+  <button class="topbar-btn" id="changeTemplateBtn" onclick="openSidebar('templates')">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+    Change Template
+  </button>
+  <div class="topbar-right">
+    <button class="topbar-btn" id="undoBtn" onclick="undo()" style="display:none">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h7a3 3 0 0 1 0 6H8M3 7l3-3M3 7l3 3"/></svg>
+      Undo
+    </button>
+    <button class="topbar-btn primary" id="exportBtn" onclick="exportTemplate()" style="display:none">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12v1h10v-1"/></svg>
+      Export HTML
+    </button>
+    <a class="topbar-link" href="index.html">Section Reviewer</a>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h2 id="sidebarTitle">Choose Template</h2>
+    <button class="sidebar-close" onclick="closeSidebar()">&times;</button>
+  </div>
+  <div class="sidebar-tabs" id="sidebarTabs"></div>
+  <div class="sidebar-scroll" id="sidebarScroll">
+    <div class="sidebar-grid" id="sidebarGrid"></div>
+  </div>
+</aside>
+
+<!-- EDITOR -->
+<div class="editor-area" id="editorArea">
+  <div class="editor-empty" id="editorEmpty">
+    <h2>Template Editor</h2>
+    <p>Choose a template to start editing. You can swap, add, or delete sections to build your perfect template.</p>
+    <button class="topbar-btn primary" onclick="openSidebar('templates')">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+      Choose a Template
+    </button>
+  </div>
+  <div class="editor-iframe-wrap" id="editorWrap" style="display:none">
+    <iframe id="editorIframe" sandbox="allow-same-origin allow-scripts"></iframe>
+  </div>
+</div>
+
+<!-- toolbar is now injected inside the editor iframe -->
+
+<script src="sections-data.js?v=20260314"></script>
+<script>
+// ── CONSTANTS ──
+const SECTION_LABELS = {
+  hero:'Hero', nav:'Navigation', services:'Services', about:'About',
+  testimonials:'Testimonials', cta:'CTA / Contact', footer:'Footer',
+  blog:'Blog', 'why-us':'Why Us', 'trust-bar':'Trust Bar',
+  stats:'Stats', process:'Process', team:'Team', map:'Map',
+  gallery:'Gallery', 'before-after':'Before/After', faq:'FAQ',
+  pricing:'Pricing', brands:'Brands', hours:'Hours',
+  'service-area':'Service Area',
+};
+const SECTION_TYPE_MAP = {
+  'hero':'hero','hero-bento':'hero','hero-wrap':'hero','chapter-hero':'hero','ch-hero':'hero',
+  'about':'about','about-section':'about','ch-about':'about','editorial-intro':'about',
+  'services':'services','features':'services','specs':'services','ch-services':'services',
+  'testimonials':'testimonials','reviews':'testimonials','testimonials-section':'testimonials',
+  'cta-section':'cta','cta-banner':'cta','contact':'cta','cta-map':'cta',
+  'contact-cta':'cta','cta':'cta','cta-contact':'cta','mid-section':'cta','specials':'cta',
+  'footer-cta':'cta','cta-band':'cta','ch-cta':'cta',
+  'blog':'blog','blog-preview':'blog',
+  'trust-bar':'trust-bar','trust':'trust-bar','certs':'trust-bar',
+  'why-us':'why-us','why':'why-us',
+  'stats':'stats','stats-bar':'stats','stats-section':'stats','chapter-stats':'stats',
+  'gallery':'gallery','gallery-section':'gallery','portfolio':'gallery','ch-port':'gallery','filmstrip':'gallery',
+  'process':'process','how-it-works':'process',
+  'before-after':'before-after','before-after-section':'before-after','beforeafter':'before-after',
+  'ba':'before-after','ch-ba':'before-after','results':'before-after',
+  'service-area':'service-area','area':'service-area',
+  'team':'team','doctors':'team',
+  'faq':'faq','pricing':'pricing','brands':'brands',
+  'map':'map','map-section':'map','hours':'hours',
+  'footer':'footer','site-footer':'footer',
+  'nav':'nav','navbar':'nav',
+};
+
+const ORIGIN = location.origin;
+
+// ── STATE ──
+let editorState = {
+  currentTemplate: null, // { vertical, template, sections: [...sectionData] }
+  sidebarMode: null, // 'templates' | 'swap' | 'add'
+  sidebarFilter: 'all',
+  swapTargetIdx: null,
+  addTargetIdx: null,
+  history: [],       // undo stack
+  liveSections: [],  // current ordered list of section data in the editor
+};
+
+// ── TEMPLATES INDEX ──
+function getTemplates() {
+  const map = {};
+  for (const s of SECTIONS_DATA) {
+    const key = `${s.vertical}-${s.template}`;
+    if (!map[key]) map[key] = { vertical: s.vertical, template: s.template, templateFile: s.templateFile, sections: [] };
+    map[key].sections.push(s);
+  }
+  return Object.values(map).sort((a,b) => a.vertical.localeCompare(b.vertical) || a.template - b.template);
+}
+
+const ALL_TEMPLATES = getTemplates();
+
+// ── INIT ──
+function init() {
+  setupEditorListeners();
+}
+
+// ── SIDEBAR ──
+function openSidebar(mode, opts = {}) {
+  editorState.sidebarMode = mode;
+  editorState.sidebarFilter = 'all';
+
+  const sidebar = document.getElementById('sidebar');
+  const title = document.getElementById('sidebarTitle');
+
+  if (mode === 'templates') {
+    title.textContent = 'Choose Template';
+    buildSidebarTabs(getVerticals(ALL_TEMPLATES.map(t => t.vertical)));
+    renderTemplateThumbs();
+  } else if (mode === 'swap') {
+    const sec = editorState.liveSections[editorState.swapTargetIdx];
+    const typeLabel = SECTION_LABELS[sec.type] || sec.type;
+    title.textContent = `Swap ${typeLabel}`;
+    const verticals = getVerticals(SECTIONS_DATA.filter(s => s.type === sec.type).map(s => s.vertical));
+    buildSidebarTabs(verticals);
+    renderSectionThumbs(sec.type);
+  } else if (mode === 'add') {
+    title.textContent = 'Add Section';
+    // Show all section types as categories
+    buildSidebarTabs(getVerticals(SECTIONS_DATA.map(s => s.vertical)));
+    renderAddSectionThumbs();
+  }
+
+  sidebar.classList.add('open');
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  editorState.sidebarMode = null;
+}
+
+function getVerticals(list) {
+  return [...new Set(list)];
+}
+
+function buildSidebarTabs(verticals) {
+  const tabs = document.getElementById('sidebarTabs');
+
+  if (editorState.sidebarMode === 'add') {
+    // For add mode, show section type tabs instead of verticals
+    const types = [...new Set(SECTIONS_DATA.map(s => s.type))];
+    const ordered = ['hero','nav','services','about','testimonials','cta','blog','why-us','trust-bar','stats','process','team','footer'];
+    const available = ordered.filter(t => types.includes(t));
+
+    tabs.innerHTML = available.map(t => {
+      const label = SECTION_LABELS[t] || t;
+      return `<button class="sidebar-tab ${editorState.sidebarFilter === t ? 'active' : ''}"
+               onclick="editorState.sidebarFilter='${t}'; buildSidebarTabs([]); renderAddSectionThumbs()">${label}</button>`;
+    }).join('');
+    return;
+  }
+
+  let html = `<button class="sidebar-tab ${editorState.sidebarFilter === 'all' ? 'active' : ''}"
+               onclick="filterSidebar('all')">All</button>`;
+  for (const v of verticals) {
+    const label = v.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+    html += `<button class="sidebar-tab ${editorState.sidebarFilter === v ? 'active' : ''}"
+              onclick="filterSidebar('${v}')">${label}</button>`;
+  }
+  tabs.innerHTML = html;
+}
+
+function filterSidebar(v) {
+  editorState.sidebarFilter = v;
+  // Rebuild tabs to update active state
+  if (editorState.sidebarMode === 'templates') {
+    buildSidebarTabs(getVerticals(ALL_TEMPLATES.map(t => t.vertical)));
+    renderTemplateThumbs();
+  } else if (editorState.sidebarMode === 'swap') {
+    const sec = editorState.liveSections[editorState.swapTargetIdx];
+    const verticals = getVerticals(SECTIONS_DATA.filter(s => s.type === sec.type).map(s => s.vertical));
+    buildSidebarTabs(verticals);
+    renderSectionThumbs(sec.type);
+  }
+}
+
+// ── TEMPLATE THUMBS ──
+function renderTemplateThumbs() {
+  const grid = document.getElementById('sidebarGrid');
+  let templates = ALL_TEMPLATES;
+  if (editorState.sidebarFilter !== 'all') {
+    templates = templates.filter(t => t.vertical === editorState.sidebarFilter);
+  }
+
+  grid.innerHTML = templates.map(t => {
+    const isActive = editorState.currentTemplate &&
+      editorState.currentTemplate.vertical === t.vertical &&
+      editorState.currentTemplate.template === t.template;
+    return `
+      <div class="thumb-card ${isActive ? 'active-template' : ''}"
+           onclick="loadTemplate('${t.vertical}', ${t.template})">
+        <div class="thumb-preview">
+          <iframe loading="lazy" sandbox="allow-same-origin allow-scripts" data-template="${t.vertical}-${t.template}"></iframe>
+        </div>
+        <div class="thumb-label">
+          <span class="thumb-label-text">Template ${t.template}</span>
+          <span class="thumb-label-vertical ${t.vertical}">${t.vertical}</span>
+        </div>
+      </div>`;
+  }).join('');
+
+  requestAnimationFrame(() => loadSidebarIframes());
+  document.getElementById('sidebarScroll').addEventListener('scroll', throttle(loadSidebarIframes, 200));
+}
+
+function renderSectionThumbs(type) {
+  const grid = document.getElementById('sidebarGrid');
+  let sections = SECTIONS_DATA.filter(s => s.type === type);
+  if (editorState.sidebarFilter !== 'all') {
+    sections = sections.filter(s => s.vertical === editorState.sidebarFilter);
+  }
+
+  grid.innerHTML = sections.map(s => `
+    <div class="thumb-card" onclick="performSwap('${s.id}')">
+      <div class="thumb-preview">
+        <iframe loading="lazy" sandbox="allow-same-origin allow-scripts" data-section-id="${s.id}"></iframe>
+      </div>
+      <div class="thumb-label">
+        <span class="thumb-label-text">Template ${s.template}</span>
+        <span class="thumb-label-vertical ${s.vertical}">${s.vertical}</span>
+      </div>
+    </div>`
+  ).join('');
+
+  requestAnimationFrame(() => loadSidebarSectionIframes());
+  document.getElementById('sidebarScroll').addEventListener('scroll', throttle(loadSidebarSectionIframes, 200));
+}
+
+function renderAddSectionThumbs() {
+  const grid = document.getElementById('sidebarGrid');
+  const type = editorState.sidebarFilter;
+  if (!type || type === 'all') {
+    grid.innerHTML = '<div style="padding:20px;color:var(--text-dim);font-size:.8rem">Select a section type above</div>';
+    return;
+  }
+  const sections = SECTIONS_DATA.filter(s => s.type === type);
+
+  grid.innerHTML = sections.map(s => `
+    <div class="thumb-card" onclick="performAdd('${s.id}')">
+      <div class="thumb-preview">
+        <iframe loading="lazy" sandbox="allow-same-origin allow-scripts" data-section-id="${s.id}"></iframe>
+      </div>
+      <div class="thumb-label">
+        <span class="thumb-label-text">Template ${s.template}</span>
+        <span class="thumb-label-vertical ${s.vertical}">${s.vertical}</span>
+      </div>
+    </div>`
+  ).join('');
+
+  requestAnimationFrame(() => loadSidebarSectionIframes());
+  document.getElementById('sidebarScroll').addEventListener('scroll', throttle(loadSidebarSectionIframes, 200));
+}
+
+// ── SIDEBAR IFRAME LOADING ──
+function loadSidebarIframes() {
+  const scroll = document.getElementById('sidebarScroll');
+  const cards = scroll.querySelectorAll('.thumb-card');
+  const scrollRect = scroll.getBoundingClientRect();
+
+  cards.forEach(card => {
+    const iframe = card.querySelector('iframe');
+    if (iframe.dataset.loaded) return;
+    const rect = card.getBoundingClientRect();
+    if (rect.top < scrollRect.bottom + 300 && rect.bottom > scrollRect.top - 300) {
+      const key = iframe.dataset.template;
+      if (!key) return;
+      const [vertical, tplStr] = key.split(/-(\d+)$/);
+      const tpl = ALL_TEMPLATES.find(t => t.vertical === vertical && t.template === parseInt(tplStr));
+      if (!tpl) return;
+
+      iframe.srcdoc = buildFullTemplateDoc(tpl.sections);
+      iframe.dataset.loaded = 'true';
+      iframe.addEventListener('load', () => {
+        const w = card.querySelector('.thumb-preview').offsetWidth;
+        const scale = w / 1440;
+        iframe.style.transform = `scale(${scale})`;
+        iframe.style.transformOrigin = '0 0';
+        iframe.style.height = `${180 / scale}px`;
+      });
+    }
+  });
+}
+
+function loadSidebarSectionIframes() {
+  const scroll = document.getElementById('sidebarScroll');
+  const cards = scroll.querySelectorAll('.thumb-card');
+  const scrollRect = scroll.getBoundingClientRect();
+
+  cards.forEach(card => {
+    const iframe = card.querySelector('iframe');
+    if (iframe.dataset.loaded) return;
+    const rect = card.getBoundingClientRect();
+    if (rect.top < scrollRect.bottom + 300 && rect.bottom > scrollRect.top - 300) {
+      const secId = iframe.dataset.sectionId;
+      if (!secId) return;
+      const section = SECTIONS_DATA.find(s => s.id === secId);
+      if (!section) return;
+
+      iframe.srcdoc = buildSectionDoc(section);
+      iframe.dataset.loaded = 'true';
+      iframe.addEventListener('load', () => {
+        const w = card.querySelector('.thumb-preview').offsetWidth;
+        const scale = w / 1440;
+        iframe.style.transform = `scale(${scale})`;
+        iframe.style.transformOrigin = '0 0';
+        iframe.style.height = `${180 / scale}px`;
+      });
+    }
+  });
+}
+
+// ── CSS SCOPING HELPERS ──
+function absolutifyHtmlUrls(html, basePath) {
+  const base = ORIGIN + '/' + basePath;
+  // Fix src, poster attributes
+  html = html.replace(/((?:src|poster)=)(["'])(?!https?:\/\/|\/\/|data:|#|mailto:|tel:|javascript:)([^"']+?)\2/gi, (m, attr, q, url) => {
+    try { return `${attr}${q}${new URL(url, base).href}${q}`; } catch(e) { return m; }
+  });
+  // Fix url() in inline styles
+  html = html.replace(/url\((['"]?)(?!https?:\/\/|\/\/|data:|#)([^)'"]+?)\1\)/g, (m, q, url) => {
+    try { return `url(${q}${new URL(url, base).href}${q})`; } catch(e) { return m; }
+  });
+  return html;
+}
+
+function absolutifyCssUrls(css, basePath) {
+  const base = ORIGIN + '/' + basePath;
+  return css.replace(/url\((['"]?)(?!https?:\/\/|\/\/|data:|#)([^)'"]+?)\1\)/g, (m, q, url) => {
+    try { return `url(${q}${new URL(url, base).href}${q})`; } catch(e) { return m; }
+  });
+}
+
+function scopeTemplateCSS(css, tplKey, basePath) {
+  // Absolutify relative URLs in CSS
+  css = absolutifyCssUrls(css, basePath);
+  // Replace :root/html/body selectors with :scope for @scope context
+  css = css.replace(/:root(?=\s*[{,\s])/g, ':scope');
+  css = css.replace(/(^|[,\s}>+~])html(?=\s*[{,\s>.#:[])/gm, '$1:scope');
+  css = css.replace(/(^|[,\s}>+~])body(?=\s*[{,\s>.#:[])/gm, '$1:scope');
+  return `@scope ([data-tpl="${tplKey}"]) {\n${css}\n}`;
+}
+
+// ── DOCUMENT BUILDERS ──
+function buildFullTemplateDoc(sections, interactive) {
+  if (!sections.length) return '';
+  const first = sections[0];
+
+  // Build HTML: absolutify URLs + inject data-tpl scope attribute per section
+  const allHtml = sections.map((s, i) => {
+    const tplKey = `${s.vertical}-${s.template}`;
+    let html = absolutifyHtmlUrls(s.html, s.basePath);
+    // Inject data-tpl attribute into the section's opening tag
+    html = html.replace(/<(section|nav|footer)\b/, '<$1 data-tpl="' + tplKey + '"');
+    return `<!-- SECTION_IDX:${i} TYPE:${s.type} -->\n${html}`;
+  }).join('\n\n');
+
+  // Scope CSS per source template using @scope — prevents cross-template conflicts
+  const templateCss = new Map();
+  const allFontLinks = new Set();
+  for (const s of sections) {
+    const tplKey = `${s.vertical}-${s.template}`;
+    if (!templateCss.has(tplKey)) {
+      templateCss.set(tplKey, scopeTemplateCSS(s.css, tplKey, s.basePath));
+    }
+    if (s.fontLinks) s.fontLinks.split('\n').forEach(l => allFontLinks.add(l));
+  }
+  const mergedCss = [...templateCss.values()].join('\n\n');
+  const fontLinksStr = [...allFontLinks].join('\n');
+
+  const toolbarCSS = interactive ? `
+/* ── Editor toolbar (lives inside iframe) ── */
+.__editor-section { outline: 2px solid transparent; outline-offset: -2px; transition: outline-color .15s ease; position: relative !important; }
+.__editor-section:hover { outline-color: #6366f1; }
+.__editor-toolbar {
+  display: none; position: absolute; top: 8px; right: 8px; z-index: 99999;
+  align-items: center; gap: 3px; padding: 4px 6px;
+  background: rgba(19,19,22,.95); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  font-family: 'Inter',-apple-system,sans-serif; white-space: nowrap;
+  backdrop-filter: blur(12px);
+}
+.__editor-section:hover > .__editor-toolbar { display: flex; }
+.__editor-toolbar-name {
+  padding: 0 8px; font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: #888;
+}
+.__editor-toolbar-div { width: 1px; height: 18px; background: rgba(255,255,255,.1); }
+.__editor-toolbar-btn {
+  display: flex; align-items: center; gap: 4px; padding: 5px 10px;
+  border-radius: 5px; border: none; background: none; color: #aaa;
+  font-size: 11px; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: all .15s ease;
+}
+.__editor-toolbar-btn:hover { background: rgba(255,255,255,.08); color: #fff; }
+.__editor-toolbar-btn.swap:hover { color: #818cf8; }
+.__editor-toolbar-btn.add:hover { color: #22c55e; }
+.__editor-toolbar-btn.delete:hover { color: #ef4444; }
+.__editor-toolbar-btn svg { width: 13px; height: 13px; }
+` : '';
+
+  const interactiveScript = interactive ? `
+<script>
+(function() {
+  const sectionLabels = ${JSON.stringify(SECTION_LABELS)};
+  const typeMap = ${JSON.stringify(SECTION_TYPE_MAP)};
+
+  function classifyEl(el) {
+    const tag = el.tagName.toLowerCase();
+    const cls = (el.className && typeof el.className === 'string' ? el.className : '').split(/\\s+/).filter(Boolean);
+    for (const c of cls) { if (typeMap[c]) return typeMap[c]; }
+    if (el.id && typeMap[el.id]) return typeMap[el.id];
+    if (tag === 'nav') return 'nav';
+    if (tag === 'footer') return 'footer';
+    return cls[0] || 'unknown';
+  }
+
+  // Select all top-level sections (with data-tpl scope attribute)
+  const sectionEls = document.querySelectorAll('body > nav[data-tpl], body > section[data-tpl], body > footer[data-tpl]');
+  sectionEls.forEach((el, idx) => {
+    el.classList.add('__editor-section');
+    el.dataset.editorIdx = idx;
+    const stype = classifyEl(el);
+    el.dataset.editorType = stype;
+    const label = sectionLabels[stype] || stype;
+
+    const tb = document.createElement('div');
+    tb.className = '__editor-toolbar';
+    tb.innerHTML = '<span class="__editor-toolbar-name">' + label + '</span>'
+      + '<span class="__editor-toolbar-div"></span>'
+      + '<button class="__editor-toolbar-btn swap" data-action="swap" data-idx="'+idx+'"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5h14M11 1l4 4-4 4M15 11H1M5 15l-4-4 4-4"/></svg>Swap</button>'
+      + '<button class="__editor-toolbar-btn add" data-action="add" data-idx="'+idx+'"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg>Add</button>'
+      + '<button class="__editor-toolbar-btn delete" data-action="delete" data-idx="'+idx+'"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l8 8M12 4l-8 8"/></svg>Delete</button>';
+    el.appendChild(tb);
+
+    tb.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-action]');
+      if (!btn) return;
+      e.stopPropagation();
+      window.parent.postMessage({
+        type: 'toolbar-action',
+        action: btn.dataset.action,
+        idx: parseInt(btn.dataset.idx),
+        sectionType: stype,
+      }, '*');
+    });
+  });
+})();
+<` + `/script>` : '';
+
+  return `<!DOCTYPE html>
+<html dir="${first.direction}" lang="${first.lang}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+${fontLinksStr}
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+${mergedCss}
+nav, section, footer { position: relative !important; }
+.nav { position: relative !important; }
+[class*="gs-hidden"], .gs-hidden { opacity: 1 !important; visibility: visible !important; }
+section *, footer *, nav * { opacity: 1 !important; visibility: visible !important; }
+.mobile-menu:not(.open) { display: none !important; }
+${toolbarCSS}
+</style>
+</head>
+<body>${allHtml}
+<` + `script>
+document.querySelectorAll('[style*="opacity: 0"], [style*="opacity:0"]').forEach(el => {
+  el.style.opacity = '1';
+  el.style.visibility = 'visible';
+  el.style.transform = 'none';
+});
+<` + `/script>
+${interactiveScript}
+</body>
+</html>`;
+}
+
+function buildSectionDoc(section) {
+  const baseHref = `${ORIGIN}/${section.basePath}`;
+  return `<!DOCTYPE html>
+<html dir="${section.direction}" lang="${section.lang}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="${baseHref}">
+${section.fontLinks}
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { overflow: hidden; }
+${section.css}
+nav, section, footer { position: relative !important; }
+.nav { position: relative !important; }
+[class*="gs-hidden"], .gs-hidden { opacity: 1 !important; visibility: visible !important; }
+section *, footer *, nav * { opacity: 1 !important; visibility: visible !important; }
+.mobile-menu:not(.open) { display: none !important; }
+</style>
+</head>
+<body>${section.html}
+<script>
+document.querySelectorAll('[style*="opacity: 0"], [style*="opacity:0"]').forEach(el => {
+  el.style.opacity = '1'; el.style.visibility = 'visible'; el.style.transform = 'none';
+});
+<` + `/script>
+</body>
+</html>`;
+}
+
+// ── LOAD TEMPLATE ──
+function loadTemplate(vertical, templateNum) {
+  const tpl = ALL_TEMPLATES.find(t => t.vertical === vertical && t.template === templateNum);
+  if (!tpl) return;
+
+  editorState.currentTemplate = tpl;
+  editorState.liveSections = tpl.sections.map(s => ({ ...s }));
+  editorState.history = [];
+
+  // Update topbar
+  const vLabel = vertical.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+  document.getElementById('templateName').innerHTML = `${vLabel} <span>Template ${templateNum}</span>`;
+  document.getElementById('exportBtn').style.display = '';
+  document.getElementById('undoBtn').style.display = 'none';
+
+  // Render template
+  renderEditor();
+
+  closeSidebar();
+}
+
+function renderEditor() {
+  document.getElementById('editorEmpty').style.display = 'none';
+  document.getElementById('editorWrap').style.display = '';
+
+  const iframe = document.getElementById('editorIframe');
+  iframe.srcdoc = buildFullTemplateDoc(editorState.liveSections, true);
+}
+
+// ── EDITOR INTERACTION ──
+function setupEditorListeners() {
+  window.addEventListener('message', (e) => {
+    if (e.data.type === 'toolbar-action') {
+      const { action, idx, sectionType } = e.data;
+      if (action === 'swap') {
+        editorState.swapTargetIdx = idx;
+        openSidebar('swap');
+      } else if (action === 'add') {
+        editorState.addTargetIdx = idx;
+        editorState.sidebarFilter = 'hero';
+        openSidebar('add');
+      } else if (action === 'delete') {
+        if (editorState.liveSections.length <= 1) return;
+        pushUndo();
+        editorState.liveSections.splice(idx, 1);
+        renderEditor();
+      }
+    } else if (e.data.type === 'full-html') {
+      downloadFile(e.data.html, `template-custom-${Date.now()}.html`, 'text/html');
+    }
+  });
+}
+
+// ── SECTION ACTIONS (handled via postMessage in setupEditorListeners) ──
+
+function performSwap(sectionId) {
+  const idx = editorState.swapTargetIdx;
+  if (idx == null) return;
+
+  const newSection = SECTIONS_DATA.find(s => s.id === sectionId);
+  if (!newSection) return;
+
+  // Save undo state
+  pushUndo();
+
+  // Replace in live sections
+  editorState.liveSections[idx] = { ...newSection };
+
+  closeSidebar();
+
+  // Re-render fully to apply new CSS if from different template
+  renderEditor();
+}
+
+function performAdd(sectionId) {
+  const idx = editorState.addTargetIdx;
+  if (idx == null) return;
+
+  const newSection = SECTIONS_DATA.find(s => s.id === sectionId);
+  if (!newSection) return;
+
+  // Save undo state
+  pushUndo();
+
+  // Insert after target index
+  editorState.liveSections.splice(idx + 1, 0, { ...newSection });
+
+  closeSidebar();
+  renderEditor();
+}
+
+// ── UNDO ──
+function pushUndo() {
+  editorState.history.push(editorState.liveSections.map(s => ({ ...s })));
+  document.getElementById('undoBtn').style.display = '';
+}
+
+function undo() {
+  if (!editorState.history.length) return;
+  editorState.liveSections = editorState.history.pop();
+  if (!editorState.history.length) document.getElementById('undoBtn').style.display = 'none';
+  renderEditor();
+}
+
+// ── EXPORT ──
+function exportTemplate() {
+  const sections = editorState.liveSections;
+  if (!sections.length) return;
+
+  // Scope CSS per template + absolutify URLs (same logic as buildFullTemplateDoc)
+  const templateCss = new Map();
+  const allFontLinks = new Set();
+  for (const s of sections) {
+    const tplKey = `${s.vertical}-${s.template}`;
+    if (!templateCss.has(tplKey)) {
+      templateCss.set(tplKey, scopeTemplateCSS(s.css, tplKey, s.basePath));
+    }
+    if (s.fontLinks) s.fontLinks.split('\n').forEach(l => allFontLinks.add(l));
+  }
+
+  const first = sections[0];
+  const allHtml = sections.map(s => {
+    const tplKey = `${s.vertical}-${s.template}`;
+    let html = absolutifyHtmlUrls(s.html, s.basePath);
+    html = html.replace(/<(section|nav|footer)\b/, '<$1 data-tpl="' + tplKey + '"');
+    return html;
+  }).join('\n\n');
+
+  const doc = `<!DOCTYPE html>
+<html dir="${first.direction}" lang="${first.lang}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+${[...allFontLinks].join('\n')}
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+${[...templateCss.values()].join('\n\n')}
+</style>
+</head>
+<body>
+${allHtml}
+</body>
+</html>`;
+
+  const v = editorState.currentTemplate.vertical;
+  const t = editorState.currentTemplate.template;
+  downloadFile(doc, `${v}-template-${t}-custom.html`, 'text/html');
+}
+
+// ── UTILS ──
+function downloadFile(content, filename, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function throttle(fn, ms) {
+  let timer = null;
+  return function(...args) {
+    if (timer) return;
+    timer = setTimeout(() => { timer = null; fn.apply(this, args); }, ms);
+  };
+}
+
+// ── GO ──
+init();
+</script>
+</body>
+</html>

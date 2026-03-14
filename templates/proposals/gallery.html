@@ -417,7 +417,7 @@ body::after{
 
 <!-- ── Top Navigation ── -->
 <nav class="top-nav">
-  <a href="../dentists/website/gallery.html" class="nav-link nav-link--inactive">
+  <a href="../gallery.html" class="nav-link nav-link--inactive" style="text-decoration:none">
     <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
     Website Templates
   </a>
@@ -435,7 +435,7 @@ body::after{
   </div>
   <div class="header-right">
     <div class="header-meta">
-      <span class="header-count">10</span> templates
+      <span class="header-count">20</span> templates
     </div>
     <div class="lang-toggle">
       <button class="lang-btn active" data-lang="he" onclick="switchLang('he')">HEB</button>
@@ -446,12 +446,14 @@ body::after{
 
 <section class="hero">
   <div class="hero-eyebrow">Proposal Gallery</div>
-  <h1>Clinic Proposals<br>for <span>Dental Outreach</span></h1>
-  <p class="hero-sub">Browse all 10 proposal templates. Each combines Hero + Competitor Comparison + Reputation Analysis. Click any card to preview.</p>
+  <h1>Business Proposals<br>for <span>Local Outreach</span></h1>
+  <p class="hero-sub">Browse all 20 proposal templates. Dental (1–10) + Auto Repair (11–20). Each combines Hero + Competitor Comparison + Reputation Analysis. Click any card to preview.</p>
 </section>
 
 <div class="filter-bar">
   <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="dental">Dental</button>
+  <button class="filter-btn" data-filter="auto-repair">Auto Repair</button>
   <button class="filter-btn" data-filter="light">Light</button>
   <button class="filter-btn" data-filter="dark">Dark</button>
   <button class="filter-btn" data-filter="minimal">Minimal</button>
@@ -464,31 +466,42 @@ body::after{
 
 <script>
 const templates = [
-  { id:1,  file:'template-1-gazette',    name:'Gazette',     tags:['dark'] },
-  { id:2,  file:'template-2-bloom',      name:'Bloom',       tags:['light','ornate'] },
-  { id:3,  file:'template-3-swiss',      name:'Swiss',       tags:['light','minimal'] },
-  { id:4,  file:'template-4-dusk',       name:'Dusk',        tags:['dark'] },
-  { id:5,  file:'template-5-citrus',     name:'Citrus',      tags:['light','ornate'] },
-  { id:6,  file:'template-6-frost',      name:'Frost',       tags:['light','minimal'] },
-  { id:7,  file:'template-7-sakura',     name:'Sakura',      tags:['light','ornate'] },
-  { id:8,  file:'template-8-twilight',   name:'Twilight',    tags:['dark','ornate'] },
-  { id:9,  file:'template-9-porcelain',  name:'Porcelain',   tags:['light'] },
-  { id:10, file:'template-10-amethyst',  name:'Amethyst',    tags:['dark','ornate'] },
+  { id:1,  file:'template-1-gazette',    name:'Gazette',     tags:['dark','dental'] },
+  { id:2,  file:'template-2-bloom',      name:'Bloom',       tags:['light','ornate','dental'] },
+  { id:3,  file:'template-3-swiss',      name:'Swiss',       tags:['light','minimal','dental'] },
+  { id:4,  file:'template-4-dusk',       name:'Dusk',        tags:['dark','dental'] },
+  { id:5,  file:'template-5-citrus',     name:'Citrus',      tags:['light','ornate','dental'] },
+  { id:6,  file:'template-6-frost',      name:'Frost',       tags:['light','minimal','dental'] },
+  { id:7,  file:'template-7-sakura',     name:'Sakura',      tags:['light','ornate','dental'] },
+  { id:8,  file:'template-8-twilight',   name:'Twilight',    tags:['dark','ornate','dental'] },
+  { id:9,  file:'template-9-porcelain',  name:'Porcelain',   tags:['light','dental'] },
+  { id:10, file:'template-10-amethyst',  name:'Amethyst',    tags:['dark','ornate','dental'] },
+  { id:11, file:'template-11-ironworks', name:'Ironworks',   tags:['dark','auto-repair'], enOnly:true },
+  { id:12, file:'template-12-asphalt',   name:'Asphalt',     tags:['dark','auto-repair'], enOnly:true },
+  { id:13, file:'template-13-chrome',    name:'Chrome',      tags:['dark','minimal','auto-repair'], enOnly:true },
+  { id:14, file:'template-14-torque',    name:'Torque',      tags:['dark','auto-repair'], enOnly:true },
+  { id:15, file:'template-15-garage',    name:'Garage',      tags:['dark','auto-repair'], enOnly:true },
+  { id:16, file:'template-16-piston',    name:'Piston',      tags:['dark','minimal','auto-repair'], enOnly:true },
+  { id:17, file:'template-17-carbon',    name:'Carbon',      tags:['dark','minimal','auto-repair'], enOnly:true },
+  { id:18, file:'template-18-grease',    name:'Grease',      tags:['dark','auto-repair'], enOnly:true },
+  { id:19, file:'template-19-horsepower',name:'Horsepower',  tags:['dark','auto-repair'], enOnly:true },
+  { id:20, file:'template-20-junction',  name:'Junction',    tags:['dark','minimal','auto-repair'], enOnly:true },
 ];
 
 const grid = document.getElementById('gallery');
 let currentLang = 'he';
 
-function getLangSuffix() {
+function getSuffix(t) {
+  if (t.enOnly) return '-en';
   return currentLang === 'en' ? '-en' : '';
 }
 
 function renderCards(filter) {
   grid.innerHTML = '';
   const filtered = filter === 'all' ? templates : templates.filter(t => t.tags.includes(filter));
-  const suffix = getLangSuffix();
 
   filtered.forEach((t, i) => {
+    const suffix = getSuffix(t);
     const card = document.createElement('a');
     card.className = 'card';
     card.href = `${t.file}${suffix}.html`;

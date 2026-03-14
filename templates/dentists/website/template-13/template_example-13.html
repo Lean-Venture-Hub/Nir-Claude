@@ -1052,9 +1052,13 @@ body{
 
 /* ── ENTRANCE ANIMATIONS ───────────────── */
 .tile,.service-card,.testimonial-card,.hero-main,.hero-rating,.hero-doctor,.cta-section{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.tile.visible,.service-card.visible,.testimonial-card.visible,.hero-main.visible,.hero-rating.visible,.hero-doctor.visible,.cta-section.visible{
   opacity:1;
   transform:translateY(0);
-  transition:opacity .6s ease,transform .6s ease;
 }
 
 /* ── STAGGER DELAYS for bento children ── */
@@ -1066,6 +1070,10 @@ body{
   object-fit:cover;
   border-radius:calc(var(--radius, 16px) - 4px);
   margin-bottom:16px;
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .tile,.service-card,.testimonial-card,.hero-main,.hero-rating,.hero-doctor,.cta-section{opacity:1!important;transform:none!important}
 }
 </style>
 </head>

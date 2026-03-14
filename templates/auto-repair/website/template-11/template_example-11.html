@@ -779,7 +779,7 @@ window.addEventListener('load', () => {
 
   // ── Scroll animations ──
   // Generic fade-in for sections
-  document.querySelectorAll('.services-header, .about-label, .about-headline, .about-text, .about-callout, .about-stats, .reviews-header .label, .reviews-headline, .bento-header .label, .bento-headline, .blog-headline, .cta-inner').forEach(el => {
+  document.querySelectorAll('.services-header, .about-label, .about-headline, .about-text, .about-callout, .about-stats, .reviews-header .label, .reviews-headline, .bento-header .label, .bento-headline, .blog-headline').forEach(el => {
     gsap.from(el, {
       opacity: 0, y: 40, duration: 0.8,
       scrollTrigger: { trigger: el, start: 'top 85%', once: true }

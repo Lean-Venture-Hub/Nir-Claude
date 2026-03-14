@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Engine Light On? Here's What It Actually Means | Precision Auto Works</title>
+<meta name="description" content="Common causes behind your check engine light — gas cap, O2 sensor, catalytic converter, spark plugs, MAF sensor. Severity levels and what to do.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#B91C1C;--red-light:#DC2626;--red-dark:#991B1B;
+  --bg:#FAFAFA;--bg-alt:#F0EEEB;--bg-dark:#1A1A1A;
+  --text:#1A1A1A;--text-light:#6B6B6B;--text-lighter:#9A9A9A;--white:#FFFFFF;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'Inter',system-ui,sans-serif;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--red);text-decoration:none;transition:color .3s}
+a:hover{color:var(--red-dark)}
+h1,h2,h3,h4,h5{font-family:var(--font-display);font-weight:400;line-height:1.15}
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+.eyebrow{font-family:var(--font-body);font-size:.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--red)}
+.red-rule{width:60px;height:2px;background:var(--red);display:block}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;background:rgba(250,250,250,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.nav .container{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--text);letter-spacing:0.01em}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:500;color:var(--text-light);letter-spacing:0.08em;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--red)}
+.nav-links a.active{color:var(--red)}
+.nav-cta-link{font-size:.75rem;font-weight:600;color:var(--red)!important;letter-spacing:0.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.nav-cta-link::after{content:'\2192';transition:transform .3s}
+.nav-cta-link:hover::after{transform:translateX(4px)}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:24px;height:1.5px;background:var(--text);transition:all .3s}
+
+.article-hero{padding:160px 0 60px;background:var(--bg-alt)}
+.breadcrumb{font-size:.75rem;color:var(--text-lighter);margin-bottom:24px}
+.breadcrumb a{color:var(--text-light);font-size:.75rem}
+.breadcrumb span{margin:0 8px;color:var(--text-lighter)}
+.article-hero .eyebrow{margin-bottom:16px}
+.article-hero .red-rule{margin-bottom:20px}
+.article-hero h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;margin-bottom:20px;line-height:1.15;max-width:700px}
+.article-meta{font-size:.85rem;color:var(--text-light);display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.article-meta strong{color:var(--red);font-weight:600}
+
+.article-wrap{max-width:740px;margin:0 auto;padding:60px 40px 100px}
+.article-hero-img{margin:-20px auto 48px;max-width:740px;overflow:hidden}
+.article-hero-img img{width:100%;height:400px;object-fit:cover;filter:grayscale(20%)}
+.article-body h2{font-size:1.6rem;font-weight:400;margin:44px 0 16px;color:var(--text)}
+.article-body p{font-size:.95rem;color:var(--text-light);line-height:1.9;margin-bottom:20px}
+.article-body ul,.article-body ol{margin:0 0 20px 24px;color:var(--text-light);font-size:.95rem;line-height:1.9}
+.article-body li{margin-bottom:8px}
+.article-body strong{color:var(--text);font-weight:600}
+.article-body blockquote{font-family:var(--font-display);font-size:1.4rem;font-weight:400;font-style:italic;color:var(--red);line-height:1.5;padding:24px 0 24px 32px;border-left:3px solid var(--red);margin:32px 0}
+
+.author-box{display:flex;gap:24px;padding:36px;background:var(--bg-alt);margin:48px 0;align-items:start}
+.author-avatar{width:64px;height:64px;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.4rem;color:var(--white);font-weight:600;flex-shrink:0}
+.author-info h4{font-size:1.1rem;margin-bottom:2px}
+.author-info .author-title{font-size:.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.author-info p{font-size:.85rem;color:var(--text-light);line-height:1.7}
+
+.related{padding:60px 0 100px;border-top:1px solid rgba(0,0,0,0.06)}
+.related .eyebrow{margin-bottom:8px}
+.related h3{font-size:1.6rem;font-weight:300;margin-bottom:32px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.related-card{padding:32px;background:var(--white);border:1px solid rgba(0,0,0,0.04);transition:all .4s}
+.related-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+.related-card h4{font-size:1.2rem;margin-bottom:8px}
+.related-card h4 a{color:var(--text)}
+.related-card h4 a:hover{color:var(--red)}
+.related-card p{font-size:.85rem;color:var(--text-light);line-height:1.7}
+
+.footer{padding:60px 0;background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--font-display);font-size:1.2rem;color:var(--white);font-weight:400}
+.footer-logo span{color:var(--red-light)}
+.footer-links{display:flex;gap:32px;list-style:none}
+.footer-links a{font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:0.06em;text-transform:uppercase;transition:color .3s}
+.footer-links a:hover{color:var(--red-light)}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.25)}
+
+@media(max-width:768px){
+  .container{padding:0 24px}
+  .article-wrap{padding:60px 24px 100px}
+  .nav-links,.nav-cta-link{display:none}
+  .hamburger{display:flex}
+  .related-grid{grid-template-columns:1fr}
+  .author-box{flex-direction:column}
+  .footer-inner{flex-direction:column;gap:24px;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../template_example-20.html" class="nav-logo">Precision<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../../template_example-20.html#services">Services</a></li>
+      <li><a href="../../template_example-20.html#story">Our Story</a></li>
+      <li><a href="../../blog.html" class="active">Blog</a></li>
+      <li><a href="../../template_example-20.html#gallery">Gallery</a></li>
+      <li><a href="../../template_example-20.html#location">Visit</a></li>
+    </ul>
+    <a href="tel:+15554827193" class="nav-cta-link">Book Now</a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../../template_example-20.html">Home</a><span>/</span><a href="../../blog.html">Blog</a><span>/</span>Check Engine Light</div>
+    <span class="eyebrow">Diagnostics</span>
+    <div class="red-rule"></div>
+    <h1>Check Engine Light On? Here&rsquo;s What It Actually Means</h1>
+    <div class="article-meta">
+      <strong>Mike Rodriguez</strong>
+      <span>ASE Certified Master Technician</span>
+      <span>8 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="article-wrap">
+  <div class="article-hero-img">
+    <img src="../../../../images/template-images/diagnostic-scan.jpg" alt="Diagnostic scan at Precision Auto Works">
+  </div>
+  <div class="article-body">
+    <p>Few things create more anxiety for drivers than seeing that orange check engine light illuminate on the dashboard. The good news is that it rarely means your engine is about to explode. The bad news is that ignoring it can turn a simple fix into a costly repair. Here is what that light actually means and the most common reasons it comes on.</p>
+
+    <h2>Understanding Severity Levels</h2>
+    <p>Your check engine light communicates in two ways, and understanding the difference is critical:</p>
+    <ul>
+      <li><strong>Steady light:</strong> Indicates a non-emergency issue that should be diagnosed soon, typically within a week or two. You can continue driving normally, but schedule an appointment. Most check engine lights fall into this category.</li>
+      <li><strong>Flashing light:</strong> Indicates a severe misfire or critical issue that could damage your catalytic converter or engine. Reduce speed, avoid heavy acceleration, and get to a mechanic as soon as possible. Continuing to drive with a flashing check engine light can cause thousands of dollars in additional damage.</li>
+    </ul>
+
+    <h2>The 5 Most Common Causes</h2>
+    <p>After diagnosing thousands of check engine lights in our Dallas shop, these are the five causes we see most frequently, listed from most to least common.</p>
+
+    <h2>1. Loose or Faulty Gas Cap</h2>
+    <p>This is the simplest and cheapest fix on the list, and it accounts for roughly 10-15% of all check engine lights. Your fuel system is a sealed system, and the gas cap maintains that seal. A loose, cracked, or missing gas cap allows fuel vapors to escape, triggering the evaporative emission system (EVAP) code.</p>
+    <p><strong>What to do:</strong> Pull over, remove the gas cap, check the rubber seal for cracks or debris, and reinstall it until you hear it click firmly. Drive for a day or two and the light should clear itself. If it does not, the cap may need replacement. <strong>Cost: $5 to $25</strong> for a new cap.</p>
+
+    <h2>2. Oxygen (O2) Sensor Failure</h2>
+    <p>Your vehicle has between two and four oxygen sensors that measure how much unburned oxygen is in your exhaust. This data helps your engine computer maintain the optimal air-fuel ratio for combustion and emissions. When an O2 sensor fails, the engine runs less efficiently, which reduces fuel economy by 10-40% and increases emissions.</p>
+    <p>O2 sensors naturally degrade over time due to exposure to extreme heat and combustion byproducts. Most fail between 60,000 and 100,000 miles. <strong>Cost: $200 to $400</strong> per sensor including labor. Ignoring a failed O2 sensor can eventually damage the catalytic converter, turning a $300 repair into a $2,000 one.</p>
+
+    <h2>3. Catalytic Converter Issues</h2>
+    <p>The catalytic converter transforms harmful exhaust gases into less harmful emissions. When it fails, your vehicle will not pass emissions testing and engine performance suffers noticeably. You may experience reduced acceleration, a sulfur or rotten egg smell from the exhaust, and dark exhaust smoke.</p>
+    <p>Catalytic converters rarely fail on their own. The failure is usually caused by another underlying issue like a bad O2 sensor, engine misfires, or oil burning that was ignored. This is exactly why addressing check engine lights early matters so much. <strong>Cost: $1,000 to $2,500</strong> depending on your vehicle.</p>
+
+    <h2>4. Spark Plug or Ignition Coil Problems</h2>
+    <p>Spark plugs ignite the air-fuel mixture in each cylinder, and ignition coils provide the electrical charge to the spark plugs. When either component fails, you experience misfires, rough idling, poor acceleration, reduced fuel economy, and increased emissions.</p>
+    <p>Modern spark plugs last 60,000 to 100,000 miles depending on the type. Iridium and platinum plugs last longer than copper. Ignition coils typically last 80,000 to 120,000 miles but can fail earlier due to heat and vibration. <strong>Cost: $150 to $300</strong> for spark plug replacement (full set), <strong>$200 to $400</strong> for an ignition coil replacement.</p>
+
+    <h2>5. Mass Airflow (MAF) Sensor Malfunction</h2>
+    <p>The MAF sensor measures the volume of air entering the engine, which determines how much fuel to inject. When it fails or gets dirty, the engine runs rich (too much fuel) or lean (too little fuel). Symptoms include rough idle, stalling, reduced power, poor fuel economy, and difficulty starting.</p>
+    <p>Before replacing the MAF sensor, try cleaning it first. A can of MAF sensor cleaner costs about $10 and solves the problem roughly half the time. The sensor element is delicate, so never touch it with anything other than the approved cleaner. If cleaning does not work, replacement costs <strong>$200 to $400</strong> including labor.</p>
+
+    <h2>What to Do When the Light Comes On</h2>
+    <p>First, check whether the light is steady or flashing. If it is flashing, pull over safely and call for assistance. If it is steady, you have time to schedule a proper diagnosis.</p>
+    <p>Do not rush to an auto parts store for a free code scan and assume the first code that pops up is the complete picture. Diagnostic trouble codes indicate a system or circuit problem, not the specific failed part. Proper diagnosis requires professional equipment and experience.</p>
+    <blockquote>A code reader tells you where to look. Proper diagnosis tells you what to fix. They are not the same thing.</blockquote>
+    <p>At Precision Auto Works, we use factory-grade diagnostic equipment to pinpoint the exact cause of your check engine light. We do not guess, we do not upsell unnecessary parts, and we always explain what we found before recommending any repairs. If your check engine light is on, give us a call at (555) 482-7193 and we will get you scheduled for a thorough diagnosis.</p>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">MR</div>
+    <div class="author-info">
+      <h4>Mike Rodriguez</h4>
+      <div class="author-title">ASE Certified Master Technician</div>
+      <p>With over 18 years of experience in automotive repair, Mike founded Precision Auto Works to bring honest, transparent service to Dallas drivers. He holds ASE Master Technician certification and specializes in diagnostics and engine performance.</p>
+    </div>
+  </div>
+
+  <section class="related">
+    <span class="eyebrow">Continue Reading</span>
+    <h3>Related Articles</h3>
+    <div class="related-grid">
+      <div class="related-card">
+        <h4><a href="../oil-change-guide/index.html">How Often Should You Really Change Your Oil?</a></h4>
+        <p>The 3,000-mile myth is costing you money. Learn the real intervals for synthetic vs conventional oil.</p>
+      </div>
+      <div class="related-card">
+        <h4><a href="../brake-warning-signs/index.html">5 Brake Warning Signs You Should Never Ignore</a></h4>
+        <p>Squealing, grinding, vibration &mdash; your brakes are trying to tell you something. Know when to get checked.</p>
+      </div>
+    </div>
+  </section>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Precision<span>.</span></div>
+      <ul class="footer-links">
+        <li><a href="../../template_example-20.html#services">Services</a></li>
+        <li><a href="../../template_example-20.html#story">Story</a></li>
+        <li><a href="../../blog.html">Blog</a></li>
+        <li><a href="../../template_example-20.html#location">Location</a></li>
+        <li><a href="tel:+15554827193">(555) 482-7193</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2026 Precision Auto Works. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

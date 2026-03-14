@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenScape Pro — Brutalist Landscaping, Austin TX</title>
+<meta name="description" content="GreenScape Pro delivers bold landscape design, lawn care, hardscaping & outdoor living in Austin TX. 312+ five-star reviews. Call (555) 739-2841.">
+<meta name="theme-color" content="#111111">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LandscapingBusiness",
+  "name": "GreenScape Pro",
+  "description": "Bold landscape design, lawn care, hardscaping and outdoor living services in Austin, TX.",
+  "telephone": "+15557392841",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Austin",
+    "addressRegion": "TX",
+    "postalCode": "78745"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312"
+  },
+  "foundingDate": "2011",
+  "owner": {
+    "@type": "Person",
+    "name": "Mike Anderson"
+  }
+}
+</script>
+<style>
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+body{font-family:'DM Sans',sans-serif;background:#F0EDE6;color:#111;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── VARIABLES ── */
+:root{
+  --bg:#F0EDE6;
+  --black:#111;
+  --green:#22C55E;
+  --gray:#888;
+  --white:#fff;
+  --font-head:'Syne',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+  --border:3px solid #111;
+  --border-thick:5px solid #111;
+}
+
+/* ── UTILITY ── */
+.container{max-width:1400px;margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:var(--font-head)}
+img{display:block;max-width:100%}
+
+/* ── NAVIGATION ── */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--bg);border-bottom:var(--border);padding:0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1400px;margin:0 auto;padding:0 24px}
+.nav-logo{font-family:var(--font-head);font-weight:800;font-size:28px;text-transform:uppercase;letter-spacing:-1px}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;padding:8px 16px;border:2px solid transparent;transition:all .2s}
+.nav-links a:hover{border-color:#111}
+.nav-cta{background:var(--green)!important;color:#111!important;font-weight:800!important;border:2px solid #111!important;padding:10px 24px!important;font-size:15px!important;transition:all .2s!important}
+.nav-cta:hover{background:#111!important;color:var(--green)!important}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;z-index:1001}
+.hamburger span{display:block;width:32px;height:3px;background:#111;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--bg);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transform:translateY(-100%);transition:transform .4s cubic-bezier(.76,0,.24,1)}
+.mobile-menu.active{transform:translateY(0)}
+.mobile-menu a{font-family:var(--font-head);font-weight:800;font-size:36px;text-transform:uppercase;letter-spacing:-1px;border-bottom:var(--border);padding-bottom:8px}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:72px;position:relative;overflow:hidden}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.15;z-index:0}
+.hero-content{position:relative;z-index:1}
+.hero-content{padding:80px 24px 60px;max-width:1400px;margin:0 auto;width:100%}
+.hero-tag{font-family:var(--font-head);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:3px;color:var(--gray);margin-bottom:32px;display:flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';width:40px;height:3px;background:var(--green);display:inline-block}
+.hero-headline{font-family:var(--font-head);font-weight:800;font-size:clamp(64px,10vw,140px);line-height:.9;text-transform:uppercase;letter-spacing:-4px;margin-bottom:40px}
+.hero-headline .stroke{-webkit-text-stroke:3px #111;color:transparent;display:inline}
+.hero-headline .green-line{display:block;width:fit-content;position:relative}
+.hero-headline .green-line::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:12px;background:var(--green);z-index:-1}
+.hero-sub{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:32px}
+.hero-desc{max-width:480px;font-size:18px;line-height:1.6;color:var(--gray)}
+.hero-phone{font-family:var(--font-head);font-weight:800;font-size:clamp(28px,4vw,48px);border:var(--border-thick);padding:16px 32px;transition:all .2s;display:inline-block}
+.hero-phone:hover{background:#111;color:var(--green)}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-family:var(--font-head);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:3px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-scroll .arrow{width:2px;height:40px;background:#111;position:relative}
+.hero-scroll .arrow::after{content:'';position:absolute;bottom:0;left:-4px;width:10px;height:10px;border-bottom:2px solid #111;border-right:2px solid #111;transform:rotate(45deg)}
+
+/* ── TRUST BAR ── */
+.trust{border-top:var(--border-thick);border-bottom:var(--border-thick);background:#111;color:var(--bg)}
+.trust-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1400px;margin:0 auto}
+.trust-item{padding:40px 24px;text-align:center;border-right:3px solid var(--gray)}
+.trust-item:last-child{border-right:none}
+.trust-num{font-family:var(--font-head);font-weight:800;font-size:clamp(40px,5vw,72px);letter-spacing:-2px;line-height:1}
+.trust-num .accent{color:var(--green)}
+.trust-label{font-family:var(--font-head);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--gray);margin-top:8px}
+
+/* ── SERVICES ── */
+.services{padding:120px 0;border-bottom:var(--border-thick)}
+.section-header{margin-bottom:64px;padding:0 24px;max-width:1400px;margin-left:auto;margin-right:auto;margin-bottom:80px}
+.section-tag{font-family:var(--font-head);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:3px;color:var(--green);margin-bottom:16px}
+.section-title{font-family:var(--font-head);font-weight:800;font-size:clamp(36px,5vw,64px);text-transform:uppercase;letter-spacing:-2px;line-height:1}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:1400px;margin:0 auto;padding:0 24px;gap:0}
+.service-card{border:var(--border);padding:48px 32px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:default}
+.service-card:hover{transform:translateY(-8px);box-shadow:8px 8px 0 #111}
+.service-icon{width:56px;height:56px;margin-bottom:24px}
+.service-icon svg{width:100%;height:100%;stroke:#111;stroke-width:2;fill:none}
+.service-name{font-family:var(--font-head);font-weight:800;font-size:20px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.service-desc{font-size:15px;color:var(--gray);line-height:1.6}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:4px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.service-card:hover::after{transform:scaleX(1)}
+
+/* ── BEFORE/AFTER ── */
+.before-after{padding:120px 0;border-bottom:var(--border-thick);background:#111;color:var(--bg)}
+.ba-container{max-width:900px;margin:0 auto;padding:0 24px}
+.ba-slider{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border:var(--border-thick);border-color:var(--gray);cursor:col-resize}
+.ba-side{position:absolute;top:0;height:100%;width:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:48px;text-transform:uppercase;letter-spacing:2px}
+.ba-before{left:0;background:linear-gradient(135deg,#2a2a2a 0%,#1a1a1a 50%,#0d0d0d 100%);color:#555;clip-path:inset(0 50% 0 0)}
+.ba-before img,.ba-after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba-before .ba-content,.ba-after .ba-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px}
+.ba-after{left:0;background:linear-gradient(135deg,#1a472a 0%,#22C55E 50%,#16a34a 100%);color:#fff;clip-path:inset(0 0 0 50%)}
+.ba-label{font-size:14px;letter-spacing:4px;color:inherit;opacity:.7}
+.ba-handle{position:absolute;top:0;left:50%;transform:translateX(-50%);width:6px;height:100%;background:var(--green);z-index:10;pointer-events:none}
+.ba-handle::before,.ba-handle::after{content:'';position:absolute;left:50%;transform:translateX(-50%);width:48px;height:48px;background:var(--green);border:3px solid #111}
+.ba-handle::before{top:50%;transform:translate(-50%,-50%)}
+.ba-handle-arrows{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:11;pointer-events:none;font-family:var(--font-head);font-weight:800;font-size:18px;color:#111;white-space:nowrap}
+
+/* ── HORIZONTAL SCROLL PORTFOLIO ── */
+.portfolio{border-bottom:var(--border-thick)}
+.portfolio-header{padding:80px 24px 40px;max-width:1400px;margin:0 auto}
+.hscroll-wrap{position:relative;overflow:hidden}
+.hscroll-track{display:flex;gap:0;width:fit-content;will-change:transform}
+.project-card{width:450px;min-width:450px;height:500px;border-right:var(--border-thick);padding:40px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.project-card:nth-child(1){background:linear-gradient(160deg,#1a3a2a,#0a1f14)}
+.project-card:nth-child(2){background:linear-gradient(160deg,#3a2a1a,#1f140a)}
+.project-card:nth-child(3){background:linear-gradient(160deg,#1a2a3a,#0a141f)}
+.project-card:nth-child(4){background:linear-gradient(160deg,#2a3a1a,#141f0a)}
+.project-card:nth-child(5){background:linear-gradient(160deg,#3a1a2a,#1f0a14)}
+.project-card:nth-child(6){background:linear-gradient(160deg,#2a2a3a,#14141f)}
+.project-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.6;z-index:0}
+.project-num,.project-type,.project-name,.project-detail{position:relative;z-index:1}
+.project-num{font-family:var(--font-head);font-weight:800;font-size:120px;color:rgba(255,255,255,.08);position:absolute;top:16px;right:24px;line-height:1}
+.project-type{font-family:var(--font-head);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--green);margin-bottom:12px}
+.project-name{font-family:var(--font-head);font-weight:800;font-size:28px;color:#fff;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px}
+.project-detail{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6}
+
+/* ── ABOUT ── */
+.about{padding:120px 0;border-bottom:var(--border-thick)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1400px;margin:0 auto}
+.about-quote{padding:60px 48px;border-right:var(--border-thick);display:flex;align-items:center}
+.about-quote blockquote{font-family:var(--font-head);font-weight:800;font-size:clamp(28px,3.5vw,48px);line-height:1.2;text-transform:uppercase;letter-spacing:-1px;position:relative;padding-left:40px}
+.about-quote blockquote::before{content:'"';font-family:var(--font-head);font-size:160px;color:var(--green);position:absolute;top:-40px;left:-10px;line-height:1;opacity:.5}
+.about-bio{padding:60px 48px;display:flex;flex-direction:column;justify-content:center}
+.about-portrait{width:120px;height:120px;background:#111;border:var(--border-thick);margin-bottom:24px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:40px;color:var(--green);position:relative;overflow:hidden}
+.about-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.about-name{font-family:var(--font-head);font-weight:800;font-size:24px;text-transform:uppercase;margin-bottom:4px}
+.about-role{font-family:var(--font-head);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:3px;color:var(--green);margin-bottom:20px}
+.about-text{font-size:16px;line-height:1.7;color:var(--gray);margin-bottom:24px}
+.about-stat{display:flex;gap:40px}
+.about-stat div{text-align:left}
+.about-stat-num{font-family:var(--font-head);font-weight:800;font-size:32px}
+.about-stat-label{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--gray)}
+
+/* ── REVIEWS ── */
+.reviews{padding:120px 0;border-bottom:var(--border-thick);background:#111;color:var(--bg)}
+.reviews-stack{max-width:1000px;margin:0 auto;padding:0 24px;display:flex;flex-direction:column;gap:0}
+.review-block{border:3px solid var(--gray);padding:48px;position:relative}
+.review-block+.review-block{border-top:none}
+.review-quote-mark{font-family:var(--font-head);font-size:120px;color:var(--green);line-height:.8;opacity:.4;position:absolute;top:16px;left:32px}
+.review-text{font-family:var(--font-head);font-weight:600;font-size:clamp(18px,2.5vw,24px);line-height:1.5;margin-bottom:20px;padding-left:40px}
+.review-author{font-family:var(--font-head);font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:2px;padding-left:40px}
+.review-stars{color:var(--green);font-size:18px;letter-spacing:2px;margin-bottom:12px;padding-left:40px}
+
+/* ── PROCESS ── */
+.process{padding:120px 0;border-bottom:var(--border-thick)}
+.process-steps{max-width:1400px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.process-step{border:var(--border);padding:48px 40px;position:relative}
+.process-step+.process-step{border-left:none}
+.step-num{font-family:var(--font-head);font-weight:800;font-size:clamp(80px,8vw,140px);color:var(--green);opacity:.2;line-height:1;margin-bottom:16px}
+.step-title{font-family:var(--font-head);font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.step-desc{font-size:15px;color:var(--gray);line-height:1.7}
+
+/* ── SERVICE AREA ── */
+.area{padding:100px 0;border-bottom:var(--border-thick);background:var(--bg)}
+.area-inner{max-width:1400px;margin:0 auto;padding:0 24px}
+.area-title{font-family:var(--font-head);font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;letter-spacing:-2px;margin-bottom:48px}
+.area-list{display:flex;flex-wrap:wrap;gap:0}
+.area-tag{font-family:var(--font-head);font-weight:800;font-size:clamp(20px,3vw,36px);text-transform:uppercase;letter-spacing:-1px;padding:16px 28px;border:var(--border);margin:-1.5px;transition:all .2s;cursor:default}
+.area-tag:hover{background:#111;color:var(--green)}
+
+/* ── CTA ── */
+.cta{background:var(--green);padding:120px 0;border-bottom:var(--border-thick)}
+.cta-inner{max-width:800px;margin:0 auto;padding:0 24px;text-align:center}
+.cta-title{font-family:var(--font-head);font-weight:800;font-size:clamp(40px,6vw,80px);text-transform:uppercase;letter-spacing:-3px;color:#111;line-height:.95;margin-bottom:20px}
+.cta-sub{font-size:18px;color:rgba(0,0,0,.6);margin-bottom:48px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-form{display:flex;flex-direction:column;gap:0;max-width:500px;margin:0 auto}
+.cta-form input,.cta-form textarea{font-family:var(--font-body);font-size:16px;padding:18px 20px;border:var(--border-thick);background:var(--bg);color:#111;outline:none;width:100%}
+.cta-form input+input,.cta-form textarea{border-top:none}
+.cta-form textarea{resize:none;height:120px}
+.cta-form input:focus,.cta-form textarea:focus{background:#fff}
+.cta-submit{font-family:var(--font-head);font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:2px;padding:20px;background:#111;color:var(--green);border:var(--border-thick);cursor:pointer;transition:all .2s;width:100%}
+.cta-submit:hover{background:var(--bg);color:#111}
+
+/* ── FOOTER ── */
+.footer{background:#111;color:var(--bg);padding:80px 0 40px;border-top:var(--border-thick)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1400px;margin:0 auto;padding:0 24px;margin-bottom:60px}
+.footer-brand{font-family:var(--font-head);font-weight:800;font-size:32px;text-transform:uppercase;letter-spacing:-1px;margin-bottom:16px}
+.footer-brand span{color:var(--green)}
+.footer-tagline{font-size:14px;color:var(--gray);line-height:1.6;max-width:300px}
+.footer-col-title{font-family:var(--font-head);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;color:var(--green)}
+.footer-col a,.footer-col p{display:block;font-size:14px;color:var(--gray);margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:var(--green)}
+.footer-bottom{border-top:3px solid var(--gray);max-width:1400px;margin:0 auto;padding:24px 24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:13px;color:var(--gray)}
+.footer-legal{display:flex;gap:24px}
+.footer-legal a{font-size:13px;color:var(--gray);transition:color .2s}
+.footer-legal a:hover{color:var(--green)}
+
+/* ── MARQUEE TICKER ── */
+.marquee{overflow:hidden;border-bottom:var(--border-thick);padding:14px 0;background:var(--bg);white-space:nowrap}
+.marquee-track{display:inline-flex;animation:marquee 20s linear infinite}
+.marquee-track span{font-family:var(--font-head);font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:4px;padding:0 32px;color:var(--gray)}
+.marquee-track span .dot{color:var(--green);margin:0 8px}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── NAV ACTIVE STATE ── */
+.nav.scrolled{background:rgba(240,237,230,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+
+/* ── HERO DECORATIVE ELEMENTS ── */
+.hero-deco{position:absolute;top:120px;right:5%;width:200px;height:200px;border:var(--border-thick);opacity:.1;transform:rotate(12deg);pointer-events:none}
+.hero-deco-2{position:absolute;bottom:15%;right:15%;width:80px;height:80px;background:var(--green);opacity:.15;pointer-events:none}
+
+/* ── SELECTION STYLING ── */
+::selection{background:var(--green);color:#111}
+::-moz-selection{background:var(--green);color:#111}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#111}
+::-webkit-scrollbar-thumb{background:var(--green)}
+
+/* ── FOCUS STATES ── */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+
+/* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .hscroll-track{transform:none!important}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .process-steps{grid-template-columns:1fr}
+  .process-step+.process-step{border-left:var(--border);border-top:none}
+  .about-grid{grid-template-columns:1fr}
+  .about-quote{border-right:none;border-bottom:var(--border-thick)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .project-card{width:350px;min-width:350px;height:420px}
+}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .trust-inner{grid-template-columns:repeat(2,1fr)}
+  .trust-item:nth-child(2){border-right:none}
+  .trust-item:nth-child(1),.trust-item:nth-child(2){border-bottom:3px solid var(--gray)}
+  .services-grid{grid-template-columns:1fr}
+  .hero-sub{flex-direction:column;align-items:flex-start}
+  .hero-headline{letter-spacing:-2px}
+  .area-tag{font-size:18px;padding:12px 20px}
+  .project-card{width:300px;min-width:300px;height:380px}
+  .footer-grid{grid-template-columns:1fr}
+  .review-block{padding:32px 24px}
+  .review-quote-mark{font-size:80px;top:8px;left:16px}
+  .review-text,.review-stars,.review-author{padding-left:20px}
+}
+
+@media(max-width:480px){
+  .hero-headline{font-size:48px;letter-spacing:-1px}
+  .hero-headline .stroke{-webkit-text-stroke:2px #111}
+  .hero-phone{font-size:22px;padding:12px 20px}
+  .ba-side{font-size:28px}
+  .cta-title{letter-spacing:-1px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">GREEN<span>SCAPE</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Work</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact" class="nav-cta">(555) 739-2841</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#portfolio" onclick="toggleMenu()">Work</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()">(555) 739-2841</a>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="hero">
+  <img class="hero-bg-img" src="../../images/template-images/hero.jpg" alt="Beautiful landscaped backyard with pergola and stone patio at golden hour">
+  <div class="hero-content">
+    <div class="hero-tag">Austin, TX — Since 2011</div>
+    <h1 class="hero-headline" id="heroHeadline">
+      <span class="stroke">WE</span> BUILD<br>
+      <span class="green-line">LANDSCAPES</span>
+    </h1>
+    <div class="hero-sub">
+      <p class="hero-desc">Bold design meets raw nature. We transform outdoor spaces with uncompromising craftsmanship and zero shortcuts. 312+ five-star reviews.</p>
+      <a href="tel:5557392841" class="hero-phone">(555) 739-2841</a>
+    </div>
+  </div>
+  <div class="hero-deco"></div>
+  <div class="hero-deco-2"></div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ═══════ MARQUEE ═══════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Landscape Design<span class="dot">●</span></span>
+    <span>Hardscaping<span class="dot">●</span></span>
+    <span>Lawn Care<span class="dot">●</span></span>
+    <span>Irrigation<span class="dot">●</span></span>
+    <span>Outdoor Living<span class="dot">●</span></span>
+    <span>Tree Service<span class="dot">●</span></span>
+    <span>Landscape Design<span class="dot">●</span></span>
+    <span>Hardscaping<span class="dot">●</span></span>
+    <span>Lawn Care<span class="dot">●</span></span>
+    <span>Irrigation<span class="dot">●</span></span>
+    <span>Outdoor Living<span class="dot">●</span></span>
+    <span>Tree Service<span class="dot">●</span></span>
+  </div>
+</div>
+
+<!-- ═══════ TRUST BAR ═══════ -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-num">14<span class="accent">+</span></div>
+      <div class="trust-label">Years Active</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">4.9<span class="accent">★</span></div>
+      <div class="trust-label">Google Rating</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">312<span class="accent">+</span></div>
+      <div class="trust-label">5-Star Reviews</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">1.2K<span class="accent">+</span></div>
+      <div class="trust-label">Projects Done</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SERVICES ═══════ -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">Our Services</h2>
+  </div>
+  <div class="services-grid">
+    <!-- Landscape Design -->
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 56 56"><path d="M28 8L8 44h40L28 8z"/><line x1="28" y1="44" x2="28" y2="30"/><line x1="20" y1="44" x2="28" y2="34"/><line x1="36" y1="44" x2="28" y2="34"/></svg></div>
+      <div class="service-name">Landscape Design</div>
+      <div class="service-desc">Full-service custom landscape architecture. 3D renders, material selection, phased installation plans.</div>
+    </div>
+    <!-- Lawn Care -->
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 56 56"><rect x="8" y="32" width="40" height="4" rx="0"/><line x1="16" y1="32" x2="16" y2="16"/><line x1="24" y1="32" x2="20" y2="12"/><line x1="32" y1="32" x2="34" y2="14"/><line x1="40" y1="32" x2="40" y2="18"/><line x1="28" y1="36" x2="28" y2="48"/></svg></div>
+      <div class="service-name">Lawn Maintenance</div>
+      <div class="service-desc">Weekly mowing, edging, fertilization, weed control, aeration, and overseeding programs.</div>
+    </div>
+    <!-- Hardscaping -->
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 56 56"><rect x="8" y="8" width="16" height="16"/><rect x="32" y="8" width="16" height="16"/><rect x="8" y="32" width="16" height="16"/><rect x="32" y="32" width="16" height="16"/></svg></div>
+      <div class="service-name">Hardscaping</div>
+      <div class="service-desc">Patios, retaining walls, walkways, driveways, fire pits, and outdoor kitchens in stone and concrete.</div>
+    </div>
+    <!-- Irrigation -->
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 56 56"><circle cx="28" cy="20" r="12"/><path d="M22 30c-6 8-6 16 0 20"/><path d="M34 30c6 8 6 16 0 20"/><line x1="28" y1="32" x2="28" y2="50"/></svg></div>
+      <div class="service-name">Irrigation Systems</div>
+      <div class="service-desc">Smart sprinkler design, drip irrigation, rain sensors, and water-efficient zone management.</div>
+    </div>
+    <!-- Tree Service -->
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 56 56"><line x1="28" y1="48" x2="28" y2="20"/><circle cx="28" cy="16" r="12"/><line x1="20" y1="36" x2="14" y2="30"/><line x1="36" y1="36" x2="42" y2="30"/></svg></div>
+      <div class="service-name">Tree & Shrub Care</div>
+      <div class="service-desc">Pruning, removal, stump grinding, disease treatment, and seasonal planting programs.</div>
+    </div>
+    <!-- Outdoor Living -->
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 56 56"><path d="M8 40h40"/><path d="M12 40V24l16-12 16 12v16"/><rect x="22" y="30" width="12" height="10"/><line x1="28" y1="12" x2="28" y2="8"/></svg></div>
+      <div class="service-name">Outdoor Living</div>
+      <div class="service-desc">Pergolas, decks, outdoor kitchens, lighting design, and complete backyard transformations.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ BEFORE / AFTER ═══════ -->
+<section class="before-after" id="transform">
+  <div class="section-header" style="padding:0 24px;max-width:1400px;margin:0 auto 60px">
+    <div class="section-tag" style="color:var(--green)">Transformation</div>
+    <h2 class="section-title" style="color:var(--bg)">Before &amp; After</h2>
+  </div>
+  <div class="ba-container">
+    <div class="ba-slider" id="baSlider">
+      <div class="ba-before" id="baBefore">
+        <img src="../../images/template-images/before.jpg" alt="Neglected overgrown backyard before renovation" loading="lazy">
+        <div class="ba-content">
+          <div class="ba-label">Before</div>
+          <div>NEGLECTED</div>
+        </div>
+      </div>
+      <div class="ba-after" id="baAfter">
+        <img src="../../images/template-images/after.jpg" alt="Beautiful renovated backyard with lawn, fence, and patio" loading="lazy">
+        <div class="ba-content">
+          <div class="ba-label">After</div>
+          <div>THRIVING</div>
+        </div>
+      </div>
+      <div class="ba-handle" id="baHandle"></div>
+      <div class="ba-handle-arrows">◄ ►</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HORIZONTAL SCROLL PORTFOLIO ═══════ -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <div class="section-tag">Selected Work</div>
+    <h2 class="section-title">Portfolio</h2>
+  </div>
+  <div class="hscroll-wrap" id="hscrollWrap">
+    <div class="hscroll-track" id="hscrollTrack">
+      <div class="project-card">
+        <img src="../../images/template-images/lawn-care.jpg" alt="Striped lawn with flower beds" loading="lazy">
+        <div class="project-num">01</div>
+        <div class="project-type">Residential</div>
+        <div class="project-name">Mueller Estate Garden</div>
+        <div class="project-detail">Complete backyard transformation — native plants, limestone patio, LED lighting. 6-week build.</div>
+      </div>
+      <div class="project-card">
+        <img src="../../images/template-images/irrigation.jpg" alt="Smart sprinkler irrigation system" loading="lazy">
+        <div class="project-num">02</div>
+        <div class="project-type">Commercial</div>
+        <div class="project-name">Tech Campus Grounds</div>
+        <div class="project-detail">12-acre corporate campus. Drought-tolerant design, smart irrigation, walking paths, and zen garden.</div>
+      </div>
+      <div class="project-card">
+        <img src="../../images/template-images/hardscape-patio.jpg" alt="Stone paver patio with fire pit" loading="lazy">
+        <div class="project-num">03</div>
+        <div class="project-type">Hardscape</div>
+        <div class="project-name">Barton Creek Terrace</div>
+        <div class="project-detail">Multi-level travertine patio with built-in fire pit, outdoor kitchen, and infinity-edge water feature.</div>
+      </div>
+      <div class="project-card">
+        <img src="../../images/template-images/retaining-wall.jpg" alt="Stone retaining wall with terraced plantings" loading="lazy">
+        <div class="project-num">04</div>
+        <div class="project-type">Restoration</div>
+        <div class="project-name">Zilker Neighborhood</div>
+        <div class="project-detail">Historic home landscape restoration. Heritage oak preservation, period-appropriate plantings.</div>
+      </div>
+      <div class="project-card">
+        <img src="../../images/template-images/outdoor-living.jpg" alt="Outdoor kitchen with pergola at twilight" loading="lazy">
+        <div class="project-num">05</div>
+        <div class="project-type">Pool + Landscape</div>
+        <div class="project-name">Lakeway Resort Home</div>
+        <div class="project-detail">Resort-style backyard. Pool surround, cabana landscaping, tropical plantings, ambient lighting.</div>
+      </div>
+      <div class="project-card">
+        <img src="../../images/template-images/landscape-lighting.jpg" alt="Lit garden pathway at night" loading="lazy">
+        <div class="project-num">06</div>
+        <div class="project-type">Xeriscape</div>
+        <div class="project-name">Round Rock Eco-Yard</div>
+        <div class="project-detail">Zero-lawn xeriscape. Native grasses, decomposed granite paths, rain garden, 60% water savings.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-quote">
+      <blockquote>We don't do pretty gardens. We build landscapes that hit you in the gut.</blockquote>
+    </div>
+    <div class="about-bio">
+      <div class="about-portrait"><img src="../../images/template-images/team.jpg" alt="GreenScape Pro team" loading="lazy">MA</div>
+      <div class="about-name">Mike Anderson</div>
+      <div class="about-role">Founder & Lead Designer</div>
+      <p class="about-text">14 years turning Austin dirt into something worth staring at. Former construction foreman turned landscape architect. Every project gets my eyes on it — no shortcuts, no excuses, no corporate nonsense.</p>
+      <div class="about-stat">
+        <div>
+          <div class="about-stat-num">1,200+</div>
+          <div class="about-stat-label">Projects</div>
+        </div>
+        <div>
+          <div class="about-stat-num">14</div>
+          <div class="about-stat-label">Years</div>
+        </div>
+        <div>
+          <div class="about-stat-num">28</div>
+          <div class="about-stat-label">Team Members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ REVIEWS ═══════ -->
+<section class="reviews" id="reviews">
+  <div class="section-header" style="padding:0 24px;max-width:1000px;margin:0 auto 60px">
+    <div class="section-tag" style="color:var(--green)">Testimonials</div>
+    <h2 class="section-title" style="color:var(--bg)">What They Say</h2>
+  </div>
+  <div class="reviews-stack">
+    <div class="review-block">
+      <div class="review-quote-mark">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Mike's crew completely rebuilt our backyard in three weeks. The attention to detail was insane — every stone placed with intent. Our neighbors keep asking who did it.</p>
+      <div class="review-author">— Sarah & Tom K., West Lake Hills</div>
+    </div>
+    <div class="review-block">
+      <div class="review-quote-mark">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">We interviewed seven landscapers. GreenScape Pro was the only one who actually listened to what we wanted instead of pushing a template. The result is a yard that feels uniquely ours.</p>
+      <div class="review-author">— David R., Mueller</div>
+    </div>
+    <div class="review-block">
+      <div class="review-quote-mark">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Our commercial property went from forgettable to magazine-worthy. They handled permitting, HOA approvals, and irrigation — everything. Just showed up and it was done right.</p>
+      <div class="review-author">— Priya M., Domain Area</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROCESS ═══════ -->
+<section class="process" id="process">
+  <div class="section-header">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">The Process</h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Consult & Design</div>
+      <p class="step-desc">Free on-site consultation. We walk your property, hear your vision, measure everything, and deliver a 3D design within one week. No obligation, no pressure.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Build & Install</div>
+      <p class="step-desc">Our crew handles everything — excavation, grading, planting, hardscape, irrigation, lighting. Most residential projects complete in 2-4 weeks.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Maintain & Grow</div>
+      <p class="step-desc">Optional maintenance plans keep your landscape pristine year-round. Seasonal adjustments, fertilization schedules, and priority support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SERVICE AREA ═══════ -->
+<section class="area" id="area">
+  <div class="area-inner">
+    <div class="section-tag">Where We Work</div>
+    <h2 class="area-title">Service Area</h2>
+    <div class="area-list">
+      <div class="area-tag">Austin</div>
+      <div class="area-tag">Round Rock</div>
+      <div class="area-tag">Cedar Park</div>
+      <div class="area-tag">Lakeway</div>
+      <div class="area-tag">Bee Cave</div>
+      <div class="area-tag">West Lake Hills</div>
+      <div class="area-tag">Pflugerville</div>
+      <div class="area-tag">Georgetown</div>
+      <div class="area-tag">Dripping Springs</div>
+      <div class="area-tag">Buda</div>
+      <div class="area-tag">Kyle</div>
+      <div class="area-tag">Leander</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <h2 class="cta-title">Let's Build<br>Something Raw</h2>
+    <p class="cta-sub">Free consultation. No fluff. Just tell us what you need and we'll make it happen.</p>
+    <form class="cta-form" onsubmit="event.preventDefault();alert('Message sent! We\'ll call you within 24 hours.')">
+      <input type="text" name="name" placeholder="YOUR NAME" required aria-label="Your name">
+      <input type="tel" name="phone" placeholder="PHONE NUMBER" required aria-label="Phone number">
+      <input type="email" name="email" placeholder="EMAIL ADDRESS" required aria-label="Email address">
+      <textarea name="message" placeholder="TELL US ABOUT YOUR PROJECT" aria-label="Project details"></textarea>
+      <button type="submit" class="cta-submit">Send It →</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">GREEN<span>SCAPE</span></div>
+      <p class="footer-tagline">Brutally honest landscaping since 2011. Austin, Texas. No shortcuts.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <a href="#services">Landscape Design</a>
+      <a href="#services">Lawn Maintenance</a>
+      <a href="#services">Hardscaping</a>
+      <a href="#services">Irrigation</a>
+      <a href="#services">Tree Care</a>
+      <a href="#services">Outdoor Living</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <a href="#about">About Us</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#process">Process</a>
+      <a href="#area">Service Area</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <p>(555) 739-2841</p>
+      <p>hello@greenscapepro.com</p>
+      <p>Austin, TX 78745</p>
+      <p>Mon–Sat: 7am–6pm</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 GreenScape Pro. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── MOBILE MENU ── */
+function toggleMenu(){
+  document.querySelector('.hamburger').classList.toggle('active');
+  document.getElementById('mobileMenu').classList.toggle('active');
+  document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('active')?'hidden':'';
+}
+
+/* ── LENIS SMOOTH SCROLL ── */
+const lenis=new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smooth:true});
+lenis.on('scroll',ScrollTrigger.update);
+gsap.ticker.add(time=>{lenis.raf(time*1000)});
+gsap.ticker.lagSmoothing(0);
+
+/* ── REGISTER SCROLLTRIGGER ── */
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── CHECK REDUCED MOTION ── */
+const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if(!prefersReduced){
+
+/* ── HERO ANIMATIONS ── */
+const heroTl=gsap.timeline({defaults:{ease:'power4.out'}});
+heroTl.from('.hero-tag',{y:40,opacity:0,duration:1,delay:.3});
+heroTl.from('.hero-headline',{y:80,opacity:0,duration:1.2},'<+.2');
+heroTl.from('.hero-desc',{y:40,opacity:0,duration:1},'<+.4');
+heroTl.from('.hero-phone',{scale:.8,opacity:0,duration:.8},'<+.2');
+heroTl.from('.hero-scroll',{opacity:0,duration:1},'<+.5');
+
+/* ── SPLIT TYPE ON HEADLINE ── */
+try{
+  const split=new SplitType('.hero-headline',{types:'chars'});
+  gsap.from(split.chars,{
+    y:100,opacity:0,rotateX:-90,stagger:.03,duration:1,ease:'back.out(1.7)',delay:.5,
+    onComplete:()=>split.revert&&split.revert()
+  });
+}catch(e){}
+
+/* ── TRUST BAR COUNTER ── */
+document.querySelectorAll('.trust-num').forEach(el=>{
+  gsap.from(el,{
+    textContent:0,duration:2,ease:'power1.out',
+    scrollTrigger:{trigger:el,start:'top 85%'},
+    snap:{textContent:1},
+    onUpdate:function(){/* handled by GSAP */}
+  });
+});
+
+/* ── SERVICE CARDS STAGGER ── */
+gsap.from('.service-card',{
+  y:60,opacity:0,duration:.8,stagger:.12,ease:'power3.out',
+  scrollTrigger:{trigger:'.services-grid',start:'top 80%'}
+});
+
+/* ── BEFORE/AFTER REVEAL ── */
+gsap.from('.ba-slider',{
+  scale:.9,opacity:0,duration:1,ease:'power3.out',
+  scrollTrigger:{trigger:'.ba-slider',start:'top 80%'}
+});
+
+/* ── HORIZONTAL SCROLL PORTFOLIO ── */
+const track=document.getElementById('hscrollTrack');
+const wrap=document.getElementById('hscrollWrap');
+if(track&&wrap){
+  const cards=track.querySelectorAll('.project-card');
+  const totalWidth=Array.from(cards).reduce((w,c)=>w+c.offsetWidth,0);
+  const scrollDist=totalWidth-window.innerWidth;
+
+  if(scrollDist>0){
+    gsap.to(track,{
+      x:()=>-scrollDist,
+      ease:'none',
+      scrollTrigger:{
+        trigger:wrap,
+        start:'top top',
+        end:()=>'+='+(scrollDist+window.innerHeight),
+        pin:true,
+        scrub:1,
+        invalidateOnRefresh:true,
+        anticipatePin:1
+      }
+    });
+  }
+}
+
+/* ── PROJECT CARDS STAGGER (inside hscroll) ── */
+gsap.from('.project-card',{
+  opacity:0,y:30,stagger:.15,duration:.6,
+  scrollTrigger:{trigger:'.hscroll-wrap',start:'top 80%'}
+});
+
+/* ── ABOUT SECTION ── */
+gsap.from('.about-quote blockquote',{
+  x:-60,opacity:0,duration:1,ease:'power3.out',
+  scrollTrigger:{trigger:'.about',start:'top 70%'}
+});
+gsap.from('.about-bio',{
+  x:60,opacity:0,duration:1,ease:'power3.out',
+  scrollTrigger:{trigger:'.about',start:'top 70%'}
+});
+
+/* ── REVIEWS ── */
+gsap.from('.review-block',{
+  y:40,opacity:0,stagger:.2,duration:.8,ease:'power3.out',
+  scrollTrigger:{trigger:'.reviews-stack',start:'top 80%'}
+});
+
+/* ── PROCESS STEPS ── */
+gsap.from('.process-step',{
+  y:50,opacity:0,stagger:.2,duration:.8,ease:'power3.out',
+  scrollTrigger:{trigger:'.process-steps',start:'top 80%'}
+});
+
+/* ── AREA TAGS ── */
+gsap.from('.area-tag',{
+  scale:.8,opacity:0,stagger:.05,duration:.4,ease:'back.out(1.7)',
+  scrollTrigger:{trigger:'.area-list',start:'top 85%'}
+});
+
+/* ── CTA ── */
+gsap.from('.cta-title',{
+  y:60,opacity:0,duration:1,ease:'power3.out',
+  scrollTrigger:{trigger:'.cta',start:'top 80%'}
+});
+
+} /* end reduced motion check */
+
+/* ── BEFORE/AFTER SLIDER ── */
+(function(){
+  const slider=document.getElementById('baSlider');
+  const before=document.getElementById('baBefore');
+  const after=document.getElementById('baAfter');
+  const handle=document.getElementById('baHandle');
+  if(!slider)return;
+  let isDragging=false;
+
+  function setPosition(x){
+    const rect=slider.getBoundingClientRect();
+    let pct=((x-rect.left)/rect.width)*100;
+    pct=Math.max(5,Math.min(95,pct));
+    before.style.clipPath='inset(0 '+(100-pct)+'% 0 0)';
+    after.style.clipPath='inset(0 0 0 '+pct+'%)';
+    handle.style.left=pct+'%';
+    slider.querySelector('.ba-handle-arrows').style.left=pct+'%';
+  }
+
+  slider.addEventListener('mousedown',e=>{isDragging=true;setPosition(e.clientX)});
+  slider.addEventListener('touchstart',e=>{isDragging=true;setPosition(e.touches[0].clientX)},{passive:true});
+  window.addEventListener('mousemove',e=>{if(isDragging)setPosition(e.clientX)});
+  window.addEventListener('touchmove',e=>{if(isDragging)setPosition(e.touches[0].clientX)},{passive:true});
+  window.addEventListener('mouseup',()=>isDragging=false);
+  window.addEventListener('touchend',()=>isDragging=false);
+})();
+
+/* ── NAV SCROLL HIDE/SHOW ── */
+(function(){
+  let lastY=0;
+  const nav=document.querySelector('.nav');
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    if(y>200){
+      nav.style.transform=y>lastY?'translateY(-100%)':'translateY(0)';
+      nav.style.transition='transform .3s';
+    }else{
+      nav.style.transform='translateY(0)';
+    }
+    lastY=y;
+  });
+})();
+
+/* ── SMOOTH ANCHOR SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();lenis.scrollTo(target,{offset:-72})}
+  });
+});
+</script>
+</body>
+</html>

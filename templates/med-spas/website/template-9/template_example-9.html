@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{META_TITLE}}</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<meta property="og:title" content="{{META_TITLE}}">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
+<meta property="og:image" content="{{OG_IMAGE}}">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "{{BUSINESS_NAME}}",
+  "description": "{{META_DESCRIPTION}}",
+  "telephone": "{{PHONE}}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{CITY}}"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{GOOGLE_RATING}}",
+    "reviewCount": "{{REVIEW_COUNT}}"
+  },
+  "url": "",
+  "priceRange": "$$$"
+}
+</script>
+
+<style>
+/* ============================================
+   ZEN SERENITY — Template 9
+   White + Soft Lavender + Pale Gold
+   Japanese zen meets luxury spa
+   ============================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #ffffff;
+  --off-white: #faf9f7;
+  --cream: #f5f3ef;
+  --lavender-light: #f0edf5;
+  --lavender: #d8d0e6;
+  --lavender-mid: #b8acd0;
+  --lavender-deep: #7b6a99;
+  --gold-pale: #d4c5a0;
+  --gold: #b8a77c;
+  --gold-dark: #96875e;
+  --text-primary: #2a2636;
+  --text-secondary: #6b6478;
+  --text-light: #9b95a6;
+  --border: rgba(216, 208, 230, 0.3);
+
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+
+  --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-breath: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--text-primary);
+  background: var(--white);
+  overflow-x: hidden;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: 0.02em; }
+h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utility */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.container--narrow {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.section-spacer {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+}
+
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold-pale);
+  margin: 2rem auto;
+}
+
+.reveal {
+  transform: translateY(30px);
+  opacity: 0;
+}
+.hero__eyebrow, .hero__subtitle, .hero__cta {
+  opacity: 0;
+}
+
+/* ============================================
+   NAVIGATION — Ultra-minimal
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: all 0.6s var(--ease-gentle);
+}
+
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1rem 0;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.nav__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.nav__logo {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  transition: color 0.6s var(--ease-gentle);
+}
+
+.nav.scrolled .nav__logo {
+  color: var(--text-primary);
+}
+
+.nav__links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav__links a {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold-pale);
+  transition: width 0.4s var(--ease-gentle);
+}
+
+.nav__links a:hover::after {
+  width: 100%;
+}
+
+.nav.scrolled .nav__links a {
+  color: var(--text-secondary);
+}
+
+.nav.scrolled .nav__links a:hover {
+  color: var(--text-primary);
+}
+
+.nav__cta {
+  font-size: 0.7rem !important;
+  letter-spacing: 0.2em !important;
+  padding: 0.7rem 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s var(--ease-gentle) !important;
+}
+
+.nav.scrolled .nav__cta {
+  border-color: var(--lavender);
+  color: var(--text-primary) !important;
+}
+
+.nav__cta:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav.scrolled .nav__cta:hover {
+  background: var(--lavender-light);
+}
+
+/* Hamburger */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+
+.nav__hamburger span {
+  width: 22px;
+  height: 1px;
+  background: var(--white);
+  transition: all 0.4s var(--ease-gentle);
+  transform-origin: center;
+}
+
+.nav.scrolled .nav__hamburger span {
+  background: var(--text-primary);
+}
+
+.nav__hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.nav__hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Mobile Menu */
+.nav__mobile {
+  position: fixed;
+  inset: 0;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-gentle);
+  z-index: 999;
+}
+
+.nav__mobile.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav__mobile a {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+
+.nav__mobile a:hover {
+  color: var(--lavender-deep);
+}
+
+/* ============================================
+   HERO — Full-screen, zen calm
+   ============================================ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url('../../images/template-images/hero.jpg') center/cover no-repeat;
+  transform: scale(1.05);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(42, 38, 54, 0.35) 0%,
+    rgba(42, 38, 54, 0.5) 50%,
+    rgba(42, 38, 54, 0.6) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 0 2rem;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+  margin-bottom: 2rem;
+}
+
+.hero__title {
+  color: var(--white);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--gold-pale);
+}
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.hero__cta {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 1rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.4s var(--ease-gentle);
+}
+
+.hero__cta:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ============================================
+   TRUST BAR — Subtle, understated
+   ============================================ */
+.trust {
+  background: var(--off-white);
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.trust__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  flex-wrap: wrap;
+}
+
+.trust__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.trust__icon {
+  font-size: 1rem;
+  color: var(--gold);
+}
+
+.trust__stars {
+  display: flex;
+  gap: 2px;
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+
+.trust__divider {
+  width: 1px;
+  height: 20px;
+  background: var(--lavender);
+  opacity: 0.5;
+}
+
+/* ============================================
+   SERVICES — Horizontal scroll zen cards
+   ============================================ */
+.services {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+  overflow: hidden;
+}
+
+.services__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.services__header h2 {
+  color: var(--text-primary);
+}
+
+.services__track-wrapper {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.services__track-wrapper:active {
+  cursor: grabbing;
+}
+
+.services__track {
+  display: flex;
+  gap: clamp(1.5rem, 2vw, 2rem);
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  width: max-content;
+}
+
+.services__card {
+  flex: 0 0 auto;
+  width: clamp(280px, 22vw, 340px);
+  background: var(--white);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-gentle), box-shadow 0.5s var(--ease-gentle);
+}
+
+.services__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(123, 106, 153, 0.08);
+}
+
+.services__card-img {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.services__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-breath);
+}
+
+.services__card:hover .services__card-img img {
+  transform: scale(1.04);
+}
+
+.services__card-body {
+  padding: 2rem;
+}
+
+.services__card-body h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+}
+
+.services__card-body p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.services__card-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  position: relative;
+}
+
+.services__card-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold-pale);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-gentle);
+}
+
+.services__card:hover .services__card-link::after {
+  transform: scaleX(1);
+}
+
+.services__hint {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+/* ============================================
+   BEFORE/AFTER — Zen slider
+   ============================================ */
+.beforeafter {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+  background: var(--off-white);
+}
+
+.beforeafter__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.beforeafter__slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: ew-resize;
+  aspect-ratio: 16/10;
+  border: 1px solid var(--border);
+}
+
+.beforeafter__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.beforeafter__img--after {
+  clip-path: inset(0 50% 0 0);
+}
+
+.beforeafter__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--white);
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.beforeafter__handle-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.beforeafter__handle-circle svg {
+  width: 18px;
+  height: 18px;
+  color: var(--lavender-deep);
+}
+
+.beforeafter__labels {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.beforeafter__label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(42, 38, 54, 0.5);
+  backdrop-filter: blur(4px);
+  padding: 0.4rem 1rem;
+}
+
+/* ============================================
+   ABOUT — Zen reveal
+   ============================================ */
+.about {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.about__image-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.about__image-wrap img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.about__image-accent {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 80%;
+  height: 80%;
+  border: 1px solid var(--lavender);
+  z-index: -1;
+}
+
+.about__content {
+  max-width: 480px;
+}
+
+.about__content h2 {
+  margin-bottom: 1.5rem;
+}
+
+.about__content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+}
+
+.about__signature {
+  margin-top: 2rem;
+}
+
+.about__signature-name {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.about__signature-title {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+}
+
+/* ============================================
+   GALLERY — Clean grid, all 10 images
+   ============================================ */
+.gallery {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+  background: var(--off-white);
+}
+
+.gallery__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.gallery__item {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-breath);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.05);
+}
+
+/* Span variations for visual interest */
+.gallery__item:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery__item:nth-child(1) img,
+.gallery__item:nth-child(2) img,
+.gallery__item:nth-child(3) img {
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.gallery__item:nth-child(2),
+.gallery__item:nth-child(3) {
+  aspect-ratio: 1/1;
+}
+
+.gallery__item:nth-child(n+4) {
+  aspect-ratio: 4/3;
+}
+
+.gallery__item:nth-child(8) {
+  grid-column: span 2;
+}
+
+/* ============================================
+   TESTIMONIALS — Serene quotes
+   ============================================ */
+.testimonials {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+  background: var(--white);
+}
+
+.testimonials__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.testimonial__card {
+  padding: 2.5rem;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: transform 0.5s var(--ease-gentle);
+}
+
+.testimonial__card:hover {
+  transform: translateY(-4px);
+}
+
+.testimonial__quote-mark {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--lavender);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.testimonial__text {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial__stars {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  color: var(--gold);
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial__name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: 0.08em;
+}
+
+.testimonial__date {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  margin-top: 0.3rem;
+}
+
+/* ============================================
+   PROCESS — 3 zen steps
+   ============================================ */
+.process {
+  padding: clamp(5rem, 12vh, 10rem) 0;
+  background: var(--lavender-light);
+}
+
+.process__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.process__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  position: relative;
+}
+
+.process__steps::before {
+  content: '';
+  position: absolute;
+  top: 2.5rem;
+  left: calc(16.67% + 1.5rem);
+  right: calc(16.67% + 1.5rem);
+  height: 1px;
+  background: var(--lavender);
+}
+
+.process__step {
+  text-align: center;
+  position: relative;
+}
+
+.process__number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--lavender);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--lavender-deep);
+  position: relative;
+  z-index: 2;
+}
+
+.process__step h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+}
+
+.process__step p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================
+   FOOTER — With booking form
+   ============================================ */
+.footer {
+  padding: clamp(5rem, 10vh, 8rem) 0 0;
+  background: var(--text-primary);
+  color: var(--white);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.footer__info h2 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.footer__info p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.footer__info a {
+  color: var(--gold-pale);
+  transition: color 0.3s;
+}
+
+.footer__info a:hover {
+  color: var(--gold);
+}
+
+.footer__contact-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__contact-line svg {
+  width: 16px;
+  height: 16px;
+  color: var(--gold-pale);
+  flex-shrink: 0;
+}
+
+.footer__form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer__form h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.footer__form-group {
+  margin-bottom: 1rem;
+}
+
+.footer__form-group label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.4rem;
+}
+
+.footer__form-group input,
+.footer__form-group select,
+.footer__form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.footer__form-group input::placeholder,
+.footer__form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer__form-group input:focus,
+.footer__form-group select:focus,
+.footer__form-group textarea:focus {
+  border-color: var(--gold-pale);
+}
+
+.footer__form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.footer__form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='rgba(255,255,255,0.4)' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+
+.footer__form-group select option {
+  background: var(--text-primary);
+}
+
+.footer__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.footer__form-submit {
+  display: inline-block;
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--gold-pale);
+  color: var(--gold-pale);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-gentle);
+}
+
+.footer__form-submit:hover {
+  background: var(--gold-pale);
+  color: var(--text-primary);
+}
+
+.footer__bottom {
+  margin-top: 4rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.footer__bottom p {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .testimonial__card:nth-child(3) {
+    grid-column: span 2;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery__item:nth-child(8) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about__image-accent { display: none; }
+
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery__item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial__card:nth-child(3) {
+    grid-column: span 1;
+    max-width: none;
+  }
+
+  .process__steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .process__steps::before { display: none; }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .services__card {
+    width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust__inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .trust__divider { display: none; }
+
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__item:nth-child(1) {
+    grid-column: span 1;
+  }
+}
+
+/* ============================================
+   PREFERS REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__bg {
+    transform: none !important;
+  }
+
+  .hero__eyebrow,
+  .hero__title,
+  .hero__subtitle,
+  .hero__cta {
+    opacity: 1 !important;
+  }
+
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ======================== NAVIGATION ======================== -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo">{{BUSINESS_NAME_SHORT}}</a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact" class="nav__cta">Book Now</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav__mobile" id="mobileMenu">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#testimonials" class="mobile-link">Reviews</a>
+  <a href="#contact" class="mobile-link">Book Now</a>
+</div>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero" id="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <span class="hero__eyebrow">{{HERO_EYEBROW}}</span>
+    <h1 class="hero__title">{{HERO_HEADLINE}}</h1>
+    <p class="hero__subtitle">{{HERO_SUBTITLE}}</p>
+    <a href="#contact" class="hero__cta">{{CTA_TEXT}}</a>
+  </div>
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- ======================== TRUST BAR ======================== -->
+<section class="trust" id="trust">
+  <div class="trust__inner container">
+    <div class="trust__item">
+      <div class="trust__stars">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      </div>
+      <span>{{GOOGLE_RATING}} rating</span>
+    </div>
+    <div class="trust__divider"></div>
+    <div class="trust__item">
+      <span class="trust__icon">&#9825;</span>
+      <span>{{REVIEW_COUNT}} happy clients</span>
+    </div>
+    <div class="trust__divider"></div>
+    <div class="trust__item">
+      <span class="trust__icon">&#9673;</span>
+      <span>Board-Certified Specialists</span>
+    </div>
+    <div class="trust__divider"></div>
+    <div class="trust__item">
+      <span class="trust__icon">&#10022;</span>
+      <span>Est. 2018 · {{CITY}}</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== SERVICES (Horizontal Scroll) ======================== -->
+<section class="services section-spacer" id="services">
+  <div class="services__header container">
+    <span class="eyebrow">Our Offerings</span>
+    <h2>Treatments & Services</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="services__track-wrapper" id="servicesTrack">
+    <div class="services__track">
+      <!-- Service 1 -->
+      <div class="services__card reveal">
+        <div class="services__card-img">
+          <img src="../../images/template-images/botox.jpg" alt="{{SERVICE_1_TITLE}}" loading="lazy">
+        </div>
+        <div class="services__card-body">
+          <h3>{{SERVICE_1_TITLE}}</h3>
+          <p>{{SERVICE_1_DESC}}</p>
+          <a href="#contact" class="services__card-link">Learn More</a>
+        </div>
+      </div>
+      <!-- Service 2 -->
+      <div class="services__card reveal">
+        <div class="services__card-img">
+          <img src="../../images/template-images/laser.jpg" alt="{{SERVICE_2_TITLE}}" loading="lazy">
+        </div>
+        <div class="services__card-body">
+          <h3>{{SERVICE_2_TITLE}}</h3>
+          <p>{{SERVICE_2_DESC}}</p>
+          <a href="#contact" class="services__card-link">Learn More</a>
+        </div>
+      </div>
+      <!-- Service 3 -->
+      <div class="services__card reveal">
+        <div class="services__card-img">
+          <img src="../../images/template-images/facial.jpg" alt="{{SERVICE_3_TITLE}}" loading="lazy">
+        </div>
+        <div class="services__card-body">
+          <h3>{{SERVICE_3_TITLE}}</h3>
+          <p>{{SERVICE_3_DESC}}</p>
+          <a href="#contact" class="services__card-link">Learn More</a>
+        </div>
+      </div>
+      <!-- Service 4 -->
+      <div class="services__card reveal">
+        <div class="services__card-img">
+          <img src="../../images/template-images/body-contouring.jpg" alt="{{SERVICE_4_TITLE}}" loading="lazy">
+        </div>
+        <div class="services__card-body">
+          <h3>{{SERVICE_4_TITLE}}</h3>
+          <p>{{SERVICE_4_DESC}}</p>
+          <a href="#contact" class="services__card-link">Learn More</a>
+        </div>
+      </div>
+      <!-- Service 5 -->
+      <div class="services__card reveal">
+        <div class="services__card-img">
+          <img src="../../images/template-images/microneedling.jpg" alt="{{SERVICE_5_TITLE}}" loading="lazy">
+        </div>
+        <div class="services__card-body">
+          <h3>{{SERVICE_5_TITLE}}</h3>
+          <p>{{SERVICE_5_DESC}}</p>
+          <a href="#contact" class="services__card-link">Learn More</a>
+        </div>
+      </div>
+      <!-- Service 6 -->
+      <div class="services__card reveal">
+        <div class="services__card-img">
+          <img src="../../images/template-images/iv-therapy.jpg" alt="{{SERVICE_6_TITLE}}" loading="lazy">
+        </div>
+        <div class="services__card-body">
+          <h3>{{SERVICE_6_TITLE}}</h3>
+          <p>{{SERVICE_6_DESC}}</p>
+          <a href="#contact" class="services__card-link">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="services__hint">Drag to explore &rarr;</p>
+</section>
+
+<!-- ======================== BEFORE / AFTER ======================== -->
+<section class="beforeafter" id="results">
+  <div class="beforeafter__header container">
+    <span class="eyebrow">Real Results</span>
+    <h2>Before & After</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="container">
+    <div class="beforeafter__slider" id="baSlider">
+      <img src="../../images/template-images/skin-tightening.jpg" alt="Before treatment" class="beforeafter__img beforeafter__img--before">
+      <img src="../../images/template-images/treatment-room.jpg" alt="After treatment" class="beforeafter__img beforeafter__img--after">
+      <div class="beforeafter__handle" id="baHandle">
+        <div class="beforeafter__handle-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+            <polyline points="9 18 15 12 9 6" transform="translate(6,0)"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="beforeafter__labels">
+        <span class="beforeafter__label">Before</span>
+        <span class="beforeafter__label">After</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== ABOUT ======================== -->
+<section class="about section-spacer" id="about">
+  <div class="about__grid container">
+    <div class="about__image-wrap reveal">
+      <img src="../../images/template-images/team.jpg" alt="{{OWNER_NAME}}">
+      <div class="about__image-accent"></div>
+    </div>
+    <div class="about__content reveal">
+      <span class="eyebrow">Our Philosophy</span>
+      <h2>Where Science Meets<br>Inner Calm</h2>
+      <p>{{ABOUT_TEXT}}</p>
+      <p>We believe true beauty emerges when the body finds equilibrium. Every treatment at {{BUSINESS_NAME}} is designed not just to enhance your appearance, but to restore a sense of inner harmony and confidence.</p>
+      <div class="about__signature">
+        <div class="about__signature-name">{{OWNER_NAME}}</div>
+        <div class="about__signature-title">Founder & Medical Director</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== GALLERY ======================== -->
+<section class="gallery" id="gallery">
+  <div class="gallery__header container">
+    <span class="eyebrow">Our Space</span>
+    <h2>A Place of Tranquility</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="gallery__grid">
+    <div class="gallery__item reveal"><img src="../../images/template-images/treatment-room.jpg" alt="Treatment room" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/hero.jpg" alt="Spa interior" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/team.jpg" alt="Our team" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/facial.jpg" alt="Facial treatment" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/botox.jpg" alt="Botox treatment" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/laser.jpg" alt="Laser therapy" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/body-contouring.jpg" alt="Body contouring" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/microneedling.jpg" alt="Microneedling" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/iv-therapy.jpg" alt="IV therapy" loading="lazy"></div>
+    <div class="gallery__item reveal"><img src="../../images/template-images/skin-tightening.jpg" alt="Skin tightening" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ======================== TESTIMONIALS ======================== -->
+<section class="testimonials section-spacer" id="testimonials">
+  <div class="testimonials__header">
+    <span class="eyebrow">Kind Words</span>
+    <h2>What Our Clients Say</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="testimonials__grid">
+    <div class="testimonial__card reveal">
+      <div class="testimonial__quote-mark">&ldquo;</div>
+      <p class="testimonial__text">{{REVIEW_1_TEXT}}</p>
+      <div class="testimonial__stars">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      </div>
+      <div class="testimonial__name">{{REVIEW_1_NAME}}</div>
+      <div class="testimonial__date">{{REVIEW_1_DATE}}</div>
+    </div>
+    <div class="testimonial__card reveal">
+      <div class="testimonial__quote-mark">&ldquo;</div>
+      <p class="testimonial__text">{{REVIEW_2_TEXT}}</p>
+      <div class="testimonial__stars">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      </div>
+      <div class="testimonial__name">{{REVIEW_2_NAME}}</div>
+      <div class="testimonial__date">{{REVIEW_2_DATE}}</div>
+    </div>
+    <div class="testimonial__card reveal">
+      <div class="testimonial__quote-mark">&ldquo;</div>
+      <p class="testimonial__text">{{REVIEW_3_TEXT}}</p>
+      <div class="testimonial__stars">
+        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+      </div>
+      <div class="testimonial__name">{{REVIEW_3_NAME}}</div>
+      <div class="testimonial__date">{{REVIEW_3_DATE}}</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== PROCESS ======================== -->
+<section class="process" id="process">
+  <div class="process__header">
+    <span class="eyebrow">Your Journey</span>
+    <h2>Three Simple Steps</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="process__steps">
+    <div class="process__step reveal">
+      <div class="process__number">1</div>
+      <h3>Consultation</h3>
+      <p>Begin with a complimentary, unhurried conversation about your goals. We listen deeply to understand your unique vision of radiance.</p>
+    </div>
+    <div class="process__step reveal">
+      <div class="process__number">2</div>
+      <h3>Treatment</h3>
+      <p>Experience your personalized treatment in our serene, zen-inspired environment. Every detail is designed for your comfort and calm.</p>
+    </div>
+    <div class="process__step reveal">
+      <div class="process__number">3</div>
+      <h3>Renewal</h3>
+      <p>Leave feeling refreshed and radiant, with a tailored maintenance plan to sustain your results and continue your wellness journey.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER + BOOKING FORM ======================== -->
+<footer class="footer" id="contact">
+  <div class="footer__grid">
+    <div class="footer__info reveal">
+      <span class="eyebrow" style="color: var(--gold-pale);">Get in Touch</span>
+      <h2>Begin Your<br>Journey to Radiance</h2>
+      <div style="margin-top: 2rem;">
+        <div class="footer__contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:{{PHONE_TEL}}">{{PHONE}}</a>
+        </div>
+        <div class="footer__contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>{{ADDRESS}}</span>
+        </div>
+        <div class="footer__contact-line" style="margin-top: 1rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Mon–Fri 9am–7pm · Sat 9am–4pm</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__form reveal">
+      <h3>Book a Consultation</h3>
+      <form id="bookingForm" onsubmit="return false;">
+        <div class="footer__form-row">
+          <div class="footer__form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Your first name" required>
+          </div>
+          <div class="footer__form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Your last name" required>
+          </div>
+        </div>
+        <div class="footer__form-row">
+          <div class="footer__form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="footer__form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+          </div>
+        </div>
+        <div class="footer__form-group">
+          <label for="service">Treatment Interest</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option value="botox">Botox & Fillers</option>
+            <option value="laser">Laser Treatments</option>
+            <option value="facial">Medical Facials</option>
+            <option value="body">Body Contouring</option>
+            <option value="microneedling">Microneedling</option>
+            <option value="iv">IV Therapy</option>
+          </select>
+        </div>
+        <div class="footer__form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your goals..."></textarea>
+        </div>
+        <button type="submit" class="footer__form-submit">Request Consultation</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer__bottom container">
+    <p>&copy; 2025 {{BUSINESS_NAME}}. All rights reserved. · <a href="#" style="color: rgba(255,255,255,0.5);">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<!-- ======================== SCRIPTS ======================== -->
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ---- Reduced Motion Check ---- */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ============================================
+     LENIS SMOOTH SCROLL
+     ============================================ */
+  let lenis;
+  if (!prefersReducedMotion) {
+    lenis = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+      smoothTouch: false
+    });
+
+    // Sync ScrollTrigger with Lenis
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* ============================================
+     GSAP REGISTER
+     ============================================ */
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ============================================
+     NAVIGATION
+     ============================================ */
+  const nav = document.getElementById('nav');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+  // Scroll detection
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  // Hamburger
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -60 });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  /* ============================================
+     HERO ANIMATIONS
+     ============================================ */
+  if (!prefersReducedMotion) {
+    const heroTl = gsap.timeline({ delay: 0.3 });
+    heroTl
+      .to('.hero__eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0)
+      .fromTo('.hero__title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, 0.2)
+      .to('.hero__subtitle', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.5)
+      .to('.hero__cta', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.7);
+
+    // Parallax on hero background
+    gsap.to('.hero__bg', {
+      yPercent: 20,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0.5
+      }
+    });
+  }
+
+  /* ============================================
+     SCROLL REVEAL ANIMATIONS
+     ============================================ */
+  if (!prefersReducedMotion) {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+  /* ============================================
+     SERVICES — Horizontal Drag Scroll
+     ============================================ */
+  const trackWrapper = document.getElementById('servicesTrack');
+  const track = trackWrapper.querySelector('.services__track');
+  let isDragging = false;
+  let startX, scrollLeft;
+
+  trackWrapper.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - trackWrapper.offsetLeft;
+    scrollLeft = trackWrapper.scrollLeft;
+    trackWrapper.style.cursor = 'grabbing';
+  });
+
+  trackWrapper.addEventListener('mouseleave', () => { isDragging = false; trackWrapper.style.cursor = 'grab'; });
+  trackWrapper.addEventListener('mouseup', () => { isDragging = false; trackWrapper.style.cursor = 'grab'; });
+  trackWrapper.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - trackWrapper.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    trackWrapper.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch support
+  trackWrapper.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].pageX - trackWrapper.offsetLeft;
+    scrollLeft = trackWrapper.scrollLeft;
+  }, { passive: true });
+
+  trackWrapper.addEventListener('touchend', () => { isDragging = false; });
+  trackWrapper.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - trackWrapper.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    trackWrapper.scrollLeft = scrollLeft - walk;
+  }, { passive: true });
+
+  // GSAP horizontal scroll animation for services
+  if (!prefersReducedMotion) {
+    gsap.fromTo('.services__card', {
+      opacity: 0,
+      y: 40
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.services',
+        start: 'top 70%',
+        once: true
+      }
+    });
+  }
+
+  /* ============================================
+     BEFORE/AFTER SLIDER
+     ============================================ */
+  const slider = document.getElementById('baSlider');
+  const handle = document.getElementById('baHandle');
+  const afterImg = slider.querySelector('.beforeafter__img--after');
+  let isSliding = false;
+
+  function updateSlider(x) {
+    const rect = slider.getBoundingClientRect();
+    let pos = (x - rect.left) / rect.width;
+    pos = Math.max(0.05, Math.min(0.95, pos));
+    afterImg.style.clipPath = `inset(0 ${(1 - pos) * 100}% 0 0)`;
+    handle.style.left = (pos * 100) + '%';
+  }
+
+  slider.addEventListener('mousedown', (e) => {
+    isSliding = true;
+    updateSlider(e.clientX);
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (isSliding) updateSlider(e.clientX);
+  });
+
+  document.addEventListener('mouseup', () => { isSliding = false; });
+
+  slider.addEventListener('touchstart', (e) => {
+    isSliding = true;
+    updateSlider(e.touches[0].clientX);
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (isSliding) updateSlider(e.touches[0].clientX);
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => { isSliding = false; });
+
+  /* ============================================
+     ABOUT — Zen Reveal
+     ============================================ */
+  if (!prefersReducedMotion) {
+    gsap.from('.about__image-accent', {
+      scale: 0.9,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.about',
+        start: 'top 60%',
+        once: true
+      }
+    });
+  }
+
+  /* ============================================
+     GALLERY — Staggered reveal
+     ============================================ */
+  if (!prefersReducedMotion) {
+    gsap.fromTo('.gallery__item', {
+      opacity: 0,
+      y: 30
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.08,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.gallery__grid',
+        start: 'top 75%',
+        once: true
+      }
+    });
+  }
+
+  /* ============================================
+     PROCESS STEPS — Sequential reveal
+     ============================================ */
+  if (!prefersReducedMotion) {
+    gsap.fromTo('.process__step', {
+      opacity: 0,
+      y: 30
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.2,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.process__steps',
+        start: 'top 75%',
+        once: true
+      }
+    });
+
+    // Animate the connecting line
+    gsap.from('.process__steps::before', {
+      scaleX: 0,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.process__steps',
+        start: 'top 75%',
+        once: true
+      }
+    });
+  }
+
+  /* ============================================
+     FOOTER FORM — Gentle reveal
+     ============================================ */
+  if (!prefersReducedMotion) {
+    gsap.fromTo('.footer__form', {
+      opacity: 0,
+      x: 30
+    }, {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.footer',
+        start: 'top 70%',
+        once: true
+      }
+    });
+  }
+
+  /* ============================================
+     GENTLE PARALLAX ON SECTIONS
+     ============================================ */
+  if (!prefersReducedMotion) {
+    document.querySelectorAll('.section-spacer .eyebrow').forEach(el => {
+      gsap.from(el, {
+        y: 15,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

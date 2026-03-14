@@ -80,9 +80,13 @@ body{
 }
 
 .animate-on-scroll{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.animate-on-scroll.visible{
   opacity:1;
   transform:translateY(0);
-  transition:opacity 0.7s ease,transform 0.7s ease;
 }
 
 /* ── Hero Section ───────────────────────── */
@@ -1147,6 +1151,10 @@ body{
   object-fit:cover;
   border-radius:calc(var(--radius, 16px) - 4px);
   margin-bottom:16px;
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .animate-on-scroll{opacity:1!important;transform:none!important}
 }
 </style>
 </head>

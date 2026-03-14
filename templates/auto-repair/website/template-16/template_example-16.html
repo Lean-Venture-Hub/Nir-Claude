@@ -68,6 +68,7 @@ body{
   }
   .reveal-section{clip-path:none!important}
   .review-card,.feature-card,.blog-card,.service-card{opacity:1!important;transform:none!important}
+  .hero-trust,.hero h1 .word,.hero-subtitle,.hero-cta-row{opacity:1!important;transform:none!important}
   .hero-reveal{clip-path:none!important}
   .split-left,.split-right{transform:none!important}
   .curtain-section{clip-path:none!important}
@@ -289,7 +290,7 @@ img{max-width:100%;display:block}
 .reviews{
   padding:120px 0;
   background:var(--bg-dark);
-  overflow:hidden;
+  overflow-x:hidden;
 }
 .reviews-header{text-align:center;margin-bottom:64px}
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto}
@@ -300,7 +301,7 @@ img{max-width:100%;display:block}
   padding:32px;
   position:relative;
   opacity:0;
-  transform:translateY(-100vh) rotate(-3deg);
+  transform:translateY(-60px) rotate(-3deg);
 }
 .review-quote{
   font-family:var(--display);font-size:3rem;color:var(--accent);
@@ -542,7 +543,7 @@ img{max-width:100%;display:block}
         <div class="service-card" data-service="4">
           <div class="service-card-img">
             <span class="service-num">04</span>
-            <img src="../../images/template-images/service-transmission.jpg" alt="Transmission" loading="lazy" width="400" height="200">
+            <img src="../../images/template-images/service-engine.jpg" alt="Transmission" loading="lazy" width="400" height="200">
           </div>
           <div class="service-card-body">
             <h3>Transmission</h3>
@@ -552,7 +553,7 @@ img{max-width:100%;display:block}
         <div class="service-card" data-service="5">
           <div class="service-card-img">
             <span class="service-num">05</span>
-            <img src="../../images/template-images/service-ac.jpg" alt="A/C & Heating" loading="lazy" width="400" height="200">
+            <img src="../../images/template-images/service-diagnostics.jpg" alt="A/C & Heating" loading="lazy" width="400" height="200">
           </div>
           <div class="service-card-body">
             <h3>A/C & Heating</h3>
@@ -821,16 +822,18 @@ img{max-width:100%;display:block}
 (function(){
   'use strict';
 
+  gsap.registerPlugin(ScrollTrigger);
+
   /* ── Reduced Motion Check ── */
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ── Lenis Smooth Scroll ── */
-  const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
-  function raf(time){lenis.raf(time);requestAnimationFrame(raf)}
-  requestAnimationFrame(raf);
-  lenis.on('scroll',ScrollTrigger.update);
-  gsap.ticker.add(time=>lenis.raf(time*1000));
-  gsap.ticker.lagSmoothing(0);
+  /* ── Lenis Smooth Scroll (skip for reduced-motion) ── */
+  if (!prefersReduced) {
+    const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(time=>lenis.raf(time*1000));
+    gsap.ticker.lagSmoothing(0);
+  }
 
   /* ── Scroll Progress Bar ── */
   const progressBar = document.getElementById('scrollProgress');
@@ -861,8 +864,6 @@ img{max-width:100%;display:block}
   drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(drawer.classList.contains('open'))toggleMenu()}));
 
   if(prefersReduced) return; /* Skip all animations */
-
-  gsap.registerPlugin(ScrollTrigger);
 
   /* ═══════ HERO — Circle Expand Reveal ═══════ */
   const heroReveal = document.getElementById('heroReveal');

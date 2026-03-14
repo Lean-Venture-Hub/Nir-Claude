@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Brake Warning Signs You Should Never Ignore | Precision Auto Works</title>
+<meta name="description" content="Learn the 5 critical brake warning signs every driver should know. Squealing, grinding, vibration and more — from ASE-certified technicians at Precision Auto Works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--cream-dark:#EDE5D5;--cream-light:#FAF7F2;
+  --green:#2D5016;--green-dark:#1E3A0E;--green-light:#3D6B1E;
+  --brown:#8B6914;--brown-dark:#3D2B1F;--brown-light:#A47D2B;
+  --text-dark:#2C2418;--text-muted:#6B5D4F;--text-light:#F5F0E8;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Lato','Helvetica Neue',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --h2:clamp(28px,4vw,48px);--body:clamp(16px,1.1vw,18px);--small:clamp(12px,0.9vw,14px);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text-dark);background:var(--cream);overflow-x:hidden;line-height:1.6;font-size:var(--body)}
+img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:12px 0;background:var(--cream);box-shadow:0 2px 20px rgba(61,43,31,0.1);border-bottom:1px solid rgba(139,105,20,0.15)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--green);display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:36px;height:36px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:var(--font-body);font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dark);transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--brown);transition:width 0.3s}
+.nav-links a:hover::after{width:100%}
+.nav-phone{font-family:var(--font-display);font-weight:700;color:var(--green);font-size:0.95rem}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001;background:none;border:none}
+.hamburger span{width:28px;height:2px;background:var(--text-dark);transition:all 0.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100dvh;background:var(--cream);z-index:999;flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--font-display);font-size:1.5rem;color:var(--green);font-weight:700}
+
+.article-hero{padding:140px 0 60px;background:var(--cream-dark);position:relative}
+.article-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(61,43,31,0.015) 2px,rgba(61,43,31,0.015) 4px);pointer-events:none}
+.breadcrumb{font-size:var(--small);color:var(--text-muted);margin-bottom:24px;display:flex;gap:8px;align-items:center;position:relative;z-index:1}
+.breadcrumb a{color:var(--green);font-weight:700;transition:color 0.3s}.breadcrumb a:hover{color:var(--green-dark)}
+.breadcrumb span{color:var(--brown-light)}
+.article-hero h1{font-size:var(--h2);color:var(--green);margin-bottom:20px;max-width:700px;position:relative;z-index:1}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:var(--small);color:var(--text-muted);position:relative;z-index:1}
+.article-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--brown)}
+
+.article{padding:60px 0 100px;background:var(--cream)}
+.article-inner{display:grid;grid-template-columns:1fr 340px;gap:60px}
+.article-content{max-width:720px}
+.article-content .featured-img{width:100%;height:400px;object-fit:cover;border-radius:8px;margin-bottom:40px;filter:sepia(0.1);box-shadow:8px 8px 0 var(--green)}
+.article-content h2{font-family:var(--font-display);font-size:1.5rem;color:var(--green);margin:40px 0 16px}
+.article-content p{color:var(--text-muted);line-height:1.8;margin-bottom:20px}
+.article-content ul,.article-content ol{margin:16px 0 24px 20px;list-style:disc}
+.article-content ol{list-style:decimal}
+.article-content li{color:var(--text-muted);line-height:1.7;margin-bottom:8px}
+.article-content strong{font-weight:700;color:var(--text-dark)}
+.article-content blockquote{border-left:4px solid var(--brown);padding:24px 32px;margin:24px 0;background:rgba(139,105,20,0.06);border-radius:0 8px 8px 0}
+.article-content blockquote p{font-family:var(--font-display);font-style:italic;font-size:1.1rem;color:var(--green);margin:0;line-height:1.5}
+
+.author-card{background:var(--cream-light);border-radius:8px;padding:28px;margin-bottom:32px;border:1px solid rgba(139,105,20,0.15);position:relative}
+.author-card::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:16px;height:16px;background:var(--green);border-radius:50%;border:2px solid var(--cream)}
+.author-card h4{font-family:var(--font-display);font-size:1rem;color:var(--green);margin-bottom:4px}
+.author-card .author-title{font-size:var(--small);color:var(--brown);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.author-card p{font-size:0.9rem;color:var(--text-muted);line-height:1.6}
+.related-heading{font-family:var(--font-display);font-size:1rem;color:var(--green);margin-bottom:16px}
+.related-post{display:block;padding:16px 0;border-bottom:1px solid rgba(139,105,20,0.15)}
+.related-post:last-child{border-bottom:none}
+.related-post h4{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--green);margin-bottom:4px;transition:color 0.3s}
+.related-post:hover h4{color:var(--brown)}
+.related-post span{font-size:var(--small);color:var(--text-muted)}
+
+.cta-banner{background:var(--green);padding:48px;border-radius:8px;text-align:center;margin-top:48px}
+.cta-banner h3{font-family:var(--font-display);color:var(--cream);font-size:1.4rem;margin-bottom:8px}
+.cta-banner p{color:rgba(245,240,232,0.85);margin-bottom:20px}
+.cta-banner a{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--cream);color:var(--green);font-family:var(--font-display);font-weight:700;font-size:0.95rem;border-radius:4px;transition:transform 0.3s}
+.cta-banner a:hover{transform:translateY(-2px)}
+
+.footer{background:var(--brown-dark);color:var(--cream);padding:80px 0 32px}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.footer-brand h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:16px}
+.footer-brand p{color:rgba(245,240,232,0.65);line-height:1.6;font-size:0.9rem;max-width:280px}
+.footer-col h4{font-family:var(--font-display);font-size:1rem;margin-bottom:20px;color:var(--brown-light)}
+.footer-col a{display:block;color:rgba(245,240,232,0.65);font-size:0.9rem;padding:4px 0;transition:color 0.3s}
+.footer-col a:hover{color:var(--cream)}
+.footer-bottom{border-top:1px solid rgba(245,240,232,0.1);padding-top:32px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{color:rgba(245,240,232,0.45);font-size:0.8rem}
+.footer-certs{display:flex;gap:16px}
+.footer-cert{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(245,240,232,0.45);border:1px solid rgba(245,240,232,0.15);padding:6px 12px;border-radius:4px}
+
+@media(max-width:1024px){.article-inner{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links,.nav-phone{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.footer-inner{grid-template-columns:1fr;text-align:center}.footer-bottom{flex-direction:column;gap:16px;text-align:center}.footer-certs{justify-content:center}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="../../template_example-24.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="12" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/><text x="18" y="15" text-anchor="middle" fill="currentColor" font-family="'Playfair Display',serif" font-size="8" font-weight="700">EST</text><text x="18" y="25" text-anchor="middle" fill="currentColor" font-family="'Playfair Display',serif" font-size="10" font-weight="900">2006</text></svg>
+      Precision Auto Works
+    </a>
+    <nav class="nav-links">
+      <a href="../../template_example-24.html#services">Services</a>
+      <a href="../../template_example-24.html#about">About</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="../../template_example-24.html#testimonials">Reviews</a>
+      <a href="../../template_example-24.html#visit">Visit</a>
+    </nav>
+    <a href="tel:+15554827193" class="nav-phone">(555) 482-7193</a>
+    <div class="hamburger" role="button" tabindex="0" aria-label="Toggle menu"><span></span><span></span><span></span></div>
+  </div>
+</header>
+<div class="mobile-menu"><a href="../../template_example-24.html#services">Services</a><a href="../../blog.html">Blog</a><a href="tel:+15554827193">(555) 482-7193</a></div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../../template_example-24.html">Home</a><span>/</span>
+      <a href="../../blog.html">Blog</a><span>/</span>
+      Brake Warning Signs
+    </div>
+    <h1>5 Brake Warning Signs You Should Never Ignore</h1>
+    <div class="article-meta">
+      <span>By Mike Rodriguez</span>
+      <span class="article-meta-dot"></span>
+      <span>ASE Certified Master Technician</span>
+      <span class="article-meta-dot"></span>
+      <span>7 min read</span>
+    </div>
+  </div>
+</section>
+
+<section class="article">
+  <div class="container">
+    <div class="article-inner">
+      <div class="article-content">
+        <img src="../../../../images/template-images/brake-service.jpg" alt="Professional brake service" class="featured-img" width="800" height="500" loading="lazy">
+
+        <p>Your brakes are the single most important safety system on your vehicle. They're the difference between a close call and a collision, between stopping in time and the worst day of your life. Yet most drivers wait until something feels seriously wrong before getting their brakes checked. By then, a $200 brake pad replacement has often turned into an $800 rotor and caliper job.</p>
+
+        <p>Here are five warning signs that your brakes need professional attention — and what ignoring each one could cost you.</p>
+
+        <h2>1. High-Pitched Squealing When You Brake</h2>
+        <p>That unmistakable squeal when you press the brake pedal isn't just annoying — it's engineered that way on purpose. Most brake pads include a small metal indicator tab called a "wear indicator." When the pad material wears down to a few millimeters, this tab contacts the rotor and creates that high-pitched sound.</p>
+        <p>Think of it as your brakes' built-in alarm system. The squealing means you have some pad life remaining, but the clock is ticking. At this stage, you typically need new brake pads only — a straightforward repair that usually runs between <strong>$150 and $300 per axle</strong> including parts and labor.</p>
+
+        <h2>2. Grinding or Metal-on-Metal Sound</h2>
+        <p>If squealing is the polite warning, grinding is the emergency alarm. A grinding sound when braking means your pads have worn down completely and the metal backing plate is now grinding directly against the rotor. This is metal on metal, and it's damaging your rotors with every stop.</p>
+        <p>Once rotors are scored or grooved, they can't always be resurfaced. You'll likely need new rotors in addition to pads, which can push the repair cost to <strong>$400 to $800 per axle</strong>. In severe cases, you may also need new calipers — adding another $200 to $400 per side.</p>
+
+        <blockquote><p>The difference between catching brakes at the squealing stage versus the grinding stage can be $500 or more. Early attention saves real money.</p></blockquote>
+
+        <h2>3. Vibration or Pulsation in the Brake Pedal</h2>
+        <p>If you feel a pulsing or vibrating sensation through the brake pedal — especially during highway-speed stops — you're likely dealing with warped brake rotors. Rotors can warp from excessive heat, sudden temperature changes, or simply from age and wear.</p>
+        <p>The vibration occurs because the warped rotor surface is uneven, causing the brake pads to make inconsistent contact. This not only reduces braking effectiveness but also accelerates pad wear in an uneven pattern.</p>
+        <p>Depending on severity, warped rotors can sometimes be machined (resurfaced) to restore a flat surface, typically costing <strong>$50 to $100 per rotor</strong>. If the warping is too severe, replacement is necessary at <strong>$150 to $300 per rotor</strong>.</p>
+
+        <h2>4. Soft or Spongy Brake Pedal</h2>
+        <p>A brake pedal that feels soft, sinks slowly to the floor, or requires more pressure than usual is a serious safety concern. This typically points to one of several issues:</p>
+        <ul>
+          <li><strong>Air in the brake lines:</strong> Air compresses (brake fluid doesn't), creating that spongy feeling. A brake bleed service usually resolves this for <strong>$80 to $150</strong>.</li>
+          <li><strong>Brake fluid leak:</strong> Check under your car for clear or slightly yellowish fluid near the wheels. Repair costs vary — from $100 for a hose to $500+ for a master cylinder.</li>
+          <li><strong>Worn master cylinder:</strong> The master cylinder converts pedal pressure into hydraulic pressure. When it fails internally, the pedal feels progressively softer. Replacement typically runs <strong>$300 to $600</strong>.</li>
+        </ul>
+        <p>A soft brake pedal should be inspected immediately. Reduced braking power is not something to "keep an eye on."</p>
+
+        <h2>5. Vehicle Pulls to One Side When Braking</h2>
+        <p>If your car veers left or right when you press the brakes, it means one side is applying more braking force than the other. Common causes include:</p>
+        <ul>
+          <li><strong>Uneven brake pad wear:</strong> One side may be more worn than the other, resulting in unequal friction.</li>
+          <li><strong>Stuck caliper:</strong> A seized or sticking caliper can either apply constant pressure or fail to engage. Caliper replacement costs <strong>$200 to $400 per side</strong>.</li>
+          <li><strong>Contaminated brake fluid or collapsed hose:</strong> A deteriorated brake hose can act like a one-way valve, allowing pressure in but not releasing it properly.</li>
+        </ul>
+        <p>Pulling during braking is dangerous because it makes emergency stops unpredictable. Your car may not go where you steer it when you need to stop quickly.</p>
+
+        <h2>When to Get Your Brakes Checked</h2>
+        <p>Beyond these warning signs, we recommend a brake inspection every 12,000 to 15,000 miles or at least once a year. If you drive in heavy Dallas traffic with frequent stop-and-go, consider every 10,000 miles. Many shops — including ours — offer free brake inspections because catching problems early benefits everyone.</p>
+        <p>Your brakes are not the place to cut corners. When they're telling you something is wrong, listen.</p>
+
+        <div class="cta-banner">
+          <h3>Free Brake Inspection</h3>
+          <p>Not sure about your brakes? We'll inspect them at no charge — no appointment needed.</p>
+          <a href="tel:+15554827193">Call (555) 482-7193</a>
+        </div>
+      </div>
+
+      <aside class="article-sidebar">
+        <div class="author-card">
+          <h4>Mike Rodriguez</h4>
+          <div class="author-title">ASE Certified Master Technician</div>
+          <p>With over 18 years of experience, Mike founded Precision Auto Works to bring honest, transparent auto care to Dallas. He holds 12 ASE certifications.</p>
+        </div>
+        <div class="related-heading">Related Articles</div>
+        <a href="../oil-change-guide/index.html" class="related-post">
+          <h4>How Often Should You Really Change Your Oil?</h4>
+          <span>Maintenance</span>
+        </a>
+        <a href="../check-engine-light/index.html" class="related-post">
+          <h4>Check Engine Light On? Here's What It Actually Means</h4>
+          <span>Diagnostics</span>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Precision Auto Works</h3>
+        <p>Honest auto repair with old-school values and modern expertise. Proudly serving Dallas, TX since 2006.</p>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><a href="../../template_example-24.html#services">Services</a><a href="../../blog.html">Blog</a><a href="../../template_example-24.html#testimonials">Reviews</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:+15554827193">(555) 482-7193</a><a href="../../template_example-24.html#visit">Hours & Directions</a></div>
+      <div class="footer-col"><h4>Resources</h4><a href="../oil-change-guide/index.html">Oil Change Guide</a><a href="../brake-warning-signs/index.html">Brake Warning Signs</a><a href="../check-engine-light/index.html">Check Engine Light</a></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Precision Auto Works. All rights reserved.</p>
+      <div class="footer-certs"><span class="footer-cert">ASE Certified</span><span class="footer-cert">AAA Approved</span><span class="footer-cert">BBB A+ Rated</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hamburger=document.querySelector('.hamburger'),mm=document.querySelector('.mobile-menu');
+hamburger.addEventListener('click',function(){hamburger.classList.toggle('active');mm.classList.toggle('active');document.body.style.overflow=mm.classList.contains('active')?'hidden':''});
+mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){hamburger.classList.remove('active');mm.classList.remove('active');document.body.style.overflow=''})});
+</script>
+</body>
+</html>

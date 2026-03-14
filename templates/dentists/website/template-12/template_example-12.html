@@ -999,6 +999,10 @@ nav{
   border-radius:calc(var(--radius, 16px) - 4px);
   margin-bottom:16px;
 }
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .hero-card-services,.trusted-badge,.hero-headline,.hero-overlay-card,.hero-rating-card,.stat-item{opacity:1!important;transform:none!important}
+}
 </style>
 </head>
 <body>

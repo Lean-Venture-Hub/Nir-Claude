@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GreenScape Pro — Luxury Landscaping in Austin, TX</title>
+<meta name="description" content="Austin's premier luxury landscaping since 2011. Custom garden design, hardscaping, outdoor living. 4.9★ from 312 reviews. Call (555) 739-2841.">
+<meta property="og:title" content="GreenScape Pro — Luxury Landscaping in Austin, TX">
+<meta property="og:description" content="Cultivating Austin's finest gardens since 2011. 4.9★ rated, 312+ reviews.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Landscaper",
+  "name":"GreenScape Pro",
+  "telephone":"(555) 739-2841",
+  "address":{"@type":"PostalAddress","addressLocality":"Austin","addressRegion":"TX"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"312"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"14:00"}
+  ],
+  "foundingDate":"2011",
+  "description":"Luxury landscaping, garden design & outdoor living in Austin, TX."
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0D1B0E;
+  --bg-card:#142B1A;
+  --cream:#F2EDE4;
+  --cream-muted:rgba(242,237,228,0.7);
+  --gold:#C8A96E;
+  --gold-light:#D4BA85;
+  --gold-dim:rgba(200,169,110,0.15);
+  --green:#3D6B4F;
+  --green-muted:rgba(61,107,79,0.4);
+  --emerald:#142B1A;
+  --text:#F2EDE4;
+  --text-muted:rgba(242,237,228,0.6);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --max-w:1200px;
+  --radius:16px;
+  --radius-sm:10px;
+  --shadow:0 4px 32px rgba(0,0,0,0.3);
+  --shadow-lg:0 12px 48px rgba(0,0,0,0.5);
+  --transition:0.5s cubic-bezier(.25,.46,.45,.94);
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--sans);
+  font-weight:400;
+  color:var(--text);
+  line-height:1.7;
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* Grain texture overlay */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:0.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+  background-size:256px 256px;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .botanical-svg path,.botanical-svg line,.botanical-svg circle{
+    stroke-dashoffset:0!important;
+    opacity:1!important;
+  }
+  .fade-up,.service-card,.review-card,.process-step{opacity:1!important;transform:none!important}
+}
+
+/* Typography */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.15}
+h1{font-size:clamp(2.8rem,6vw,5.5rem);font-weight:700}
+h2{font-size:clamp(2rem,4vw,3.2rem)}
+h3{font-size:clamp(1.3rem,2.5vw,1.8rem)}
+p{font-size:clamp(0.95rem,1.1vw,1.05rem);line-height:1.8}
+
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+
+.container{width:min(var(--max-w),92%);margin:0 auto}
+
+/* Section spacing */
+section{padding:clamp(80px,12vw,140px) 0;position:relative;overflow:hidden}
+
+/* Gold shimmer text */
+.gold-text{
+  color:var(--gold);
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 50%,var(--gold) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.gold-shimmer{
+  animation:shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer{
+  0%,100%{background-position:0% center}
+  50%{background-position:200% center}
+}
+
+/* Botanical SVG base */
+.botanical-svg{
+  position:absolute;
+  pointer-events:none;
+  z-index:1;
+}
+.botanical-svg path,
+.botanical-svg line,
+.botanical-svg polyline{
+  fill:none;
+  stroke:var(--gold);
+  stroke-width:1.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Section subtitle */
+.section-subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  color:var(--gold);
+  font-size:clamp(1rem,1.3vw,1.15rem);
+  margin-bottom:0.5rem;
+  font-weight:500;
+}
+.section-title{margin-bottom:1rem}
+.section-desc{color:var(--text-muted);max-width:560px;margin-bottom:3rem}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.9rem 2.2rem;
+  border-radius:4px;
+  font-family:var(--serif);
+  font-size:1.1rem;
+  font-weight:600;
+  letter-spacing:0.03em;
+  border:none;
+  cursor:pointer;
+  transition:var(--transition);
+  position:relative;
+  overflow:hidden;
+}
+.btn-gold{
+  background:var(--gold);
+  color:var(--bg);
+}
+.btn-gold:hover{
+  background:var(--gold-light);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(200,169,110,0.3);
+}
+.btn-outline{
+  background:transparent;
+  color:var(--gold);
+  border:1.5px solid var(--gold);
+}
+.btn-outline:hover{
+  background:var(--gold-dim);
+  transform:translateY(-2px);
+}
+
+/* ─────── NAV ─────── */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  padding:1rem 0;
+  transition:var(--transition);
+}
+.nav.scrolled{
+  background:rgba(13,27,14,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(200,169,110,0.1);
+  padding:0.7rem 0;
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:min(var(--max-w),92%);
+  margin:0 auto;
+}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  font-family:var(--serif);
+  font-size:1.6rem;
+  font-weight:700;
+  color:var(--cream);
+}
+.nav-logo svg{width:28px;height:28px}
+.nav-logo .logo-accent{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{
+  font-family:var(--serif);
+  font-size:1rem;
+  font-weight:500;
+  color:var(--cream-muted);
+  transition:color 0.3s;
+  letter-spacing:0.02em;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{
+  padding:0.55rem 1.4rem;
+  background:var(--gold);
+  color:var(--bg);
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:0.95rem;
+  border-radius:4px;
+  transition:var(--transition);
+}
+.nav-cta:hover{background:var(--gold-light)}
+
+/* Hamburger */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  padding:4px;
+  z-index:1001;
+}
+.hamburger span{
+  display:block;
+  width:26px;
+  height:2px;
+  background:var(--gold);
+  transition:0.3s ease;
+  border-radius:2px;
+}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile menu */
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:rgba(13,27,14,0.97);
+  backdrop-filter:blur(24px);
+  z-index:999;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:2rem;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.4s ease;
+}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{
+  font-family:var(--serif);
+  font-size:1.8rem;
+  font-weight:600;
+  color:var(--cream);
+  transition:color 0.3s;
+}
+.mobile-menu a:hover{color:var(--gold)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+}
+
+/* ─────── HERO ─────── */
+.hero{
+  position:relative;
+  height:100vh;
+  min-height:700px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.hero-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(13,27,14,0.88) 0%,rgba(13,27,14,0.7) 40%,rgba(13,27,14,0.85) 100%);
+  z-index:1;
+}
+.hero-content{
+  position:relative;
+  z-index:3;
+  width:min(var(--max-w),92%);
+  margin:0 auto;
+  padding-top:80px;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.4rem 1rem;
+  border:1px solid rgba(200,169,110,0.3);
+  border-radius:3px;
+  font-family:var(--serif);
+  font-size:0.9rem;
+  color:var(--gold);
+  margin-bottom:1.5rem;
+  backdrop-filter:blur(8px);
+  background:rgba(200,169,110,0.05);
+}
+.hero h1{
+  max-width:700px;
+  margin-bottom:1.5rem;
+  color:var(--cream);
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--gold);
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 50%,var(--gold) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-desc{
+  max-width:520px;
+  color:var(--cream-muted);
+  font-size:1.1rem;
+  line-height:1.8;
+  margin-bottom:2rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* Hero botanical SVGs */
+.hero-botanical-tl{top:8%;left:-2%;width:220px;height:320px;opacity:0.25}
+.hero-botanical-br{bottom:5%;right:-1%;width:260px;height:360px;opacity:0.2;transform:rotate(180deg)}
+.hero-botanical-tr{top:12%;right:5%;width:180px;height:260px;opacity:0.18}
+
+/* ─────── TRUST BAR ─────── */
+.trust{
+  padding:clamp(50px,8vw,80px) 0;
+  background:var(--emerald);
+  border-top:1px solid rgba(200,169,110,0.08);
+  border-bottom:1px solid rgba(200,169,110,0.08);
+}
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2rem;
+  align-items:center;
+  position:relative;
+}
+.trust-item{
+  text-align:center;
+  position:relative;
+}
+.trust-number{
+  font-family:var(--serif);
+  font-size:clamp(2.2rem,4vw,3rem);
+  font-weight:700;
+  color:var(--gold);
+  line-height:1;
+  margin-bottom:0.4rem;
+}
+.trust-label{
+  font-size:0.85rem;
+  color:var(--cream-muted);
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+.trust-divider{
+  position:absolute;
+  top:50%;
+  right:0;
+  transform:translateY(-50%);
+  width:24px;
+  height:32px;
+  opacity:0.3;
+}
+.trust-item:last-child .trust-divider{display:none}
+
+@media(max-width:768px){
+  .trust-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .trust-divider{display:none}
+}
+
+/* ─────── SERVICES ─────── */
+.services{background:var(--bg)}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
+.service-card{
+  background:var(--bg-card);
+  border:1px solid rgba(200,169,110,0.08);
+  border-radius:var(--radius);
+  overflow:hidden;
+  position:relative;
+  transition:var(--transition);
+}
+.service-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(0,0,0,0.3);
+}
+.service-img{
+  position:relative;
+  height:220px;
+  overflow:hidden;
+}
+.service-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.6s ease;
+}
+.service-card:hover .service-img img{transform:scale(1.05)}
+.service-body{
+  padding:1.5rem;
+  position:relative;
+}
+.service-name{
+  font-family:var(--serif);
+  font-size:1.35rem;
+  font-weight:600;
+  color:var(--cream);
+  margin-bottom:0.5rem;
+}
+.service-desc{
+  font-size:0.9rem;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+/* Corner ornament on cards */
+.card-ornament{
+  position:absolute;
+  width:40px;
+  height:40px;
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+.service-card:hover .card-ornament{opacity:0.4}
+.card-ornament-tl{top:12px;left:12px}
+.card-ornament-br{bottom:12px;right:12px;transform:rotate(180deg)}
+
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.services-grid{grid-template-columns:1fr}}
+
+/* ─────── BEFORE/AFTER ─────── */
+.before-after{background:var(--emerald)}
+.ba-wrapper{
+  max-width:800px;
+  margin:0 auto;
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:2px solid rgba(200,169,110,0.2);
+  aspect-ratio:16/10;
+  cursor:col-resize;
+  user-select:none;
+}
+.ba-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.ba-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.ba-before{z-index:1;clip-path:inset(0 50% 0 0)}
+.ba-after{z-index:0}
+.ba-slider{
+  position:absolute;
+  top:0;bottom:0;
+  left:50%;
+  width:3px;
+  background:var(--gold);
+  z-index:3;
+  transform:translateX(-50%);
+}
+.ba-handle{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:48px;height:48px;
+  border-radius:50%;
+  background:var(--gold);
+  border:3px solid var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  z-index:4;
+  box-shadow:0 4px 16px rgba(0,0,0,0.4);
+  cursor:col-resize;
+}
+.ba-handle svg{width:20px;height:20px;fill:var(--bg)}
+.ba-label{
+  position:absolute;
+  bottom:16px;
+  padding:0.3rem 0.8rem;
+  background:rgba(13,27,14,0.8);
+  border:1px solid rgba(200,169,110,0.3);
+  border-radius:3px;
+  font-family:var(--serif);
+  font-size:0.85rem;
+  color:var(--gold);
+  z-index:5;
+  pointer-events:none;
+}
+.ba-label-before{left:16px}
+.ba-label-after{right:16px}
+
+/* Vine border SVG around before/after */
+.ba-border-svg{
+  position:absolute;
+  inset:-8px;
+  width:calc(100% + 16px);
+  height:calc(100% + 16px);
+  z-index:6;
+  pointer-events:none;
+}
+
+/* ─────── PORTFOLIO ─────── */
+.portfolio{background:var(--bg)}
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;
+}
+.portfolio-item{
+  position:relative;
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  aspect-ratio:4/3;
+  cursor:pointer;
+}
+.portfolio-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.6s ease;
+}
+.portfolio-item:hover img{transform:scale(1.08)}
+.portfolio-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(13,27,14,0.9) 0%,rgba(13,27,14,0) 50%);
+  opacity:0;
+  transition:opacity 0.4s ease;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:1.5rem;
+}
+.portfolio-item:hover .portfolio-overlay{opacity:1}
+.portfolio-overlay h4{
+  font-family:var(--serif);
+  font-size:1.2rem;
+  color:var(--gold);
+  margin-bottom:0.3rem;
+}
+.portfolio-overlay p{
+  font-size:0.85rem;
+  color:var(--cream-muted);
+}
+/* Leaf accent on hover */
+.portfolio-leaf{
+  position:absolute;
+  top:12px;right:12px;
+  width:32px;height:32px;
+  opacity:0;
+  transition:opacity 0.4s ease 0.1s;
+}
+.portfolio-item:hover .portfolio-leaf{opacity:0.5}
+
+@media(max-width:768px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.portfolio-grid{grid-template-columns:1fr}}
+
+/* ─────── ABOUT ─────── */
+.about{background:var(--emerald)}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+.about-img-wrap{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:visible;
+}
+.about-img-wrap img{
+  width:100%;
+  border-radius:var(--radius);
+  border:2px solid rgba(200,169,110,0.2);
+}
+.about-img-frame{
+  position:absolute;
+  inset:-6px;
+  border:1px solid var(--gold);
+  border-radius:calc(var(--radius) + 4px);
+  opacity:0.3;
+  pointer-events:none;
+}
+.about-fern{
+  position:absolute;
+  right:-40px;
+  top:20%;
+  width:80px;
+  height:200px;
+  opacity:0.25;
+}
+.about-text h2{margin-bottom:1rem}
+.about-text p{color:var(--cream-muted);margin-bottom:1.2rem}
+.about-quote{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.3rem;
+  color:var(--gold);
+  line-height:1.5;
+  padding-left:1.5rem;
+  border-left:2px solid var(--gold);
+  margin:2rem 0;
+}
+
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .about-fern{display:none}
+}
+
+/* ─────── REVIEWS ─────── */
+.reviews{background:var(--bg)}
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
+.review-card{
+  background:var(--bg-card);
+  border:1px solid rgba(200,169,110,0.08);
+  border-radius:var(--radius);
+  padding:2rem;
+  position:relative;
+}
+.review-quote-mark{
+  font-family:var(--serif);
+  font-size:4rem;
+  line-height:1;
+  color:var(--gold);
+  opacity:0.3;
+  position:absolute;
+  top:12px;left:20px;
+}
+.review-text{
+  font-family:var(--serif);
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--cream);
+  line-height:1.7;
+  margin-bottom:1.2rem;
+  margin-top:1.5rem;
+}
+.review-stars{color:var(--gold);font-size:0.9rem;margin-bottom:0.8rem;letter-spacing:2px}
+.review-author{font-size:0.85rem;color:var(--text-muted);font-weight:500}
+.review-divider{
+  display:flex;
+  justify-content:center;
+  opacity:0.2;
+  margin:0 -0.5rem;
+}
+
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr}}
+
+/* ─────── PROCESS ─────── */
+.process{background:var(--emerald)}
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3rem;
+  position:relative;
+  margin-top:3rem;
+}
+.process-step{
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.process-num{
+  width:64px;height:64px;
+  border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.2rem;
+  font-family:var(--serif);
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--gold);
+  background:var(--emerald);
+  position:relative;
+  z-index:3;
+}
+.process-step h3{
+  color:var(--cream);
+  margin-bottom:0.6rem;
+}
+.process-step p{
+  color:var(--text-muted);
+  font-size:0.9rem;
+  max-width:280px;
+  margin:0 auto;
+}
+/* Connecting stem line */
+.process-stem{
+  position:absolute;
+  top:32px;
+  left:calc(16.66% + 32px);
+  right:calc(16.66% + 32px);
+  height:2px;
+  z-index:1;
+}
+.process-stem line{
+  stroke:var(--gold);
+  stroke-width:2;
+  stroke-dasharray:8,6;
+}
+
+@media(max-width:768px){
+  .process-grid{grid-template-columns:1fr;gap:2.5rem}
+  .process-stem{display:none}
+}
+
+/* ─────── CTA ─────── */
+.cta-section{
+  background:linear-gradient(180deg,var(--bg) 0%,#091209 100%);
+  position:relative;
+}
+.cta-inner{
+  max-width:700px;
+  margin:0 auto;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.cta-inner h2{
+  margin-bottom:1rem;
+}
+.cta-inner p{
+  color:var(--text-muted);
+  margin-bottom:2.5rem;
+  max-width:480px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.cta-form{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  max-width:460px;
+  margin:0 auto;
+}
+.cta-form-row{display:flex;gap:1rem}
+.cta-form input,
+.cta-form textarea,
+.cta-form select{
+  width:100%;
+  padding:0.85rem 1rem;
+  background:var(--bg-card);
+  border:1px solid rgba(200,169,110,0.15);
+  border-radius:6px;
+  color:var(--cream);
+  font-family:var(--sans);
+  font-size:0.95rem;
+  transition:border-color 0.3s;
+  outline:none;
+}
+.cta-form input::placeholder,
+.cta-form textarea::placeholder{color:var(--text-muted)}
+.cta-form input:focus,
+.cta-form textarea:focus,
+.cta-form select:focus{border-color:var(--gold)}
+.cta-form textarea{resize:vertical;min-height:100px}
+.cta-form select{appearance:none;cursor:pointer}
+.cta-form button{align-self:center;width:100%}
+
+/* CTA botanical frame */
+.cta-frame{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+@media(max-width:560px){.cta-form-row{flex-direction:column}}
+
+/* ─────── FOOTER ─────── */
+.footer{
+  padding:3rem 0 2rem;
+  border-top:1px solid rgba(200,169,110,0.08);
+  background:var(--bg);
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1.5rem;
+}
+.footer-logo{
+  font-family:var(--serif);
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--cream);
+}
+.footer-logo span{color:var(--gold)}
+.footer-links{
+  display:flex;
+  gap:1.5rem;
+  list-style:none;
+}
+.footer-links a{
+  font-size:0.9rem;
+  color:var(--text-muted);
+  transition:color 0.3s;
+}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{
+  width:100%;
+  text-align:center;
+  font-size:0.8rem;
+  color:var(--text-muted);
+  margin-top:1.5rem;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(200,169,110,0.06);
+}
+
+/* ─────── UTILITY ─────── */
+.fade-up{opacity:0;transform:translateY(30px)}
+.text-center{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* Leaf divider between sections */
+.leaf-divider{
+  display:flex;
+  justify-content:center;
+  padding:1rem 0;
+  opacity:0.2;
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <!-- Leaf SVG next to logo -->
+      <svg viewBox="0 0 32 32" fill="none" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"><path d="M16 28V8"/><path d="M16 8C12 8 6 12 6 20c4-6 8-8 10-8"/><path d="M16 8c4 0 10 4 10 12-4-6-8-8-10-8"/><path d="M10 18c2-1 4-1 6 0"/><path d="M22 18c-2-1-4-1-6 0"/></svg>
+      Green<span class="logo-accent">Scape</span> Pro
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Get Estimate</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#portfolio" onclick="closeMobile()">Portfolio</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
+  <a href="#contact" onclick="closeMobile()">Get Estimate</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="../../images/template-images/hero.jpg" alt="Luxury landscaped garden in Austin, TX" width="1920" height="1080">
+  </div>
+  <div class="hero-overlay"></div>
+
+  <!-- Botanical branch SVGs -->
+  <svg class="botanical-svg hero-botanical-tl" viewBox="0 0 220 320" fill="none">
+    <path class="botanical-draw" d="M110 310 C110 260 100 220 90 180 C80 140 60 110 40 80 C30 60 20 40 15 10"/>
+    <path class="botanical-draw" d="M90 180 C70 175 50 185 35 200"/>
+    <path class="botanical-draw" d="M100 140 C120 130 140 135 155 150"/>
+    <path class="botanical-draw" d="M80 110 C60 100 40 105 25 115"/>
+    <path class="botanical-draw" d="M60 80 C75 65 95 60 115 65"/>
+    <path class="botanical-draw" d="M40 50 C25 40 15 45 5 55"/>
+    <path class="botanical-draw" d="M50 200 C40 210 45 230 55 240"/>
+    <path class="botanical-draw" d="M105 240 C125 235 135 245 140 260"/>
+  </svg>
+
+  <svg class="botanical-svg hero-botanical-br" viewBox="0 0 260 360" fill="none">
+    <path class="botanical-draw" d="M130 350 C130 290 120 240 105 190 C90 140 65 100 40 60 C25 35 15 15 10 0"/>
+    <path class="botanical-draw" d="M105 190 C80 185 60 195 45 215"/>
+    <path class="botanical-draw" d="M120 150 C145 135 170 140 190 160"/>
+    <path class="botanical-draw" d="M85 120 C60 110 40 120 25 140"/>
+    <path class="botanical-draw" d="M65 80 C85 60 110 55 135 65"/>
+  </svg>
+
+  <svg class="botanical-svg hero-botanical-tr" viewBox="0 0 180 260" fill="none">
+    <path class="botanical-draw" d="M90 250 C90 200 85 160 75 120 C65 80 50 50 30 20"/>
+    <path class="botanical-draw" d="M75 120 C55 115 40 125 30 140"/>
+    <path class="botanical-draw" d="M80 80 C100 68 120 72 135 85"/>
+    <path class="botanical-draw" d="M60 55 C45 45 30 50 20 60"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge fade-up">
+      <span>★</span> Rated 4.9 — Austin's Premier Landscaping
+    </div>
+    <h1 class="fade-up">Cultivating Austin's <em>Finest Gardens</em></h1>
+    <p class="hero-desc fade-up">Bespoke landscape design and luxury outdoor living, crafted with botanical artistry since 2011.</p>
+    <div class="hero-btns fade-up">
+      <a href="#contact" class="btn btn-gold">Request Consultation</a>
+      <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST BAR ─── -->
+<section class="trust" id="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item fade-up">
+        <div class="trust-number gold-text gold-shimmer">15+</div>
+        <div class="trust-label">Years of Excellence</div>
+        <svg class="trust-divider" viewBox="0 0 24 32" fill="none" stroke="#C8A96E" stroke-width="1"><path d="M12 0 C8 8 16 16 12 24 C8 28 12 32 12 32"/><path d="M8 12 C10 10 14 10 16 12"/></svg>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-number gold-text gold-shimmer">312+</div>
+        <div class="trust-label">Five-Star Reviews</div>
+        <svg class="trust-divider" viewBox="0 0 24 32" fill="none" stroke="#C8A96E" stroke-width="1"><path d="M12 0 C8 8 16 16 12 24 C8 28 12 32 12 32"/><path d="M8 12 C10 10 14 10 16 12"/></svg>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-number gold-text gold-shimmer">1,200+</div>
+        <div class="trust-label">Gardens Transformed</div>
+        <svg class="trust-divider" viewBox="0 0 24 32" fill="none" stroke="#C8A96E" stroke-width="1"><path d="M12 0 C8 8 16 16 12 24 C8 28 12 32 12 32"/><path d="M8 12 C10 10 14 10 16 12"/></svg>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-number gold-text gold-shimmer">4.9</div>
+        <div class="trust-label">Average Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-subtitle fade-up">Our Expertise</p>
+      <h2 class="section-title fade-up">Botanical <span class="gold-text">Services</span></h2>
+      <p class="section-desc mx-auto fade-up">From lush garden design to precision hardscaping, every project is a masterwork of living artistry.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card fade-up">
+        <svg class="card-ornament card-ornament-tl" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <svg class="card-ornament card-ornament-br" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <div class="service-img">
+          <img src="../../images/template-images/hardscape-patio.jpg" alt="Custom hardscape patio design" loading="lazy" width="600" height="400">
+        </div>
+        <div class="service-body">
+          <h3 class="service-name">Hardscape & Patios</h3>
+          <p class="service-desc">Artisan stone patios, walkways, and outdoor structures that blend seamlessly with the natural landscape.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <svg class="card-ornament card-ornament-tl" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <svg class="card-ornament card-ornament-br" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <div class="service-img">
+          <img src="../../images/template-images/lawn-care.jpg" alt="Professional lawn care service" loading="lazy" width="600" height="400">
+        </div>
+        <div class="service-body">
+          <h3 class="service-name">Lawn & Garden Care</h3>
+          <p class="service-desc">Precision lawn maintenance and seasonal garden care to keep your landscape in pristine condition year-round.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <svg class="card-ornament card-ornament-tl" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <svg class="card-ornament card-ornament-br" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <div class="service-img">
+          <img src="../../images/template-images/outdoor-living.jpg" alt="Outdoor living space design" loading="lazy" width="600" height="400">
+        </div>
+        <div class="service-body">
+          <h3 class="service-name">Outdoor Living</h3>
+          <p class="service-desc">Complete outdoor living environments — kitchens, fire features, pergolas — designed for elegant entertaining.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <svg class="card-ornament card-ornament-tl" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <svg class="card-ornament card-ornament-br" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <div class="service-img">
+          <img src="../../images/template-images/landscape-lighting.jpg" alt="Landscape lighting design" loading="lazy" width="600" height="400">
+        </div>
+        <div class="service-body">
+          <h3 class="service-name">Landscape Lighting</h3>
+          <p class="service-desc">Architectural and accent lighting that transforms your garden into an enchanting nighttime tableau.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <svg class="card-ornament card-ornament-tl" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <svg class="card-ornament card-ornament-br" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <div class="service-img">
+          <img src="../../images/template-images/irrigation.jpg" alt="Smart irrigation systems" loading="lazy" width="600" height="400">
+        </div>
+        <div class="service-body">
+          <h3 class="service-name">Irrigation Systems</h3>
+          <p class="service-desc">Smart, water-efficient irrigation designed for Austin's climate — saving resources while nurturing growth.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <svg class="card-ornament card-ornament-tl" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <svg class="card-ornament card-ornament-br" viewBox="0 0 40 40" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"><path d="M2 38 C2 20 10 8 38 2"/><path d="M2 28 C8 18 16 12 28 8"/><circle cx="6" cy="6" r="2"/></svg>
+        <div class="service-img">
+          <img src="../../images/template-images/retaining-wall.jpg" alt="Retaining wall construction" loading="lazy" width="600" height="400">
+        </div>
+        <div class="service-body">
+          <h3 class="service-name">Retaining Walls</h3>
+          <p class="service-desc">Structural and decorative retaining walls that sculpt terrain while adding architectural beauty.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Leaf Divider -->
+<div class="leaf-divider">
+  <svg width="48" height="24" viewBox="0 0 48 24" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round">
+    <path d="M0 12 H18 M30 12 H48"/>
+    <path d="M24 2 C20 6 20 10 24 12 C28 10 28 6 24 2Z"/>
+    <path d="M24 12 L24 22"/>
+  </svg>
+</div>
+
+<!-- ─── BEFORE / AFTER ─── -->
+<section class="before-after" id="beforeafter">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-subtitle fade-up">Transformations</p>
+      <h2 class="section-title fade-up">Before & <span class="gold-text">After</span></h2>
+      <p class="section-desc mx-auto fade-up">Witness the metamorphosis — from neglected yards to botanical masterpieces.</p>
+    </div>
+    <div class="ba-wrapper" id="baSlider">
+      <div class="ba-img ba-before" id="baBefore">
+        <img src="../../images/template-images/before.jpg" alt="Garden before transformation" loading="lazy" width="800" height="500">
+      </div>
+      <div class="ba-img ba-after">
+        <img src="../../images/template-images/after.jpg" alt="Garden after GreenScape Pro transformation" loading="lazy" width="800" height="500">
+      </div>
+      <div class="ba-slider" id="baLine"></div>
+      <div class="ba-handle" id="baHandle">
+        <svg viewBox="0 0 20 20"><path d="M6 10L2 10M2 10L5 7M2 10L5 13M14 10L18 10M18 10L15 7M18 10L15 13"/></svg>
+      </div>
+      <div class="ba-label ba-label-before">Before</div>
+      <div class="ba-label ba-label-after">After</div>
+      <!-- Vine border -->
+      <svg class="ba-border-svg" viewBox="0 0 816 516" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round" opacity="0.25">
+        <rect x="2" y="2" width="812" height="512" rx="16" stroke-dasharray="6,8"/>
+        <path class="botanical-draw" d="M20 2 C30 -5 25 15 35 8 C45 2 40 18 50 12"/>
+        <path class="botanical-draw" d="M780 514 C790 520 785 502 795 508"/>
+        <path class="botanical-draw" d="M2 480 C-5 470 10 465 5 455 C0 445 12 440 8 430"/>
+        <path class="botanical-draw" d="M814 40 C820 50 805 55 810 65"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PORTFOLIO ─── -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-subtitle fade-up">Our Work</p>
+      <h2 class="section-title fade-up">Garden <span class="gold-text">Portfolio</span></h2>
+      <p class="section-desc mx-auto fade-up">A curated collection of our most distinguished landscape creations across Austin.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item fade-up">
+        <img src="../../images/template-images/hardscape-patio.jpg" alt="Luxury patio project" loading="lazy" width="600" height="450">
+        <div class="portfolio-overlay">
+          <h4>Westlake Estate</h4>
+          <p>Custom stone patio & water feature</p>
+        </div>
+        <svg class="portfolio-leaf" viewBox="0 0 32 32" fill="none" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"><path d="M16 28V8"/><path d="M16 8C12 8 6 14 8 22"/><path d="M16 8C20 8 26 14 24 22"/></svg>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="../../images/template-images/outdoor-living.jpg" alt="Outdoor living space" loading="lazy" width="600" height="450">
+        <div class="portfolio-overlay">
+          <h4>Barton Hills Retreat</h4>
+          <p>Outdoor kitchen & pergola design</p>
+        </div>
+        <svg class="portfolio-leaf" viewBox="0 0 32 32" fill="none" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"><path d="M16 28V8"/><path d="M16 8C12 8 6 14 8 22"/><path d="M16 8C20 8 26 14 24 22"/></svg>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="../../images/template-images/lawn-care.jpg" alt="Maintained luxury lawn" loading="lazy" width="600" height="450">
+        <div class="portfolio-overlay">
+          <h4>Tarrytown Gardens</h4>
+          <p>Full landscape renovation</p>
+        </div>
+        <svg class="portfolio-leaf" viewBox="0 0 32 32" fill="none" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"><path d="M16 28V8"/><path d="M16 8C12 8 6 14 8 22"/><path d="M16 8C20 8 26 14 24 22"/></svg>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="../../images/template-images/landscape-lighting.jpg" alt="Night garden lighting" loading="lazy" width="600" height="450">
+        <div class="portfolio-overlay">
+          <h4>Lake Austin Villa</h4>
+          <p>Architectural lighting design</p>
+        </div>
+        <svg class="portfolio-leaf" viewBox="0 0 32 32" fill="none" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"><path d="M16 28V8"/><path d="M16 8C12 8 6 14 8 22"/><path d="M16 8C20 8 26 14 24 22"/></svg>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="../../images/template-images/irrigation.jpg" alt="Smart irrigation system" loading="lazy" width="600" height="450">
+        <div class="portfolio-overlay">
+          <h4>Circle C Ranch</h4>
+          <p>Smart irrigation & drought garden</p>
+        </div>
+        <svg class="portfolio-leaf" viewBox="0 0 32 32" fill="none" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"><path d="M16 28V8"/><path d="M16 8C12 8 6 14 8 22"/><path d="M16 8C20 8 26 14 24 22"/></svg>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="../../images/template-images/retaining-wall.jpg" alt="Decorative retaining wall" loading="lazy" width="600" height="450">
+        <div class="portfolio-overlay">
+          <h4>Rollingwood Estate</h4>
+          <p>Terraced gardens & stone walls</p>
+        </div>
+        <svg class="portfolio-leaf" viewBox="0 0 32 32" fill="none" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"><path d="M16 28V8"/><path d="M16 8C12 8 6 14 8 22"/><path d="M16 8C20 8 26 14 24 22"/></svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-up">
+        <img src="../../images/template-images/team.jpg" alt="Mike Anderson, GreenScape Pro founder" loading="lazy" width="600" height="500">
+        <div class="about-img-frame"></div>
+        <!-- Fern SVG beside image -->
+        <svg class="botanical-svg about-fern" viewBox="0 0 80 200" fill="none">
+          <path class="botanical-draw" d="M40 195 C40 160 38 120 36 80 C34 50 32 25 30 5"/>
+          <path class="botanical-draw" d="M36 160 C20 155 10 165 5 180"/>
+          <path class="botanical-draw" d="M37 140 C55 132 65 140 70 155"/>
+          <path class="botanical-draw" d="M36 120 C18 115 8 122 3 135"/>
+          <path class="botanical-draw" d="M35 100 C50 92 62 98 68 112"/>
+          <path class="botanical-draw" d="M34 80 C20 75 10 80 5 92"/>
+          <path class="botanical-draw" d="M33 60 C45 52 58 58 62 70"/>
+          <path class="botanical-draw" d="M32 40 C22 35 14 40 10 50"/>
+          <path class="botanical-draw" d="M31 25 C40 18 50 22 55 32"/>
+        </svg>
+      </div>
+      <div class="about-text">
+        <p class="section-subtitle fade-up">Our Story</p>
+        <h2 class="section-title fade-up">Rooted in <span class="gold-text">Passion</span></h2>
+        <p class="fade-up">Founded in 2011 by Mike Anderson, GreenScape Pro has grown from a small Austin landscaping crew into the city's most sought-after landscape design firm.</p>
+        <p class="fade-up">With over 1,200 gardens transformed, our team combines horticultural expertise with architectural vision to create outdoor spaces that feel like private botanical gardens.</p>
+        <blockquote class="about-quote fade-up">
+          "Every garden tells a story. Our role is to help nature write its most beautiful chapter on your land."
+        </blockquote>
+        <p class="fade-up" style="font-weight:500;color:var(--gold);font-family:var(--serif)">— Mike Anderson, Founder</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-subtitle fade-up">Testimonials</p>
+      <h2 class="section-title fade-up">Client <span class="gold-text">Stories</span></h2>
+      <p class="section-desc mx-auto fade-up">Hear from homeowners who entrusted us with their outdoor vision.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card fade-up">
+        <span class="review-quote-mark">&ldquo;</span>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Mike and his team turned our plain backyard into an absolute paradise. The stone patio and garden beds are breathtaking — every neighbor has stopped to compliment it.</p>
+        <p class="review-author">Sarah & David M. — Westlake Hills</p>
+      </div>
+
+      <div class="review-card fade-up">
+        <span class="review-quote-mark">&ldquo;</span>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">The attention to detail is extraordinary. They didn't just landscape our yard — they created a living work of art. The lighting design alone changed how we use our outdoor space.</p>
+        <p class="review-author">Jennifer L. — Barton Hills</p>
+      </div>
+
+      <div class="review-card fade-up">
+        <span class="review-quote-mark">&ldquo;</span>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">Professional, creative, and genuinely passionate about what they do. Our irrigation system is flawless and the drought-resistant garden design has cut our water bill in half.</p>
+        <p class="review-author">Robert & Maria K. — Circle C Ranch</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Leaf Divider -->
+<div class="leaf-divider">
+  <svg width="48" height="24" viewBox="0 0 48 24" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round">
+    <path d="M0 12 H18 M30 12 H48"/>
+    <path d="M24 2 C20 6 20 10 24 12 C28 10 28 6 24 2Z"/>
+    <path d="M24 12 L24 22"/>
+  </svg>
+</div>
+
+<!-- ─── PROCESS ─── -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-subtitle fade-up">How We Work</p>
+      <h2 class="section-title fade-up">Our <span class="gold-text">Process</span></h2>
+      <p class="section-desc mx-auto fade-up">Three thoughtful steps from first conversation to your dream garden.</p>
+    </div>
+    <div class="process-grid">
+      <!-- Connecting stem SVG -->
+      <svg class="process-stem botanical-svg" viewBox="0 0 100 4" preserveAspectRatio="none" style="position:absolute;top:32px;left:calc(16.66% + 32px);right:calc(16.66% + 32px);height:4px;width:auto;opacity:0.4">
+        <line class="botanical-draw" x1="0" y1="2" x2="100" y2="2" stroke="#C8A96E" stroke-width="2" stroke-dasharray="6,4"/>
+      </svg>
+
+      <div class="process-step fade-up">
+        <div class="process-num">1</div>
+        <h3>Consultation</h3>
+        <p>We visit your property, discuss your vision, assess the terrain, and understand your lifestyle to craft the perfect plan.</p>
+      </div>
+
+      <div class="process-step fade-up">
+        <div class="process-num">2</div>
+        <h3>Design & Plan</h3>
+        <p>Our designers create a detailed botanical blueprint with 3D renderings, plant selections, and material palettes.</p>
+      </div>
+
+      <div class="process-step fade-up">
+        <div class="process-num">3</div>
+        <h3>Installation</h3>
+        <p>Expert craftsmen bring the design to life with meticulous attention to every stone, plant, and fixture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <!-- Botanical frame around CTA -->
+    <svg class="cta-frame botanical-svg" viewBox="0 0 1200 600" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08">
+      <path class="botanical-draw" d="M100 20 C200 10 300 25 400 15 C500 5 600 20 700 12 C800 5 900 18 1000 10 C1050 8 1100 15 1150 20"/>
+      <path class="botanical-draw" d="M100 580 C200 590 300 575 400 585 C500 595 600 580 700 588 C800 595 900 582 1000 590"/>
+      <path class="botanical-draw" d="M20 100 C10 200 25 300 15 400 C8 450 18 500 20 550"/>
+      <path class="botanical-draw" d="M1180 100 C1190 200 1175 300 1185 400 C1192 450 1182 500 1180 550"/>
+      <!-- Corner botanical ornaments -->
+      <path class="botanical-draw" d="M40 40 C30 20 20 30 5 5"/>
+      <path class="botanical-draw" d="M40 40 C50 25 55 15 45 5"/>
+      <path class="botanical-draw" d="M1160 40 C1170 20 1180 30 1195 5"/>
+      <path class="botanical-draw" d="M40 560 C30 575 20 570 5 595"/>
+      <path class="botanical-draw" d="M1160 560 C1170 575 1180 570 1195 595"/>
+    </svg>
+
+    <div class="cta-inner">
+      <p class="section-subtitle fade-up">Begin Your Transformation</p>
+      <h2 class="fade-up">Let's Cultivate Something <span class="gold-text gold-shimmer">Beautiful</span></h2>
+      <p class="fade-up">Schedule a complimentary consultation and discover what's possible for your outdoor space.</p>
+      <form class="cta-form fade-up" onsubmit="event.preventDefault();alert('Thank you! We\'ll be in touch within 24 hours.')">
+        <div class="cta-form-row">
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+        </div>
+        <input type="email" placeholder="Email Address" required>
+        <select required>
+          <option value="" disabled selected>Select a Service</option>
+          <option>Landscape Design</option>
+          <option>Hardscape & Patios</option>
+          <option>Outdoor Living</option>
+          <option>Landscape Lighting</option>
+          <option>Irrigation Systems</option>
+          <option>Lawn Maintenance</option>
+          <option>Full Property Renovation</option>
+        </select>
+        <textarea placeholder="Tell us about your project..."></textarea>
+        <button type="submit" class="btn btn-gold" style="justify-content:center">Request Free Consultation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <!-- Leaf divider -->
+  <div class="leaf-divider" style="padding-bottom:2rem">
+    <svg width="48" height="24" viewBox="0 0 48 24" fill="none" stroke="#C8A96E" stroke-width="1" stroke-linecap="round">
+      <path d="M0 12 H18 M30 12 H48"/>
+      <path d="M24 2 C20 6 20 10 24 12 C28 10 28 6 24 2Z"/>
+      <path d="M24 12 L24 22"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Green<span>Scape</span> Pro</div>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div style="font-size:0.9rem;color:var(--gold)">
+        <a href="tel:5557392841" style="color:var(--gold)">(555) 739-2841</a>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 GreenScape Pro. All rights reserved. Austin, TX. Licensed & Insured.</p>
+  </div>
+</footer>
+
+<!-- ─── CDN Scripts ─── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+
+<script>
+/* ─── Lenis Smooth Scroll ─── */
+const lenis = new Lenis({
+  duration: 1.4,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smoothWheel: true
+});
+gsap.ticker.add((time) => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
+
+/* ─── Register ScrollTrigger ─── */
+gsap.registerPlugin(ScrollTrigger);
+
+/* ─── Reduced Motion Check ─── */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ─── Nav Scroll ─── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ─── Hamburger ─── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ─── Before/After Slider ─── */
+(function() {
+  const wrapper = document.getElementById('baSlider');
+  const before = document.getElementById('baBefore');
+  const line = document.getElementById('baLine');
+  const handle = document.getElementById('baHandle');
+  let isDragging = false;
+
+  function setPosition(x) {
+    const rect = wrapper.getBoundingClientRect();
+    let pct = ((x - rect.left) / rect.width) * 100;
+    pct = Math.max(2, Math.min(98, pct));
+    before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    line.style.left = pct + '%';
+    handle.style.left = pct + '%';
+  }
+
+  function onStart(e) {
+    isDragging = true;
+    e.preventDefault();
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    setPosition(x);
+  }
+  function onMove(e) {
+    if (!isDragging) return;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    setPosition(x);
+  }
+  function onEnd() { isDragging = false; }
+
+  wrapper.addEventListener('mousedown', onStart);
+  wrapper.addEventListener('touchstart', onStart, { passive: false });
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('touchmove', onMove, { passive: false });
+  window.addEventListener('mouseup', onEnd);
+  window.addEventListener('touchend', onEnd);
+})();
+
+/* ─── Animations (skip if reduced motion) ─── */
+if (!prefersReducedMotion) {
+
+  /* Fade-up elements */
+  gsap.utils.toArray('.fade-up').forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        },
+        delay: (i % 3) * 0.12
+      }
+    );
+  });
+
+  /* Hero headline split animation */
+  try {
+    const heroH1 = document.querySelector('.hero h1');
+    if (heroH1) {
+      const split = new SplitType(heroH1, { types: 'chars,words' });
+      gsap.fromTo(split.chars,
+        { opacity: 0, y: 40, rotateX: -40 },
+        {
+          opacity: 1, y: 0, rotateX: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.025,
+          delay: 0.3
+        }
+      );
+    }
+  } catch(e) {}
+
+  /* Botanical SVG line-drawing animation */
+  gsap.utils.toArray('.botanical-draw').forEach(path => {
+    const length = path.getTotalLength ? path.getTotalLength() : 200;
+    gsap.set(path, {
+      strokeDasharray: length,
+      strokeDashoffset: length
+    });
+    gsap.to(path, {
+      strokeDashoffset: 0,
+      duration: 2,
+      ease: 'power2.inOut',
+      scrollTrigger: {
+        trigger: path.closest('svg'),
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  /* Hero botanical SVGs — animate on load */
+  gsap.utils.toArray('.hero .botanical-draw').forEach(path => {
+    const length = path.getTotalLength ? path.getTotalLength() : 200;
+    gsap.set(path, {
+      strokeDasharray: length,
+      strokeDashoffset: length
+    });
+    gsap.to(path, {
+      strokeDashoffset: 0,
+      duration: 2.5,
+      ease: 'power1.inOut',
+      delay: 0.8 + Math.random() * 0.6
+    });
+  });
+
+  /* Service cards stagger */
+  gsap.utils.toArray('.service-card').forEach((card, i) => {
+    gsap.fromTo(card,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%'
+        },
+        delay: (i % 3) * 0.15
+      }
+    );
+  });
+
+  /* Portfolio items */
+  gsap.utils.toArray('.portfolio-item').forEach((item, i) => {
+    gsap.fromTo(item,
+      { opacity: 0, scale: 0.95, y: 20 },
+      {
+        opacity: 1, scale: 1, y: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 88%'
+        },
+        delay: (i % 3) * 0.12
+      }
+    );
+  });
+
+  /* Review cards */
+  gsap.utils.toArray('.review-card').forEach((card, i) => {
+    gsap.fromTo(card,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%'
+        },
+        delay: i * 0.15
+      }
+    );
+  });
+
+  /* Process steps */
+  gsap.utils.toArray('.process-step').forEach((step, i) => {
+    gsap.fromTo(step,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: step,
+          start: 'top 85%'
+        },
+        delay: i * 0.2
+      }
+    );
+  });
+
+  /* Trust numbers count-up */
+  gsap.utils.toArray('.trust-number').forEach(el => {
+    const text = el.textContent;
+    const match = text.match(/([\d,.]+)/);
+    if (match) {
+      const target = parseFloat(match[1].replace(/,/g, ''));
+      const suffix = text.replace(match[1], '');
+      const hasDecimal = match[1].includes('.');
+      const hasComma = target >= 1000;
+      gsap.fromTo({ val: 0 }, { val: target }, {
+        val: target,
+        duration: 2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%'
+        },
+        onUpdate: function() {
+          let v = this.targets()[0].val;
+          if (hasDecimal) v = v.toFixed(1);
+          else {
+            v = Math.round(v);
+            if (hasComma) v = v.toLocaleString();
+          }
+          el.textContent = v + suffix;
+        }
+      });
+    }
+  });
+
+  /* Gold shimmer on scroll */
+  gsap.utils.toArray('.gold-shimmer').forEach(el => {
+    gsap.to(el, {
+      backgroundPosition: '200% center',
+      duration: 3,
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+} else {
+  /* Reduced motion: show everything */
+  gsap.utils.toArray('.fade-up,.service-card,.review-card,.process-step,.portfolio-item').forEach(el => {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+  gsap.utils.toArray('.botanical-draw').forEach(path => {
+    path.style.strokeDashoffset = '0';
+  });
+}
+</script>
+</body>
+</html>
