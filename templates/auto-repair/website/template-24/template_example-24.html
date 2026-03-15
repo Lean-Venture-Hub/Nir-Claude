@@ -90,6 +90,9 @@ section{position:relative;overflow:hidden}
   background-size:400px 400px;
 }
 
+/* Hide gsap-reveal elements until GSAP animates them in — prevents flash */
+.gsap-reveal{opacity:0;transform:translateY(40px)}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
   .hero-badge,.hero-content *,.gsap-reveal{opacity:1!important;transform:none!important}
@@ -944,60 +947,76 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ===== SCROLL ANIMATIONS =====
   if (!prefersReducedMotion) {
-    // Generic reveals
+    // Generic reveals — use gsap.to() since CSS already sets opacity:0 + translateY(40px)
     document.querySelectorAll('.gsap-reveal').forEach(function(el) {
-      gsap.from(el, {
+      // Skip elements that get specific stagger animations below
+      if (el.classList.contains('service-card') || el.classList.contains('testimonial-card') ||
+          el.classList.contains('gallery-item') || el.classList.contains('heritage-stamp') ||
+          el.classList.contains('quality-badge') || el.classList.contains('quality-item') ||
+          el.classList.contains('special-ticket') || el.classList.contains('community-pin') ||
+          el.classList.contains('garage-photo')) return;
+      gsap.to(el, {
         scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-        opacity: 0, y: 40, duration: 0.8, ease: 'power2.out'
+        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out'
       });
     });
 
     // Service cards stagger
-    gsap.from('.service-card', {
+    gsap.to('.service-card.gsap-reveal', {
       scrollTrigger: { trigger: '.services-grid', start: 'top 80%', once: true },
-      opacity: 0, y: 30, stagger: 0.12, duration: 0.7, ease: 'power2.out'
+      opacity: 1, y: 0, stagger: 0.12, duration: 0.7, ease: 'power2.out'
     });
 
     // Testimonial cards stagger
-    gsap.from('.testimonial-card', {
+    gsap.to('.testimonial-card.gsap-reveal', {
       scrollTrigger: { trigger: '.testimonials-grid', start: 'top 80%', once: true },
-      opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: 'power2.out'
+      opacity: 1, y: 0, stagger: 0.15, duration: 0.7, ease: 'power2.out'
     });
 
     // Gallery items stagger
-    gsap.from('.gallery-item', {
+    gsap.set('.gallery-item.gsap-reveal', { scale: 0.95 });
+    gsap.to('.gallery-item.gsap-reveal', {
       scrollTrigger: { trigger: '.gallery-grid', start: 'top 80%', once: true },
-      opacity: 0, scale: 0.95, stagger: 0.08, duration: 0.6, ease: 'power2.out'
+      opacity: 1, y: 0, scale: 1, stagger: 0.08, duration: 0.6, ease: 'power2.out'
     });
 
     // Heritage stamp spin-in
-    gsap.from('.heritage-stamp', {
+    gsap.set('.heritage-stamp.gsap-reveal', { scale: 0.6, rotation: -20 });
+    gsap.to('.heritage-stamp.gsap-reveal', {
       scrollTrigger: { trigger: '.heritage-stamp', start: 'top 80%', once: true },
-      opacity: 0, scale: 0.6, rotation: -20, duration: 1, ease: 'back.out(1.5)'
+      opacity: 1, y: 0, scale: 1, rotation: 0, duration: 1, ease: 'back.out(1.5)'
     });
 
     // Quality badge
-    gsap.from('.quality-badge', {
+    gsap.set('.quality-badge.gsap-reveal', { scale: 0.7 });
+    gsap.to('.quality-badge.gsap-reveal', {
       scrollTrigger: { trigger: '.quality-badge', start: 'top 80%', once: true },
-      opacity: 0, scale: 0.7, duration: 0.8, ease: 'back.out(1.5)'
+      opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.5)'
     });
 
     // Quality items stagger
-    gsap.from('.quality-item', {
+    gsap.to('.quality-item.gsap-reveal', {
       scrollTrigger: { trigger: '.quality-promises', start: 'top 80%', once: true },
-      opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: 'power2.out'
+      opacity: 1, y: 0, stagger: 0.15, duration: 0.7, ease: 'power2.out'
     });
 
     // Special tickets stagger
-    gsap.from('.special-ticket', {
+    gsap.to('.special-ticket.gsap-reveal', {
       scrollTrigger: { trigger: '.specials-grid', start: 'top 80%', once: true },
-      opacity: 0, y: 30, stagger: 0.15, duration: 0.7, ease: 'power2.out'
+      opacity: 1, y: 0, stagger: 0.15, duration: 0.7, ease: 'power2.out'
     });
 
     // Community pins stagger
-    gsap.from('.community-pin', {
+    gsap.set('.community-pin.gsap-reveal', { rotation: 2 });
+    gsap.to('.community-pin.gsap-reveal', {
       scrollTrigger: { trigger: '.community-board', start: 'top 80%', once: true },
-      opacity: 0, y: 20, rotation: 2, stagger: 0.12, duration: 0.6, ease: 'power2.out'
+      opacity: 1, y: 0, rotation: 0, stagger: 0.12, duration: 0.6, ease: 'power2.out'
+    });
+
+    // Garage photos stagger
+    gsap.to('.garage-photo.gsap-reveal', {
+      scrollTrigger: { trigger: '.garage-photos', start: 'top 80%', once: true },
+      opacity: 1, y: 0, stagger: 0.12, duration: 0.7, ease: 'power2.out'
     });
 
     // Parallax on heritage photo

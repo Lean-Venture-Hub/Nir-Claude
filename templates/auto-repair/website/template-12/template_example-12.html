@@ -109,11 +109,7 @@ img{max-width:100%;height:auto;display:block}
   50%{box-shadow:0 0 30px rgba(59,130,246,0.3),0 0 60px rgba(59,130,246,0.1)}
 }
 
-/* GSAP initial states */
-.gsap-fade{opacity:0;transform:translateY(30px)}
-.gsap-fade-left{opacity:0;transform:translateX(-40px)}
-.gsap-fade-right{opacity:0;transform:translateX(40px)}
-.gsap-scale{opacity:0;transform:scale(0.95)}
+/* GSAP initial states — set via JS only so content is visible if JS fails */
 
 /* ── Header ──────────────────────── */
 .header{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 0;background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,0.1);box-shadow:0 1px 20px rgba(59,130,246,0.05)}
@@ -706,11 +702,25 @@ window.addEventListener('DOMContentLoaded',function(){
 
   gsap.registerPlugin(ScrollTrigger);
 
+  // Set initial states via JS (safe: content visible if JS fails)
+  gsap.set('.gsap-fade',{opacity:0,y:30});
+  gsap.set('.gsap-fade-left',{opacity:0,x:-40});
+  gsap.set('.gsap-fade-right',{opacity:0,x:40});
+  gsap.set('.gsap-scale',{opacity:0,scale:0.95});
+
   // SplitType hero headline word reveal
   if(typeof SplitType!=='undefined'){
     const headline = document.getElementById('heroHeadline');
     if(headline){
+      // Preserve gradient-text spans by splitting only top-level text
       const split = new SplitType(headline,{types:'words'});
+      // Re-apply gradient to any .gradient-text that SplitType may have wrapped
+      headline.querySelectorAll('.gradient-text').forEach(span=>{
+        span.style.background='linear-gradient(135deg,var(--blue),var(--purple))';
+        span.style.webkitBackgroundClip='text';
+        span.style.webkitTextFillColor='transparent';
+        span.style.backgroundClip='text';
+      });
       gsap.from(split.words,{
         y:100,opacity:0,duration:0.8,stagger:0.08,ease:'power3.out',delay:0.3
       });

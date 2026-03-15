@@ -1,6 +1,6 @@
 # Master Plan
 
-**Updated:** 2026-03-14 | **Cross-session state:** see `SESSIONS.md`
+**Updated:** 2026-03-15 | **Cross-session state:** see `SESSIONS.md`
 
 ---
 
@@ -33,21 +33,29 @@
 ### Phase 3: 6 Verticals Live (DONE — 2026-03-14)
 - Full pipeline for all 6 verticals: research → images → templates → gallery → deploy
 - 94 total templates across 6 verticals
-- Gallery with likes, comments, export, responsive dropdown
+- Gallery with likes, comments, feedback export, responsive dropdown
+- Template feedback system: gallery hearts/comments + sections builder export → feeds template-creator skill
 
 ---
 
 ## Active / Next Up
 
-### Phase 4: Vertical Scout Skill (IN PROGRESS)
-Build a skill to quickly evaluate new verticals before investing in templates.
+### Phase 4: Vertical Expansion (IN PROGRESS)
+Evaluate new verticals and expand into the best ones.
 
 | # | Task | Status |
 |---|------|--------|
-| 4.1 | Define segment criteria (1-5, 4a/4b) | DONE — saved to `memory/reference_lead_segments.md` |
-| 4.2 | Estimate costs ($3-7 per quick check) | DONE |
-| 4.3 | Build the `vertical-scout` skill | TODO |
-| 4.4 | Test on 2-3 candidate verticals | TODO |
+| 4.1 | Define segment criteria (1-5, 4a/4b) | DONE |
+| 4.2 | Score 11 candidate verticals on 8 criteria | DONE — `strategy/new-verticals-analysis.md` |
+| 4.3 | Consumer discovery research (how people find/book in each vertical) | DONE — Plumbers/Electricians/Roofers/Cleaning/Chiropractors |
+| 4.4 | Recalculate scores with real data | DONE — Chiropractors dropped (90% have sites), Roofers moved up |
+| 4.5 | Build `vertical-scout` skill for quick checks | TODO |
+| 4.6 | Run `vertical-research` for Plumbers + Electricians | TODO — **next action** |
+| 4.7 | Build 8-10 templates per new vertical | TODO |
+| 4.8 | Generate 20 demo sites from Google Maps leads | TODO |
+| 4.9 | Test outreach, measure reply rate | TODO |
+
+**Launch order:** Plumbers+Electricians → Roofers → Cleaning → Pest Control
 
 ### Phase 5: Lead Pipeline (PLANNED)
 End-to-end from vertical scout → scrape → classify → enrich emails → outreach.
@@ -75,7 +83,7 @@ End-to-end from vertical scout → scrape → classify → enrich emails → out
 |----------|------|
 | Gallery (live) | https://lp.scalefox.ai/gallerywebsite/gallery.html |
 | Gallery (local) | http://localhost:8080/templates/gallery.html |
-| Server reference | `lp-scalefox/server-reference.md` |
+| Server reference | `servers/lp-scalefox-ai.md` |
 | Design playbook | `design-inspiration/web-design-playbook.md` |
 | Placeholder contract | `templates/PLACEHOLDER_CONTRACT.md` |
 | Lead segments | `memory/reference_lead_segments.md` |

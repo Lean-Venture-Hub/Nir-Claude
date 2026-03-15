@@ -86,9 +86,7 @@ img{display:block;max-width:100%}
 .cta-paren-light{border-color:var(--white);color:var(--white)}
 .cta-paren-light:hover{background:var(--white);color:var(--ink)}
 
-/* ── GSAP initial states ─────────────── */
-.gs-fade{opacity:0;transform:translateY(32px)}
-.gs-scale{opacity:0;transform:scale(0.94)}
+/* ── GSAP initial states (set via JS so gallery iframe previews render visible) ── */
 
 /* ── NAVBAR ──────────────────────────── */
 .navbar{
@@ -681,6 +679,10 @@ img{display:block;max-width:100%}
   }
 
   gsap.registerPlugin(ScrollTrigger);
+
+  // Set GSAP initial states via JS (not CSS) so gallery iframe previews render visible
+  gsap.set('.gs-fade',{opacity:0,y:32});
+  gsap.set('.gs-scale',{opacity:0,scale:0.94});
 
   // Navbar scroll
   const navbar = document.getElementById('navbar');

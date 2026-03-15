@@ -81,13 +81,7 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
 /* ── GSAP initial states ───────────────── */
-.hero-content .hero-eyebrow,
-.hero-content h1 .word,
-.hero-content .hero-sub,
-.hero-content .hero-buttons,
-.hero-content .hero-stat{
-  opacity:0;
-}
+/* opacity:0 moved to gsap.set() in JS — CSS fallback keeps content visible if JS fails */
 
 @media(prefers-reduced-motion:reduce){
   .hero-content *{opacity:1!important;transform:none!important;clip-path:none!important}
@@ -907,11 +901,15 @@ img{max-width:100%;display:block}
 
   gsap.registerPlugin(ScrollTrigger);
 
+  /* ── Hero: set initial hidden state via JS (not CSS, so content is visible if JS fails) */
+  gsap.set('.hero-content .hero-eyebrow, .hero-content .hero-sub, .hero-content .hero-buttons, .hero-content .hero-stat', {opacity: 0});
+
   /* ── Hero: SplitType word reveal ─────────── */
   const heroH1 = document.querySelector('.hero h1');
   if (heroH1 && typeof SplitType !== 'undefined') {
     const split = new SplitType(heroH1, {types: 'words'});
     split.words.forEach(w => w.classList.add('word'));
+    gsap.set(split.words, {opacity: 0});
 
     const tl = gsap.timeline({defaults: {ease: 'power4.out'}});
     tl.from('.hero-eyebrow', {opacity: 0, y: 30, duration: .7, delay: .3})
@@ -923,6 +921,7 @@ img{max-width:100%;display:block}
       .from('.hero-buttons', {opacity: 0, y: 25, duration: .6}, '-=.3')
       .from('.hero-stat', {opacity: 0, y: 20, duration: .5, stagger: .12}, '-=.3');
   } else {
+    gsap.set('.hero h1', {opacity: 0});
     const tl = gsap.timeline({defaults: {ease: 'power3.out'}});
     tl.from('.hero-eyebrow', {opacity: 0, y: 30, duration: .7, delay: .3})
       .from('.hero h1', {opacity: 0, y: 40, duration: .8}, '-=.4')

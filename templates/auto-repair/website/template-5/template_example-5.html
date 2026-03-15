@@ -84,10 +84,11 @@ body{
 .serif{font-family:var(--serif)}
 
 /* ── GSAP initial states ──────────────── */
-.gsap-hero-char{display:inline-block;opacity:0}
-.gsap-fade{opacity:0;transform:translateY(30px)}
-.gsap-scale{opacity:0;transform:scale(0.92) translateY(20px)}
-.gsap-slide-up{opacity:0;transform:translateY(50px)}
+.gsap-hero-char{display:inline-block}
+.gsap-fade{transform:translateY(30px)}
+.gsap-scale{transform:scale(0.92) translateY(20px)}
+.gsap-slide-up{transform:translateY(50px)}
+/* opacity:0 moved to gsap.set() in JS — CSS fallback keeps content visible if JS fails */
 
 /* ── Reveal system (fallback) ─────────── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
@@ -814,14 +815,15 @@ a{text-decoration:none;color:inherit}
       });
     }
 
-    /* Hero sub-elements staggered fade */
-    gsap.to('.hero .gsap-fade', {
-      opacity:1, y:0, duration:0.8, stagger:0.15, ease:'power2.out', delay:0.8
-    });
+    /* Hero sub-elements staggered fade — set initial state via JS, not CSS */
     gsap.set('.hero .gsap-fade', {opacity:0, y:30});
     gsap.to('.hero .gsap-fade', {
       opacity:1, y:0, duration:0.8, stagger:0.15, ease:'power2.out', delay:0.8
     });
+
+    /* Set initial hidden state for scroll-revealed elements (JS-only, not CSS) */
+    gsap.set('.gsap-scale', {opacity:0, scale:0.92, y:20});
+    gsap.set('.gsap-slide-up', {opacity:0, y:50});
 
     /* Service cards: staggered reveal with scale + gold border draw */
     gsap.utils.toArray('.spec-card.gsap-scale').forEach((card, i)=>{

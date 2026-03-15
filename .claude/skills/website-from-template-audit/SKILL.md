@@ -101,7 +101,7 @@ Use Playwright to load the website (`mcp__playwright__browser_navigate`), then `
 
 ## Step 3: Visual & Layout Audit
 
-Use `mcp__playwright__browser_take_screenshot` at multiple viewports.
+Use `mcp__playwright__browser_take_screenshot` at multiple viewports. Save all screenshots to `audit-screenshots/` folder.
 
 ### 3a: Desktop (1440px width)
 - [ ] Hero image loads and covers viewport
@@ -155,7 +155,11 @@ Use Playwright to scroll through the full page and verify animations work correc
 - [ ] Take a screenshot mid-transition between slides to verify no overlap
 
 **Animation code audit (read the JS, not just visual):**
-- [ ] **NO CSS opacity:0 on content**: Search for `opacity:0` or `opacity: 0` in CSS — content elements (headings, paragraphs, cards, sections) MUST NOT start hidden. GSAP `.from()` handles animation. Classes like `.gsap-fade{opacity:0}` are BANNED — they make content invisible if JS fails. FIX: remove `opacity:0` from CSS, let GSAP handle it via `.from({opacity:0})`
+- [ ] **NO CSS opacity:0 on content**: Search for `opacity:0` or `opacity: 0` in CSS — content elements (headings, paragraphs, cards, sections) MUST NOT start hidden. GSAP `.from()` handles animation. Classes like `.gsap-fade{opacity:0}` are BANNED — they make content invisible if JS fails AND break gallery thumbnails (sandboxed iframes block JS). FIX: remove `opacity:0` from CSS, use `gsap.set()` in JS instead
+- [ ] **ScrollTrigger `once: true`**: Every ScrollTrigger animation MUST include `once: true`. Without it, elements re-hide when scrolling back up, making sections appear "empty". Only exception: pinned/scrub animations designed for bidirectional play
+- [ ] **Equal-height cards**: Service/feature/testimonial cards in a grid row must all be the same height. Check for manual `margin-top` offsets that stagger cards — these break equal-height alignment
+- [ ] **SplitType + gradient text**: If SplitType is used on gradient-text elements, verify the gradient styles are re-applied to generated spans after splitting
+- [ ] **Color theme fits vertical**: Verify the color palette matches the vertical's industry feel (auto repair = industrial, dentists = clinical, landscaping = earthy). Flag mismatched palettes
 - [ ] **Subtitle not inside h1**: Verify subtitle/subheading text is in a `<p>` tag, NOT inside `<h1>`. Subtitle text inside `<h1>` renders at headline size
 - [ ] **Hero word-break**: Hero headline CSS must include `word-break:keep-all` — words must never break mid-word
 - [ ] If SplitType is used, verify no manual `<span class="word">` wrappers exist on the same element

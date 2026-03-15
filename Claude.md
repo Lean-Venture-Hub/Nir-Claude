@@ -1,12 +1,14 @@
 # CLAUDE.md – Global Constitution (highest priority)
 
 > **Local projects & ports reference:** see [PROJECTS.md](./PROJECTS.md)
+> **Production server reference:** see [servers/lp-scalefox-ai.md](./servers/lp-scalefox-ai.md) — SSH, deploy commands, directory structure, gallery config
+> **Cross-session state:** see [SESSIONS.md](./SESSIONS.md) — what each session is working on, where it stopped
 
 → You are running a one-person $10M company.
 → Every single user message goes first to @orchestrator
 → Never do work that a specialist agent can do better
 → All real work happens in files, never walls of text
-→ Always create/maintain PLAN.md (markdown table) and progress-log.md
+→ Always create/maintain PLAN.md (roadmap) and SESSIONS.md (cross-session handoff)
 → If agents misbehave repeatedly, fix their prompts immediately
 → ALWAYS check lessonslearned.md before taking actions that cost money, use external APIs, or are irreversible
 → Before anything that costs money or is irreversible: estimate cost, run in small batches, save locally after each, and ASK the user to confirm before proceeding
@@ -14,7 +16,14 @@
 → Keep the PLAN.md updated with current status and next steps
 → Review and update PLAN.md after each milestone
 → Use PLAN.md to track dependencies between different strategic frameworks
-→ Make sure each agent keeps the log of its actions in progress-log.md
+
+## Session Tracking (CRITICAL — AUTO)
+
+→ On session START: read `SESSIONS.md` and `PLAN.md` to understand what's in flight across all sessions
+→ On FIRST meaningful action: add your session row to `SESSIONS.md` with focus, status, and next step
+→ On each MILESTONE (deploy, phase complete, major fix): update your row in `SESSIONS.md`
+→ On session END or when context is getting long: update your row with final status + exact next step so another session can continue
+→ Do this AUTOMATICALLY — never wait for the user to ask
 
 ## Response Style (CRITICAL)
 
@@ -45,19 +54,26 @@
 
 ## Website Creation Pipeline
 
-The end-to-end flow for creating websites for a new vertical:
+### Full flow for entering a new vertical (end-to-end):
 
-| Step | Skill | Input | Output |
-|------|-------|-------|--------|
-| 1 | `vertical-research` | Vertical name | `research/{vertical}.md` — 20+ sites, psychology, visual direction, services, SEO |
-| 2 | `web-design-research` | (general) | `design-inspiration/` — playbook, animation patterns, trends, screenshots |
-| 3 | `template-creator` | Vertical + style | `templates/{vertical}/website/template-{N}/` — reusable HTML template |
-| 4 | `create-website-from-template` | Template + business data (CSV/manual) | `{Vertical}/reports/output/{name}/` — filled site with real content |
-| 5 | `website-from-template-audit` | Generated site | Audit report — checks for placeholders, broken layout, missing data |
+| Step | Skill | Input | Output | Notes |
+|------|-------|-------|--------|-------|
+| 1 | `vertical-research` | Vertical name | `research/{vertical}.md` | 20+ sites, psychology, visual direction, services, SEO |
+| 2 | `web-design-research` | (general) | `design-inspiration/` | Playbook, animation patterns, trends. **Run once, shared across all verticals** |
+| 3 | `template-creator` | Vertical + style | `templates/{vertical}/website/template-{N}/` | Repeat for 10 variants (dark/light, bold/minimal). Uses `modern-client-web-design` as design reference |
+| 4 | **Scroll/animation audit** | All templates for vertical | Fixed templates | Audit all templates for: Lenis double-raf, SplitType conflicts, pinned slide fade-outs, opacity:0 gaps, registerPlugin order, broken images. See `template-creator` Layer 4 checklist |
+| 5 | **Add to gallery** | Template metadata | Updated `templates/gallery.html` | Add vertical tab + template list to `verticals` JS object in gallery.html |
+| 6 | **Deploy templates** | Fixed templates | Server live | rsync to `lp.scalefox.ai/gallerywebsite/{vertical}/`. See `servers/lp-scalefox-ai.md` for deploy commands |
+| 7 | **Deploy gallery** | Updated gallery.html | Server live | rsync gallery.html to server |
+| 8 | `create-website-from-template` | Template + business data (CSV/manual) | `{Vertical}/reports/output/{name}/` | Filled site with real content, images, blog pages |
+| 9 | `website-from-template-audit` | Generated site | `audit-report.md` | Checks placeholders, broken layout, missing data, scroll bugs |
+| 10 | **Deploy site** | Audited site | Server live | rsync to `lp.scalefox.ai/{business-slug}/` |
 
-→ Step 2 only needs to run once (shared across all verticals)
-→ Step 3 can produce multiple variants per vertical (dark/light, bold/minimal)
-→ The `modern-client-web-design` skill is the design reference — loaded by `template-creator` during Step 3
+### When to run which steps:
+→ **New vertical (first time)**: Steps 1-7 (research → templates → gallery → deploy)
+→ **New template for existing vertical**: Steps 3-7
+→ **New website for a business**: Steps 8-10
+→ **Bulk website generation**: Loop steps 8-10 per business
 
 ### Vertical naming convention
 → Lowercase, kebab-case, plural: `dentists`, `auto-repair`, `landscaping`, `med-spas`

@@ -308,7 +308,7 @@ section{position:relative;overflow:hidden}
 <!-- Navigation -->
 <nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo"><span>Precision Auto</span> Auto</a>
+    <a href="#" class="nav-logo"><span>Precision</span> Auto</a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#heritage">Heritage</a>
@@ -732,7 +732,7 @@ section{position:relative;overflow:hidden}
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <h3><span>Precision Auto</span> Auto</h3>
+        <h3><span>Precision</span> Auto</h3>
         <p>Redefining automotive care with a commitment to excellence since 2006. Dallas's premier destination for discerning vehicle owners.</p>
         <div style="display:flex;gap:8px;align-items:center;color:var(--gold);font-family:var(--font-heading);font-size:1rem;font-style:italic">
           &#9733; 4.9 &middot; 487+ Reviews
@@ -766,7 +766,7 @@ section{position:relative;overflow:hidden}
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Precision Auto Works. All rights reserved. Crafted with precision in Dallas.</p>
+      <p>&copy; 2026 Precision Auto Works. All rights reserved. Crafted with precision in Dallas.</p>
     </div>
   </div>
 </footer>
@@ -812,20 +812,44 @@ document.addEventListener('DOMContentLoaded', () => {
     .from('.hero-ctas .btn', { y: 20, opacity: 0, duration: 0.8, stagger: 0.15 }, '-=0.5')
     .from('.hero-scroll', { opacity: 0, duration: 1 }, '-=0.3');
 
+  // ===== PRE-HIDE ELEMENTS (prevents flash of content before scroll animation) =====
+  gsap.set('.section-header .section-eyebrow', { opacity: 0, y: 20 });
+  gsap.set('.section-header .section-title', { opacity: 0, y: 30 });
+  gsap.set('.section-header .section-line', { opacity: 0, scaleX: 0 });
+  gsap.set('.section-header .section-sub', { opacity: 0, y: 20 });
+  gsap.set('.distinction-icon', { opacity: 0, scale: 0 });
+  gsap.set('.distinction h2', { opacity: 0, y: 40 });
+  gsap.set('.service-card', { opacity: 0, y: 60 });
+  gsap.set('.heritage-image', { opacity: 0, x: -60 });
+  gsap.set('.heritage-content', { opacity: 0, x: 60 });
+  gsap.set('.heritage-stat-num', { opacity: 0, y: 20 });
+  gsap.set('.expertise-item', { opacity: 0, y: 40 });
+  gsap.set('.testimonial-card', { opacity: 0, y: 50 });
+  gsap.set('.gallery-item', { opacity: 0, scale: 0.9 });
+  gsap.set('.concierge-item', { opacity: 0, y: 40 });
+  gsap.set('.team-card', { opacity: 0, y: 50 });
+  gsap.set('.commitment-seal', { opacity: 0, scale: 0, rotation: -180 });
+  gsap.set('.commitment h2', { opacity: 0, y: 30 });
+  gsap.set('.commitment p', { opacity: 0, y: 20 });
+  gsap.set('.commitment-guarantee', { opacity: 0, y: 20 });
+  gsap.set('.reserve-content', { opacity: 0, x: -50 });
+  gsap.set('.reserve-form', { opacity: 0, x: 50 });
+  gsap.set('.footer-top > div', { opacity: 0, y: 30 });
+
   // Distinction
   gsap.from('.distinction-icon', {
-    scrollTrigger: { trigger: '.distinction', start: 'top 80%' },
+    scrollTrigger: { trigger: '.distinction', start: 'top 80%', once: true },
     scale: 0, opacity: 0, duration: 0.8, ease: 'back.out(1.7)'
   });
   gsap.from('.distinction h2', {
-    scrollTrigger: { trigger: '.distinction', start: 'top 80%' },
+    scrollTrigger: { trigger: '.distinction', start: 'top 80%', once: true },
     y: 40, opacity: 0, duration: 1.2, delay: 0.2
   });
 
   // Section headers
   document.querySelectorAll('.section-header').forEach(header => {
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: header, start: 'top 82%' }
+      scrollTrigger: { trigger: header, start: 'top 82%', once: true }
     });
     tl.from(header.querySelector('.section-eyebrow'), { y: 20, opacity: 0, duration: 0.8 })
       .from(header.querySelector('.section-title'), { y: 30, opacity: 0, duration: 1 }, '-=0.4')
@@ -836,85 +860,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Service cards
   gsap.from('.service-card', {
-    scrollTrigger: { trigger: '.services-grid', start: 'top 82%' },
+    scrollTrigger: { trigger: '.services-grid', start: 'top 82%', once: true },
     y: 60, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power2.out'
   });
 
   // Heritage
   gsap.from('.heritage-image', {
-    scrollTrigger: { trigger: '.heritage-grid', start: 'top 80%' },
+    scrollTrigger: { trigger: '.heritage-grid', start: 'top 80%', once: true },
     x: -60, opacity: 0, duration: 1.2
   });
   gsap.from('.heritage-content', {
-    scrollTrigger: { trigger: '.heritage-grid', start: 'top 80%' },
+    scrollTrigger: { trigger: '.heritage-grid', start: 'top 80%', once: true },
     x: 60, opacity: 0, duration: 1.2, delay: 0.2
   });
   gsap.from('.heritage-stat-num', {
-    scrollTrigger: { trigger: '.heritage-stats', start: 'top 90%' },
+    scrollTrigger: { trigger: '.heritage-stats', start: 'top 90%', once: true },
     y: 20, opacity: 0, duration: 0.8, stagger: 0.15
   });
 
   // Expertise items
   gsap.from('.expertise-item', {
-    scrollTrigger: { trigger: '.expertise-grid', start: 'top 82%' },
+    scrollTrigger: { trigger: '.expertise-grid', start: 'top 82%', once: true },
     y: 40, opacity: 0, duration: 0.8, stagger: 0.08
   });
 
   // Testimonial cards
   gsap.from('.testimonial-card', {
-    scrollTrigger: { trigger: '.testimonials-grid', start: 'top 82%' },
+    scrollTrigger: { trigger: '.testimonials-grid', start: 'top 82%', once: true },
     y: 50, opacity: 0, duration: 0.9, stagger: 0.15
   });
 
   // Gallery items
   gsap.from('.gallery-item', {
-    scrollTrigger: { trigger: '.gallery-grid', start: 'top 82%' },
+    scrollTrigger: { trigger: '.gallery-grid', start: 'top 82%', once: true },
     scale: 0.9, opacity: 0, duration: 0.8, stagger: 0.1
   });
 
   // Concierge items
   gsap.from('.concierge-item', {
-    scrollTrigger: { trigger: '.concierge-grid', start: 'top 82%' },
+    scrollTrigger: { trigger: '.concierge-grid', start: 'top 82%', once: true },
     y: 40, opacity: 0, duration: 0.8, stagger: 0.1
   });
 
   // Team cards
   gsap.from('.team-card', {
-    scrollTrigger: { trigger: '.team-grid', start: 'top 82%' },
+    scrollTrigger: { trigger: '.team-grid', start: 'top 82%', once: true },
     y: 50, opacity: 0, duration: 0.9, stagger: 0.15
   });
 
   // Commitment
   gsap.from('.commitment-seal', {
-    scrollTrigger: { trigger: '.commitment', start: 'top 80%' },
+    scrollTrigger: { trigger: '.commitment', start: 'top 80%', once: true },
     scale: 0, rotation: -180, opacity: 0, duration: 1, ease: 'back.out(1.4)'
   });
   gsap.from('.commitment h2', {
-    scrollTrigger: { trigger: '.commitment', start: 'top 80%' },
+    scrollTrigger: { trigger: '.commitment', start: 'top 80%', once: true },
     y: 30, opacity: 0, duration: 1, delay: 0.3
   });
   gsap.from('.commitment p', {
-    scrollTrigger: { trigger: '.commitment', start: 'top 75%' },
+    scrollTrigger: { trigger: '.commitment', start: 'top 75%', once: true },
     y: 20, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.4
   });
   gsap.from('.commitment-guarantee', {
-    scrollTrigger: { trigger: '.commitment-guarantees', start: 'top 90%' },
+    scrollTrigger: { trigger: '.commitment-guarantees', start: 'top 90%', once: true },
     y: 20, opacity: 0, duration: 0.6, stagger: 0.1
   });
 
   // Reserve section
   gsap.from('.reserve-content', {
-    scrollTrigger: { trigger: '.reserve-inner', start: 'top 80%' },
+    scrollTrigger: { trigger: '.reserve-inner', start: 'top 80%', once: true },
     x: -50, opacity: 0, duration: 1
   });
   gsap.from('.reserve-form', {
-    scrollTrigger: { trigger: '.reserve-inner', start: 'top 80%' },
+    scrollTrigger: { trigger: '.reserve-inner', start: 'top 80%', once: true },
     x: 50, opacity: 0, duration: 1, delay: 0.2
   });
 
   // Footer
   gsap.from('.footer-top > div', {
-    scrollTrigger: { trigger: '.footer', start: 'top 85%' },
+    scrollTrigger: { trigger: '.footer', start: 'top 85%', once: true },
     y: 30, opacity: 0, duration: 0.8, stagger: 0.1
   });
 });

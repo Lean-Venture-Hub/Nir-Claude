@@ -59,7 +59,12 @@
       "mcp__figma__*",
       "mcp__sequential-thinking__*",
       "mcp__memory__*",
-      "Bash(cd \"/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code/us dentists/1 reports/inbox_list\" && python3 -c \"\nimport csv\nwith open\\('first_batch.csv', 'r'\\) as f:\n    reader = csv.DictReader\\(f\\)\n    missing = []\n    for row in reader:\n        email = row.get\\('email', ''\\).strip\\(\\)\n        if not email:\n            name = row.get\\('name', ''\\).strip\\(\\)\n            city = row.get\\('city', ''\\).strip\\(\\)\n            missing.append\\(\\(name, city\\)\\)\n    for i, \\(n, c\\) in enumerate\\(missing\\):\n        print\\(f'{i+1}|{n}|{c}'\\)\n    print\\(f'---'\\)\n    print\\(f'Total missing: {len\\(missing\\)}'\\)\")"
+      "Bash(cd \"/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code/us dentists/1 reports/inbox_list\" && python3 -c \"\nimport csv\nwith open\\('first_batch.csv', 'r'\\) as f:\n    reader = csv.DictReader\\(f\\)\n    missing = []\n    for row in reader:\n        email = row.get\\('email', ''\\).strip\\(\\)\n        if not email:\n            name = row.get\\('name', ''\\).strip\\(\\)\n            city = row.get\\('city', ''\\).strip\\(\\)\n            missing.append\\(\\(name, city\\)\\)\n    for i, \\(n, c\\) in enumerate\\(missing\\):\n        print\\(f'{i+1}|{n}|{c}'\\)\n    print\\(f'---'\\)\n    print\\(f'Total missing: {len\\(missing\\)}'\\)\")",
+      "Bash(find \"/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code\" -type f \\\\\\( -name \"*proposal*\" -o -name \"*audit*\" -o -name \"*report*\" -o -name \"*competitor*\" -o -name \"*comparison*\" \\\\\\) 2>/dev/null | head -50)",
+      "Bash(cd \"/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code/templates/proposals\" && for f in template-{11,12,13,14,15,16,17,18}-*-en.html; do echo \"=== $f ===\" ; grep -n '8.*10\\\\|site.score\\\\|Website Score' \"$f\" | head -5 ; echo ; done)",
+      "Bash(f=\"/Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code/Auto Repair/proposals/output/001-space-city-auto-repair/proposal.html\")",
+      "Read(//Users/nirkosover/Library/Mobile Documents/com~apple~CloudDocs/Mine/Development/Claude code/Auto Repair/**)",
+      "Bash(for t:*)"
     ],
     "deny": [
       "Read(**/.env)",

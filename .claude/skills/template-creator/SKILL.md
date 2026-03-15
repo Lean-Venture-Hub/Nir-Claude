@@ -197,11 +197,20 @@ Reference the `modern-client-web-design` skill for full details. Here's the chec
 - [ ] **Lenis + GSAP integration**: When using Lenis with GSAP, use ONLY `gsap.ticker.add((time) => lenis.raf(time * 1000))`. NEVER add a separate `requestAnimationFrame` loop — this causes double-speed scrolling
 - [ ] **NEVER hide content in CSS**: Content elements MUST be visible by default (`opacity:1` or no opacity set). GSAP `.from({opacity:0})` handles the animation — it temporarily sets opacity to 0 and animates to the element's natural visible state. NEVER add `opacity:0` to CSS classes like `.gsap-fade`, `.animate`, etc. If JS fails to load, content must still be visible.
 - [ ] **No `.gsap-fade{opacity:0}` pattern**: This is the #1 cause of invisible content. Instead, just use `gsap.from(el, {opacity:0, y:30})` — GSAP handles both the initial hide and the reveal. The CSS should have NO opacity manipulation.
+- [ ] **Gallery iframe compatibility**: Gallery thumbnails render templates in sandboxed iframes (`sandbox="allow-same-origin"`) which blocks ALL JavaScript. If you put `opacity:0` in CSS, gallery thumbnails show blank content. This is another reason to NEVER hide content in CSS — it must be visible without JS.
+- [ ] **ScrollTrigger `once: true`**: EVERY `ScrollTrigger` animation MUST include `once: true` in its config. Without it, elements re-hide when scrolling back up, making sections appear "empty." The only exception is pinned/scrub animations that are designed to play in both directions.
+- [ ] **Prefer `gsap.to()` over `gsap.from()`**: Use `gsap.set()` to pre-hide elements in JS, then `gsap.to()` to reveal. This is more predictable than `gsap.from()` which can cause flash-of-content or elements snapping back to hidden state on re-trigger.
 - [ ] **GSAP registerPlugin order**: `gsap.registerPlugin(ScrollTrigger)` MUST appear before ANY ScrollTrigger usage in the script, including Lenis ScrollTrigger.update references
 - [ ] **z-index on overlapping slides**: When pinned sections have conclusion/summary overlays, set `zIndex:5` on the conclusion element to prevent z-fighting with exiting slides
 - [ ] **Lenis ScrollTrigger sync**: After Lenis init, ALWAYS add `lenis.on('scroll', ScrollTrigger.update)` so ScrollTrigger tracks Lenis scroll position correctly
 - [ ] **Lenis reduced-motion gate**: Wrap ALL Lenis initialization (new Lenis + ticker + sync) inside `if (!prefersReducedMotion)` — smooth scroll should never run for users with reduced-motion preference
 - [ ] **Close all CSS rules**: Verify every CSS selector block has a closing `}`. An unclosed rule silently breaks all CSS below it
+
+- [ ] **SplitType + gradient text**: If using SplitType on an element with gradient text (`.gradient-text`, `-webkit-background-clip:text`), you MUST re-apply the gradient styles to the generated `<span>` children after splitting. SplitType replaces the element's innerHTML, breaking the gradient.
+
+### Layer 4b: Layout Robustness
+- [ ] **Equal-height cards**: Service cards, feature cards, testimonial cards in a grid/flex row MUST all be the same height. Use `display:grid` with `grid-template-rows:subgrid` or `display:flex` with `align-items:stretch` + flex-column on cards. NEVER add manual `margin-top` offsets to stagger card positions — it breaks equal-height alignment.
+- [ ] **Color theme matches vertical**: The color palette must feel appropriate for the vertical. Auto repair = industrial/mechanical (dark greys, bold accents). Dentists = clean/clinical (whites, soft blues). Landscaping = earthy/natural (greens, browns). A warm beige palette on an auto repair site reads as "realtor" — validate that colors match the vertical's vibe, not just aesthetics in isolation.
 
 ### Layer 5: Micro-Interactions
 - [ ] Button hover: translateY(-2px) + shadow glow
@@ -410,8 +419,8 @@ Before delivering, verify:
 - [ ] Mobile responsive
 
 ### Take screenshots:
-- Desktop hero → `template_example-{N}-desktop.png`
-- Mobile hero → `template_example-{N}-mobile.png`
+- Desktop hero → `audit-screenshots/template_example-{N}-desktop.png`
+- Mobile hero → `audit-screenshots/template_example-{N}-mobile.png`
 
 ---
 
