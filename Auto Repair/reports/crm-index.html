@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scalefox CRM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1c1c1e;--card:#2a2a2e;--card-hover:#333338;--border:#3a3a3f;--text:#f5f5f7;--muted:#8e8e93;--dim:#636366;--accent:#a78bfa;--purple:#a78bfa;--blue:#6b9fff;--red:#ff6b6b;--amber:#ffd43b;--green:#69db7c;--orange:#ff922b;--sidebar-w:60px;--sidebar-exp:240px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex}
+/* Sidebar */
+.sidebar{width:var(--sidebar-w);background:#232326;border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:50;transition:width .2s ease;overflow:hidden}
+.sidebar.expanded{width:var(--sidebar-exp)}
+.sidebar-toggle{background:none;border:none;color:var(--muted);cursor:pointer;padding:16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.sidebar-toggle:hover{color:var(--text)}
+.sidebar-toggle svg{width:20px;height:20px;flex-shrink:0}
+.sidebar-toggle span{font-size:.8rem;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .15s}
+.sidebar.expanded .sidebar-toggle span{opacity:1}
+.sidebar-nav{flex:1;display:flex;flex-direction:column;gap:2px;padding:8px}
+.nav-item{display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;cursor:pointer;color:var(--muted);transition:all .15s;white-space:nowrap;text-decoration:none;border:none;background:none;width:100%;font-family:inherit;font-size:.8rem;font-weight:600}
+.nav-item:hover{background:rgba(167,139,250,.08);color:var(--text)}
+.nav-item.active{background:rgba(167,139,250,.12);color:var(--accent)}
+.nav-item svg{width:20px;height:20px;flex-shrink:0}
+.nav-item span{opacity:0;transition:opacity .15s}
+.sidebar.expanded .nav-item span{opacity:1}
+.sidebar-footer{padding:8px;border-top:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:4px}
+.sidebar-footer .nav-item{padding:8px 16px;font-size:.72rem}
+/* Main */
+.main{margin-left:var(--sidebar-w);flex:1;transition:margin-left .2s ease;min-height:100vh}
+.sidebar.expanded~.main{margin-left:var(--sidebar-exp)}
+/* Page transitions */
+.page{display:none;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s}
+.page.active{display:block;opacity:1;transform:translateY(0)}
+/* Dashboard */
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;padding:24px 28px}
+.metric-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:22px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:all .2s}
+.metric-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px)}
+.metric-card .mc-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:4px}
+.metric-card .mc-value{font-size:1.75rem;font-weight:800;color:var(--text)}
+.metric-card .mc-sub{font-size:.7rem;color:var(--dim);margin-top:2px}
+.metric-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.mc-total::after{background:var(--accent)}.mc-contacted::after{background:var(--blue)}.mc-overdue::after{background:var(--red)}.mc-response::after{background:var(--purple)}
+/* Pipeline funnel */
+.pipeline-section{padding:0 28px 16px}
+.pipeline-section h3{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px}
+.pipeline-bar{display:flex;gap:8px;align-items:stretch}
+.pipeline-stage{flex:1;min-width:90px;padding:14px 10px;cursor:pointer;text-align:center;border-radius:14px;background:var(--card);border:1px solid rgba(255,255,255,.06);box-shadow:0 2px 8px rgba(0,0,0,.3);transition:all .2s}
+.pipeline-stage:hover{box-shadow:0 4px 16px rgba(0,0,0,.4);transform:translateY(-2px)}
+.pipeline-stage.active{background:rgba(167,139,250,.08)}
+.pipeline-stage .stage-name{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:2px}
+.pipeline-stage .stage-count{font-size:1.15rem;font-weight:800;color:var(--text)}
+.pipeline-stage .stage-pct{font-size:.6rem;color:var(--dim);margin-top:1px}
+.pipeline-stage.s-cold .stage-count{color:#94a3b8}
+.pipeline-stage.s-reached1 .stage-count{color:var(--amber)}
+.pipeline-stage.s-reached2 .stage-count{color:var(--orange)}
+.pipeline-stage.s-reached3 .stage-count{color:var(--red)}
+.pipeline-stage.s-responded .stage-count{color:var(--green)}
+.pipeline-stage.s-meeting .stage-count{color:var(--purple)}
+.pipeline-stage.s-closed .stage-count{color:var(--blue)}
+.pipeline-stage.s-not-interested .stage-count{color:var(--dim)}
+/* Activity feed */
+.feed-section{padding:0 28px 24px}
+.feed-section h3{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px}
+.feed-list{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;max-height:400px;overflow-y:auto;scrollbar-width:thin;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.feed-item{display:flex;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.8rem;align-items:flex-start}
+.feed-item:last-child{border-bottom:none}
+.feed-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.feed-dot.t-email{background:var(--blue)}.feed-dot.t-call{background:var(--green)}.feed-dot.t-sms{background:var(--amber)}.feed-dot.t-note{background:var(--purple)}
+.feed-name{font-weight:600;color:var(--text)}
+.feed-text{color:#94a3b8}
+.feed-time{font-size:.65rem;color:var(--dim);margin-left:auto;white-space:nowrap;flex-shrink:0}
+/* Area chart */
+.area-chart-section{padding:0 28px 24px}
+.area-chart-section h3{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px}
+.area-bar-wrap{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.area-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.area-row:last-child{margin-bottom:0}
+.area-label{font-size:.75rem;font-weight:600;color:var(--muted);width:80px;text-align:right;flex-shrink:0}
+.area-fill{height:24px;border-radius:6px;background:var(--accent);min-width:4px;transition:width .3s;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:.65rem;font-weight:700;color:var(--bg)}
+/* Kanban board */
+.kanban{display:flex;gap:20px;padding:20px 24px;overflow-x:auto;height:calc(100vh - 80px);align-items:stretch}
+.kanban-col{min-width:280px;width:280px;flex-shrink:0;display:flex;flex-direction:column;background:rgba(255,255,255,.02);border-radius:16px;padding:12px}
+.kanban-col-header{padding:8px 4px 12px;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;font-weight:700;color:var(--text);flex-shrink:0}
+.kanban-col-header .kanban-count{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(167,139,250,.15);color:var(--accent)}
+.kanban-col-body{display:flex;flex-direction:column;gap:10px;flex:1;overflow-y:auto;scrollbar-width:thin;padding-right:4px}
+.kanban-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.kanban-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px);border-color:rgba(167,139,250,.2)}
+.kanban-card .kc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.kanban-card .kc-name{font-size:.85rem;font-weight:700;color:var(--text)}
+.kanban-card .kc-location{font-size:.72rem;color:var(--muted);margin-bottom:6px}
+.kanban-card .kc-bottom{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.kanban-card .kc-preview{font-size:.7rem;color:var(--dim);margin-top:6px;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Queue page (legacy) */
+.queue-page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:0 28px 24px}
+.queue-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:20px;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.queue-card:hover{border-color:rgba(167,139,250,.2);box-shadow:0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px)}
+.queue-card .qc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.queue-card .qc-name{font-size:.9rem;font-weight:700;color:var(--text)}
+.qc-score-badge{font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:6px}
+.qc-score-badge.hot{background:var(--accent);color:#fff}.qc-score-badge.warm{background:var(--blue);color:#fff}.qc-score-badge.cool{background:var(--dim);color:#fff}
+.qc-row{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-bottom:4px}
+.qc-status-pill{font-size:.65rem;font-weight:600;padding:2px 8px;border-radius:10px;border:1px solid var(--border);display:inline-block}
+.qc-actions{display:flex;gap:6px;margin-top:10px;align-items:center;flex-wrap:wrap}
+.qc-actions select,.qc-actions input[type="date"]{font-size:.7rem;padding:4px 6px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);outline:none}
+.qc-actions select:focus,.qc-actions input:focus{border-color:var(--accent)}
+.qc-actions button{font-size:.7rem;font-weight:600;padding:4px 10px;background:var(--accent);color:#fff;border:none;border-radius:6px;cursor:pointer}
+.qc-actions button:hover{opacity:.85}
+.qc-preview{font-size:.7rem;color:var(--dim);margin-top:6px;font-style:italic}
+/* Contacts page */
+.contacts-header{display:flex;flex-wrap:wrap;gap:10px;padding:24px 28px 12px;align-items:center}
+.search-box{flex:1;min-width:200px;padding:10px 16px;border:1.5px solid rgba(255,255,255,.06);border-radius:12px;font-size:.88rem;background:var(--card);color:var(--text);outline:none;transition:border-color .2s;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.search-box:focus{border-color:var(--accent)}
+.search-box::placeholder{color:var(--dim)}
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;padding:0 28px 12px;align-items:center}
+.filter-select{font-size:.78rem;padding:8px 12px;border:1.5px solid rgba(255,255,255,.06);border-radius:10px;background:var(--card);color:var(--text);outline:none;cursor:pointer;appearance:auto}
+.filter-select:focus{border-color:var(--accent)}
+.sort-group{display:flex;align-items:center;gap:4px;margin-left:auto}
+.sort-group select{font-size:.75rem;padding:6px 10px;border:1.5px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);outline:none;cursor:pointer}
+.sort-dir-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--muted);cursor:pointer;padding:4px 8px;font-size:.75rem}
+.sort-dir-btn:hover{border-color:var(--accent);color:var(--text)}
+.view-toggle{display:flex;gap:0;border:1.5px solid rgba(255,255,255,.06);border-radius:10px;overflow:hidden;margin-left:8px}
+.view-toggle button{background:none;border:none;color:var(--muted);cursor:pointer;padding:6px 10px;font-size:.75rem}
+.view-toggle button.active{background:var(--accent);color:#fff}
+.stats-bar{font-size:.8rem;color:var(--dim);padding:0 28px 10px}
+/* Card grid */
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,420px));gap:36px;padding:0 28px 28px;justify-content:center}
+.card-grid.collapsed{max-height:none;overflow:hidden}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:20px;transition:all .2s;position:relative;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.card:hover{box-shadow:0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px)}
+.show-all-btn{display:block;margin:0 28px 24px;padding:10px 20px;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:12px;color:var(--accent);font-size:.85rem;font-weight:600;cursor:pointer;text-align:center;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.show-all-btn:hover{background:var(--card-hover);box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.card-header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card-name{font-weight:700;font-size:.88rem;color:#f1f5f9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.card-name:hover{color:var(--accent)}
+.card-meta{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
+.card-location{font-size:.75rem;color:var(--muted)}
+.card-badges{display:flex;gap:4px;align-items:center}
+.card-lang{font-size:.58rem;font-weight:600;padding:2px 6px;border-radius:4px;text-transform:uppercase}
+.card-lang.he{background:#422006;color:#fbbf24}.card-lang.en{background:#172554;color:#60a5fa}
+.card-rating{font-size:.72rem;font-weight:600;color:var(--amber)}
+.days-badge{font-size:.58rem;font-weight:700;padding:2px 6px;border-radius:4px;white-space:nowrap}
+.days-badge.fresh{background:#052e16;color:#4ade80}.days-badge.aging{background:#422006;color:#fbbf24}.days-badge.stale{background:#450a0a;color:#f87171}.days-badge.never{background:var(--card);color:var(--dim);border:1px solid var(--border)}
+.lead-score{font-size:.58rem;font-weight:700;padding:2px 6px;border-radius:4px}
+.lead-score.hot{background:var(--accent);color:#fff}.lead-score.warm{background:var(--blue);color:#fff}.lead-score.cool{background:var(--dim);color:#fff}
+.status-pill{font-size:.62rem;font-weight:600;padding:3px 10px;border-radius:20px}
+.s-cold{border:1px solid #475569;color:#94a3b8}.s-reached1{border:1px solid var(--amber);color:var(--amber)}.s-reached2{border:1px solid var(--orange);color:var(--orange)}.s-reached3{border:1px solid var(--red);color:var(--red)}.s-responded{border:1px solid var(--green);color:var(--green)}.s-meeting{border:1px solid var(--purple);color:var(--purple)}.s-closed{border:1px solid var(--blue);color:var(--blue);background:#172554}.s-not-interested{border:1px solid var(--border);color:var(--dim)}
+/* List view */
+.list-view{padding:0 28px 28px}
+.list-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.list-table th{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:15px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.15)}
+.list-table td{font-size:.8rem;padding:15px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text)}
+.list-table tr:last-child td{border-bottom:none}
+.list-table tr:hover td{background:rgba(167,139,250,.03)}
+.list-table .clickable{cursor:pointer}
+.list-table .clickable:hover{color:var(--accent)}
+.no-results{text-align:center;padding:3rem 24px;color:var(--dim);font-size:1rem}
+/* Lead Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.lead-modal{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:20px;width:90vw;max-width:900px;max-height:90vh;overflow-y:auto;scrollbar-width:thin;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.lead-modal-header{padding:24px 28px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:flex-start;position:sticky;top:0;background:var(--card);z-index:1;border-radius:20px 20px 0 0}
+.lm-title{font-size:1.3rem;font-weight:800;color:var(--text)}
+.lm-header-meta{display:flex;gap:8px;align-items:center;margin-top:6px}
+.lm-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.5rem;padding:4px 8px;border-radius:6px;line-height:1}
+.lm-close:hover{background:var(--border);color:var(--text)}
+.lm-body{display:grid;grid-template-columns:1.5fr 1fr;gap:0;min-height:300px}
+.lm-left{padding:24px 28px;border-right:1px solid rgba(255,255,255,.06)}
+.lm-right{padding:24px 28px}
+.lm-section{margin-bottom:16px}
+.lm-section-title{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:8px}
+.lm-contact-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:.82rem}
+.lm-contact-row a{color:#60a5fa;text-decoration:none}
+.lm-contact-row a:hover{text-decoration:underline}
+.copy-btn{background:none;border:1px solid var(--border);border-radius:4px;color:var(--muted);cursor:pointer;padding:2px 6px;font-size:.62rem;transition:all .12s}
+.copy-btn:hover{background:var(--border);color:var(--text)}
+.lm-links{display:flex;flex-wrap:wrap;gap:6px}
+.lm-link{font-size:.72rem;font-weight:600;padding:6px 12px;border-radius:6px;text-decoration:none;color:#fff;display:inline-flex;align-items:center;gap:4px;transition:opacity .15s}
+.lm-link:hover{opacity:.8}
+.lm-link.fb{background:#1877f2}.lm-link.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}.lm-link.gm{background:#34a853}.lm-link.website{background:#1d4ed8}.lm-link.proposal{background:#6d28d9}
+.lm-followup{display:flex;align-items:center;gap:8px;margin-top:8px}
+.lm-followup input[type="date"]{font-size:.8rem;padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);outline:none}
+.lm-followup input:focus{border-color:var(--accent)}
+.followup-indicator{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px}
+.followup-indicator.overdue{background:#450a0a;color:#f87171}.followup-indicator.today{background:#422006;color:#fbbf24}.followup-indicator.upcoming{background:#052e16;color:#4ade80}
+/* Tags */
+.tag-wrap{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.tag-chip{font-size:.65rem;font-weight:600;padding:3px 8px;border-radius:10px;background:rgba(139,92,246,.2);color:#a78bfa;display:inline-flex;align-items:center;gap:4px}
+.tag-chip button{background:none;border:none;color:#a78bfa;cursor:pointer;font-size:.7rem;padding:0;line-height:1}
+.tag-add{font-size:.65rem;padding:3px 8px;border:1px dashed var(--border);border-radius:10px;background:none;color:var(--muted);cursor:pointer}
+.tag-add:hover{border-color:var(--accent);color:var(--text)}
+.tag-input{font-size:.7rem;padding:2px 6px;border:1px solid var(--accent);border-radius:6px;background:var(--bg);color:var(--text);outline:none;width:80px}
+/* Deal + Notes */
+.lm-input{width:100%;font-size:.82rem;padding:8px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);outline:none;font-family:inherit}
+.lm-input:focus{border-color:var(--accent)}
+.lm-textarea{resize:vertical;min-height:60px}
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:0;max-height:350px;overflow-y:auto;scrollbar-width:thin}
+.tl-item{display:flex;gap:10px;padding:8px 0;position:relative}
+.tl-item:not(:last-child)::before{content:'';position:absolute;left:9px;top:28px;bottom:-8px;width:2px;background:var(--border)}
+.tl-dot{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.55rem;color:#fff}
+.tl-dot.t-email{background:var(--blue)}.tl-dot.t-call{background:var(--green)}.tl-dot.t-sms{background:var(--amber)}.tl-dot.t-note{background:var(--purple)}
+.tl-content{flex:1;min-width:0}
+.tl-head{display:flex;justify-content:space-between;align-items:center}
+.tl-type{font-size:.62rem;font-weight:700;text-transform:uppercase;color:var(--muted)}
+.tl-date{font-size:.6rem;color:var(--dim)}
+.tl-text{font-size:.78rem;color:#cbd5e1;margin-top:2px}
+/* Quick add in modal */
+.quick-add-modal{display:flex;gap:6px;margin-bottom:10px}
+.quick-add-modal select{font-size:.75rem;padding:6px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);outline:none}
+.quick-add-modal input{flex:1;font-size:.78rem;padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);outline:none;min-width:0}
+.quick-add-modal select:focus,.quick-add-modal input:focus{border-color:var(--accent)}
+.quick-add-modal button{font-size:.75rem;font-weight:600;padding:6px 12px;background:var(--accent);color:#fff;border:none;border-radius:6px;cursor:pointer}
+.qt-wrap{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.qt-btn{font-size:.62rem;padding:3px 8px;border:1px solid var(--border);border-radius:6px;background:none;color:var(--muted);cursor:pointer;transition:all .12s}
+.qt-btn:hover{background:var(--border);color:var(--text)}
+/* Settings page */
+.settings-wrap{padding:24px;max-width:600px}
+.settings-wrap h2{font-size:1.1rem;font-weight:800;margin-bottom:16px}
+.settings-wrap textarea{width:100%;font-size:.85rem;padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);outline:none;min-height:200px;font-family:monospace;resize:vertical}
+.settings-wrap textarea:focus{border-color:var(--accent)}
+.settings-wrap button{margin-top:10px;font-size:.85rem;font-weight:600;padding:8px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer}
+.settings-wrap button:hover{opacity:.85}
+/* Status select */
+.status-select{font-size:.7rem;font-weight:600;padding:4px 8px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg);cursor:pointer;outline:none;color:#94a3b8}
+.status-select:focus{border-color:var(--accent)}
+/* Backup banner */
+.backup-banner{background:#422006;border-bottom:1px solid #92400e;color:#fbbf24;padding:8px 16px;font-size:.75rem;text-align:center;display:none;align-items:center;justify-content:center;gap:8px}
+.backup-banner button{font-size:.7rem;font-weight:600;padding:4px 10px;background:var(--amber);color:#000;border:none;border-radius:6px;cursor:pointer}
+/* Responsive */
+@media(max-width:768px){
+  .sidebar{display:none}
+  .main{margin-left:0!important}
+  .mobile-nav{display:flex!important}
+  .lm-body{grid-template-columns:1fr}
+  .lm-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+  .card-grid{grid-template-columns:1fr!important}
+  .kanban{padding:12px;gap:12px}
+  .kanban-col{min-width:260px;width:260px}
+  .dash-grid{grid-template-columns:repeat(2,1fr)}
+}
+.mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:#232326;border-top:1px solid rgba(255,255,255,.06);z-index:50;justify-content:space-around;padding:6px 0}
+.mobile-nav button{background:none;border:none;color:var(--muted);cursor:pointer;padding:8px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.6rem;font-family:inherit}
+.mobile-nav button.active{color:var(--accent)}
+.mobile-nav button svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+
+<div class="backup-banner" id="backupBanner">Data not backed up in 7+ days. <button onclick="exportData()">Export Now</button> <button onclick="dismissBackup()" style="background:transparent;color:#fbbf24;border:1px solid #92400e">Dismiss</button></div>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <button class="sidebar-toggle" onclick="toggleSidebar()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <span>Scalefox CRM</span>
+  </button>
+  <div class="sidebar-nav">
+    <button class="nav-item active" data-page="dashboard" onclick="navigate('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <span>Dashboard</span>
+    </button>
+    <button class="nav-item" data-page="queue" onclick="navigate('queue')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Kanban Board</span>
+    </button>
+    <button class="nav-item" data-page="contacts" onclick="navigate('contacts')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <span>All Contacts</span>
+    </button>
+    <button class="nav-item" data-page="settings" onclick="navigate('settings')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      <span>Settings</span>
+    </button>
+  </div>
+  <div class="sidebar-footer">
+    <button class="nav-item" onclick="exportData()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Export</span>
+    </button>
+    <button class="nav-item" onclick="document.getElementById('importFile').click()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      <span>Import</span>
+    </button>
+    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+  </div>
+</nav>
+
+<!-- Mobile bottom nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="active" data-page="dashboard" onclick="navigate('dashboard')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dash</button>
+  <button data-page="queue" onclick="navigate('queue')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Kanban</button>
+  <button data-page="contacts" onclick="navigate('contacts')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/></svg>Contacts</button>
+  <button data-page="settings" onclick="navigate('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Settings</button>
+</div>
+
+<div class="main" id="mainContent">
+<!-- Dashboard Page -->
+<div class="page active" id="page-dashboard">
+  <div class="dash-grid" id="dashMetrics"></div>
+  <div class="pipeline-section"><h3>Pipeline</h3><div class="pipeline-bar" id="pipelineBar"></div></div>
+  <div class="area-chart-section"><h3>Leads by Area</h3><div class="area-bar-wrap" id="areaChart"></div></div>
+  <div class="feed-section"><h3>Recent Activity</h3><div class="feed-list" id="feedList"></div></div>
+</div>
+<!-- Queue / Kanban Page -->
+<div class="page" id="page-queue">
+  <div class="kanban" id="kanbanBoard"></div>
+</div>
+<!-- Contacts Page -->
+<div class="page" id="page-contacts">
+  <div class="contacts-header">
+    <input type="text" class="search-box" id="search" placeholder="Search name, location, email..." autocomplete="off">
+  </div>
+  <div class="filter-bar" id="filterBar">
+    <select class="filter-select" id="fStatus"><option value="all">All Statuses</option></select>
+    <select class="filter-select" id="fLang"><option value="all">All Languages</option><option value="en">English</option><option value="he">Hebrew</option></select>
+    <select class="filter-select" id="fArea"><option value="all">All Areas</option><option value="houston">Houston</option><option value="phoenix">Phoenix</option><option value="nyc">NYC</option><option value="gush_dan">Gush Dan</option><option value="other">Other</option></select>
+    <select class="filter-select" id="fFollowup"><option value="all">All Follow-ups</option><option value="overdue">Overdue</option><option value="today">Today</option><option value="upcoming">Next 3 days</option><option value="none">No date</option></select>
+    <select class="filter-select" id="fType"><option value="all">All Types</option><option value="dentists">Dentists</option><option value="auto-repair">Auto Repair</option></select>
+    <div class="sort-group">
+      <select class="filter-select" id="sortBy"><option value="score">Score</option><option value="reviews">Reviews</option><option value="days">Days Since</option><option value="name">Name</option><option value="followup">Follow-up Date</option></select>
+      <button class="sort-dir-btn" id="sortDir" onclick="toggleSortDir()">&#9660;</button>
+      <div class="view-toggle"><button id="viewCards" class="active" onclick="setView('cards')">Cards</button><button id="viewList" onclick="setView('list')">List</button></div>
+    </div>
+  </div>
+  <div class="stats-bar" id="statsBar"></div>
+  <div class="card-grid" id="cardGrid"></div>
+  <button class="show-all-btn" id="showAllBtn" style="display:none" onclick="expandCardView()"></button>
+  <div class="list-view" id="listView" style="display:none"></div>
+  <div class="no-results" id="noResults" style="display:none">No businesses match your filters.</div>
+</div>
+<!-- Settings Page -->
+<div class="page" id="page-settings">
+  <div class="settings-wrap">
+    <h2>Quick Templates</h2>
+    <p style="font-size:.78rem;color:var(--muted);margin-bottom:12px">One-click actions for logging common interactions. One per line.</p>
+    <textarea id="templatesInput" rows="10"></textarea>
+    <button onclick="saveSettingsPage()">Save Templates</button>
+  </div>
+</div>
+</div>
+
+<!-- Lead Modal -->
+<div class="modal-overlay" id="leadModal">
+  <div class="lead-modal" id="leadModalInner"></div>
+</div>
+
+<script>
+// ===================== CONFIG =====================
+const AREA_MAP = {
+  'Houston':'houston','Richmond':'houston','Kingwood':'houston','Humble':'houston','Katy':'houston',
+  'Phoenix':'phoenix',
+  'Brooklyn, NY':'nyc','Bronx, NY':'nyc','New York, NY':'nyc','Jackson Heights, NY':'nyc',
+  'Flushing, NY':'nyc','Richmond Hill, NY':'nyc',
+  'תל אביב':'gush_dan','בת ים':'gush_dan','בני ברק':'gush_dan','פתח תקווה':'gush_dan',
+  'רמת גן':'gush_dan','חולון':'gush_dan','קרית אונו':'gush_dan','גבעתיים':'gush_dan',
+};
+const STATUS_OPTIONS = [
+  {v:'cold',l:'Cold'},{v:'reached1',l:'Reached Out 1x'},{v:'reached2',l:'Reached Out 2x'},
+  {v:'reached3',l:'Reached Out 3x'},{v:'responded',l:'Responded'},{v:'meeting',l:'Meeting Set'},
+  {v:'closed',l:'Closed'},{v:'not-interested',l:'Not Interested'}
+];
+const STATUS_WEIGHTS = {responded:5,reached1:4,reached2:3,reached3:2,cold:2,meeting:1,closed:0,'not-interested':0};
+const DEFAULT_TEMPLATES = [
+  'Sent intro email with proposal','Left voicemail','Sent follow-up email',
+  'Sent proposal link via email','No answer - will try again','Had phone conversation',
+  'Sent SMS/WhatsApp','Meeting scheduled'
+];
+
+// ===================== STORAGE =====================
+const K = {
+  statuses:'scalefox_crm_statuses',activities:'scalefox_crm_activities',
+  followups:'scalefox_crm_followups',settings:'scalefox_crm_settings',
+  lastExport:'scalefox_crm_last_export',queueHidden:'scalefox_crm_queue_hidden',
+  tags:'scalefox_crm_tags',notes:'scalefox_crm_notes',deals:'scalefox_crm_deals',viewMode:'scalefox_crm_view_mode'
+};
+function load(key){try{return JSON.parse(localStorage.getItem(key))||{};}catch(e){return {};}}
+function save(key,data){localStorage.setItem(key,JSON.stringify(data));}
+function getStatus(slug){return(load(K.statuses))[slug]||'cold';}
+function saveStatus(slug,val){const d=load(K.statuses);d[slug]=val;save(K.statuses,d);}
+function getActivities(slug){return(load(K.activities))[slug]||[];}
+function addActivity(slug,type,text){const d=load(K.activities);if(!d[slug])d[slug]=[];d[slug].unshift({type,text,date:new Date().toISOString()});save(K.activities,d);}
+function getFollowup(slug){return(load(K.followups))[slug]||'';}
+function saveFollowup(slug,date){const d=load(K.followups);d[slug]=date;save(K.followups,d);}
+function getTemplates(){const s=load(K.settings);return s.templates||DEFAULT_TEMPLATES;}
+function saveTemplates(arr){const s=load(K.settings);s.templates=arr;save(K.settings,s);}
+function getTags(slug){return(load(K.tags))[slug]||[];}
+function saveTags(slug,arr){const d=load(K.tags);d[slug]=arr;save(K.tags,d);}
+function getNotes(slug){return(load(K.notes))[slug]||'';}
+function saveNotes(slug,text){const d=load(K.notes);d[slug]=text;save(K.notes,d);}
+function getDeal(slug){return(load(K.deals))[slug]||0;}
+function saveDeal(slug,val){const d=load(K.deals);d[slug]=val;save(K.deals,d);}
+function getViewMode(){return localStorage.getItem(K.viewMode)||'list';}
+
+// ===================== HELPERS =====================
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function getArea(loc){if(AREA_MAP[loc])return AREA_MAP[loc];const c=loc.split(',')[0].trim();return AREA_MAP[c]||'other';}
+function today(){return new Date().toISOString().slice(0,10);}
+function daysSince(slug){const acts=getActivities(slug);if(!acts.length)return -1;return Math.floor((Date.now()-new Date(acts[0].date).getTime())/86400000);}
+function leadScore(item){
+  let score=0;
+  score+=Math.min((item.rc||0)/10,30);
+  score+=((item.r||0)-4)*15;
+  score+=item.e?10:0;
+  score+=(item.fb||item.ig)?5:0;
+  const status=getStatus(item.f);
+  if(status==='responded')score+=20;else if(status==='meeting')score+=15;else if(status.startsWith('reached'))score+=5;
+  const ds=daysSince(item.f);if(ds>7)score+=5;
+  return Math.round(Math.min(score,100));
+}
+function contactPriority(item){
+  const status=getStatus(item.f);
+  if(status==='closed'||status==='not-interested')return -1;
+  const w=STATUS_WEIGHTS[status]||0;
+  const ds=daysSince(item.f);
+  const daysVal=ds===-1?14:ds;
+  return w*10+daysVal*2+(item.rc||0)/100;
+}
+function getWebsiteUrl(item){return item.v==='dentists'?'/'+item.f+'/':'/auto-repair/'+item.f+'/';}
+function getProposalUrl(item){return item.v==='dentists'?'/'+item.f+'/proposal.html':'/auto-repair/'+item.f+'/proposal.html';}
+function daysBadgeHtml(slug){
+  const ds=daysSince(slug);
+  if(ds===-1)return '<span class="days-badge never">Never</span>';
+  if(ds<=3)return '<span class="days-badge fresh">'+ds+'d ago</span>';
+  if(ds<=7)return '<span class="days-badge aging">'+ds+'d ago</span>';
+  return '<span class="days-badge stale">'+ds+'d ago</span>';
+}
+function scoreHtml(item){const s=leadScore(item);const cls=s>=60?'hot':s>=35?'warm':'cool';return '<span class="lead-score '+cls+'">'+s+'</span>';}
+function statusLabel(v){return(STATUS_OPTIONS.find(o=>o.v===v)||{l:v}).l;}
+function statusClass(v){return 's-'+v;}
+function formatDate(iso){const d=new Date(iso);return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});}
+function timeAgo(iso){const ms=Date.now()-new Date(iso).getTime();const m=Math.floor(ms/60000);if(m<60)return m+'m ago';const h=Math.floor(m/60);if(h<24)return h+'h ago';return Math.floor(h/24)+'d ago';}
+function copyText(text,btn){navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1500);});}
+
+// ===================== DATA =====================
+const items = [
+  {f:'abraham-esses-dds',n:'Abraham Esses',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'alma-dental-kanevsky-alexander-dds',n:'Alma Dental',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'aly-prydvvld-dr',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'anychvbytz-mrk',n:'מרפאת אניחוביץ מרק',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'ayan-mrkz-lrpvat-shynyym-ayan-dental-center',n:'איאן מרכז לרפואת שיניים AYAN Dental Center',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'boyd-tiffany-d-dds',n:'Boyd Tiffany D',l:'Bradenton, FL',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dental-innovations',n:'Dental Innovations',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dkh-avmr',n:'מרפאת דקה עומר',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dntl-art',n:'מרפאת דנטל ארט',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dntlvks-sntr-bam',n:'דנטלוקס סנטר בע"מ',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-alchndrv-astyyn-mrpat-shynyym',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-alprd-chvry',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-asa-alvn',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-asprnh-shlmh-mrpat-shynyym',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-avmr-kvtvn-mvmchh-lshykvm-hph',n:'מומחה לשיקום הפה',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-avrtl-kslr-brvk-typvly-shvrsh-andvdvntyh',n:'טיפולי שורש - אנדודונטיה',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-ayltvb-mykal',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-ayty-mvr-rvpa-shynyym-btl-abyb',n:'רופא שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-bsharh-abd-rvpa-shynyym',n:'רופא שיניים',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-dario-y-yapor-dds',n:'Dr. Dario Y. Yapor',l:'New York, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-divyang-b-patel-dds',n:'Dr. Divyang B. Patel',l:'Palm Harbor, FL',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-drvr-dr-blvk-mrpat-shynyym-bam',n:'מרפאת שיניים בע"מ',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-dvd-ktzmn',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-dvd-kyykvb',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-evgenia-zaikin-dr-ybgnyh-zaykyn',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-gya-prydmn-mvmchh-lshykvm-hph',n:'מומחה לשיקום הפה',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-irving-bruck-dds',n:'Dr. Irving Bruck',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-jesse-rivas-dds',n:'Dr. Jesse Rivas',l:'Irving, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-kamal-brar-dds',n:'Dr. Kamal Brar',l:'Flower Mound, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-kryaf-avryt-mrpat-shynyym',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-kyle-d-eberlein-dds',n:'Dr. Kyle D. Eberlein',l:'Hurst, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-lah-kydr-rvpat-shynyym',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-leonid-fuks',n:'Dr. Leonid Fuks',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-magdy-elsharouny-dds',n:'Dr. Magdy Elsharouny',l:'Flushing, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-mykal-pvstlnyk',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-nvbvslsky-grygvry',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-nynv-mkynvlvb',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-pnsnkv-kvnstntyn',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-rvnyt-mavr',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-shlvmy-ldrmn-mrkz-rpvay-mtkdm-lhshtlvt-shynyym',n:'מרכז רפואי מתקדם להשתלות שיניים',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-shmavnvb-brvk',n:'מרפאת שיניים בבני ברק',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-shmvaly-aldr-mrpat-shynyym',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-svlvmvn-tvkvb-mrpat-shynyym-bbt-ym',n:'סולומון טוקוב - מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-tndlyk-mshh',n:'מרפאת שיניים בפתח תקווה',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-yvspy-bnymyn-dntlyn',n:'מרפאת שיניים בבני ברק',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-zab-zrykr',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'drmichael-perez-davidi-myshl-prtz-dvydy',n:'Michael Perez Davidi',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dvktvr-rnrt-chyym',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'east-pioneer-dental',n:'East Pioneer Dental',l:'Grand Prairie, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'gothelf-levine-gothelf-craig-g-dds',n:'Gothelf & Levine',l:'Jackson Heights, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'hdsh-dnt-al',n:'מרפאת הדסה דנט-על',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'hvrykv',n:'מרפאת הוריקו',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'hyrsh-amy',n:'מרפאת הירש עמי',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'kvl-hshn-mrpat-shynyym-mrkzyt-bam',n:'קול השן - מרפאת שיניים מרכזית',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'kvrf-aytn-dr',n:'מרפאת שיניים בקרית אונו',l:'קרית אונו',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'lydr-dn-rvpa-shynyym',n:'לידר רופא שיניים',l:'גבעתיים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mednick-saul-dds',n:'Mednick Saul',l:'Bronx, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'mendoza-david-r-dds',n:'Mendoza David R',l:'Gulfport, FL',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-brmt-gn-hshtlvt-tzypvyym-vasttykh-dr',n:'מרפאת שיניים ברמת גן',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-bt-ym',n:'מרפאת שיניים בת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-blyk',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-chyymvb',n:'מרפאת שיניים בחולון',l:'חולון',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-gbryal-yagvdyyb',n:'מרפאת שיניים בבני ברק',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-kzkvb',n:'מרפאת שיניים בפתח תקווה',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-m-smy',n:'מרפאת שיניים ברמת גן',l:'רמת גן',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-pvks',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-skbyrsky',n:'מרפאת שיניים בבני ברק',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-gvldmn',n:'מרפאת שיניים גולדמן',l:'חולון',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-mvrsht-aytn',n:'מרפאת שיניים מורשת איתן',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-rmt-gn-syvn-shn-bam',n:'מרפאת שיניים רמת גן - סיון שן',l:'רמת גן',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-shpyra',n:'מרפאת שיניים שפירא',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'p-e-g-general-dental',n:'P.E.G. General Dental',l:'Bronx, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'panv-syty',n:'מרפאת פאנו סיטי',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'quisqueya-dental-hernandez-miladys-dds',n:'Quisqueya Dental',l:'Richmond Hill, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'reunited-medical-and-dental',n:'Reunited Medical And Dental',l:'Bronx, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'richard-p-medina-dds',n:'Richard P Medina',l:'Jackson Heights, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'rosenberg-phillip-dds',n:'Rosenberg Phillip',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'rpvat-hshn',n:'מרפאת רפואת השן',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'rvpa-shynyym-24-azrh-rashvnh-chvlvn-dr-rvmn-strayt',n:'רופא שיניים 24 עזרה ראשונה חולון',l:'חולון',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'rvpa-shynyym-brmt-gn',n:'רופא שיניים ברמת גן',l:'רמת גן',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'sarak-vezire-dds',n:'Sarak Vezire',l:'New York, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'scott-howell',n:'Scott Howell',l:'Kingwood, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'shen-dental',n:'Shen Dental',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'southeast-dental',n:'Southeast Dental',l:'Chamblee, GA',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'syrkys-andry-dr',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'west-94th-street-dental-associates',n:'West 94th Street Dental Associates',l:'New York, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'westridge-dental-group-kasper-robert-dds',n:'Westridge Dental Group',l:'Goodyear, AZ',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'001-wheel-master',n:'Wheel Master',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:993,ph:'(623) 478-8063',e:'wheelmaster75@gmail.com',fb:'https://www.facebook.com/p/Wheel-Master-Inc-100080954663523',ig:'https://www.instagram.com/wheel_masterss',gm:'https://www.google.com/maps/search/?api=1&query=Wheel%20Master&query_place_id=ChIJcfixcZkVK4cRZ3xAiPXLooM'},
+  {f:'002-pedros-tire-shop',n:'Pedro\'s Tire Shop',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:533,ph:'(832) 876-3728',e:'support@giftly.com',fb:'https://www.facebook.com/ptireshop',ig:'https://www.instagram.com/pedrosbodyshop',gm:'https://www.google.com/maps/search/?api=1&query=Pedro\'s%20Tire%20Shop&query_place_id=ChIJL4CF8tK4QIYR3S3WDFD63zA'},
+  {f:'003-texas-radiators-mufflers-vehicles-emissions-inspection',n:'Texas Radiators & Mufflers',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:502,ph:'(713) 941-2323',e:'medcentermuffler23@gmail.com',fb:'https://www.facebook.com/Texasradiatormuffler',ig:'',gm:'https://www.google.com/maps/search/?api=1&query=Texas%20Radiators%20%26%20Mufflers&query_place_id=ChIJ1QsomuGZQIYR7Fri-jqAKGg'},
+  {f:'004-houston-mobile-mechanic-diesel-repair-llc',n:'Houston Mobile Mechanic & Diesel Repair',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:405,ph:'(832) 249-1533',e:'daveguerrero324@gmail.com',fb:'https://www.facebook.com/people/Houston-Mobile-Mechanic/61568151550802',ig:'',gm:'https://maps.google.com/?cid=16172382930587708651'},
+  {f:'005-triple-j-auto',n:'Triple J Auto',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:5,rc:367,ph:'(480) 206-2852',e:'ojeda669@hotmail.com',fb:'https://www.facebook.com/triplejautoaz',ig:'https://www.instagram.com/triplejautoglass',gm:'https://www.google.com/maps/search/?api=1&query=Triple%20J%20Auto&query_place_id=ChIJM4dEmX8RK4cRYkm9XRknEx0'},
+  {f:'006-stars-auto-repair',n:'STARS Auto Repair',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:353,ph:'(713) 476-0771',e:'mario@carstarshouston.com',fb:'https://www.facebook.com/p/Star-Auto-Collision-Repair-100064281634438',ig:'https://www.instagram.com/7stars_transmissions',gm:'https://www.google.com/maps/search/?api=1&query=STARS%20Auto%20Repair&query_place_id=ChIJm5zmCujFQIYREm0D9qFkHvs'},
+  {f:'007-juans-auto-glass',n:'Juan\'s Auto Glass',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:342,ph:'(713) 699-2182',e:'onlinehelp@safelite.com',fb:'https://www.facebook.com/pages/Juans-Auto-Glass/159041577450952',ig:'https://www.instagram.com/juans_auto_glass',gm:'https://www.google.com/maps/search/?api=1&query=Juan\'s%20Auto%20Glass&query_place_id=ChIJJVKkt-fHQIYRHjAUegAcWfU'},
+  {f:'008-quick-auto-service-state-inspection',n:'Quick Auto Service & State Inspection',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:291,ph:'(832) 382-4155',e:'info@2Quickauto.com',fb:'https://www.facebook.com/2QuickAutomotive',ig:'',gm:'https://maps.google.com/?cid=12469657232009236919'},
+  {f:'009-byrds',n:'Byrds',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:290,ph:'(713) 633-1822',e:'info@byrdsplumbing.com',fb:'https://www.facebook.com/twolittlebyrds',ig:'https://www.instagram.com/itstbyrds',gm:'https://www.google.com/maps/search/?api=1&query=Byrds&query_place_id=ChIJdYjg6o-5QIYR7PX8Mpl8Qjg'},
+  {f:'010-rogels-auto-alignment-llc',n:'Rogel\'s Auto Alignment LLC',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:250,ph:'(602) 254-3058',e:'isTreyday63@gmail.com',fb:'https://www.facebook.com/Rogels.Auto.Alignment',ig:'https://www.instagram.com/rogelsauto',gm:'https://www.google.com/maps/search/?api=1&query=Rogel\'s%20Auto%20Alignment%20LLC&query_place_id=ChIJSbP_2wESK4cRCADJKMgByt0'},
+  {f:'011-state-inspection-lube',n:'State Inspection & Lube',l:'Kingwood',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:248,ph:'(281) 358-4787',e:'sales@tirebuddy.com',fb:'',ig:'',gm:'https://www.google.com/maps/search/?api=1&query=State%20Inspection%20%26%20Lube&query_place_id=ChIJg_Pc2rOyQIYRIO7JQ7MGAko'},
+  {f:'012-cesar-paint-body-shop',n:'Cesar Paint & Body Shop',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:221,ph:'(281) 818-7114',e:'cesarbodyshop2017@gmail.com',fb:'https://www.facebook.com/p/Cesar-Body-Shop-100054423087204',ig:'https://www.instagram.com/cesarpaintandbodyshop',gm:'https://maps.google.com/?cid=9523041029818065183'},
+  {f:'013-imports-american-auto-services',n:'Imports & American Auto Services',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:216,ph:'(480) 969-3311',e:'importsandamerican@gmail.com',fb:'https://www.facebook.com/p/Imports-American-Auto-Service-100067323643219',ig:'',gm:'https://maps.google.com/?cid=2765805793871108195'},
+  {f:'014-affordable-mobile-mechanic',n:'Affordable Mobile Mechanic',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:208,ph:'(602) 698-2987',e:'azmobilemaintenancemechanic@gmail.com',fb:'',ig:'https://www.instagram.com/outtheremobilemechanic',gm:'https://maps.google.com/?cid=2742809606178871184'},
+  {f:'015-just-right-car-care-center',n:'Just Right Car Care Center',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.5,rc:198,ph:'(281) 741-0606',e:'justrightcarcare@gmail.com',fb:'https://www.facebook.com/p/Just-Right-Car-Care-Center-100063935135103',ig:'https://www.instagram.com/justrightcarcare1',gm:'https://www.google.com/maps/search/?api=1&query=Just%20Right%20Car%20Care%20Center&query_place_id=ChIJa2NqugLcQIYRETHX8bwYuUc'},
+  {f:'016-menard-auto-repair',n:'Menard Auto Repair',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:197,ph:'(480) 844-2245',e:'menardsauto@gmail.com',fb:'https://www.facebook.com/p/Menard-Auto-Repair-Shop-100087199944782',ig:'',gm:'https://maps.google.com/?cid=9608933865255352167'},
+  {f:'017-salahs-auto-repair',n:'Salah\'s Auto Repair',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:190,ph:'(713) 977-5313',e:'salahsauto@gmail.com',fb:'https://www.facebook.com/salahsauto',ig:'',gm:'https://www.google.com/maps/search/?api=1&query=Salah\'s%20Auto%20Repair&query_place_id=ChIJqR0AD6rDQIYRpQcZm7tja5I'},
+  {f:'018-century-automotive-repair',n:'Century Automotive Repair',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:187,ph:'(713) 475-2483',e:'centuryautomotiverepairs@comcast.net',fb:'https://www.facebook.com/CenturyAutomotiveRepairs',ig:'',gm:'https://maps.google.com/?cid=13772778511176065106'},
+  {f:'019-leos-body-shop',n:'Leo\'s Body Shop',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:180,ph:'(713) 789-4130',e:'info@elizabethanthonyhouston.com',fb:'https://www.facebook.com/pages/leos-auto-repair/142372412475377',ig:'',gm:'https://maps.google.com/?cid=1310828111486637112'},
+  {f:'020-old-katy-car-care',n:'Old Katy Car Care',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:156,ph:'(281) 848-9825',e:'info@cityofkaty.com',fb:'https://www.facebook.com/p/The-Car-Masseuse-of-Old-Katy-100078717134622',ig:'https://www.instagram.com/katy_carmeets',gm:'https://maps.google.com/?cid=4684177967334851663'},
+  {f:'021-rays-auto-electric',n:'Ray\'s Auto Electric',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:156,ph:'(713) 661-8189',e:'raysautoelectric@earthlink.net',fb:'https://www.facebook.com/p/Rays-Auto-Repair-Carwash-100063838003825',ig:'https://www.instagram.com/raysautorepairncarwash',gm:'https://www.google.com/maps/search/?api=1&query=Ray\'s%20Auto%20Electric&query_place_id=ChIJ9dE5XyHCQIYRBYw2NKRuGiw'},
+  {f:'022-west-houston-auto-ac-repair-llc',n:'West Houston Auto A/C Repair LLC',l:'Richmond',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:154,ph:'(832) 407-3849',e:'westhoustonautoacrepair@gmail.com',fb:'https://www.facebook.com/westhoustonautorepair',ig:'https://www.instagram.com/nwesthoustonautorepair',gm:'https://www.google.com/maps/search/?api=1&query=West%20Houston%20Auto%20A%2FC%20Repair%20LLC&query_place_id=ChIJj9EytyrfQIYRQIYsZvUHzZw'},
+  {f:'023-jacks-automotive-services',n:'Jacks Automotive Services',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:147,ph:'(602) 273-0717',e:'JACKSAUTO001@GMAIL.COM',fb:'https://www.facebook.com/p/Jacks-Automotive-Service-100057528816874',ig:'https://www.instagram.com/jacksdetailgarage',gm:'https://www.google.com/maps/search/?api=1&query=Jacks%20Automotive%20Services&query_place_id=ChIJKW5-OegNK4cRI7ZIlELRigA'},
+  {f:'024-friendly-car-care',n:'Friendly Car Care',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:146,ph:'(713) 694-8810',e:'friendlycarcare@gmail.com',fb:'https://www.facebook.com/p/Friendly-Car-Care-100077421916659',ig:'',gm:'https://www.google.com/maps/search/?api=1&query=Friendly%20Car%20Care&query_place_id=ChIJnSFGB9O5QIYRiuJMpwNHb3M'},
+  {f:'025-ez-auto-stop-vehicle-inspection-auto-repair-wheel-alignment',n:'EZ AUTO STOP',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:142,ph:'(713) 474-0264',e:'shakirmalik0264@gmail.com',fb:'https://www.facebook.com/p/EZ-Stop-Auto-Inspection-61575696129061',ig:'https://www.instagram.com/onestopautoservices',gm:'https://www.google.com/maps/search/?api=1&query=EZ%20AUTO%20STOP&query_place_id=ChIJiXZ9etnCQIYRWLvnNvMJ6Rs'},
+  {f:'026-hernandez-auto-services-tires-llc',n:'Hernandez Auto Services & Tires LLC',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:140,ph:'(713) 485-4165',e:'dswitalski@davischevrolet.com',fb:'https://www.facebook.com/hernandezautoservicestiresllc',ig:'https://www.instagram.com/the_hernandez_sh0p',gm:'https://www.google.com/maps/search/?api=1&query=Hernandez%20Auto%20Services%20%26%20Tires%20LLC&query_place_id=ChIJjxNb1D3oQIYR1ynAgbyGmnk'},
+  {f:'027-arturos-garage-auto-mechanics',n:'Arturos Garage Auto Mechanics',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.5,rc:130,ph:'(713) 695-2155',e:'foia@fmcsa.dot.gov',fb:'https://www.facebook.com/ArturosMobileMechanic',ig:'https://www.instagram.com/arturosupercar',gm:'https://www.google.com/maps/search/?api=1&query=Arturos%20Garage%20Auto%20Mechanics&query_place_id=ChIJm4o6qRrIQIYRHGDpaxqSAh8'},
+  {f:'028-auto-best-houston-inc',n:'Auto Best Houston Inc',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:126,ph:'(713) 659-7600',e:'Raz@bestautotx.com',fb:'https://www.facebook.com/TexasBestAuto',ig:'https://www.instagram.com/bestautotx',gm:'https://www.google.com/maps/search/?api=1&query=Auto%20Best%20Houston%20Inc&query_place_id=ChIJ6RwfgRO_QIYRagF0UdrhdA8'},
+  {f:'029-texas-mobile-auto-body-repairs',n:'Texas Mobile Auto Body Repairs',l:'Humble',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:124,ph:'(832) 210-5357',e:'contact@instantcarfix.com',fb:'https://www.facebook.com/mobiledentrepairtx',ig:'https://www.instagram.com/texas_mobile832',gm:'https://www.google.com/maps/search/?api=1&query=Texas%20mobile%20auto%20body%20repairs&query_place_id=ChIJc-rZzpyzQIYROoBI2rB_l7Q'},
+  {f:'030-texan-automotive',n:'Texan Automotive',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:121,ph:'(713) 393-7352',e:'omar.majzoub@houstontexans.com',fb:'https://www.facebook.com/p/Texan-Auto-Group-100083208466889',ig:'https://www.instagram.com/texanauto',gm:'https://www.google.com/maps/search/?api=1&query=Texan%20Automotive&query_place_id=ChIJg7LA4lq_QIYRQPjH8w8xpek'}
+];
+
+// ===================== STATE =====================
+let currentPage = 'dashboard';
+let sortBy = 'score', sortAsc = false;
+let sidebarExpanded = false;
+
+// Populate status filter
+const fStatusEl = document.getElementById('fStatus');
+STATUS_OPTIONS.forEach(o => { const opt = document.createElement('option'); opt.value = o.v; opt.textContent = o.l; fStatusEl.appendChild(opt); });
+
+// ===================== NAVIGATION =====================
+function navigate(page) {
+  currentPage = page;
+  location.hash = '#' + page;
+  document.querySelectorAll('.page').forEach(p => { p.classList.remove('active'); });
+  const target = document.getElementById('page-' + page);
+  if (target) { target.classList.add('active'); }
+  // Update nav highlights
+  document.querySelectorAll('.nav-item[data-page]').forEach(n => n.classList.toggle('active', n.dataset.page === page));
+  document.querySelectorAll('.mobile-nav button[data-page]').forEach(n => n.classList.toggle('active', n.dataset.page === page));
+  // Render page content
+  if (page === 'dashboard') renderDashboard();
+  else if (page === 'queue') renderQueuePage();
+  else if (page === 'contacts') renderContacts();
+  else if (page === 'settings') { document.getElementById('templatesInput').value = getTemplates().join('\n'); }
+}
+
+function toggleSidebar() {
+  sidebarExpanded = !sidebarExpanded;
+  document.getElementById('sidebar').classList.toggle('expanded', sidebarExpanded);
+}
+
+function toggleSortDir() {
+  sortAsc = !sortAsc;
+  document.getElementById('sortDir').innerHTML = sortAsc ? '&#9650;' : '&#9660;';
+  renderContacts();
+}
+
+function setView(mode) {
+  localStorage.setItem(K.viewMode, mode);
+  document.getElementById('viewCards').classList.toggle('active', mode === 'cards');
+  document.getElementById('viewList').classList.toggle('active', mode === 'list');
+  renderContacts();
+}
+
+// ===================== DASHBOARD =====================
+function renderDashboard() {
+  // Metrics
+  const todayStr = today();
+  const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString();
+  let contactedThisWeek = 0, overdueCount = 0, respondedCount = 0;
+  const allActs = load(K.activities);
+  items.forEach(item => {
+    const acts = allActs[item.f] || [];
+    if (acts.length && acts[0].date >= weekAgo) contactedThisWeek++;
+    const fu = getFollowup(item.f);
+    if (fu && fu < todayStr) overdueCount++;
+    if (getStatus(item.f) === 'responded') respondedCount++;
+  });
+  const responseRate = items.length ? Math.round(respondedCount / items.length * 100) : 0;
+  document.getElementById('dashMetrics').innerHTML =
+    '<div class="metric-card mc-total"><div class="mc-label">Total Leads</div><div class="mc-value">' + items.length + '</div><div class="mc-sub">' + items.filter(i => i.v === 'dentists').length + ' dentists, ' + items.filter(i => i.v === 'auto-repair').length + ' auto repair</div></div>' +
+    '<div class="metric-card mc-contacted"><div class="mc-label">Contacted This Week</div><div class="mc-value">' + contactedThisWeek + '</div><div class="mc-sub">out of ' + items.length + ' total</div></div>' +
+    '<div class="metric-card mc-overdue"><div class="mc-label">Overdue Follow-ups</div><div class="mc-value">' + overdueCount + '</div><div class="mc-sub">need attention</div></div>' +
+    '<div class="metric-card mc-response"><div class="mc-label">Response Rate</div><div class="mc-value">' + responseRate + '%</div><div class="mc-sub">' + respondedCount + ' responded</div></div>';
+
+  // Pipeline
+  const counts = {};
+  STATUS_OPTIONS.forEach(o => counts[o.v] = 0);
+  items.forEach(item => { const s = getStatus(item.f); counts[s] = (counts[s] || 0) + 1; });
+  const total = items.length;
+  document.getElementById('pipelineBar').innerHTML = STATUS_OPTIONS.map(o => {
+    const c = counts[o.v] || 0;
+    const pct = total ? Math.round(c / total * 100) : 0;
+    return '<div class="pipeline-stage s-' + o.v + '"><div class="stage-name">' + o.l + '</div><div class="stage-count">' + c + '</div><div class="stage-pct">' + pct + '%</div></div>';
+  }).join('');
+
+  // Area chart
+  const areaCounts = {};
+  items.forEach(item => { const a = getArea(item.l); areaCounts[a] = (areaCounts[a] || 0) + 1; });
+  const areaNames = {houston:'Houston',phoenix:'Phoenix',nyc:'NYC',gush_dan:'Gush Dan',other:'Other'};
+  const maxArea = Math.max(...Object.values(areaCounts), 1);
+  document.getElementById('areaChart').innerHTML = Object.entries(areaNames).map(([k, label]) => {
+    const c = areaCounts[k] || 0;
+    const w = Math.round(c / maxArea * 100);
+    return '<div class="area-row"><span class="area-label">' + label + '</span><div class="area-fill" style="width:' + w + '%">' + c + '</div></div>';
+  }).join('');
+
+  // Recent activity feed
+  const allFeed = [];
+  items.forEach(item => {
+    const acts = allActs[item.f] || [];
+    acts.forEach(a => allFeed.push({...a, slug: item.f, name: item.n}));
+  });
+  allFeed.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const feedHtml = allFeed.slice(0, 15).map(a =>
+    '<div class="feed-item"><span class="feed-dot t-' + a.type + '"></span><span><span class="feed-name">' + esc(a.name) + '</span> <span class="feed-text">' + esc(a.text) + '</span></span><span class="feed-time">' + timeAgo(a.date) + '</span></div>'
+  ).join('');
+  document.getElementById('feedList').innerHTML = feedHtml || '<div class="feed-item" style="color:var(--dim)">No activities yet. Start logging contacts!</div>';
+  checkBackup();
+}
+
+// ===================== QUEUE PAGE (KANBAN) =====================
+const KANBAN_STAGES = [
+  {v:'cold',l:'Cold'},{v:'reached1',l:'Reached 1x'},{v:'reached2',l:'Reached 2x'},
+  {v:'reached3',l:'Reached 3x'},{v:'responded',l:'Responded'},{v:'meeting',l:'Meeting Set'}
+];
+
+function renderQueuePage() {
+  const board = document.getElementById('kanbanBoard');
+  // Group items by status, sorted by contactPriority desc
+  const buckets = {};
+  KANBAN_STAGES.forEach(s => buckets[s.v] = []);
+  items.forEach(item => {
+    const st = getStatus(item.f);
+    if (buckets[st]) buckets[st].push({item, priority: contactPriority(item)});
+  });
+  // Sort each bucket
+  KANBAN_STAGES.forEach(s => buckets[s.v].sort((a, b) => b.priority - a.priority));
+
+  board.innerHTML = KANBAN_STAGES.map(stage => {
+    const list = buckets[stage.v];
+    const cardsHtml = list.map(({item}) => {
+      const score = leadScore(item);
+      const cls = score >= 60 ? 'hot' : score >= 35 ? 'warm' : 'cool';
+      const lastAct = getActivities(item.f)[0];
+      const preview = lastAct ? esc(lastAct.text).substring(0, 50) : 'No activity yet';
+      return '<div class="kanban-card" onclick="openLeadModal(\'' + item.f + '\')">' +
+        '<div class="kc-top"><span class="kc-name">' + esc(item.n) + '</span><span class="lead-score ' + cls + '">' + score + '</span></div>' +
+        '<div class="kc-location">' + esc(item.l) + '</div>' +
+        '<div class="kc-bottom">' + daysBadgeHtml(item.f) + '</div>' +
+        '<div class="kc-preview">' + preview + '</div>' +
+      '</div>';
+    }).join('');
+    return '<div class="kanban-col">' +
+      '<div class="kanban-col-header"><span>' + stage.l + '</span><span class="kanban-count">' + list.length + '</span></div>' +
+      '<div class="kanban-col-body">' + (cardsHtml || '<div style="font-size:.75rem;color:var(--dim);text-align:center;padding:20px 0">No leads</div>') + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function promptLogActivity(slug) {
+  const text = prompt('Activity note:');
+  if (text && text.trim()) {
+    addActivity(slug, 'note', text.trim());
+    renderQueuePage();
+  }
+}
+
+// ===================== CONTACTS PAGE =====================
+function getFilteredItems() {
+  const q = (document.getElementById('search').value || '').toLowerCase();
+  const fStatus = document.getElementById('fStatus').value;
+  const fLang = document.getElementById('fLang').value;
+  const fArea = document.getElementById('fArea').value;
+  const fFollowup = document.getElementById('fFollowup').value;
+  const fType = document.getElementById('fType').value;
+  const todayStr = today();
+
+  let filtered = items.filter(item => {
+    if (q && !item.n.toLowerCase().includes(q) && !item.l.toLowerCase().includes(q) && !item.f.toLowerCase().includes(q) && !(item.e || '').toLowerCase().includes(q)) return false;
+    if (fType !== 'all' && item.v !== fType) return false;
+    if (fLang !== 'all' && item.lang !== fLang) return false;
+    if (fArea !== 'all' && getArea(item.l) !== fArea) return false;
+    if (fStatus !== 'all') {
+      const s = getStatus(item.f);
+      if (s !== fStatus) return false;
+    }
+    if (fFollowup !== 'all') {
+      const fu = getFollowup(item.f);
+      if (fFollowup === 'overdue') { if (!fu || fu >= todayStr) return false; }
+      else if (fFollowup === 'today') { if (fu !== todayStr) return false; }
+      else if (fFollowup === 'upcoming') { if (!fu) return false; const diff = (new Date(fu) - new Date(todayStr)) / 86400000; if (diff < 0 || diff > 3) return false; }
+      else if (fFollowup === 'none') { if (fu) return false; }
+    }
+    return true;
+  });
+
+  // Dedupe
+  const unique = {};
+  filtered.forEach(item => { if (!unique[item.f]) unique[item.f] = item; });
+  let result = Object.values(unique);
+
+  // Sort
+  const sb = document.getElementById('sortBy').value;
+  result.sort((a, b) => {
+    let va, vb;
+    if (sb === 'score') { va = leadScore(a); vb = leadScore(b); }
+    else if (sb === 'reviews') { va = a.rc || 0; vb = b.rc || 0; }
+    else if (sb === 'days') { va = daysSince(a.f); vb = daysSince(b.f); if (va === -1) va = 9999; if (vb === -1) vb = 9999; }
+    else if (sb === 'name') { va = a.n.toLowerCase(); vb = b.n.toLowerCase(); return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va); }
+    else if (sb === 'followup') { va = getFollowup(a.f) || 'z'; vb = getFollowup(b.f) || 'z'; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va); }
+    return sortAsc ? va - vb : vb - va;
+  });
+  return result;
+}
+
+let cardViewExpanded = false;
+
+function expandCardView() {
+  cardViewExpanded = true;
+  renderContacts();
+}
+
+function renderContacts() {
+  const result = getFilteredItems();
+  document.getElementById('statsBar').textContent = 'Showing ' + result.length + ' of ' + items.length + ' businesses';
+  const mode = getViewMode();
+  document.getElementById('viewCards').classList.toggle('active', mode === 'cards');
+  document.getElementById('viewList').classList.toggle('active', mode === 'list');
+  const showAllBtn = document.getElementById('showAllBtn');
+
+  if (!result.length) {
+    document.getElementById('cardGrid').style.display = 'none';
+    document.getElementById('listView').style.display = 'none';
+    showAllBtn.style.display = 'none';
+    document.getElementById('noResults').style.display = 'block';
+    return;
+  }
+  document.getElementById('noResults').style.display = 'none';
+
+  if (mode === 'cards') {
+    document.getElementById('cardGrid').style.display = 'grid';
+    document.getElementById('listView').style.display = 'none';
+    // Determine how many cards fit in 2 rows (~8 cards)
+    const maxVisible = cardViewExpanded ? result.length : 8;
+    const visible = result.slice(0, maxVisible);
+    const hasMore = result.length > maxVisible;
+    document.getElementById('cardGrid').innerHTML = visible.map(c => {
+      const status = getStatus(c.f);
+      const score = leadScore(c);
+      const cls = score >= 60 ? 'hot' : score >= 35 ? 'warm' : 'cool';
+      const ratingHtml = c.r ? '<span class="card-rating">\u2605 ' + c.r + (c.rc ? ' (' + c.rc + ')' : '') + '</span>' : '';
+      return '<div class="card" id="card-' + c.f + '" onclick="openLeadModal(\'' + c.f + '\')">' +
+        '<div class="card-header"><span class="card-name">' + esc(c.n) + '</span><span class="lead-score ' + cls + '">' + score + '</span></div>' +
+        '<div class="card-meta"><span class="card-location">' + esc(c.l) + '</span><span class="card-badges">' + ratingHtml + daysBadgeHtml(c.f) + '<span class="card-lang ' + c.lang + '">' + (c.lang === 'he' ? 'HE' : 'EN') + '</span><span class="status-pill ' + statusClass(status) + '">' + statusLabel(status) + '</span></span></div>' +
+      '</div>';
+    }).join('');
+    if (hasMore) {
+      showAllBtn.textContent = 'Show all ' + result.length + ' contacts';
+      showAllBtn.style.display = 'block';
+    } else {
+      showAllBtn.style.display = 'none';
+    }
+  } else {
+    document.getElementById('cardGrid').style.display = 'none';
+    document.getElementById('listView').style.display = 'block';
+    showAllBtn.style.display = 'none';
+    document.getElementById('listView').innerHTML = '<table class="list-table"><thead><tr><th>Name</th><th>Location</th><th>Status</th><th>Score</th><th>Days Since</th><th>Reviews</th><th>Follow-up</th></tr></thead><tbody>' +
+      result.map(c => {
+        const status = getStatus(c.f);
+        const score = leadScore(c);
+        const cls = score >= 60 ? 'hot' : score >= 35 ? 'warm' : 'cool';
+        const ds = daysSince(c.f);
+        const dsText = ds === -1 ? 'Never' : ds + 'd';
+        const fu = getFollowup(c.f);
+        return '<tr><td class="clickable" onclick="openLeadModal(\'' + c.f + '\')">' + esc(c.n) + '</td><td>' + esc(c.l) + '</td><td><span class="status-pill ' + statusClass(status) + '">' + statusLabel(status) + '</span></td><td><span class="lead-score ' + cls + '">' + score + '</span></td><td>' + dsText + '</td><td>' + (c.rc || '-') + '</td><td>' + (fu || '-') + '</td></tr>';
+      }).join('') + '</tbody></table>';
+  }
+}
+
+// ===================== LEAD MODAL =====================
+let currentModalSlug = null;
+
+function openLeadModal(slug) {
+  currentModalSlug = slug;
+  const item = items.find(i => i.f === slug);
+  if (!item) return;
+  const status = getStatus(slug);
+  const score = leadScore(item);
+  const cls = score >= 60 ? 'hot' : score >= 35 ? 'warm' : 'cool';
+  const fu = getFollowup(slug);
+  const tags = getTags(slug);
+  const notes = getNotes(slug);
+  const deal = getDeal(slug);
+  const acts = getActivities(slug);
+  const templates = getTemplates();
+
+  const statusOpts = STATUS_OPTIONS.map(o => '<option value="' + o.v + '"' + (status === o.v ? ' selected' : '') + '>' + o.l + '</option>').join('');
+
+  // Follow-up indicator
+  let fuIndicator = '';
+  if (fu) {
+    if (fu < today()) fuIndicator = '<span class="followup-indicator overdue">OVERDUE</span>';
+    else if (fu === today()) fuIndicator = '<span class="followup-indicator today">TODAY</span>';
+    else fuIndicator = '<span class="followup-indicator upcoming">Upcoming</span>';
+  }
+
+  // Tags HTML
+  const tagsHtml = tags.map(t => '<span class="tag-chip">' + esc(t) + '<button onclick="removeTag(\'' + slug + '\',\'' + esc(t) + '\')">×</button></span>').join('') +
+    '<button class="tag-add" onclick="addTagPrompt(\'' + slug + '\')">+ Tag</button>';
+
+  // Social links
+  let socialHtml = '';
+  if (item.fb) socialHtml += '<a class="lm-link fb" href="' + esc(item.fb) + '" target="_blank">Facebook</a>';
+  if (item.ig) socialHtml += '<a class="lm-link ig" href="' + esc(item.ig) + '" target="_blank">Instagram</a>';
+  if (item.gm) socialHtml += '<a class="lm-link gm" href="' + esc(item.gm) + '" target="_blank">Maps</a>';
+  socialHtml += '<a class="lm-link website" href="' + getWebsiteUrl(item) + '" target="_blank">Website</a>';
+  if (item.has_p) socialHtml += '<a class="lm-link proposal" href="' + getProposalUrl(item) + '" target="_blank">Proposal</a>';
+
+  // Timeline
+  const timelineHtml = acts.slice(0, 30).map(a => {
+    const icon = a.type === 'email' ? '✉' : a.type === 'call' ? '☎' : a.type === 'sms' ? '💬' : '📝';
+    return '<div class="tl-item"><div class="tl-dot t-' + a.type + '">' + icon + '</div><div class="tl-content"><div class="tl-head"><span class="tl-type">' + a.type + '</span><span class="tl-date">' + formatDate(a.date) + '</span></div><div class="tl-text">' + esc(a.text) + '</div></div></div>';
+  }).join('');
+
+  // Quick template buttons
+  const qtHtml = templates.map(t => '<button class="qt-btn" onclick="modalQuickLog(\'' + slug + '\',this)" data-text="' + esc(t) + '">' + esc(t) + '</button>').join('');
+
+  document.getElementById('leadModalInner').innerHTML =
+    '<div class="lead-modal-header"><div><div class="lm-title">' + esc(item.n) + '</div><div class="lm-header-meta"><select class="status-select" onchange="modalChangeStatus(\'' + slug + '\',this.value)">' + statusOpts + '</select><span class="lead-score ' + cls + '">' + score + ' pts</span><span style="font-size:.78rem;color:var(--muted)">' + esc(item.l) + '</span></div></div><button class="lm-close" onclick="closeLeadModal()">×</button></div>' +
+    '<div class="lm-body">' +
+      '<div class="lm-left">' +
+        // Contact info
+        '<div class="lm-section"><div class="lm-section-title">Contact Info</div>' +
+          (item.ph ? '<div class="lm-contact-row"><span>📞</span><a href="tel:' + esc(item.ph) + '">' + esc(item.ph) + '</a><button class="copy-btn" onclick="copyText(\'' + esc(item.ph) + '\',this)">Copy</button></div>' : '') +
+          (item.e ? '<div class="lm-contact-row"><span>✉️</span><a href="mailto:' + esc(item.e) + '">' + esc(item.e) + '</a><button class="copy-btn" onclick="copyText(\'' + esc(item.e) + '\',this)">Copy</button></div>' : '') +
+        '</div>' +
+        // Links
+        '<div class="lm-section"><div class="lm-section-title">Links</div><div class="lm-links">' + socialHtml + '</div></div>' +
+        // Follow-up
+        '<div class="lm-section"><div class="lm-section-title">Follow-up</div><div class="lm-followup"><input type="date" value="' + (fu || '') + '" onchange="modalSaveFollowup(\'' + slug + '\',this.value)">' + fuIndicator + '</div></div>' +
+        // Tags
+        '<div class="lm-section"><div class="lm-section-title">Tags</div><div class="tag-wrap" id="modalTags">' + tagsHtml + '</div></div>' +
+        // Deal value
+        '<div class="lm-section"><div class="lm-section-title">Deal Value ($)</div><input type="number" class="lm-input" value="' + (deal || '') + '" placeholder="0" onchange="saveDeal(\'' + slug + '\',parseFloat(this.value)||0)"></div>' +
+        // Notes
+        '<div class="lm-section"><div class="lm-section-title">Notes</div><textarea class="lm-input lm-textarea" placeholder="Add notes..." onchange="saveNotes(\'' + slug + '\',this.value)">' + esc(notes) + '</textarea></div>' +
+      '</div>' +
+      '<div class="lm-right">' +
+        // Quick add
+        '<div class="lm-section"><div class="lm-section-title">Log Activity</div>' +
+          '<div class="quick-add-modal"><select id="modal-atype"><option value="email">Email</option><option value="call">Call</option><option value="sms">SMS</option><option value="note">Note</option></select><input id="modal-atext" placeholder="What happened..." onkeydown="if(event.key===\'Enter\')modalLogActivity(\'' + slug + '\')"><button onclick="modalLogActivity(\'' + slug + '\')">Log</button></div>' +
+          '<div class="qt-wrap">' + qtHtml + '</div>' +
+        '</div>' +
+        // Timeline
+        '<div class="lm-section"><div class="lm-section-title">Timeline (' + acts.length + ')</div><div class="timeline">' + (timelineHtml || '<div style="font-size:.78rem;color:var(--dim)">No activities yet</div>') + '</div></div>' +
+      '</div>' +
+    '</div>';
+
+  document.getElementById('leadModal').classList.add('open');
+}
+
+function closeLeadModal() {
+  document.getElementById('leadModal').classList.remove('open');
+  currentModalSlug = null;
+}
+
+function modalChangeStatus(slug, val) {
+  saveStatus(slug, val);
+  openLeadModal(slug); // refresh modal
+}
+
+function modalSaveFollowup(slug, val) {
+  saveFollowup(slug, val);
+  openLeadModal(slug);
+}
+
+function modalLogActivity(slug) {
+  const typeEl = document.getElementById('modal-atype');
+  const textEl = document.getElementById('modal-atext');
+  const text = (textEl.value || '').trim();
+  if (!text) return;
+  addActivity(slug, typeEl.value, text);
+  openLeadModal(slug);
+}
+
+function modalQuickLog(slug, btn) {
+  addActivity(slug, 'note', btn.dataset.text);
+  openLeadModal(slug);
+}
+
+function addTagPrompt(slug) {
+  const tag = prompt('Add tag:');
+  if (tag && tag.trim()) {
+    const tags = getTags(slug);
+    if (!tags.includes(tag.trim())) {
+      tags.push(tag.trim());
+      saveTags(slug, tags);
+      openLeadModal(slug);
+    }
+  }
+}
+
+function removeTag(slug, tag) {
+  const tags = getTags(slug).filter(t => t !== tag);
+  saveTags(slug, tags);
+  openLeadModal(slug);
+}
+
+// ===================== EXPORT / IMPORT =====================
+function exportData() {
+  const data = {
+    version: 2, exported: new Date().toISOString(),
+    statuses: load(K.statuses), activities: load(K.activities),
+    followups: load(K.followups), settings: load(K.settings),
+    tags: load(K.tags), notes: load(K.notes), deals: load(K.deals)
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'scalefox-crm-backup-' + today() + '.json'; a.click();
+  URL.revokeObjectURL(url);
+  localStorage.setItem(K.lastExport, today());
+  checkBackup();
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.statuses) save(K.statuses, {...load(K.statuses), ...data.statuses});
+      if (data.activities) {
+        const existing = load(K.activities);
+        Object.keys(data.activities).forEach(slug => {
+          if (!existing[slug]) existing[slug] = [];
+          const dates = new Set(existing[slug].map(a => a.date));
+          data.activities[slug].forEach(a => { if (!dates.has(a.date)) existing[slug].push(a); });
+          existing[slug].sort((a, b) => new Date(b.date) - new Date(a.date));
+        });
+        save(K.activities, existing);
+      }
+      if (data.followups) save(K.followups, {...load(K.followups), ...data.followups});
+      if (data.settings) save(K.settings, {...load(K.settings), ...data.settings});
+      if (data.tags) save(K.tags, {...load(K.tags), ...data.tags});
+      if (data.notes) save(K.notes, {...load(K.notes), ...data.notes});
+      if (data.deals) save(K.deals, {...load(K.deals), ...data.deals});
+      navigate(currentPage);
+      alert('Import successful!');
+    } catch(err) { alert('Import failed: ' + err.message); }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+function checkBackup() {
+  const last = localStorage.getItem(K.lastExport);
+  const banner = document.getElementById('backupBanner');
+  if (!last) { banner.style.display = 'flex'; return; }
+  const daysSinceBak = Math.floor((Date.now() - new Date(last).getTime()) / 86400000);
+  banner.style.display = daysSinceBak >= 7 ? 'flex' : 'none';
+}
+
+function dismissBackup() { localStorage.setItem(K.lastExport, today()); checkBackup(); }
+
+// ===================== SETTINGS =====================
+function saveSettingsPage() {
+  const lines = document.getElementById('templatesInput').value.split('\n').map(l => l.trim()).filter(Boolean);
+  saveTemplates(lines);
+  alert('Templates saved!');
+}
+
+// ===================== EVENT LISTENERS =====================
+document.getElementById('search').addEventListener('input', () => renderContacts());
+['fStatus', 'fLang', 'fArea', 'fFollowup', 'fType', 'sortBy'].forEach(id => {
+  document.getElementById(id).addEventListener('change', () => renderContacts());
+});
+
+// Modal close
+document.getElementById('leadModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeLeadModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLeadModal(); });
+
+// Hash routing
+window.addEventListener('hashchange', () => {
+  const page = location.hash.replace('#', '') || 'dashboard';
+  if (['dashboard', 'queue', 'contacts', 'settings'].includes(page)) navigate(page);
+});
+
+// ===================== BOOT =====================
+const initPage = location.hash.replace('#', '') || 'dashboard';
+navigate(['dashboard', 'queue', 'contacts', 'settings'].includes(initPage) ? initPage : 'dashboard');
+// Set initial view mode
+const vm = getViewMode();
+document.getElementById('viewCards').classList.toggle('active', vm === 'cards');
+document.getElementById('viewList').classList.toggle('active', vm === 'list');
+</script>
+</body>
+</html>

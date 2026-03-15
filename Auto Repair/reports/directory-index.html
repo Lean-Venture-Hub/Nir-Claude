@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scalefox Directory – Business Landing Pages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;min-height:100vh}
+.header{background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff;padding:2.5rem 1.5rem;text-align:center}
+.header h1{font-size:1.75rem;font-weight:700;margin-bottom:.5rem}
+.header p{font-size:1rem;opacity:.85}
+.container{max-width:1100px;margin:0 auto;padding:1.5rem}
+.search-box{width:100%;padding:.75rem 1rem;border:2px solid #e2e8f0;border-radius:.5rem;font-size:1rem;margin-bottom:1rem;outline:none;transition:border-color .2s}
+.search-box:focus{border-color:#3b82f6}
+
+/* Tabs */
+.tabs{display:flex;gap:0;margin-bottom:1.25rem;border-bottom:2px solid #e2e8f0}
+.tab{padding:.65rem 1.5rem;font-size:.9rem;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;color:#64748b;transition:all .2s;user-select:none}
+.tab:hover{color:#3b82f6}
+.tab.active{color:#3b82f6;border-bottom-color:#3b82f6}
+.tab .count{font-size:.75rem;font-weight:500;background:#e2e8f0;color:#64748b;padding:.1rem .45rem;border-radius:1rem;margin-left:.35rem}
+.tab.active .count{background:#dbeafe;color:#3b82f6}
+
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.25rem;align-items:flex-start}
+.filter-group{display:flex;flex-direction:column;gap:.4rem}
+.filter-label{font-size:.75rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.04em}
+.filter-pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.pill{padding:.35rem .75rem;border:1.5px solid #e2e8f0;border-radius:2rem;font-size:.8rem;font-weight:500;cursor:pointer;background:#fff;color:#475569;transition:all .15s;user-select:none}
+.pill:hover{border-color:#93c5fd;background:#eff6ff}
+.pill.active{background:#3b82f6;color:#fff;border-color:#3b82f6}
+
+.stats{font-size:.875rem;color:#64748b;margin-bottom:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem}
+
+/* Card */
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;padding:1.25rem;color:inherit;transition:box-shadow .2s,border-color .2s;display:flex;flex-direction:column;gap:.5rem}
+.card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:#3b82f6}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.card-name{font-weight:600;font-size:.95rem;color:#1e293b;flex:1}
+.card-meta{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.card-location{font-size:.8rem;color:#64748b}
+.card-badges{display:flex;gap:.35rem;align-items:center}
+.card-lang{font-size:.65rem;font-weight:600;padding:.15rem .4rem;border-radius:.25rem;text-transform:uppercase}
+.card-lang.he{background:#fef3c7;color:#92400e}
+.card-lang.en{background:#dbeafe;color:#1e40af}
+.card-rating{font-size:.75rem;font-weight:600;color:#f59e0b;display:flex;align-items:center;gap:.2rem}
+
+/* Contact info */
+.card-contact{display:flex;flex-wrap:wrap;gap:.5rem .75rem;font-size:.78rem;color:#475569}
+.card-contact a{color:#3b82f6;text-decoration:none}
+.card-contact a:hover{text-decoration:underline}
+.contact-item{display:flex;align-items:center;gap:.25rem}
+.contact-icon{width:14px;height:14px;opacity:.6;flex-shrink:0}
+
+/* Status dropdown */
+.status-select{font-size:.72rem;font-weight:600;padding:.25rem .5rem;border-radius:.35rem;border:1.5px solid #e2e8f0;background:#fff;cursor:pointer;outline:none;color:#475569;transition:border-color .2s}
+.status-select:focus{border-color:#3b82f6}
+.status-select.s-cold{border-color:#94a3b8;color:#64748b}
+.status-select.s-reached1{border-color:#f59e0b;color:#b45309}
+.status-select.s-reached2{border-color:#f97316;color:#c2410c}
+.status-select.s-reached3{border-color:#ef4444;color:#dc2626}
+.status-select.s-responded{border-color:#22c55e;color:#16a34a}
+.status-select.s-meeting{border-color:#8b5cf6;color:#7c3aed}
+.status-select.s-closed{border-color:#3b82f6;color:#2563eb;background:#eff6ff}
+.status-select.s-not-interested{border-color:#e2e8f0;color:#94a3b8}
+
+/* Links row */
+.card-links{display:flex;gap:.5rem;margin-top:.25rem;flex-wrap:wrap;align-items:center}
+.card-link{font-size:.75rem;font-weight:600;display:inline-flex;align-items:center;gap:.35rem;padding:.45rem 1rem;border-radius:.375rem;transition:all .2s;text-decoration:none;border:none;cursor:pointer}
+.card-link.website{background:#3b82f6;color:#fff}
+.card-link.website:hover{background:#2563eb;transform:translateY(-1px);box-shadow:0 2px 8px rgba(59,130,246,.35)}
+.card-link.proposal{background:#7c3aed;color:#fff}
+.card-link.proposal:hover{background:#6d28d9;transform:translateY(-1px);box-shadow:0 2px 8px rgba(124,58,237,.35)}
+
+/* Expand toggle */
+.expand-btn{font-size:.72rem;font-weight:500;color:#64748b;cursor:pointer;background:none;border:none;padding:.25rem .5rem;border-radius:.25rem;transition:all .15s;margin-left:auto}
+.expand-btn:hover{background:#f1f5f9;color:#3b82f6}
+
+/* Expanded section */
+.card-expanded{display:none;border-top:1px solid #f1f5f9;padding-top:.75rem;margin-top:.25rem}
+.card-expanded.open{display:block}
+.social-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.social-link{font-size:.75rem;font-weight:500;color:#fff;padding:.35rem .75rem;border-radius:.35rem;text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;transition:opacity .15s}
+.social-link:hover{opacity:.85}
+.social-link.fb{background:#1877f2}
+.social-link.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.social-link.gm{background:#34a853}
+.social-link.email{background:#475569}
+.expanded-details{margin-top:.5rem;font-size:.78rem;color:#64748b}
+.expanded-details span{display:block;margin-bottom:.2rem}
+
+.no-results{text-align:center;padding:3rem;color:#94a3b8;font-size:1.1rem;display:none}
+@media(max-width:600px){
+  .tabs{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .grid{grid-template-columns:1fr}
+  .filters{gap:.5rem}
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Scalefox Directory</h1>
+  <p>All business landing pages & proposals at a glance</p>
+</div>
+<div class="container">
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-vertical="all">All<span class="count" id="countAll"></span></div>
+    <div class="tab" data-vertical="dentists">Dentists<span class="count" id="countDentists"></span></div>
+    <div class="tab" data-vertical="auto-repair">Auto Repair<span class="count" id="countAuto"></span></div>
+  </div>
+
+  <input type="text" class="search-box" id="search" placeholder="Search by name, location, or email..." autocomplete="off">
+
+  <div class="filters">
+    <div class="filter-group">
+      <span class="filter-label">Type</span>
+      <div class="filter-pills" id="typeFilter">
+        <span class="pill active" data-type="all">All</span>
+        <span class="pill" data-type="website">Website</span>
+        <span class="pill" data-type="proposal">Proposal</span>
+      </div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Language</span>
+      <div class="filter-pills" id="langFilter">
+        <span class="pill active" data-lang="all">All</span>
+        <span class="pill" data-lang="en">English</span>
+        <span class="pill" data-lang="he">Hebrew</span>
+      </div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Status</span>
+      <div class="filter-pills" id="statusFilter">
+        <span class="pill active" data-status="all">All</span>
+        <span class="pill" data-status="cold">Cold</span>
+        <span class="pill" data-status="reached1">Reached 1x</span>
+        <span class="pill" data-status="reached2">Reached 2x</span>
+        <span class="pill" data-status="responded">Responded</span>
+        <span class="pill" data-status="meeting">Meeting</span>
+        <span class="pill" data-status="closed">Closed</span>
+      </div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Area</span>
+      <div class="filter-pills" id="areaFilter">
+        <span class="pill active" data-area="all">All</span>
+        <span class="pill" data-area="houston">Houston</span>
+        <span class="pill" data-area="phoenix">Phoenix</span>
+        <span class="pill" data-area="nyc">NYC</span>
+        <span class="pill" data-area="gush_dan">Gush Dan</span>
+        <span class="pill" data-area="other">Other</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+  <div class="grid" id="grid"></div>
+  <div class="no-results" id="noResults">No businesses match your filters.</div>
+</div>
+<script>
+const AREA_MAP = {
+  'Houston':'houston','Richmond':'houston','Kingwood':'houston','Humble':'houston','Katy':'houston',
+  'Phoenix':'phoenix',
+  'Brooklyn, NY':'nyc','Bronx, NY':'nyc','New York, NY':'nyc','Jackson Heights, NY':'nyc',
+  'Flushing, NY':'nyc','Richmond Hill, NY':'nyc',
+  'תל אביב':'gush_dan','בת ים':'gush_dan','בני ברק':'gush_dan','פתח תקווה':'gush_dan',
+  'רמת גן':'gush_dan','חולון':'gush_dan','קרית אונו':'gush_dan','גבעתיים':'gush_dan',
+};
+
+const STATUS_OPTIONS = [
+  {v:'cold',l:'Cold'},
+  {v:'reached1',l:'Reached Out 1x'},
+  {v:'reached2',l:'Reached Out 2x'},
+  {v:'reached3',l:'Reached Out 3x'},
+  {v:'responded',l:'Responded'},
+  {v:'meeting',l:'Meeting Set'},
+  {v:'closed',l:'Closed'},
+  {v:'not-interested',l:'Not Interested'}
+];
+
+function getArea(loc) {
+  if (AREA_MAP[loc]) return AREA_MAP[loc];
+  const city = loc.split(',')[0].trim();
+  if (AREA_MAP[city]) return AREA_MAP[city];
+  return 'other';
+}
+
+// localStorage for statuses
+const STORAGE_KEY = 'scalefox_directory_statuses';
+function loadStatuses() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; }
+}
+function saveStatus(slug, status) {
+  const s = loadStatuses();
+  s[slug] = status;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+}
+function getStatus(slug) {
+  return loadStatuses()[slug] || 'cold';
+}
+
+const items = [
+  {f:'abraham-esses-dds',n:'Abraham Esses',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'alma-dental-kanevsky-alexander-dds',n:'Alma Dental',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'aly-prydvvld-dr',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'anychvbytz-mrk',n:'מרפאת אניחוביץ מרק',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'ayan-mrkz-lrpvat-shynyym-ayan-dental-center',n:'איאן מרכז לרפואת שיניים AYAN Dental Center',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'boyd-tiffany-d-dds',n:'Boyd Tiffany D',l:'Bradenton, FL',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dental-innovations',n:'Dental Innovations',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dkh-avmr',n:'מרפאת דקה עומר',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dntl-art',n:'מרפאת דנטל ארט',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dntlvks-sntr-bam',n:'דנטלוקס סנטר בע"מ',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-alchndrv-astyyn-mrpat-shynyym',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-alprd-chvry',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-asa-alvn',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-asprnh-shlmh-mrpat-shynyym',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-avmr-kvtvn-mvmchh-lshykvm-hph',n:'מומחה לשיקום הפה',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-avrtl-kslr-brvk-typvly-shvrsh-andvdvntyh',n:'טיפולי שורש - אנדודונטיה',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-ayltvb-mykal',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-ayty-mvr-rvpa-shynyym-btl-abyb',n:'רופא שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-bsharh-abd-rvpa-shynyym',n:'רופא שיניים',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-dario-y-yapor-dds',n:'Dr. Dario Y. Yapor',l:'New York, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-divyang-b-patel-dds',n:'Dr. Divyang B. Patel',l:'Palm Harbor, FL',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-drvr-dr-blvk-mrpat-shynyym-bam',n:'מרפאת שיניים בע"מ',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-dvd-ktzmn',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-dvd-kyykvb',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-evgenia-zaikin-dr-ybgnyh-zaykyn',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-gya-prydmn-mvmchh-lshykvm-hph',n:'מומחה לשיקום הפה',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-irving-bruck-dds',n:'Dr. Irving Bruck',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-jesse-rivas-dds',n:'Dr. Jesse Rivas',l:'Irving, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-kamal-brar-dds',n:'Dr. Kamal Brar',l:'Flower Mound, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-kryaf-avryt-mrpat-shynyym',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-kyle-d-eberlein-dds',n:'Dr. Kyle D. Eberlein',l:'Hurst, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-lah-kydr-rvpat-shynyym',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-leonid-fuks',n:'Dr. Leonid Fuks',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-magdy-elsharouny-dds',n:'Dr. Magdy Elsharouny',l:'Flushing, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-mykal-pvstlnyk',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-nvbvslsky-grygvry',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-nynv-mkynvlvb',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-pnsnkv-kvnstntyn',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-rvnyt-mavr',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-shlvmy-ldrmn-mrkz-rpvay-mtkdm-lhshtlvt-shynyym',n:'מרכז רפואי מתקדם להשתלות שיניים ושיקום הפה',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-shmavnvb-brvk',n:'מרפאת שיניים בבני ברק',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-shmvaly-aldr-mrpat-shynyym',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-svlvmvn-tvkvb-mrpat-shynyym-bbt-ym',n:'סולומון טוקוב - מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-tndlyk-mshh',n:'מרפאת שיניים בפתח תקווה',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-yvspy-bnymyn-dntlyn',n:'מרפאת שיניים בבני ברק',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dr-zab-zrykr',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'drmichael-perez-davidi-myshl-prtz-dvydy',n:'Michael Perez Davidi מישל פרץ דוידי',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'dvktvr-rnrt-chyym',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'east-pioneer-dental',n:'East Pioneer Dental',l:'Grand Prairie, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'gothelf-levine-gothelf-craig-g-dds',n:'Gothelf & Levine',l:'Jackson Heights, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'hdsh-dnt-al',n:'מרפאת הדסה דנט-על',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'hvrykv',n:'מרפאת הוריקו',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'hyrsh-amy',n:'מרפאת הירש עמי',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'kvl-hshn-mrpat-shynyym-mrkzyt-bam',n:'קול השן - מרפאת שיניים מרכזית בע"מ',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'kvrf-aytn-dr',n:'מרפאת שיניים בקרית אונו',l:'קרית אונו',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'lydr-dn-rvpa-shynyym',n:'לידר רופא שיניים',l:'גבעתיים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mednick-saul-dds',n:'Mednick Saul',l:'Bronx, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'mendoza-david-r-dds',n:'Mendoza David R',l:'Gulfport, FL',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-brmt-gn-hshtlvt-tzypvyym-vasttykh-dr',n:'מרפאת שיניים ברמת גן השתלות ציפויים ואסתטיקה',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-bt-ym',n:'מרפאת שיניים בת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-blyk',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-chyymvb',n:'מרפאת שיניים בחולון',l:'חולון',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-gbryal-yagvdyyb',n:'מרפאת שיניים בבני ברק',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-kzkvb',n:'מרפאת שיניים בפתח תקווה',l:'פתח תקווה',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-m-smy',n:'מרפאת שיניים ברמת גן',l:'רמת גן',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-pvks',n:'מרפאת שיניים בתל אביב',l:'תל אביב',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-dr-skbyrsky',n:'מרפאת שיניים בבני ברק',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-gvldmn',n:'מרפאת שיניים גולדמן',l:'חולון',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-mvrsht-aytn',n:'מרפאת שיניים מורשת איתן',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-rmt-gn-syvn-shn-bam',n:'מרפאת שיניים רמת גן - סיון שן בע"מ',l:'רמת גן',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'mrpat-shynyym-shpyra',n:'מרפאת שיניים שפירא',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'p-e-g-general-dental',n:'P.E.G. General Dental',l:'Bronx, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'panv-syty',n:'מרפאת פאנו סיטי',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'quisqueya-dental-hernandez-miladys-dds',n:'Quisqueya Dental',l:'Richmond Hill, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'reunited-medical-and-dental',n:'Reunited Medical And Dental',l:'Bronx, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'richard-p-medina-dds',n:'Richard P Medina',l:'Jackson Heights, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'rosenberg-phillip-dds',n:'Rosenberg Phillip',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'rpvat-hshn',n:'מרפאת רפואת השן',l:'בני ברק',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'rvpa-shynyym-24-azrh-rashvnh-chvlvn-dr-rvmn-strayt',n:'רופא שיניים 24 עזרה ראשונה חולון',l:'חולון',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'rvpa-shynyym-brmt-gn',n:'רופא שיניים ברמת גן',l:'רמת גן',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'sarak-vezire-dds',n:'Sarak Vezire',l:'New York, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'scott-howell',n:'Scott Howell',l:'Kingwood, TX',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'shen-dental',n:'Shen Dental',l:'Brooklyn, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'southeast-dental',n:'Southeast Dental',l:'Chamblee, GA',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'syrkys-andry-dr',n:'מרפאת שיניים בבת ים',l:'בת ים',lang:'he',v:'dentists',has_w:true,has_p:true},
+  {f:'west-94th-street-dental-associates',n:'West 94th Street Dental Associates',l:'New York, NY',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'westridge-dental-group-kasper-robert-dds',n:'Westridge Dental Group',l:'Goodyear, AZ',lang:'en',v:'dentists',has_w:true,has_p:true},
+  {f:'001-wheel-master',n:'Wheel Master',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:993,ph:'(623) 478-8063',e:'wheelmaster75@gmail.com',fb:'https://www.facebook.com/p/Wheel-Master-Inc-100080954663523',ig:'https://www.instagram.com/wheel_masterss',gm:'https://www.google.com/maps/search/?api=1&query=Wheel%20Master&query_place_id=ChIJcfixcZkVK4cRZ3xAiPXLooM'},
+  {f:'002-pedros-tire-shop',n:'Pedro\'s Tire Shop',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:533,ph:'(832) 876-3728',e:'support@giftly.com',fb:'https://www.facebook.com/ptireshop',ig:'https://www.instagram.com/pedrosbodyshop',gm:'https://www.google.com/maps/search/?api=1&query=Pedro\'s%20Tire%20Shop&query_place_id=ChIJL4CF8tK4QIYR3S3WDFD63zA'},
+  {f:'003-texas-radiators-mufflers-vehicles-emissions-inspection',n:'Texas Radiators & Mufflers',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:502,ph:'(713) 941-2323',e:'medcentermuffler23@gmail.com',fb:'https://www.facebook.com/Texasradiatormuffler',ig:'',gm:'https://www.google.com/maps/search/?api=1&query=Texas%20Radiators%20%26%20Mufflers&query_place_id=ChIJ1QsomuGZQIYR7Fri-jqAKGg'},
+  {f:'004-houston-mobile-mechanic-diesel-repair-llc',n:'Houston Mobile Mechanic & Diesel Repair',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:405,ph:'(832) 249-1533',e:'daveguerrero324@gmail.com',fb:'https://www.facebook.com/people/Houston-Mobile-Mechanic/61568151550802',ig:'',gm:'https://maps.google.com/?cid=16172382930587708651'},
+  {f:'005-triple-j-auto',n:'Triple J Auto',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:5,rc:367,ph:'(480) 206-2852',e:'ojeda669@hotmail.com',fb:'https://www.facebook.com/triplejautoaz',ig:'https://www.instagram.com/triplejautoglass',gm:'https://www.google.com/maps/search/?api=1&query=Triple%20J%20Auto&query_place_id=ChIJM4dEmX8RK4cRYkm9XRknEx0'},
+  {f:'006-stars-auto-repair',n:'STARS Auto Repair',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:353,ph:'(713) 476-0771',e:'mario@carstarshouston.com',fb:'https://www.facebook.com/p/Star-Auto-Collision-Repair-100064281634438',ig:'https://www.instagram.com/7stars_transmissions',gm:'https://www.google.com/maps/search/?api=1&query=STARS%20Auto%20Repair&query_place_id=ChIJm5zmCujFQIYREm0D9qFkHvs'},
+  {f:'007-juans-auto-glass',n:'Juan\'s Auto Glass',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:342,ph:'(713) 699-2182',e:'onlinehelp@safelite.com',fb:'https://www.facebook.com/pages/Juans-Auto-Glass/159041577450952',ig:'https://www.instagram.com/juans_auto_glass',gm:'https://www.google.com/maps/search/?api=1&query=Juan\'s%20Auto%20Glass&query_place_id=ChIJJVKkt-fHQIYRHjAUegAcWfU'},
+  {f:'008-quick-auto-service-state-inspection',n:'Quick Auto Service & State Inspection',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:291,ph:'(832) 382-4155',e:'info@2Quickauto.com',fb:'https://www.facebook.com/2QuickAutomotive',ig:'',gm:'https://maps.google.com/?cid=12469657232009236919'},
+  {f:'009-byrds',n:'Byrds',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:290,ph:'(713) 633-1822',e:'info@byrdsplumbing.com',fb:'https://www.facebook.com/twolittlebyrds',ig:'https://www.instagram.com/itstbyrds',gm:'https://www.google.com/maps/search/?api=1&query=Byrds&query_place_id=ChIJdYjg6o-5QIYR7PX8Mpl8Qjg'},
+  {f:'010-rogels-auto-alignment-llc',n:'Rogel\'s Auto Alignment LLC',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:250,ph:'(602) 254-3058',e:'isTreyday63@gmail.com',fb:'https://www.facebook.com/Rogels.Auto.Alignment',ig:'https://www.instagram.com/rogelsauto',gm:'https://www.google.com/maps/search/?api=1&query=Rogel\'s%20Auto%20Alignment%20LLC&query_place_id=ChIJSbP_2wESK4cRCADJKMgByt0'},
+  {f:'011-state-inspection-lube',n:'State Inspection & Lube',l:'Kingwood',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:248,ph:'(281) 358-4787',e:'sales@tirebuddy.com',fb:'',ig:'',gm:'https://www.google.com/maps/search/?api=1&query=State%20Inspection%20%26%20Lube&query_place_id=ChIJg_Pc2rOyQIYRIO7JQ7MGAko'},
+  {f:'012-cesar-paint-body-shop',n:'Cesar Paint & Body Shop',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:221,ph:'(281) 818-7114',e:'cesarbodyshop2017@gmail.com',fb:'https://www.facebook.com/p/Cesar-Body-Shop-100054423087204',ig:'https://www.instagram.com/cesarpaintandbodyshop',gm:'https://maps.google.com/?cid=9523041029818065183'},
+  {f:'013-imports-american-auto-services',n:'Imports & American Auto Services',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:216,ph:'(480) 969-3311',e:'importsandamerican@gmail.com',fb:'https://www.facebook.com/p/Imports-American-Auto-Service-100067323643219',ig:'',gm:'https://maps.google.com/?cid=2765805793871108195'},
+  {f:'014-affordable-mobile-mechanic',n:'Affordable Mobile Mechanic',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:208,ph:'(602) 698-2987',e:'azmobilemaintenancemechanic@gmail.com',fb:'',ig:'https://www.instagram.com/outtheremobilemechanic',gm:'https://maps.google.com/?cid=2742809606178871184'},
+  {f:'015-just-right-car-care-center',n:'Just Right Car Care Center',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.5,rc:198,ph:'(281) 741-0606',e:'justrightcarcare@gmail.com',fb:'https://www.facebook.com/p/Just-Right-Car-Care-Center-100063935135103',ig:'https://www.instagram.com/justrightcarcare1',gm:'https://www.google.com/maps/search/?api=1&query=Just%20Right%20Car%20Care%20Center&query_place_id=ChIJa2NqugLcQIYRETHX8bwYuUc'},
+  {f:'016-menard-auto-repair',n:'Menard Auto Repair',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:197,ph:'(480) 844-2245',e:'menardsauto@gmail.com',fb:'https://www.facebook.com/p/Menard-Auto-Repair-Shop-100087199944782',ig:'',gm:'https://maps.google.com/?cid=9608933865255352167'},
+  {f:'017-salahs-auto-repair',n:'Salah\'s Auto Repair',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:190,ph:'(713) 977-5313',e:'salahsauto@gmail.com',fb:'https://www.facebook.com/salahsauto',ig:'',gm:'https://www.google.com/maps/search/?api=1&query=Salah\'s%20Auto%20Repair&query_place_id=ChIJqR0AD6rDQIYRpQcZm7tja5I'},
+  {f:'018-century-automotive-repair',n:'Century Automotive Repair',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:187,ph:'(713) 475-2483',e:'centuryautomotiverepairs@comcast.net',fb:'https://www.facebook.com/CenturyAutomotiveRepairs',ig:'',gm:'https://maps.google.com/?cid=13772778511176065106'},
+  {f:'019-leos-body-shop',n:'Leo\'s Body Shop',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:180,ph:'(713) 789-4130',e:'info@elizabethanthonyhouston.com',fb:'https://www.facebook.com/pages/leos-auto-repair/142372412475377',ig:'',gm:'https://maps.google.com/?cid=1310828111486637112'},
+  {f:'020-old-katy-car-care',n:'Old Katy Car Care',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:156,ph:'(281) 848-9825',e:'info@cityofkaty.com',fb:'https://www.facebook.com/p/The-Car-Masseuse-of-Old-Katy-100078717134622',ig:'https://www.instagram.com/katy_carmeets',gm:'https://maps.google.com/?cid=4684177967334851663'},
+  {f:'021-rays-auto-electric',n:'Ray\'s Auto Electric',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:156,ph:'(713) 661-8189',e:'raysautoelectric@earthlink.net',fb:'https://www.facebook.com/p/Rays-Auto-Repair-Carwash-100063838003825',ig:'https://www.instagram.com/raysautorepairncarwash',gm:'https://www.google.com/maps/search/?api=1&query=Ray\'s%20Auto%20Electric&query_place_id=ChIJ9dE5XyHCQIYRBYw2NKRuGiw'},
+  {f:'022-west-houston-auto-ac-repair-llc',n:'West Houston Auto A/C Repair LLC',l:'Richmond',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.9,rc:154,ph:'(832) 407-3849',e:'westhoustonautoacrepair@gmail.com',fb:'https://www.facebook.com/westhoustonautorepair',ig:'https://www.instagram.com/nwesthoustonautorepair',gm:'https://www.google.com/maps/search/?api=1&query=West%20Houston%20Auto%20A%2FC%20Repair%20LLC&query_place_id=ChIJj9EytyrfQIYRQIYsZvUHzZw'},
+  {f:'023-jacks-automotive-services',n:'Jacks Automotive Services',l:'Phoenix',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:147,ph:'(602) 273-0717',e:'JACKSAUTO001@GMAIL.COM',fb:'https://www.facebook.com/p/Jacks-Automotive-Service-100057528816874',ig:'https://www.instagram.com/jacksdetailgarage',gm:'https://www.google.com/maps/search/?api=1&query=Jacks%20Automotive%20Services&query_place_id=ChIJKW5-OegNK4cRI7ZIlELRigA'},
+  {f:'024-friendly-car-care',n:'Friendly Car Care',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.7,rc:146,ph:'(713) 694-8810',e:'friendlycarcare@gmail.com',fb:'https://www.facebook.com/p/Friendly-Car-Care-100077421916659',ig:'',gm:'https://www.google.com/maps/search/?api=1&query=Friendly%20Car%20Care&query_place_id=ChIJnSFGB9O5QIYRiuJMpwNHb3M'},
+  {f:'025-ez-auto-stop-vehicle-inspection-auto-repair-wheel-alignment',n:'EZ AUTO STOP',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:142,ph:'(713) 474-0264',e:'shakirmalik0264@gmail.com',fb:'https://www.facebook.com/p/EZ-Stop-Auto-Inspection-61575696129061',ig:'https://www.instagram.com/onestopautoservices',gm:'https://www.google.com/maps/search/?api=1&query=EZ%20AUTO%20STOP&query_place_id=ChIJiXZ9etnCQIYRWLvnNvMJ6Rs'},
+  {f:'026-hernandez-auto-services-tires-llc',n:'Hernandez Auto Services & Tires LLC',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:140,ph:'(713) 485-4165',e:'dswitalski@davischevrolet.com',fb:'https://www.facebook.com/hernandezautoservicestiresllc',ig:'https://www.instagram.com/the_hernandez_sh0p',gm:'https://www.google.com/maps/search/?api=1&query=Hernandez%20Auto%20Services%20%26%20Tires%20LLC&query_place_id=ChIJjxNb1D3oQIYR1ynAgbyGmnk'},
+  {f:'027-arturos-garage-auto-mechanics',n:'Arturos Garage Auto Mechanics',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.5,rc:130,ph:'(713) 695-2155',e:'foia@fmcsa.dot.gov',fb:'https://www.facebook.com/ArturosMobileMechanic',ig:'https://www.instagram.com/arturosupercar',gm:'https://www.google.com/maps/search/?api=1&query=Arturos%20Garage%20Auto%20Mechanics&query_place_id=ChIJm4o6qRrIQIYRHGDpaxqSAh8'},
+  {f:'028-auto-best-houston-inc',n:'Auto Best Houston Inc',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:126,ph:'(713) 659-7600',e:'Raz@bestautotx.com',fb:'https://www.facebook.com/TexasBestAuto',ig:'https://www.instagram.com/bestautotx',gm:'https://www.google.com/maps/search/?api=1&query=Auto%20Best%20Houston%20Inc&query_place_id=ChIJ6RwfgRO_QIYRagF0UdrhdA8'},
+  {f:'029-texas-mobile-auto-body-repairs',n:'Texas Mobile Auto Body Repairs',l:'Humble',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.8,rc:124,ph:'(832) 210-5357',e:'contact@instantcarfix.com',fb:'https://www.facebook.com/mobiledentrepairtx',ig:'https://www.instagram.com/texas_mobile832',gm:'https://www.google.com/maps/search/?api=1&query=Texas%20mobile%20auto%20body%20repairs&query_place_id=ChIJc-rZzpyzQIYROoBI2rB_l7Q'},
+  {f:'030-texan-automotive',n:'Texan Automotive',l:'Houston',lang:'en',v:'auto-repair',has_w:true,has_p:true,r:4.6,rc:121,ph:'(713) 393-7352',e:'omar.majzoub@houstontexans.com',fb:'https://www.facebook.com/p/Texan-Auto-Group-100083208466889',ig:'https://www.instagram.com/texanauto',gm:'https://www.google.com/maps/search/?api=1&query=Texan%20Automotive&query_place_id=ChIJg7LA4lq_QIYRQPjH8w8xpek'}
+];
+
+const grid = document.getElementById('grid');
+const stats = document.getElementById('stats');
+const noResults = document.getElementById('noResults');
+const search = document.getElementById('search');
+
+let activeVertical = 'all';
+let activeType = 'all';
+let activeLang = 'all';
+let activeArea = 'all';
+let activeStatus = 'all';
+
+// Tab click
+document.getElementById('tabs').addEventListener('click', e => {
+  const tab = e.target.closest('.tab');
+  if (!tab) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  activeVertical = tab.dataset.vertical;
+  render();
+});
+
+// Generic filter handler
+function setupFilter(id, setter) {
+  document.getElementById(id).addEventListener('click', e => {
+    const pill = e.target.closest('.pill');
+    if (!pill) return;
+    document.querySelectorAll('#' + id + ' .pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    setter(pill);
+    render();
+  });
+}
+setupFilter('typeFilter', p => activeType = p.dataset.type);
+setupFilter('langFilter', p => activeLang = p.dataset.lang);
+setupFilter('areaFilter', p => activeArea = p.dataset.area);
+setupFilter('statusFilter', p => activeStatus = p.dataset.status);
+
+function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function getWebsiteUrl(item) {
+  if (item.v === 'dentists') return '/' + item.f + '/';
+  return '/auto-repair/' + item.f + '/';
+}
+
+function getProposalUrl(item) {
+  if (item.v === 'dentists') return '/' + item.f + '/proposal.html';
+  return '/auto-repair/' + item.f + '/proposal.html';
+}
+
+function render() {
+  const q = (search.value || '').toLowerCase();
+
+  let filtered = items.filter(item => {
+    if (q && !item.n.toLowerCase().includes(q) && !item.l.toLowerCase().includes(q) && !item.f.toLowerCase().includes(q) && !(item.e||'').toLowerCase().includes(q)) return false;
+    if (activeVertical !== 'all' && item.v !== activeVertical) return false;
+    if (activeLang !== 'all' && item.lang !== activeLang) return false;
+    if (activeArea !== 'all' && getArea(item.l) !== activeArea) return false;
+    if (activeStatus !== 'all' && getStatus(item.f) !== activeStatus) return false;
+    return true;
+  });
+
+  const unique = {};
+  filtered.forEach(item => { if (!unique[item.f]) unique[item.f] = item; });
+  const cards = Object.values(unique);
+
+  // Update counts
+  const allUniq = {};
+  items.forEach(i => { allUniq[i.f] = i; });
+  const dentistCount = Object.values(allUniq).filter(i => i.v === 'dentists').length;
+  const autoCount = Object.values(allUniq).filter(i => i.v === 'auto-repair').length;
+  document.getElementById('countAll').textContent = dentistCount + autoCount;
+  document.getElementById('countDentists').textContent = dentistCount;
+  document.getElementById('countAuto').textContent = autoCount;
+
+  stats.textContent = 'Showing ' + cards.length + ' businesses';
+  if (cards.length === 0) {
+    grid.innerHTML = '';
+    noResults.style.display = 'block';
+    return;
+  }
+  noResults.style.display = 'none';
+
+  grid.innerHTML = cards.map(c => {
+    const ratingHtml = c.r ? '<span class="card-rating">★ ' + c.r + (c.rc ? ' (' + c.rc + ')' : '') + '</span>' : '';
+    const curStatus = getStatus(c.f);
+
+    // Status dropdown
+    const statusOpts = STATUS_OPTIONS.map(o =>
+      '<option value="' + o.v + '"' + (curStatus === o.v ? ' selected' : '') + '>' + o.l + '</option>'
+    ).join('');
+    const statusHtml = '<select class="status-select s-' + curStatus + '" data-slug="' + c.f + '" onchange="handleStatus(this)">' + statusOpts + '</select>';
+
+    // Contact info
+    let contactHtml = '';
+    if (c.ph) contactHtml += '<span class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:' + esc(c.ph) + '">' + esc(c.ph) + '</a></span>';
+    if (c.e) contactHtml += '<span class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg><a href="mailto:' + esc(c.e) + '">' + esc(c.e) + '</a></span>';
+
+    // Links
+    let linksHtml = '';
+    if (activeType === 'all' || activeType === 'website') {
+      linksHtml += '<a class="card-link website" href="' + getWebsiteUrl(c) + '" target="_blank">Website</a>';
+    }
+    if ((activeType === 'all' || activeType === 'proposal') && c.has_p) {
+      linksHtml += '<a class="card-link proposal" href="' + getProposalUrl(c) + '" target="_blank">Proposal</a>';
+    }
+
+    // Social links for expanded section
+    let socialHtml = '';
+    if (c.fb) socialHtml += '<a class="social-link fb" href="' + esc(c.fb) + '" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a>';
+    if (c.ig) socialHtml += '<a class="social-link ig" href="' + esc(c.ig) + '" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>Instagram</a>';
+    if (c.gm) socialHtml += '<a class="social-link gm" href="' + esc(c.gm) + '" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>Google Maps</a>';
+    if (c.e) socialHtml += '<a class="social-link email" href="mailto:' + esc(c.e) + '" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>Email</a>';
+
+    const hasExpanded = socialHtml || c.ph;
+    const expandBtn = hasExpanded ? '<button class="expand-btn" onclick="toggleExpand(this)" data-slug="' + c.f + '">More ▾</button>' : '';
+
+    let expandedHtml = '';
+    if (hasExpanded) {
+      expandedHtml = '<div class="card-expanded" id="exp-' + c.f + '">';
+      if (socialHtml) expandedHtml += '<div class="social-links">' + socialHtml + '</div>';
+      expandedHtml += '</div>';
+    }
+
+    return '<div class="card">' +
+      '<div class="card-header">' +
+        '<span class="card-name">' + esc(c.n) + '</span>' +
+        statusHtml +
+      '</div>' +
+      '<span class="card-meta">' +
+        '<span class="card-location">' + esc(c.l) + '</span>' +
+        '<span class="card-badges">' +
+          ratingHtml +
+          '<span class="card-lang ' + c.lang + '">' + (c.lang === 'he' ? 'HE' : 'EN') + '</span>' +
+        '</span>' +
+      '</span>' +
+      (contactHtml ? '<div class="card-contact">' + contactHtml + '</div>' : '') +
+      '<div class="card-links">' + linksHtml + expandBtn + '</div>' +
+      expandedHtml +
+    '</div>';
+  }).join('');
+}
+
+function handleStatus(select) {
+  const slug = select.dataset.slug;
+  const val = select.value;
+  saveStatus(slug, val);
+  // Update class for color
+  select.className = 'status-select s-' + val;
+}
+
+function toggleExpand(btn) {
+  const slug = btn.dataset.slug;
+  const el = document.getElementById('exp-' + slug);
+  if (!el) return;
+  el.classList.toggle('open');
+  btn.textContent = el.classList.contains('open') ? 'Less ▴' : 'More ▾';
+}
+
+search.addEventListener('input', () => render());
+render();
+</script>
+</body>
+</html>

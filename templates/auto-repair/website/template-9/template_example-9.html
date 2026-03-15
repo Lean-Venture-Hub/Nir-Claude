@@ -66,8 +66,8 @@ body::before{
 }
 .headline-massive{
   font-size:clamp(52px,11vw,150px);font-weight:900;
-  letter-spacing:-0.03em;line-height:1.05;
-  color:var(--dark);
+  letter-spacing:-0.03em;line-height:1.1;
+  color:var(--dark);word-break:keep-all;
 }
 .headline-lg{
   font-size:clamp(36px,5vw,72px);font-weight:800;
@@ -110,8 +110,8 @@ section{padding:clamp(60px,8vw,120px) 0}
 /* ── Hero ────────────────────── */
 .hero{padding:clamp(20px,4vw,60px) 0 0}
 .hero-content{position:relative}
-.hero-headline{position:relative;margin-bottom:24px}
-.hero-headline .line{display:block;overflow:visible}
+.hero-headline{position:relative;margin-bottom:24px;overflow:visible}
+.hero-headline .line{display:block;overflow:visible;padding-bottom:0.05em}
 .hero-headline .word{display:inline-block}
 
 /* Inline decorative elements */
@@ -812,8 +812,9 @@ section{padding:clamp(60px,8vw,120px) 0}
   if(!prefersReduced){
     gsap.registerPlugin(ScrollTrigger);
     const words=document.querySelectorAll('.hero-headline .word');
-    gsap.from(words,{
-      y:80,opacity:0,duration:0.9,stagger:0.08,
+    gsap.set(words,{y:80,opacity:0});
+    gsap.to(words,{
+      y:0,opacity:1,duration:0.9,stagger:0.08,
       ease:'power3.out',delay:0.3
     });
     /* Decorative star spin */

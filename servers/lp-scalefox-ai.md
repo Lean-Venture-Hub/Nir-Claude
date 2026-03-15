@@ -30,12 +30,16 @@ ssh -i ~/.ssh/test_env_ec2.pem ubuntu@18.184.97.242 "sudo chown -R www-data:www-
 ├── gallerywebsite/                    → lp.scalefox.ai/gallerywebsite/
 │   ├── gallery.html                   — main gallery page (tabs per vertical)
 │   ├── index.html                     — redirect/landing
-│   ├── auto-repair/
-│   │   └── website/template-{1-26}/   — 26 auto-repair templates
-│   ├── dentists/
-│   │   └── website/template-{1-25}/   — 25 dentist templates
-│   └── landscaping/
-│       └── website/template-{1-13}/   — 13 landscaping templates
+│   ├── {vertical}/                    — one folder per vertical
+│   │   ├── website/template-{N}/      — template HTML + blog/
+│   │   └── images/template-images/    — shared images for all templates
+│   │       (templates reference ../../images/template-images/ relative)
+│   ├── auto-repair/    (26 templates, 30 images)
+│   ├── dentists/       (25 templates, 18 images)
+│   ├── landscaping/    (13 templates, 10 images)
+│   ├── veterinarians/  (10 templates, 10 images)
+│   ├── med-spas/       (10 templates, 10 images)
+│   └── hvac/           (10 templates, 10 images)
 │
 ├── galleryproposal/                   → lp.scalefox.ai/galleryproposal/
 │   ├── gallery.html                   — proposal gallery
@@ -55,7 +59,7 @@ ssh -i ~/.ssh/test_env_ec2.pem ubuntu@18.184.97.242 "sudo chown -R www-data:www-
 
 **URL:** `https://lp.scalefox.ai/gallerywebsite/gallery.html`
 
-- 3 vertical tabs: Dentists (default), Auto-Repair, Landscaping
+- 6 vertical tabs: Dentists (default), Auto-Repair, Landscaping, Veterinarians, Med Spas, HVAC
 - Filter buttons per vertical (light/dark/editorial/bold/etc.)
 - Language toggle (HE/EN) for dentists
 - Each card links to the template's `template_example-{N}.html`
@@ -76,12 +80,61 @@ ssh -i ~/.ssh/test_env_ec2.pem ubuntu@18.184.97.242 "sudo chown -R www-data:www-
 | `templates/{vertical}/images/` | `/gallerywebsite/{vertical}/images/` |
 | `templates/proposals/gallery.html` | `/galleryproposal/gallery.html` |
 
-## Current Template Count (as of 2026-03-13)
+## Deploy Mistakes to AVOID
 
-| Vertical | Templates | Last Updated |
-|----------|-----------|-------------|
-| Dentists | 25 | 2026-03-13 |
-| Auto-repair | 26 | 2026-03-14 |
-| Landscaping | 13 | 2026-03-13 |
-| Proposals | 20 | 2026-03-14 |
-| Individual sites | ~88 | — |
+| Mistake | What happens | Fix |
+|---------|-------------|-----|
+| `rsync templates/{v}/website/ → server/{v}/` (missing `website/`) | Templates land at `{v}/template-{N}/` instead of `{v}/website/template-{N}/` | Gallery iframe paths break — thumbnails show blank |
+| Forgetting to deploy `images/` | All template images 404 on server | Always deploy images AND templates (2 separate rsyncs) |
+| Using `--delete` on the vertical root | Deletes `images/` or `website/` dir | Only use `--delete` within `website/` or `images/` subdirs |
+
+## Feedback API
+
+Flask microservice on port 5111, proxied by nginx at `/api/`.
+
+**Files:**
+- App: `/opt/feedback-api/app.py`
+- Service: `/etc/systemd/system/feedback-api.service`
+- Data: `/var/www/lp.scalefox.ai/feedback/` (`gallery-feedback.json`, `sections-feedback.json`, `feedback-log.jsonl`)
+
+**Endpoints:**
+- `GET /api/feedback/health` — health check
+- `GET /api/feedback/gallery` — all gallery feedback (likes, comments, summary)
+- `GET /api/feedback/sections` — all section builder feedback (ratings, bugs, summary)
+- `POST /api/feedback` — submit feedback `{tool, user, action, key, value}`
+
+**Deploy:**
+```bash
+# Deploy API code
+rsync -avz -e "ssh -i ~/.ssh/test_env_ec2.pem" feedback-api/app.py ubuntu@18.184.97.242:/opt/feedback-api/
+
+# Restart service
+ssh -i ~/.ssh/test_env_ec2.pem ubuntu@18.184.97.242 "sudo systemctl restart feedback-api"
+```
+
+**Nginx config addition** (`/etc/nginx/sites-available/lp.scalefox.ai`):
+```nginx
+location /api/ {
+    proxy_pass http://127.0.0.1:5111/api/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+```
+
+**Read feedback from Claude Code:**
+```bash
+ssh -i ~/.ssh/test_env_ec2.pem ubuntu@18.184.97.242 "cat /var/www/lp.scalefox.ai/feedback/gallery-feedback.json"
+```
+
+## Current Template Count (as of 2026-03-15)
+
+| Vertical | Templates | Images | Last Updated |
+|----------|-----------|--------|-------------|
+| Dentists | 25 | 18 | 2026-03-13 |
+| Auto-repair | 26 | 30 | 2026-03-15 |
+| Landscaping | 13 | 10 | 2026-03-13 |
+| Veterinarians | 10 | 10 | 2026-03-14 |
+| Med Spas | 10 | 10 | 2026-03-14 |
+| HVAC | 10 | 10 | 2026-03-14 |
+| Proposals | 20 | — | 2026-03-14 |
+| Individual sites | ~88 | — | — |

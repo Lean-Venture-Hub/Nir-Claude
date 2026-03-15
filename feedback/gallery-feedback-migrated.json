@@ -1,0 +1,133 @@
+{
+  "likes": {
+    "nir": {
+      "auto-repair-7": true,
+      "auto-repair-9": true,
+      "auto-repair-11": true,
+      "auto-repair-12": true,
+      "auto-repair-14": true,
+      "auto-repair-16": true,
+      "auto-repair-25": true
+    }
+  },
+  "comments": {
+    "auto-repair-2": [
+      {
+        "user": "nir",
+        "text": "thumbnail in galaery has issues. color themes isn't good for an auto repair - more like a Realtor vibe..",
+        "timestamp": 1773573907086
+      }
+    ],
+    "auto-repair-3": [
+      {
+        "user": "nir",
+        "text": "has issue withe the hero section text - doesn't appear on the template",
+        "timestamp": 1773573956066
+      }
+    ],
+    "auto-repair-5": [
+      {
+        "user": "nir",
+        "text": "hero section text - has issues",
+        "timestamp": 1773574011652
+      }
+    ],
+    "auto-repair-7": [
+      {
+        "user": "nir",
+        "text": "in the services section - all items should have the same height",
+        "timestamp": 1773574076295
+      }
+    ],
+    "auto-repair-8": [
+      {
+        "user": "nir",
+        "text": "gallery thumbnail doesn't show the site properly",
+        "timestamp": 1773574106343
+      }
+    ],
+    "auto-repair-9": [
+      {
+        "user": "nir",
+        "text": "hero section - has some minor spacing issues (thesubtitle text need some space from the title) and the g of the title is cut out",
+        "timestamp": 1773574222683
+      }
+    ],
+    "auto-repair-11": [
+      {
+        "user": "nir",
+        "text": "the thumbnail in gallery has issues",
+        "timestamp": 1773574275907
+      }
+    ],
+    "auto-repair-12": [
+      {
+        "user": "nir",
+        "text": "hero title text - the blue isn't visible on the site iteslef.",
+        "timestamp": 1773574314415
+      }
+    ],
+    "auto-repair-17": [
+      {
+        "user": "nir",
+        "text": "love the creativity, manuy issues in the site",
+        "timestamp": 1773574462273
+      }
+    ],
+    "auto-repair-18": [
+      {
+        "user": "nir",
+        "text": "there is some empty default text - waiting for demo content",
+        "timestamp": 1773574525151
+      }
+    ],
+    "auto-repair-21": [
+      {
+        "user": "nir",
+        "text": "template has some issues. hero section need better alignemtn",
+        "timestamp": 1773574641860
+      }
+    ],
+    "auto-repair-23": [
+      {
+        "user": "nir",
+        "text": "issues with the template",
+        "timestamp": 1773574701181
+      }
+    ],
+    "auto-repair-24": [
+      {
+        "user": "nir",
+        "text": "issue with the template - some element appear and disapper",
+        "timestamp": 1773574734755
+      }
+    ],
+    "auto-repair-25": [
+      {
+        "user": "nir",
+        "text": "love this template - there are many empty sections (check this issues)",
+        "timestamp": 1773574796509
+      }
+    ],
+    "auto-repair-26": [
+      {
+        "user": "nir",
+        "text": "manny empty sections in the template",
+        "timestamp": 1773574834650
+      }
+    ]
+  },
+  "summary": {
+    "templateLikeCounts": {
+      "auto-repair-7": 1,
+      "auto-repair-9": 1,
+      "auto-repair-11": 1,
+      "auto-repair-12": 1,
+      "auto-repair-14": 1,
+      "auto-repair-16": 1,
+      "auto-repair-25": 1
+    },
+    "totalComments": 15,
+    "lastUpdated": "2026-03-15T11:43:05.343Z"
+  }
+}

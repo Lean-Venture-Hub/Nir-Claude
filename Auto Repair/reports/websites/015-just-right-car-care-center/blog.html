@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Care Tips & Advice | Just Right Car Care Center</title>
+<meta name="description" content="Expert auto care tips, maintenance guides, and repair advice from ASE-certified technicians at Just Right Car Care Center in Dallas, TX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1B2A4A;--navy-dark:#0F1A2E;--navy-light:#243558;--navy-mid:#162240;
+  --red:#DC2626;--red-dark:#B91C1C;--red-light:#EF4444;
+  --white:#FFFFFF;--off-white:#F7F9FC;--gray-100:#F1F5F9;
+  --gray-200:#E2E8F0;--gray-300:#CBD5E1;--gray-600:#475569;--gray-800:#1E293B;
+  --font-heading:'Oswald',sans-serif;
+  --font-body:'Source Sans 3',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+body{font-family:var(--font-body);color:var(--gray-800);background:var(--white);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:700;line-height:1.1}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 0;transition:all 0.4s var(--ease-out);background:var(--navy)}
+.nav.scrolled{padding:12px 0;box-shadow:0 4px 30px rgba(0,0,0,0.3)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-heading);font-size:1.6rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.05em;display:flex;align-items:center;gap:10px}
+.nav-logo-shield{width:36px;height:42px;background:var(--red);display:flex;align-items:center;justify-content:center;clip-path:polygon(0 0,100% 0,100% 75%,50% 100%,0 75%);font-size:0.75rem;font-weight:700;color:var(--white);line-height:1}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--white);font-family:var(--font-heading);font-weight:500;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--red);transition:width 0.3s var(--ease-out)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:10px 24px;background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;transition:background 0.3s}
+.nav-cta:hover{background:var(--red-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:8px}
+.hamburger span{display:block;width:28px;height:3px;background:var(--white);transition:all 0.3s var(--ease-out)}
+
+/* HERO */
+.blog-hero{padding:160px 0 80px;background:var(--navy-dark);position:relative;text-align:center}
+.blog-hero .diagonal-stripes{position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(255,255,255,0.02) 30px,rgba(255,255,255,0.02) 31px);pointer-events:none}
+.blog-hero .section-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-heading);font-size:0.85rem;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:16px}
+.blog-hero .section-eyebrow::before,.blog-hero .section-eyebrow::after{content:'';width:30px;height:2px;background:var(--red)}
+.blog-hero h1{font-size:clamp(2.5rem,5vw,4rem);color:var(--white);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:16px}
+.blog-hero h1 span{color:var(--red)}
+.blog-hero p{color:var(--gray-300);font-size:1.1rem;max-width:600px;margin:0 auto}
+
+/* BLOG GRID */
+.blog-section{padding:80px 0 100px;background:var(--off-white)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.blog-card{background:var(--white);border-radius:0;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.3s var(--ease-out),box-shadow 0.3s}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.12)}
+.blog-card-img{height:220px;overflow:hidden}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s var(--ease-out)}
+.blog-card:hover .blog-card-img img{transform:scale(1.05)}
+.blog-card-body{padding:28px}
+.blog-card-tag{display:inline-block;font-family:var(--font-heading);font-size:0.75rem;font-weight:600;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px}
+.blog-card-body h3{font-size:1.3rem;color:var(--navy);text-transform:uppercase;margin-bottom:12px;letter-spacing:0.01em}
+.blog-card-body p{color:var(--gray-600);font-size:0.95rem;line-height:1.6;margin-bottom:20px}
+.blog-card-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.8rem;color:var(--gray-600)}
+.read-more{font-family:var(--font-heading);font-weight:700;font-size:0.85rem;color:var(--red);text-transform:uppercase;letter-spacing:0.05em;display:inline-flex;align-items:center;gap:6px;transition:gap 0.3s}
+.read-more:hover{gap:10px}
+.read-more svg{width:16px;height:16px}
+
+/* FOOTER */
+.footer{background:var(--navy-dark);color:var(--gray-300);padding:48px 0 24px;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 60px,var(--white) 60px,var(--white) 120px,var(--navy-light) 120px,var(--navy-light) 180px)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand .footer-logo{font-family:var(--font-heading);font-size:1.4rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.03em;margin-bottom:12px}
+.footer-brand .footer-logo span{color:var(--red)}
+.footer-brand p{font-size:0.9rem;line-height:1.6;color:var(--gray-300);max-width:300px}
+.footer-col h4{font-family:var(--font-heading);font-size:0.9rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px}
+.footer-col a{display:block;font-size:0.9rem;color:var(--gray-300);margin-bottom:8px;transition:color 0.3s}
+.footer-col a:hover{color:var(--red)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;font-size:0.8rem;color:var(--gray-600)}
+
+@media(max-width:1024px){
+  .blog-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--navy-dark);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:999}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .blog-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="template_example-21.html" class="nav-logo">
+      <div class="nav-logo-shield">PA</div>
+      Precision<span>Auto</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="template_example-21.html#services">Services</a>
+      <a href="template_example-21.html#about">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="template_example-21.html#gallery">Gallery</a>
+      <a href="template_example-21.html#reviews">Reviews</a>
+      <a href="tel:+12817410606" class="nav-cta">(281) 741-0606</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<section class="blog-hero">
+  <div class="diagonal-stripes"></div>
+  <div class="container" style="position:relative;z-index:2">
+    <div class="section-eyebrow">Our Blog</div>
+    <h1>Auto Care Tips <span>&</span> Advice</h1>
+    <p>Expert maintenance tips, repair guides, and insider knowledge from our ASE-certified technicians.</p>
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-grid">
+
+      <article class="blog-card">
+        <a href="blog/oil-change-guide/index.html">
+          <div class="blog-card-img">
+            <img src="images/oil-change.jpg" alt="Oil change service" loading="lazy">
+          </div>
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Maintenance</div>
+          <h3><a href="blog/oil-change-guide/index.html">How Often Should You Really Change Your Oil?</a></h3>
+          <p>The 3,000-mile myth debunked. Learn the real intervals for synthetic vs conventional oil and 5 signs your oil needs changing now.</p>
+          <div class="blog-card-meta">
+            <span>Mike Rodriguez &bull; March 10, 2026</span>
+            <a href="blog/oil-change-guide/index.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <a href="blog/brake-warning-signs/index.html">
+          <div class="blog-card-img">
+            <img src="images/brake-service.jpg" alt="Brake repair service" loading="lazy">
+          </div>
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Safety</div>
+          <h3><a href="blog/brake-warning-signs/index.html">5 Brake Warning Signs You Should Never Ignore</a></h3>
+          <p>Squealing, grinding, vibration -- your brakes are trying to tell you something. Here's what each warning sign means and when to act.</p>
+          <div class="blog-card-meta">
+            <span>Mike Rodriguez &bull; March 5, 2026</span>
+            <a href="blog/brake-warning-signs/index.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <a href="blog/check-engine-light/index.html">
+          <div class="blog-card-img">
+            <img src="images/diagnostic-scan.jpg" alt="Engine diagnostic scan" loading="lazy">
+          </div>
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Diagnostics</div>
+          <h3><a href="blog/check-engine-light/index.html">Check Engine Light On? Here's What It Actually Means</a></h3>
+          <p>From loose gas caps to failing catalytic converters -- the real causes behind that dashboard warning and what to do next.</p>
+          <div class="blog-card-meta">
+            <span>Mike Rodriguez &bull; Feb 28, 2026</span>
+            <a href="blog/check-engine-light/index.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Precision<span>Auto</span> Works</div>
+        <p>Dallas's trusted auto repair shop since 2006. ASE-certified technicians, honest pricing, and a commitment to getting you back on the road safely.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="template_example-21.html#services">Brake Repair</a>
+        <a href="template_example-21.html#services">Engine Diagnostics</a>
+        <a href="template_example-21.html#services">Oil Changes</a>
+        <a href="template_example-21.html#services">Tire Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="template_example-21.html#about">About Us</a>
+        <a href="template_example-21.html#reviews">Reviews</a>
+        <a href="blog.html">Blog</a>
+        <a href="template_example-21.html#gallery">Gallery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+12817410606">(281) 741-0606</a>
+        <a href="#">Dallas, TX</a>
+        <a href="#">Get Directions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Just Right Car Care Center. All rights reserved.</span>
+      <span>Proudly serving Dallas, TX and surrounding areas</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const nav=document.getElementById('nav');
+  const hamburger=document.getElementById('hamburger');
+  const navLinks=document.getElementById('navLinks');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+  hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
+});
+</script>
+</body>
+</html>

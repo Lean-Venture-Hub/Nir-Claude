@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Care Tips & Advice | Menard Auto Repair</title>
+<meta name="description" content="Expert auto care tips from Menard Auto Repair in Dallas, TX. Learn about oil changes, brake maintenance, check engine lights, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0A0A0A;--black-light:#111111;--black-card:#161616;--black-hover:#1C1C1C;
+  --red:#FF0000;--red-dark:#CC0000;--red-glow:rgba(255,0,0,0.4);
+  --yellow:#FFD700;--yellow-dark:#E6C200;
+  --white:#F5F5F5;--gray-400:#888;--gray-600:#555;--gray-800:#333;
+  --font-heading:'Anton',sans-serif;
+  --font-body:'Roboto',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--white);background:var(--black);overflow-x:hidden;line-height:1.6;font-weight:300}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:400;line-height:1;text-transform:uppercase;letter-spacing:0.02em}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 0;transition:all 0.4s var(--ease-out);background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border-bottom:2px solid var(--red)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-heading);font-size:1.6rem;color:var(--white);text-transform:uppercase;letter-spacing:0.05em;display:flex;align-items:center;gap:8px}
+.nav-logo .logo-icon{width:36px;height:36px;background:var(--red);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:900}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--white);font-family:var(--font-body);font-weight:500;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--red);transition:width 0.3s var(--ease-out)}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{padding:10px 24px;background:var(--red);color:var(--white)!important;font-family:var(--font-heading);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:all 0.3s}
+.nav-cta:hover{background:var(--red-dark);box-shadow:0 4px 20px var(--red-glow)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:8px}
+.hamburger span{display:block;width:28px;height:3px;background:var(--white);transition:all 0.3s var(--ease-out)}
+
+/* BLOG HERO */
+.blog-hero{padding:160px 0 80px;background:var(--black-light);position:relative;text-align:center}
+.blog-hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:6px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--red))}
+.blog-hero h1{font-size:clamp(2.4rem,5.5vw,4.5rem);color:var(--white);margin-bottom:16px}
+.blog-hero h1 span{color:var(--red)}
+.blog-hero p{font-size:1.1rem;color:var(--gray-400);max-width:600px;margin:0 auto;line-height:1.7}
+
+/* BLOG GRID */
+.blog-section{padding:80px 0 120px;background:var(--black)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.blog-card{background:var(--black-card);border:1px solid var(--gray-800);overflow:hidden;transition:all 0.4s var(--ease-out);clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%)}
+.blog-card:hover{border-color:var(--red);transform:translateY(-6px)}
+.blog-card-img{height:220px;overflow:hidden;position:relative}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--ease-out)}
+.blog-card:hover .blog-card-img img{transform:scale(1.08)}
+.blog-card-img::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:60%;background:linear-gradient(to top,var(--black-card),transparent);pointer-events:none}
+.blog-card-body{padding:28px 24px}
+.blog-card-tag{display:inline-block;font-family:var(--font-body);font-size:0.75rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;background:rgba(255,0,0,0.1);padding:4px 10px}
+.blog-card-body h3{font-size:1.3rem;color:var(--white);margin-bottom:12px;text-transform:uppercase;line-height:1.2}
+.blog-card-body p{font-size:0.9rem;color:var(--gray-400);line-height:1.6;margin-bottom:20px}
+.blog-card-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:0.8rem;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;transition:gap 0.3s}
+.blog-card-cta:hover{gap:14px;color:var(--yellow)}
+.blog-card-accent{position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--red),var(--yellow))}
+
+/* FOOTER */
+.footer{background:var(--black);padding:60px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--red))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--gray-800)}
+.footer-brand .nav-logo{font-size:1.4rem;margin-bottom:16px}
+.footer-desc{font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:40px;height:40px;border:1px solid var(--gray-800);display:flex;align-items:center;justify-content:center;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.footer-social a:hover{border-color:var(--red);background:var(--red)}
+.footer-social a svg{width:18px;height:18px;fill:var(--white)}
+.footer-col h4{font-family:var(--font-heading);font-size:1rem;color:var(--white);text-transform:uppercase;margin-bottom:20px;position:relative;padding-bottom:12px}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:var(--red)}
+.footer-col a{display:block;font-size:0.9rem;color:var(--gray-400);padding:6px 0;transition:color 0.3s}
+.footer-col a:hover{color:var(--red);padding-left:8px}
+.footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:var(--gray-600)}
+.footer-racing-stripe{display:flex;gap:4px}
+.footer-racing-stripe div{width:40px;height:4px}
+.footer-racing-stripe div:nth-child(1){background:var(--red)}
+.footer-racing-stripe div:nth-child(2){background:var(--yellow)}
+.footer-racing-stripe div:nth-child(3){background:var(--white)}
+
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(10,10,10,0.98);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:999}
+  .nav-links.active{display:flex}
+  .hamburger{display:flex}
+  .blog-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="template_example-25.html" class="nav-logo">
+      <div class="logo-icon">⚡</div>
+      Precision<span>.</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="template_example-25.html#services">Services</a>
+      <a href="template_example-25.html#about">About</a>
+      <a href="template_example-25.html#gallery">Gallery</a>
+      <a href="template_example-25.html#reviews">Reviews</a>
+      <a href="blog.html">Blog</a>
+      <a href="tel:+14808442245" class="nav-cta">(480) 844-2245</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<section class="blog-hero">
+  <div class="container">
+    <h1>Auto Care <span>Tips</span> & Advice</h1>
+    <p>Expert maintenance tips and guides from Mike Rodriguez and the Menard Auto Repair team in Dallas, TX.</p>
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-grid">
+      <div class="blog-card">
+        <a href="blog/oil-change-guide/index.html">
+          <div class="blog-card-img">
+            <img src="images/oil-change.jpg" alt="Oil change service">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Maintenance</span>
+            <h3>How Often Should You Really Change Your Oil?</h3>
+            <p>Debunking the 3,000-mile myth and what modern engines actually need for optimal performance and longevity.</p>
+            <span class="blog-card-cta">Read More &rarr;</span>
+          </div>
+        </a>
+        <div class="blog-card-accent"></div>
+      </div>
+      <div class="blog-card">
+        <a href="blog/brake-warning-signs/index.html">
+          <div class="blog-card-img">
+            <img src="images/brake-service.jpg" alt="Brake service">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Safety</span>
+            <h3>5 Brake Warning Signs You Should Never Ignore</h3>
+            <p>From squealing sounds to a soft pedal, learn the critical warning signs that mean your brakes need immediate attention.</p>
+            <span class="blog-card-cta">Read More &rarr;</span>
+          </div>
+        </a>
+        <div class="blog-card-accent"></div>
+      </div>
+      <div class="blog-card">
+        <a href="blog/check-engine-light/index.html">
+          <div class="blog-card-img">
+            <img src="images/diagnostic-scan.jpg" alt="Check engine light diagnostics">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Diagnostics</span>
+            <h3>Check Engine Light On? Here's What It Actually Means</h3>
+            <p>Understanding the common causes behind your check engine light and knowing when it's serious versus a simple fix.</p>
+            <span class="blog-card-cta">Read More &rarr;</span>
+          </div>
+        </a>
+        <div class="blog-card-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="logo-icon">⚡</div>
+          Precision<span>.</span>
+        </div>
+        <p class="footer-desc">Professional auto repair and performance services in Dallas, TX. Precision work, honest pricing, and a racing-team mentality since 2006.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M16 4H8C5.79 4 4 5.79 4 8v8c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zm-4 11a3 3 0 110-6 3 3 0 010 6zm4.5-7.5a1 1 0 110-2 1 1 0 010 2z"/></svg></a>
+          <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M12 11v2.4h3.97c-.16 1.03-1.2 3.02-3.97 3.02-2.39 0-4.34-1.98-4.34-4.42s1.95-4.42 4.34-4.42c1.36 0 2.27.58 2.79 1.08l1.9-1.83C15.47 5.69 13.89 5 12 5 8.13 5 5 8.13 5 12s3.13 7 7 7c4.04 0 6.72-2.84 6.72-6.84 0-.46-.05-.81-.11-1.16H12z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="template_example-25.html#services">Engine Repair</a>
+        <a href="template_example-25.html#services">Brake Service</a>
+        <a href="template_example-25.html#services">Diagnostics</a>
+        <a href="template_example-25.html#services">Oil Change</a>
+        <a href="template_example-25.html#services">Tire Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="template_example-25.html#about">About Us</a>
+        <a href="template_example-25.html#reviews">Reviews</a>
+        <a href="template_example-25.html#gallery">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="template_example-25.html#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+14808442245">(480) 844-2245</a>
+        <a href="#">Dallas, TX</a>
+        <a href="#">Mon-Fri: 7:30am - 6pm</a>
+        <a href="#">Saturday: 8am - 4pm</a>
+        <a href="#">Sunday: Closed</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Menard Auto Repair. All Rights Reserved.</span>
+      <div class="footer-racing-stripe">
+        <div></div><div></div><div></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('active')});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('active')}));
+</script>
+</body>
+</html>

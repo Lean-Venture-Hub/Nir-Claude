@@ -1,6 +1,6 @@
 # Master Plan
 
-**Updated:** 2026-03-15 | **Cross-session state:** see `SESSIONS.md`
+**Updated:** 2026-03-15 (session 6) | **Cross-session state:** see `SESSIONS.md`
 
 ---
 
@@ -9,7 +9,7 @@
 | Vertical | Templates | Images | Research | Gallery | Deployed |
 |----------|-----------|--------|----------|---------|----------|
 | Dentists | 25 | yes | yes | yes | yes |
-| Auto Repair | 26 | 18 | yes | yes | yes |
+| Auto Repair | 26 | 30 | yes | yes | yes |
 | Landscaping | 13 | yes | yes | yes | yes |
 | Veterinarians | 10 | 10 | yes | yes | yes |
 | Med Spas | 10 | 10 | yes | yes | yes |
@@ -36,6 +36,13 @@
 - Gallery with likes, comments, feedback export, responsive dropdown
 - Template feedback system: gallery hearts/comments + sections builder export → feeds template-creator skill
 
+### Phase 3.5: Feedback Auto-Sync (DONE — 2026-03-15)
+- Flask API on EC2 (`/api/feedback`) — multi-user feedback with file locking + audit log
+- Gallery + Section Builder auto-sync to server (no manual export)
+- User identification (name modal), aggregate like counts, commenter attribution
+- `template-creator` skill rsyncs feedback from server before reading
+- localStorage offline fallback
+
 ---
 
 ## Active / Next Up
@@ -57,14 +64,31 @@ Evaluate new verticals and expand into the best ones.
 
 **Launch order:** Plumbers+Electricians → Roofers → Cleaning → Pest Control
 
-### Phase 5: Lead Pipeline (PLANNED)
-End-to-end from vertical scout → scrape → classify → enrich emails → outreach.
+### Phase 5: Sales Agent System (IN PLANNING)
+Autonomous AI sales agent: receives ready leads from CRM → multi-channel outreach → conversation → close.
+**Detailed plan:** [`sales-agent/PLAN.md`](sales-agent/PLAN.md) | **Research:** `research/ai-sales-agent-stack-deep-brief.md`
 
 | # | Task | Status |
 |---|------|--------|
-| 5.1 | Build email enrichment into vertical-scout | TODO |
-| 5.2 | Create outreach templates per vertical | TODO |
-| 5.3 | Test end-to-end on auto-repair (Houston data exists) | TODO |
+| 5.1 | Architecture + tool research | DONE — `sales-agent/PLAN.md` |
+| 5.2 | Email outreach MVP (Instantly.ai + CSV import + flow engine) | TODO — **next action** |
+| 5.3 | Conversation agent (Claude + LangGraph + tool use) | TODO |
+| 5.4 | Multi-channel (Twilio SMS/WhatsApp + Retell.ai phone) | TODO |
+| 5.5 | Closing engine (Stripe + onboarding triggers) | TODO |
+| 5.6 | Production hardening + dashboard | TODO |
+
+### Phase 5.5: Mini CRM (IN PROGRESS)
+Single-file CRM at `lp.scalefox.ai/crm/` — tracks outreach to 117 leads across dentists + auto-repair.
+**Source:** `Auto Repair/reports/crm-index.html` | **PRD:** `Auto Repair/reports/crm-prd.md`
+
+| # | Task | Status |
+|---|------|--------|
+| 5.5.1 | Directory page duplicate + CRM PRD | DONE |
+| 5.5.2 | Full CRM rebuild: sidebar nav, dashboard, kanban, contacts, lead modal | DONE |
+| 5.5.3 | Design: dark charcoal theme, purple/blue accents, 2-col cards, list default | DONE |
+| 5.5.4 | Deploy to lp.scalefox.ai/crm/ | DONE |
+| 5.5.5 | Kanban drag-and-drop, bulk actions | TODO |
+| 5.5.6 | Email template compose (P2 from PRD) | TODO |
 
 ### Phase 6: Polish & Scale (BACKLOG)
 
@@ -73,7 +97,7 @@ End-to-end from vertical scout → scrape → classify → enrich emails → out
 | 6.1 | Gallery auto-discovery from folder structure (no hardcoded JS) | TODO |
 | 6.2 | Screenshot capture in vertical-research (top 5 sites) | TODO |
 | 6.3 | E2E test: create website for real business from CSV | TODO |
-| 6.4 | Builder tools (Section Reviewer + Editor) updates for new verticals | TODO |
+| 6.4 | Builder tools (Section Reviewer + Editor) updates for new verticals | DONE — 766 sections from 6 verticals, CSS @scope isolation |
 
 ---
 

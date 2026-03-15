@@ -554,6 +554,40 @@ body {
   font-size: .75rem;
   color: var(--text-dim);
 }
+.user-badge-bar{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 12px;border-radius:100px;
+  background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);
+  cursor:pointer;transition:all .2s;font-size:.75rem;color:var(--accent);font-weight:600;
+}
+.user-badge-bar:hover{background:rgba(99,102,241,.18)}
+.user-badge-bar svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+.sync-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0}
+.sync-dot.offline{background:#ef4444}
+.user-modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  z-index:10001;display:none;align-items:center;justify-content:center;
+}
+.user-modal-overlay.open{display:flex}
+.user-modal{
+  background:var(--bg-card);border:1px solid var(--border-active);border-radius:12px;
+  width:360px;max-width:90vw;padding:28px;text-align:center;
+  box-shadow:0 24px 60px -12px rgba(0,0,0,.7);
+}
+.user-modal h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+.user-modal p{font-size:.8rem;color:var(--text-muted);margin-bottom:16px}
+.user-modal input{
+  width:100%;padding:10px 14px;border-radius:8px;border:1px solid var(--border);
+  background:rgba(255,255,255,.05);color:var(--text);font-family:inherit;
+  font-size:.85rem;outline:none;margin-bottom:12px;
+}
+.user-modal input:focus{border-color:var(--accent)}
+.user-modal button{
+  padding:10px 28px;border-radius:8px;border:none;background:var(--accent);
+  color:#fff;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s;
+}
+.user-modal button:hover{background:var(--accent-hover)}
 </style>
 </head>
 <body>
@@ -597,15 +631,29 @@ body {
 
   <!-- EXPORT BAR -->
   <div class="export-bar">
-    <div>
-      <span class="export-status" id="exportStatus">Ratings & bugs saved locally in browser</span>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="user-badge-bar" onclick="openUserModal()" title="Click to change name">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span id="userBadgeLabel">Set name</span>
+        <span class="sync-dot" id="syncDot" title="Sync status"></span>
+      </div>
+      <span class="export-status" id="exportStatus">Auto-syncing feedback</span>
     </div>
     <div style="display:flex;gap:8px;align-items:center">
       <a href="editor.html" style="font-size:.75rem;color:var(--accent);text-decoration:none;padding:8px 16px;border:1px solid var(--accent);border-radius:8px;font-weight:600;transition:all .2s">Template Editor</a>
       <button class="export-btn secondary" onclick="exportRatings()">Export JSON</button>
-      <button class="export-btn secondary" onclick="importRatings()">Import</button>
-      <button class="export-btn secondary" onclick="exportUnifiedFeedback()">Export Feedback</button>
       <button class="export-btn primary" onclick="exportSummary()">Export Summary</button>
+    </div>
+  </div>
+
+  <!-- User Name Modal -->
+  <div class="user-modal-overlay" id="userModal">
+    <div class="user-modal">
+      <h3>Who's reviewing?</h3>
+      <p>Enter your name so feedback is attributed to you.</p>
+      <input id="userNameInput" type="text" placeholder="Your name..." onkeydown="if(event.key==='Enter')saveUserName()">
+      <br>
+      <button onclick="saveUserName()">Save</button>
     </div>
   </div>
 </div>
@@ -668,35 +716,124 @@ const BUG_SVG = `<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.355.52
 // Determine base URL — we serve from project root
 const ORIGIN = location.origin;
 
+/* ── API + Feedback State ── */
+const API_BASE = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+  ? '' : '/api/feedback';
+const IS_REMOTE = API_BASE !== '';
+
+function loadData(key) {
+  try { return JSON.parse(localStorage.getItem(key) || '{}'); }
+  catch { return {}; }
+}
+function saveLocal(key, data) {
+  try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
+}
+
+let feedbackUser = localStorage.getItem('feedback-user') || '';
+let apiOnline = false;
+let syncTimer = null;
+
 let state = {
   activeType: 'hero',
   activeVertical: 'all',
   sortBy: 'template',
   viewSize: 'normal',
   ratings: loadData('section-ratings'),
-  bugs: loadData('section-bugs'), // { id: { flagged: true, note: "..." } }
+  bugs: loadData('section-bugs'),
   modalSectionId: null,
 };
 
-function loadData(key) {
-  try { return JSON.parse(localStorage.getItem(key) || '{}'); }
-  catch { return {}; }
+function updateSyncDot() {
+  const dot = document.getElementById('syncDot');
+  if (dot) { dot.classList.toggle('offline', !apiOnline); dot.title = apiOnline ? 'Synced' : 'Offline (local only)'; }
 }
+function updateUserBadge() {
+  const label = document.getElementById('userBadgeLabel');
+  if (label) label.textContent = feedbackUser || 'Set name';
+}
+function openUserModal() {
+  document.getElementById('userNameInput').value = feedbackUser;
+  document.getElementById('userModal').classList.add('open');
+  setTimeout(() => document.getElementById('userNameInput').focus(), 100);
+}
+function saveUserName() {
+  const name = document.getElementById('userNameInput').value.trim();
+  if (!name) return;
+  feedbackUser = name;
+  localStorage.setItem('feedback-user', name);
+  document.getElementById('userModal').classList.remove('open');
+  updateUserBadge();
+  if (IS_REMOTE) bulkSyncSections();
+}
+
+async function fetchSectionsFeedback() {
+  if (!IS_REMOTE) return;
+  try {
+    const res = await fetch(API_BASE + '/sections');
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    apiOnline = true;
+    // Merge: current user's ratings/bugs take priority, also load others
+    if (feedbackUser && data.ratings?.[feedbackUser]) {
+      state.ratings = { ...state.ratings, ...data.ratings[feedbackUser] };
+    }
+    if (feedbackUser && data.bugs?.[feedbackUser]) {
+      state.bugs = { ...state.bugs, ...data.bugs[feedbackUser] };
+    }
+    saveLocal('section-ratings', state.ratings);
+    saveLocal('section-bugs', state.bugs);
+  } catch { apiOnline = false; }
+  updateSyncDot();
+}
+
+async function postSectionsFeedback(body) {
+  if (!feedbackUser || !IS_REMOTE) return false;
+  try {
+    const res = await fetch(API_BASE, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tool: 'sections', user: feedbackUser, ...body }),
+    });
+    apiOnline = res.ok;
+  } catch { apiOnline = false; }
+  updateSyncDot();
+  return apiOnline;
+}
+
+async function bulkSyncSections() {
+  if (!feedbackUser || !IS_REMOTE) return;
+  await postSectionsFeedback({ action: 'bulk_sync', ratings: state.ratings, bugs: state.bugs });
+}
+
+function debouncedSync(action, key, value) {
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(() => {
+    if (feedbackUser && IS_REMOTE) postSectionsFeedback({ action, key, value });
+  }, 500);
+}
+
 function saveRatings() {
-  localStorage.setItem('section-ratings', JSON.stringify(state.ratings));
+  saveLocal('section-ratings', state.ratings);
   updateStats();
+  const lastKey = saveRatings._lastKey;
+  if (lastKey) debouncedSync('rate', lastKey, state.ratings[lastKey]);
 }
 function saveBugs() {
-  localStorage.setItem('section-bugs', JSON.stringify(state.bugs));
+  saveLocal('section-bugs', state.bugs);
   updateStats();
+  const lastKey = saveBugs._lastKey;
+  if (lastKey) debouncedSync('bug', lastKey, state.bugs[lastKey]);
 }
 
 // ── INIT ──
-function init() {
+async function init() {
+  updateUserBadge();
+  await fetchSectionsFeedback();
   buildSidebar();
   buildVerticalTabs();
   renderGrid();
   updateStats();
+  if (!feedbackUser) setTimeout(openUserModal, 800);
 
   document.querySelectorAll('.view-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -977,11 +1114,13 @@ function loadVisibleIframes() {
 
 // ── RATING ──
 function rate(id, value) {
+  if (!feedbackUser) { openUserModal(); return; }
   if (state.ratings[id] === value) {
     delete state.ratings[id];
   } else {
     state.ratings[id] = value;
   }
+  saveRatings._lastKey = id;
   saveRatings();
 
   // Update card without full re-render (preserve loaded iframes)
@@ -1044,11 +1183,13 @@ function updateCardState(id) {
 
 // ── BUGS ──
 function toggleBug(id) {
+  if (!feedbackUser) { openUserModal(); return; }
   if (state.bugs[id]?.flagged) {
     delete state.bugs[id];
   } else {
     state.bugs[id] = { flagged: true, note: '' };
   }
+  saveBugs._lastKey = id;
   saveBugs();
   updateCardState(id);
   buildSidebar();
@@ -1212,28 +1353,11 @@ function importRatings() {
       renderGrid();
       buildSidebar();
       document.getElementById('exportStatus').textContent = `Imported data from ${file.name}`;
+      // Sync imported data to API
+      if (feedbackUser && IS_REMOTE) bulkSyncSections();
     } catch { alert('Invalid JSON file'); }
   });
   input.click();
-}
-
-function exportUnifiedFeedback() {
-  const ratingValues = Object.values(state.ratings);
-  const bugCount = Object.values(state.bugs).filter(b => b.flagged).length;
-  const data = {
-    source: 'sections',
-    exportDate: new Date().toISOString(),
-    sections: { ratings: state.ratings, bugs: state.bugs },
-    summary: {
-      totalRated: ratingValues.length,
-      totalBugs: bugCount,
-      average: ratingValues.length
-        ? +(ratingValues.reduce((a,b) => a+b, 0) / ratingValues.length).toFixed(1)
-        : null,
-    }
-  };
-  downloadFile(JSON.stringify(data, null, 2), `sections-feedback-${today()}.json`, 'application/json');
-  document.getElementById('exportStatus').textContent = 'Feedback exported!';
 }
 
 // ── UTILS ──

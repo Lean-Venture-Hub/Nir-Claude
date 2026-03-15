@@ -1,0 +1,16 @@
+[Unit]
+Description=Feedback API for template gallery
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/feedback-api
+ExecStart=/usr/bin/python3 /opt/feedback-api/app.py
+Restart=on-failure
+RestartSec=5
+Environment=FEEDBACK_DIR=/var/www/lp.scalefox.ai/feedback
+
+[Install]
+WantedBy=multi-user.target

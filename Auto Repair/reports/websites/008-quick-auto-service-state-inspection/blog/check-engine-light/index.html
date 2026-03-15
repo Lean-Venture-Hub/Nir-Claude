@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Engine Light On? Here's What It Actually Means | Quick Auto Service & State Inspection</title>
+<meta name="description" content="Check engine light on? Learn the common causes, severity levels, and what to do next. Expert guide from ASE Certified Master Technician Mike Rodriguez.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0A0A0A;--black-light:#111111;--black-card:#161616;--black-hover:#1C1C1C;--red:#FF0000;--red-dark:#CC0000;--red-glow:rgba(255,0,0,0.4);--yellow:#FFD700;--yellow-dark:#E6C200;--white:#F5F5F5;--gray-400:#888;--gray-600:#555;--gray-800:#333;--font-heading:'Anton',sans-serif;--font-body:'Roboto',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1)}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--white);background:var(--black);overflow-x:hidden;line-height:1.6;font-weight:300}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--font-heading);font-weight:400;line-height:1;text-transform:uppercase;letter-spacing:0.02em}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:12px 0;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border-bottom:2px solid var(--red)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-heading);font-size:1.6rem;color:var(--white);text-transform:uppercase;letter-spacing:0.05em;display:flex;align-items:center;gap:8px}
+.nav-logo .logo-icon{width:36px;height:36px;background:var(--red);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:900}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--white);font-family:var(--font-body);font-weight:500;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;padding:4px 0}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{padding:10px 24px;background:var(--red);color:var(--white)!important;font-family:var(--font-heading);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:all 0.3s}
+.nav-cta:hover{background:var(--red-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:8px}
+.hamburger span{display:block;width:28px;height:3px;background:var(--white);transition:all 0.3s}
+.article-hero{padding:140px 0 60px;background:var(--black-light);position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:6px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--red))}
+.article-hero-bg{position:absolute;inset:0;z-index:0}
+.article-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.15}
+.article-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.95),rgba(10,10,10,0.7));z-index:1}
+.article-hero-content{position:relative;z-index:2;max-width:800px}
+.breadcrumb{display:flex;gap:8px;align-items:center;font-size:0.8rem;color:var(--gray-400);margin-bottom:20px;text-transform:uppercase;letter-spacing:0.08em}
+.breadcrumb a{color:var(--red);font-weight:500}
+.breadcrumb a:hover{color:var(--yellow)}
+.breadcrumb span{color:var(--gray-600)}
+.article-tag{display:inline-block;font-size:0.75rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.12em;background:rgba(255,0,0,0.1);padding:4px 12px;margin-bottom:16px}
+.article-hero h1{font-size:clamp(2rem,5vw,3.5rem);color:var(--white);margin-bottom:20px;line-height:1.1}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:0.85rem;color:var(--gray-400)}
+.article-meta-author{font-weight:500;color:var(--yellow)}
+.article-body{padding:80px 0;background:var(--black)}
+.article-content{max-width:760px;margin:0 auto}
+.article-content p{font-size:1.05rem;color:var(--gray-400);line-height:1.85;margin-bottom:24px}
+.article-content h2{font-size:1.6rem;color:var(--white);margin:48px 0 20px;padding-left:16px;border-left:4px solid var(--red)}
+.article-content h3{font-size:1.2rem;color:var(--yellow);margin:32px 0 12px;text-transform:uppercase}
+.article-content ul,.article-content ol{margin:0 0 24px 24px;color:var(--gray-400)}
+.article-content li{padding:6px 0;font-size:1rem;line-height:1.7}
+.article-content li::marker{color:var(--red)}
+.article-content strong{color:var(--white);font-weight:700}
+.article-content blockquote{border-left:4px solid var(--yellow);padding:20px 24px;margin:32px 0;background:var(--black-card);font-style:italic;color:var(--gray-400);font-size:1.1rem}
+.author-box{display:flex;align-items:center;gap:20px;padding:32px;background:var(--black-card);border:1px solid var(--gray-800);margin-top:60px;clip-path:polygon(0 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%)}
+.author-avatar{width:72px;height:72px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.6rem;color:var(--white);flex-shrink:0}
+.author-info h4{font-size:1.1rem;color:var(--white);text-transform:uppercase;margin-bottom:4px}
+.author-info .role{font-size:0.8rem;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+.author-info p{font-size:0.9rem;color:var(--gray-400);margin-top:8px;line-height:1.5}
+.related{padding:80px 0;background:var(--black-light)}
+.related h2{font-size:1.8rem;color:var(--white);text-align:center;margin-bottom:48px}
+.related h2 span{color:var(--red)}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:0 auto}
+.related-card{background:var(--black-card);border:1px solid var(--gray-800);padding:28px;transition:all 0.3s;clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%)}
+.related-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.related-card h3{font-size:1rem;color:var(--white);text-transform:uppercase;margin-bottom:8px;line-height:1.2}
+.related-card p{font-size:0.85rem;color:var(--gray-400);line-height:1.5;margin-bottom:12px}
+.related-card .read-link{font-size:0.8rem;color:var(--red);text-transform:uppercase;font-weight:700;letter-spacing:0.08em}
+.related-card .read-link:hover{color:var(--yellow)}
+.footer{background:var(--black);padding:60px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--red))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--gray-800)}
+.footer-brand .nav-logo{font-size:1.4rem;margin-bottom:16px}
+.footer-desc{font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:40px;height:40px;border:1px solid var(--gray-800);display:flex;align-items:center;justify-content:center;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.footer-social a:hover{border-color:var(--red);background:var(--red)}
+.footer-social a svg{width:18px;height:18px;fill:var(--white)}
+.footer-col h4{font-family:var(--font-heading);font-size:1rem;color:var(--white);text-transform:uppercase;margin-bottom:20px;position:relative;padding-bottom:12px}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:var(--red)}
+.footer-col a{display:block;font-size:0.9rem;color:var(--gray-400);padding:6px 0;transition:color 0.3s}
+.footer-col a:hover{color:var(--red)}
+.footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:var(--gray-600)}
+.footer-racing-stripe{display:flex;gap:4px}
+.footer-racing-stripe div{width:40px;height:4px}
+.footer-racing-stripe div:nth-child(1){background:var(--red)}
+.footer-racing-stripe div:nth-child(2){background:var(--yellow)}
+.footer-racing-stripe div:nth-child(3){background:var(--white)}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(10,10,10,0.98);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:999}
+  .nav-links.active{display:flex}.hamburger{display:flex}.related-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:16px;text-align:center}.author-box{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../../template_example-25.html" class="nav-logo"><div class="logo-icon">⚡</div>Precision<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="../../template_example-25.html#services">Services</a>
+      <a href="../../template_example-25.html#about">About</a>
+      <a href="../../template_example-25.html#gallery">Gallery</a>
+      <a href="../../blog.html">Blog</a>
+      <a href="tel:+18323824155" class="nav-cta">(832) 382-4155</a>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="article-hero-bg"><img src="../../images/diagnostic-scan.jpg" alt="Diagnostic scan"></div>
+  <div class="article-hero-overlay"></div>
+  <div class="container article-hero-content">
+    <div class="breadcrumb">
+      <a href="../../template_example-25.html">Home</a><span>/</span>
+      <a href="../../blog.html">Blog</a><span>/</span>
+      <span>Check Engine Light</span>
+    </div>
+    <span class="article-tag">Diagnostics</span>
+    <h1>Check Engine Light On? Here's What It Actually Means</h1>
+    <div class="article-meta">
+      <span class="article-meta-author">Mike Rodriguez</span>
+      <span>|</span>
+      <span>ASE Certified Master Technician</span>
+      <span>|</span>
+      <span>9 min read</span>
+    </div>
+  </div>
+</section>
+
+<section class="article-body">
+  <div class="container">
+    <div class="article-content">
+      <p>Few things cause more anxiety for drivers than seeing that little amber engine icon light up on their dashboard. The check engine light (formally called the Malfunction Indicator Lamp, or MIL) can mean anything from a loose gas cap to a serious engine problem. Let's cut through the panic and understand what's really going on.</p>
+
+      <h2>How the Check Engine Light Works</h2>
+      <p>Your vehicle's onboard computer (the ECU or PCM) constantly monitors dozens of sensors throughout the engine, transmission, and emissions systems. When a sensor reading falls outside its expected range, the computer stores a <strong>Diagnostic Trouble Code (DTC)</strong> and illuminates the check engine light.</p>
+      <p>Important distinction: the light tells you <em>something</em> is wrong, but not necessarily <em>what</em>. A trouble code points to the system or circuit with the problem, but proper diagnosis requires a trained technician to interpret the code in context with other data.</p>
+
+      <h2>The 5 Most Common Causes</h2>
+
+      <h3>1. Loose or Faulty Gas Cap</h3>
+      <p>This is the most common trigger and the easiest fix. Your fuel system is sealed, and a loose, cracked, or missing gas cap allows fuel vapors to escape, triggering an evaporative emissions (EVAP) code. <strong>Try tightening your gas cap until it clicks</strong> and drive for a day or two. If the light turns off, you found your culprit. If not, the cap itself may need replacing ($10 to $25 part).</p>
+
+      <h3>2. Oxygen (O2) Sensor Failure</h3>
+      <p>Your vehicle has two to four oxygen sensors that measure how much unburned oxygen is in the exhaust. This data helps the computer adjust the air-fuel mixture for optimal performance and emissions. A failing O2 sensor can cause:</p>
+      <ul>
+        <li>Reduced fuel economy (up to 40% worse in some cases)</li>
+        <li>Rough idling or hesitation</li>
+        <li>Failed emissions testing</li>
+        <li>Potential damage to the catalytic converter if left unaddressed</li>
+      </ul>
+      <p><strong>Typical cost:</strong> $200 to $500 including parts and labor, depending on sensor location and vehicle make.</p>
+
+      <h3>3. Catalytic Converter Issues</h3>
+      <p>The catalytic converter transforms harmful exhaust gases into less harmful emissions. When it fails, you'll typically notice <strong>reduced performance, poor fuel economy, and a sulfur or rotten egg smell</strong>. Catalytic converter problems are often caused by neglecting other issues (like a bad O2 sensor or engine misfire) that send unburned fuel into the converter.</p>
+      <p><strong>Typical cost:</strong> $1,000 to $2,500 for replacement. This is why addressing smaller problems early saves big money later.</p>
+
+      <h3>4. Spark Plugs and Ignition Coils</h3>
+      <p>Worn spark plugs or failing ignition coils cause engine misfires, which the computer detects immediately. Symptoms include rough idle, hesitation during acceleration, reduced power, and increased fuel consumption. Modern iridium or platinum spark plugs last 60,000 to 100,000 miles, but they do eventually wear out.</p>
+      <p><strong>Typical cost:</strong> $150 to $400 for spark plug replacement; $200 to $350 per coil if ignition coils are the issue.</p>
+
+      <h3>5. Mass Airflow (MAF) Sensor</h3>
+      <p>The MAF sensor measures the volume of air entering the engine so the computer can deliver the right amount of fuel. A dirty or failing MAF sensor causes poor fuel economy, stalling, and rough running. In many cases, <strong>cleaning the sensor with specialized MAF cleaner ($8 spray can) fixes the problem</strong> before replacement is necessary.</p>
+      <p><strong>Typical cost:</strong> $200 to $400 for replacement if cleaning doesn't resolve the issue.</p>
+
+      <h2>Severity Levels: Steady vs. Flashing</h2>
+      <p>Not all check engine lights are created equal:</p>
+      <ul>
+        <li><strong>Steady (solid) light:</strong> Indicates a problem that needs attention but is not immediately dangerous. You can continue driving to your destination and schedule service within the week. Monitor for changes in vehicle behavior.</li>
+        <li><strong>Flashing (blinking) light:</strong> This is urgent. A flashing check engine light almost always indicates an <strong>active engine misfire</strong> that is dumping unburned fuel into the catalytic converter. Continued driving can cause thousands of dollars in catalytic converter damage within minutes. Pull over safely and arrange a tow.</li>
+      </ul>
+
+      <blockquote>"The check engine light is your car talking to you. A solid light is a polite conversation; a flashing light is your car screaming. Either way, listen." &mdash; Mike Rodriguez</blockquote>
+
+      <h2>What to Do When the Light Comes On</h2>
+      <ol>
+        <li><strong>Don't panic.</strong> Check if it's steady or flashing. Steady means you have time; flashing means pull over.</li>
+        <li><strong>Check the gas cap.</strong> Tighten it and see if the light clears after a few drive cycles.</li>
+        <li><strong>Note any symptoms.</strong> Is the engine running rough? Any unusual sounds or smells? Reduced power? These details help your technician diagnose faster.</li>
+        <li><strong>Get a diagnostic scan.</strong> Bring it to Quick Auto Service & State Inspection for a professional scan and diagnosis. We'll read the codes, interpret them in context, and give you a clear explanation with repair options and pricing before we turn a single wrench.</li>
+      </ol>
+
+      <p>The worst thing you can do is ignore the light and hope it goes away. Small problems become expensive problems when left unaddressed. A $200 oxygen sensor repair today prevents a $2,000 catalytic converter replacement next month.</p>
+
+      <div class="author-box">
+        <div class="author-avatar">MR</div>
+        <div class="author-info">
+          <h4>Mike Rodriguez</h4>
+          <span class="role">ASE Certified Master Technician</span>
+          <p>Owner of Quick Auto Service & State Inspection in Dallas, TX. 18+ years of experience keeping vehicles running at peak performance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="container">
+    <h2>Related <span>Articles</span></h2>
+    <div class="related-grid">
+      <a href="../oil-change-guide/index.html" class="related-card">
+        <h3>How Often Should You Really Change Your Oil?</h3>
+        <p>Debunking the 3,000-mile myth and what modern engines actually need.</p>
+        <span class="read-link">Read More &rarr;</span>
+      </a>
+      <a href="../brake-warning-signs/index.html" class="related-card">
+        <h3>5 Brake Warning Signs You Should Never Ignore</h3>
+        <p>From squealing to vibration, know when your brakes need immediate attention.</p>
+        <span class="read-link">Read More &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo"><div class="logo-icon">⚡</div>Precision<span>.</span></div>
+        <p class="footer-desc">Professional auto repair and performance services in Dallas, TX. Precision work, honest pricing, and a racing-team mentality since 2006.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M16 4H8C5.79 4 4 5.79 4 8v8c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zm-4 11a3 3 0 110-6 3 3 0 010 6zm4.5-7.5a1 1 0 110-2 1 1 0 010 2z"/></svg></a>
+          <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M12 11v2.4h3.97c-.16 1.03-1.2 3.02-3.97 3.02-2.39 0-4.34-1.98-4.34-4.42s1.95-4.42 4.34-4.42c1.36 0 2.27.58 2.79 1.08l1.9-1.83C15.47 5.69 13.89 5 12 5 8.13 5 5 8.13 5 12s3.13 7 7 7c4.04 0 6.72-2.84 6.72-6.84 0-.46-.05-.81-.11-1.16H12z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><a href="../../template_example-25.html#services">Engine Repair</a><a href="../../template_example-25.html#services">Brake Service</a><a href="../../template_example-25.html#services">Diagnostics</a><a href="../../template_example-25.html#services">Oil Change</a></div>
+      <div class="footer-col"><h4>Quick Links</h4><a href="../../template_example-25.html#about">About Us</a><a href="../../template_example-25.html#reviews">Reviews</a><a href="../../blog.html">Blog</a><a href="../../template_example-25.html#contact">Contact</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:+18323824155">(832) 382-4155</a><a href="#">Dallas, TX</a><a href="#">Mon-Fri: 7:30am - 6pm</a><a href="#">Sat: 8am - 4pm</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Quick Auto Service & State Inspection. All Rights Reserved.</span>
+      <div class="footer-racing-stripe"><div></div><div></div><div></div></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const h=document.getElementById('hamburger'),n=document.getElementById('navLinks');
+h.addEventListener('click',()=>{h.classList.toggle('active');n.classList.toggle('active')});
+</script>
+</body>
+</html>

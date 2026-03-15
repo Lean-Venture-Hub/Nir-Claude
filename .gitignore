@@ -6,3 +6,4 @@ venv/
 
 tmp-video-frames/
 *.mp4
+audit-screenshots/

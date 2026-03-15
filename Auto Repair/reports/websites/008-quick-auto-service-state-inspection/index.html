@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Auto Service & State Inspection | Inspection & Service in Houston</title>
+<meta name="description" content="Trusted auto repair in Houston, TX. ASE-certified mechanics, 4.8★ rating, 291+ reviews. Oil changes, brakes, diagnostics & more. Call (832) 382-4155.">
+<meta property="og:title" content="Quick Auto Service & State Inspection | Inspection & Service in Houston">
+<meta property="og:description" content="Trusted auto repair in Houston, TX. ASE-certified mechanics, 4.8★ rating, 291+ reviews. Oil changes, brakes, diagnostics & more. Call (832) 382-4155.">
+<meta property="og:image" content="images/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Quick Auto Service & State Inspection",
+  "image": "images/hero.jpg",
+  "telephone": "(832) 382-4155",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Houston"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "291"
+  },
+  "url": "",
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": ""
+  }
+}
+</script>
+
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0A0A0A;--black-light:#111111;--black-card:#161616;--black-hover:#1C1C1C;
+  --red:#FF0000;--red-dark:#CC0000;--red-glow:rgba(255,0,0,0.4);
+  --yellow:#FFD700;--yellow-dark:#E6C200;
+  --white:#F5F5F5;--gray-400:#888;--gray-600:#555;--gray-800:#333;
+  --font-heading:'Anton',sans-serif;
+  --font-body:'Roboto',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --diagonal:polygon(0 0,100% 0,100% 85%,0 100%);
+  --diagonal-reverse:polygon(0 15%,100% 0,100% 100%,0 100%);
+}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--white);background:var(--black);overflow-x:hidden;line-height:1.6;font-weight:300}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:400;line-height:1;text-transform:uppercase;letter-spacing:0.02em}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{position:relative;overflow:hidden}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+}
+
+/* ===== CHECKERED PATTERN ===== */
+.checkered{background-image:repeating-conic-gradient(var(--black-card) 0% 25%,var(--black) 0% 50%);background-size:40px 40px}
+.checkered-sm{background-image:repeating-conic-gradient(var(--black-card) 0% 25%,var(--black) 0% 50%);background-size:20px 20px}
+.checkered-border{background-image:repeating-conic-gradient(var(--red) 0% 25%,var(--black) 0% 50%);background-size:16px 16px}
+
+/* ===== SPEED LINES ===== */
+.speed-line{position:absolute;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0.3;pointer-events:none}
+
+/* ===== RACING STRIPE ===== */
+.racing-stripe{position:relative}
+.racing-stripe::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:100%;background:linear-gradient(90deg,transparent 0%,transparent 20%,var(--red) 20%,var(--red) 40%,transparent 40%,transparent 60%,var(--yellow) 60%,var(--yellow) 80%,transparent 80%)}
+
+/* ===== DIAGONAL ACCENT ===== */
+.diagonal-accent{position:relative}
+.diagonal-accent::after{content:'';position:absolute;top:0;right:0;width:200px;height:100%;background:var(--red);clip-path:polygon(100% 0,100% 100%,0 100%);opacity:0.1;pointer-events:none}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-family:var(--font-heading);font-size:1.1rem;text-transform:uppercase;letter-spacing:0.08em;border:none;cursor:pointer;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px))}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s}
+.btn:hover::before{left:100%}
+.btn-red{background:var(--red);color:var(--white)}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-3px);box-shadow:0 8px 30px var(--red-glow)}
+.btn-yellow{background:var(--yellow);color:var(--black)}
+.btn-yellow:hover{background:var(--yellow-dark);transform:translateY(-3px)}
+.btn-outline{background:transparent;border:2px solid var(--red);color:var(--red)}
+.btn-outline:hover{background:var(--red);color:var(--white);transform:translateY(-3px)}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 0;transition:all 0.4s var(--ease-out)}
+.nav.scrolled{background:rgba(10,10,10,0.95);padding:12px 0;backdrop-filter:blur(10px);border-bottom:2px solid var(--red)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-heading);font-size:1.6rem;color:var(--white);text-transform:uppercase;letter-spacing:0.05em;display:flex;align-items:center;gap:8px}
+.nav-logo .logo-icon{width:36px;height:36px;background:var(--red);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:900}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--white);font-family:var(--font-body);font-weight:500;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--red);transition:width 0.3s var(--ease-out)}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{padding:10px 24px;background:var(--red);color:var(--white);font-family:var(--font-heading);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:all 0.3s}
+.nav-cta:hover{background:var(--red-dark);box-shadow:0 4px 20px var(--red-glow)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:8px}
+.hamburger span{display:block;width:28px;height:3px;background:var(--white);transition:all 0.3s var(--ease-out)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+/* ===== SECTION HEADERS ===== */
+.section-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:0.85rem;font-weight:500;color:var(--red);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:16px}
+.section-eyebrow::before{content:'';width:40px;height:2px;background:var(--red)}
+.section-eyebrow::after{content:'';width:40px;height:2px;background:var(--red)}
+.section-title{font-size:clamp(2.4rem,5.5vw,4.5rem);color:var(--white);margin-bottom:20px}
+.section-title span{color:var(--red)}
+.section-title .yellow{color:var(--yellow)}
+.section-sub{font-size:1.1rem;color:var(--gray-400);max-width:600px;line-height:1.7}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;background:var(--black);position:relative}
+.hero-bg{position:absolute;inset:0;z-index:1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.25}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0.6) 40%,rgba(10,10,10,0.85) 100%);z-index:2}
+.hero-diagonal{position:absolute;bottom:0;left:0;width:100%;height:200px;background:var(--black);clip-path:polygon(0 60%,100% 0,100% 100%,0 100%);z-index:3}
+.hero-speed-lines{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.hero-checkered{position:absolute;bottom:0;right:0;width:300px;height:300px;z-index:2;opacity:0.05}
+.hero-checkered-inner{width:100%;height:100%;background-image:repeating-conic-gradient(var(--white) 0% 25%,transparent 0% 50%);background-size:30px 30px}
+.hero-content{position:relative;z-index:4;max-width:750px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:0.9rem;font-weight:500;color:var(--red);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:24px}
+.hero-eyebrow .flag-icon{width:24px;height:16px;background:repeating-conic-gradient(var(--white) 0% 25%,var(--black) 0% 50%);background-size:8px 8px;display:inline-block}
+.hero h1{font-size:clamp(3.2rem,8vw,7rem);color:var(--white);margin-bottom:20px;line-height:0.95}
+.hero h1 .red{color:var(--red)}
+.hero h1 .yellow{color:var(--yellow)}
+.hero h1 .stroke{-webkit-text-stroke:2px var(--white);color:transparent}
+.hero-sub{font-size:1.15rem;color:var(--gray-400);margin-bottom:36px;max-width:520px;line-height:1.7;font-weight:300}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.hero-stats{display:flex;gap:40px}
+.hero-stat{text-align:left}
+.hero-stat-number{font-family:var(--font-heading);font-size:2rem;color:var(--yellow);line-height:1}
+.hero-stat-label{font-size:0.8rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px}
+.hero-badge{position:absolute;bottom:120px;right:60px;z-index:4;width:140px;height:140px;border:3px solid var(--red);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;animation:spinSlow 20s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.hero-badge-inner{animation:spinSlowReverse 20s linear infinite}
+@keyframes spinSlowReverse{to{transform:rotate(-360deg)}}
+.hero-badge-number{font-family:var(--font-heading);font-size:2.2rem;color:var(--red);line-height:1}
+.hero-badge-text{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gray-400)}
+
+/* ===== RPM COUNTER / STATS ===== */
+.rpm-section{padding:100px 0;background:var(--black-light);position:relative}
+.rpm-section::before{content:'';position:absolute;top:0;left:0;width:100%;height:6px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--red))}
+.rpm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.rpm-card{background:var(--black-card);border:1px solid var(--gray-800);padding:48px 32px;text-align:center;position:relative;overflow:hidden;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));transition:all 0.4s var(--ease-out)}
+.rpm-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.rpm-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--red);transform:scaleX(0);transition:transform 0.4s var(--ease-out)}
+.rpm-card:hover::before{transform:scaleX(1)}
+.rpm-card-icon{width:60px;height:60px;margin:0 auto 20px;border:2px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative}
+.rpm-card-icon svg{width:28px;height:28px;fill:var(--red)}
+.rpm-card-icon::after{content:'';position:absolute;inset:-4px;border:1px solid var(--red);border-radius:50%;opacity:0.3}
+.rpm-number{font-family:var(--font-heading);font-size:clamp(2.8rem,4vw,4rem);color:var(--white);margin-bottom:8px;line-height:1}
+.rpm-number span{color:var(--yellow)}
+.rpm-label{font-size:0.85rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.15em;font-weight:500}
+
+/* ===== ABOUT ===== */
+.about{padding:120px 0;background:var(--black);position:relative}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-image{position:relative;clip-path:polygon(0 0,100% 8%,100% 100%,0 92%)}
+.about-image img{width:100%;height:500px;object-fit:cover}
+.about-image::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,var(--red) 0%,transparent 50%);opacity:0.2;pointer-events:none}
+.about-stripe{position:absolute;top:50%;left:-20px;width:calc(100% + 40px);height:60px;display:flex;z-index:2}
+.about-stripe div{flex:1}
+.about-stripe div:nth-child(1){background:var(--red)}
+.about-stripe div:nth-child(2){background:var(--yellow)}
+.about-stripe div:nth-child(3){background:var(--white)}
+.about-text{font-size:1.05rem;color:var(--gray-400);line-height:1.8;margin-bottom:24px}
+.about-highlight{font-family:var(--font-heading);font-size:1.6rem;color:var(--yellow);margin-bottom:24px;line-height:1.3;text-transform:uppercase}
+.about-list{margin-bottom:32px}
+.about-list li{padding:10px 0;border-bottom:1px solid var(--gray-800);display:flex;align-items:center;gap:12px;font-size:0.95rem;color:var(--gray-400)}
+.about-list li::before{content:'';width:12px;height:12px;background:var(--red);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0}
+.about-owner{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:24px;border-top:2px solid var(--red)}
+.about-owner-img{width:60px;height:60px;border-radius:50%;overflow:hidden;border:2px solid var(--red)}
+.about-owner-img img{width:100%;height:100%;object-fit:cover}
+.about-owner-info .name{font-family:var(--font-heading);font-size:1.1rem;color:var(--white);text-transform:uppercase}
+.about-owner-info .role{font-size:0.8rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.1em}
+
+/* ===== SERVICES ===== */
+.services{padding:120px 0;background:var(--black-light);position:relative}
+.services::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,transparent 0%,rgba(255,0,0,0.02) 50%,transparent 100%);pointer-events:none}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.service-card{background:var(--black-card);border:1px solid var(--gray-800);position:relative;overflow:hidden;transition:all 0.4s var(--ease-out);clip-path:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%)}
+.service-card:hover{border-color:var(--red);transform:translateY(-6px) rotate(-0.5deg)}
+.service-card:hover .service-img img{transform:scale(1.1)}
+.service-card:hover .service-speed-line{opacity:1;animation:speedAcross 0.6s ease-out}
+@keyframes speedAcross{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.service-img{height:220px;overflow:hidden;position:relative}
+.service-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--ease-out)}
+.service-img::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:60%;background:linear-gradient(to top,var(--black-card),transparent);pointer-events:none}
+.service-speed-line{position:absolute;top:50%;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0;pointer-events:none;z-index:2}
+.service-content{padding:28px 24px}
+.service-number{font-family:var(--font-heading);font-size:3rem;color:var(--red);opacity:0.15;position:absolute;top:12px;right:16px;line-height:1}
+.service-title{font-family:var(--font-heading);font-size:1.4rem;color:var(--white);margin-bottom:10px;text-transform:uppercase}
+.service-desc{font-size:0.9rem;color:var(--gray-400);line-height:1.6;margin-bottom:16px}
+.service-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:0.8rem;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;transition:gap 0.3s}
+.service-cta:hover{gap:14px;color:var(--yellow)}
+.service-card-accent{position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--red),var(--yellow))}
+
+/* ===== PERFORMANCE ===== */
+.performance{padding:120px 0;background:var(--black);position:relative}
+.performance::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,0,0,0.03) 0%,transparent 50%,rgba(255,215,0,0.03) 100%);pointer-events:none}
+.performance-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
+.performance-image{position:relative;height:500px;overflow:hidden;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)}
+.performance-image img{width:100%;height:100%;object-fit:cover}
+.performance-image::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,0,0,0.3),transparent);pointer-events:none}
+.perf-bars{display:flex;flex-direction:column;gap:28px}
+.perf-bar-item{position:relative}
+.perf-bar-header{display:flex;justify-content:space-between;margin-bottom:10px}
+.perf-bar-title{font-family:var(--font-heading);font-size:1.1rem;color:var(--white);text-transform:uppercase}
+.perf-bar-pct{font-family:var(--font-heading);font-size:1.1rem;color:var(--yellow)}
+.perf-bar-track{width:100%;height:8px;background:var(--gray-800);position:relative;clip-path:polygon(0 0,100% 0,calc(100% - 4px) 100%,0 100%)}
+.perf-bar-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--yellow));width:0;transition:width 1.5s var(--ease-out)}
+.perf-bar-fill::after{content:'';position:absolute;right:0;top:-4px;width:16px;height:16px;background:var(--yellow);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%)}
+
+/* ===== REVIEWS ===== */
+.reviews{padding:120px 0;background:var(--black-light);position:relative}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.review-card{background:var(--black-card);border:1px solid var(--gray-800);padding:32px;position:relative;overflow:hidden;transition:all 0.4s var(--ease-out);clip-path:polygon(0 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%)}
+.review-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.review-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--red),var(--yellow))}
+.review-card-flag{position:absolute;top:0;right:0;width:60px;height:6px;background:repeating-conic-gradient(var(--red) 0% 25%,var(--black-card) 0% 50%);background-size:6px 6px}
+.review-stars{display:flex;gap:4px;margin-bottom:16px}
+.review-stars svg{width:18px;height:18px;fill:var(--yellow)}
+.review-text{font-size:0.95rem;color:var(--gray-400);line-height:1.7;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--gray-800)}
+.review-avatar{width:44px;height:44px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.1rem;color:var(--white)}
+.review-name{font-family:var(--font-heading);font-size:1rem;color:var(--white);text-transform:uppercase}
+.review-date{font-size:0.75rem;color:var(--gray-600);margin-top:2px}
+
+/* ===== GALLERY ===== */
+.gallery{padding:120px 0;background:var(--black);position:relative}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,250px);gap:16px;margin-top:60px}
+.gallery-item{position:relative;overflow:hidden;cursor:pointer}
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery-item:nth-child(4){grid-column:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--ease-out)}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,0,0,0.7),rgba(10,10,10,0.8));opacity:0;transition:opacity 0.4s;display:flex;align-items:center;justify-content:center;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-overlay-text{font-family:var(--font-heading);font-size:1.4rem;color:var(--white);text-transform:uppercase;transform:rotate(-5deg)}
+
+/* ===== PIT CREW ===== */
+.pit-crew{padding:120px 0;background:var(--black-light);position:relative}
+.pit-crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:60px}
+.crew-card{background:var(--black-card);border:1px solid var(--gray-800);overflow:hidden;position:relative;transition:all 0.4s var(--ease-out)}
+.crew-card:hover{border-color:var(--red);transform:translateY(-6px)}
+.crew-card-img{height:320px;overflow:hidden;position:relative}
+.crew-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--ease-out)}
+.crew-card:hover .crew-card-img img{transform:scale(1.05)}
+.crew-card-img::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:50%;background:linear-gradient(to top,var(--black-card),transparent)}
+.crew-card-number{position:absolute;top:16px;right:16px;font-family:var(--font-heading);font-size:3rem;color:var(--white);opacity:0.2;line-height:1}
+.crew-card-checkered{position:absolute;top:0;left:0;width:100%;height:8px;background-image:repeating-conic-gradient(var(--red) 0% 25%,transparent 0% 50%);background-size:8px 8px}
+.crew-card-info{padding:24px;position:relative}
+.crew-card-info::before{content:'';position:absolute;top:0;left:24px;width:40px;height:3px;background:var(--red)}
+.crew-name{font-family:var(--font-heading);font-size:1.3rem;color:var(--white);text-transform:uppercase;margin-top:8px}
+.crew-role{font-size:0.8rem;color:var(--red);text-transform:uppercase;letter-spacing:0.15em;font-weight:500;margin-top:4px}
+.crew-exp{font-size:0.85rem;color:var(--gray-400);margin-top:8px}
+
+/* ===== SPEED SPECIALS ===== */
+.specials{padding:120px 0;background:var(--red);position:relative;overflow:hidden}
+.specials::before{content:'';position:absolute;inset:0;background-image:repeating-conic-gradient(rgba(255,255,255,0.03) 0% 25%,transparent 0% 50%);background-size:60px 60px;pointer-events:none}
+.specials-content{position:relative;z-index:2;text-align:center}
+.specials .section-eyebrow{color:var(--yellow)}
+.specials .section-eyebrow::before,.specials .section-eyebrow::after{background:var(--yellow)}
+.specials .section-title{color:var(--white)}
+.specials .section-title span{color:var(--yellow)}
+.specials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.special-card{background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);padding:36px 28px;text-align:center;position:relative;overflow:hidden;transition:all 0.4s var(--ease-out)}
+.special-card:hover{transform:translateY(-6px);background:rgba(0,0,0,0.5)}
+.special-card-flag{position:absolute;top:0;left:0;width:100%;height:6px;background-image:repeating-conic-gradient(var(--yellow) 0% 25%,var(--black) 0% 50%);background-size:6px 6px}
+.special-name{font-family:var(--font-heading);font-size:1.4rem;color:var(--white);text-transform:uppercase;margin-bottom:12px}
+.special-price{font-family:var(--font-heading);font-size:2.8rem;color:var(--yellow);margin-bottom:8px;line-height:1}
+.special-details{font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:20px}
+.special-timer{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.timer-block{background:rgba(0,0,0,0.4);padding:8px 12px;text-align:center;min-width:56px}
+.timer-number{font-family:var(--font-heading);font-size:1.6rem;color:var(--yellow);line-height:1}
+.timer-label{font-size:0.6rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em}
+
+/* ===== TRACK RECORD ===== */
+.track-record{padding:120px 0;background:var(--black);position:relative}
+.timeline{position:relative;margin-top:60px;padding-left:60px}
+.timeline::before{content:'';position:absolute;top:0;left:30px;width:3px;height:100%;background:linear-gradient(180deg,var(--red),var(--yellow),var(--red))}
+.timeline-item{position:relative;padding:0 0 60px 40px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-checkpoint{position:absolute;left:-42px;top:0;width:24px;height:24px;background:var(--black);border:3px solid var(--red);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);z-index:2;transition:all 0.3s}
+.timeline-item:hover .timeline-checkpoint{background:var(--red);transform:scale(1.3)}
+.timeline-year{font-family:var(--font-heading);font-size:1.8rem;color:var(--red);margin-bottom:8px}
+.timeline-title{font-family:var(--font-heading);font-size:1.3rem;color:var(--white);text-transform:uppercase;margin-bottom:8px}
+.timeline-desc{font-size:0.9rem;color:var(--gray-400);line-height:1.6;max-width:500px}
+.timeline-flag{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:4px 12px;background:var(--black-card);border:1px solid var(--gray-800);font-size:0.75rem;color:var(--yellow);text-transform:uppercase;letter-spacing:0.1em}
+
+/* ===== FINISH LINE CTA ===== */
+.finish-line{padding:100px 0;background:var(--black-light);position:relative;text-align:center}
+.finish-line::before{content:'';position:absolute;top:0;left:0;width:100%;height:16px;background-image:repeating-conic-gradient(var(--white) 0% 25%,var(--black) 0% 50%);background-size:16px 16px}
+.finish-line::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:16px;background-image:repeating-conic-gradient(var(--white) 0% 25%,var(--black) 0% 50%);background-size:16px 16px}
+.finish-line-content{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.finish-line .section-title{margin-bottom:24px}
+.finish-line-text{font-size:1.1rem;color:var(--gray-400);margin-bottom:40px;line-height:1.7}
+.finish-line-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.finish-line-phone{font-family:var(--font-heading);font-size:2rem;color:var(--yellow);margin-top:32px;display:block}
+.finish-line-phone:hover{color:var(--red)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--black);padding:60px 0 0;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--red))}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--gray-800)}
+.footer-brand .nav-logo{font-size:1.4rem;margin-bottom:16px}
+.footer-desc{font-size:0.9rem;color:var(--gray-400);line-height:1.7;margin-bottom:20px}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:40px;height:40px;border:1px solid var(--gray-800);display:flex;align-items:center;justify-content:center;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.footer-social a:hover{border-color:var(--red);background:var(--red)}
+.footer-social a svg{width:18px;height:18px;fill:var(--white)}
+.footer-col h4{font-family:var(--font-heading);font-size:1rem;color:var(--white);text-transform:uppercase;margin-bottom:20px;position:relative;padding-bottom:12px}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:var(--red)}
+.footer-col a{display:block;font-size:0.9rem;color:var(--gray-400);padding:6px 0;transition:color 0.3s}
+.footer-col a:hover{color:var(--red);padding-left:8px}
+.footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:var(--gray-600)}
+.footer-racing-stripe{display:flex;gap:4px}
+.footer-racing-stripe div{width:40px;height:4px}
+.footer-racing-stripe div:nth-child(1){background:var(--red)}
+.footer-racing-stripe div:nth-child(2){background:var(--yellow)}
+.footer-racing-stripe div:nth-child(3){background:var(--white)}
+
+/* ===== MOBILE ===== */
+@media(max-width:1024px){
+  .rpm-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,200px)}
+  .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .gallery-item:nth-child(4){grid-column:span 1}
+  .pit-crew-grid{grid-template-columns:repeat(2,1fr)}
+  .specials-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(10,10,10,0.98);flex-direction:column;justify-content:center;align-items:center;gap:24px;z-index:999}
+  .nav-links.active{display:flex}
+  .nav-links a{font-size:1.4rem}
+  .hamburger{display:flex}
+  .hero h1{font-size:clamp(2.4rem,10vw,4rem)}
+  .hero-badge{display:none}
+  .hero-stats{gap:24px}
+  .hero-stat-number{font-size:1.5rem}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-image{clip-path:none}
+  .about-image img{height:350px}
+  .rpm-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr}
+  .performance-grid{grid-template-columns:1fr;gap:40px}
+  .performance-image{height:300px;clip-path:none}
+  .reviews-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .gallery-item:nth-child(1){grid-column:span 1}
+  .gallery-item{height:250px}
+  .pit-crew-grid{grid-template-columns:1fr}
+  .specials-grid{grid-template-columns:1fr}
+  .timeline{padding-left:40px}
+  .timeline::before{left:15px}
+  .timeline-checkpoint{left:-33px}
+  .finish-line-ctas{flex-direction:column;align-items:center}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+}
+@media(max-width:480px){
+  .rpm-grid{grid-template-columns:1fr}
+  .hero-ctas{flex-direction:column}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .hero-stats{flex-direction:column;gap:16px}
+}
+
+/* ===== MOBILE STICKY CTA ===== */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;width:100%;z-index:999;padding:12px 16px;background:var(--black);border-top:2px solid var(--red)}
+.mobile-cta a{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px;background:var(--red);color:var(--white);font-family:var(--font-heading);font-size:1.1rem;text-transform:uppercase;letter-spacing:0.05em;width:100%;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+@media(max-width:768px){.mobile-cta{display:block}body{padding-bottom:80px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">⚡</div>
+      Quick Auto<span>.</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#specials">Specials</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+18323824155" class="nav-cta">(832) 382-4155</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="Quick Auto Service — Auto Repair in Houston" width="1920" height="1080" fetchpriority="high" decoding="sync">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-speed-lines" id="heroSpeedLines"></div>
+  <div class="hero-checkered"><div class="hero-checkered-inner"></div></div>
+  <div class="hero-diagonal"></div>
+  <div class="container hero-content">
+    <div class="hero-eyebrow">
+      <span class="flag-icon"></span> ASE Certified · Houston, TX
+    </div>
+    <h1>Houston's Trusted Inspection & Service Shop</h1>
+    <p class="hero-sub">Quick Auto Service & State Inspection — 4.8★ rated with 291+ reviews. Honest service, fair prices.</p>
+    <div class="hero-ctas">
+      <a href="tel:+18323824155" class="btn btn-red">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Schedule Service
+      </a>
+      <a href="#services" class="btn btn-outline">Our Services →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-number">4.8★</div>
+        <div class="hero-stat-label">Google Rating</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">291+</div>
+        <div class="hero-stat-label">5-Star Reviews</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">10+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="hero-badge-inner">
+      <div class="hero-badge-number">18+</div>
+      <div class="hero-badge-text">Years Serving<br>Houston</div>
+    </div>
+  </div>
+</section>
+
+<!-- RPM COUNTER / STATS -->
+<section class="rpm-section" id="stats">
+  <div class="container">
+    <div class="rpm-grid">
+      <div class="rpm-card">
+        <div class="rpm-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        </div>
+        <div class="rpm-number" data-target="10">0</div>
+        <div class="rpm-label">Years in Business</div>
+      </div>
+      <div class="rpm-card">
+        <div class="rpm-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+        </div>
+        <div class="rpm-number" data-target="50000">0</div>
+        <div class="rpm-label">Cars Serviced</div>
+      </div>
+      <div class="rpm-card">
+        <div class="rpm-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div class="rpm-number" data-target="12">0</div>
+        <div class="rpm-label">Expert Technicians</div>
+      </div>
+      <div class="rpm-card">
+        <div class="rpm-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <div class="rpm-number" data-target="291">0</div>
+        <div class="rpm-label">5-Star Reviews</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="images/team.jpg" alt="Quick Auto Service Team" width="600" height="500" loading="lazy" decoding="async">
+        <div class="about-stripe">
+          <div></div><div></div><div></div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-eyebrow">Our Story</div>
+        <h2 class="section-title">Built for <span>Speed</span>, Driven by <span class="yellow">Excellence</span></h2>
+        <div class="about-highlight">Where motorsport passion meets professional auto care</div>
+        <p class="about-text">Founded in 2006, Quick Auto Service has grown from a two-bay garage into Houston's most trusted auto repair shop. Owner Quick Auto Team and his team of ASE-certified technicians have completed over 50,000 repairs with a 4.8-star rating. We believe in transparent pricing, honest diagnostics, and treating every car like our own.</p>
+        <ul class="about-list">
+          <li>Licensed State Inspection Station</li>
+          <li>Modern Diagnostic Equipment</li>
+          <li>All Makes & Models Serviced</li>
+          <li>Fast Turnaround on Inspections</li>
+          <li>Same-Day Service Available</li>
+        </ul>
+        <div class="about-owner">
+          <div class="about-owner-img">
+            <img src="images/mechanic-portrait.jpg" alt="Quick Auto Team" width="60" height="60" loading="lazy" decoding="async">
+          </div>
+          <div class="about-owner-info">
+            <div class="name">Quick Auto Team</div>
+            <div class="role">Owner & Lead Technician</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-title">Full <span>Throttle</span> Services</h2>
+      <p class="section-sub" style="margin:0 auto">From state inspections to complete auto repair — we keep your vehicle road-ready.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/service-brakes.jpg" alt="Oil Changes & Fluid Services" width="400" height="220" loading="lazy" decoding="async">
+          <div class="service-speed-line"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-number">01</div>
+          <h3 class="service-title">State Inspection</h3>
+          <p class="service-desc">Quick and reliable state vehicle inspection to keep you road-legal.</p>
+          <a href="tel:+18323824155" class="service-cta">Book Now →</a>
+        </div>
+        <div class="service-card-accent"></div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/service-engine.jpg" alt="Brake Repair & Replacement" width="400" height="220" loading="lazy" decoding="async">
+          <div class="service-speed-line"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-number">02</div>
+          <h3 class="service-title">Emissions Testing</h3>
+          <p class="service-desc">Complete emissions testing and repair to pass inspection requirements.</p>
+          <a href="tel:+18323824155" class="service-cta">Book Now →</a>
+        </div>
+        <div class="service-card-accent"></div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/service-oil.jpg" alt="Engine Diagnostics & Repair" width="400" height="220" loading="lazy" decoding="async">
+          <div class="service-speed-line"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-number">03</div>
+          <h3 class="service-title">Oil Change & Lube</h3>
+          <p class="service-desc">Full-synthetic and conventional oil changes with multi-point inspection.</p>
+          <a href="tel:+18323824155" class="service-cta">Book Now →</a>
+        </div>
+        <div class="service-card-accent"></div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/service-tires.jpg" alt="Tire Services & Alignment" width="400" height="220" loading="lazy" decoding="async">
+          <div class="service-speed-line"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-number">04</div>
+          <h3 class="service-title">Brake Inspection</h3>
+          <p class="service-desc">Thorough brake system check with detailed report and repair options.</p>
+          <a href="tel:+18323824155" class="service-cta">Book Now →</a>
+        </div>
+        <div class="service-card-accent"></div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/service-diagnostics.jpg" alt="AC & Heating Service" width="400" height="220" loading="lazy" decoding="async">
+          <div class="service-speed-line"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-number">05</div>
+          <h3 class="service-title">A/C Service</h3>
+          <p class="service-desc">Air conditioning diagnosis, recharge, and full system repair.</p>
+          <a href="tel:+18323824155" class="service-cta">Book Now →</a>
+        </div>
+        <div class="service-card-accent"></div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/tire-alignment.jpg" alt="Transmission Service" width="400" height="220" loading="lazy" decoding="async">
+          <div class="service-speed-line"></div>
+        </div>
+        <div class="service-content">
+          <div class="service-number">06</div>
+          <h3 class="service-title">General Repair</h3>
+          <p class="service-desc">Complete auto repair service for all makes and models.</p>
+          <a href="tel:+18323824155" class="service-cta">Book Now →</a>
+        </div>
+        <div class="service-card-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE -->
+<section class="performance" id="performance">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:20px">
+      <div class="section-eyebrow">Performance</div>
+      <h2 class="section-title">Peak <span>Performance</span> Guaranteed</h2>
+    </div>
+    <div class="performance-grid">
+      <div class="performance-image">
+        <img src="images/engine-work.jpg" alt="Engine Performance Work" width="600" height="500" loading="lazy" decoding="async">
+      </div>
+      <div class="perf-bars">
+        <div class="perf-bar-item">
+          <div class="perf-bar-header">
+            <span class="perf-bar-title">Engine Diagnostics</span>
+            <span class="perf-bar-pct">98%</span>
+          </div>
+          <div class="perf-bar-track">
+            <div class="perf-bar-fill" data-width="98"></div>
+          </div>
+        </div>
+        <div class="perf-bar-item">
+          <div class="perf-bar-header">
+            <span class="perf-bar-title">Brake Systems</span>
+            <span class="perf-bar-pct">95%</span>
+          </div>
+          <div class="perf-bar-track">
+            <div class="perf-bar-fill" data-width="95"></div>
+          </div>
+        </div>
+        <div class="perf-bar-item">
+          <div class="perf-bar-header">
+            <span class="perf-bar-title">Transmission</span>
+            <span class="perf-bar-pct">92%</span>
+          </div>
+          <div class="perf-bar-track">
+            <div class="perf-bar-fill" data-width="92"></div>
+          </div>
+        </div>
+        <div class="perf-bar-item">
+          <div class="perf-bar-header">
+            <span class="perf-bar-title">Electrical Systems</span>
+            <span class="perf-bar-pct">96%</span>
+          </div>
+          <div class="perf-bar-track">
+            <div class="perf-bar-fill" data-width="96"></div>
+          </div>
+        </div>
+        <div class="perf-bar-item">
+          <div class="perf-bar-header">
+            <span class="perf-bar-title">Customer Satisfaction</span>
+            <span class="perf-bar-pct">99%</span>
+          </div>
+          <div class="perf-bar-track">
+            <div class="perf-bar-fill" data-width="99"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow">Testimonials</div>
+      <h2 class="section-title">What Our <span>Drivers</span> Say</h2>
+      <p class="section-sub" style="margin:0 auto">Real reviews from real customers. 4.9 stars across 291+ Google reviews.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-card-flag"></div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="review-text">"Great and fast service! They were very helpful and honest with their repairs. I will definitely use them again in the future."</p>
+        <div class="review-author">
+          <div class="review-avatar">Meghan Silva</div>
+          <div>
+            <div class="review-name">Meghan Silva</div>
+            <div class="review-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-card-flag"></div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="review-text">"Adnan and the guys always do great fast professional service, they are upfront and they will tell you in advance if your stuff is good to go."</p>
+        <div class="review-author">
+          <div class="review-avatar">M SC</div>
+          <div>
+            <div class="review-name">M SC</div>
+            <div class="review-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-card-flag"></div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="review-text">"Their service was excellent. I'm happy no one tried to up-sell me on anything. I got the oil change I came for and decided to do an inspection as well. They seem happy to help you check most issues your car might have. Worth the stop."</p>
+        <div class="review-author">
+          <div class="review-avatar">Austin C</div>
+          <div>
+            <div class="review-name">Austin C</div>
+            <div class="review-date">5 stars</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow">Our Shop</div>
+      <h2 class="section-title">Inside the <span>Garage</span></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/shop-interior.jpg" alt="Shop Interior" width="600" height="500" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Our Facility</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/car-lift.jpg" alt="Car on Lift" width="300" height="250" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Full Lifts</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/diagnostic-scan.jpg" alt="Diagnostic Scan" width="300" height="250" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Diagnostics</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/brake-service.jpg" alt="Brake Service" width="600" height="250" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Brake Work</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/under-car.jpg" alt="Under Car Service" width="300" height="250" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Under the Hood</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/customer-handshake.jpg" alt="Customer Service" width="300" height="250" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Customer First</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/oil-change.jpg" alt="Oil Change" width="300" height="250" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Oil Service</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/exterior.jpg" alt="Shop Exterior" width="600" height="250" loading="lazy" decoding="async">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Our Location</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIT CREW -->
+<section class="pit-crew" id="team">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow">The Team</div>
+      <h2 class="section-title">Meet the <span>Pit Crew</span></h2>
+      <p class="section-sub" style="margin:0 auto">Factory-trained, ASE-certified technicians who treat every vehicle like a race car.</p>
+    </div>
+    <div class="pit-crew-grid">
+      <div class="crew-card">
+        <div class="crew-card-img">
+          <img src="images/mechanic-portrait.jpg" alt="Quick Auto Team" width="400" height="320" loading="lazy" decoding="async">
+          <div class="crew-card-number">#01</div>
+          <div class="crew-card-checkered"></div>
+        </div>
+        <div class="crew-card-info">
+          <div class="crew-name">Quick Auto Team</div>
+          <div class="crew-role">Owner & Lead Technician</div>
+          <div class="crew-exp">20+ years experience | ASE Master Certified</div>
+        </div>
+      </div>
+      <div class="crew-card">
+        <div class="crew-card-img">
+          <img src="images/engine-work.jpg" alt="Engine Specialist" width="400" height="320" loading="lazy" decoding="async">
+          <div class="crew-card-number">#02</div>
+          <div class="crew-card-checkered"></div>
+        </div>
+        <div class="crew-card-info">
+          <div class="crew-name">Carlos Mendez</div>
+          <div class="crew-role">Engine Performance Specialist</div>
+          <div class="crew-exp">15 years experience | Turbo & Supercharger Expert</div>
+        </div>
+      </div>
+      <div class="crew-card">
+        <div class="crew-card-img">
+          <img src="images/diagnostic-scan.jpg" alt="Diagnostics Expert" width="400" height="320" loading="lazy" decoding="async">
+          <div class="crew-card-number">#03</div>
+          <div class="crew-card-checkered"></div>
+        </div>
+        <div class="crew-card-info">
+          <div class="crew-name">Quick</div>
+          <div class="crew-role">Diagnostics & Electrical</div>
+          <div class="crew-exp">12 years experience | EV & Hybrid Certified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEED SPECIALS -->
+<section class="specials" id="specials">
+  <div class="container specials-content">
+    <div class="section-eyebrow">Limited Time</div>
+    <h2 class="section-title">Speed <span>Specials</span></h2>
+    <div class="specials-grid">
+      <div class="special-card">
+        <div class="special-card-flag"></div>
+        <div class="special-name">Oil Change Package</div>
+        <div class="special-price">$49<sup style="font-size:1rem">.99</sup></div>
+        <p class="special-details">Full synthetic oil change, filter replacement, 21-point inspection, and fluid top-off.</p>
+        <a href="tel:+18323824155" class="btn btn-yellow" style="width:100%;justify-content:center;margin-top:12px">Claim Offer</a>
+        <div class="special-timer" data-days="14">
+          <div class="timer-block"><div class="timer-number timer-days">14</div><div class="timer-label">Days</div></div>
+          <div class="timer-block"><div class="timer-number timer-hours">00</div><div class="timer-label">Hours</div></div>
+          <div class="timer-block"><div class="timer-number timer-mins">00</div><div class="timer-label">Mins</div></div>
+        </div>
+      </div>
+      <div class="special-card">
+        <div class="special-card-flag"></div>
+        <div class="special-name">Brake Inspection</div>
+        <div class="special-price">FREE</div>
+        <p class="special-details">Complete brake system inspection including pads, rotors, fluid, and lines. No obligation.</p>
+        <a href="tel:+18323824155" class="btn btn-yellow" style="width:100%;justify-content:center;margin-top:12px">Book Now</a>
+        <div class="special-timer" data-days="7">
+          <div class="timer-block"><div class="timer-number timer-days">07</div><div class="timer-label">Days</div></div>
+          <div class="timer-block"><div class="timer-number timer-hours">00</div><div class="timer-label">Hours</div></div>
+          <div class="timer-block"><div class="timer-number timer-mins">00</div><div class="timer-label">Mins</div></div>
+        </div>
+      </div>
+      <div class="special-card">
+        <div class="special-card-flag"></div>
+        <div class="special-name">A/C Recharge</div>
+        <div class="special-price">$89<sup style="font-size:1rem">.99</sup></div>
+        <p class="special-details">Full A/C system recharge with leak detection, performance test, and cabin filter replacement.</p>
+        <a href="tel:+18323824155" class="btn btn-yellow" style="width:100%;justify-content:center;margin-top:12px">Get Deal</a>
+        <div class="special-timer" data-days="21">
+          <div class="timer-block"><div class="timer-number timer-days">21</div><div class="timer-label">Days</div></div>
+          <div class="timer-block"><div class="timer-number timer-hours">00</div><div class="timer-label">Hours</div></div>
+          <div class="timer-block"><div class="timer-number timer-mins">00</div><div class="timer-label">Mins</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section class="track-record" id="track">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-eyebrow">Our Journey</div>
+      <h2 class="section-title">The <span>Track Record</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-checkpoint"></div>
+        <div class="timeline-year">2006</div>
+        <div class="timeline-title">Starting Grid</div>
+        <p class="timeline-desc">Quick Auto Team opens Quick Auto Service in Houston with a 2-bay garage and a dream to deliver expert-level service to everyday drivers.</p>
+        <div class="timeline-flag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--yellow)"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg>
+          Foundation
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-checkpoint"></div>
+        <div class="timeline-year">2010</div>
+        <div class="timeline-title">Expansion Lap</div>
+        <p class="timeline-desc">Expanded to a 6-bay facility with state-of-the-art diagnostic equipment. Added performance tuning services.</p>
+        <div class="timeline-flag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--yellow)"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg>
+          Growth
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-checkpoint"></div>
+        <div class="timeline-year">2015</div>
+        <div class="timeline-title">Pole Position</div>
+        <p class="timeline-desc">Named "Best Auto Repair in Houston" by local media. Reached 200+ five-star Google reviews.</p>
+        <div class="timeline-flag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--yellow)"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg>
+          Recognition
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-checkpoint"></div>
+        <div class="timeline-year">2020</div>
+        <div class="timeline-title">EV Pit Stop</div>
+        <p class="timeline-desc">Invested in EV and hybrid training and equipment. Now certified to service Tesla, Rivian, and all major EV brands.</p>
+        <div class="timeline-flag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--yellow)"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg>
+          Innovation
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-checkpoint"></div>
+        <div class="timeline-year">2026</div>
+        <div class="timeline-title">Victory Lap</div>
+        <p class="timeline-desc">18+ years strong with 12 certified technicians, 291+ five-star reviews, and a reputation as Houston's premier auto repair destination.</p>
+        <div class="timeline-flag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--yellow)"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg>
+          Today
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINISH LINE CTA -->
+<section class="finish-line" id="contact">
+  <div class="container finish-line-content">
+    <div class="section-eyebrow">Ready?</div>
+    <h2 class="section-title">Cross the <span>Finish Line</span></h2>
+    <p class="finish-line-text">Don't let car trouble slow you down. Our expert pit crew is standing by to get you back on the road — fast, reliable, and at a fair price.</p>
+    <div class="finish-line-ctas">
+      <a href="tel:+18323824155" class="btn btn-red">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call Now: (832) 382-4155
+      </a>
+      <a href="https://maps.google.com/?q=4821+Commerce+St+Houston+TX+77498" target="_blank" class="btn btn-outline">Get Directions →</a>
+    </div>
+    <a href="tel:+18323824155" class="finish-line-phone">(832) 382-4155</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="logo-icon">⚡</div>
+          Quick Auto<span>.</span>
+        </div>
+        <p class="footer-desc">Professional auto inspection and repair services in Houston. Fast service, honest pricing, and quality work.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M16 4H8C5.79 4 4 5.79 4 8v8c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zm-4 11a3 3 0 110-6 3 3 0 010 6zm4.5-7.5a1 1 0 110-2 1 1 0 010 2z"/></svg></a>
+          <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M12 11v2.4h3.97c-.16 1.03-1.2 3.02-3.97 3.02-2.39 0-4.34-1.98-4.34-4.42s1.95-4.42 4.34-4.42c1.36 0 2.27.58 2.79 1.08l1.9-1.83C15.47 5.69 13.89 5 12 5 8.13 5 5 8.13 5 12s3.13 7 7 7c4.04 0 6.72-2.84 6.72-6.84 0-.46-.05-.81-.11-1.16H12z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">State Inspection</a>
+        <a href="#services">Emissions Testing</a>
+        <a href="#services">Oil Change & Lube</a>
+        <a href="#services">Brake Inspection</a>
+        <a href="#services">A/C Service</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#about">About Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#specials">Specials</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+18323824155">(832) 382-4155</a>
+        <a href="https://maps.google.com/?q=4821+Commerce+St+Houston+TX+77498">14009 FM 1464, Sugar Land, TX 77498</a>
+        <a href="#">Mon-Fri: 7:30am - 6pm</a>
+        <a href="#">Saturday: 8am - 4pm</a>
+        <a href="#">Sunday: Closed</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Quick Auto Service. All Rights Reserved.</span>
+      <div class="footer-racing-stripe">
+        <div></div><div></div><div></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta">
+  <a href="tel:+18323824155">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Call Now — (832) 382-4155
+  </a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== LENIS SMOOTH SCROLL =====
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    smoothTouch: false
+  });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ===== NAV SCROLL =====
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // ===== HAMBURGER =====
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // ===== HERO SPEED LINES =====
+  const speedContainer = document.getElementById('heroSpeedLines');
+  for (let i = 0; i < 12; i++) {
+    const line = document.createElement('div');
+    line.className = 'speed-line';
+    line.style.top = (10 + Math.random() * 80) + '%';
+    line.style.left = (Math.random() * 60) + '%';
+    line.style.width = (80 + Math.random() * 200) + 'px';
+    speedContainer.appendChild(line);
+  }
+  gsap.utils.toArray('.speed-line').forEach((line, i) => {
+    gsap.fromTo(line,
+      { x: -200, opacity: 0 },
+      { x: 400, opacity: 0.5, duration: 1 + Math.random() * 1.5,
+        delay: i * 0.15, ease: 'power2.out',
+        repeat: -1, repeatDelay: 2 + Math.random() * 4 }
+    );
+  });
+
+  // ===== HERO ENTRANCE =====
+  const heroTl = gsap.timeline({ delay: 0.3 });
+  heroTl
+    .from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.6 })
+    .from('.hero h1', { opacity: 0, y: 40, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+    .from('.hero-sub', { opacity: 0, y: 20, duration: 0.5 }, '-=0.4')
+    .from('.hero-ctas', { opacity: 0, y: 20, duration: 0.5 }, '-=0.3')
+    .from('.hero-stats .hero-stat', { opacity: 0, y: 20, stagger: 0.1, duration: 0.5 }, '-=0.2')
+    .from('.hero-badge', { opacity: 0, scale: 0, duration: 0.6, ease: 'back.out(1.7)' }, '-=0.3');
+
+  // ===== RPM COUNTER ANIMATION =====
+  const rpmCards = gsap.utils.toArray('.rpm-card');
+  rpmCards.forEach(card => {
+    gsap.set(card, { opacity: 0, y: 40 });
+    const numEl = card.querySelector('.rpm-number');
+    const target = parseInt(numEl.dataset.target);
+    ScrollTrigger.create({
+      trigger: card,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.to(card, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' });
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: () => {
+            numEl.textContent = target >= 1000
+              ? Math.floor(obj.val).toLocaleString() + '+'
+              : Math.floor(obj.val) + '+';
+          }
+        });
+      }
+    });
+  });
+
+  // ===== PRE-HIDE ELEMENTS (prevents flash of content before scroll animation) =====
+  // Pre-hide section headers (skip hero ones)
+  gsap.utils.toArray('.section-eyebrow').forEach(el => {
+    if (!el.closest('.hero')) gsap.set(el, { opacity: 0, y: 15 });
+  });
+  gsap.utils.toArray('.section-title').forEach(el => {
+    if (!el.closest('.hero')) gsap.set(el, { opacity: 0, y: 25 });
+  });
+  gsap.set('.about-image', { opacity: 0, x: -60 });
+  gsap.set('.about-content', { opacity: 0, x: 60 });
+  gsap.set('.about-list li', { opacity: 0, x: 30 });
+  gsap.set('.service-card', { opacity: 0, y: 50, rotation: 2 });
+  gsap.set('.performance-image', { opacity: 0, x: -60 });
+  gsap.set('.review-card', { opacity: 0, y: 40, rotation: -1 });
+  gsap.set('.gallery-item', { opacity: 0, scale: 0.9 });
+  gsap.set('.crew-card', { opacity: 0, y: 50 });
+  gsap.set('.special-card', { opacity: 0, y: 40 });
+  gsap.set('.timeline-item', { opacity: 0, x: -40 });
+  gsap.set('.finish-line-content', { opacity: 0, y: 40 });
+
+  // ===== ABOUT SECTION =====
+  gsap.to('.about-image', {
+    scrollTrigger: { trigger: '.about', start: 'top 70%', once: true },
+    opacity: 1, x: 0, duration: 0.9, ease: 'power3.out'
+  });
+  gsap.to('.about-content', {
+    scrollTrigger: { trigger: '.about', start: 'top 70%', once: true },
+    opacity: 1, x: 0, duration: 0.9, ease: 'power3.out', delay: 0.2
+  });
+  gsap.to('.about-list li', {
+    scrollTrigger: { trigger: '.about-list', start: 'top 85%', once: true },
+    opacity: 1, x: 0, stagger: 0.1, duration: 0.5
+  });
+
+  // ===== SERVICES STAGGER =====
+  gsap.to('.service-card', {
+    scrollTrigger: { trigger: '.services-grid', start: 'top 75%', once: true },
+    opacity: 1, y: 0, rotation: 0, stagger: 0.12, duration: 0.7, ease: 'power3.out'
+  });
+
+  // ===== PERFORMANCE BARS =====
+  gsap.utils.toArray('.perf-bar-fill').forEach(bar => {
+    ScrollTrigger.create({
+      trigger: bar,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to(bar, { width: bar.dataset.width + '%', duration: 1.5, ease: 'power2.out' });
+      }
+    });
+  });
+  gsap.to('.performance-image', {
+    scrollTrigger: { trigger: '.performance', start: 'top 70%', once: true },
+    opacity: 1, x: 0, duration: 0.9, ease: 'power3.out'
+  });
+
+  // ===== REVIEWS =====
+  gsap.to('.review-card', {
+    scrollTrigger: { trigger: '.reviews-grid', start: 'top 75%', once: true },
+    opacity: 1, y: 0, rotation: 0, stagger: 0.15, duration: 0.7, ease: 'power3.out'
+  });
+
+  // ===== GALLERY =====
+  gsap.to('.gallery-item', {
+    scrollTrigger: { trigger: '.gallery-grid', start: 'top 75%', once: true },
+    opacity: 1, scale: 1, stagger: 0.1, duration: 0.6, ease: 'power3.out'
+  });
+
+  // ===== PIT CREW =====
+  gsap.to('.crew-card', {
+    scrollTrigger: { trigger: '.pit-crew-grid', start: 'top 75%', once: true },
+    opacity: 1, y: 0, stagger: 0.15, duration: 0.7, ease: 'power3.out'
+  });
+
+  // ===== SPECIALS =====
+  gsap.to('.special-card', {
+    scrollTrigger: { trigger: '.specials-grid', start: 'top 75%', once: true },
+    opacity: 1, y: 0, stagger: 0.15, duration: 0.7, ease: 'power3.out'
+  });
+
+  // ===== COUNTDOWN TIMERS =====
+  document.querySelectorAll('.special-timer').forEach(timer => {
+    const days = parseInt(timer.dataset.days) || 14;
+    const end = new Date();
+    end.setDate(end.getDate() + days);
+    function updateTimer() {
+      const now = new Date();
+      const diff = end - now;
+      if (diff <= 0) return;
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      timer.querySelector('.timer-days').textContent = String(d).padStart(2, '0');
+      timer.querySelector('.timer-hours').textContent = String(h).padStart(2, '0');
+      timer.querySelector('.timer-mins').textContent = String(m).padStart(2, '0');
+    }
+    updateTimer();
+    setInterval(updateTimer, 60000);
+  });
+
+  // ===== TIMELINE =====
+  gsap.to('.timeline-item', {
+    scrollTrigger: { trigger: '.timeline', start: 'top 75%', once: true },
+    opacity: 1, x: 0, stagger: 0.2, duration: 0.7, ease: 'power3.out'
+  });
+
+  // ===== FINISH LINE =====
+  gsap.to('.finish-line-content', {
+    scrollTrigger: { trigger: '.finish-line', start: 'top 75%', once: true },
+    opacity: 1, y: 0, duration: 0.8, ease: 'power3.out'
+  });
+
+  // ===== SECTION HEADERS =====
+  gsap.utils.toArray('.section-eyebrow').forEach(el => {
+    if (el.closest('.hero')) return;
+    gsap.to(el, {
+      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      opacity: 1, y: 0, duration: 0.5
+    });
+  });
+  gsap.utils.toArray('.section-title').forEach(el => {
+    gsap.to(el, {
+      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      opacity: 1, y: 0, duration: 0.7, ease: 'power3.out'
+    });
+  });
+
+  // ===== SMOOTH SCROLL NAV LINKS =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -80 });
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -90,10 +90,57 @@ Use Playwright to load the website (`mcp__playwright__browser_navigate`), then `
 - [ ] Footer business name matches
 - [ ] No template brand name or placeholder tokens remaining
 
-### 2g: Blog Pages (if applicable)
+### 2g: Template Branding Residue Check (CRITICAL — automatic FAIL)
+
+Scan the ENTIRE HTML (excluding `<style>` and `<script>` blocks) for leftover template branding. These are placeholder business names baked into templates that MUST be replaced:
+
+**Known template placeholder names to scan for:**
+```
+Precision Auto Care, Precision Auto Works, Precision Auto, PRECISION AUTO, PRECISION
+Summit Auto, Apex Auto, Premier Auto, Elite Auto, Metro Auto
+AutoCare Pro, AutoPro, ProTech Auto, AutoTech
+Jake Thompson, Mike Thompson
+precisionautocare.com
+```
+
+**Scan locations (most commonly missed):**
+1. `class="nav-logo"` — text content and child spans
+2. `class="nav-brand"` — text content
+3. `class="header-logo"` — text content
+4. `class="logo-text"` — text content
+5. `class="footer-brand"` — text content and child spans
+6. `class="hero-decoration"` — decorative text behind hero
+7. Section titles containing the template business name as a brand (e.g., "The Precision Guarantee", "trusts Precision")
+8. JSON-LD `url` field (e.g., `precisionautocare.com`)
+9. Email addresses (e.g., `service@precisionautocare.com`)
+10. Timeline/history sections with template owner names
+
+**How to check programmatically:**
+```python
+import re
+# Strip style/script blocks
+clean = re.sub(r'<style[^>]*>.*?</style>', '', html, flags=re.DOTALL)
+clean = re.sub(r'<script[^>]*>.*?</script>', '', clean, flags=re.DOTALL)
+
+TEMPLATE_BRANDS = ['Precision Auto Care', 'Precision Auto Works', 'PRECISION AUTO',
+    'PRECISION', 'Precision Auto', 'Summit Auto', 'Apex Auto', 'Premier Auto',
+    'Elite Auto', 'ProTech Auto', 'Jake Thompson', 'Mike Thompson']
+
+for brand in TEMPLATE_BRANDS:
+    if brand in clean:
+        # FAIL — but distinguish "PRECISION" (brand) from "precision" (generic word)
+        # Generic OK: "with precision", "precision repairs", "precision alignment"
+        pass
+```
+
+**Important:** The word "precision" in lowercase as a generic English adjective (e.g., "precision repairs", "with precision and care") is ACCEPTABLE. Only flag it when used as a brand/business name (capitalized, in logos, headings, or standalone).
+
+### 2h: Blog Pages (if applicable)
 - [ ] Blog article titles match content.md
 - [ ] Blog article body text matches content.md
 - [ ] Blog links from main page work
+- [ ] Blog pages have correct business name (not template placeholder)
+- [ ] Blog nav logo matches main site nav logo
 
 **CRITICAL: Flag ANY text that doesn't match content.md. Even a single wrong name or placeholder is a fail.**
 

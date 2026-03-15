@@ -38,8 +38,8 @@ Read ALL of these files before writing any code:
 |------|-----|
 | `research/{vertical}.md` | Vertical-specific: color palettes, hero patterns, sections, services, psychology, anti-patterns |
 | `design-inspiration/web-design-playbook.md` | **Consolidated playbook**: typography, color, hero patterns, animation stack (GSAP/Lenis/ScrollTrigger), CSS techniques, section patterns, responsive/RTL, performance/SEO, 2026 trends, anti-patterns |
-| `feedback/gallery-feedback.json` | (if exists) Gallery likes & comments — shows which templates users prefer and design direction notes |
-| `feedback/sections-feedback.json` | (if exists) Section ratings & bugs — shows which section patterns work well and which have issues |
+| Gallery feedback (API) | Pull fresh: `curl -s https://lp.scalefox.ai/api/feedback/gallery > feedback/gallery-feedback.json` — likes & comments showing which templates users prefer |
+| Sections feedback (API) | Pull fresh: `curl -s https://lp.scalefox.ai/api/feedback/sections > feedback/sections-feedback.json` — section ratings & bugs |
 
 Also check existing templates for this vertical:
 ```
@@ -51,9 +51,15 @@ Determine the next template number (e.g., if template-22 exists, create template
 
 ---
 
-## Step 0.5: Read Feedback (if available)
+## Step 0.5: Sync & Read Feedback
 
-Check `feedback/` for `gallery-feedback.json` and `sections-feedback.json`. If either exists, read them and note:
+First, pull the latest feedback from the server:
+```bash
+rsync -avz -e "ssh -i ~/.ssh/test_env_ec2.pem" ubuntu@18.184.97.242:/var/www/lp.scalefox.ai/feedback/ feedback/
+```
+This downloads `gallery-feedback.json`, `sections-feedback.json`, and the audit log to the local `feedback/` folder.
+
+Then read both files and note:
 
 - **Liked templates** → replicate their design patterns, color palettes, and layout approaches
 - **Comments** → treat as design direction notes (e.g., "hero felt too busy" = simpler hero next time)
@@ -61,7 +67,7 @@ Check `feedback/` for `gallery-feedback.json` and `sections-feedback.json`. If e
 - **Low-rated sections** (rating <= 3) → avoid those patterns or rethink them
 - **Bugs** → don't repeat the same issues (e.g., if a scroll animation bug was flagged, double-check Layer 4 checklist for that pattern)
 
-This step is optional — if no feedback files exist, skip and proceed to Step 1.
+If the rsync fails (e.g., no SSH key), fall back to reading local `feedback/` files. If no feedback files exist at all, skip and proceed to Step 1.
 
 ---
 

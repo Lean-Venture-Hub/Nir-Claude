@@ -680,6 +680,12 @@ img{display:block;max-width:100%}
 
   gsap.registerPlugin(ScrollTrigger);
 
+  // Skip animation setup in sandboxed iframes (gallery thumbnails)
+  const isInIframe = window.self !== window.top;
+  if(isInIframe){
+    return;
+  }
+
   // Set GSAP initial states via JS (not CSS) so gallery iframe previews render visible
   gsap.set('.gs-fade',{opacity:0,y:32});
   gsap.set('.gs-scale',{opacity:0,scale:0.94});

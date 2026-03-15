@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Byrds | Inspection & Service Shop in Houston</title>
+<meta name="description" content="Byrds — 4.7★ rated with 290+ reviews. Honest service, fair prices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AutoRepair",
+  "name":"Byrds",
+  "image":"images/hero.jpg",
+  "telephone":"(713) 633-1822",
+  "address":{"@type":"PostalAddress","streetAddress":"8033 Lockwood Dr","addressLocality":"Houston","addressRegion":"TX","postalCode":"77016"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"290"},
+  "openingHours":"Mo-Fr 07:30-18:00, Sa 08:00-14:00",
+  "founder":{"@type":"Person","name":"Mr. Byrd"}
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --bg:#1A1A1A;
+  --bg-alt:#141414;
+  --surface:#242424;
+  --services-bg:#2A2D30;
+  --footer-bg:#111111;
+  --text:#F5F5F5;
+  --text-soft:#B0B0B0;
+  --text-muted:#666666;
+  --border:rgba(255,255,255,0.06);
+  --border-hover:rgba(255,255,255,0.12);
+  --sans:'Inter',sans-serif;
+  --serif:'Playfair Display',serif;
+  --radius:22px;
+  --radius-sm:14px;
+}
+
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  line-height:1.6;
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+}
+
+/* ── ANIMATIONS ─────────────────────────── */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(0.92);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+.stagger-1{transition-delay:0.05s}
+.stagger-2{transition-delay:0.12s}
+.stagger-3{transition-delay:0.2s}
+.stagger-4{transition-delay:0.28s}
+.stagger-5{transition-delay:0.36s}
+.stagger-6{transition-delay:0.44s}
+
+/* ── NAVBAR ─────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 56px;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(26,26,26,0.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s ease;
+}
+nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,0.3)}
+.nav-logo{
+  font-family:var(--sans);font-weight:800;font-size:1.15rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text);text-decoration:none;
+}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{
+  font-size:0.82rem;font-weight:500;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--text-soft);
+  text-decoration:none;position:relative;transition:color 0.3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;
+  background:var(--text);transition:width 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  font-size:0.8rem;font-weight:600;letter-spacing:0.04em;
+  padding:10px 26px;border:1.5px solid rgba(255,255,255,0.2);
+  border-radius:50px;color:var(--text);text-decoration:none;transition:all 0.3s;
+}
+.nav-cta:hover{background:var(--text);color:var(--bg)}
+
+/* Mobile menu */
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001}
+.menu-toggle span{width:22px;height:1.5px;background:var(--text);transition:all 0.3s}
+
+@media(max-width:900px){
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:280px;height:100vh;
+    flex-direction:column;justify-content:center;gap:28px;
+    background:var(--bg-alt);box-shadow:-10px 0 40px rgba(0,0,0,0.4);
+    transition:right 0.4s cubic-bezier(0.16,1,0.3,1);padding:0;
+  }
+  .nav-links.open{right:0}
+  .menu-toggle{display:flex}
+  nav{padding:0 24px}
+}
+
+/* ── HERO ───────────────────────────────── */
+.hero{
+  position:relative;width:100%;height:100vh;
+  min-height:700px;max-height:1000px;
+  overflow:hidden;display:flex;align-items:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('images/hero.jpg') center/cover no-repeat;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.7) 35%,rgba(0,0,0,0.4) 60%,rgba(0,0,0,0.15) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;padding:0 56px;max-width:720px;
+}
+.hero-label{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--text-soft);margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-label::before{content:'';width:32px;height:1px;background:var(--text-soft)}
+.hero-title{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(3rem,5.5vw,4.8rem);
+  line-height:1.05;letter-spacing:-0.03em;
+  color:var(--text);margin-bottom:28px;
+}
+.hero-title .serif-line{
+  font-family:var(--serif);font-style:italic;
+  font-weight:500;letter-spacing:-0.01em;
+}
+.hero-subtitle{
+  font-size:1.05rem;font-weight:400;color:var(--text-soft);
+  line-height:1.7;max-width:480px;margin-bottom:36px;
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.88rem;font-weight:600;letter-spacing:0.04em;
+  color:var(--text);text-decoration:none;
+  padding:14px 36px;border:2px solid rgba(255,255,255,0.25);
+  border-radius:50px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+  position:relative;overflow:hidden;
+}
+.hero-cta::before{
+  content:'';position:absolute;inset:0;
+  background:var(--text);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);z-index:-1;
+}
+.hero-cta:hover{color:var(--bg);border-color:var(--text)}
+.hero-cta:hover::before{transform:scaleX(1)}
+
+.hero-trust{
+  display:flex;gap:24px;margin-top:48px;
+  align-items:center;
+}
+.hero-trust-item{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.08em;
+  text-transform:uppercase;color:rgba(255,255,255,0.35);
+  display:flex;align-items:center;gap:8px;
+}
+.hero-trust-item svg{opacity:0.35}
+
+/* Hero stagger */
+.hero-content .hero-label{opacity:0;animation:heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards}
+.hero-content .hero-title{opacity:0;animation:heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.35s forwards}
+.hero-content .hero-subtitle{opacity:0;animation:heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards}
+.hero-content .hero-cta{opacity:0;animation:heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.65s forwards}
+.hero-content .hero-trust{opacity:0;animation:heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.8s forwards}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes kenBurns{0%{transform:scale(1)}100%{transform:scale(1.06)}}
+.hero-bg{animation:kenBurns 20s ease-in-out infinite alternate}
+
+/* ── SECTION COMMON ─────────────────────── */
+section{padding:120px 56px}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;
+}
+.section-label::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:var(--text-soft);
+}
+.section-heading{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  letter-spacing:-0.03em;line-height:1.1;
+  color:var(--text);margin-bottom:20px;
+}
+.section-heading .serif-accent{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+}
+
+/* ── ABOUT ──────────────────────────────── */
+.about{background:var(--bg);overflow:hidden}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+  max-width:1240px;margin:0 auto;
+}
+.about-image-wrap{
+  position:relative;border-radius:var(--radius);
+  overflow:hidden;aspect-ratio:4/5;
+}
+.about-image-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.about-image-wrap:hover img{transform:scale(1.03)}
+.about-image-wrap::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(0deg,rgba(26,26,26,0.4) 0%,transparent 100%);
+}
+.about-image-wrap .circle-dot{
+  position:absolute;bottom:20px;right:20px;
+  width:48px;height:48px;border:2px solid rgba(255,255,255,0.25);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;
+}
+.about-image-wrap .circle-dot::after{
+  content:'';width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.5);
+}
+.about-text{max-width:520px}
+.about-text p{
+  font-size:1.05rem;line-height:1.85;color:var(--text-soft);margin-bottom:20px;
+}
+.about-text p .mixed-serif{
+  font-family:var(--serif);font-style:italic;font-weight:500;color:var(--text);
+}
+.about-detail{display:flex;align-items:center;gap:14px;margin-top:32px}
+.about-detail .circle-dot-sm{
+  width:36px;height:36px;border:1.5px solid rgba(255,255,255,0.2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.about-detail .circle-dot-sm::after{
+  content:'';width:6px;height:6px;border-radius:50%;background:var(--text-soft);
+}
+.about-detail span{font-size:0.88rem;font-weight:500;color:var(--text);letter-spacing:0.02em}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-image-wrap{max-height:400px}
+}
+
+/* ── SERVICES ───────────────────────────── */
+.services{background:var(--services-bg);overflow:hidden}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:20px;max-width:1240px;margin:48px auto 0;
+  align-items:stretch;
+}
+.service-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),border-color 0.4s;
+  cursor:default;position:relative;
+  display:flex;flex-direction:column;height:100%;
+}
+.service-card:hover{transform:translateY(-6px);border-color:var(--border-hover)}
+.service-card-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:24px 24px 0;
+}
+.service-card-number{
+  font-family:var(--serif);font-size:0.8rem;font-style:italic;
+  color:var(--text-muted);
+}
+.service-card-toggle{
+  font-size:0.85rem;color:var(--text-muted);
+  width:32px;height:32px;border:1px solid var(--border);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  transition:border-color 0.3s;
+}
+.service-card:hover .service-card-toggle{border-color:var(--border-hover)}
+.service-card-img{width:100%;height:200px;overflow:hidden;padding:16px 24px 0}
+.service-card-img img{
+  width:100%;height:100%;object-fit:cover;
+  border-radius:var(--radius-sm);
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.service-card:hover .service-card-img img{transform:scale(1.06)}
+.service-card-body{padding:20px 24px 28px;flex:1;display:flex;flex-direction:column;flex-grow:1}
+.service-card-title{
+  font-family:var(--sans);font-weight:700;font-size:1.1rem;
+  letter-spacing:-0.01em;margin-bottom:4px;color:var(--text);
+}
+.service-card-title .serif-word{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+}
+.service-card-desc{font-size:0.85rem;line-height:1.7;color:var(--text-muted);flex:1}
+
+@media(max-width:900px){
+  .services-grid{grid-template-columns:1fr}
+}
+
+/* ── TESTIMONIALS ───────────────────────── */
+.testimonials{background:var(--bg-alt)}
+.testimonials-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;max-width:1240px;margin:48px auto 0;
+}
+.testimonial-card{
+  background:var(--surface);border-radius:var(--radius);
+  padding:36px 28px;border:1px solid var(--border);
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),border-color 0.4s;
+}
+.testimonial-card:hover{transform:translateY(-4px);border-color:var(--border-hover)}
+.testimonial-quote{
+  font-family:var(--serif);font-size:2.4rem;font-style:italic;
+  color:rgba(255,255,255,0.08);line-height:1;margin-bottom:8px;
+}
+.testimonial-text{
+  font-size:0.95rem;line-height:1.8;color:var(--text-soft);
+  margin-bottom:24px;font-style:italic;
+}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.testimonial-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--services-bg);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.9rem;color:var(--text-soft);
+}
+.testimonial-name{font-weight:600;font-size:0.9rem;color:var(--text)}
+.testimonial-role{font-size:0.78rem;color:var(--text-muted);margin-top:2px}
+
+@media(max-width:900px){
+  .testimonials-grid{grid-template-columns:1fr}
+}
+
+/* ── BLOG PREVIEW ──────────────────────── */
+.blog-preview{background:var(--bg)}
+.blog-preview-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;max-width:1240px;margin:48px auto 0;
+}
+.blog-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),border-color 0.4s;
+  text-decoration:none;display:block;
+}
+.blog-card:hover{transform:translateY(-6px);border-color:var(--border-hover)}
+.blog-card-img{width:100%;height:200px;overflow:hidden}
+.blog-card-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.blog-card:hover .blog-card-img img{transform:scale(1.06)}
+.blog-card-body{padding:24px}
+.blog-card-tag{
+  font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:10px;display:block;
+}
+.blog-card-title{
+  font-family:var(--serif);font-size:1.1rem;font-weight:500;
+  line-height:1.35;color:var(--text);margin-bottom:10px;
+}
+.blog-card-excerpt{font-size:0.85rem;line-height:1.7;color:var(--text-muted);margin-bottom:16px}
+.blog-card-link{
+  font-size:0.78rem;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--text-soft);
+  display:inline-flex;align-items:center;gap:6px;transition:gap 0.3s;
+}
+.blog-card:hover .blog-card-link{gap:12px}
+
+@media(max-width:900px){
+  .blog-preview-grid{grid-template-columns:1fr}
+}
+
+/* ── CTA / CONTACT ──────────────────────── */
+.cta-section{
+  position:relative;overflow:hidden;
+  min-height:500px;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:120px 56px;
+}
+.cta-bg{
+  position:absolute;inset:0;
+  background:url('images/exterior.jpg') center/cover no-repeat;
+}
+.cta-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0.8);
+}
+.cta-content{position:relative;z-index:2;max-width:640px}
+.cta-content .section-label::before{background:var(--text-soft)}
+.cta-content .section-heading{margin-bottom:16px}
+.cta-phone-number{
+  font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);
+  font-weight:500;color:var(--text-soft);margin-bottom:32px;
+  letter-spacing:0.02em;
+}
+.cta-phone-number a{color:var(--text-soft);text-decoration:none;transition:color 0.3s}
+.cta-phone-number a:hover{color:var(--text)}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.88rem;font-weight:600;letter-spacing:0.04em;
+  color:var(--text);text-decoration:none;
+  padding:14px 36px;border:2px solid rgba(255,255,255,0.25);
+  border-radius:50px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+  position:relative;overflow:hidden;
+}
+.cta-btn::before{
+  content:'';position:absolute;inset:0;
+  background:var(--text);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);z-index:-1;
+}
+.cta-btn:hover{color:var(--bg);border-color:var(--text)}
+.cta-btn:hover::before{transform:scaleX(1)}
+
+/* ── FOOTER ─────────────────────────────── */
+footer{
+  background:var(--footer-bg);
+  color:rgba(255,255,255,0.4);
+  padding:48px 56px;
+}
+.footer-inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:20px;
+}
+.footer-logo{
+  font-family:var(--sans);font-weight:800;font-size:1rem;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--text);
+}
+.footer-links{display:flex;gap:28px}
+.footer-links a{
+  font-size:0.8rem;color:rgba(255,255,255,0.3);
+  text-decoration:none;transition:color 0.3s;
+}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.2)}
+
+@media(max-width:900px){
+  section{padding:80px 24px}
+  .hero-content{padding:0 24px}
+  footer{padding:36px 24px}
+  .footer-inner{flex-direction:column;text-align:center}
+  .cta-section{padding:80px 24px}
+}
+
+/* ── SELECTION ──────────────────────────── */
+::selection{background:rgba(245,245,245,0.2);color:var(--text)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Byrds</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact" class="nav-cta">( Schedule Service )</a>
+  </div>
+  <div class="menu-toggle" id="menuToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Inspection & Service Specialists</div>
+    <h1 class="hero-title">
+      Byrds,<br>
+      <span class="serif-line">Inspection & Service Shop</span>
+    </h1>
+    <p class="hero-subtitle">Byrds — 4.7★ rated with 290+ reviews. Honest service, fair prices.</p>
+    <a href="tel:7136331822" class="hero-cta">( Schedule Service )</a>
+    <div class="hero-trust">
+      <span class="hero-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Licensed Inspections
+      </span>
+      <span class="hero-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        4.7 Stars / 290 Reviews
+      </span>
+      <span class="hero-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Trusted Since Day One
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-image-wrap reveal-left">
+      <img src="images/team.jpg" alt="Byrds auto inspection team in Houston" loading="lazy">
+      <div class="circle-dot"></div>
+    </div>
+    <div class="about-text reveal-right">
+      <div class="section-label">About</div>
+      <h2 class="section-heading">Where Quality Meets<br><span class="serif-accent">Reliable Service</span></h2>
+      <p>Byrds has built a reputation as one of Houston's most trusted inspection & service shops. With a 4.7-star Google rating backed by 290+ customer reviews, we deliver <span class="mixed-serif">honest diagnostics</span>, quality repairs, and transparent pricing on every job.</p>
+      <p>Located in Houston, Texas, we serve the local community with the care and expertise your vehicle deserves. From inspections to <span class="mixed-serif">complete auto repair</span>, we handle it all.</p>
+      <div class="about-detail">
+        <div class="circle-dot-sm"></div>
+        <span>Trusted Inspection Station in Houston</span>
+      </div>
+      <div class="about-detail" style="margin-top:14px">
+        <div class="circle-dot-sm"></div>
+        <span>Honest Service &amp; Fair Pricing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div style="max-width:1240px;margin:0 auto">
+    <div class="section-label reveal">Services</div>
+    <h2 class="section-heading reveal stagger-1">Complete Automotive<br><span class="serif-accent">Services</span></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal stagger-1">
+      <div class="service-card-header">
+        <span class="service-card-number">(01)</span>
+        <span class="service-card-toggle">( + )</span>
+      </div>
+      <div class="service-card-img">
+        <img src="images/service-oil.jpg" alt="Oil Change Service" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">State <span class="serif-word">Inspection</span></h3>
+        <p class="service-card-desc">Quick and reliable state vehicle inspection to keep you road-legal.</p>
+      </div>
+    </div>
+    <div class="service-card reveal stagger-2">
+      <div class="service-card-header">
+        <span class="service-card-number">(02)</span>
+        <span class="service-card-toggle">( + )</span>
+      </div>
+      <div class="service-card-img">
+        <img src="images/service-brakes.jpg" alt="Brake Service" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Emissions <span class="serif-word">Testing</span></h3>
+        <p class="service-card-desc">Complete emissions testing and repair to pass inspection requirements.</p>
+      </div>
+    </div>
+    <div class="service-card reveal stagger-3">
+      <div class="service-card-header">
+        <span class="service-card-number">(03)</span>
+        <span class="service-card-toggle">( + )</span>
+      </div>
+      <div class="service-card-img">
+        <img src="images/service-engine.jpg" alt="Engine Diagnostics" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Oil Change &amp; <span class="serif-word">Lube</span></h3>
+        <p class="service-card-desc">Full-synthetic and conventional oil changes with multi-point inspection.</p>
+      </div>
+    </div>
+    <div class="service-card reveal stagger-4">
+      <div class="service-card-header">
+        <span class="service-card-number">(04)</span>
+        <span class="service-card-toggle">( + )</span>
+      </div>
+      <div class="service-card-img">
+        <img src="images/service-diagnostics.jpg" alt="Electrical Systems" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">Brake <span class="serif-word">Inspection</span></h3>
+        <p class="service-card-desc">Thorough brake system check with detailed report and repair options.</p>
+      </div>
+    </div>
+    <div class="service-card reveal stagger-5">
+      <div class="service-card-header">
+        <span class="service-card-number">(05)</span>
+        <span class="service-card-toggle">( + )</span>
+      </div>
+      <div class="service-card-img">
+        <img src="images/service-tires.jpg" alt="Tire Service" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">A/C <span class="serif-word">Service</span></h3>
+        <p class="service-card-desc">Air conditioning diagnosis, recharge, and full system repair.</p>
+      </div>
+    </div>
+    <div class="service-card reveal stagger-6">
+      <div class="service-card-header">
+        <span class="service-card-number">(06)</span>
+        <span class="service-card-toggle">( + )</span>
+      </div>
+      <div class="service-card-img">
+        <img src="images/service-oil.jpg" alt="Preventive Maintenance" loading="lazy">
+      </div>
+      <div class="service-card-body">
+        <h3 class="service-card-title">General <span class="serif-word">Repair</span></h3>
+        <p class="service-card-desc">Complete auto repair service for all makes and models.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div style="max-width:1240px;margin:0 auto">
+    <div class="section-label reveal">Testimonials</div>
+    <h2 class="section-heading reveal stagger-1">What Our Clients<br><span class="serif-accent">Are Saying</span></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal stagger-1">
+      <div class="testimonial-quote">&ldquo;</div>
+      <p class="testimonial-text">"Mr Byrd has inspected my truck for the last several years. I went there yesterday for an emissions inspection. I was there for a very short time. I recommend him to anyone that needs an inspection or anything else that he does."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">CT</div>
+        <div>
+          <div class="testimonial-name">Charles Taylor</div>
+          <div class="testimonial-role">Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal stagger-2">
+      <div class="testimonial-quote">&ldquo;</div>
+      <p class="testimonial-text">"They do a great inspection I get my two vehicles inspected every year."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">TS</div>
+        <div>
+          <div class="testimonial-name">Terrance Smith</div>
+          <div class="testimonial-role">Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal stagger-3">
+      <div class="testimonial-quote">&ldquo;</div>
+      <p class="testimonial-text">"I received Great Customer Service from the owner Byrd, he was fast and efficient! He showed out to be trustworthy and professional, I always respect professionalism! Thanks for the Great service!"</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">T</div>
+        <div>
+          <div class="testimonial-name">Toi</div>
+          <div class="testimonial-role">Google Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section class="blog-preview">
+  <div style="max-width:1240px;margin:0 auto">
+    <div class="section-label reveal">Insights</div>
+    <h2 class="section-heading reveal stagger-1">From the <span class="serif-accent">Workshop</span></h2>
+  </div>
+  <div class="blog-preview-grid">
+    <a href="blog/check-engine-light/index.html" class="blog-card reveal stagger-1">
+      <div class="blog-card-img">
+        <img src="images/service-engine.jpg" alt="Check Engine Light" loading="lazy">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Diagnostics</span>
+        <h3 class="blog-card-title">Why Is My Check Engine Light On? 5 Common Causes</h3>
+        <p class="blog-card-excerpt">That amber warning doesn't always mean disaster. Learn the most common triggers and when to act.</p>
+        <span class="blog-card-link">Read More &rarr;</span>
+      </div>
+    </a>
+    <a href="blog/oil-change-guide/index.html" class="blog-card reveal stagger-2">
+      <div class="blog-card-img">
+        <img src="images/service-oil.jpg" alt="Oil Change Guide" loading="lazy">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Maintenance</span>
+        <h3 class="blog-card-title">The Complete Oil Change Guide: Intervals, Types &amp; What Matters</h3>
+        <p class="blog-card-excerpt">Synthetic vs. conventional, mileage myths, and why the right oil changes everything.</p>
+        <span class="blog-card-link">Read More &rarr;</span>
+      </div>
+    </a>
+    <a href="blog/brake-warning-signs/index.html" class="blog-card reveal stagger-3">
+      <div class="blog-card-img">
+        <img src="images/service-brakes.jpg" alt="Brake Warning Signs" loading="lazy">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Safety</span>
+        <h3 class="blog-card-title">7 Brake Warning Signs You Should Never Ignore</h3>
+        <p class="blog-card-excerpt">From squealing to spongy pedals -- know when your brakes are telling you something critical.</p>
+        <span class="blog-card-link">Read More &rarr;</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <div class="section-label">Contact</div>
+    <h2 class="section-heading">Your Vehicle Deserves<br><span class="serif-accent">Reliable Service</span></h2>
+    <div class="cta-phone-number"><a href="tel:7136331822">(713) 633-1822</a></div>
+    <a href="tel:7136331822" class="cta-btn">( Schedule Service )</a>
+    <p style="margin-top:24px;font-size:0.85rem;color:var(--text-muted)">8033 Lockwood Dr, Houston, TX 77016 &nbsp;&bull;&nbsp; Mon-Fri 7:30am-6pm &nbsp;&bull;&nbsp; Sat 8am-2pm</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Byrds</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Byrds. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+// Respect reduced motion
+const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+// Navbar scroll
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+
+if(!prefersReducedMotion){
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Reveal animations
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>{
+    gsap.fromTo(el,
+      {opacity:0,y:el.classList.contains('reveal-left')?0:el.classList.contains('reveal-right')?0:40,
+       x:el.classList.contains('reveal-left')?-40:el.classList.contains('reveal-right')?40:0,
+       scale:el.classList.contains('reveal-scale')?0.92:1},
+      {opacity:1,y:0,x:0,scale:1,duration:0.8,
+       ease:'power3.out',
+       delay:parseFloat(getComputedStyle(el).transitionDelay)||0,
+       scrollTrigger:{trigger:el,start:'top 88%',once:true}}
+    );
+  });
+} else {
+  // Immediately show all elements
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>{
+    el.style.opacity='1';el.style.transform='none';
+  });
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id.length>1){
+      e.preventDefault();
+      document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+      document.getElementById('navLinks')?.classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>

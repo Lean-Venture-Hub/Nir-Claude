@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>West Houston Auto A/C Repair LLC | Auto A/C Service in Richmond, TX</title>
+<meta name="description" content="West Houston Auto A/C Repair LLC — 4.9★ rated with 154+ reviews. Honest service, fair prices in Richmond, TX.">
+<meta property="og:title" content="West Houston Auto A/C Repair LLC | Auto A/C Service in Richmond, TX">
+<meta property="og:description" content="West Houston Auto A/C Repair LLC — 4.9★ rated with 154+ reviews. Honest service, fair prices.">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AutoRepair",
+  "name":"West Houston Auto A/C Repair LLC",
+  "image":"images/hero.jpg",
+  "telephone":"(832) 407-3849",
+  "address":{"@type":"PostalAddress","streetAddress":"19412 FM 1093","addressLocality":"Richmond","addressRegion":"TX","postalCode":"77407"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"154"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"14:00"}
+  ],
+  
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg-light:#FAFAFA;
+  --bg-dark:#111111;
+  --accent:#E63946;
+  --accent-dark:#C62828;
+  --navy:#1D3557;
+  --text-light:#F5F5F5;
+  --text-dark:#111111;
+  --text-muted:#777777;
+  --text-muted-light:rgba(255,255,255,0.6);
+  --white:#FFFFFF;
+  --display:'Syne',sans-serif;
+  --sans:'DM Sans',sans-serif;
+  --max-w:1200px;
+  --radius:12px;
+  --radius-sm:8px;
+  --transition:0.4s cubic-bezier(.25,.46,.45,.94);
+  --transition-fast:0.25s ease;
+}
+
+body{
+  font-family:var(--sans);
+  color:var(--text-dark);
+  line-height:1.7;
+  background:var(--bg-dark);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .reveal-section{clip-path:none!important}
+  .review-card,.feature-card,.blog-card,.service-card{opacity:1!important;transform:none!important}
+  .hero-trust,.hero h1 .word,.hero-subtitle,.hero-cta-row{opacity:1!important;transform:none!important}
+  .hero-reveal{clip-path:none!important}
+  .split-left,.split-right{transform:none!important}
+  .curtain-section{clip-path:none!important}
+}
+
+/* Scroll progress */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),#FF6B6B);z-index:1000;width:0%;transform-origin:left}
+
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* Buttons */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:var(--white);
+  padding:16px 36px;border-radius:999px;
+  font-size:1rem;font-weight:600;font-family:var(--sans);
+  border:none;cursor:pointer;
+  transition:all var(--transition-fast);
+  min-height:48px;
+}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(230,57,70,0.3)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--white);
+  padding:16px 36px;border-radius:999px;
+  font-size:1rem;font-weight:500;font-family:var(--sans);
+  border:2px solid rgba(255,255,255,0.3);cursor:pointer;
+  transition:all var(--transition-fast);min-height:48px;
+}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.05)}
+.btn-dark{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:var(--white);
+  padding:16px 36px;border-radius:999px;
+  font-size:1rem;font-weight:600;font-family:var(--sans);
+  border:none;cursor:pointer;
+  transition:all var(--transition-fast);min-height:48px;
+}
+.btn-dark:hover{background:var(--accent-dark);transform:translateY(-2px)}
+
+/* ─── NAV ─── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(17,17,17,0.95);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:background var(--transition);
+}
+.nav.scrolled{background:rgba(17,17,17,0.98)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.2rem;font-weight:800;color:var(--white);letter-spacing:-0.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--text-muted-light);transition:color var(--transition-fast)}
+.nav-links a:hover{color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--white);transition:color var(--transition-fast)}
+.nav-phone:hover{color:var(--accent)}
+.nav-phone svg{width:16px;height:16px;color:var(--accent)}
+.nav-cta{
+  background:var(--accent);color:var(--white);
+  padding:10px 24px;border-radius:999px;
+  font-size:.85rem;font-weight:600;
+  transition:all var(--transition-fast);min-height:48px;
+  display:inline-flex;align-items:center;
+}
+.nav-cta:hover{background:var(--accent-dark);transform:translateY(-1px)}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:110;min-width:48px;min-height:48px;justify-content:center;align-items:center}
+.hamburger span{width:22px;height:2px;background:var(--white);border-radius:2px;transition:transform var(--transition),opacity var(--transition);transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile drawer */
+.nav-drawer{
+  position:fixed;top:0;right:-320px;width:300px;height:100dvh;
+  background:var(--bg-dark);z-index:105;
+  transition:right var(--transition);
+  padding:80px 32px 40px;
+  border-left:1px solid rgba(255,255,255,0.08);
+  display:flex;flex-direction:column;gap:24px;
+}
+.nav-drawer.open{right:0}
+.nav-drawer a{font-size:1.1rem;font-weight:500;color:var(--text-light);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color var(--transition-fast)}
+.nav-drawer a:hover{color:var(--accent)}
+.nav-drawer .drawer-phone{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--accent);margin-top:auto;font-size:1.1rem}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);opacity:0;visibility:hidden;z-index:104;transition:opacity var(--transition),visibility var(--transition)}
+.nav-overlay.open{opacity:1;visibility:visible}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:center;
+  overflow:hidden;
+  background:var(--bg-dark);
+}
+.hero-reveal{
+  position:absolute;inset:0;
+  background:url('images/hero.jpg') center/cover no-repeat;
+  clip-path:circle(0% at 50% 50%);
+}
+.hero-reveal::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(17,17,17,0.5) 0%,rgba(17,17,17,0.7) 100%);
+}
+.hero-content{position:relative;z-index:2;padding:140px 0 80px;width:100%}
+.hero-trust{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:32px;opacity:0}
+.hero-trust-item{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.82rem;font-weight:600;color:var(--white);
+  background:rgba(255,255,255,0.1);
+  padding:8px 16px;border-radius:999px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.hero-trust-item svg{width:16px;height:16px;color:var(--accent)}
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(48px,9vw,100px);
+  font-weight:800;
+  line-height:0.95;
+  color:var(--white);
+  letter-spacing:-0.03em;
+  margin-bottom:24px;
+}
+.hero h1 .word{display:inline-block;opacity:0}
+.hero-subtitle{font-size:clamp(1rem,1.5vw,1.2rem);color:rgba(255,255,255,0.7);max-width:520px;margin-bottom:40px;line-height:1.7;opacity:0}
+.hero-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;opacity:0}
+.hero-decoration{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--display);font-size:clamp(100px,20vw,280px);font-weight:800;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,0.04);
+  letter-spacing:-0.05em;pointer-events:none;z-index:1;
+  white-space:nowrap;
+}
+
+/* ─── SERVICES ─── */
+.services{
+  padding:120px 0;
+  background:var(--bg-dark);
+  position:relative;
+  overflow:hidden;
+}
+.services-inner{
+  clip-path:polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+.section-eyebrow{
+  font-size:.75rem;letter-spacing:4px;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:12px;
+  font-family:var(--sans);
+}
+.section-eyebrow--light{color:var(--accent)}
+.section-eyebrow--dark{color:var(--accent)}
+.section-title{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(1.8rem,4vw,3rem);
+  line-height:1.1;margin-bottom:16px;letter-spacing:-0.02em;
+}
+.section-title--light{color:var(--white)}
+.section-title--dark{color:var(--text-dark)}
+.section-subtitle{font-size:1rem;max-width:500px;line-height:1.7;margin-bottom:56px}
+.section-subtitle--light{color:var(--text-muted-light)}
+.section-subtitle--dark{color:var(--text-muted)}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:all var(--transition);
+  cursor:pointer;
+  clip-path:polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.service-card-img{position:relative;height:200px;overflow:hidden}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 4s ease}
+.service-card:hover .service-card-img img{transform:scale(1.08)}
+.service-num{
+  position:absolute;top:16px;left:16px;
+  background:var(--accent);color:var(--white);
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:700;z-index:2;
+  font-family:var(--display);
+}
+.service-card-body{padding:24px}
+.service-card-body h3{font-family:var(--display);font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text-dark);letter-spacing:-0.01em}
+.service-card-body p{font-size:.9rem;color:var(--text-muted);line-height:1.6}
+
+/* ─── ABOUT ─── */
+.about{
+  padding:120px 0;
+  background:var(--bg-light);
+  position:relative;
+  overflow:hidden;
+}
+.about-split{position:relative;min-height:600px;display:flex;align-items:center}
+.split-overlay{position:absolute;inset:0;z-index:3;display:flex;pointer-events:none}
+.split-left{width:50%;height:100%;background:var(--bg-light);transform-origin:left center}
+.split-right{width:50%;height:100%;background:var(--bg-light);transform-origin:right center}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.about-img-wrap{position:relative}
+.about-img-wrap img{width:100%;border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,0.1)}
+.about-content .section-eyebrow{color:var(--accent)}
+.about-content h2{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:20px;color:var(--text-dark);letter-spacing:-0.02em;line-height:1.1}
+.about-text{font-size:1rem;color:var(--text-muted);line-height:1.8;margin-bottom:32px}
+.about-stats{display:flex;gap:40px;margin-bottom:32px}
+.about-stat{text-align:center}
+.about-stat .num{font-family:var(--display);font-size:2.4rem;font-weight:800;color:var(--accent);display:block;line-height:1}
+.about-stat .label{font-size:.8rem;color:var(--text-muted);font-weight:500;margin-top:4px;display:block}
+
+/* ─── REVIEWS ─── */
+.reviews{
+  padding:120px 0;
+  background:var(--bg-dark);
+  overflow-x:hidden;
+}
+.reviews-header{text-align:center;margin-bottom:64px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto}
+.review-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);
+  padding:32px;
+  position:relative;
+  opacity:0;
+  transform:translateY(-60px) rotate(-3deg);
+}
+.review-quote{
+  font-family:var(--display);font-size:3rem;color:var(--accent);
+  line-height:1;margin-bottom:12px;font-weight:800;
+}
+.review-text{font-size:.95rem;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:20px;font-style:italic}
+.review-stars{display:flex;gap:2px;margin-bottom:12px}
+.review-stars svg{width:16px;height:16px;fill:var(--accent)}
+.review-author{font-size:.85rem;font-weight:600;color:var(--white)}
+.review-date{font-size:.75rem;color:var(--text-muted-light)}
+
+/* ─── WHY CHOOSE US ─── */
+.features{
+  padding:120px 0;
+  background:var(--bg-light);
+  overflow:hidden;
+}
+.features-header{text-align:center;margin-bottom:64px}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.feature-card{
+  text-align:center;
+  padding:40px 24px;
+  background:var(--white);
+  border-radius:var(--radius);
+  box-shadow:0 4px 24px rgba(0,0,0,0.04);
+  border:1px solid rgba(0,0,0,0.04);
+  opacity:0;
+  transform:scale(0);
+}
+.feature-icon{
+  width:64px;height:64px;
+  background:rgba(230,57,70,0.08);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+}
+.feature-icon svg{width:28px;height:28px;color:var(--accent)}
+.feature-card h3{font-family:var(--display);font-size:1rem;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
+.feature-card p{font-size:.88rem;color:var(--text-muted);line-height:1.6}
+
+/* ─── BLOG ─── */
+.blog-section{
+  padding:100px 0;
+  background:var(--bg-dark);
+}
+.blog-header{margin-bottom:56px}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:all var(--transition);
+  opacity:0;transform:translateY(40px);
+}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.15)}
+.blog-card-img{height:200px;overflow:hidden}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 4s ease}
+.blog-card:hover .blog-card-img img{transform:scale(1.05)}
+.blog-card-body{padding:24px}
+.blog-card-tag{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600}
+.blog-card-body h3{font-family:var(--display);font-size:1.05rem;font-weight:700;color:var(--white);margin:8px 0;line-height:1.3;letter-spacing:-0.01em}
+.blog-card-body p{font-size:.85rem;color:var(--text-muted-light);line-height:1.6}
+.blog-card-link{display:inline-flex;align-items:center;gap:4px;font-size:.85rem;color:var(--accent);font-weight:600;margin-top:12px;transition:gap var(--transition-fast)}
+.blog-card:hover .blog-card-link{gap:8px}
+
+/* ─── CTA ─── */
+.cta-section{
+  position:relative;
+  min-height:500px;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.curtain-section{
+  position:absolute;inset:0;
+  background:url('images/exterior.jpg') center/cover no-repeat;
+  clip-path:inset(100% 0 0 0);
+}
+.curtain-section::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(17,17,17,0.6),rgba(17,17,17,0.85));
+}
+.cta-content{position:relative;z-index:2;text-align:center;width:100%;padding:80px 24px}
+.cta-content h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3.2rem);color:var(--white);margin-bottom:16px;letter-spacing:-0.02em;line-height:1.1}
+.cta-content p{font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.cta-hours{font-size:.9rem;color:rgba(255,255,255,0.5)}
+
+/* ─── FOOTER ─── */
+.footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,0.06);padding:48px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{font-family:var(--display);font-size:1.2rem;font-weight:800;color:var(--white);margin-bottom:12px;letter-spacing:-0.02em}
+.footer-brand span{color:var(--accent)}
+.footer-desc{font-size:.88rem;color:var(--text-muted-light);line-height:1.6}
+.footer h4{font-family:var(--display);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:16px;letter-spacing:-0.01em}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.88rem;color:var(--text-muted-light);transition:color var(--transition-fast)}
+.footer-links a:hover{color:var(--accent)}
+.footer-contact-item{display:flex;align-items:flex-start;gap:8px;font-size:.88rem;color:var(--text-muted-light);margin-bottom:10px}
+.footer-contact-item svg{width:16px;height:16px;color:var(--accent);flex-shrink:0;margin-top:3px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,0.3)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-phone{display:none}.hamburger{display:flex}
+  .services-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .reviews-grid{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(40px,12vw,72px)}
+  .about-stats{flex-wrap:wrap;gap:24px}
+  .hero-decoration{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">WEST HOUSTON AUTO<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:8324073849" class="nav-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (832) 407-3849
+        </a>
+        <a href="#contact" class="nav-cta">Get a Free Estimate</a>
+      </div>
+      <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#reviews">Reviews</a>
+  <a href="blog.html">Blog</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:8324073849" class="drawer-phone">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    (832) 407-3849
+  </a>
+</div>
+
+<!-- ═══════════════ HERO — Circle Expand Reveal ═══════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-reveal" id="heroReveal"></div>
+  <div class="hero-decoration">WEST HOUSTON AUTO</div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-trust" id="heroTrust">
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          4.9★ — 154 Reviews
+        </span>
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          ASE Certified
+        </span>
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          AAA Approved
+        </span>
+      </div>
+      <h1 id="heroHeadline">Richmond's Trusted Auto Repair Shop</h1>
+      <p class="hero-subtitle" id="heroSub">West Houston Auto A/C Repair LLC — 4.9★ rated with 154+ reviews. Honest service, fair prices.</p>
+      <div class="hero-cta-row" id="heroCta">
+        <a href="#contact" class="btn-primary">Get a Free Estimate</a>
+        <a href="tel:8324073849" class="btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (832) 407-3849
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICES — Diagonal Wipe Reveal ═══════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-inner" id="servicesInner">
+      <span class="section-eyebrow section-eyebrow--light">What We Do</span>
+      <h2 class="section-title section-title--light">Our Services</h2>
+      <p class="section-subtitle section-subtitle--light">From routine oil changes to complex engine rebuilds — we handle it all with precision.</p>
+      <div class="services-grid">
+        <div class="service-card" data-service="1">
+          <div class="service-card-img">
+            <span class="service-num">01</span>
+            <img src="images/service-engine.jpg" alt="Engine Repair" loading="lazy" width="400" height="200">
+          </div>
+          <div class="service-card-body">
+            <h3>Oil Change &amp; Lube</h3>
+            <p>Full-synthetic and conventional oil changes with multi-point inspection.</p>
+          </div>
+        </div>
+        <div class="service-card" data-service="2">
+          <div class="service-card-img">
+            <span class="service-num">02</span>
+            <img src="images/service-brakes.jpg" alt="Brake Service" loading="lazy" width="400" height="200">
+          </div>
+          <div class="service-card-body">
+            <h3>Brake Repair</h3>
+            <p>Brake pad replacement, rotor resurfacing, and complete brake system service.</p>
+          </div>
+        </div>
+        <div class="service-card" data-service="3">
+          <div class="service-card-img">
+            <span class="service-num">03</span>
+            <img src="images/service-oil.jpg" alt="Oil Change" loading="lazy" width="400" height="200">
+          </div>
+          <div class="service-card-body">
+            <h3>Engine Diagnostics</h3>
+            <p>Computer diagnostics to identify check engine lights and performance issues.</p>
+          </div>
+        </div>
+        <div class="service-card" data-service="4">
+          <div class="service-card-img">
+            <span class="service-num">04</span>
+            <img src="images/service-engine.jpg" alt="Transmission" loading="lazy" width="400" height="200">
+          </div>
+          <div class="service-card-body">
+            <h3>A/C Repair</h3>
+            <p>Air conditioning recharge, leak detection, and full climate system repair.</p>
+          </div>
+        </div>
+        <div class="service-card" data-service="5">
+          <div class="service-card-img">
+            <span class="service-num">05</span>
+            <img src="images/service-diagnostics.jpg" alt="A/C & Heating" loading="lazy" width="400" height="200">
+          </div>
+          <div class="service-card-body">
+            <h3>A/C & Heating</h3>
+            <p>Stay comfortable year-round. Full climate system diagnosis, repair, and recharge.</p>
+          </div>
+        </div>
+        <div class="service-card" data-service="6">
+          <div class="service-card-img">
+            <span class="service-num">06</span>
+            <img src="images/service-diagnostics.jpg" alt="Diagnostics" loading="lazy" width="400" height="200">
+          </div>
+          <div class="service-card-body">
+            <h3>Transmission Service</h3>
+            <p>Fluid flush, filter replacement, and complete transmission repair.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT — Horizontal Split Reveal ═══════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-split">
+      <div class="split-overlay" id="splitOverlay">
+        <div class="split-left"></div>
+        <div class="split-right"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <img src="images/team.jpg" alt="Efrain and team at West Houston Auto A/C Repair" loading="lazy" width="600" height="450">
+        </div>
+        <div class="about-content">
+          <span class="section-eyebrow section-eyebrow--dark">About Us</span>
+          <h2>Meet Efrain</h2>
+          <p class="about-text">West Houston Auto A/C Repair LLC has built a reputation as one of Richmond's most trusted auto repair shops. With a 4.9-star Google rating backed by 154+ customer reviews, we deliver honest diagnostics, quality repairs, and transparent pricing on every job. Located in Richmond, Texas, we serve the local community with the care and expertise your vehicle deserves.</p>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="num">16+</span>
+              <span class="label">Years Experience</span>
+            </div>
+            <div class="about-stat">
+              <span class="num">4.9★</span>
+              <span class="label">Google Rating</span>
+            </div>
+            <div class="about-stat">
+              <span class="num">154</span>
+              <span class="label">Happy Reviews</span>
+            </div>
+            <div class="about-stat">
+              <span class="num">12K+</span>
+              <span class="label">Cars Serviced</span>
+            </div>
+          </div>
+          <a href="tel:8324073849" class="btn-dark">Call (832) 407-3849</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ REVIEWS — Cascade Down ═══════════════ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-header">
+      <span class="section-eyebrow section-eyebrow--light">Testimonials</span>
+      <h2 class="section-title section-title--light">What Our Customers Say</h2>
+      <p class="section-subtitle section-subtitle--light" style="margin:0 auto 56px">154 five-star reviews and counting. Here's why Richmond trusts us.</p>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid">
+      <div class="review-card" data-review="1">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        </div>
+        <p class="review-text">Found this auto ac shop randomly via google. I was so impressed with my experience dealing with Efrain, he is an honest man and have very reasonable service fee. He was able to diagnose my car's ac problem quickly and was able to fix it with no time. Im glad i found a trusted auto ac shop.</p>
+        <div class="review-author">Qriz Pol</div>
+        <div class="review-date">2 weeks ago</div>
+      </div>
+      <div class="review-card" data-review="2">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        </div>
+        <p class="review-text">The owner Efrain is amazing, if you need Ac work done right, he is your man! He uses a machine to both vacuum and add the correct amount according to vehicle specifications. I've taken 2 vehicles already and both times nothing but excellent work. Damn right I'll recommend him!!</p>
+        <div class="review-author">jose urdiales</div>
+        <div class="review-date">1 month ago</div>
+      </div>
+      <div class="review-card" data-review="3">
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        </div>
+        <p class="review-text">Had a great experience with Efrain. Brought my classic car here which I had no hope in getting the AC fixed. Just in a few days I was out of there with ice cold AC in my car. Highly recommend!</p>
+        <div class="review-author">K Bari</div>
+        <div class="review-date">3 weeks ago</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WHY CHOOSE US — Grid Pop ═══════════════ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="features-header">
+      <span class="section-eyebrow section-eyebrow--dark">Why Choose Us</span>
+      <h2 class="section-title section-title--dark">The West Houston Difference</h2>
+      <p class="section-subtitle section-subtitle--dark" style="margin:0 auto 56px">Four reasons Richmond trusts us with their vehicles.</p>
+    </div>
+    <div class="features-grid" id="featuresGrid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>3-Year / 36K Warranty</h3>
+        <p>Every repair backed by our industry-leading warranty. Drive with confidence knowing we stand behind our work.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <h3>Free Inspections</h3>
+        <p>Comprehensive multi-point inspections at no charge. Know exactly what your car needs before spending a dime.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Loaner Cars</h3>
+        <p>Need to get to work? We provide complimentary loaner vehicles so your life doesn't stop while we work.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Transparent Pricing</h3>
+        <p>Detailed estimates before any work begins. No hidden fees, no surprise charges. What we quote is what you pay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BLOG ═══════════════ -->
+<section class="blog-section" id="blog">
+  <div class="container">
+    <div class="blog-header">
+      <span class="section-eyebrow section-eyebrow--light">From the Shop</span>
+      <h2 class="section-title section-title--light">Latest Articles</h2>
+      <p class="section-subtitle section-subtitle--light">Tips, guides, and expert advice to keep your car running strong.</p>
+    </div>
+    <div class="blog-grid" id="blogGrid">
+      <a href="blog/check-engine-light/index.html" class="blog-card">
+        <div class="blog-card-img">
+          <img src="images/service-engine.jpg" alt="Check Engine Light Guide" loading="lazy" width="400" height="200">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Diagnostics</span>
+          <h3>Why Is My Check Engine Light On? 5 Common Causes</h3>
+          <p>Don't panic. Here are the most common reasons and what you should do next.</p>
+          <span class="blog-card-link">Read More &rarr;</span>
+        </div>
+      </a>
+      <a href="blog/oil-change-guide/index.html" class="blog-card">
+        <div class="blog-card-img">
+          <img src="images/service-oil.jpg" alt="Oil Change Guide" loading="lazy" width="400" height="200">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Maintenance</span>
+          <h3>The Complete Oil Change Guide: What Every Driver Needs to Know</h3>
+          <p>How often, what type, and why it matters more than you think.</p>
+          <span class="blog-card-link">Read More &rarr;</span>
+        </div>
+      </a>
+      <a href="blog/brake-warning-signs/index.html" class="blog-card">
+        <div class="blog-card-img">
+          <img src="images/service-brakes.jpg" alt="Brake Warning Signs" loading="lazy" width="400" height="200">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Safety</span>
+          <h3>7 Brake Warning Signs You Should Never Ignore</h3>
+          <p>Squealing, grinding, pulling — know when it's time to get your brakes checked.</p>
+          <span class="blog-card-link">Read More &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA — Curtain Rise ═══════════════ -->
+<section class="cta-section" id="contact">
+  <div class="curtain-section" id="curtainSection"></div>
+  <div class="cta-content">
+    <h2>Ready to Get Your Car Fixed Right?</h2>
+    <p>Schedule your free inspection today. Same-day appointments available.</p>
+    <div class="cta-buttons">
+      <a href="tel:8324073849" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call (832) 407-3849
+      </a>
+      <a href="#" class="btn-outline">Get a Free Estimate</a>
+    </div>
+    <p class="cta-hours">Mon–Fri 7:30 AM – 6:00 PM &nbsp;|&nbsp; Sat 8:00 AM – 2:00 PM</p>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">WEST HOUSTON AUTO<span>.</span></div>
+        <p class="footer-desc">Richmond's trusted auto repair since 2008. Honest work, fair prices, and a warranty that means something.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          19412 FM 1093, Richmond, TX 77407
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:8324073849">(832) 407-3849</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Mon–Fri 7:30–6:00 | Sat 8:00–2:00
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 West Houston Auto A/C Repair. All rights reserved.</span>
+      <span class="footer-copy">19412 FM 1093, Richmond, TX 77407</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CDN Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
+<script>
+(function(){
+  'use strict';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Reduced Motion Check ── */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Lenis Smooth Scroll (skip for reduced-motion) ── */
+  if (!prefersReduced) {
+    const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(time=>lenis.raf(time*1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* ── Scroll Progress Bar ── */
+  const progressBar = document.getElementById('scrollProgress');
+  gsap.to(progressBar,{
+    width:'100%',
+    ease:'none',
+    scrollTrigger:{trigger:'body',start:'top top',end:'bottom bottom',scrub:0.3}
+  });
+
+  /* ── Nav scroll state ── */
+  const nav = document.getElementById('nav');
+  ScrollTrigger.create({
+    start:80,
+    onUpdate:self=>{nav.classList.toggle('scrolled',self.direction===1&&self.scroll()>80)}
+  });
+
+  /* ── Mobile Menu ── */
+  const hamburger=document.getElementById('hamburger');
+  const drawer=document.getElementById('navDrawer');
+  const overlay=document.getElementById('navOverlay');
+  function toggleMenu(){
+    hamburger.classList.toggle('active');
+    drawer.classList.toggle('open');
+    overlay.classList.toggle('open');
+  }
+  hamburger.addEventListener('click',toggleMenu);
+  overlay.addEventListener('click',toggleMenu);
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(drawer.classList.contains('open'))toggleMenu()}));
+
+  if(prefersReduced) return; /* Skip all animations */
+
+  /* ═══════ HERO — Circle Expand Reveal ═══════ */
+  const heroReveal = document.getElementById('heroReveal');
+  const heroTl = gsap.timeline({delay:0.3});
+
+  heroTl.to(heroReveal,{
+    clipPath:'circle(150% at 50% 50%)',
+    duration:1.5,
+    ease:'power2.inOut'
+  });
+
+  // SplitType on headline
+  const heroHeadline = document.getElementById('heroHeadline');
+  const split = new SplitType(heroHeadline,{types:'words'});
+  split.words.forEach(w=>w.classList.add('word'));
+
+  heroTl.to(split.words,{
+    opacity:1,
+    y:0,
+    duration:0.6,
+    stagger:0.08,
+    ease:'power3.out'
+  },'-=0.6');
+
+  heroTl.to('#heroTrust',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.3');
+  heroTl.to('#heroSub',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.2');
+  heroTl.to('#heroCta',{opacity:1,y:0,duration:0.5,ease:'power2.out'},'-=0.2');
+
+  /* ═══════ SERVICES — Diagonal Wipe Reveal ═══════ */
+  const servicesInner = document.getElementById('servicesInner');
+
+  gsap.to(servicesInner,{
+    clipPath:'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+    duration:1,
+    ease:'power2.inOut',
+    scrollTrigger:{trigger:'.services',start:'top 75%',end:'top 25%',scrub:1}
+  });
+
+  // Each service card wipes in with stagger
+  gsap.utils.toArray('.service-card').forEach((card,i)=>{
+    gsap.to(card,{
+      clipPath:'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+      duration:0.8,
+      ease:'power2.out',
+      scrollTrigger:{trigger:card,start:'top 85%',end:'top 55%',scrub:1}
+    });
+  });
+
+  /* ═══════ ABOUT — Horizontal Split Reveal ═══════ */
+  const splitOverlay = document.getElementById('splitOverlay');
+  const splitLeft = splitOverlay.querySelector('.split-left');
+  const splitRight = splitOverlay.querySelector('.split-right');
+
+  const aboutTl = gsap.timeline({
+    scrollTrigger:{trigger:'.about',start:'top 70%',end:'top 20%',scrub:1}
+  });
+
+  aboutTl.to(splitLeft,{x:'-100%',ease:'power2.inOut'},0);
+  aboutTl.to(splitRight,{x:'100%',ease:'power2.inOut'},0);
+
+  /* ═══════ REVIEWS — Cascade Down ═══════ */
+  gsap.utils.toArray('.review-card').forEach((card,i)=>{
+    gsap.to(card,{
+      opacity:1,
+      y:0,
+      rotation:0,
+      duration:1.2,
+      ease:'bounce.out',
+      scrollTrigger:{trigger:'.reviews',start:'top 65%',toggleActions:'play none none none'},
+      delay:i*0.2
+    });
+  });
+
+  /* ═══════ FEATURES — Grid Pop (elastic scale) ═══════ */
+  gsap.utils.toArray('.feature-card').forEach((card,i)=>{
+    gsap.to(card,{
+      opacity:1,
+      scale:1,
+      duration:0.8,
+      ease:'elastic.out(1,0.5)',
+      scrollTrigger:{trigger:card,start:'top 85%',toggleActions:'play none none none'},
+      delay:i*0.12
+    });
+  });
+
+  /* ═══════ BLOG — Fade Reveal ═══════ */
+  gsap.utils.toArray('.blog-card').forEach((card,i)=>{
+    gsap.to(card,{
+      opacity:1,
+      y:0,
+      duration:0.7,
+      ease:'power2.out',
+      scrollTrigger:{trigger:card,start:'top 85%',toggleActions:'play none none none'},
+      delay:i*0.15
+    });
+  });
+
+  /* ═══════ CTA — Curtain Rise ═══════ */
+  const curtainSection = document.getElementById('curtainSection');
+  gsap.to(curtainSection,{
+    clipPath:'inset(0% 0 0 0)',
+    duration:1,
+    ease:'power2.inOut',
+    scrollTrigger:{trigger:'.cta-section',start:'top 70%',end:'top 20%',scrub:1}
+  });
+
+})();
+</script>
+</body>
+</html>

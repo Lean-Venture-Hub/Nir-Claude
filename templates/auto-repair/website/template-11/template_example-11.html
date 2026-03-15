@@ -781,17 +781,26 @@ window.addEventListener('load', () => {
   }, 1400);
 
   // ── Scroll animations ──
+  // Set initial hidden states via JS (not CSS) so gallery iframes render visible content
+  const sectionEls = document.querySelectorAll('.services-header, .about-label, .about-headline, .about-text, .about-callout, .about-stats, .reviews-header .label, .reviews-headline, .bento-header .label, .bento-headline, .blog-headline');
+  gsap.set(sectionEls, { opacity: 0, y: 40 });
+  gsap.set('.service-card', { opacity: 0, y: 40 });
+  gsap.set('.review-card', { opacity: 0, y: 40, scale: 0.95 });
+  gsap.set('.bento-card', { opacity: 0, y: 30 });
+  gsap.set('.blog-card', { opacity: 0, y: 30 });
+  gsap.set('.cta-inner', { opacity: 0, y: 40 });
+
   // Generic fade-in for sections
-  document.querySelectorAll('.services-header, .about-label, .about-headline, .about-text, .about-callout, .about-stats, .reviews-header .label, .reviews-headline, .bento-header .label, .bento-headline, .blog-headline').forEach(el => {
-    gsap.from(el, {
-      opacity: 0, y: 40, duration: 0.8,
+  sectionEls.forEach(el => {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.8,
       scrollTrigger: { trigger: el, start: 'top 85%', once: true }
     });
   });
 
   // Service cards stagger
-  gsap.from('.service-card', {
-    opacity: 0, y: 40, duration: 0.6, stagger: 0.1,
+  gsap.to('.service-card', {
+    opacity: 1, y: 0, duration: 0.6, stagger: 0.1,
     scrollTrigger: { trigger: '.services-scroll', start: 'top 80%', once: true }
   });
 
@@ -811,26 +820,26 @@ window.addEventListener('load', () => {
   });
 
   // Review cards stagger
-  gsap.from('.review-card', {
-    opacity: 0, y: 40, scale: 0.95, duration: 0.6, stagger: 0.15,
+  gsap.to('.review-card', {
+    opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.15,
     scrollTrigger: { trigger: '.reviews-grid', start: 'top 80%', once: true }
   });
 
   // Bento cards stagger
-  gsap.from('.bento-card', {
-    opacity: 0, y: 30, duration: 0.6, stagger: 0.12,
+  gsap.to('.bento-card', {
+    opacity: 1, y: 0, duration: 0.6, stagger: 0.12,
     scrollTrigger: { trigger: '.bento-grid', start: 'top 80%', once: true }
   });
 
   // Blog cards stagger
-  gsap.from('.blog-card', {
-    opacity: 0, y: 30, duration: 0.6, stagger: 0.12,
+  gsap.to('.blog-card', {
+    opacity: 1, y: 0, duration: 0.6, stagger: 0.12,
     scrollTrigger: { trigger: '.blog-grid', start: 'top 80%', once: true }
   });
 
   // CTA section
-  gsap.from('.cta-inner', {
-    opacity: 0, y: 40, duration: 0.8,
+  gsap.to('.cta-inner', {
+    opacity: 1, y: 0, duration: 0.8,
     scrollTrigger: { trigger: '.cta-section', start: 'top 80%', once: true }
   });
 });

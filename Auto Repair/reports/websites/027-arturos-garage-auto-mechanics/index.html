@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arturos Garage Auto Mechanics | Auto Repair Shop in Houston</title>
+<meta name="description" content="Arturos Garage Auto Mechanics — 4.5★ rated with 130+ reviews. Honest service, fair prices.">
+<meta property="og:title" content="Arturos Garage Auto Mechanics | Auto Repair Shop in Houston">
+<meta property="og:description" content="Arturos Garage Auto Mechanics — 4.5★ rated with 130+ reviews.">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AutoRepair",
+  "name":"Arturos Garage Auto Mechanics",
+  "image":"images/hero.jpg",
+  "address":{"@type":"PostalAddress","streetAddress":"320 W Canino Rd","addressLocality":"Houston","addressRegion":"TX","postalCode":"77037"},
+  "telephone":"(713) 695-2155",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","reviewCount":"130"},
+  "openingHours":"Mo-Fr 07:30-18:00, Sa 08:00-14:00",
+  "url":""
+}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --bg-primary:#0C0C0C;
+  --bg-secondary:#161616;
+  --bg-tertiary:#1E1E1E;
+  --accent:#E8A849;
+  --accent-glow:rgba(232,168,73,0.15);
+  --accent-dark:rgba(232,168,73,0.08);
+  --text-primary:#F0F0F0;
+  --text-secondary:#8A8A8A;
+  --divider:rgba(255,255,255,0.08);
+  --display:'DM Sans',system-ui,sans-serif;
+  --body:'DM Sans',system-ui,sans-serif;
+  --max-w:1280px;
+  --transition:0.4s cubic-bezier(.25,.46,.45,.94);
+  --transition-fast:0.25s ease;
+}
+
+body{
+  font-family:var(--body);
+  color:var(--text-primary);
+  line-height:1.65;
+  background:var(--bg-primary);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  font-size:15px;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .hero-image-wrap{clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%)!important}
+  .marquee-track{animation:none!important;display:flex;justify-content:center}
+  [data-animate]{opacity:1!important;transform:none!important}
+}
+
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+.container{max-width:var(--max-w);margin:0 auto;padding:0 32px}
+.label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;color:var(--text-secondary)}
+
+/* ── NAV ────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all 0.4s ease}
+.nav::before{content:'';position:absolute;inset:0;background:rgba(12,12,12,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--divider);opacity:0;transition:opacity 0.4s ease}
+.nav.scrolled::before{opacity:1}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;max-width:var(--max-w);margin:0 auto;padding:0 32px}
+.nav-brand{font-family:var(--display);font-size:18px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-primary)}
+.nav-phone{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--text-secondary);transition:color var(--transition-fast)}
+.nav-phone:hover{color:var(--accent)}
+.nav-phone svg{width:16px;height:16px;stroke:var(--accent)}
+.nav-cta{display:inline-flex;align-items:center;padding:12px 28px;border-radius:999px;font-size:14px;font-weight:600;background:var(--accent);color:var(--bg-primary);transition:all var(--transition);min-height:48px}
+.nav-cta:hover{background:#d4952e;transform:translateY(-1px)}
+.nav-hamburger{display:none;width:48px;height:48px;align-items:center;justify-content:center;flex-direction:column;gap:6px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all 0.3s ease}
+
+/* Mobile menu */
+.mobile-menu{position:fixed;inset:0;background:var(--bg-primary);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity 0.4s ease}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{font-size:24px;font-weight:700;color:var(--text-primary);transition:color 0.3s}
+.mobile-menu a:hover{color:var(--accent)}
+.mobile-menu-close{position:absolute;top:20px;right:20px;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
+.mobile-menu-close svg{width:24px;height:24px;stroke:var(--text-primary)}
+
+@media(max-width:768px){
+  .nav-phone-desktop,.nav-cta-desktop{display:none}
+  .nav-hamburger{display:flex}
+}
+
+/* ── HERO ───────────────────────────── */
+.hero{min-height:100vh;display:flex;position:relative;overflow:hidden}
+.hero-content{flex:1;display:flex;align-items:center;padding:120px 48px 80px;position:relative;z-index:2;min-width:50%}
+.hero-content-inner{max-width:600px}
+.hero-eyebrow{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:32px}
+.hero-headline{font-family:var(--display);font-size:clamp(48px,10vw,120px);font-weight:900;letter-spacing:-0.03em;line-height:0.95;color:var(--text-primary);margin-bottom:24px}
+.hero-headline .line{display:block;overflow:hidden}
+.hero-headline .line-inner{display:block}
+.hero-subtext{font-size:18px;color:var(--text-secondary);line-height:1.5;margin-bottom:40px;max-width:440px}
+.hero-stats{display:flex;gap:40px;margin-bottom:48px}
+.hero-stat-value{font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:900;color:var(--text-primary);line-height:1}
+.hero-stat-value .accent{color:var(--accent)}
+.hero-stat-label{font-size:12px;color:var(--text-secondary);margin-top:4px;letter-spacing:0.05em;text-transform:uppercase}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.btn-amber{display:inline-flex;align-items:center;justify-content:center;padding:16px 36px;border-radius:999px;font-size:15px;font-weight:600;background:var(--accent);color:var(--bg-primary);transition:all var(--transition);min-height:52px}
+.btn-amber:hover{background:#d4952e;transform:translateY(-2px);box-shadow:0 8px 32px rgba(232,168,73,0.3)}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;padding:16px 36px;border-radius:999px;font-size:15px;font-weight:600;border:1px solid var(--divider);color:var(--text-primary);transition:all var(--transition);min-height:52px;background:transparent}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-image-wrap{position:absolute;top:0;right:0;width:50%;height:100%;clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%);overflow:hidden}
+.hero-image{width:100%;height:100%;object-fit:cover;transform:scale(1.1)}
+
+@media(max-width:900px){
+  .hero{flex-direction:column;min-height:auto}
+  .hero-content{min-width:100%;padding:120px 24px 48px}
+  .hero-image-wrap{position:relative;width:100%;height:50vh;clip-path:none!important}
+  .hero-headline{font-size:clamp(36px,8vw,64px)}
+  .hero-stats{gap:24px}
+}
+
+/* ── TRUST MARQUEE ──────────────────── */
+.trust-bar{padding:20px 0;background:var(--bg-secondary);border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);overflow:hidden}
+.marquee-track{display:flex;gap:0;animation:marquee 30s linear infinite;width:max-content}
+.marquee-item{white-space:nowrap;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--text-secondary);padding:0 24px;display:flex;align-items:center;gap:24px}
+.marquee-item::after{content:'✦';color:var(--accent);font-size:10px}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SERVICES FILMSTRIP ─────────────── */
+.services{padding:120px 0}
+.services-header{margin-bottom:48px}
+.services-label{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.services-label::after{content:'';height:1px;width:48px;background:var(--accent)}
+.services-headline{font-family:var(--display);font-size:clamp(36px,6vw,64px);font-weight:900;letter-spacing:-0.02em;line-height:1}
+.services-scroll{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:24px;scrollbar-width:none}
+.services-scroll::-webkit-scrollbar{display:none}
+.service-card{flex:0 0 320px;scroll-snap-align:start;background:var(--bg-secondary);border-radius:20px;overflow:hidden;transition:transform var(--transition);position:relative}
+.service-card:first-child{margin-left:max(32px,calc((100vw - var(--max-w)) / 2 + 32px))}
+.service-card:last-child{margin-right:32px}
+.service-card:hover{transform:translateY(-4px)}
+.service-card-image{height:260px;position:relative;overflow:hidden}
+.service-card-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
+.service-card:hover .service-card-image img{transform:scale(1.05)}
+.service-card-image::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,var(--bg-secondary),transparent)}
+.service-card-body{padding:24px 28px 28px}
+.service-card-num{font-family:var(--display);font-size:13px;font-weight:700;color:var(--accent);letter-spacing:0.05em;margin-bottom:8px}
+.service-card-title{font-family:var(--display);font-size:20px;font-weight:800;margin-bottom:8px}
+.service-card-desc{font-size:14px;color:var(--text-secondary);line-height:1.5;margin-bottom:16px}
+.service-card-link{font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px;transition:gap 0.3s ease}
+.service-card-link:hover{gap:10px}
+
+@media(max-width:768px){
+  .service-card{flex:0 0 280px}
+  .service-card:first-child{margin-left:24px}
+  .services{padding:80px 0}
+}
+
+/* ── ABOUT ──────────────────────────── */
+.about{padding:120px 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-image-wrap{border-radius:24px;overflow:hidden;position:relative;height:600px}
+.about-image{width:100%;height:100%;object-fit:cover;will-change:transform}
+.about-label{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.about-label span{color:var(--accent)}
+.about-headline{font-family:var(--display);font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-0.02em;line-height:1;margin-bottom:24px}
+.about-text{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:32px}
+.about-callout{padding:20px 24px;background:var(--accent-dark);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;font-size:14px;font-weight:500;color:var(--accent);margin-bottom:40px}
+.about-stats{display:flex;gap:48px}
+.about-stat-value{font-family:var(--display);font-size:clamp(32px,4vw,48px);font-weight:900;line-height:1}
+.about-stat-label{font-size:12px;color:var(--text-secondary);margin-top:4px;text-transform:uppercase;letter-spacing:0.05em}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-image-wrap{height:400px}
+  .about{padding:80px 0}
+}
+
+/* ── REVIEWS ────────────────────────── */
+.reviews{padding:120px 0;position:relative;overflow:hidden}
+.reviews::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none}
+.reviews-header{text-align:center;margin-bottom:64px;position:relative;z-index:1}
+.reviews-headline{font-family:var(--display);font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-0.02em}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:1}
+.review-card{background:var(--bg-secondary);border-radius:20px;padding:36px 32px;border:1px solid var(--divider);transition:border-color var(--transition)}
+.review-card:hover{border-color:rgba(232,168,73,0.2)}
+.review-quote{font-size:48px;font-family:Georgia,serif;color:var(--accent);line-height:1;margin-bottom:8px}
+.review-text{font-size:15px;line-height:1.7;color:var(--text-secondary);margin-bottom:24px}
+.review-stars{display:flex;gap:2px;margin-bottom:12px}
+.review-star{color:var(--accent);font-size:14px}
+.review-author{font-weight:700;font-size:15px;color:var(--text-primary)}
+.review-date{font-size:13px;color:var(--text-secondary);margin-top:2px}
+
+@media(max-width:900px){
+  .reviews-grid{grid-template-columns:1fr}
+  .reviews{padding:80px 0}
+}
+
+/* ── WHY CHOOSE US (BENTO) ──────────── */
+.bento{padding:120px 0}
+.bento-header{margin-bottom:48px}
+.bento-headline{font-family:var(--display);font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-0.02em}
+.bento-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:20px}
+.bento-card{background:var(--bg-secondary);border-radius:20px;padding:40px 36px;border:1px solid var(--divider);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;min-height:220px}
+.bento-card-lg{grid-row:span 2;min-height:460px}
+.bento-card-bg{position:absolute;inset:0}
+.bento-card-bg img{width:100%;height:100%;object-fit:cover}
+.bento-card-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,0.9) 30%,rgba(12,12,12,0.3))}
+.bento-card-content{position:relative;z-index:1}
+.bento-card-icon{font-size:32px;margin-bottom:16px}
+.bento-card-title{font-family:var(--display);font-size:24px;font-weight:800;margin-bottom:8px;line-height:1.2}
+.bento-card-desc{font-size:14px;color:var(--text-secondary);line-height:1.5}
+.bento-card-lg .bento-card-title{font-size:clamp(28px,3vw,36px)}
+
+@media(max-width:768px){
+  .bento-grid{grid-template-columns:1fr}
+  .bento-card-lg{grid-row:span 1;min-height:300px}
+  .bento{padding:80px 0}
+}
+
+/* ── BLOG PREVIEW ───────────────────── */
+.blog-section{padding:120px 0;border-top:1px solid var(--divider)}
+.blog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px}
+.blog-headline{font-family:var(--display);font-size:clamp(36px,5vw,48px);font-weight:900;letter-spacing:-0.02em}
+.blog-link{font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-card{background:var(--bg-secondary);border-radius:20px;overflow:hidden;border:1px solid var(--divider);transition:transform var(--transition),border-color var(--transition)}
+.blog-card:hover{transform:translateY(-4px);border-color:rgba(232,168,73,0.2)}
+.blog-card-image{height:200px;overflow:hidden}
+.blog-card-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
+.blog-card:hover .blog-card-image img{transform:scale(1.05)}
+.blog-card-body{padding:24px 28px 28px}
+.blog-card-cat{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+.blog-card-title{font-family:var(--display);font-size:18px;font-weight:800;line-height:1.3;margin-bottom:10px}
+.blog-card-excerpt{font-size:14px;color:var(--text-secondary);line-height:1.5;margin-bottom:16px}
+.blog-card-link{font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+
+@media(max-width:768px){
+  .blog-grid{grid-template-columns:1fr}
+  .blog-section{padding:80px 0}
+}
+
+/* ── CTA ────────────────────────────── */
+.cta-section{position:relative;padding:120px 0;overflow:hidden}
+.cta-bg{position:absolute;inset:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover}
+.cta-bg::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,0.85)}
+.cta-inner{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto}
+.cta-headline{font-family:var(--display);font-size:clamp(36px,6vw,64px);font-weight:900;letter-spacing:-0.02em;margin-bottom:16px}
+.cta-phone{font-family:var(--display);font-size:clamp(24px,4vw,40px);font-weight:900;color:var(--accent);margin-bottom:32px;display:block}
+.cta-phone:hover{text-decoration:underline}
+.cta-hours{font-size:14px;color:var(--text-secondary);line-height:1.8;margin-top:32px}
+
+/* ── FOOTER ─────────────────────────── */
+.footer{padding:64px 0 32px;background:var(--bg-primary);border-top:1px solid var(--divider)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand{font-family:var(--display);font-size:18px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
+.footer-desc{font-size:14px;color:var(--text-secondary);line-height:1.6}
+.footer-col-title{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--text-primary);margin-bottom:16px}
+.footer-col a,.footer-col p{display:block;font-size:14px;color:var(--text-secondary);line-height:2;transition:color 0.3s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--divider);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:13px;color:var(--text-secondary)}
+.footer-social{display:flex;gap:16px}
+.footer-social a{width:40px;height:40px;border-radius:50%;border:1px solid var(--divider);display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.footer-social a:hover{border-color:var(--accent);background:var(--accent-dark)}
+.footer-social svg{width:16px;height:16px;stroke:var(--text-secondary)}
+
+@media(max-width:768px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* ── MOBILE STICKY CTA ─────────────── */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;padding:12px 16px;background:rgba(12,12,12,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--divider)}
+.mobile-cta-inner{display:flex;gap:10px}
+.mobile-cta .btn-amber{flex:1;justify-content:center;font-size:14px;padding:14px 16px}
+.mobile-cta .btn-call{flex:0 0 52px;height:52px;border-radius:50%;border:1px solid var(--divider);display:flex;align-items:center;justify-content:center;background:var(--bg-secondary)}
+.mobile-cta .btn-call svg{width:20px;height:20px;stroke:var(--accent)}
+
+@media(max-width:768px){
+  .mobile-cta{display:block}
+  body{padding-bottom:76px}
+}
+
+/* ── SCROLLBAR ──────────────────────── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-primary)}
+::-webkit-scrollbar-thumb{background:var(--bg-tertiary);border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">ARTUROS GARAGE</a>
+    <a href="tel:+17136952155" class="nav-phone nav-phone-desktop">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (713) 695-2155
+    </a>
+    <a href="#contact" class="nav-cta nav-cta-desktop">Get a Free Estimate</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
+  <a href="blog.html" onclick="closeMobile()">Blog</a>
+  <a href="tel:+17136952155" class="nav-phone" style="color:var(--accent)">(713) 695-2155</a>
+  <a href="#contact" class="btn-amber" onclick="closeMobile()" style="margin-top:16px">Get a Free Estimate</a>
+</div>
+
+<!-- ═══ HERO — CINEMATIC SPLIT ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-content-inner">
+      <div class="hero-eyebrow" data-animate>TRUSTED &bull; RELIABLE &bull; HOUSTON TX</div>
+      <h1 class="hero-headline" id="heroHeadline">
+        <span class="line"><span class="line-inner">Houston's Most</span></span>
+        <span class="line"><span class="line-inner">Trusted</span></span>
+        <span class="line"><span class="line-inner">Mechanic</span></span>
+      </h1>
+      <p class="hero-subtext" data-animate>Arturos Garage — 4.5★ rated with 130+ reviews. Honest service, fair prices.</p>
+      <div class="hero-stats" data-animate>
+        <div class="hero-stat" data-animate>
+          <div class="hero-stat-value"><span class="count-up" data-target="4.5" data-decimals="1">0</span><span class="accent">★</span></div>
+          <div class="hero-stat-label">Rating</div>
+        </div>
+        <div class="hero-stat" data-animate>
+          <div class="hero-stat-value"><span class="count-up" data-target="130">0</span>+</div>
+          <div class="hero-stat-label">Reviews</div>
+        </div>
+        <div class="hero-stat" data-animate>
+          <div class="hero-stat-value"><span class="count-up" data-target="20">0</span>+</div>
+          <div class="hero-stat-label">Years</div>
+        </div>
+      </div>
+      <div class="hero-ctas" data-animate>
+        <a href="#contact" class="btn-amber">Book Appointment</a>
+        <a href="tel:+17136952155" class="btn-ghost">Call (713) 695-2155</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image-wrap" id="heroImageWrap">
+    <img src="images/hero.jpg" alt="Arturos Garage Auto Mechanics shop in Houston, TX" class="hero-image" id="heroImage">
+  </div>
+</section>
+
+<!-- ═══ TRUST MARQUEE ═══ -->
+<section class="trust-bar">
+  <div class="marquee-track">
+    <div class="marquee-item">ASE CERTIFIED</div>
+    <div class="marquee-item">AAA APPROVED</div>
+    <div class="marquee-item">3-YEAR WARRANTY</div>
+    <div class="marquee-item">FREE ESTIMATES</div>
+    <div class="marquee-item">SAME-DAY SERVICE</div>
+    <div class="marquee-item">LOANER CARS AVAILABLE</div>
+    <div class="marquee-item">ASE CERTIFIED</div>
+    <div class="marquee-item">AAA APPROVED</div>
+    <div class="marquee-item">3-YEAR WARRANTY</div>
+    <div class="marquee-item">FREE ESTIMATES</div>
+    <div class="marquee-item">SAME-DAY SERVICE</div>
+    <div class="marquee-item">LOANER CARS AVAILABLE</div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES FILMSTRIP ═══ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header" data-animate>
+      <div class="services-label label">OUR SERVICES</div>
+      <h2 class="services-headline">Everything Your<br>Vehicle Needs</h2>
+    </div>
+  </div>
+  <div class="services-scroll" id="servicesScroll">
+    <div class="service-card" data-animate>
+      <div class="service-card-image"><img src="images/service-oil.jpg" alt="Oil change and lube service" loading="lazy"></div>
+      <div class="service-card-body">
+        <div class="service-card-num">01</div>
+        <h3 class="service-card-title">Oil Change &amp; Lube</h3>
+        <p class="service-card-desc">Full-synthetic and conventional oil changes with multi-point inspection.</p>
+        <a href="#" class="service-card-link">Learn More →</a>
+      </div>
+    </div>
+    <div class="service-card" data-animate>
+      <div class="service-card-image"><img src="images/service-brakes.jpg" alt="Brake service and repair" loading="lazy"></div>
+      <div class="service-card-body">
+        <div class="service-card-num">02</div>
+        <h3 class="service-card-title">Brake Repair</h3>
+        <p class="service-card-desc">Brake pad replacement, rotor resurfacing, and complete brake system service.</p>
+        <a href="#" class="service-card-link">Learn More →</a>
+      </div>
+    </div>
+    <div class="service-card" data-animate>
+      <div class="service-card-image"><img src="images/service-engine.jpg" alt="Engine repair and diagnostics" loading="lazy"></div>
+      <div class="service-card-body">
+        <div class="service-card-num">03</div>
+        <h3 class="service-card-title">Engine Diagnostics</h3>
+        <p class="service-card-desc">Computer diagnostics to identify check engine lights and performance issues.</p>
+        <a href="#" class="service-card-link">Learn More →</a>
+      </div>
+    </div>
+    <div class="service-card" data-animate>
+      <div class="service-card-image"><img src="images/service-engine.jpg" alt="Transmission service" loading="lazy"></div>
+      <div class="service-card-body">
+        <div class="service-card-num">04</div>
+        <h3 class="service-card-title">A/C Repair</h3>
+        <p class="service-card-desc">Air conditioning recharge, leak detection, and full climate system repair.</p>
+        <a href="#" class="service-card-link">Learn More →</a>
+      </div>
+    </div>
+    <div class="service-card" data-animate>
+      <div class="service-card-image"><img src="images/service-tires.jpg" alt="Tire service and alignment" loading="lazy"></div>
+      <div class="service-card-body">
+        <div class="service-card-num">05</div>
+        <h3 class="service-card-title">Tire Service</h3>
+        <p class="service-card-desc">Tire rotation, balancing, alignment, and new tire installation.</p>
+        <a href="#" class="service-card-link">Learn More →</a>
+      </div>
+    </div>
+    <div class="service-card" data-animate>
+      <div class="service-card-image"><img src="images/service-diagnostics.jpg" alt="Vehicle diagnostics" loading="lazy"></div>
+      <div class="service-card-body">
+        <div class="service-card-num">06</div>
+        <h3 class="service-card-title">Transmission Service</h3>
+        <p class="service-card-desc">Fluid flush, filter replacement, and complete transmission repair.</p>
+        <a href="#" class="service-card-link">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap" data-animate>
+        <img src="images/team.jpg" alt="Arturos Garage Auto Mechanics team in Houston, TX" class="about-image" id="aboutImage" loading="lazy">
+      </div>
+      <div>
+        <div class="about-label label" data-animate><span>&bull;</span> ABOUT</div>
+        <h2 class="about-headline" data-animate>Houston's Trusted<br>Auto Repair</h2>
+        <p class="about-text" data-animate>Arturos Garage Auto Mechanics has built a reputation as one of Houston's most trusted auto repair shops. With a 4.5-star Google rating backed by 130+ customer reviews, we deliver honest diagnostics, quality repairs, and transparent pricing on every job. Located in Houston, Texas, we serve the local community with the care and expertise your vehicle deserves.</p>
+        <div class="about-callout" data-animate>"Honest diagnostics, quality repairs, and transparent pricing on every job."</div>
+        <div class="about-stats" data-animate>
+          <div>
+            <div class="about-stat-value"><span class="count-up" data-target="20">0</span>+</div>
+            <div class="about-stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="about-stat-value"><span class="count-up" data-target="12000" data-separator=",">0</span>+</div>
+            <div class="about-stat-label">Vehicles Serviced</div>
+          </div>
+          <div>
+            <div class="about-stat-value"><span class="count-up" data-target="130">0</span></div>
+            <div class="about-stat-label">Google Reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-header">
+      <div class="label" data-animate style="margin-bottom:12px">WHAT CUSTOMERS SAY</div>
+      <h2 class="reviews-headline" data-animate>Real Reviews From<br>Real People</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card" data-animate>
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">Very reliable and gets the job done for great prices.</p>
+        <div class="review-author">Carlos Hardy</div>
+        <div class="review-date">2 weeks ago</div>
+      </div>
+      <div class="review-card" data-animate>
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">Best mechanic in Houston, hands down. They showed me photos of what needed fixing before doing any work. Total transparency.</p>
+        <div class="review-author">Anthony Devenport</div>
+        <div class="review-date">2 weeks ago</div>
+      </div>
+      <div class="review-card" data-animate>
+        <div class="review-quote">&ldquo;</div>
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">I've entrusted Arturo's Garage with both our tow truck fleet and my personal vehicles. What initially brought me to Arturo was his ability to fix issues that other shops couldn't resolve.</p>
+        <div class="review-author">Henri Osorto</div>
+        <div class="review-date">2 weeks ago</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY CHOOSE US — BENTO ═══ -->
+<section class="bento" id="why">
+  <div class="container">
+    <div class="bento-header">
+      <div class="label" data-animate style="margin-bottom:12px">WHY CHOOSE US</div>
+      <h2 class="bento-headline" data-animate>Built Different</h2>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-card bento-card-lg" data-animate>
+        <div class="bento-card-bg">
+          <img src="images/exterior.jpg" alt="Arturos Garage Auto Mechanics shop exterior" loading="lazy">
+        </div>
+        <div class="bento-card-content">
+          <div class="bento-card-title">3-Year / 36,000-Mile<br>Warranty</div>
+          <p class="bento-card-desc">Every repair backed by one of the strongest warranties in Houston. Drive with confidence.</p>
+        </div>
+      </div>
+      <div class="bento-card" data-animate>
+        <div class="bento-card-icon">📱</div>
+        <div class="bento-card-content">
+          <div class="bento-card-title">Digital Vehicle Inspections</div>
+          <p class="bento-card-desc">We text you photos and videos of the issue before any wrench turns. Full transparency, zero guesswork.</p>
+        </div>
+      </div>
+      <div class="bento-card" data-animate>
+        <div class="bento-card-icon">🚗</div>
+        <div class="bento-card-content">
+          <div class="bento-card-title">Loaner Cars Available</div>
+          <p class="bento-card-desc">Need to get to work? We've got you covered with complimentary loaner vehicles while yours is in the shop.</p>
+        </div>
+      </div>
+      <div class="bento-card" data-animate>
+        <div class="bento-card-icon">💳</div>
+        <div class="bento-card-content">
+          <div class="bento-card-title">Financing Options</div>
+          <p class="bento-card-desc">Unexpected repair? No problem. We offer Affirm and Synchrony financing so you're never stuck.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOG PREVIEW ═══ -->
+<section class="blog-section" id="blog">
+  <div class="container">
+    <div class="blog-header">
+      <h2 class="blog-headline" data-animate>From the Shop</h2>
+      <a href="blog.html" class="blog-link">View All Articles →</a>
+    </div>
+    <div class="blog-grid">
+      <a href="blog/check-engine-light/index.html" class="blog-card" data-animate>
+        <div class="blog-card-image"><img src="images/service-diagnostics.jpg" alt="Check engine light diagnostics" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Diagnostics</div>
+          <h3 class="blog-card-title">Why Is My Check Engine Light On? 5 Common Causes</h3>
+          <p class="blog-card-excerpt">That little amber light can mean anything from a loose gas cap to a failing catalytic converter. Here's what to check first.</p>
+          <span class="blog-card-link">Read Article →</span>
+        </div>
+      </a>
+      <a href="blog/oil-change-guide/index.html" class="blog-card" data-animate>
+        <div class="blog-card-image"><img src="images/service-oil.jpg" alt="Oil change service" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Maintenance</div>
+          <h3 class="blog-card-title">How Often Should You Really Change Your Oil?</h3>
+          <p class="blog-card-excerpt">The old 3,000-mile rule is outdated. Modern engines and synthetic oils have changed the game entirely.</p>
+          <span class="blog-card-link">Read Article →</span>
+        </div>
+      </a>
+      <a href="blog/brake-warning-signs/index.html" class="blog-card" data-animate>
+        <div class="blog-card-image"><img src="images/service-brakes.jpg" alt="Brake inspection" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Safety</div>
+          <h3 class="blog-card-title">5 Signs Your Brakes Need Replacing</h3>
+          <p class="blog-card-excerpt">Squealing, grinding, or pulling to one side? Don't ignore these warning signs from your braking system.</p>
+          <span class="blog-card-link">Read Article →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg">
+    <img src="images/exterior.jpg" alt="Arturos Garage Auto Mechanics" loading="lazy">
+  </div>
+  <div class="container">
+    <div class="cta-inner" data-animate>
+      <h2 class="cta-headline">Ready to Schedule?</h2>
+      <a href="tel:+17136952155" class="cta-phone">(713) 695-2155</a>
+      <a href="#contact" class="btn-amber" style="font-size:17px;padding:18px 48px">Get a Free Estimate</a>
+      <div class="cta-hours">
+        <strong style="color:var(--text-primary)">Hours of Operation</strong><br>
+        Monday – Friday: 7:30 AM – 6:00 PM<br>
+        Saturday: 8:00 AM – 2:00 PM<br>
+        Sunday: Closed
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ARTUROS GARAGE</div>
+        <p class="footer-desc">Family-owned auto repair in Houston since 2008. ASE-certified technicians, transparent pricing, and a 3-year / 36,000-mile warranty on every repair.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigation</div>
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="blog.html">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Hours</div>
+        <p>Mon–Fri: 7:30 AM – 6:00 PM</p>
+        <p>Saturday: 8:00 AM – 2:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="tel:+17136952155">(713) 695-2155</a>
+        <p>1247 Industrial Blvd<br>Houston, TX 78745</p>
+        <a href="https://maps.google.com" target="_blank" rel="noopener">Get Directions →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Arturos Garage Auto Mechanics. All rights reserved.</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Google"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 4a3 3 0 110 6 3 3 0 010-6z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ MOBILE STICKY CTA ═══ -->
+<div class="mobile-cta">
+  <div class="mobile-cta-inner">
+    <a href="#contact" class="btn-amber">Get a Free Estimate</a>
+    <a href="tel:+17136952155" class="btn-call" aria-label="Call us">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script>
+window.addEventListener('load', () => {
+  // ── Nav scroll ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── Mobile menu ──
+  const hamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileMenuClose');
+  hamburger.addEventListener('click', () => mobileMenu.classList.add('active'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('active'));
+  window.closeMobile = () => mobileMenu.classList.remove('active');
+
+  // ── Reduced motion check ──
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    document.querySelectorAll('.hero-headline .line-inner').forEach(el => {
+      el.style.transform = 'none';
+    });
+    document.getElementById('heroImageWrap').style.clipPath = 'polygon(8% 0, 100% 0, 100% 100%, 0% 100%)';
+    return;
+  }
+
+  // ── GSAP Setup ──
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Set initial hidden states via JS (not CSS) so gallery iframe previews render visible
+  gsap.set('.hero-eyebrow', { opacity: 0 });
+  gsap.set('.hero-headline .line-inner', { y: '105%' });
+  gsap.set('.hero-subtext', { opacity: 0, y: 20 });
+  gsap.set('.hero-stat', { opacity: 0, y: 20 });
+  gsap.set('.hero-ctas', { opacity: 0, y: 20 });
+  gsap.set('#heroImageWrap', { clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' });
+
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  // Hero headline lines
+  tl.to('.hero-headline .line-inner', {
+    y: 0,
+    duration: 1.2,
+    stagger: 0.15,
+    ease: 'power4.out'
+  }, 0.3);
+
+  // Hero image clip-path
+  tl.to('#heroImageWrap', {
+    clipPath: 'polygon(8% 0, 100% 0, 100% 100%, 0% 100%)',
+    duration: 1.4,
+    ease: 'power3.inOut'
+  }, 0.2);
+
+  // Hero image Ken Burns
+  gsap.to('#heroImage', {
+    scale: 1.0,
+    duration: 20,
+    ease: 'none',
+    repeat: -1,
+    yoyo: true
+  });
+
+  // Hero eyebrow
+  tl.to('.hero-eyebrow', { opacity: 1, duration: 0.8 }, 0.8);
+
+  // Hero subtext
+  tl.to('.hero-subtext', { opacity: 1, y: 0, duration: 0.8 }, 1.0);
+
+  // Hero stats
+  tl.to('.hero-stat', { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 }, 1.1);
+
+  // Hero CTAs
+  tl.to('.hero-ctas', { opacity: 1, y: 0, duration: 0.6 }, 1.3);
+
+  // ── Count-up ──
+  function countUp(el) {
+    const target = parseFloat(el.dataset.target);
+    const decimals = parseInt(el.dataset.decimals) || 0;
+    const sep = el.dataset.separator;
+    const duration = 2000;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      let val = (target * eased);
+      if (decimals) val = val.toFixed(decimals);
+      else val = Math.floor(val);
+      if (sep) val = Number(val).toLocaleString();
+      el.textContent = val;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  // Hero count-ups after hero animation
+  setTimeout(() => {
+    document.querySelectorAll('.hero-stats .count-up').forEach(countUp);
+  }, 1400);
+
+  // ── Scroll animations ──
+  // Set initial hidden states via JS (not CSS) so gallery iframes render visible content
+  const sectionEls = document.querySelectorAll('.services-header, .about-label, .about-headline, .about-text, .about-callout, .about-stats, .reviews-header .label, .reviews-headline, .bento-header .label, .bento-headline, .blog-headline');
+  gsap.set(sectionEls, { opacity: 0, y: 40 });
+  gsap.set('.service-card', { opacity: 0, y: 40 });
+  gsap.set('.review-card', { opacity: 0, y: 40, scale: 0.95 });
+  gsap.set('.bento-card', { opacity: 0, y: 30 });
+  gsap.set('.blog-card', { opacity: 0, y: 30 });
+  gsap.set('.cta-inner', { opacity: 0, y: 40 });
+
+  // Generic fade-in for sections
+  sectionEls.forEach(el => {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.8,
+      scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+    });
+  });
+
+  // Service cards stagger
+  gsap.to('.service-card', {
+    opacity: 1, y: 0, duration: 0.6, stagger: 0.1,
+    scrollTrigger: { trigger: '.services-scroll', start: 'top 80%', once: true }
+  });
+
+  // About image parallax
+  gsap.to('#aboutImage', {
+    y: -60,
+    ease: 'none',
+    scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  // About count-ups
+  ScrollTrigger.create({
+    trigger: '.about-stats',
+    start: 'top 80%',
+    once: true,
+    onEnter: () => document.querySelectorAll('.about-stats .count-up').forEach(countUp)
+  });
+
+  // Review cards stagger
+  gsap.to('.review-card', {
+    opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.15,
+    scrollTrigger: { trigger: '.reviews-grid', start: 'top 80%', once: true }
+  });
+
+  // Bento cards stagger
+  gsap.to('.bento-card', {
+    opacity: 1, y: 0, duration: 0.6, stagger: 0.12,
+    scrollTrigger: { trigger: '.bento-grid', start: 'top 80%', once: true }
+  });
+
+  // Blog cards stagger
+  gsap.to('.blog-card', {
+    opacity: 1, y: 0, duration: 0.6, stagger: 0.12,
+    scrollTrigger: { trigger: '.blog-grid', start: 'top 80%', once: true }
+  });
+
+  // CTA section
+  gsap.to('.cta-inner', {
+    opacity: 1, y: 0, duration: 0.8,
+    scrollTrigger: { trigger: '.cta-section', start: 'top 80%', once: true }
+  });
+});
+</script>
+</body>
+</html>

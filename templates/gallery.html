@@ -627,6 +627,58 @@ body::after{
 .comment-submit:hover{
   filter:brightness(1.1);
 }
+.comment-item-user{
+  font-size:11px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:2px;
+  font-family:var(--syne);
+}
+
+/* ── User identification ── */
+.user-badge{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:100px;
+  background:rgba(232,168,73,.1);border:1px solid rgba(232,168,73,.2);
+  cursor:pointer;transition:all .2s;font-size:12px;color:var(--accent);
+  font-family:var(--syne);font-weight:600;
+}
+.user-badge:hover{background:rgba(232,168,73,.18)}
+.user-badge svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.sync-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0}
+.sync-dot.offline{background:#ef4444}
+.like-count{
+  position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  font-size:9px;font-weight:700;color:var(--accent);font-family:var(--syne);
+  opacity:.7;
+}
+
+/* ── User name modal ── */
+.user-modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  z-index:10001;display:none;align-items:center;justify-content:center;
+}
+.user-modal-overlay.open{display:flex}
+.user-modal{
+  background:#141418;border:1px solid var(--border-hover);border-radius:16px;
+  width:380px;max-width:90vw;padding:32px;text-align:center;
+  box-shadow:0 32px 80px -16px rgba(0,0,0,.8);
+}
+.user-modal h3{font-family:var(--syne);font-size:18px;font-weight:700;margin-bottom:8px}
+.user-modal p{font-size:13px;color:var(--text-dim);margin-bottom:20px}
+.user-modal input{
+  width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--border);
+  background:rgba(255,255,255,.05);color:var(--text);font-family:var(--dm);
+  font-size:14px;outline:none;margin-bottom:16px;
+}
+.user-modal input:focus{border-color:var(--accent)}
+.user-modal button{
+  padding:12px 32px;border-radius:10px;border:none;background:var(--accent);
+  color:#08080a;font-family:var(--syne);font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .2s;
+}
+.user-modal button:hover{filter:brightness(1.1)}
 
 /* ── Card info ── */
 .card-info{
@@ -839,10 +891,11 @@ body::after{
     </a>
   </div>
   <div class="nav-right">
-    <button class="nav-tool" onclick="exportGalleryFeedback()" title="Export likes & comments as JSON">
-      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      <span>Export Feedback</span>
-    </button>
+    <div class="user-badge" onclick="openUserModal()" title="Click to change name">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span id="userBadgeLabel">Set name</span>
+      <span class="sync-dot" id="syncDot" title="Sync status"></span>
+    </div>
     <a href="../tools/builder/editor.html" target="_blank" class="nav-tool" style="text-decoration:none">
       <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
       Editor
@@ -899,6 +952,17 @@ body::after{
       <input class="comment-input" id="commentInput" type="text" placeholder="Add a comment..." onkeydown="if(event.key==='Enter')addComment()">
       <button class="comment-submit" onclick="addComment()">Add</button>
     </div>
+  </div>
+</div>
+
+<!-- User Name Modal -->
+<div class="user-modal-overlay" id="userModal">
+  <div class="user-modal">
+    <h3>Who's reviewing?</h3>
+    <p>Enter your name so feedback is attributed to you.</p>
+    <input id="userNameInput" type="text" placeholder="Your name..." onkeydown="if(event.key==='Enter')saveUserName()">
+    <br>
+    <button onclick="saveUserName()">Save</button>
   </div>
 </div>
 
@@ -1117,17 +1181,119 @@ const filterBar = document.getElementById('filter-bar');
 const emptyState = document.getElementById('empty-state');
 const templateCount = document.getElementById('template-count');
 
-/* ── Feedback State (localStorage) ── */
-function loadFeedback(key) {
-  try { return JSON.parse(localStorage.getItem(key) || '{}'); }
-  catch { return {}; }
-}
-function saveLikes() { localStorage.setItem('gallery-likes', JSON.stringify(galleryLikes)); }
-function saveComments() { localStorage.setItem('gallery-comments', JSON.stringify(galleryComments)); }
+/* ── API + Feedback State ── */
+const API_BASE = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+  ? '' : '/api/feedback';
+const IS_REMOTE = API_BASE !== '';
 
-let galleryLikes = loadFeedback('gallery-likes');       // { "dentists-5": true }
-let galleryComments = loadFeedback('gallery-comments'); // { "dentists-5": [{text, timestamp}] }
+function loadLocal(key) {
+  try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch { return {}; }
+}
+function saveLocal(key, data) {
+  try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
+}
+
+let feedbackUser = localStorage.getItem('feedback-user') || '';
+let galleryLikes = {};         // { "dentists-5": true } — current user's likes
+let allLikes = {};             // { user: { key: true } } — all users
+let galleryComments = {};      // { "dentists-5": [{user, text, timestamp}] }
+let likeCounts = {};           // { "dentists-5": 2 } — aggregated
 let commentModalKey = null;
+let apiOnline = false;
+let syncDebounceTimer = null;
+
+function updateSyncDot() {
+  const dot = document.getElementById('syncDot');
+  if (dot) { dot.classList.toggle('offline', !apiOnline); dot.title = apiOnline ? 'Synced' : 'Offline (local only)'; }
+}
+
+function updateUserBadge() {
+  const label = document.getElementById('userBadgeLabel');
+  if (label) label.textContent = feedbackUser || 'Set name';
+}
+
+function openUserModal() {
+  document.getElementById('userNameInput').value = feedbackUser;
+  document.getElementById('userModal').classList.add('open');
+  setTimeout(() => document.getElementById('userNameInput').focus(), 100);
+}
+
+function saveUserName() {
+  const name = document.getElementById('userNameInput').value.trim();
+  if (!name) return;
+  feedbackUser = name;
+  localStorage.setItem('feedback-user', name);
+  document.getElementById('userModal').classList.remove('open');
+  updateUserBadge();
+  // Bulk sync existing local data under this user
+  if (IS_REMOTE) bulkSync();
+}
+
+async function fetchFeedback() {
+  if (!IS_REMOTE) {
+    galleryLikes = loadLocal('gallery-likes');
+    galleryComments = loadLocal('gallery-comments');
+    return;
+  }
+  try {
+    const res = await fetch(API_BASE + '/gallery');
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    apiOnline = true;
+    allLikes = data.likes || {};
+    galleryComments = data.comments || {};
+    likeCounts = data.summary?.templateLikeCounts || {};
+    galleryLikes = feedbackUser ? (allLikes[feedbackUser] || {}) : {};
+    // Cache locally for offline fallback
+    saveLocal('gallery-likes', galleryLikes);
+    saveLocal('gallery-comments', galleryComments);
+  } catch {
+    apiOnline = false;
+    galleryLikes = loadLocal('gallery-likes');
+    galleryComments = loadLocal('gallery-comments');
+  }
+  updateSyncDot();
+}
+
+async function postFeedback(body) {
+  if (!feedbackUser) { openUserModal(); return false; }
+  if (!IS_REMOTE) return false;
+  try {
+    const res = await fetch(API_BASE, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tool: 'gallery', user: feedbackUser, ...body }),
+    });
+    apiOnline = res.ok;
+  } catch { apiOnline = false; }
+  updateSyncDot();
+  return apiOnline;
+}
+
+async function bulkSync() {
+  if (!feedbackUser || !IS_REMOTE) return;
+  const localLikes = loadLocal('gallery-likes');
+  const localComments = loadLocal('gallery-comments');
+  await postFeedback({ action: 'bulk_sync', likes: localLikes, comments: localComments });
+}
+
+function saveLikes() {
+  saveLocal('gallery-likes', galleryLikes);
+  // Debounced sync
+  clearTimeout(syncDebounceTimer);
+  syncDebounceTimer = setTimeout(() => {
+    if (!feedbackUser) return;
+    // Send individual like change — last changed key
+    const lastKey = saveLikes._lastKey;
+    if (lastKey != null) {
+      postFeedback({ action: 'like', key: lastKey, value: !!galleryLikes[lastKey] });
+    }
+  }, 300);
+}
+
+function saveComments() {
+  saveLocal('gallery-comments', galleryComments);
+}
 
 /* ── Render ── */
 function getLangSuffix() {
@@ -1159,6 +1325,7 @@ function renderCards() {
     const feedbackKey = `${currentVertical}-${t.id}`;
     const isLiked = galleryLikes[feedbackKey];
     const commentCount = (galleryComments[feedbackKey] || []).length;
+    const likeTotal = likeCounts[feedbackKey] || (isLiked ? 1 : 0);
 
     const card = document.createElement('a');
     card.className = 'card';
@@ -1178,6 +1345,7 @@ function renderCards() {
           <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
           </svg>
+          ${likeTotal > 1 ? `<span class="like-count">${likeTotal}</span>` : ''}
         </button>
         <div class="card-action card-open">
           <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -1200,10 +1368,12 @@ function renderCards() {
     card.querySelector('.card-heart').addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
+      if (!feedbackUser) { openUserModal(); return; }
       const btn = e.currentTarget;
       const key = btn.dataset.key;
       if (galleryLikes[key]) { delete galleryLikes[key]; btn.classList.remove('liked'); }
       else { galleryLikes[key] = true; btn.classList.add('liked'); }
+      saveLikes._lastKey = key;
       saveLikes();
     });
 
@@ -1420,6 +1590,7 @@ function renderCommentList() {
   const comments = galleryComments[commentModalKey] || [];
   list.innerHTML = comments.map(c => `
     <div class="comment-item">
+      ${c.user ? `<div class="comment-item-user">${c.user.replace(/</g,'&lt;')}</div>` : ''}
       <div class="comment-item-text">${c.text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
       <div class="comment-item-time">${new Date(c.timestamp).toLocaleString()}</div>
     </div>
@@ -1427,14 +1598,18 @@ function renderCommentList() {
 }
 
 function addComment() {
+  if (!feedbackUser) { openUserModal(); return; }
   const input = document.getElementById('commentInput');
   const text = input.value.trim();
   if (!text || !commentModalKey) return;
   if (!galleryComments[commentModalKey]) galleryComments[commentModalKey] = [];
-  galleryComments[commentModalKey].push({ text, timestamp: Date.now() });
+  const comment = { user: feedbackUser, text, timestamp: Date.now() };
+  galleryComments[commentModalKey].push(comment);
   saveComments();
   input.value = '';
   renderCommentList();
+  // POST to API
+  postFeedback({ action: 'comment', key: commentModalKey, value: text });
   // Update badge on the card
   const badge = document.querySelector(`.card-comment[data-key="${commentModalKey}"]`);
   if (badge) {
@@ -1450,32 +1625,15 @@ document.getElementById('commentModal').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) closeCommentModal();
 });
 
-/* ── Export Gallery Feedback ── */
-function exportGalleryFeedback() {
-  const likedTemplates = Object.keys(galleryLikes).filter(k => galleryLikes[k]);
-  const totalComments = Object.values(galleryComments).reduce((sum, arr) => sum + arr.length, 0);
-  const data = {
-    source: 'gallery',
-    exportDate: new Date().toISOString(),
-    gallery: { likes: galleryLikes, comments: galleryComments },
-    summary: {
-      totalLikes: likedTemplates.length,
-      totalComments,
-      likedTemplates,
-    }
-  };
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `gallery-feedback-${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-/* ── Init ── */
-renderFilters();
-renderCards();
+/* ── Init (async — fetch feedback from API then render) ── */
+(async function init() {
+  updateUserBadge();
+  await fetchFeedback();
+  renderFilters();
+  renderCards();
+  // Prompt for name on first visit
+  if (!feedbackUser) setTimeout(openUserModal, 800);
+})();
 </script>
 
 </body>

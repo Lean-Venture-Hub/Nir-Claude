@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Complete Oil Change Guide: What Every Driver Needs to Know — STARS Auto Repair</title>
+<meta name="description" content="How often should you change your oil? Conventional vs synthetic? Our ASE-certified mechanics break down everything you need to know about oil changes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --bg-light:#FAFAFA;--bg-dark:#111111;--accent:#E63946;--accent-dark:#C62828;
+  --navy:#1D3557;--text-light:#F5F5F5;--text-dark:#111111;--text-muted:#777;
+  --text-muted-light:rgba(255,255,255,0.6);--white:#FFF;
+  --display:'Syne',sans-serif;--sans:'DM Sans',sans-serif;
+  --max-w:780px;--radius:12px;--radius-sm:8px;
+  --transition:0.4s cubic-bezier(.25,.46,.45,.94);--transition-fast:0.25s ease;
+}
+body{font-family:var(--sans);color:var(--text-dark);line-height:1.7;background:var(--bg-light);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.container-wide{max-width:1200px;margin:0 auto;padding:0 24px}
+a{text-decoration:none;color:inherit}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(17,17,17,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.nav-logo{font-family:var(--display);font-size:1.2rem;font-weight:800;color:var(--white);letter-spacing:-0.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--text-muted-light);transition:color var(--transition-fast)}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--white)}
+.nav-phone:hover{color:var(--accent)}
+.nav-phone svg{width:16px;height:16px;color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--white);padding:10px 24px;border-radius:999px;font-size:.85rem;font-weight:600;transition:all var(--transition-fast);min-height:48px;display:inline-flex;align-items:center}
+.nav-cta:hover{background:var(--accent-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:110;min-width:48px;min-height:48px;justify-content:center;align-items:center}
+.hamburger span{width:22px;height:2px;background:var(--white);border-radius:2px;transition:transform var(--transition),opacity var(--transition);transform-origin:center}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-drawer{position:fixed;top:0;right:-320px;width:300px;height:100dvh;background:var(--bg-dark);z-index:105;transition:right var(--transition);padding:80px 32px 40px;border-left:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:24px}
+.nav-drawer.open{right:0}
+.nav-drawer a{font-size:1.1rem;font-weight:500;color:var(--text-light);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);opacity:0;visibility:hidden;z-index:104;transition:opacity var(--transition),visibility var(--transition)}
+.nav-overlay.open{opacity:1;visibility:visible}
+
+.breadcrumb{padding:100px 0 0;font-size:.82rem;color:var(--text-muted)}
+.breadcrumb a{color:var(--accent);transition:opacity var(--transition-fast)}
+.breadcrumb a:hover{opacity:.7}
+.breadcrumb .sep{margin:0 8px;opacity:.4}
+.article-hero{position:relative;height:400px;margin:24px 0 0;overflow:hidden;border-radius:var(--radius)}
+.article-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.article-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(230,57,70,0.08) 100%);border-radius:var(--radius)}
+.article-header{padding:40px 0 0}
+.article-tag{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;display:inline-block;margin-bottom:12px;background:rgba(230,57,70,0.08);padding:4px 12px;border-radius:999px}
+.article-header h1{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;line-height:1.15;margin-bottom:16px;color:var(--text-dark);letter-spacing:-0.02em}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:.85rem;color:var(--text-muted);padding-bottom:32px;border-bottom:2px solid rgba(230,57,70,0.1)}
+.article-body{padding:40px 0 60px}
+.article-body h2{font-family:var(--display);font-size:1.3rem;font-weight:700;margin:40px 0 16px;color:var(--text-dark);line-height:1.25;letter-spacing:-0.01em}
+.article-body h2:first-child{margin-top:0}
+.article-body h3{font-family:var(--display);font-size:1.1rem;font-weight:700;margin:32px 0 12px;color:var(--accent)}
+.article-body p{margin-bottom:16px;color:var(--text-muted);font-size:1rem;line-height:1.8}
+.article-body ul,.article-body ol{margin:0 0 20px 24px;color:var(--text-muted)}
+.article-body li{margin-bottom:8px;line-height:1.7}
+.article-body strong{color:var(--text-dark)}
+.article-body blockquote{border-left:4px solid var(--accent);background:rgba(230,57,70,0.05);padding:20px 24px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:24px 0;font-style:italic;color:var(--text-dark)}
+.callout{background:rgba(230,57,70,0.05);border:1px solid rgba(230,57,70,0.12);border-radius:var(--radius-sm);padding:24px;margin:24px 0}
+.callout-title{font-family:var(--display);font-size:1.05rem;font-weight:700;color:var(--accent);margin-bottom:8px}
+.callout p{margin-bottom:0;font-size:.92rem}
+.author-box{display:flex;gap:20px;align-items:center;padding:32px;background:var(--white);border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,0.04);margin:40px 0;border:1px solid rgba(0,0,0,0.04)}
+.author-avatar{width:64px;height:64px;border-radius:50%;background:rgba(230,57,70,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--display);font-size:1.4rem;font-weight:800;color:var(--accent)}
+.author-info h4{font-family:var(--display);font-size:1rem;font-weight:700;margin-bottom:4px}
+.author-info p{font-size:.85rem;color:var(--text-muted);margin-bottom:0}
+.related{padding:60px 0;background:var(--bg-dark)}
+.related h2{font-family:var(--display);font-size:1.4rem;font-weight:800;margin-bottom:32px;text-align:center;color:var(--white);letter-spacing:-0.02em}
+.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:800px;margin:0 auto;padding:0 24px}
+.related-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);overflow:hidden;transition:all var(--transition);display:flex}
+.related-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.15)}
+.related-card-img{width:180px;flex-shrink:0;overflow:hidden}
+.related-card-img img{width:100%;height:100%;object-fit:cover}
+.related-card-body{padding:20px;display:flex;flex-direction:column;justify-content:center}
+.related-card-body span{font-size:.72rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.related-card-body h3{font-family:var(--display);font-size:.95rem;font-weight:700;margin:6px 0;line-height:1.3;color:var(--white);letter-spacing:-0.01em}
+.related-card-body p{font-size:.82rem;color:var(--text-muted-light)}
+.article-cta{padding:60px 0;background:var(--bg-light);text-align:center}
+.article-cta h2{font-family:var(--display);font-size:1.5rem;font-weight:800;margin-bottom:12px;letter-spacing:-0.02em}
+.article-cta p{color:var(--text-muted);margin-bottom:20px}
+.article-cta .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--white);padding:14px 32px;border-radius:999px;font-size:1rem;font-weight:600;font-family:var(--sans);transition:all var(--transition-fast);min-height:48px}
+.article-cta .btn:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,0.06);padding:32px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-brand{font-family:var(--display);font-size:1rem;font-weight:800;color:var(--white);letter-spacing:-0.02em}
+.footer-brand span{color:var(--accent)}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,0.3)}
+
+@media(max-width:768px){
+  .nav-links,.nav-phone{display:none}.hamburger{display:flex}
+  .article-hero{height:260px}
+  .related-grid{grid-template-columns:1fr}
+  .related-card{flex-direction:column}
+  .related-card-img{width:100%;height:160px}
+  .author-box{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container-wide">
+    <div class="nav-inner">
+      <a href="../../template_example-16.html" class="nav-logo">PRECISION<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="../../template_example-16.html#services">Services</a></li>
+        <li><a href="../../template_example-16.html#about">About</a></li>
+        <li><a href="../../template_example-16.html#reviews">Reviews</a></li>
+        <li><a href="../../blog.html" class="active">Blog</a></li>
+        <li><a href="../../template_example-16.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+17134760771" class="nav-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (713) 476-0771
+        </a>
+        <a href="../../template_example-16.html#contact" class="nav-cta">Get a Free Estimate</a>
+      </div>
+      <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="../../template_example-16.html#services">Services</a>
+  <a href="../../template_example-16.html#about">About</a>
+  <a href="../../blog.html">Blog</a>
+  <a href="../../template_example-16.html#contact">Contact</a>
+</div>
+
+<main class="container">
+  <div class="breadcrumb">
+    <a href="../../template_example-16.html">Home</a><span class="sep">/</span>
+    <a href="../../blog.html">Blog</a><span class="sep">/</span>
+    Oil Change Guide
+  </div>
+
+  <div class="article-hero">
+    <img src="../../images/service-oil.jpg" alt="Mechanic performing an oil change" width="780" height="400">
+  </div>
+
+  <div class="article-header">
+    <span class="article-tag">Maintenance</span>
+    <h1>The Complete Oil Change Guide: What Every Driver Needs to Know</h1>
+    <div class="article-meta">
+      <span>By Mike Thompson</span>
+      <span>February 20, 2026</span>
+      <span>5 min read</span>
+    </div>
+  </div>
+
+  <article class="article-body">
+    <p>If there's one single thing you can do to extend the life of your engine, it's keeping up with oil changes. Engine oil lubricates dozens of moving metal parts, reduces friction, dissipates heat, and carries away microscopic debris. When it breaks down or runs low, you're looking at accelerated wear, overheating, and eventually catastrophic engine failure. The good news: oil changes are fast, affordable, and one of the simplest maintenance tasks to stay on top of.</p>
+
+    <p>Despite that simplicity, there's a surprising amount of confusion around oil changes. How often do you really need one? Is synthetic oil worth the extra cost? What do those numbers on the bottle mean? We hear these questions every day at STARS Auto Repair, so here's the definitive guide — no fluff, just facts.</p>
+
+    <h2>How Often Should You Change Your Oil?</h2>
+
+    <p>The old "every 3,000 miles" rule is outdated. Modern engines and oils have evolved significantly. Most manufacturers now recommend oil change intervals between <strong>5,000 and 10,000 miles</strong>, depending on the oil type and driving conditions. Your owner's manual has the exact number for your specific vehicle — that's always the best source.</p>
+
+    <p>That said, certain conditions can shorten your interval. These "severe driving conditions" include frequent short trips (under 10 miles), heavy stop-and-go traffic, extreme temperatures (very hot summers or cold winters), towing or hauling heavy loads, and driving on dusty or unpaved roads. If your daily driving matches two or more of these, consider changing your oil at the shorter end of the manufacturer's recommended range.</p>
+
+    <div class="callout">
+      <div class="callout-title">Quick Reference: Typical Oil Change Intervals</div>
+      <p><strong>Conventional oil:</strong> Every 5,000–7,500 miles. <strong>Synthetic blend:</strong> Every 7,500–10,000 miles. <strong>Full synthetic:</strong> Every 10,000–15,000 miles (or per manufacturer spec). Always defer to your owner's manual for exact intervals.</p>
+    </div>
+
+    <h2>Conventional vs. Synthetic: What's the Difference?</h2>
+
+    <p>Engine oil comes in three main types, each with trade-offs between cost and performance.</p>
+
+    <h3>Conventional Oil</h3>
+    <p>Refined from crude petroleum. It's the most affordable option and works perfectly well for many vehicles, especially older models with simpler engines. It breaks down faster than synthetic options, which is why the change interval is shorter.</p>
+
+    <h3>Synthetic Blend</h3>
+    <p>A mixture of conventional and synthetic base oils. It offers better protection than straight conventional oil at a moderate price increase. This is a popular middle-ground choice for trucks, SUVs, and vehicles that see moderate towing or hauling.</p>
+
+    <h3>Full Synthetic</h3>
+    <p>Engineered in a lab for maximum performance. It resists breakdown at higher temperatures, flows better in cold weather, and lasts longer between changes. Most modern vehicles, and all high-performance and turbocharged engines, require full synthetic. It costs more per quart but the longer intervals often balance out the price difference.</p>
+
+    <h2>What Do Oil Viscosity Numbers Mean?</h2>
+
+    <p>When you see "5W-30" or "0W-20" on an oil bottle, those numbers describe the oil's viscosity — essentially, how thick or thin it is at different temperatures. The first number (before the W, which stands for "winter") indicates cold-weather flow. Lower numbers mean the oil flows more easily when cold, which means faster lubrication at startup. The second number indicates viscosity at operating temperature. Higher numbers mean thicker oil at full heat.</p>
+
+    <p><strong>Always use the viscosity your manufacturer specifies.</strong> Using the wrong weight can reduce fuel economy, increase engine wear, and even void your warranty. Your owner's manual or the oil cap on your engine will tell you exactly what to use.</p>
+
+    <h2>What Happens If You Skip Oil Changes?</h2>
+
+    <p>Oil degrades over time. It becomes contaminated with combustion byproducts, metal particles, and moisture. As it breaks down, it loses its ability to lubricate and protect. Here's the progression of neglect:</p>
+
+    <ol>
+      <li><strong>Increased friction and heat:</strong> Metal parts grind against each other, generating excess heat that further degrades the oil</li>
+      <li><strong>Sludge buildup:</strong> Old oil turns into thick sludge that clogs oil passages and starves components of lubrication</li>
+      <li><strong>Accelerated wear:</strong> Bearings, camshafts, and cylinder walls wear faster, leading to reduced compression and performance</li>
+      <li><strong>Engine seizure:</strong> In extreme cases, the engine seizes completely — meaning it locks up and stops running. Repair cost: $3,000 to $10,000+ for a full engine replacement</li>
+    </ol>
+
+    <p>A $50–$80 oil change every few months is the cheapest insurance against a multi-thousand-dollar engine replacement. There is no maintenance item with a better cost-to-protection ratio.</p>
+
+    <blockquote>
+      "In 16 years, I've seen exactly two engines that died from bad luck. Every other catastrophic failure came from skipped maintenance — usually oil changes. It's the single most important thing you can do for your car." — Mike Thompson
+    </blockquote>
+
+    <h2>Can You Change Your Oil at Home?</h2>
+
+    <p>Absolutely, if you're comfortable getting under the car. You'll need the correct oil and filter, a drain pan, a socket wrench for the drain plug, and a jack with stands. The process takes about 30–45 minutes once you've done it a couple of times. Just make sure to dispose of the old oil properly — most auto parts stores accept used oil for free recycling.</p>
+
+    <p>That said, having a shop handle it has real advantages: we inspect your vehicle during every oil change, checking tires, brakes, fluids, belts, and hoses. We catch small problems before they become expensive ones. At STARS Auto Repair, a full-synthetic oil change includes a complimentary 27-point inspection — it's one of the best values in preventive maintenance.</p>
+
+    <h2>The Bottom Line</h2>
+
+    <p>Regular oil changes are the foundation of vehicle longevity. Use the right oil type and viscosity for your vehicle, follow your manufacturer's recommended interval (adjusting for severe conditions), and don't skip changes to save a few bucks. The math never works in your favor when you skip maintenance. If it's been a while since your last change — or you can't remember when the last one was — that's your sign to schedule one today.</p>
+  </article>
+
+  <div class="author-box">
+    <div class="author-avatar">MT</div>
+    <div class="author-info">
+      <h4>Mike Thompson</h4>
+      <p>Owner & ASE Master Technician at STARS Auto Repair. 16+ years keeping Houston's cars running right.</p>
+    </div>
+  </div>
+</main>
+
+<section class="related">
+  <div class="container">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      <a href="../check-engine-light/index.html" class="related-card">
+        <div class="related-card-img">
+          <img src="../../images/service-engine.jpg" alt="Check Engine Light" loading="lazy" width="180" height="140">
+        </div>
+        <div class="related-card-body">
+          <span>Diagnostics</span>
+          <h3>5 Common Check Engine Light Causes</h3>
+          <p>What that amber light really means and when to worry.</p>
+        </div>
+      </a>
+      <a href="../brake-warning-signs/index.html" class="related-card">
+        <div class="related-card-img">
+          <img src="../../images/service-brakes.jpg" alt="Brake Warning Signs" loading="lazy" width="180" height="140">
+        </div>
+        <div class="related-card-body">
+          <span>Safety</span>
+          <h3>7 Brake Warning Signs to Watch For</h3>
+          <p>Squealing, grinding, pulling — know when it's time for service.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="article-cta">
+  <div class="container">
+    <h2>Due for an Oil Change?</h2>
+    <p>Quick turnaround, quality oil, and a free 27-point inspection included.</p>
+    <a href="tel:+17134760771" class="btn">Call (713) 476-0771</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-brand">PRECISION<span>.</span></div>
+      <span class="footer-copy">&copy; 2026 STARS Auto Repair. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');
+const drawer=document.getElementById('navDrawer');
+const overlay=document.getElementById('navOverlay');
+function toggleMenu(){hamburger.classList.toggle('active');drawer.classList.toggle('open');overlay.classList.toggle('open')}
+hamburger.addEventListener('click',toggleMenu);
+overlay.addEventListener('click',toggleMenu);
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(drawer.classList.contains('open'))toggleMenu()}));
+</script>
+</body>
+</html>

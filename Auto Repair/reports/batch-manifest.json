@@ -1,0 +1,272 @@
+[
+  {
+    "idx": 1,
+    "name": "Wheel Master",
+    "slug": "001-wheel-master",
+    "template": 7,
+    "city": "Phoenix",
+    "rating": "4.7",
+    "reviews": "993"
+  },
+  {
+    "idx": 2,
+    "name": "Pedro's Tire Shop",
+    "slug": "002-pedros-tire-shop",
+    "template": 9,
+    "city": "Houston",
+    "rating": "4.8",
+    "reviews": "533"
+  },
+  {
+    "idx": 3,
+    "name": "Texas Radiators & Mufflers & Vehicles Emissions Inspection",
+    "slug": "003-texas-radiators-mufflers-vehicles-emissions-inspection",
+    "template": 11,
+    "city": "Houston",
+    "rating": "4.9",
+    "reviews": "502"
+  },
+  {
+    "idx": 4,
+    "name": "Houston Mobile Mechanic & Diesel Repair llc",
+    "slug": "004-houston-mobile-mechanic-diesel-repair-llc",
+    "template": 12,
+    "city": "Houston",
+    "rating": "4.8",
+    "reviews": "405"
+  },
+  {
+    "idx": 5,
+    "name": "Triple J Auto",
+    "slug": "005-triple-j-auto",
+    "template": 14,
+    "city": "Phoenix",
+    "rating": "5",
+    "reviews": "367"
+  },
+  {
+    "idx": 6,
+    "name": "STARS Auto Repair",
+    "slug": "006-stars-auto-repair",
+    "template": 16,
+    "city": "Houston",
+    "rating": "4.8",
+    "reviews": "353"
+  },
+  {
+    "idx": 7,
+    "name": "Juan's Auto Glass",
+    "slug": "007-juans-auto-glass",
+    "template": 21,
+    "city": "Houston",
+    "rating": "4.6",
+    "reviews": "342"
+  },
+  {
+    "idx": 8,
+    "name": "Quick Auto Service & State Inspection",
+    "slug": "008-quick-auto-service-state-inspection",
+    "template": 25,
+    "city": "Houston",
+    "rating": "4.8",
+    "reviews": "291"
+  },
+  {
+    "idx": 9,
+    "name": "Byrds",
+    "slug": "009-byrds",
+    "template": 7,
+    "city": "Houston",
+    "rating": "4.7",
+    "reviews": "290"
+  },
+  {
+    "idx": 10,
+    "name": "Rogel's Auto Alignment LLC",
+    "slug": "010-rogels-auto-alignment-llc",
+    "template": 9,
+    "city": "Phoenix",
+    "rating": "4.8",
+    "reviews": "250"
+  },
+  {
+    "idx": 11,
+    "name": "State Inspection & Lube",
+    "slug": "011-state-inspection-lube",
+    "template": 11,
+    "city": "Kingwood",
+    "rating": "4.6",
+    "reviews": "248"
+  },
+  {
+    "idx": 12,
+    "name": "Cesar Paint & Body Shop",
+    "slug": "012-cesar-paint-body-shop",
+    "template": 12,
+    "city": "Houston",
+    "rating": "4.9",
+    "reviews": "221"
+  },
+  {
+    "idx": 13,
+    "name": "Imports & American Auto Services",
+    "slug": "013-imports-american-auto-services",
+    "template": 14,
+    "city": "Phoenix",
+    "rating": "4.8",
+    "reviews": "216"
+  },
+  {
+    "idx": 14,
+    "name": "Affordable Mobile Mechanic",
+    "slug": "014-affordable-mobile-mechanic",
+    "template": 16,
+    "city": "Phoenix",
+    "rating": "4.8",
+    "reviews": "208"
+  },
+  {
+    "idx": 15,
+    "name": "Just Right Car Care Center",
+    "slug": "015-just-right-car-care-center",
+    "template": 21,
+    "city": "Houston",
+    "rating": "4.5",
+    "reviews": "198"
+  },
+  {
+    "idx": 16,
+    "name": "Menard Auto Repair",
+    "slug": "016-menard-auto-repair",
+    "template": 25,
+    "city": "Phoenix",
+    "rating": "4.9",
+    "reviews": "197"
+  },
+  {
+    "idx": 17,
+    "name": "Salah's Auto Repair",
+    "slug": "017-salahs-auto-repair",
+    "template": 7,
+    "city": "Houston",
+    "rating": "4.7",
+    "reviews": "190"
+  },
+  {
+    "idx": 18,
+    "name": "Century Automotive Repair",
+    "slug": "018-century-automotive-repair",
+    "template": 9,
+    "city": "Houston",
+    "rating": "4.7",
+    "reviews": "187"
+  },
+  {
+    "idx": 19,
+    "name": "Leo's Body Shop",
+    "slug": "019-leos-body-shop",
+    "template": 11,
+    "city": "Houston",
+    "rating": "4.9",
+    "reviews": "180"
+  },
+  {
+    "idx": 20,
+    "name": "Old Katy Car Care",
+    "slug": "020-old-katy-car-care",
+    "template": 12,
+    "city": "Houston",
+    "rating": "4.8",
+    "reviews": "156"
+  },
+  {
+    "idx": 21,
+    "name": "Ray's Auto Electric",
+    "slug": "021-rays-auto-electric",
+    "template": 14,
+    "city": "Houston",
+    "rating": "4.6",
+    "reviews": "156"
+  },
+  {
+    "idx": 22,
+    "name": "West Houston Auto A/C Repair LLC",
+    "slug": "022-west-houston-auto-ac-repair-llc",
+    "template": 16,
+    "city": "Richmond",
+    "rating": "4.9",
+    "reviews": "154"
+  },
+  {
+    "idx": 23,
+    "name": "Jacks Automotive Services",
+    "slug": "023-jacks-automotive-services",
+    "template": 21,
+    "city": "Phoenix",
+    "rating": "4.6",
+    "reviews": "147"
+  },
+  {
+    "idx": 24,
+    "name": "Friendly Car Care",
+    "slug": "024-friendly-car-care",
+    "template": 25,
+    "city": "Houston",
+    "rating": "4.7",
+    "reviews": "146"
+  },
+  {
+    "idx": 25,
+    "name": "EZ AUTO STOP , vehicle inspection. Auto repair ,wheel alignment and one stop shop",
+    "slug": "025-ez-auto-stop-vehicle-inspection-auto-repair-wheel-alignment",
+    "template": 7,
+    "city": "Houston",
+    "rating": "4.6",
+    "reviews": "142"
+  },
+  {
+    "idx": 26,
+    "name": "Hernandez Auto Services & Tires LLC",
+    "slug": "026-hernandez-auto-services-tires-llc",
+    "template": 9,
+    "city": "Houston",
+    "rating": "4.8",
+    "reviews": "140"
+  },
+  {
+    "idx": 27,
+    "name": "Arturos Garage Auto Mechanics",
+    "slug": "027-arturos-garage-auto-mechanics",
+    "template": 11,
+    "city": "Houston",
+    "rating": "4.5",
+    "reviews": "130"
+  },
+  {
+    "idx": 28,
+    "name": "Auto Best Houston Inc",
+    "slug": "028-auto-best-houston-inc",
+    "template": 12,
+    "city": "Houston",
+    "rating": "4.8",
+    "reviews": "126"
+  },
+  {
+    "idx": 29,
+    "name": "Texas mobile auto body repairs",
+    "slug": "029-texas-mobile-auto-body-repairs",
+    "template": 14,
+    "city": "Humble",
+    "rating": "4.8",
+    "reviews": "124"
+  },
+  {
+    "idx": 30,
+    "name": "Texan Automotive",
+    "slug": "030-texan-automotive",
+    "template": 16,
+    "city": "Houston",
+    "rating": "4.6",
+    "reviews": "121"
+  }
+]

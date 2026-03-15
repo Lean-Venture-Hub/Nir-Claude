@@ -91,7 +91,8 @@ body{
 /* opacity:0 moved to gsap.set() in JS — CSS fallback keeps content visible if JS fails */
 
 /* ── Reveal system (fallback) ─────────── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal{transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+/* opacity:0 for .reveal set via JS so content stays visible if JS fails */
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal.visible .stagger-1{animation:fadeUp .6s .1s both}
 .reveal.visible .stagger-2{animation:fadeUp .6s .2s both}
@@ -936,6 +937,9 @@ a{text-decoration:none;color:inherit}
         }
       });
     }
+
+    /* Set initial hidden state for .reveal elements via JS (not CSS, so content shows if JS fails) */
+    document.querySelectorAll('.reveal').forEach(el=>{ el.style.opacity = '0'; });
 
     /* Reveal fallback for non-GSAP elements */
     const revealObserver = new IntersectionObserver((entries)=>{

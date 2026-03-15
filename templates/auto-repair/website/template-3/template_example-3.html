@@ -902,42 +902,44 @@ img{max-width:100%;display:block}
   gsap.registerPlugin(ScrollTrigger);
 
   /* ── Hero: set initial hidden state via JS (not CSS, so content is visible if JS fails) */
-  gsap.set('.hero-content .hero-eyebrow, .hero-content .hero-sub, .hero-content .hero-buttons, .hero-content .hero-stat', {opacity: 0});
+  gsap.set('.hero-content .hero-eyebrow, .hero-content .hero-sub, .hero-content .hero-buttons, .hero-content .hero-stat', {opacity: 0, y: 30});
 
   /* ── Hero: SplitType word reveal ─────────── */
   const heroH1 = document.querySelector('.hero h1');
   if (heroH1 && typeof SplitType !== 'undefined') {
     const split = new SplitType(heroH1, {types: 'words'});
     split.words.forEach(w => w.classList.add('word'));
-    gsap.set(split.words, {opacity: 0});
+    gsap.set(split.words, {opacity: 0, y: '100%'});
 
     const tl = gsap.timeline({defaults: {ease: 'power4.out'}});
-    tl.from('.hero-eyebrow', {opacity: 0, y: 30, duration: .7, delay: .3})
-      .from(split.words, {
-        y: '100%', opacity: 0, duration: .9, stagger: .06,
+    tl.to('.hero-eyebrow', {opacity: 1, y: 0, duration: .7, delay: .3})
+      .to(split.words, {
+        y: 0, opacity: 1, duration: .9, stagger: .06,
         ease: 'power4.out'
       }, '-=.3')
-      .from('.hero-sub', {opacity: 0, y: 30, duration: .6}, '-=.4')
-      .from('.hero-buttons', {opacity: 0, y: 25, duration: .6}, '-=.3')
-      .from('.hero-stat', {opacity: 0, y: 20, duration: .5, stagger: .12}, '-=.3');
+      .to('.hero-sub', {opacity: 1, y: 0, duration: .6}, '-=.4')
+      .to('.hero-buttons', {opacity: 1, y: 0, duration: .6}, '-=.3')
+      .to('.hero-stat', {opacity: 1, y: 0, duration: .5, stagger: .12}, '-=.3');
   } else {
-    gsap.set('.hero h1', {opacity: 0});
+    gsap.set('.hero h1', {opacity: 0, y: 40});
     const tl = gsap.timeline({defaults: {ease: 'power3.out'}});
-    tl.from('.hero-eyebrow', {opacity: 0, y: 30, duration: .7, delay: .3})
-      .from('.hero h1', {opacity: 0, y: 40, duration: .8}, '-=.4')
-      .from('.hero-sub', {opacity: 0, y: 30, duration: .6}, '-=.4')
-      .from('.hero-buttons', {opacity: 0, y: 25, duration: .6}, '-=.3')
-      .from('.hero-stat', {opacity: 0, y: 20, duration: .5, stagger: .12}, '-=.3');
+    tl.to('.hero-eyebrow', {opacity: 1, y: 0, duration: .7, delay: .3})
+      .to('.hero h1', {opacity: 1, y: 0, duration: .8}, '-=.4')
+      .to('.hero-sub', {opacity: 1, y: 0, duration: .6}, '-=.4')
+      .to('.hero-buttons', {opacity: 1, y: 0, duration: .6}, '-=.3')
+      .to('.hero-stat', {opacity: 1, y: 0, duration: .5, stagger: .12}, '-=.3');
   }
 
   /* ── Service cards: staggered clip-path wipe ─ */
-  gsap.from('.service-card', {
+  gsap.set('.service-card', {clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)', opacity: 0});
+  gsap.to('.service-card', {
     scrollTrigger: {
       trigger: '.services-grid',
       start: 'top 80%',
+      once: true,
     },
-    clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
-    opacity: 0,
+    clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0 100%)',
+    opacity: 1,
     duration: .8,
     stagger: .12,
     ease: 'power3.out',
@@ -957,64 +959,74 @@ img{max-width:100%;display:block}
     ease: 'none'
   });
 
-  gsap.from('.about-text .section-label, .about-text .section-title', {
-    scrollTrigger: {trigger: '.about-text', start: 'top 80%'},
-    opacity: 0, y: 30, duration: .7, stagger: .15, ease: 'power3.out'
+  gsap.set('.about-text .section-label, .about-text .section-title', {opacity: 0, y: 30});
+  gsap.to('.about-text .section-label, .about-text .section-title', {
+    scrollTrigger: {trigger: '.about-text', start: 'top 80%', once: true},
+    opacity: 1, y: 0, duration: .7, stagger: .15, ease: 'power3.out'
   });
 
-  gsap.from('.about-text p', {
-    scrollTrigger: {trigger: '.about-text', start: 'top 75%'},
-    opacity: 0, y: 25, duration: .6, stagger: .2, ease: 'power3.out'
+  gsap.set('.about-text p', {opacity: 0, y: 25});
+  gsap.to('.about-text p', {
+    scrollTrigger: {trigger: '.about-text', start: 'top 75%', once: true},
+    opacity: 1, y: 0, duration: .6, stagger: .2, ease: 'power3.out'
   });
 
-  gsap.from('.about-highlight-item', {
-    scrollTrigger: {trigger: '.about-highlight', start: 'top 85%'},
-    opacity: 0, y: 20, duration: .5, stagger: .15, ease: 'power3.out'
+  gsap.set('.about-highlight-item', {opacity: 0, y: 20});
+  gsap.to('.about-highlight-item', {
+    scrollTrigger: {trigger: '.about-highlight', start: 'top 85%', once: true},
+    opacity: 1, y: 0, duration: .5, stagger: .15, ease: 'power3.out'
   });
 
   /* ── Reviews: staggered cards ───────────── */
-  gsap.from('.review-card', {
+  gsap.set('.review-card', {opacity: 0, y: 40});
+  gsap.to('.review-card', {
     scrollTrigger: {
       trigger: '.reviews-grid',
       start: 'top 80%',
+      once: true,
     },
-    opacity: 0,
-    y: 40,
+    opacity: 1,
+    y: 0,
     duration: .7,
     stagger: .15,
     ease: 'power3.out'
   });
 
   /* ── Blog cards: scale up reveal ─────────── */
-  gsap.from('.blog-card', {
+  gsap.set('.blog-card', {scale: .9, opacity: 0});
+  gsap.to('.blog-card', {
     scrollTrigger: {
       trigger: '.blog-grid',
       start: 'top 80%',
+      once: true,
     },
-    scale: .9,
-    opacity: 0,
+    scale: 1,
+    opacity: 1,
     duration: .7,
     stagger: .15,
     ease: 'power3.out'
   });
 
   /* ── CTA reveal ──────────────────────────── */
-  gsap.from('.cta-inner > *', {
-    scrollTrigger: {trigger: '.cta-section', start: 'top 80%'},
-    opacity: 0, y: 30, duration: .6, stagger: .12, ease: 'power3.out'
+  gsap.set('.cta-inner > *', {opacity: 0, y: 30});
+  gsap.to('.cta-inner > *', {
+    scrollTrigger: {trigger: '.cta-section', start: 'top 80%', once: true},
+    opacity: 1, y: 0, duration: .6, stagger: .12, ease: 'power3.out'
   });
 
   /* ── Trust bar: section labels ───────────── */
-  gsap.from('.trust-item', {
-    scrollTrigger: {trigger: '.trust-bar', start: 'top 85%'},
-    opacity: 0, y: 20, duration: .5, stagger: .1, ease: 'power3.out'
+  gsap.set('.trust-item', {opacity: 0, y: 20});
+  gsap.to('.trust-item', {
+    scrollTrigger: {trigger: '.trust-bar', start: 'top 85%', once: true},
+    opacity: 1, y: 0, duration: .5, stagger: .1, ease: 'power3.out'
   });
 
   /* ── Section labels + titles ──────────────── */
   document.querySelectorAll('.services .section-label, .services .section-title, .services .section-desc, .reviews .section-label, .reviews .section-title, .blog .section-label, .blog .section-title, .cta-section .section-label').forEach(el => {
-    gsap.from(el, {
-      scrollTrigger: {trigger: el, start: 'top 85%'},
-      opacity: 0, y: 25, duration: .6, ease: 'power3.out'
+    gsap.set(el, {opacity: 0, y: 25});
+    gsap.to(el, {
+      scrollTrigger: {trigger: el, start: 'top 85%', once: true},
+      opacity: 1, y: 0, duration: .6, ease: 'power3.out'
     });
   });
 
@@ -1030,7 +1042,7 @@ img{max-width:100%;display:block}
       val: target,
       duration: 2,
       ease: 'power2.out',
-      scrollTrigger: {trigger: el, start: 'top 85%'},
+      scrollTrigger: {trigger: el, start: 'top 85%', once: true},
       onUpdate: function() {
         const v = this.targets()[0].val;
         if (isDecimal) {

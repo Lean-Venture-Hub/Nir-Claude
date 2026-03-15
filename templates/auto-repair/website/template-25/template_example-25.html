@@ -1095,6 +1095,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== RPM COUNTER ANIMATION =====
   const rpmCards = gsap.utils.toArray('.rpm-card');
   rpmCards.forEach(card => {
+    gsap.set(card, { opacity: 0, y: 40 });
     const numEl = card.querySelector('.rpm-number');
     const target = parseInt(numEl.dataset.target);
     ScrollTrigger.create({
@@ -1102,7 +1103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       start: 'top 80%',
       once: true,
       onEnter: () => {
-        gsap.from(card, { opacity: 0, y: 40, duration: 0.7, ease: 'power3.out' });
+        gsap.to(card, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' });
         const obj = { val: 0 };
         gsap.to(obj, {
           val: target,
@@ -1139,23 +1140,23 @@ document.addEventListener('DOMContentLoaded', () => {
   gsap.set('.finish-line-content', { opacity: 0, y: 40 });
 
   // ===== ABOUT SECTION =====
-  gsap.from('.about-image', {
+  gsap.to('.about-image', {
     scrollTrigger: { trigger: '.about', start: 'top 70%', once: true },
-    opacity: 0, x: -60, duration: 0.9, ease: 'power3.out'
+    opacity: 1, x: 0, duration: 0.9, ease: 'power3.out'
   });
-  gsap.from('.about-content', {
+  gsap.to('.about-content', {
     scrollTrigger: { trigger: '.about', start: 'top 70%', once: true },
-    opacity: 0, x: 60, duration: 0.9, ease: 'power3.out', delay: 0.2
+    opacity: 1, x: 0, duration: 0.9, ease: 'power3.out', delay: 0.2
   });
-  gsap.from('.about-list li', {
+  gsap.to('.about-list li', {
     scrollTrigger: { trigger: '.about-list', start: 'top 85%', once: true },
-    opacity: 0, x: 30, stagger: 0.1, duration: 0.5
+    opacity: 1, x: 0, stagger: 0.1, duration: 0.5
   });
 
   // ===== SERVICES STAGGER =====
-  gsap.from('.service-card', {
+  gsap.to('.service-card', {
     scrollTrigger: { trigger: '.services-grid', start: 'top 75%', once: true },
-    opacity: 0, y: 50, rotation: 2, stagger: 0.12, duration: 0.7, ease: 'power3.out'
+    opacity: 1, y: 0, rotation: 0, stagger: 0.12, duration: 0.7, ease: 'power3.out'
   });
 
   // ===== PERFORMANCE BARS =====
@@ -1169,33 +1170,33 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  gsap.from('.performance-image', {
+  gsap.to('.performance-image', {
     scrollTrigger: { trigger: '.performance', start: 'top 70%', once: true },
-    opacity: 0, x: -60, duration: 0.9, ease: 'power3.out'
+    opacity: 1, x: 0, duration: 0.9, ease: 'power3.out'
   });
 
   // ===== REVIEWS =====
-  gsap.from('.review-card', {
+  gsap.to('.review-card', {
     scrollTrigger: { trigger: '.reviews-grid', start: 'top 75%', once: true },
-    opacity: 0, y: 40, rotation: -1, stagger: 0.15, duration: 0.7, ease: 'power3.out'
+    opacity: 1, y: 0, rotation: 0, stagger: 0.15, duration: 0.7, ease: 'power3.out'
   });
 
   // ===== GALLERY =====
-  gsap.from('.gallery-item', {
+  gsap.to('.gallery-item', {
     scrollTrigger: { trigger: '.gallery-grid', start: 'top 75%', once: true },
-    opacity: 0, scale: 0.9, stagger: 0.1, duration: 0.6, ease: 'power3.out'
+    opacity: 1, scale: 1, stagger: 0.1, duration: 0.6, ease: 'power3.out'
   });
 
   // ===== PIT CREW =====
-  gsap.from('.crew-card', {
+  gsap.to('.crew-card', {
     scrollTrigger: { trigger: '.pit-crew-grid', start: 'top 75%', once: true },
-    opacity: 0, y: 50, stagger: 0.15, duration: 0.7, ease: 'power3.out'
+    opacity: 1, y: 0, stagger: 0.15, duration: 0.7, ease: 'power3.out'
   });
 
   // ===== SPECIALS =====
-  gsap.from('.special-card', {
+  gsap.to('.special-card', {
     scrollTrigger: { trigger: '.specials-grid', start: 'top 75%', once: true },
-    opacity: 0, y: 40, stagger: 0.15, duration: 0.7, ease: 'power3.out'
+    opacity: 1, y: 0, stagger: 0.15, duration: 0.7, ease: 'power3.out'
   });
 
   // ===== COUNTDOWN TIMERS =====
@@ -1219,29 +1220,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ===== TIMELINE =====
-  gsap.from('.timeline-item', {
+  gsap.to('.timeline-item', {
     scrollTrigger: { trigger: '.timeline', start: 'top 75%', once: true },
-    opacity: 0, x: -40, stagger: 0.2, duration: 0.7, ease: 'power3.out'
+    opacity: 1, x: 0, stagger: 0.2, duration: 0.7, ease: 'power3.out'
   });
 
   // ===== FINISH LINE =====
-  gsap.from('.finish-line-content', {
+  gsap.to('.finish-line-content', {
     scrollTrigger: { trigger: '.finish-line', start: 'top 75%', once: true },
-    opacity: 0, y: 40, duration: 0.8, ease: 'power3.out'
+    opacity: 1, y: 0, duration: 0.8, ease: 'power3.out'
   });
 
   // ===== SECTION HEADERS =====
   gsap.utils.toArray('.section-eyebrow').forEach(el => {
     if (el.closest('.hero')) return;
-    gsap.from(el, {
+    gsap.to(el, {
       scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      opacity: 0, y: 15, duration: 0.5
+      opacity: 1, y: 0, duration: 0.5
     });
   });
   gsap.utils.toArray('.section-title').forEach(el => {
-    gsap.from(el, {
+    gsap.to(el, {
       scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      opacity: 0, y: 25, duration: 0.7, ease: 'power3.out'
+      opacity: 1, y: 0, duration: 0.7, ease: 'power3.out'
     });
   });
 

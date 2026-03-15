@@ -837,109 +837,131 @@ document.addEventListener('DOMContentLoaded', () => {
   gsap.set('.footer-top > div', { opacity: 0, y: 30 });
 
   // Distinction
-  gsap.from('.distinction-icon', {
+  gsap.set('.distinction-icon', { scale: 0, opacity: 0 });
+  gsap.to('.distinction-icon', {
     scrollTrigger: { trigger: '.distinction', start: 'top 80%', once: true },
-    scale: 0, opacity: 0, duration: 0.8, ease: 'back.out(1.7)'
+    scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.7)'
   });
-  gsap.from('.distinction h2', {
+  gsap.set('.distinction h2', { y: 40, opacity: 0 });
+  gsap.to('.distinction h2', {
     scrollTrigger: { trigger: '.distinction', start: 'top 80%', once: true },
-    y: 40, opacity: 0, duration: 1.2, delay: 0.2
+    y: 0, opacity: 1, duration: 1.2, delay: 0.2
   });
 
   // Section headers
   document.querySelectorAll('.section-header').forEach(header => {
+    gsap.set(header.querySelector('.section-eyebrow'), { y: 20, opacity: 0 });
+    gsap.set(header.querySelector('.section-title'), { y: 30, opacity: 0 });
+    gsap.set(header.querySelector('.section-line'), { scaleX: 0, opacity: 0 });
+    const sub = header.querySelector('.section-sub');
+    if (sub) gsap.set(sub, { y: 20, opacity: 0 });
     const tl = gsap.timeline({
       scrollTrigger: { trigger: header, start: 'top 82%', once: true }
     });
-    tl.from(header.querySelector('.section-eyebrow'), { y: 20, opacity: 0, duration: 0.8 })
-      .from(header.querySelector('.section-title'), { y: 30, opacity: 0, duration: 1 }, '-=0.4')
-      .from(header.querySelector('.section-line'), { scaleX: 0, opacity: 0, duration: 0.6 }, '-=0.4');
-    const sub = header.querySelector('.section-sub');
-    if (sub) tl.from(sub, { y: 20, opacity: 0, duration: 0.8 }, '-=0.3');
+    tl.to(header.querySelector('.section-eyebrow'), { y: 0, opacity: 1, duration: 0.8 })
+      .to(header.querySelector('.section-title'), { y: 0, opacity: 1, duration: 1 }, '-=0.4')
+      .to(header.querySelector('.section-line'), { scaleX: 1, opacity: 1, duration: 0.6 }, '-=0.4');
+    if (sub) tl.to(sub, { y: 0, opacity: 1, duration: 0.8 }, '-=0.3');
   });
 
   // Service cards
-  gsap.from('.service-card', {
+  gsap.set('.service-card', { y: 60, opacity: 0 });
+  gsap.to('.service-card', {
     scrollTrigger: { trigger: '.services-grid', start: 'top 82%', once: true },
-    y: 60, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power2.out'
+    y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease: 'power2.out'
   });
 
   // Heritage
-  gsap.from('.heritage-image', {
+  gsap.set('.heritage-image', { x: -60, opacity: 0 });
+  gsap.to('.heritage-image', {
     scrollTrigger: { trigger: '.heritage-grid', start: 'top 80%', once: true },
-    x: -60, opacity: 0, duration: 1.2
+    x: 0, opacity: 1, duration: 1.2
   });
-  gsap.from('.heritage-content', {
+  gsap.set('.heritage-content', { x: 60, opacity: 0 });
+  gsap.to('.heritage-content', {
     scrollTrigger: { trigger: '.heritage-grid', start: 'top 80%', once: true },
-    x: 60, opacity: 0, duration: 1.2, delay: 0.2
+    x: 0, opacity: 1, duration: 1.2, delay: 0.2
   });
-  gsap.from('.heritage-stat-num', {
+  gsap.set('.heritage-stat-num', { y: 20, opacity: 0 });
+  gsap.to('.heritage-stat-num', {
     scrollTrigger: { trigger: '.heritage-stats', start: 'top 90%', once: true },
-    y: 20, opacity: 0, duration: 0.8, stagger: 0.15
+    y: 0, opacity: 1, duration: 0.8, stagger: 0.15
   });
 
   // Expertise items
-  gsap.from('.expertise-item', {
+  gsap.set('.expertise-item', { y: 40, opacity: 0 });
+  gsap.to('.expertise-item', {
     scrollTrigger: { trigger: '.expertise-grid', start: 'top 82%', once: true },
-    y: 40, opacity: 0, duration: 0.8, stagger: 0.08
+    y: 0, opacity: 1, duration: 0.8, stagger: 0.08
   });
 
   // Testimonial cards
-  gsap.from('.testimonial-card', {
+  gsap.set('.testimonial-card', { y: 50, opacity: 0 });
+  gsap.to('.testimonial-card', {
     scrollTrigger: { trigger: '.testimonials-grid', start: 'top 82%', once: true },
-    y: 50, opacity: 0, duration: 0.9, stagger: 0.15
+    y: 0, opacity: 1, duration: 0.9, stagger: 0.15
   });
 
   // Gallery items
-  gsap.from('.gallery-item', {
+  gsap.set('.gallery-item', { scale: 0.9, opacity: 0 });
+  gsap.to('.gallery-item', {
     scrollTrigger: { trigger: '.gallery-grid', start: 'top 82%', once: true },
-    scale: 0.9, opacity: 0, duration: 0.8, stagger: 0.1
+    scale: 1, opacity: 1, duration: 0.8, stagger: 0.1
   });
 
   // Concierge items
-  gsap.from('.concierge-item', {
+  gsap.set('.concierge-item', { y: 40, opacity: 0 });
+  gsap.to('.concierge-item', {
     scrollTrigger: { trigger: '.concierge-grid', start: 'top 82%', once: true },
-    y: 40, opacity: 0, duration: 0.8, stagger: 0.1
+    y: 0, opacity: 1, duration: 0.8, stagger: 0.1
   });
 
   // Team cards
-  gsap.from('.team-card', {
+  gsap.set('.team-card', { y: 50, opacity: 0 });
+  gsap.to('.team-card', {
     scrollTrigger: { trigger: '.team-grid', start: 'top 82%', once: true },
-    y: 50, opacity: 0, duration: 0.9, stagger: 0.15
+    y: 0, opacity: 1, duration: 0.9, stagger: 0.15
   });
 
   // Commitment
-  gsap.from('.commitment-seal', {
+  gsap.set('.commitment-seal', { scale: 0, rotation: -180, opacity: 0 });
+  gsap.to('.commitment-seal', {
     scrollTrigger: { trigger: '.commitment', start: 'top 80%', once: true },
-    scale: 0, rotation: -180, opacity: 0, duration: 1, ease: 'back.out(1.4)'
+    scale: 1, rotation: 0, opacity: 1, duration: 1, ease: 'back.out(1.4)'
   });
-  gsap.from('.commitment h2', {
+  gsap.set('.commitment h2', { y: 30, opacity: 0 });
+  gsap.to('.commitment h2', {
     scrollTrigger: { trigger: '.commitment', start: 'top 80%', once: true },
-    y: 30, opacity: 0, duration: 1, delay: 0.3
+    y: 0, opacity: 1, duration: 1, delay: 0.3
   });
-  gsap.from('.commitment p', {
+  gsap.set('.commitment p', { y: 20, opacity: 0 });
+  gsap.to('.commitment p', {
     scrollTrigger: { trigger: '.commitment', start: 'top 75%', once: true },
-    y: 20, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.4
+    y: 0, opacity: 1, duration: 0.8, stagger: 0.15, delay: 0.4
   });
-  gsap.from('.commitment-guarantee', {
+  gsap.set('.commitment-guarantee', { y: 20, opacity: 0 });
+  gsap.to('.commitment-guarantee', {
     scrollTrigger: { trigger: '.commitment-guarantees', start: 'top 90%', once: true },
-    y: 20, opacity: 0, duration: 0.6, stagger: 0.1
+    y: 0, opacity: 1, duration: 0.6, stagger: 0.1
   });
 
   // Reserve section
-  gsap.from('.reserve-content', {
+  gsap.set('.reserve-content', { x: -50, opacity: 0 });
+  gsap.to('.reserve-content', {
     scrollTrigger: { trigger: '.reserve-inner', start: 'top 80%', once: true },
-    x: -50, opacity: 0, duration: 1
+    x: 0, opacity: 1, duration: 1
   });
-  gsap.from('.reserve-form', {
+  gsap.set('.reserve-form', { x: 50, opacity: 0 });
+  gsap.to('.reserve-form', {
     scrollTrigger: { trigger: '.reserve-inner', start: 'top 80%', once: true },
-    x: 50, opacity: 0, duration: 1, delay: 0.2
+    x: 0, opacity: 1, duration: 1, delay: 0.2
   });
 
   // Footer
-  gsap.from('.footer-top > div', {
+  gsap.set('.footer-top > div', { y: 30, opacity: 0 });
+  gsap.to('.footer-top > div', {
     scrollTrigger: { trigger: '.footer', start: 'top 85%', once: true },
-    y: 30, opacity: 0, duration: 0.8, stagger: 0.1
+    y: 0, opacity: 1, duration: 0.8, stagger: 0.1
   });
 });
 

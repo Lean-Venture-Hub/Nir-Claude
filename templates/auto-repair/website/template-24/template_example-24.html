@@ -90,8 +90,8 @@ section{position:relative;overflow:hidden}
   background-size:400px 400px;
 }
 
-/* Hide gsap-reveal elements until GSAP animates them in — prevents flash */
-.gsap-reveal{opacity:0;transform:translateY(40px)}
+/* gsap-reveal elements: initial state set via gsap.set() in JS to avoid CSS flash */
+.gsap-reveal{}
 
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
@@ -929,25 +929,32 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ===== HERO ENTRANCE ANIMATION =====
+  gsap.set('.hero-badge', { opacity: 0, scale: 0.8, rotation: -10 });
+  gsap.set('.hero-eyebrow', { opacity: 0, y: 10 });
+  gsap.set('.hero h1', { opacity: 0, y: 30 });
+  gsap.set('.hero-subtitle', { opacity: 0, y: 20 });
+  gsap.set('.hero-cta-wrap', { opacity: 0, y: 15 });
+  gsap.set('.hero-proof', { opacity: 0 });
   if (!prefersReducedMotion) {
     var heroTl = gsap.timeline({ delay: 0.3 });
     heroTl
-      .from('.hero-badge',    { opacity: 0, scale: 0.8, rotation: -10, duration: 0.8, ease: 'back.out(1.7)' })
-      .from('.hero-eyebrow',  { opacity: 0, y: 10, duration: 0.5 }, '-=0.3')
-      .from('.hero h1',       { opacity: 0, y: 30, duration: 0.7, ease: 'power3.out' }, '-=0.2')
-      .from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.5 }, '-=0.3')
-      .from('.hero-cta-wrap', { opacity: 0, y: 15, duration: 0.5 }, '-=0.2')
-      .from('.hero-proof',    { opacity: 0, duration: 0.5 }, '-=0.2');
+      .to('.hero-badge',    { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.7)' })
+      .to('.hero-eyebrow',  { opacity: 1, y: 0, duration: 0.5 }, '-=0.3')
+      .to('.hero h1',       { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.2')
+      .to('.hero-subtitle', { opacity: 1, y: 0, duration: 0.5 }, '-=0.3')
+      .to('.hero-cta-wrap', { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
+      .to('.hero-proof',    { opacity: 1, duration: 0.5 }, '-=0.2');
   } else {
     // Make everything visible immediately
-    document.querySelectorAll('.hero-badge,.hero-eyebrow,.hero h1,.hero-subtitle,.hero-cta-wrap,.hero-proof').forEach(function(el) {
-      el.style.opacity = '1';
-    });
+    gsap.set('.hero-badge,.hero-eyebrow,.hero h1,.hero-subtitle,.hero-cta-wrap,.hero-proof', { opacity: 1, y: 0, scale: 1, rotation: 0 });
   }
 
   // ===== SCROLL ANIMATIONS =====
   if (!prefersReducedMotion) {
-    // Generic reveals — use gsap.to() since CSS already sets opacity:0 + translateY(40px)
+    // Set initial state for all gsap-reveal elements via JS (not CSS) to avoid flash
+    gsap.set('.gsap-reveal', { opacity: 0, y: 40 });
+
+    // Generic reveals
     document.querySelectorAll('.gsap-reveal').forEach(function(el) {
       // Skip elements that get specific stagger animations below
       if (el.classList.contains('service-card') || el.classList.contains('testimonial-card') ||

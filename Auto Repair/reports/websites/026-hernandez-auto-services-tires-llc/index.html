@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hernandez Auto Services &amp; Tires LLC | Tire Shop in Houston</title>
+<meta name="description" content="Hernandez Auto Services &amp; Tires LLC — 4.8★ rated with 140+ reviews. Honest service, fair prices.">
+<meta property="og:title" content="Hernandez Auto Services &amp; Tires LLC | Tire Shop in Houston">
+<meta property="og:description" content="Hernandez Auto Services &amp; Tires LLC — 4.8★ rated with 140+ reviews. Honest service, fair prices.">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --bg:#F4F3EF;
+  --surface:#FFFFFF;
+  --dark:#1E1E1E;
+  --mauve:#A58D8C;
+  --slate:#89999C;
+  --divider:#E5E5E5;
+  --muted:#999999;
+  --sans:'Inter',system-ui,sans-serif;
+  --max-w:1200px;
+  --gutter:clamp(20px,4vw,60px);
+  --radius:16px;
+  --radius-lg:40px;
+  --transition:0.5s cubic-bezier(.25,.46,.45,.94);
+}
+
+body{
+  font-family:var(--sans);
+  direction:ltr;
+  color:var(--dark);
+  line-height:1.6;
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  font-size:15px;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* ── Grain overlay ────────────────────── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.03;
+}
+
+/* ── Typography ────────────────────── */
+.label{
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;
+}
+.headline-massive{
+  font-size:clamp(52px,11vw,150px);font-weight:900;
+  letter-spacing:-0.03em;line-height:1.1;
+  color:var(--dark);word-break:keep-all;
+}
+.headline-lg{
+  font-size:clamp(36px,5vw,72px);font-weight:800;
+  letter-spacing:-0.025em;line-height:1.0;
+}
+.headline-md{
+  font-size:clamp(24px,3vw,42px);font-weight:700;
+  letter-spacing:-0.02em;line-height:1.1;
+}
+
+/* ── Layout ────────────────────── */
+.container{max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter)}
+section{padding:clamp(60px,8vw,120px) 0}
+
+/* ── Header ────────────────────── */
+.header{
+  position:relative;z-index:100;
+  padding:20px 0;
+}
+.header .container{
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-size:15px;font-weight:700;letter-spacing:-0.02em;text-decoration:none;color:var(--dark)}
+.header-center{
+  width:40px;height:12px;background:var(--dark);border-radius:6px;
+}
+.header-right{display:flex;align-items:center;gap:24px}
+.header-right a{font-size:12px;text-decoration:none;color:var(--dark);letter-spacing:0.02em}
+.btn-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;background:var(--dark);color:#fff;
+  border-radius:50px;font-size:12px;font-weight:600;
+  text-decoration:none;border:none;cursor:pointer;
+  letter-spacing:0.02em;transition:var(--transition);
+  min-height:48px;
+}
+.btn-pill:hover{opacity:0.85;transform:translateY(-1px)}
+.btn-pill svg{width:14px;height:14px}
+
+/* ── Hero ────────────────────── */
+.hero{padding:clamp(20px,4vw,60px) 0 0}
+.hero-content{position:relative}
+.hero-headline{position:relative;margin-bottom:24px;overflow:visible}
+.hero-headline .line{display:block;overflow:visible;padding-bottom:0.05em}
+.hero-headline .word{display:inline-block}
+
+/* Inline decorative elements */
+.deco-star{
+  display:inline-block;width:clamp(28px,4vw,56px);height:clamp(28px,4vw,56px);
+  vertical-align:middle;margin-left:12px;
+}
+.deco-star svg{width:100%;height:100%}
+.deco-arrow{
+  display:inline-block;width:clamp(40px,6vw,80px);height:clamp(20px,3vw,40px);
+  vertical-align:middle;margin-left:12px;
+}
+.deco-arrow svg{width:100%;height:100%}
+
+.hero-desc{
+  max-width:320px;margin-left:auto;font-size:11px;
+  letter-spacing:0.1em;text-transform:uppercase;
+  line-height:1.8;color:var(--muted);text-align:right;
+  margin-top:12px;
+}
+
+/* ── Marquee Ticker ────────────────────── */
+.ticker-wrap{
+  border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);
+  padding:14px 0;overflow:hidden;margin-top:40px;
+}
+.ticker{
+  display:flex;gap:60px;white-space:nowrap;
+  animation:ticker-scroll 20s linear infinite;
+  width:max-content;
+}
+.ticker span{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+@keyframes ticker-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+/* ── Hero Image ────────────────────── */
+.hero-image{
+  margin-top:clamp(30px,5vw,60px);
+  border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+  overflow:hidden;position:relative;
+  aspect-ratio:16/7;
+}
+.hero-image img{
+  width:100%;height:100%;object-fit:cover;
+  animation:ken-burns 20s ease-in-out infinite alternate;
+}
+@keyframes ken-burns{
+  0%{transform:scale(1)}
+  100%{transform:scale(1.05)}
+}
+.hero-image::after{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.06;pointer-events:none;
+}
+
+/* ── Services Accordion ────────────────────── */
+.services{background:var(--bg)}
+.services-header{margin-bottom:clamp(40px,5vw,80px)}
+.accordion{border-top:1px solid var(--divider)}
+.accordion-item{border-bottom:1px solid var(--divider)}
+.accordion-trigger{
+  display:grid;grid-template-columns:60px 50px 1fr;align-items:center;
+  width:100%;background:none;border:none;cursor:pointer;
+  padding:clamp(16px,2.5vw,28px) 0;font-family:var(--sans);
+  text-align:left;color:var(--dark);transition:var(--transition);
+  min-height:48px;
+}
+.accordion-trigger:hover{opacity:0.7}
+.accordion-num{font-size:13px;color:var(--muted);font-weight:500}
+.accordion-toggle{font-size:14px;color:var(--muted);font-weight:400;white-space:nowrap}
+.accordion-title{
+  font-size:clamp(13px,1.4vw,16px);font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;
+  text-align:right;padding-right:var(--gutter);
+}
+.accordion-content{
+  max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(.25,.46,.45,.94);
+}
+.accordion-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  padding:0 0 clamp(24px,3vw,48px);
+}
+.accordion-desc{font-size:14px;line-height:1.7;color:var(--muted);max-width:440px}
+.accordion-graphic{
+  width:clamp(100px,12vw,180px);height:clamp(100px,12vw,180px);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin-left:auto;
+}
+.accordion-graphic svg{width:50%;height:50%}
+.accordion-item[data-active="true"] .accordion-title{color:var(--dark)}
+.accordion-item[data-active="true"] .accordion-toggle{color:var(--dark)}
+.accordion-item:not([data-active="true"]) .accordion-title{color:var(--muted)}
+
+/* ── About ────────────────────── */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,60px);
+  align-items:start;margin-top:clamp(40px,5vw,80px);
+}
+.about-card{
+  background:var(--surface);border-radius:var(--radius);
+  padding:clamp(30px,4vw,48px);
+}
+.about-card p{font-size:15px;line-height:1.8;color:#555;margin-bottom:16px}
+.about-card .stat-row{
+  display:flex;gap:32px;margin-top:24px;padding-top:24px;
+  border-top:1px solid var(--divider);
+}
+.about-card .stat{text-align:center}
+.about-card .stat-num{font-size:28px;font-weight:800;letter-spacing:-0.02em}
+.about-card .stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px}
+.about-img{
+  border-radius:var(--radius);overflow:hidden;
+  position:relative;aspect-ratio:4/5;
+}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-img::after{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.06;pointer-events:none;
+}
+
+/* ── Reviews ────────────────────── */
+.reviews{padding-bottom:clamp(60px,8vw,120px)}
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(20px,3vw,40px);margin-top:clamp(40px,5vw,60px);
+}
+.review-item{border-top:1px solid var(--divider);padding-top:24px}
+.review-stars{font-size:14px;letter-spacing:2px;color:var(--dark);margin-bottom:16px}
+.review-text{font-size:14px;line-height:1.8;color:#555;margin-bottom:20px;font-style:italic}
+.review-author{font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+
+/* ── Blog Preview ────────────────────── */
+.blog-preview .blog-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(20px,3vw,40px);margin-top:clamp(40px,5vw,60px);
+}
+.blog-card{text-decoration:none;color:var(--dark);display:block}
+.blog-card-img{
+  aspect-ratio:16/10;border-radius:var(--radius);overflow:hidden;
+  margin-bottom:16px;
+}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
+.blog-card:hover .blog-card-img img{transform:scale(1.03)}
+.blog-card-date{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px}
+.blog-card-title{font-size:16px;font-weight:700;letter-spacing:-0.01em;line-height:1.3}
+
+/* ── Contact / CTA ────────────────────── */
+.contact{background:var(--dark);color:#fff;padding:clamp(60px,8vw,100px) 0}
+.contact .label{color:rgba(255,255,255,0.4)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(40px,6vw,80px);margin-top:clamp(40px,5vw,60px);
+}
+.contact-info h3{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:32px}
+.contact-info p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:8px}
+.contact-info a{color:#fff;text-decoration:none}
+.contact-deco{margin-top:40px}
+.contact-deco svg{width:80px;height:80px;color:rgba(255,255,255,0.15)}
+
+.contact-form{display:flex;flex-direction:column;gap:32px}
+.form-field{position:relative}
+.form-field input,.form-field textarea{
+  width:100%;background:none;border:none;
+  border-bottom:1px solid rgba(255,255,255,0.2);
+  padding:12px 0;color:#fff;font-family:var(--sans);
+  font-size:14px;outline:none;transition:var(--transition);
+  min-height:48px;
+}
+.form-field textarea{resize:vertical;min-height:80px}
+.form-field input:focus,.form-field textarea:focus{border-bottom-color:rgba(255,255,255,0.6)}
+.form-field label{
+  position:absolute;top:12px;left:0;
+  font-size:12px;color:rgba(255,255,255,0.4);
+  letter-spacing:0.06em;text-transform:uppercase;
+  pointer-events:none;transition:var(--transition);
+}
+.form-field input:focus~label,.form-field input:not(:placeholder-shown)~label,
+.form-field textarea:focus~label,.form-field textarea:not(:placeholder-shown)~label{
+  top:-10px;font-size:10px;color:rgba(255,255,255,0.6);
+}
+.btn-pill-light{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;background:#fff;color:var(--dark);
+  border-radius:50px;font-size:13px;font-weight:600;
+  border:none;cursor:pointer;letter-spacing:0.02em;
+  transition:var(--transition);min-height:48px;
+  align-self:flex-start;
+}
+.btn-pill-light:hover{opacity:0.85;transform:translateY(-1px)}
+
+/* ── Footer ────────────────────── */
+.footer{
+  background:var(--bg);padding:clamp(40px,6vw,80px) 0 24px;
+  border-top:1px solid var(--divider);
+}
+.footer-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;
+  margin-bottom:40px;
+}
+.footer-col h4{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0;transition:color 0.3s}
+.footer-col a:hover{color:var(--dark)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:24px;border-top:1px solid var(--divider);
+}
+.footer-copy{font-size:12px;color:var(--muted)}
+.back-to-top{
+  width:48px;height:48px;border-radius:50%;border:1px solid var(--divider);
+  background:var(--surface);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:var(--transition);text-decoration:none;color:var(--dark);
+}
+.back-to-top:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+.back-to-top svg{width:16px;height:16px}
+
+/* ── Floating Bottom Nav ────────────────────── */
+.floating-nav{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:1000;background:var(--surface);
+  border-radius:50px;padding:6px;
+  display:flex;align-items:center;gap:2px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.08),0 1px 4px rgba(0,0,0,0.04);
+}
+.floating-nav a{
+  display:flex;align-items:center;gap:6px;
+  padding:10px 18px;border-radius:50px;
+  font-size:12px;font-weight:500;letter-spacing:0.02em;
+  text-decoration:none;color:var(--muted);
+  transition:all 0.3s ease;white-space:nowrap;
+  min-height:44px;
+}
+.floating-nav a.active{
+  background:var(--dark);color:#fff;font-weight:600;
+}
+.floating-nav a.active::after{content:" =";font-weight:400;margin-left:2px}
+
+/* ── Responsive ────────────────────── */
+@media(max-width:768px){
+  .hero-desc{max-width:100%;text-align:left;margin-top:24px;margin-left:0}
+  .accordion-trigger{grid-template-columns:40px 40px 1fr}
+  .accordion-inner{grid-template-columns:1fr}
+  .accordion-graphic{margin:0}
+  .about-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .blog-preview .blog-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .floating-nav{bottom:12px;padding:4px}
+  .floating-nav a{padding:8px 14px;font-size:11px;min-height:40px}
+  .header-center{display:none}
+}
+@media(max-width:480px){
+  .headline-massive{font-size:clamp(40px,14vw,60px)}
+  .accordion-title{font-size:12px}
+}
+
+/* ── Scroll reveal ────────────────────── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AutoRepair",
+  "name":"Hernandez Auto Services & Tires LLC",
+  "image":"images/hero.jpg",
+  "telephone":"(713) 485-4165",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"9244 W Bellfort Ave",
+    "addressLocality":"Houston",
+    "addressRegion":"TX",
+    "postalCode":"77031"
+  },
+  "aggregateRating":{
+    "@type":"AggregateRating",
+    "ratingValue":"4.8",
+    "reviewCount":"140"
+  },
+  "openingHours":"Mo-Fr 07:30-18:00, Sa 08:00-14:00"
+}
+</script>
+</head>
+<body>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header class="header" id="top">
+  <div class="container">
+    <a href="#" class="logo">Hernandez Tires</a>
+    <div class="header-center" aria-hidden="true"></div>
+    <div class="header-right">
+      <a href="tel:+17134854165">Book a call</a>
+      <a href="#contact" class="btn-pill">
+        Schedule Service
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="headline-massive hero-headline" aria-label="Houston's Trusted Tires & Wheels Shop">
+        <span class="line"><span class="word">Houston's</span> <span class="word">Trusted</span></span>
+        <span class="line"><span class="word">Tires</span> <span class="word">&amp;</span> <span class="word">Wheels</span>
+          <span class="deco-star" aria-hidden="true">
+            <svg viewBox="0 0 60 60" fill="none"><path d="M30 0L35.5 24.5L60 30L35.5 35.5L30 60L24.5 35.5L0 30L24.5 24.5Z" fill="#1E1E1E"/></svg>
+          </span>
+        </span>
+      </h1>
+      <p class="hero-desc">
+        HERNANDEZ AUTO SERVICES & TIRES LLC — HOUSTON'S TRUSTED TIRES & WHEELS SHOP. 4.8★ RATED WITH 140+ REVIEWS. HONEST SERVICE, FAIR PRICES.
+      </p>
+    </div>
+
+    <!-- Marquee Ticker -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker">
+        <span>NEW TIRES ✱</span><span>TIRE REPAIR ⟶</span><span>WHEEL ALIGNMENT ✱</span><span>TIRE BALANCING</span>
+        <span>TIRE ROTATION ✱</span><span>BRAKE SERVICE ⟶</span><span>USED TIRES ✱</span><span>ALL MAKES & MODELS</span>
+        <span>NEW TIRES ✱</span><span>TIRE REPAIR ⟶</span><span>WHEEL ALIGNMENT ✱</span><span>TIRE BALANCING</span>
+        <span>TIRE ROTATION ✱</span><span>BRAKE SERVICE ⟶</span><span>USED TIRES ✱</span><span>ALL MAKES & MODELS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="container">
+    <div class="hero-image">
+      <img src="images/hero.jpg" alt="Hernandez Auto Services & Tires LLC — professional auto repair facility in Houston, TX" width="1920" height="840" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SERVICES ════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <p class="label reveal">/ How We Help /</p>
+      <h2 class="headline-lg reveal" style="margin-top:16px">Expert repairs for<br>every vehicle
+        <span class="deco-arrow" aria-hidden="true">
+          <svg viewBox="0 0 80 40" fill="none"><path d="M0 20H70M55 5L72 20L55 35" stroke="#1E1E1E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </h2>
+    </div>
+
+    <div class="accordion">
+      <!-- 01 Oil Change -->
+      <div class="accordion-item" data-active="true">
+        <button class="accordion-trigger" aria-expanded="true">
+          <span class="accordion-num">/01/</span>
+          <span class="accordion-toggle">( - )</span>
+          <span class="accordion-title">New & Used Tires</span>
+        </button>
+        <div class="accordion-content" style="max-height:300px">
+          <div class="accordion-inner">
+            <p class="accordion-desc">Quality new and affordable used tires for all vehicle makes and models. We carry a wide selection of brands and sizes to fit any budget.</p>
+            <div class="accordion-graphic" style="background:rgba(165,141,140,0.12)">
+              <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#A58D8C" stroke-width="2"/><path d="M30 15V30L40 35" stroke="#A58D8C" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Brake Service -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-num">/02/</span>
+          <span class="accordion-toggle">( + )</span>
+          <span class="accordion-title">Tire Repair & Patching</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p class="accordion-desc">Professional flat tire repair, plug, and patch services. We get you back on the road fast with reliable, lasting repairs.</p>
+            <div class="accordion-graphic" style="background:rgba(137,153,156,0.12)">
+              <svg viewBox="0 0 60 60" fill="none"><rect x="12" y="12" width="36" height="36" rx="8" stroke="#89999C" stroke-width="2"/><path d="M24 30H36M30 24V36" stroke="#89999C" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Engine Repair -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-num">/03/</span>
+          <span class="accordion-toggle">( + )</span>
+          <span class="accordion-title">Wheel Alignment</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p class="accordion-desc">Precision 4-wheel alignment to extend tire life and improve handling. Proper alignment saves money on tire wear and improves fuel efficiency.</p>
+            <div class="accordion-graphic" style="background:rgba(165,141,140,0.12)">
+              <svg viewBox="0 0 60 60" fill="none"><polygon points="30,8 52,46 8,46" stroke="#A58D8C" stroke-width="2" fill="none"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Transmission -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-num">/04/</span>
+          <span class="accordion-toggle">( + )</span>
+          <span class="accordion-title">Tire Balancing</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p class="accordion-desc">Computer balancing to eliminate vibration and ensure smooth rides. Balanced tires last longer and provide a more comfortable driving experience.</p>
+            <div class="accordion-graphic" style="background:rgba(137,153,156,0.12)">
+              <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="18" stroke="#89999C" stroke-width="2"/><circle cx="30" cy="30" r="8" stroke="#89999C" stroke-width="2"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Tire Service -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-num">/05/</span>
+          <span class="accordion-toggle">( + )</span>
+          <span class="accordion-title">Tire Rotation</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p class="accordion-desc">Regular rotation service to maximize tire lifespan and performance. We recommend rotating tires every 5,000-7,500 miles for even wear.</p>
+            <div class="accordion-graphic" style="background:rgba(165,141,140,0.12)">
+              <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke="#A58D8C" stroke-width="2"/><circle cx="30" cy="30" r="10" fill="#A58D8C" opacity="0.2"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Diagnostics -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-num">/06/</span>
+          <span class="accordion-toggle">( + )</span>
+          <span class="accordion-title">Brake Service</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p class="accordion-desc">Complete brake inspection, pad replacement, and rotor service. Your safety is our priority — we ensure your brakes are performing at their best.</p>
+            <div class="accordion-graphic" style="background:rgba(137,153,156,0.12)">
+              <svg viewBox="0 0 60 60" fill="none"><rect x="10" y="20" width="40" height="20" rx="4" stroke="#89999C" stroke-width="2"/><path d="M18 28H42" stroke="#89999C" stroke-width="2" stroke-linecap="round"/><path d="M18 32H34" stroke="#89999C" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07 Heating & Cooling -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-num">/07/</span>
+          <span class="accordion-toggle">( + )</span>
+          <span class="accordion-title">Heating & Cooling</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p class="accordion-desc">A/C not blowing cold? Engine overheating? We service radiators, water pumps, thermostats, A/C compressors, and complete climate control systems. Stay comfortable in the Texas heat year-round.</p>
+            <div class="accordion-graphic" style="background:rgba(165,141,140,0.12)">
+              <svg viewBox="0 0 60 60" fill="none"><path d="M30 10V50M20 20L30 10L40 20M20 40L30 50L40 40M10 30H50" stroke="#A58D8C" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 08 Electrical -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-num">/08/</span>
+          <span class="accordion-toggle">( + )</span>
+          <span class="accordion-title">Electrical</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <p class="accordion-desc">Modern vehicles rely on complex electrical systems. We diagnose and repair alternators, starters, batteries, wiring harnesses, and electronic control modules using factory-level scan tools and expertise.</p>
+            <div class="accordion-graphic" style="background:rgba(137,153,156,0.12)">
+              <svg viewBox="0 0 60 60" fill="none"><path d="M35 8L22 32H30L25 52L42 26H33Z" stroke="#89999C" stroke-width="2" fill="none"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ ABOUT ════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="label reveal">/ About Us /</p>
+    <h2 class="headline-lg reveal" style="margin-top:16px">Trusted by Houston<br>since 2008
+      <span class="deco-arrow" aria-hidden="true">
+        <svg viewBox="0 0 80 40" fill="none"><path d="M5 35C20 35 30 5 75 5" stroke="#1E1E1E" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M65 2L76 5L68 12" stroke="#1E1E1E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </span>
+    </h2>
+
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <p>Hernandez Auto Services & Tires LLC has built a reputation as one of Houston's most trusted tires & wheels shops. With a 4.8-star Google rating backed by 140+ customer reviews, we deliver honest diagnostics, quality repairs, and transparent pricing on every job. Located in Houston, Texas, we serve the local community with the care and expertise your vehicle deserves.</p>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-num">4.8★</div>
+            <div class="stat-label">Rating</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">140</div>
+            <div class="stat-label">Reviews</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Years</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-img reveal">
+        <img src="images/team.jpg" alt="Hernandez Auto Services & Tires LLC team — ASE-certified technicians in Houston, TX" width="600" height="750" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ REVIEWS ════════════════ -->
+<section class="reviews">
+  <div class="container">
+    <p class="label reveal">/ What They Say /</p>
+    <h2 class="headline-lg reveal" style="margin-top:16px">Our customers<br>speak for us</h2>
+
+    <div class="reviews-grid">
+      <div class="review-item reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The guys were really helpful and great. Was quick and got my car back in 5 minutes. Would recommended anyone to come here!"</p>
+        <p class="review-author">Nahom Bereket</p>
+      </div>
+      <div class="review-item reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I'm so happy with the work they did. Ima come back every time I need something in My car. We reconmend them 100%! Noel and Francisco are good guys!"</p>
+        <p class="review-author">Angela Salamanca</p>
+      </div>
+      <div class="review-item reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"They've changed my tires many times and plugged a few of my tires, they always do a great job and are very fairly priced. They're pet friendly too, they never mind that I bring my dogs with me lol"</p>
+        <p class="review-author">Bracha Gandjian</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ BLOG PREVIEW ════════════════ -->
+<section class="blog-preview" id="blog">
+  <div class="container">
+    <p class="label reveal">/ From The Blog /</p>
+    <h2 class="headline-lg reveal" style="margin-top:16px">Maintenance tips<br>& insights</h2>
+
+    <div class="blog-grid">
+      <a href="blog/check-engine-light/" class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="images/service-diagnostics.jpg" alt="Check engine light diagnostics" width="600" height="375" loading="lazy">
+        </div>
+        <p class="blog-card-date">March 5, 2026</p>
+        <h3 class="blog-card-title">Check Engine Light On? Here's What to Do</h3>
+      </a>
+      <a href="blog/oil-change-guide/" class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="images/service-oil.jpg" alt="Oil change service" width="600" height="375" loading="lazy">
+        </div>
+        <p class="blog-card-date">February 20, 2026</p>
+        <h3 class="blog-card-title">The Complete Guide to Oil Changes</h3>
+      </a>
+      <a href="blog/brake-warning-signs/" class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="images/service-brakes.jpg" alt="Brake service and repair" width="600" height="375" loading="lazy">
+        </div>
+        <p class="blog-card-date">February 8, 2026</p>
+        <h3 class="blog-card-title">5 Warning Signs Your Brakes Need Attention</h3>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:48px" class="reveal">
+      <a href="blog.html" class="btn-pill">
+        View All Articles
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CONTACT ════════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="label">/ Get In Touch /</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Let's get your<br>vehicle back on<br>the road</h3>
+        <p>1247 Industrial Blvd, Houston, TX 78745</p>
+        <p><a href="tel:+17134854165">(713) 485-4165</a></p>
+        <p>Mon–Fri: 7:30am – 6:00pm</p>
+        <p>Saturday: 8:00am – 2:00pm</p>
+        <div class="contact-deco" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none"><path d="M10 70L70 10M70 10H30M70 10V50" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="return false">
+        <div class="form-field">
+          <input type="text" id="name" name="name" placeholder=" " required>
+          <label for="name">Your Name</label>
+        </div>
+        <div class="form-field">
+          <input type="email" id="email" name="email" placeholder=" " required>
+          <label for="email">Email Address</label>
+        </div>
+        <div class="form-field">
+          <textarea id="message" name="message" rows="3" placeholder=" " required></textarea>
+          <label for="message">Message</label>
+        </div>
+        <button type="submit" class="btn-pill-light">
+          Send message
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">New & Used Tires</a>
+        <a href="#services">Tire Repair & Patching</a>
+        <a href="#services">Wheel Alignment</a>
+        <a href="#services">Tire Balancing</a>
+        <a href="#services">Tire Rotation</a>
+        <a href="#services">Tire Repair & Patching</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Google Reviews</a>
+        <a href="#">Yelp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Hernandez Auto Services & Tires LLC. All rights reserved.</p>
+      <a href="#top" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ FLOATING BOTTOM NAV ════════════════ -->
+<nav class="floating-nav" aria-label="Main navigation">
+  <a href="#home" class="active">Home</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#blog">Blog</a>
+</nav>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  'use strict';
+  const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Scroll reveal ── */
+  const reveals=document.querySelectorAll('.reveal');
+  if(!prefersReduced){
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+    },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(el=>io.observe(el));
+  } else {
+    reveals.forEach(el=>el.classList.add('visible'));
+  }
+
+  /* ── Hero headline animation ── */
+  if(!prefersReduced){
+    gsap.registerPlugin(ScrollTrigger);
+    const words=document.querySelectorAll('.hero-headline .word');
+    gsap.set(words,{y:80,opacity:0});
+    gsap.to(words,{
+      y:0,opacity:1,duration:0.9,stagger:0.08,
+      ease:'power3.out',delay:0.3
+    });
+    /* Decorative star spin */
+    gsap.to('.deco-star svg',{rotation:360,duration:20,repeat:-1,ease:'none'});
+  }
+
+  /* ── Accordion ── */
+  const items=document.querySelectorAll('.accordion-item');
+  items.forEach(item=>{
+    const trigger=item.querySelector('.accordion-trigger');
+    const content=item.querySelector('.accordion-content');
+    const toggle=item.querySelector('.accordion-toggle');
+    const inner=item.querySelector('.accordion-inner');
+
+    trigger.addEventListener('click',()=>{
+      const isActive=item.getAttribute('data-active')==='true';
+      // Close all
+      items.forEach(i=>{
+        i.setAttribute('data-active','false');
+        i.querySelector('.accordion-trigger').setAttribute('aria-expanded','false');
+        i.querySelector('.accordion-toggle').textContent='( + )';
+        if(!prefersReduced){
+          gsap.to(i.querySelector('.accordion-content'),{maxHeight:0,duration:0.4,ease:'power2.inOut'});
+        } else {
+          i.querySelector('.accordion-content').style.maxHeight='0';
+        }
+      });
+      // Open clicked (if was closed)
+      if(!isActive){
+        item.setAttribute('data-active','true');
+        trigger.setAttribute('aria-expanded','true');
+        toggle.textContent='( - )';
+        const h=inner.scrollHeight;
+        if(!prefersReduced){
+          gsap.to(content,{maxHeight:h+40,duration:0.5,ease:'power2.out'});
+        } else {
+          content.style.maxHeight=(h+40)+'px';
+        }
+      }
+    });
+  });
+
+  /* ── Floating nav active state ── */
+  const sections=document.querySelectorAll('section[id], .hero[id]');
+  const navLinks=document.querySelectorAll('.floating-nav a');
+  const idMap={};
+  navLinks.forEach(a=>{
+    const id=a.getAttribute('href').replace('#','');
+    idMap[id]=a;
+  });
+
+  function updateNav(){
+    let current='home';
+    sections.forEach(sec=>{
+      const top=sec.getBoundingClientRect().top;
+      if(top<window.innerHeight/2) current=sec.id;
+    });
+    navLinks.forEach(a=>a.classList.remove('active'));
+    if(idMap[current]) idMap[current].classList.add('active');
+  }
+  window.addEventListener('scroll',updateNav,{passive:true});
+
+  /* ── Smooth scroll for nav links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id==='#') return;
+      const target=document.querySelector(id);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

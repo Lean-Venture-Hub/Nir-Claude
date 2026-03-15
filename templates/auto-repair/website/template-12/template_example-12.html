@@ -714,15 +714,23 @@ window.addEventListener('DOMContentLoaded',function(){
     if(headline){
       // Preserve gradient-text spans by splitting only top-level text
       const split = new SplitType(headline,{types:'words'});
-      // Re-apply gradient to any .gradient-text that SplitType may have wrapped
+      // Re-apply gradient to .gradient-text AND their child .word spans created by SplitType
       headline.querySelectorAll('.gradient-text').forEach(span=>{
         span.style.background='linear-gradient(135deg,var(--blue),var(--purple))';
         span.style.webkitBackgroundClip='text';
         span.style.webkitTextFillColor='transparent';
         span.style.backgroundClip='text';
+        // Apply gradient to each .word span inside the gradient-text element
+        span.querySelectorAll('.word').forEach(word=>{
+          word.style.backgroundImage='linear-gradient(135deg,var(--blue),var(--purple))';
+          word.style.webkitBackgroundClip='text';
+          word.style.webkitTextFillColor='transparent';
+          word.style.backgroundClip='text';
+        });
       });
-      gsap.from(split.words,{
-        y:100,opacity:0,duration:0.8,stagger:0.08,ease:'power3.out',delay:0.3
+      gsap.set(split.words,{y:100,opacity:0});
+      gsap.to(split.words,{
+        y:0,opacity:1,duration:0.8,stagger:0.08,ease:'power3.out',delay:0.3
       });
     }
   }
@@ -732,17 +740,13 @@ window.addEventListener('DOMContentLoaded',function(){
     gsap.to(el,{opacity:1,y:0,duration:0.7,delay:0.8+i*0.15,ease:'power2.out'});
   });
 
-  // Hero image scale in with 3D tilt
+  // Hero image scale in with 3D tilt — set initial state via gsap.set, not onStart
+  gsap.set('.hero-image-wrap',{opacity:0,scale:0.95});
   gsap.to('.hero-image-wrap',{
     opacity:1,scale:1,duration:1,delay:1.2,ease:'power2.out',
-    onStart:function(){
-      document.querySelector('.hero-image-wrap').style.opacity='0';
-      document.querySelector('.hero-image-wrap').style.transform='scale(0.95) perspective(1000px) rotateY(-2deg)';
-    },
     onUpdate:function(){
       const p = this.progress();
       const el = document.querySelector('.hero-image-wrap');
-      el.style.opacity = p;
       el.style.transform = `scale(${0.95+0.05*p}) perspective(1000px) rotateY(-2deg)`;
     }
   });
